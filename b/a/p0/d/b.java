@@ -1,7 +1,7 @@
 package b.a.p0.d;
 
 import android.annotation.SuppressLint;
-import b.a.p0.t.j;
+import b.a.p0.w.j;
 import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,11 +24,11 @@ public class b extends j {
 
     /* renamed from: b.a.p0.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0506b {
+    public static final class C0529b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f9611a;
+        public static final b f10191a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,7 +44,7 @@ public class b extends j {
                     return;
                 }
             }
-            f9611a = new b(null);
+            f10191a = new b(null);
         }
     }
 
@@ -52,10 +52,10 @@ public class b extends j {
         this();
     }
 
-    public static b g() {
+    public static b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0506b.f9611a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0529b.f10191a : (b) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

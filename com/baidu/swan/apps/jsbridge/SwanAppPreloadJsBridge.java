@@ -4,7 +4,7 @@ import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import b.a.p0.a.h0.f.a;
 import b.a.p0.a.k;
-import b.a.p0.a.v1.c.f.b;
+import b.a.p0.a.y1.c.f.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class SwanAppPreloadJsBridge {
                 return;
             }
         }
-        DEBUG = k.f6397a;
+        DEBUG = k.f6863a;
     }
 
     public SwanAppPreloadJsBridge(a aVar) {

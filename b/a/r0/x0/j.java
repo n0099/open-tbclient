@@ -10,24 +10,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
 import tbclient.ForumToolPerm;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static UserData f25872a;
+    public static UserData f27445a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f25873b;
+    public static boolean f27446b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f25874c;
+    public static String f27447c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static UserData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f25872a : (UserData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f27445a : (UserData) invokeV.objValue;
     }
 
     public static UserData b(FrsViewData frsViewData) {
@@ -35,7 +35,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsViewData)) == null) {
             UserData userData = frsViewData != null ? frsViewData.getUserData() : null;
-            f25872a = userData;
+            f27445a = userData;
             return userData;
         }
         return (UserData) invokeL.objValue;
@@ -44,7 +44,7 @@ public class j {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f25874c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f27447c : (String) invokeV.objValue;
     }
 
     public static boolean d(UserData userData) {
@@ -83,7 +83,7 @@ public class j {
     public static boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f25873b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f27446b : invokeV.booleanValue;
     }
 
     public static boolean h() {
@@ -111,8 +111,8 @@ public class j {
             return;
         }
         if (frsViewData != null && frsViewData.getForum() != null) {
-            f25873b = frsViewData.getForum().isFrsMask();
-            f25874c = frsViewData.getForum().getId();
+            f27446b = frsViewData.getForum().isFrsMask();
+            f27447c = frsViewData.getForum().getId();
         }
         if (frsViewData != null && (d(b(frsViewData)) || h())) {
             aVar.a(4);
@@ -127,8 +127,8 @@ public class j {
             return;
         }
         if (frsViewData != null && frsViewData.getForum() != null) {
-            f25873b = frsViewData.getForum().isFrsMask();
-            f25874c = frsViewData.getForum().getId();
+            f27446b = frsViewData.getForum().isFrsMask();
+            f27447c = frsViewData.getForum().getId();
         }
         if (frsViewData != null && d(b(frsViewData))) {
             threadCommentAndPraiseInfoLayout.setManageVisible(true);

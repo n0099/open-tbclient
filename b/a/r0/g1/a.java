@@ -16,7 +16,7 @@ public class a extends CustomMessageTask {
 
     /* renamed from: b.a.r0.g1.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class C0862a {
+    public static /* synthetic */ class C0929a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -58,7 +58,7 @@ public class a extends CustomMessageTask {
             return (CustomResponsedMessage) invokeL.objValue;
         }
 
-        public /* synthetic */ b(C0862a c0862a) {
+        public /* synthetic */ b(C0929a c0929a) {
             this();
         }
     }

@@ -37,16 +37,16 @@ public class x {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f29943a;
+    public static Object f30812a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements a.InterfaceC1439a {
+    public static class a implements a.InterfaceC1481a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StringBuilder f29944a;
+        public final /* synthetic */ StringBuilder f30813a;
 
         public a(StringBuilder sb) {
             Interceptable interceptable = $ic;
@@ -63,25 +63,25 @@ public class x {
                     return;
                 }
             }
-            this.f29944a = sb;
+            this.f30813a = sb;
         }
 
-        @Override // b.a.x0.s.a.InterfaceC1439a
+        @Override // b.a.x0.s.a.InterfaceC1481a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (x.f29943a) {
-                    x.f29943a.notifyAll();
+                synchronized (x.f30812a) {
+                    x.f30812a.notifyAll();
                 }
             }
         }
 
-        @Override // b.a.x0.s.a.InterfaceC1439a
+        @Override // b.a.x0.s.a.InterfaceC1481a
         public boolean onError(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, obj)) == null) {
-                StringBuilder sb = this.f29944a;
+                StringBuilder sb = this.f30813a;
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append(",ffmpegerror i:");
                 sb2.append(i2);
@@ -90,15 +90,15 @@ public class x {
                 sb2.append("msg:");
                 sb2.append(obj != null ? obj.toString() : "");
                 sb.append(sb2.toString());
-                synchronized (x.f29943a) {
-                    x.f29943a.notifyAll();
+                synchronized (x.f30812a) {
+                    x.f30812a.notifyAll();
                 }
                 return false;
             }
             return invokeIIL.booleanValue;
         }
 
-        @Override // b.a.x0.s.a.InterfaceC1439a
+        @Override // b.a.x0.s.a.InterfaceC1481a
         public boolean onInfo(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -110,12 +110,12 @@ public class x {
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements a.InterfaceC1439a {
+    public static class b implements a.InterfaceC1481a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StringBuilder f29945a;
+        public final /* synthetic */ StringBuilder f30814a;
 
         public b(StringBuilder sb) {
             Interceptable interceptable = $ic;
@@ -132,25 +132,25 @@ public class x {
                     return;
                 }
             }
-            this.f29945a = sb;
+            this.f30814a = sb;
         }
 
-        @Override // b.a.x0.s.a.InterfaceC1439a
+        @Override // b.a.x0.s.a.InterfaceC1481a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (x.f29943a) {
-                    x.f29943a.notifyAll();
+                synchronized (x.f30812a) {
+                    x.f30812a.notifyAll();
                 }
             }
         }
 
-        @Override // b.a.x0.s.a.InterfaceC1439a
+        @Override // b.a.x0.s.a.InterfaceC1481a
         public boolean onError(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, obj)) == null) {
-                StringBuilder sb = this.f29945a;
+                StringBuilder sb = this.f30814a;
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append(",ffmpegerror i:");
                 sb2.append(i2);
@@ -159,15 +159,15 @@ public class x {
                 sb2.append("msg:");
                 sb2.append(obj != null ? obj.toString() : "");
                 sb.append(sb2.toString());
-                synchronized (x.f29943a) {
-                    x.f29943a.notifyAll();
+                synchronized (x.f30812a) {
+                    x.f30812a.notifyAll();
                 }
                 return false;
             }
             return invokeIIL.booleanValue;
         }
 
-        @Override // b.a.x0.s.a.InterfaceC1439a
+        @Override // b.a.x0.s.a.InterfaceC1481a
         public boolean onInfo(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -191,7 +191,7 @@ public class x {
                 return;
             }
         }
-        f29943a = new Object();
+        f30812a = new Object();
     }
 
     public static long b(String str) {
@@ -353,9 +353,9 @@ public class x {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, sb, str, list)) == null) {
             StringBuilder sb2 = new StringBuilder();
             b.a.x0.l.d.f.b(list, str, "", new a(sb2), true, false);
-            synchronized (f29943a) {
+            synchronized (f30812a) {
                 try {
-                    f29943a.wait();
+                    f30812a.wait();
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
@@ -508,8 +508,8 @@ public class x {
             if (k(sb, str, str2, str3) || (l = l(sb, str, str2, str3, j))) {
                 return true;
             }
-            f.C1428f e2 = b.a.x0.l.d.f.e(str);
-            if (e2 != null && "audio/mpeg".equals(e2.f29734d)) {
+            f.C1470f e2 = b.a.x0.l.d.f.e(str);
+            if (e2 != null && "audio/mpeg".equals(e2.f30603d)) {
                 String str4 = FileUtils.removeExtention(str) + "mp3toaac.aac";
                 File file = new File(str4);
                 long j3 = (j2 <= 0 || j2 - j > a2) ? a2 + j : j2;
@@ -548,8 +548,8 @@ public class x {
                 b.a.x0.a.a("av_muxer_by_ffmpeg", "startmuxAudioVideobyFFmpeg", null);
                 b.a.x0.l.d.f.m(str2, str, str3, new b(sb2));
                 try {
-                    synchronized (f29943a) {
-                        f29943a.wait();
+                    synchronized (f30812a) {
+                        f30812a.wait();
                     }
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
@@ -595,7 +595,7 @@ public class x {
         try {
             try {
                 long f2 = n.f(str);
-                f.C1428f e2 = b.a.x0.l.d.f.e(str);
+                f.C1470f e2 = b.a.x0.l.d.f.e(str);
                 sb4.append(" , 音频duration=");
                 sb4.append(f2);
                 sb4.append(" , 视频duration=");
@@ -603,13 +603,13 @@ public class x {
                 if (e2 != null) {
                     sb4.append(" , 音频format : ");
                     sb4.append(" , bitWidth=");
-                    sb4.append(e2.f29733c);
+                    sb4.append(e2.f30602c);
                     sb4.append(" , channelCount=");
-                    sb4.append(e2.f29732b);
+                    sb4.append(e2.f30601b);
                     sb4.append(" , mime=");
-                    sb4.append(e2.f29734d);
+                    sb4.append(e2.f30603d);
                     sb4.append(" , sampleRate=");
-                    sb4.append(e2.f29731a);
+                    sb4.append(e2.f30600a);
                 }
             } catch (Exception e3) {
                 sb4.append(m.g(e3));

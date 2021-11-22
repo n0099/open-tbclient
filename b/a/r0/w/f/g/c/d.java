@@ -13,10 +13,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UserData f24825a;
+    public UserData f26342a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AlaInfoData f24826b;
+    public AlaInfoData f26343b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -31,15 +31,15 @@ public class d {
                 return;
             }
         }
-        this.f24825a = new UserData();
-        this.f24826b = new AlaInfoData();
+        this.f26342a = new UserData();
+        this.f26343b = new AlaInfoData();
     }
 
     public void a(JSONObject jSONObject, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, jSONObject2) == null) {
-            this.f24825a.parserJson(jSONObject);
-            this.f24826b.parserJson(jSONObject2);
+            this.f26342a.parserJson(jSONObject);
+            this.f26343b.parserJson(jSONObject2);
         }
     }
 }

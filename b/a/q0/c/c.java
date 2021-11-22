@@ -13,7 +13,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<Object> f11967a;
+    public static final AtomicReference<Object> f12721a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -27,7 +27,7 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f11968a;
+        public static c f12722a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +43,7 @@ public class c {
                     return;
                 }
             }
-            f11968a = new c(null);
+            f12722a = new c(null);
         }
     }
 
@@ -60,7 +60,7 @@ public class c {
                 return;
             }
         }
-        f11967a = new AtomicReference<>(null);
+        f12721a = new AtomicReference<>(null);
         a();
     }
 
@@ -71,7 +71,7 @@ public class c {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f11968a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f12722a : (c) invokeV.objValue;
     }
 
     public c() {

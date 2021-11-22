@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import b.a.q0.s.q.d2;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
@@ -71,39 +71,39 @@ public class ShareItem {
     public int Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f45688a;
+    public boolean f46538a;
     public WeakReference<Bitmap> a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f45689b;
+    public boolean f46539b;
     public Bundle b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f45690c;
+    public boolean f46540c;
     public boolean c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f45691d;
+    public boolean f46541d;
     public boolean d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f45692e;
+    public boolean f46542e;
     public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f45693f;
+    public boolean f46543f;
     public boolean f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f45694g;
+    public boolean f46544g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f45695h;
+    public boolean f46545h;
     public int h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f45696i;
+    public boolean f46546i;
     public String i0;
     public boolean j;
     public boolean j0;
@@ -164,15 +164,15 @@ public class ShareItem {
                 return;
             }
         }
-        this.f45688a = false;
-        this.f45689b = false;
-        this.f45690c = false;
-        this.f45691d = false;
-        this.f45692e = false;
-        this.f45693f = false;
-        this.f45694g = false;
-        this.f45695h = false;
-        this.f45696i = false;
+        this.f46538a = false;
+        this.f46539b = false;
+        this.f46540c = false;
+        this.f46541d = false;
+        this.f46542e = false;
+        this.f46543f = false;
+        this.f46544g = false;
+        this.f46545h = false;
+        this.f46546i = false;
         this.j = false;
         this.k = false;
         this.l = false;
@@ -447,18 +447,18 @@ public class ShareItem {
                     }
                     forwardInfo.showText = d2Var.y1.d();
                     OriginalThreadInfo originalThreadInfo = d2Var.y1;
-                    forwardInfo.showPicUrl = originalThreadInfo.f45037c;
-                    forwardInfo.showType = originalThreadInfo.f45035a;
+                    forwardInfo.showPicUrl = originalThreadInfo.f45886c;
+                    forwardInfo.showType = originalThreadInfo.f45884a;
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                    forwardInfo.originalTid = originalThreadInfo.f45040f;
+                    forwardInfo.originalTid = originalThreadInfo.f45889f;
                     if (i2 == 1) {
                         if (postData != null && postData.M() != null) {
                             str = postData.M().toString();
                         } else if (d2Var.o() != null) {
                             str = d2Var.p().toString();
                         }
-                    } else if (d2Var.M2() != null) {
-                        str = d2Var.M2().toString();
+                    } else if (d2Var.O2() != null) {
+                        str = d2Var.O2().toString();
                     }
                     if (!TextUtils.isEmpty(str)) {
                         forwardInfo.transmitOriginThreadComment = str;
@@ -479,10 +479,10 @@ public class ShareItem {
                     OriginalThreadInfo k = OriginalThreadInfo.k(d2Var);
                     if (k != null) {
                         forwardInfo.showText = k.d();
-                        forwardInfo.showPicUrl = k.f45037c;
-                        forwardInfo.showType = k.f45035a;
+                        forwardInfo.showPicUrl = k.f45886c;
+                        forwardInfo.showType = k.f45884a;
                     }
-                    forwardInfo.originalTid = d2Var.s1();
+                    forwardInfo.originalTid = d2Var.t1();
                 }
                 if (i2 == 1) {
                     OriginalThreadInfo originalThreadInfo2 = d2Var.y1;
@@ -515,8 +515,8 @@ public class ShareItem {
                 }
                 if (d2Var.L() != null) {
                     if (d2Var.L().oriUgcType == 2) {
-                        if (d2Var.q1() != null) {
-                            forwardInfo.video_duration = String.valueOf(d2Var.q1().video_duration);
+                        if (d2Var.r1() != null) {
+                            forwardInfo.video_duration = String.valueOf(d2Var.r1().video_duration);
                         }
                     } else if ((d2Var.L().oriUgcType == 3 || d2Var.L().oriUgcType == 4) && d2Var.J() != null && !TextUtils.isEmpty(d2Var.J().getPortrait())) {
                         if (d2Var.J().getPortrait().startsWith("http")) {

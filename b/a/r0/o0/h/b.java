@@ -25,31 +25,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f21627a;
+    public TextView f23126a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f21628b;
+    public int f23127b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f21629c;
+    public int f23128c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f21630d;
+    public Context f23129d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.o0.m.a f21631e;
+    public b.a.r0.o0.m.a f23130e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f21632f;
+    public d f23131f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.r0.o0.m.e f21633g;
+    public b.a.r0.o0.m.e f23132g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f21634h;
+    public boolean f23133h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a.d f21635i;
+    public a.d f23134i;
     public View.OnClickListener j;
     public PopupWindow.OnDismissListener k;
 
@@ -59,7 +59,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f21636a;
+        public final /* synthetic */ b f23135a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -76,18 +76,18 @@ public class b {
                     return;
                 }
             }
-            this.f21636a = bVar;
+            this.f23135a = bVar;
         }
 
         @Override // b.a.r0.o0.m.a.d
         public void onItemClick(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f21636a.f21629c = i2;
+                this.f23135a.f23128c = i2;
                 TiebaStatic.log(new StatisticItem("c13369").param("obj_type", i2 == 1 ? 2 : 1));
-                this.f21636a.r();
-                if (this.f21636a.f21632f != null) {
-                    this.f21636a.f21632f.a(this.f21636a.f21629c);
+                this.f23135a.r();
+                if (this.f23135a.f23131f != null) {
+                    this.f23135a.f23131f.a(this.f23135a.f23128c);
                 }
             }
         }
@@ -95,14 +95,14 @@ public class b {
 
     /* renamed from: b.a.r0.o0.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1059b implements View.OnClickListener {
+    public class View$OnClickListenerC1127b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f21637e;
+        public final /* synthetic */ b f23136e;
 
-        public View$OnClickListenerC1059b(b bVar) {
+        public View$OnClickListenerC1127b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,31 +117,31 @@ public class b {
                     return;
                 }
             }
-            this.f21637e = bVar;
+            this.f23136e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21637e.f21633g.r()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f23136e.f23132g.r()) {
                 return;
             }
-            if (view == this.f21637e.f21627a) {
-                if (this.f21637e.f21631e == null) {
-                    this.f21637e.f21631e = new b.a.r0.o0.m.a(this.f21637e.f21630d);
-                    this.f21637e.f21631e.setOnDismissListener(this.f21637e.k);
-                    this.f21637e.f21631e.l(this.f21637e.f21635i);
-                    this.f21637e.f21631e.m(this.f21637e.f21628b);
+            if (view == this.f23136e.f23126a) {
+                if (this.f23136e.f23130e == null) {
+                    this.f23136e.f23130e = new b.a.r0.o0.m.a(this.f23136e.f23129d);
+                    this.f23136e.f23130e.setOnDismissListener(this.f23136e.k);
+                    this.f23136e.f23130e.l(this.f23136e.f23134i);
+                    this.f23136e.f23130e.m(this.f23136e.f23127b);
                 }
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new h(this.f21637e.f21630d.getString(R.string.level_sort), 1));
-                arrayList.add(new h(this.f21637e.f21630d.getString(R.string.update_sort), 2));
-                this.f21637e.f21631e.k(arrayList, this.f21637e.f21629c);
-                this.f21637e.f21631e.o(this.f21637e.f21627a);
+                arrayList.add(new h(this.f23136e.f23129d.getString(R.string.level_sort), 1));
+                arrayList.add(new h(this.f23136e.f23129d.getString(R.string.update_sort), 2));
+                this.f23136e.f23130e.k(arrayList, this.f23136e.f23128c);
+                this.f23136e.f23130e.o(this.f23136e.f23126a);
             }
-            this.f21637e.f21634h = true;
-            b bVar = this.f21637e;
-            bVar.s(bVar.f21634h);
+            this.f23136e.f23133h = true;
+            b bVar = this.f23136e;
+            bVar.s(bVar.f23133h);
         }
     }
 
@@ -151,7 +151,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f21638e;
+        public final /* synthetic */ b f23137e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -168,16 +168,16 @@ public class b {
                     return;
                 }
             }
-            this.f21638e = bVar;
+            this.f23137e = bVar;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21638e.f21634h = false;
-                b bVar = this.f21638e;
-                bVar.s(bVar.f21634h);
+                this.f23137e.f23133h = false;
+                b bVar = this.f23137e;
+                bVar.s(bVar.f23133h);
             }
         }
     }
@@ -202,21 +202,21 @@ public class b {
                 return;
             }
         }
-        this.f21634h = false;
-        this.f21635i = new a(this);
-        this.j = new View$OnClickListenerC1059b(this);
+        this.f23133h = false;
+        this.f23134i = new a(this);
+        this.j = new View$OnClickListenerC1127b(this);
         this.k = new c(this);
-        this.f21630d = context;
-        this.f21629c = i2;
-        this.f21628b = i3;
-        this.f21633g = eVar;
+        this.f23129d = context;
+        this.f23128c = i2;
+        this.f23127b = i3;
+        this.f23132g = eVar;
     }
 
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f21629c;
+            int i2 = this.f23128c;
             return i2 == 1 || i2 == 2;
         }
         return invokeV.booleanValue;
@@ -225,7 +225,7 @@ public class b {
     public void p() {
         b.a.r0.o0.m.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f21631e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f23130e) == null) {
             return;
         }
         aVar.i();
@@ -235,13 +235,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             if (o()) {
-                SkinManager.setViewTextColor(this.f21627a, R.color.CAM_X0105, i2);
-                if (this.f21627a != null) {
-                    s(this.f21634h);
+                SkinManager.setViewTextColor(this.f23126a, R.color.CAM_X0105, i2);
+                if (this.f23126a != null) {
+                    s(this.f23133h);
                 }
             }
-            b.a.r0.o0.m.a aVar = this.f21631e;
-            if (aVar == null || !this.f21634h) {
+            b.a.r0.o0.m.a aVar = this.f23130e;
+            if (aVar == null || !this.f23133h) {
                 return;
             }
             aVar.j();
@@ -251,15 +251,15 @@ public class b {
     public void r() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && o() && (textView = this.f21627a) != null) {
-            int i2 = this.f21629c;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && o() && (textView = this.f23126a) != null) {
+            int i2 = this.f23128c;
             if (i2 == 1) {
                 textView.setText(R.string.level_sort);
             } else if (i2 == 2) {
                 textView.setText(R.string.update_sort);
             }
-            this.f21627a.setOnClickListener(this.j);
-            s(this.f21634h);
+            this.f23126a.setOnClickListener(this.j);
+            s(this.f23133h);
         }
     }
 
@@ -267,28 +267,28 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             int i2 = z ? R.drawable.icon_pure_fold12_svg : R.drawable.icon_pure_unfold12_svg;
-            b.a.r0.o0.m.e eVar = this.f21633g;
+            b.a.r0.o0.m.e eVar = this.f23132g;
             b.a.r0.o0.d.c n = eVar != null ? eVar.n() : null;
-            if (n != null && n.f21561a) {
-                b.a.r0.o0.m.e eVar2 = this.f21633g;
+            if (n != null && n.f23060a) {
+                b.a.r0.o0.m.e eVar2 = this.f23132g;
                 if (eVar2 != null && eVar2.t()) {
-                    SkinManager.setViewTextColor(this.f21627a, R.color.CAM_X0107);
-                    this.f21627a.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getPureDrawable(i2, R.color.CAM_X0108, null), (Drawable) null);
+                    SkinManager.setViewTextColor(this.f23126a, R.color.CAM_X0107);
+                    this.f23126a.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getPureDrawable(i2, R.color.CAM_X0108, null), (Drawable) null);
                     return;
                 }
-                SkinManager.setViewTextColor(this.f21627a, R.color.CAM_X0107);
-                this.f21627a.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getPureDrawable(i2, R.color.CAM_X0108, null), (Drawable) null);
+                SkinManager.setViewTextColor(this.f23126a, R.color.CAM_X0107);
+                this.f23126a.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getPureDrawable(i2, R.color.CAM_X0108, null), (Drawable) null);
                 return;
             }
-            SkinManager.setViewTextColor(this.f21627a, R.color.CAM_X0107);
-            this.f21627a.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getPureDrawable(i2, R.color.CAM_X0108, null), (Drawable) null);
+            SkinManager.setViewTextColor(this.f23126a, R.color.CAM_X0107);
+            this.f23126a.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getPureDrawable(i2, R.color.CAM_X0108, null), (Drawable) null);
         }
     }
 
     public void t(int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048581, this, i2) == null) && o()) {
-            this.f21629c = i2;
+            this.f23128c = i2;
             r();
         }
     }
@@ -296,14 +296,14 @@ public class b {
     public void u(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
-            this.f21632f = dVar;
+            this.f23131f = dVar;
         }
     }
 
     public void v(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, textView) == null) {
-            this.f21627a = textView;
+            this.f23126a = textView;
         }
     }
 }

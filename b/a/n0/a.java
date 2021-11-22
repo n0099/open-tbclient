@@ -15,18 +15,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f3490a;
+    public static volatile a f3580a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3491b;
+    public static String f3581b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3492c;
+    public static String f3582c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.n0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0097a {
+    public interface InterfaceC0099a {
         void onFinish(String str);
     }
 
@@ -36,10 +36,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f3493e;
+        public final /* synthetic */ Context f3583e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f3494f;
+        public final /* synthetic */ a f3584f;
 
         public b(a aVar, Context context) {
             Interceptable interceptable = $ic;
@@ -56,8 +56,8 @@ public class a {
                     return;
                 }
             }
-            this.f3494f = aVar;
-            this.f3493e = context;
+            this.f3584f = aVar;
+            this.f3583e = context;
         }
 
         @Override // java.lang.Runnable
@@ -65,8 +65,8 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f3494f.e(this.f3493e);
-                    b.a.n0.e.c.j().d(this.f3493e);
+                    this.f3584f.e(this.f3583e);
+                    b.a.n0.e.c.j().d(this.f3583e);
                 } catch (Throwable th) {
                     b.a.n0.l.c.d(th);
                 }
@@ -80,20 +80,20 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f3495e;
+        public final /* synthetic */ Context f3585e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f3496f;
+        public final /* synthetic */ long f3586f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0097a f3497g;
+        public final /* synthetic */ InterfaceC0099a f3587g;
 
-        public c(a aVar, Context context, long j, InterfaceC0097a interfaceC0097a) {
+        public c(a aVar, Context context, long j, InterfaceC0099a interfaceC0099a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, context, Long.valueOf(j), interfaceC0097a};
+                Object[] objArr = {aVar, context, Long.valueOf(j), interfaceC0099a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -103,9 +103,9 @@ public class a {
                     return;
                 }
             }
-            this.f3495e = context;
-            this.f3496f = j;
-            this.f3497g = interfaceC0097a;
+            this.f3585e = context;
+            this.f3586f = j;
+            this.f3587g = interfaceC0099a;
         }
 
         @Override // java.lang.Runnable
@@ -113,7 +113,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    b.a.n0.e.c.j().e(this.f3495e, 0, null, this.f3496f, this.f3497g);
+                    b.a.n0.e.c.j().e(this.f3585e, 0, null, this.f3586f, this.f3587g);
                 } catch (Throwable th) {
                     b.a.n0.l.c.d(th);
                 }
@@ -127,20 +127,20 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f3498e;
+        public final /* synthetic */ Context f3588e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f3499f;
+        public final /* synthetic */ long f3589f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0097a f3500g;
+        public final /* synthetic */ InterfaceC0099a f3590g;
 
-        public d(a aVar, Context context, long j, InterfaceC0097a interfaceC0097a) {
+        public d(a aVar, Context context, long j, InterfaceC0099a interfaceC0099a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, context, Long.valueOf(j), interfaceC0097a};
+                Object[] objArr = {aVar, context, Long.valueOf(j), interfaceC0099a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -150,9 +150,9 @@ public class a {
                     return;
                 }
             }
-            this.f3498e = context;
-            this.f3499f = j;
-            this.f3500g = interfaceC0097a;
+            this.f3588e = context;
+            this.f3589f = j;
+            this.f3590g = interfaceC0099a;
         }
 
         @Override // java.lang.Runnable
@@ -160,7 +160,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    b.a.n0.e.c.j().f(this.f3498e, this.f3499f, this.f3500g);
+                    b.a.n0.e.c.j().f(this.f3588e, this.f3589f, this.f3590g);
                 } catch (Throwable th) {
                     b.a.n0.l.c.d(th);
                 }
@@ -174,20 +174,20 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f3501e;
+        public final /* synthetic */ Context f3591e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f3502f;
+        public final /* synthetic */ long f3592f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0097a f3503g;
+        public final /* synthetic */ InterfaceC0099a f3593g;
 
-        public e(a aVar, Context context, long j, InterfaceC0097a interfaceC0097a) {
+        public e(a aVar, Context context, long j, InterfaceC0099a interfaceC0099a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, context, Long.valueOf(j), interfaceC0097a};
+                Object[] objArr = {aVar, context, Long.valueOf(j), interfaceC0099a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -197,9 +197,9 @@ public class a {
                     return;
                 }
             }
-            this.f3501e = context;
-            this.f3502f = j;
-            this.f3503g = interfaceC0097a;
+            this.f3591e = context;
+            this.f3592f = j;
+            this.f3593g = interfaceC0099a;
         }
 
         @Override // java.lang.Runnable
@@ -207,7 +207,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    b.a.n0.e.c.j().l(this.f3501e, this.f3502f, this.f3503g);
+                    b.a.n0.e.c.j().l(this.f3591e, this.f3592f, this.f3593g);
                 } catch (Throwable th) {
                     b.a.n0.l.c.d(th);
                 }
@@ -233,14 +233,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f3490a == null) {
+            if (f3580a == null) {
                 synchronized (a.class) {
-                    if (f3490a == null) {
-                        f3490a = new a();
+                    if (f3580a == null) {
+                        f3580a = new a();
                     }
                 }
             }
-            return f3490a;
+            return f3580a;
         }
         return (a) invokeV.objValue;
     }
@@ -269,8 +269,8 @@ public class a {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
             synchronized (this) {
                 try {
-                    f3491b = str;
-                    f3492c = str2;
+                    f3581b = str;
+                    f3582c = str2;
                     b.a.n0.k.b.a().post(new b(this, context));
                 } catch (Throwable th) {
                     b.a.n0.l.c.d(th);
@@ -290,27 +290,27 @@ public class a {
             if (split.length != 2) {
                 b.a.n0.b.a.h(context).j();
             }
-            f3491b = split[0];
-            f3492c = split[1];
+            f3581b = split[0];
+            f3582c = split[1];
         }
     }
 
-    public void f(Context context, long j, InterfaceC0097a interfaceC0097a) {
+    public void f(Context context, long j, InterfaceC0099a interfaceC0099a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Long.valueOf(j), interfaceC0097a}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Long.valueOf(j), interfaceC0099a}) == null) {
             try {
-                b.a.n0.k.b.a().post(new d(this, context, j, interfaceC0097a));
+                b.a.n0.k.b.a().post(new d(this, context, j, interfaceC0099a));
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
             }
         }
     }
 
-    public void g(Context context, long j, InterfaceC0097a interfaceC0097a) {
+    public void g(Context context, long j, InterfaceC0099a interfaceC0099a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), interfaceC0097a}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), interfaceC0099a}) == null) {
             try {
-                b.a.n0.k.b.a().post(new c(this, context, j, interfaceC0097a));
+                b.a.n0.k.b.a().post(new c(this, context, j, interfaceC0099a));
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
             }
@@ -328,11 +328,11 @@ public class a {
         }
     }
 
-    public void i(Context context, long j, InterfaceC0097a interfaceC0097a) {
+    public void i(Context context, long j, InterfaceC0099a interfaceC0099a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Long.valueOf(j), interfaceC0097a}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Long.valueOf(j), interfaceC0099a}) == null) {
             try {
-                b.a.n0.k.b.a().post(new e(this, context, j, interfaceC0097a));
+                b.a.n0.k.b.a().post(new e(this, context, j, interfaceC0099a));
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
             }

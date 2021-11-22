@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -36,32 +36,32 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f21148a;
+    public ViewGroup f22303a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f21149b;
+    public BdTypeRecyclerView f22304b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.q0.k0.g.a f21150c;
+    public b.a.q0.k0.g.a f22305c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoDataView f21151d;
+    public NoDataView f22306d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBarShadowView f21152e;
+    public NavigationBarShadowView f22307e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f21153f;
+    public TbPageContext f22308f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaseFragmentActivity f21154g;
+    public BaseFragmentActivity f22309g;
 
     /* renamed from: h  reason: collision with root package name */
-    public OfficialNotificationFragment f21155h;
+    public OfficialNotificationFragment f22310h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<ChatMessage> f21156i;
-    public List<b.a.e.l.e.a> j;
+    public List<ChatMessage> f22311i;
+    public List<b.a.e.m.e.a> j;
     public OfficialNotificationTextItemAdapter k;
     public boolean l;
     public boolean m;
@@ -73,7 +73,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f21157a;
+        public final /* synthetic */ b f22312a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class b {
                     return;
                 }
             }
-            this.f21157a = bVar;
+            this.f22312a = bVar;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -100,12 +100,12 @@ public class b {
                 super.onScrollStateChanged(recyclerView, i2);
                 if (i2 != 0) {
                     if (i2 == 1 || i2 == 2) {
-                        this.f21157a.f21152e.show();
+                        this.f22312a.f22307e.show();
                     }
                 } else if (recyclerView.canScrollVertically(-1)) {
-                    this.f21157a.f21152e.show();
+                    this.f22312a.f22307e.show();
                 } else {
-                    this.f21157a.f21152e.hide();
+                    this.f22312a.f22307e.hide();
                 }
             }
         }
@@ -113,14 +113,14 @@ public class b {
 
     /* renamed from: b.a.r0.m1.b.q.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1038b implements BdListView.p {
+    public class C1100b implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f21158e;
+        public final /* synthetic */ b f22313e;
 
-        public C1038b(b bVar) {
+        public C1100b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,22 +135,22 @@ public class b {
                     return;
                 }
             }
-            this.f21158e = bVar;
+            this.f22313e = bVar;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21158e.f21150c.d();
-                if (!this.f21158e.f21155h.getHasMore() || this.f21158e.m) {
-                    this.f21158e.f21150c.g(R.string.no_more_msg);
+                this.f22313e.f22305c.d();
+                if (!this.f22313e.f22310h.getHasMore() || this.f22313e.m) {
+                    this.f22313e.f22305c.g(R.string.no_more_msg);
                     return;
                 }
-                this.f21158e.f21150c.f(R.string.loading);
-                if (this.f21158e.f21155h != null) {
-                    this.f21158e.f21155h.loadNextPage();
-                    this.f21158e.m = true;
+                this.f22313e.f22305c.f(R.string.loading);
+                if (this.f22313e.f22310h != null) {
+                    this.f22313e.f22310h.loadNextPage();
+                    this.f22313e.m = true;
                 }
             }
         }
@@ -171,61 +171,61 @@ public class b {
                 return;
             }
         }
-        this.f21156i = null;
+        this.f22311i = null;
         this.j = new ArrayList();
         this.n = new a(this);
         if (tbPageContext == null) {
             return;
         }
-        this.f21153f = tbPageContext;
+        this.f22308f = tbPageContext;
         BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) tbPageContext.getPageActivity();
-        this.f21154g = baseFragmentActivity;
-        this.f21155h = officialNotificationFragment;
+        this.f22309g = baseFragmentActivity;
+        this.f22310h = officialNotificationFragment;
         ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(baseFragmentActivity).inflate(R.layout.fragment_official_notification, viewGroup, false);
-        this.f21148a = viewGroup2;
-        this.f21152e = (NavigationBarShadowView) viewGroup2.findViewById(R.id.navi_shadow_view_official_notification);
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.f21148a.findViewById(R.id.rv_official_notification);
-        this.f21149b = bdTypeRecyclerView;
-        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.f21154g));
-        this.f21149b.setFadingEdgeLength(0);
-        this.f21149b.setOverScrollMode(2);
-        this.f21149b.addOnScrollListener(this.n);
-        OfficialNotificationTextItemAdapter officialNotificationTextItemAdapter = new OfficialNotificationTextItemAdapter(this.f21153f, ChatMessage.TYPE_MSG_LEFT);
+        this.f22303a = viewGroup2;
+        this.f22307e = (NavigationBarShadowView) viewGroup2.findViewById(R.id.navi_shadow_view_official_notification);
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.f22303a.findViewById(R.id.rv_official_notification);
+        this.f22304b = bdTypeRecyclerView;
+        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.f22309g));
+        this.f22304b.setFadingEdgeLength(0);
+        this.f22304b.setOverScrollMode(2);
+        this.f22304b.addOnScrollListener(this.n);
+        OfficialNotificationTextItemAdapter officialNotificationTextItemAdapter = new OfficialNotificationTextItemAdapter(this.f22308f, ChatMessage.TYPE_MSG_LEFT);
         this.k = officialNotificationTextItemAdapter;
         officialNotificationTextItemAdapter.q0(officialNotificationFragment);
         this.j.add(this.k);
-        this.f21149b.addAdapters(this.j);
-        b.a.q0.k0.g.a aVar = new b.a.q0.k0.g.a(this.f21154g, this.f21149b);
-        this.f21150c = aVar;
-        aVar.h(l.g(this.f21154g, R.dimen.tbds182));
-        this.f21150c.a();
-        this.f21149b.setNextPage(this.f21150c);
-        this.f21149b.setOnSrollToBottomListener(new C1038b(this));
+        this.f22304b.addAdapters(this.j);
+        b.a.q0.k0.g.a aVar = new b.a.q0.k0.g.a(this.f22309g, this.f22304b);
+        this.f22305c = aVar;
+        aVar.h(l.g(this.f22309g, R.dimen.tbds182));
+        this.f22305c.a();
+        this.f22304b.setNextPage(this.f22305c);
+        this.f22304b.setOnSrollToBottomListener(new C1100b(this));
         j();
     }
 
     public void f(MsgPageData msgPageData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, msgPageData) == null) || this.f21149b == null || msgPageData == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, msgPageData) == null) || this.f22304b == null || msgPageData == null) {
             return;
         }
         p(msgPageData.getChatMessages());
-        this.f21149b.getAdapter().notifyDataSetChanged();
+        this.f22304b.getAdapter().notifyDataSetChanged();
     }
 
     public final boolean g(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.f21149b;
-            return (bdTypeRecyclerView == null || this.f21156i == null || bdTypeRecyclerView.getFirstVisiblePosition() != 0) ? false : true;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f22304b;
+            return (bdTypeRecyclerView == null || this.f22311i == null || bdTypeRecyclerView.getFirstVisiblePosition() != 0) ? false : true;
         }
         return invokeI.booleanValue;
     }
 
     public final void h(MsgPageData msgPageData, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, msgPageData, i2) == null) || this.f21149b == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, msgPageData, i2) == null) || this.f22304b == null) {
             return;
         }
         this.m = false;
@@ -234,9 +234,9 @@ public class b {
         }
         try {
             p(msgPageData.getChatMessages());
-            this.f21149b.getAdapter().notifyDataSetChanged();
+            this.f22304b.getAdapter().notifyDataSetChanged();
             if (i2 >= 0) {
-                this.f21149b.setSelection(i2);
+                this.f22304b.setSelection(i2);
             }
         } catch (Exception unused) {
         }
@@ -245,7 +245,7 @@ public class b {
     public View i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21148a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22303a : (View) invokeV.objValue;
     }
 
     public void j() {
@@ -255,15 +255,15 @@ public class b {
             if (officialNotificationTextItemAdapter != null) {
                 officialNotificationTextItemAdapter.O();
             }
-            SkinManager.setBackgroundColor(this.f21149b, R.color.CAM_X0201);
-            NoDataView noDataView = this.f21151d;
+            SkinManager.setBackgroundColor(this.f22304b, R.color.CAM_X0201);
+            NoDataView noDataView = this.f22306d;
             if (noDataView != null) {
-                noDataView.onChangeSkinType(this.f21153f, TbadkCoreApplication.getInst().getSkinType());
-                SkinManager.setBackgroundColor(this.f21151d, R.color.CAM_X0201);
+                noDataView.onChangeSkinType(this.f22308f, TbadkCoreApplication.getInst().getSkinType());
+                SkinManager.setBackgroundColor(this.f22306d, R.color.CAM_X0201);
             }
-            b.a.q0.k0.g.a aVar = this.f21150c;
+            b.a.q0.k0.g.a aVar = this.f22305c;
             if (aVar != null) {
-                aVar.onChangeSkinType(this.f21153f, TbadkCoreApplication.getInst().getSkinType());
+                aVar.onChangeSkinType(this.f22308f, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
@@ -329,10 +329,10 @@ public class b {
 
     public void p(List<ChatMessage> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, list) == null) || this.f21149b == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, list) == null) || this.f22304b == null) {
             return;
         }
-        this.f21156i = list;
+        this.f22311i = list;
         ArrayList arrayList = new ArrayList();
         for (int size = list.size() - 1; size >= 0; size--) {
             arrayList.add(list.get(size));
@@ -349,28 +349,28 @@ public class b {
         }
         arrayList2.addAll(arrayList);
         if (arrayList2.isEmpty()) {
-            if (this.f21151d == null) {
-                NoDataView a2 = NoDataViewFactory.a(this.f21154g, null, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.CREATE), NoDataViewFactory.e.d(null, this.f21154g.getResources().getString(R.string.official_notification_no_data)), null);
-                this.f21151d = a2;
+            if (this.f22306d == null) {
+                NoDataView a2 = NoDataViewFactory.a(this.f22309g, null, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.CREATE), NoDataViewFactory.e.d(null, this.f22309g.getResources().getString(R.string.official_notification_no_data)), null);
+                this.f22306d = a2;
                 a2.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-                SkinManager.setBackgroundColor(this.f21151d, R.color.CAM_X0201);
-                this.f21148a.addView(this.f21151d);
+                SkinManager.setBackgroundColor(this.f22306d, R.color.CAM_X0201);
+                this.f22303a.addView(this.f22306d);
             }
             if (this.l) {
                 return;
             }
             this.l = true;
-            this.f21149b.setVisibility(8);
-            this.f21151d.setVisibility(0);
-            this.f21151d.onChangeSkinType(this.f21153f, TbadkCoreApplication.getInst().getSkinType());
+            this.f22304b.setVisibility(8);
+            this.f22306d.setVisibility(0);
+            this.f22306d.onChangeSkinType(this.f22308f, TbadkCoreApplication.getInst().getSkinType());
             return;
         }
-        NoDataView noDataView = this.f21151d;
+        NoDataView noDataView = this.f22306d;
         if (noDataView != null) {
             noDataView.setVisibility(8);
         }
         this.l = false;
-        this.f21149b.setData(arrayList2);
-        this.f21149b.setVisibility(0);
+        this.f22304b.setData(arrayList2);
+        this.f22304b.setVisibility(0);
     }
 }

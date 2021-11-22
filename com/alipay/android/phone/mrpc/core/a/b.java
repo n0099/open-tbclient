@@ -10,10 +10,10 @@ public abstract class b implements f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f33836a;
+    public String f34670a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f33837b;
+    public Object f34671b;
 
     public b(String str, Object obj) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public abstract class b implements f {
                 return;
             }
         }
-        this.f33836a = str;
-        this.f33837b = obj;
+        this.f34670a = str;
+        this.f34671b = obj;
     }
 }

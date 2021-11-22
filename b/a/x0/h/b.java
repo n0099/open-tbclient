@@ -22,33 +22,33 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f29514g = 2;
+    public static int f30383g = 2;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f29515h = 4;
+    public static int f30384h = 4;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f29516i = 8;
+    public static int f30385i = 8;
     public static int j = 16;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29517a;
+    public String f30386a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29518b;
+    public int f30387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29519c;
+    public int f30388c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29520d;
+    public int f30389d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f29521e;
+    public long f30390e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f29522f;
+    public String f30391f;
 
     /* loaded from: classes6.dex */
     public class a implements j {
@@ -56,10 +56,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean[] f29523e;
+        public final /* synthetic */ boolean[] f30392e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f29524f;
+        public final /* synthetic */ b f30393f;
 
         public a(b bVar, boolean[] zArr) {
             Interceptable interceptable = $ic;
@@ -76,16 +76,16 @@ public class b {
                     return;
                 }
             }
-            this.f29524f = bVar;
-            this.f29523e = zArr;
+            this.f30393f = bVar;
+            this.f30392e = zArr;
         }
 
         @Override // b.a.x0.i.j
         public void a(MediaFormat mediaFormat) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaFormat) == null) {
-                this.f29523e[0] = true;
-                this.f29524f.l(mediaFormat);
+                this.f30392e[0] = true;
+                this.f30393f.l(mediaFormat);
             }
         }
     }
@@ -120,7 +120,7 @@ public class b {
                 return;
             }
         }
-        this.f29517a = str;
+        this.f30386a = str;
         j(str);
     }
 
@@ -129,10 +129,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             b bVar = new b("");
-            bVar.f29519c = 2;
-            bVar.f29522f = "audio/mp4a-latm";
-            bVar.f29518b = 44100;
-            bVar.f29520d = 16;
+            bVar.f30388c = 2;
+            bVar.f30391f = "audio/mp4a-latm";
+            bVar.f30387b = 44100;
+            bVar.f30389d = 16;
             return bVar;
         }
         return (b) invokeV.objValue;
@@ -141,19 +141,19 @@ public class b {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29520d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30389d : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29519c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30388c : invokeV.intValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29521e / 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30390e / 1000 : invokeV.longValue;
     }
 
     public boolean equals(@Nullable Object obj) {
@@ -165,27 +165,27 @@ public class b {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29522f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30391f : (String) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29518b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30387b : invokeV.intValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29517a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30386a : (String) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i2 = this.f29520d + this.f29518b + this.f29519c;
-            String str = this.f29522f;
+            int i2 = this.f30389d + this.f30387b + this.f30388c;
+            String str = this.f30391f;
             return i2 + (str != null ? str.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -194,7 +194,7 @@ public class b {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (TextUtils.isEmpty(this.f29522f) || this.f29518b == 0 || this.f29519c == 0 || this.f29520d == 0 || this.f29521e == 0) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (TextUtils.isEmpty(this.f30391f) || this.f30387b == 0 || this.f30388c == 0 || this.f30389d == 0 || this.f30390e == 0) ? false : true : invokeV.booleanValue;
     }
 
     public final void j(String str) {
@@ -225,14 +225,14 @@ public class b {
             if (bVar == null) {
                 return 0;
             }
-            int i2 = bVar.f29520d != this.f29520d ? 0 | f29514g : 0;
-            if (bVar.f29518b != this.f29518b) {
-                i2 |= f29515h;
+            int i2 = bVar.f30389d != this.f30389d ? 0 | f30383g : 0;
+            if (bVar.f30387b != this.f30387b) {
+                i2 |= f30384h;
             }
-            if (bVar.f29519c != this.f29519c) {
-                i2 |= f29516i;
+            if (bVar.f30388c != this.f30388c) {
+                i2 |= f30385i;
             }
-            return !TextUtils.equals(bVar.f29522f, this.f29522f) ? i2 | j : i2;
+            return !TextUtils.equals(bVar.f30391f, this.f30391f) ? i2 | j : i2;
         }
         return invokeL.intValue;
     }
@@ -242,8 +242,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, mediaFormat)) == null) {
             try {
-                this.f29518b = mediaFormat.getInteger("sample-rate");
-                this.f29519c = mediaFormat.getInteger("channel-count");
+                this.f30387b = mediaFormat.getInteger("sample-rate");
+                this.f30388c = mediaFormat.getInteger("channel-count");
                 return true;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -275,14 +275,14 @@ public class b {
                         if (mediaFormat == null) {
                             return false;
                         }
-                        this.f29522f = mediaFormat.getString("mime");
-                        this.f29518b = mediaFormat.getInteger("sample-rate");
-                        this.f29519c = mediaFormat.getInteger("channel-count");
-                        this.f29521e = mediaFormat.getLong("durationUs");
+                        this.f30391f = mediaFormat.getString("mime");
+                        this.f30387b = mediaFormat.getInteger("sample-rate");
+                        this.f30388c = mediaFormat.getInteger("channel-count");
+                        this.f30390e = mediaFormat.getLong("durationUs");
                         if (mediaFormat.containsKey("bit-width")) {
-                            this.f29520d = mediaFormat.getInteger("bit-width");
+                            this.f30389d = mediaFormat.getInteger("bit-width");
                         } else {
-                            this.f29520d = 16;
+                            this.f30389d = 16;
                         }
                         if (mediaFormat.containsKey("aac-profile")) {
                             if (mediaFormat.getInteger("aac-profile") != 2) {

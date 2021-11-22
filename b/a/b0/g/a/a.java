@@ -10,6 +10,7 @@ import b.a.b0.i.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.utils.ContextHolder;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -130,7 +131,7 @@ public class a {
                         hashMap.put(1, bundleInfo);
                     }
                 }
-                sQLiteDatabase.delete("bundleinfo", "pkg_name =? ", new String[]{this.f1378b.getAsString("pkg_name")});
+                sQLiteDatabase.delete("bundleinfo", "pkg_name =? ", new String[]{this.f1378b.getAsString(EmotionResourceInfo.JSON_KEY_PKG_NAME)});
                 for (BundleInfo bundleInfo6 : hashMap.values()) {
                     sQLiteDatabase.insert("bundleinfo", null, BundleInfo.toContentValues(bundleInfo6));
                 }

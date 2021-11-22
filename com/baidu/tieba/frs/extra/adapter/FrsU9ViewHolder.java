@@ -9,10 +9,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import b.a.e.a.j;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.q.f2;
 import b.a.q0.s.q.i2;
-import b.a.r0.l3.g0;
+import b.a.r0.m3.g0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -36,31 +36,31 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f48496a;
+    public TbPageContext f49360a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f48497b;
+    public RelativeLayout f49361b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f48498c;
+    public LinearLayout f49362c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f48499d;
+    public TbImageView f49363d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f48500e;
+    public TextView f49364e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f48501f;
+    public TextView f49365f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f48502g;
+    public TextView f49366g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f48503h;
+    public TextView f49367h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f48504i;
+    public View f49368i;
     public TextView j;
     public f2 k;
     public i2 l;
@@ -75,7 +75,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsU9ViewHolder f48505e;
+        public final /* synthetic */ FrsU9ViewHolder f49369e;
 
         public a(FrsU9ViewHolder frsU9ViewHolder) {
             Interceptable interceptable = $ic;
@@ -92,23 +92,23 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f48505e = frsU9ViewHolder;
+            this.f49369e = frsU9ViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f48505e.f48496a.getPageActivity()) && l.D()) {
-                if (view == this.f48505e.f48497b) {
-                    if (this.f48505e.k == null || TextUtils.isEmpty(this.f48505e.k.b())) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f49369e.f49360a.getPageActivity()) && l.D()) {
+                if (view == this.f49369e.f49361b) {
+                    if (this.f49369e.k == null || TextUtils.isEmpty(this.f49369e.k.b())) {
                         return;
                     }
-                    TiebaStatic.eventStat(this.f48505e.f48496a.getPageActivity(), "num_click", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f48505e.f48496a.getPageActivity()), new String[]{this.f48505e.k.b()});
-                } else if (view != this.f48505e.f48498c || this.f48505e.l == null || TextUtils.isEmpty(this.f48505e.l.I0())) {
+                    TiebaStatic.eventStat(this.f49369e.f49360a.getPageActivity(), "num_click", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f49369e.f49360a.getPageActivity()), new String[]{this.f49369e.k.b()});
+                } else if (view != this.f49369e.f49362c || this.f49369e.l == null || TextUtils.isEmpty(this.f49369e.l.I0())) {
                 } else {
-                    TiebaStatic.eventStat(this.f48505e.f48496a.getPageActivity(), "info_click", PrefetchEvent.STATE_CLICK, 1, "page", "frs");
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f48505e.f48496a.getPageActivity()), new String[]{this.f48505e.l.I0()});
+                    TiebaStatic.eventStat(this.f49369e.f49360a.getPageActivity(), "info_click", PrefetchEvent.STATE_CLICK, 1, "page", "frs");
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f49369e.f49360a.getPageActivity()), new String[]{this.f49369e.l.I0()});
                 }
             }
         }
@@ -134,24 +134,24 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         }
         this.o = 3;
         this.p = new a(this);
-        this.f48496a = tbPageContext;
-        this.f48497b = (RelativeLayout) view.findViewById(R.id.u9_top_code);
-        this.f48498c = (LinearLayout) view.findViewById(R.id.u9_news_info);
+        this.f49360a = tbPageContext;
+        this.f49361b = (RelativeLayout) view.findViewById(R.id.u9_top_code);
+        this.f49362c = (LinearLayout) view.findViewById(R.id.u9_news_info);
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.top_code_img);
-        this.f48499d = tbImageView;
+        this.f49363d = tbImageView;
         tbImageView.setPageId(bdUniqueId);
-        this.f48500e = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
-        this.f48501f = (TextView) view.findViewById(R.id.top_code_detail_surplus_text);
-        this.f48502g = (TextView) view.findViewById(R.id.top_code_detail_giftworth_text);
-        this.f48503h = (TextView) view.findViewById(R.id.top_code_getnum_btn);
-        this.f48504i = view.findViewById(R.id.u9_top_code_divider);
+        this.f49364e = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
+        this.f49365f = (TextView) view.findViewById(R.id.top_code_detail_surplus_text);
+        this.f49366g = (TextView) view.findViewById(R.id.top_code_detail_giftworth_text);
+        this.f49367h = (TextView) view.findViewById(R.id.top_code_getnum_btn);
+        this.f49368i = view.findViewById(R.id.u9_top_code_divider);
         ImageView imageView = (ImageView) view.findViewById(R.id.news_info_img);
         this.m = imageView;
         imageView.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.icon_frs_news));
         this.j = (TextView) view.findViewById(R.id.news_info_text);
         this.n = view.findViewById(R.id.frs_list_item_u9_top_line);
-        SkinManager.setBackgroundResource(this.f48503h, R.drawable.frs_star_btn_like);
-        SkinManager.setViewTextColor(this.f48503h, R.drawable.frs_text_color_selector);
+        SkinManager.setBackgroundResource(this.f49367h, R.drawable.frs_star_btn_like);
+        SkinManager.setViewTextColor(this.f49367h, R.drawable.frs_text_color_selector);
         setOnClickListener();
     }
 
@@ -160,65 +160,65 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, g0Var) == null) || g0Var == null) {
             return;
         }
-        f2 P4 = g0Var.P4();
-        i2 Q4 = g0Var.Q4();
-        this.k = P4;
-        this.l = Q4;
-        if (g0Var.R4()) {
+        f2 R4 = g0Var.R4();
+        i2 S4 = g0Var.S4();
+        this.k = R4;
+        this.l = S4;
+        if (g0Var.T4()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
         }
         f2 f2Var = this.k;
         if (f2Var == null) {
-            this.f48497b.setVisibility(8);
-            this.f48504i.setVisibility(8);
+            this.f49361b.setVisibility(8);
+            this.f49368i.setVisibility(8);
         } else if (StringUtils.isNull(f2Var.g())) {
-            this.f48497b.setVisibility(8);
-            this.f48504i.setVisibility(8);
+            this.f49361b.setVisibility(8);
+            this.f49368i.setVisibility(8);
         } else {
-            this.f48497b.setVisibility(0);
-            this.f48504i.setVisibility(0);
-            this.f48499d.startLoad(this.k.e(), 10, false);
-            this.f48500e.setText(this.k.g());
-            if (StringUtils.isNull(P4.a())) {
-                this.f48503h.setVisibility(8);
+            this.f49361b.setVisibility(0);
+            this.f49368i.setVisibility(0);
+            this.f49363d.startLoad(this.k.e(), 10, false);
+            this.f49364e.setText(this.k.g());
+            if (StringUtils.isNull(R4.a())) {
+                this.f49367h.setVisibility(8);
             } else {
-                this.f48503h.setText(P4.a());
-                this.f48503h.setVisibility(0);
+                this.f49367h.setText(R4.a());
+                this.f49367h.setVisibility(0);
             }
             int c2 = this.k.c();
             if (c2 != 1 && c2 != 2) {
-                this.f48502g.setVisibility(8);
-                this.f48501f.setText(P4.f());
-                this.f48501f.setVisibility(0);
+                this.f49366g.setVisibility(8);
+                this.f49365f.setText(R4.f());
+                this.f49365f.setVisibility(0);
             } else {
                 if (StringUtils.isNull(this.k.h())) {
-                    this.f48501f.setVisibility(8);
+                    this.f49365f.setVisibility(8);
                 } else {
-                    String str = this.f48496a.getResources().getString(R.string.u9_shengyu) + this.k.h();
+                    String str = this.f49360a.getResources().getString(R.string.u9_shengyu) + this.k.h();
                     SpannableString spannableString = new SpannableString(str);
                     UtilHelper.setSpan(spannableString, str, this.k.h(), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-                    this.f48501f.setText(spannableString);
-                    this.f48501f.setVisibility(0);
+                    this.f49365f.setText(spannableString);
+                    this.f49365f.setVisibility(0);
                 }
-                if (P4.d() <= 0) {
-                    this.f48502g.setVisibility(8);
+                if (R4.d() <= 0) {
+                    this.f49366g.setVisibility(8);
                 } else {
-                    String str2 = this.f48496a.getResources().getString(R.string.u9_worth) + this.k.d();
+                    String str2 = this.f49360a.getResources().getString(R.string.u9_worth) + this.k.d();
                     SpannableString spannableString2 = new SpannableString(str2);
                     UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.k.d()), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-                    this.f48502g.setText(spannableString2);
-                    this.f48502g.setVisibility(0);
+                    this.f49366g.setText(spannableString2);
+                    this.f49366g.setVisibility(0);
                 }
             }
         }
-        if (this.l != null && !StringUtils.isNull(Q4.J0())) {
-            this.f48498c.setVisibility(0);
-            this.j.setText(Q4.J0());
+        if (this.l != null && !StringUtils.isNull(S4.J0())) {
+            this.f49362c.setVisibility(0);
+            this.j.setText(S4.J0());
             return;
         }
-        this.f48498c.setVisibility(8);
+        this.f49362c.setVisibility(8);
     }
 
     public void onChangeSkinType(int i2) {
@@ -227,18 +227,18 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         SkinManager.setBackgroundResource(this.m, R.drawable.icon_frs_news);
-        SkinManager.setBackgroundResource(this.f48503h, R.drawable.frs_star_btn_like);
-        SkinManager.setViewTextColor(this.f48503h, R.drawable.frs_text_color_selector);
-        this.f48496a.getLayoutMode().k(i2 == 1);
-        this.f48496a.getLayoutMode().j(getView());
+        SkinManager.setBackgroundResource(this.f49367h, R.drawable.frs_star_btn_like);
+        SkinManager.setViewTextColor(this.f49367h, R.drawable.frs_text_color_selector);
+        this.f49360a.getLayoutMode().k(i2 == 1);
+        this.f49360a.getLayoutMode().j(getView());
         this.o = i2;
     }
 
     public void setOnClickListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f48497b.setOnClickListener(this.p);
-            this.f48498c.setOnClickListener(this.p);
+            this.f49361b.setOnClickListener(this.p);
+            this.f49362c.setOnClickListener(this.p);
         }
     }
 }

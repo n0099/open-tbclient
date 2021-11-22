@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.l.p;
 import b.a.l.q;
 import b.a.q0.b.g.b;
 import b.a.q0.s.q.a;
 import b.a.q0.s.q.d2;
 import b.a.q0.s.u.c;
-import b.a.r0.b0.c0;
+import b.a.r0.b0.d0;
 import b.a.r0.b0.m;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -36,23 +36,23 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f36663e;
+    public TextView f37492e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f36664f;
+    public TextView f37493f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f36665g;
+    public TbImageView f37494g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f36666h;
+    public View f37495h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f36667i;
+    public a f37496i;
     public float j;
     public float k;
     public float l;
-    public c0<a> m;
+    public d0<a> m;
     public View.OnClickListener n;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -83,55 +83,55 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             setId(R.id.bjh_content);
             TextView textView = (TextView) findViewById(R.id.title);
-            this.f36663e = textView;
+            this.f37492e = textView;
             c d2 = c.d(textView);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X06);
-            this.f36663e.setOnClickListener(this);
+            this.f37492e.setOnClickListener(this);
             TextView textView2 = (TextView) findViewById(R.id.icon);
-            this.f36664f = textView2;
+            this.f37493f = textView2;
             textView2.setOnClickListener(this);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.cover_img);
-            this.f36665g = tbImageView;
+            this.f37494g = tbImageView;
             tbImageView.setPlaceHolder(3);
-            this.f36665g.setOnClickListener(this);
+            this.f37494g.setOnClickListener(this);
             View findViewById = findViewById(R.id.bottom_mask);
-            this.f36666h = findViewById;
+            this.f37495h = findViewById;
             findViewById.setOnClickListener(this);
-            if (this.f36665g.getLayoutParams() != null) {
-                this.f36665g.getLayoutParams().height = (int) (((l.k(getContext()) - (this.l * 2.0f)) / 16.0f) * 9.0f);
+            if (this.f37494g.getLayoutParams() != null) {
+                this.f37494g.getLayoutParams().height = (int) (((l.k(getContext()) - (this.l * 2.0f)) / 16.0f) * 9.0f);
             }
-            this.f36664f.setTranslationY(-this.k);
-            this.f36665g.setDrawCorner(true);
-            this.f36665g.setConrers(15);
-            this.f36665g.setRadiusById(R.string.J_X05);
-            b.m(this.f36663e, R.dimen.tbds7, R.dimen.tbds10);
+            this.f37493f.setTranslationY(-this.k);
+            this.f37494g.setDrawCorner(true);
+            this.f37494g.setConrers(15);
+            this.f37494g.setRadiusById(R.string.J_X05);
+            b.m(this.f37492e, R.dimen.tbds7, R.dimen.tbds10);
         }
     }
 
     public TextView getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36664f : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37493f : (TextView) invokeV.objValue;
     }
 
     public TextView getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36663e : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37492e : (TextView) invokeV.objValue;
     }
 
     @Override // b.a.l.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i2) == null) {
-            a aVar = this.f36667i;
+            a aVar = this.f37496i;
             if (aVar != null && aVar.getThreadData() != null) {
-                m.l(this.f36663e, this.f36667i.getThreadData().f0(), this.f36665g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
+                m.l(this.f37492e, this.f37496i.getThreadData().f0(), this.f37494g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
             }
-            SkinManager.setViewTextColor(this.f36664f, R.color.CAM_X0101);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.j).into(this.f36664f);
-            TBSelector.makeDrawableSelector().setShape(0).gradientLinearNotAutoChangeSkinType(R.color.CAM_X0611, R.color.CAM_X0605).tlRadius(l.g(getContext(), R.dimen.tbds21)).trRadius(l.g(getContext(), R.dimen.tbds21)).blRadius(l.g(getContext(), R.dimen.tbds21)).brRadius(l.g(getContext(), R.dimen.tbds21)).setAlpha(128).into(this.f36666h);
+            SkinManager.setViewTextColor(this.f37493f, R.color.CAM_X0101);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.j).into(this.f37493f);
+            TBSelector.makeDrawableSelector().setShape(0).gradientLinearNotAutoChangeSkinType(R.color.CAM_X0611, R.color.CAM_X0605).tlRadius(l.g(getContext(), R.dimen.tbds21)).trRadius(l.g(getContext(), R.dimen.tbds21)).blRadius(l.g(getContext(), R.dimen.tbds21)).brRadius(l.g(getContext(), R.dimen.tbds21)).setAlpha(128).into(this.f37495h);
         }
     }
 
@@ -143,9 +143,9 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
             if (onClickListener != null) {
                 onClickListener.onClick(view);
             }
-            c0<a> c0Var = this.m;
-            if (c0Var != null) {
-                c0Var.a(view, this.f36667i);
+            d0<a> d0Var = this.m;
+            if (d0Var != null) {
+                d0Var.a(view, this.f37496i);
             }
         }
     }
@@ -157,10 +157,10 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
         }
     }
 
-    public void setSubClickListener(c0<a> c0Var) {
+    public void setSubClickListener(d0<a> d0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, c0Var) == null) {
-            this.m = c0Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d0Var) == null) {
+            this.m = d0Var;
         }
     }
 
@@ -197,28 +197,28 @@ public class BjhArticleLayout extends RelativeLayout implements p<a>, View.OnCli
         OriginalThreadInfo originalThreadInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f36667i = aVar;
+            this.f37496i = aVar;
             d2 threadData = aVar.getThreadData();
             if (threadData.z1 && (originalThreadInfo = threadData.y1) != null) {
-                if (!originalThreadInfo.m && !threadData.L4()) {
+                if (!originalThreadInfo.m && !threadData.N4()) {
                     threadData = threadData.y1.a();
                 } else {
                     setVisibility(8);
                     return;
                 }
             }
-            this.f36663e.setText(threadData.getTitle());
+            this.f37492e.setText(threadData.getTitle());
             if (StringUtils.isNull(threadData.H())) {
-                this.f36664f.setVisibility(8);
-                this.f36665g.setVisibility(8);
-                this.f36666h.setVisibility(8);
+                this.f37493f.setVisibility(8);
+                this.f37494g.setVisibility(8);
+                this.f37495h.setVisibility(8);
             } else {
-                this.f36664f.setVisibility(0);
-                this.f36665g.setVisibility(0);
-                this.f36666h.setVisibility(0);
-                this.f36665g.startLoad(threadData.H(), 10, false);
+                this.f37493f.setVisibility(0);
+                this.f37494g.setVisibility(0);
+                this.f37495h.setVisibility(0);
+                this.f37494g.startLoad(threadData.H(), 10, false);
             }
-            m.l(this.f36663e, threadData.f0(), this.f36665g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(this.f37492e, threadData.f0(), this.f37494g.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 }

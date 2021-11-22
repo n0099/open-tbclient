@@ -33,22 +33,22 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f67951b;
+    public static final a f68872b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile Boolean f67952a;
+    public volatile Boolean f68873a;
 
     /* renamed from: com.qq.e.comm.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C1959a implements NetworkCallBack {
+    public class C1999a implements NetworkCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PM f67953a;
+        public final /* synthetic */ PM f68874a;
 
-        public C1959a(a aVar, PM pm) {
+        public C1999a(a aVar, PM pm) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +63,7 @@ public class a {
                     return;
                 }
             }
-            this.f67953a = pm;
+            this.f68874a = pm;
         }
 
         @Override // com.qq.e.comm.net.NetworkCallBack
@@ -91,16 +91,16 @@ public class a {
                         JSONObject jSONObject = new JSONObject(stringContent);
                         int i2 = jSONObject.has(Constants.KEYS.RET) ? jSONObject.getInt(Constants.KEYS.RET) : -1;
                         if (i2 == 0) {
-                            if (this.f67953a != null) {
+                            if (this.f68874a != null) {
                                 try {
-                                    this.f67953a.getPOFactory().config(1, stringContent);
+                                    this.f68874a.getPOFactory().config(1, stringContent);
                                 } catch (d e2) {
                                     e2.printStackTrace();
                                 }
                                 if (jSONObject.has("sig")) {
                                     JSONObject jSONObject2 = jSONObject.getJSONObject("sig");
                                     if (jSONObject2.has("jar") && jSONObject2.has("url")) {
-                                        this.f67953a.update(jSONObject2.getString("jar"), jSONObject2.getString("url"));
+                                        this.f68874a.update(jSONObject2.getString("jar"), jSONObject2.getString("url"));
                                         return;
                                     }
                                     return;
@@ -142,7 +142,7 @@ public class a {
                 return;
             }
         }
-        f67951b = new a();
+        f68872b = new a();
     }
 
     public a() {
@@ -158,13 +158,13 @@ public class a {
                 return;
             }
         }
-        this.f67952a = Boolean.FALSE;
+        this.f68873a = Boolean.FALSE;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f67951b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f68872b : (a) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:25:0x00c4  */
@@ -212,7 +212,7 @@ public class a {
                     if (StringUtil.isEmpty(sm.getSuid())) {
                     }
                     System.currentTimeMillis();
-                    NetworkClientImpl.getInstance().submit(new S2SSRequest(r7, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C1959a(this, pm));
+                    NetworkClientImpl.getInstance().submit(new S2SSRequest(r7, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C1999a(this, pm));
                 }
             } catch (JSONException unused2) {
             }
@@ -220,21 +220,21 @@ public class a {
             GDTLogger.d("launch request: " + jSONObject62);
             String str = StringUtil.isEmpty(sm.getSuid()) ? "http://sdk.e.qq.com/launch" : "http://sdk.e.qq.com/activate";
             System.currentTimeMillis();
-            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C1959a(this, pm));
+            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C1999a(this, pm));
         }
     }
 
     public void a(Context context, SM sm, PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, sm, pm, deviceStatus, aPPStatus, Long.valueOf(j)}) == null) || this.f67952a.booleanValue()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, sm, pm, deviceStatus, aPPStatus, Long.valueOf(j)}) == null) || this.f68873a.booleanValue()) {
             return;
         }
         synchronized (a.class) {
-            if (this.f67952a.booleanValue()) {
+            if (this.f68873a.booleanValue()) {
                 return;
             }
             a(sm, pm, deviceStatus, aPPStatus, context, j);
-            this.f67952a = Boolean.TRUE;
+            this.f68873a = Boolean.TRUE;
         }
     }
 }

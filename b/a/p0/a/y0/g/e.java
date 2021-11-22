@@ -16,11 +16,11 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile e f9011b;
+    public static volatile e f9357b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, b.a.p0.a.y0.g.h.b> f9012a;
+    public Map<String, b.a.p0.a.y0.g.h.b> f9358a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -35,21 +35,21 @@ public class e {
                 return;
             }
         }
-        this.f9012a = new HashMap();
+        this.f9358a = new HashMap();
     }
 
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f9011b == null) {
+            if (f9357b == null) {
                 synchronized (e.class) {
-                    if (f9011b == null) {
-                        f9011b = new e();
+                    if (f9357b == null) {
+                        f9357b = new e();
                     }
                 }
             }
-            return f9011b;
+            return f9357b;
         }
         return (e) invokeV.objValue;
     }
@@ -57,10 +57,10 @@ public class e {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            if (f9011b != null) {
-                f9011b.b();
+            if (f9357b != null) {
+                f9357b.b();
             }
-            f9011b = null;
+            f9357b = null;
         }
     }
 
@@ -68,12 +68,12 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                b.a.p0.a.e0.d.g("RtcRoomWidgetManager", "release");
-                Iterator it = new ArrayList(this.f9012a.values()).iterator();
+                b.a.p0.a.e0.d.i("RtcRoomWidgetManager", "release");
+                Iterator it = new ArrayList(this.f9358a.values()).iterator();
                 while (it.hasNext()) {
                     ((b.a.p0.a.y0.g.h.b) it.next()).onRelease();
                 }
-                this.f9012a.clear();
+                this.f9358a.clear();
             }
         }
     }
@@ -82,8 +82,8 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             synchronized (this) {
-                b.a.p0.a.e0.d.g("RtcRoomWidgetManager", "onWebViewDetach slaveId=" + str);
-                Iterator it = new ArrayList(this.f9012a.values()).iterator();
+                b.a.p0.a.e0.d.i("RtcRoomWidgetManager", "onWebViewDetach slaveId=" + str);
+                Iterator it = new ArrayList(this.f9358a.values()).iterator();
                 while (it.hasNext()) {
                     b.a.p0.a.y0.g.h.b bVar = (b.a.p0.a.y0.g.h.b) it.next();
                     if (TextUtils.equals(bVar.b(), str)) {

@@ -8,15 +8,16 @@ import android.os.Message;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.IAsyncProcessCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface IProcessBridge extends IInterface {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Default implements IProcessBridge {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,10 +47,17 @@ public interface IProcessBridge extends IInterface {
         }
 
         @Override // com.baidu.swan.apps.IProcessBridge
+        public void callMainProcessAsync(String str, int i2, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, iAsyncProcessCallback) == null) {
+            }
+        }
+
+        @Override // com.baidu.swan.apps.IProcessBridge
         public Bundle callMainProcessSync(String str, Bundle bundle) throws RemoteException {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle)) == null) {
                 return null;
             }
             return (Bundle) invokeLL.objValue;
@@ -58,20 +66,21 @@ public interface IProcessBridge extends IInterface {
         @Override // com.baidu.swan.apps.IProcessBridge
         public void send(Message message) throws RemoteException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class Stub extends Binder implements IProcessBridge {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IProcessBridge";
+        public static final int TRANSACTION_callMainProcessAsync = 3;
         public static final int TRANSACTION_callMainProcessSync = 2;
         public static final int TRANSACTION_send = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public static class Proxy implements IProcessBridge {
             public static /* synthetic */ Interceptable $ic;
             public static IProcessBridge sDefaultImpl;
@@ -104,10 +113,33 @@ public interface IProcessBridge extends IInterface {
             }
 
             @Override // com.baidu.swan.apps.IProcessBridge
+            public void callMainProcessAsync(String str, int i2, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, iAsyncProcessCallback) == null) {
+                    Parcel obtain = Parcel.obtain();
+                    Parcel obtain2 = Parcel.obtain();
+                    try {
+                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                        obtain.writeString(str);
+                        obtain.writeInt(i2);
+                        obtain.writeStrongBinder(iAsyncProcessCallback != null ? iAsyncProcessCallback.asBinder() : null);
+                        if (!this.mRemote.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            Stub.getDefaultImpl().callMainProcessAsync(str, i2, iAsyncProcessCallback);
+                        } else {
+                            obtain2.readException();
+                        }
+                    } finally {
+                        obtain2.recycle();
+                        obtain.recycle();
+                    }
+                }
+            }
+
+            @Override // com.baidu.swan.apps.IProcessBridge
             public Bundle callMainProcessSync(String str, Bundle bundle) throws RemoteException {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle)) == null) {
+                if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle)) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
@@ -139,13 +171,13 @@ public interface IProcessBridge extends IInterface {
             public String getInterfaceDescriptor() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Stub.DESCRIPTOR : (String) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Stub.DESCRIPTOR : (String) invokeV.objValue;
             }
 
             @Override // com.baidu.swan.apps.IProcessBridge
             public void send(Message message) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
+                if (interceptable == null || interceptable.invokeL(1048580, this, message) == null) {
                     Parcel obtain = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
@@ -234,10 +266,16 @@ public interface IProcessBridge extends IInterface {
                     send(parcel.readInt() != 0 ? (Message) Message.CREATOR.createFromParcel(parcel) : null);
                     return true;
                 } else if (i2 != 2) {
-                    if (i2 != 1598968902) {
-                        return super.onTransact(i2, parcel, parcel2, i3);
+                    if (i2 != 3) {
+                        if (i2 != 1598968902) {
+                            return super.onTransact(i2, parcel, parcel2, i3);
+                        }
+                        parcel2.writeString(DESCRIPTOR);
+                        return true;
                     }
-                    parcel2.writeString(DESCRIPTOR);
+                    parcel.enforceInterface(DESCRIPTOR);
+                    callMainProcessAsync(parcel.readString(), parcel.readInt(), IAsyncProcessCallback.Stub.asInterface(parcel.readStrongBinder()));
+                    parcel2.writeNoException();
                     return true;
                 } else {
                     parcel.enforceInterface(DESCRIPTOR);
@@ -263,6 +301,8 @@ public interface IProcessBridge extends IInterface {
             return invokeCommon.booleanValue;
         }
     }
+
+    void callMainProcessAsync(String str, int i2, IAsyncProcessCallback iAsyncProcessCallback) throws RemoteException;
 
     Bundle callMainProcessSync(String str, Bundle bundle) throws RemoteException;
 

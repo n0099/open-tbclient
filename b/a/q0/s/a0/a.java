@@ -12,7 +12,7 @@ public class a {
     public static void a(String str, long j, int i2, String str2, int i3, String str3, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3, objArr}) == null) {
-            b.a.e.e.n.a aVar = new b.a.e.e.n.a();
+            b.a.e.f.n.a aVar = new b.a.e.f.n.a();
             aVar.c("cmd", Integer.valueOf(i2));
             if (!TextUtils.isEmpty(str2)) {
                 aVar.b("action", str2);

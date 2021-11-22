@@ -20,27 +20,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class f implements V8ThreadDelegatePolicy, b.a.p0.a.f1.f.a {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: h  reason: collision with root package name */
-    public static final boolean f5431h;
+    /* renamed from: i  reason: collision with root package name */
+    public static final boolean f5711i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public V8Engine f5432b;
-
     /* renamed from: c  reason: collision with root package name */
-    public Thread f5433c;
+    public V8Engine f5712c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f5434d;
+    public Thread f5713d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Thread f5435e;
+    public Handler f5714e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f5436f;
+    public final Thread f5715f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f5437g;
+    public Runnable f5716g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f5717h;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -48,7 +48,7 @@ public class f implements V8ThreadDelegatePolicy, b.a.p0.a.f1.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f5438e;
+        public final /* synthetic */ f f5718e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class f implements V8ThreadDelegatePolicy, b.a.p0.a.f1.f.a {
                     return;
                 }
             }
-            this.f5438e = fVar;
+            this.f5718e = fVar;
         }
 
         @Override // java.lang.Runnable
@@ -73,8 +73,8 @@ public class f implements V8ThreadDelegatePolicy, b.a.p0.a.f1.f.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Looper.prepare();
-                this.f5438e.f5434d = new Handler();
-                this.f5438e.f5432b.startEngineInternal();
+                this.f5718e.f5714e = new Handler();
+                this.f5718e.f5712c.startEngineInternal();
                 Looper.loop();
             }
         }
@@ -93,7 +93,7 @@ public class f implements V8ThreadDelegatePolicy, b.a.p0.a.f1.f.a {
                 return;
             }
         }
-        f5431h = b.a.p0.a.v2.d.a();
+        f5711i = b.a.p0.a.z2.d.a();
     }
 
     public f() {
@@ -109,45 +109,45 @@ public class f implements V8ThreadDelegatePolicy, b.a.p0.a.f1.f.a {
                 return;
             }
         }
-        this.f5432b = null;
-        this.f5433c = null;
-        this.f5434d = null;
-        this.f5436f = null;
-        this.f5437g = 0;
-        this.f5435e = Looper.getMainLooper().getThread();
+        this.f5712c = null;
+        this.f5713d = null;
+        this.f5714e = null;
+        this.f5716g = null;
+        this.f5717h = 0;
+        this.f5715f = Looper.getMainLooper().getThread();
     }
 
     public final boolean c(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            if (runnable != null && this.f5434d != null) {
+            if (runnable != null && this.f5714e != null) {
                 Thread currentThread = Thread.currentThread();
                 String name = currentThread.getName();
                 if (!TextUtils.isEmpty(name) && (name.startsWith("OkHttp") || name.equals("NetworkService"))) {
-                    this.f5434d.postAtFrontOfQueue(runnable);
+                    this.f5714e.postAtFrontOfQueue(runnable);
                     return true;
                 }
-                if (this.f5435e == currentThread) {
-                    if (f5431h) {
-                        Runnable runnable2 = this.f5436f;
+                if (this.f5715f == currentThread) {
+                    if (f5711i) {
+                        Runnable runnable2 = this.f5716g;
                         if (runnable2 == null) {
-                            this.f5434d.postAtFrontOfQueue(runnable);
-                        } else if (this.f5434d.hasCallbacks(runnable2)) {
-                            this.f5434d.post(runnable);
+                            this.f5714e.postAtFrontOfQueue(runnable);
+                        } else if (this.f5714e.hasCallbacks(runnable2)) {
+                            this.f5714e.post(runnable);
                         } else {
-                            this.f5434d.postAtFrontOfQueue(runnable);
+                            this.f5714e.postAtFrontOfQueue(runnable);
                         }
-                        this.f5436f = runnable;
+                        this.f5716g = runnable;
                     } else {
-                        boolean hasMessages = this.f5434d.hasMessages(this.f5437g);
-                        this.f5437g++;
-                        Message obtain = Message.obtain(this.f5434d, runnable);
-                        obtain.what = this.f5437g;
+                        boolean hasMessages = this.f5714e.hasMessages(this.f5717h);
+                        this.f5717h++;
+                        Message obtain = Message.obtain(this.f5714e, runnable);
+                        obtain.what = this.f5717h;
                         if (hasMessages) {
-                            this.f5434d.sendMessage(obtain);
+                            this.f5714e.sendMessage(obtain);
                         } else {
-                            this.f5434d.sendMessageAtFrontOfQueue(obtain);
+                            this.f5714e.sendMessageAtFrontOfQueue(obtain);
                         }
                     }
                     return true;
@@ -161,26 +161,26 @@ public class f implements V8ThreadDelegatePolicy, b.a.p0.a.f1.f.a {
     public void d(@NonNull V8Engine v8Engine) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v8Engine) == null) {
-            this.f5432b = v8Engine;
+            this.f5712c = v8Engine;
         }
     }
 
     @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
     public void doDelegateRunnable(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) || this.f5434d == null || c(runnable)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) || this.f5714e == null || c(runnable)) {
             return;
         }
-        this.f5434d.post(runnable);
+        this.f5714e.post(runnable);
     }
 
     @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
     public void doDelegateRunnableDirectly(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, runnable) == null) || this.f5434d == null || c(runnable)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, runnable) == null) || this.f5714e == null || c(runnable)) {
             return;
         }
-        this.f5434d.post(runnable);
+        this.f5714e.post(runnable);
     }
 
     @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
@@ -188,7 +188,7 @@ public class f implements V8ThreadDelegatePolicy, b.a.p0.a.f1.f.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Handler handler = this.f5434d;
+            Handler handler = this.f5714e;
             if (handler != null) {
                 return handler.getLooper().getThread();
             }
@@ -201,32 +201,32 @@ public class f implements V8ThreadDelegatePolicy, b.a.p0.a.f1.f.a {
     public void shutdown() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (handler = this.f5434d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (handler = this.f5714e) == null) {
             return;
         }
         handler.removeCallbacksAndMessages(null);
-        this.f5434d.getLooper().quitSafely();
+        this.f5714e.getLooper().quitSafely();
     }
 
     @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
     @SuppressLint({"MobilebdThread"})
     public void startV8Engine(@NonNull V8Engine v8Engine) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, v8Engine) == null) && this.f5433c == null) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, v8Engine) == null) && this.f5713d == null) {
             Thread thread = new Thread(new a(this));
-            this.f5433c = thread;
+            this.f5713d = thread;
             thread.setName(v8Engine.threadName());
-            this.f5433c.setPriority(10);
-            this.f5433c.start();
+            this.f5713d.setPriority(10);
+            this.f5713d.start();
         }
     }
 
     @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
     public void doDelegateRunnable(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048579, this, runnable, j) == null) || this.f5434d == null || c(runnable)) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048579, this, runnable, j) == null) || this.f5714e == null || c(runnable)) {
             return;
         }
-        this.f5434d.postDelayed(runnable, j);
+        this.f5714e.postDelayed(runnable, j);
     }
 }

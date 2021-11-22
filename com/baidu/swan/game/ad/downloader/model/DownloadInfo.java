@@ -3,7 +3,7 @@ package com.baidu.swan.game.ad.downloader.model;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.f.i.k.f.c;
+import b.a.p0.h.i.k.f.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,19 +34,19 @@ public class DownloadInfo implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f44543a;
+        public String f45351a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f44544b;
+        public long f45352b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f44545c;
+        public String f45353c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f44546d;
+        public String f45354d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f44547e;
+        public String f45355e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class DownloadInfo implements Serializable {
                     return;
                 }
             }
-            this.f44544b = -1L;
+            this.f45352b = -1L;
         }
 
         public DownloadInfo a() {
@@ -69,20 +69,20 @@ public class DownloadInfo implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 DownloadInfo downloadInfo = new DownloadInfo();
-                if (!TextUtils.isEmpty(this.f44545c)) {
-                    downloadInfo.setUri(this.f44545c);
-                    if (!TextUtils.isEmpty(this.f44547e)) {
-                        downloadInfo.setPath(this.f44547e);
-                        if (TextUtils.isEmpty(this.f44546d)) {
-                            downloadInfo.setPackageName(this.f44546d);
+                if (!TextUtils.isEmpty(this.f45353c)) {
+                    downloadInfo.setUri(this.f45353c);
+                    if (!TextUtils.isEmpty(this.f45355e)) {
+                        downloadInfo.setPath(this.f45355e);
+                        if (TextUtils.isEmpty(this.f45354d)) {
+                            downloadInfo.setPackageName(this.f45354d);
                         }
-                        if (this.f44544b == -1) {
+                        if (this.f45352b == -1) {
                             b(System.currentTimeMillis());
                         }
-                        if (TextUtils.isEmpty(this.f44543a)) {
-                            downloadInfo.setId(this.f44545c);
+                        if (TextUtils.isEmpty(this.f45351a)) {
+                            downloadInfo.setId(this.f45353c);
                         } else {
-                            downloadInfo.setId(this.f44543a);
+                            downloadInfo.setId(this.f45351a);
                         }
                         return downloadInfo;
                     }
@@ -97,7 +97,7 @@ public class DownloadInfo implements Serializable {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                this.f44544b = j;
+                this.f45352b = j;
                 return this;
             }
             return (a) invokeJ.objValue;
@@ -107,7 +107,7 @@ public class DownloadInfo implements Serializable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f44546d = str;
+                this.f45354d = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -117,7 +117,7 @@ public class DownloadInfo implements Serializable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f44547e = str;
+                this.f45355e = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -127,7 +127,7 @@ public class DownloadInfo implements Serializable {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f44545c = str;
+                this.f45353c = str;
                 return this;
             }
             return (a) invokeL.objValue;

@@ -2,7 +2,7 @@ package b.a.p0.a.h0.m;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
-import b.a.p0.n.i.l.a;
+import b.a.p0.q.j.l.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,30 +41,37 @@ public abstract class a {
     }
 
     @WorkerThread
-    public void c(@NonNull a.C0618a c0618a) {
+    public void c(@NonNull b.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0618a) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
         }
     }
 
     public abstract void d();
 
-    public void e(b.a.p0.n.h.a aVar) {
+    @WorkerThread
+    public void e(@NonNull b.a.p0.q.i.i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, iVar) == null) {
+        }
+    }
+
+    public void f(b.a.p0.q.i.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
         }
     }
 
     @WorkerThread
-    public void f(@NonNull b.a.p0.n.h.g gVar) {
+    public void g(@NonNull b.a.p0.q.i.h hVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, hVar) == null) {
         }
     }
 
-    public void g() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 }

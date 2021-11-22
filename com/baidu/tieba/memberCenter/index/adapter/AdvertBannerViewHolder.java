@@ -14,7 +14,7 @@ public class AdvertBannerViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f51505a;
+    public a f52417a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdvertBannerViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -34,16 +34,16 @@ public class AdvertBannerViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f51505a = new a(view, baseFragmentActivity);
+        this.f52417a = new a(view, baseFragmentActivity);
     }
 
     public void fillView(b.a.r0.y1.c.k.a aVar) {
         a aVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || (aVar2 = this.f51505a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || (aVar2 = this.f52417a) == null) {
             return;
         }
         aVar2.b(aVar);
-        this.f51505a.d();
+        this.f52417a.d();
     }
 }

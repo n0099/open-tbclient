@@ -1,6 +1,6 @@
 package b.a.r0.j0.e;
 
-import b.a.q0.d1.z;
+import b.a.q0.c1.z;
 import b.a.q0.k0.b.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,10 +17,10 @@ public class a implements g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18317e;
+    public int f19651e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f18318f;
+    public final int f19652f;
 
     public a(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -37,27 +37,27 @@ public class a implements g {
                 return;
             }
         }
-        this.f18317e = i2;
-        this.f18318f = i3;
+        this.f19651e = i2;
+        this.f19652f = i3;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18317e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19651e : invokeV.intValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f18317e = 1;
+            this.f19651e = 1;
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f18317e++;
+            this.f19651e++;
         }
     }
 
@@ -67,9 +67,9 @@ public class a implements g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.f18317e);
+            builder.pn = Integer.valueOf(this.f19651e);
             builder.rn = 15;
-            builder.tab_id = Integer.valueOf(this.f18318f);
+            builder.tab_id = Integer.valueOf(this.f19652f);
             ItemManageReqIdl.Builder builder2 = new ItemManageReqIdl.Builder();
             DataReq build = builder.build(false);
             builder2.data = build;

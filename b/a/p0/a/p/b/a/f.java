@@ -13,9 +13,9 @@ public interface f {
 
     void c(JSONObject jSONObject);
 
-    b.a.p0.n.f.g d();
+    b.a.p0.q.f.i d();
 
     void e(int i2, String str);
 
-    void f(@NonNull b.a.p0.a.v2.e1.b<Boolean> bVar);
+    void f(@NonNull b.a.p0.a.z2.g1.c<Boolean> cVar);
 }

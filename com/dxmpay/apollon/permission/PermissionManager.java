@@ -24,7 +24,7 @@ public class PermissionManager implements NoProguard {
     public static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f62130e;
+    public static int f63031e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -80,10 +80,10 @@ public class PermissionManager implements NoProguard {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0025, code lost:
-        if (b.f.a.f.c.a(r4, r5) == 0) goto L9;
+        if (b.e.a.f.c.a(r4, r5) == 0) goto L9;
      */
     /* JADX WARN: Code restructure failed: missing block: B:8:0x0010, code lost:
-        if (b.f.a.f.c.a(r4, r5) == 0) goto L9;
+        if (b.e.a.f.c.a(r4, r5) == 0) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -110,14 +110,14 @@ public class PermissionManager implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f62130e == 0) {
+            if (f63031e == 0) {
                 try {
-                    f62130e = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
+                    f63031e = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                 }
             }
-            return f62130e;
+            return f63031e;
         }
         return invokeL.intValue;
     }

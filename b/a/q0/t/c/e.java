@@ -15,7 +15,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f13768a = 2;
+    public static int f14536a = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,14 +54,14 @@ public class e {
             int k = b.a.q0.s.e0.b.j().k("pref_key_fun_ad_first_floor_min", 2);
             int k2 = b.a.q0.s.e0.b.j().k("pref_key_fun_ad_first_floor_max", 3);
             if (k < k2) {
-                f13768a = b.a.r0.i1.a.a.a(k, k2);
+                f14536a = b.a.r0.i1.a.a.a(k, k2);
             } else {
-                f13768a = b.a.r0.i1.a.a.a(k2, k);
+                f14536a = b.a.r0.i1.a.a.a(k2, k);
             }
-            if (f13768a < 0) {
-                f13768a = 2;
+            if (f14536a < 0) {
+                f14536a = 2;
             }
-            return f13768a;
+            return f14536a;
         }
         return invokeV.intValue;
     }
@@ -88,10 +88,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f13768a < 0) {
-                f13768a = 2;
+            if (f14536a < 0) {
+                f14536a = 2;
             }
-            return f13768a;
+            return f14536a;
         }
         return invokeV.intValue;
     }

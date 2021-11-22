@@ -14,10 +14,10 @@ public final class CameraUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f38217a = 307200;
+    public static final int f39047a = 307200;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f38218b = 2073600;
+    public static final int f39048b = 2073600;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CameraUtils() {

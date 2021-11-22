@@ -24,31 +24,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28624a;
+    public String f29493a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28625b;
+    public String f29494b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28626c;
+    public int f29495c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28627d;
+    public int f29496d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f28628e;
+    public long f29497e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f28629f;
+    public long f29498f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f28630g;
+    public long f29499g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f28631h;
+    public long f29500h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f28632i;
+    public long f29501i;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -65,47 +65,47 @@ public class a {
                 return;
             }
         }
-        this.f28626c = -14;
-        this.f28627d = -1;
-        this.f28628e = -1L;
-        this.f28629f = -1L;
-        this.f28630g = -1L;
-        this.f28631h = -1L;
-        this.f28632i = -1L;
-        this.f28624a = str;
-        this.f28630g = System.nanoTime() / 1000;
-        this.f28629f = System.currentTimeMillis();
+        this.f29495c = -14;
+        this.f29496d = -1;
+        this.f29497e = -1L;
+        this.f29498f = -1L;
+        this.f29499g = -1L;
+        this.f29500h = -1L;
+        this.f29501i = -1L;
+        this.f29493a = str;
+        this.f29499g = System.nanoTime() / 1000;
+        this.f29498f = System.currentTimeMillis();
     }
 
     public void a(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
             if (exc instanceof SocketTimeoutException) {
-                this.f28626c = -1;
+                this.f29495c = -1;
             } else if (exc instanceof UnknownHostException) {
-                this.f28626c = -2;
+                this.f29495c = -2;
             } else if (exc instanceof ConnectException) {
-                this.f28626c = -5;
+                this.f29495c = -5;
             } else if (exc instanceof ProtocolException) {
-                this.f28626c = -3;
+                this.f29495c = -3;
             } else if (exc instanceof BindException) {
-                this.f28626c = -4;
+                this.f29495c = -4;
             } else if (exc instanceof SSLHandshakeException) {
-                this.f28626c = -8;
+                this.f29495c = -8;
             } else if (exc instanceof SSLProtocolException) {
-                this.f28626c = -9;
+                this.f29495c = -9;
             } else if (exc instanceof RemoteException) {
-                this.f28626c = -13;
+                this.f29495c = -13;
             } else if (exc instanceof NoRouteToHostException) {
-                this.f28626c = -6;
+                this.f29495c = -6;
             } else if (exc instanceof PortUnreachableException) {
-                this.f28626c = -7;
+                this.f29495c = -7;
             } else if (exc instanceof SSLKeyException) {
-                this.f28626c = -10;
+                this.f29495c = -10;
             } else if (exc instanceof SSLPeerUnverifiedException) {
-                this.f28626c = -11;
+                this.f29495c = -11;
             } else {
-                this.f28626c = -14;
+                this.f29495c = -14;
             }
         }
     }
@@ -113,22 +113,22 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f28631h = (System.nanoTime() / 1000) - this.f28630g;
+            this.f29500h = (System.nanoTime() / 1000) - this.f29499g;
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f28632i = (System.nanoTime() / 1000) - this.f28630g;
+            this.f29501i = (System.nanoTime() / 1000) - this.f29499g;
         }
     }
 
     public void d(TurbonetEngine turbonetEngine) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, turbonetEngine) == null) {
-            String.format("url:%s, method:%s, netCode:%d, httpCode:%d, bytesReceived:%d, requestTime:%d, firstByteTime:%d, durationTime:%d", this.f28624a, this.f28625b, Integer.valueOf(this.f28626c), Integer.valueOf(this.f28627d), Long.valueOf(this.f28628e), Long.valueOf(this.f28629f), Long.valueOf(this.f28631h), Long.valueOf(this.f28632i));
-            turbonetEngine.g(this.f28624a, this.f28625b, this.f28626c, this.f28627d, this.f28628e, this.f28629f, this.f28631h, this.f28632i);
+            String.format("url:%s, method:%s, netCode:%d, httpCode:%d, bytesReceived:%d, requestTime:%d, firstByteTime:%d, durationTime:%d", this.f29493a, this.f29494b, Integer.valueOf(this.f29495c), Integer.valueOf(this.f29496d), Long.valueOf(this.f29497e), Long.valueOf(this.f29498f), Long.valueOf(this.f29500h), Long.valueOf(this.f29501i));
+            turbonetEngine.g(this.f29493a, this.f29494b, this.f29495c, this.f29496d, this.f29497e, this.f29498f, this.f29500h, this.f29501i);
         }
     }
 }

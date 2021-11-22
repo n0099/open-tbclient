@@ -20,7 +20,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, Set<c>> f35838a;
+    public final Map<String, Set<c>> f36667a;
 
     /* renamed from: com.baidu.apollon.b.a$1  reason: invalid class name */
     /* loaded from: classes6.dex */
@@ -31,11 +31,11 @@ public class a {
 
     /* renamed from: com.baidu.apollon.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1573a {
+    public static class C1610a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f35839a;
+        public static final a f36668a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,10 +51,10 @@ public class a {
                     return;
                 }
             }
-            f35839a = new a(null);
+            f36668a = new a(null);
         }
 
-        public C1573a() {
+        public C1610a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,13 +76,13 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1573a.f35839a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1610a.f36668a : (a) invokeV.objValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f35838a.clear();
+            this.f36667a.clear();
         }
     }
 
@@ -99,14 +99,14 @@ public class a {
                 return;
             }
         }
-        this.f35838a = new HashMap();
+        this.f36667a = new HashMap();
     }
 
     public Set<c> a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Set<c> set = this.f35838a.get(str);
+            Set<c> set = this.f36667a.get(str);
             return set == null ? Collections.emptySet() : set;
         }
         return (Set) invokeL.objValue;
@@ -116,10 +116,10 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, set)) == null) {
-            if (this.f35838a.get(str) == null) {
-                this.f35838a.put(str, new HashSet());
+            if (this.f36667a.get(str) == null) {
+                this.f36667a.put(str, new HashSet());
             }
-            Set<c> set2 = this.f35838a.get(str);
+            Set<c> set2 = this.f36667a.get(str);
             for (String str2 : set) {
                 set2.add(new c(str2));
             }

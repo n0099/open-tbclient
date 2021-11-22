@@ -43,7 +43,7 @@ public class SegAR extends c {
     public LuaMsgListener cc;
 
     /* renamed from: io  reason: collision with root package name */
-    public byte[] f36467io;
+    public byte[] f37296io;
     public e mv;
     public int oU;
     public boolean pH;
@@ -180,7 +180,7 @@ public class SegAR extends c {
         this.vn = 1.0f;
         this.vw = 0;
         this.vx = 0;
-        this.f36467io = null;
+        this.f37296io = null;
         this.vy = 0L;
         this.cb = null;
         this.vz = -1;
@@ -380,8 +380,8 @@ public class SegAR extends c {
         return invokeLII.floatValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00a9  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00b1  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00ac  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00b4  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -659,9 +659,9 @@ public class SegAR extends c {
                                 if (r != null) {
                                     this.vA.vw = gd.getWidth();
                                     this.vA.vx = gd.getHeight();
-                                    this.vA.f36467io = gd.gc();
+                                    this.vA.f37296io = gd.gc();
                                     this.vA.vy = bVar.getTimestamp();
-                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f36467io == null) {
+                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f37296io == null) {
                                         return;
                                     }
                                     j jVar = new j();

@@ -109,31 +109,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34054a;
+    public String f34888a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34055b;
+    public String f34889b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34056c;
+    public String f34890c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34057d;
+    public String f34891d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34058e;
+    public String f34892e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34059f;
+    public String f34893f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f34060g;
+    public String f34894g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f34061h;
+    public String f34895h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f34062i;
+    public String f34896i;
     public String j;
 
     public b(Context context, boolean z2) {
@@ -151,15 +151,15 @@ public class b {
                 return;
             }
         }
-        this.f34061h = "";
-        this.f34062i = "";
+        this.f34895h = "";
+        this.f34896i = "";
         context = context != null ? context.getApplicationContext() : context;
-        this.f34054a = b();
-        this.f34056c = a(context);
-        this.f34057d = a(z2 ? 0L : a.c.a(context));
-        this.f34058e = a();
-        this.f34059f = b(context);
-        this.f34060g = "-";
+        this.f34888a = b();
+        this.f34890c = a(context);
+        this.f34891d = a(z2 ? 0L : a.c.a(context));
+        this.f34892e = a();
+        this.f34893f = b(context);
+        this.f34894g = "-";
         this.j = "-";
     }
 
@@ -169,7 +169,7 @@ public class b {
             synchronized (this) {
                 c.d(com.alipay.sdk.cons.a.x, String.format("event %s %s %s", str, str2, str3));
                 String str4 = "";
-                if (!TextUtils.isEmpty(this.f34061h)) {
+                if (!TextUtils.isEmpty(this.f34895h)) {
                     str4 = "" + PayTypeItemView.PayTypeItemViewData.MASK_FLAG;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -180,7 +180,7 @@ public class b {
                 objArr[2] = c(str3);
                 objArr[3] = c(c());
                 sb.append(String.format("%s,%s,%s,-,-,-,-,-,-,-,-,-,-,%s", objArr));
-                this.f34061h += sb.toString();
+                this.f34895h += sb.toString();
             }
         }
     }
@@ -188,7 +188,7 @@ public class b {
     private boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? TextUtils.isEmpty(this.f34062i) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? TextUtils.isEmpty(this.f34896i) : invokeV.booleanValue;
     }
 
     public static String e() {
@@ -231,7 +231,7 @@ public class b {
             synchronized (this) {
                 c.c(com.alipay.sdk.cons.a.x, String.format("err %s %s %s", str, str2, str3));
                 String str4 = "";
-                if (!TextUtils.isEmpty(this.f34062i)) {
+                if (!TextUtils.isEmpty(this.f34896i)) {
                     str4 = "" + PayTypeItemView.PayTypeItemViewData.MASK_FLAG;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -242,7 +242,7 @@ public class b {
                 objArr[2] = TextUtils.isEmpty(str3) ? "-" : c(str3);
                 objArr[3] = c(c());
                 sb.append(String.format("%s,%s,%s,%s", objArr));
-                this.f34062i += sb.toString();
+                this.f34896i += sb.toString();
             }
         }
     }
@@ -369,8 +369,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String b2 = b(str);
-            this.f34055b = b2;
-            return String.format("[(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s)]", this.f34054a, b2, this.f34056c, this.f34057d, this.f34058e, this.f34059f, this.f34060g, d(this.f34061h), d(this.f34062i), this.j);
+            this.f34889b = b2;
+            return String.format("[(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s),(%s)]", this.f34888a, b2, this.f34890c, this.f34891d, this.f34892e, this.f34893f, this.f34894g, d(this.f34895h), d(this.f34896i), this.j);
         }
         return (String) invokeL.objValue;
     }

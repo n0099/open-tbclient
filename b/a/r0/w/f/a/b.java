@@ -17,11 +17,11 @@ public class b extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f24500f;
+    public static final BdUniqueId f26017f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d2 f24501e;
+    public d2 f26018e;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public class b extends BaseCardInfo {
                 return;
             }
         }
-        f24500f = BdUniqueId.gen();
+        f26017f = BdUniqueId.gen();
     }
 
     public b() {
@@ -61,7 +61,7 @@ public class b extends BaseCardInfo {
             if (threadData == null || threadData.u1 == null) {
                 return null;
             }
-            return new StatisticItem(str).param("obj_locate", threadData.u1.f13334a);
+            return new StatisticItem(str).param("obj_locate", threadData.u1.f14114a);
         }
         return (StatisticItem) invokeLZ.objValue;
     }
@@ -69,13 +69,13 @@ public class b extends BaseCardInfo {
     public d2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24501e : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26018e : (d2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f24500f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f26017f : (BdUniqueId) invokeV.objValue;
     }
 }

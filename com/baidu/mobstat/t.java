@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,23 +20,23 @@ public abstract class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final t f41639a;
+    public static final t f42471a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final t f41640b;
+    public static final t f42472b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final t f41641c;
+    public static final t f42473c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final t f41642d;
+    public static final t f42474d;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ t[] f41643f;
+    public static final /* synthetic */ t[] f42475f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41644e;
+    public int f42476e;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +51,7 @@ public abstract class t {
                 return;
             }
         }
-        f41639a = new t("SERVICE", 0, 1) { // from class: com.baidu.mobstat.t.1
+        f42471a = new t("SERVICE", 0, 1) { // from class: com.baidu.mobstat.t.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,7 +90,7 @@ public abstract class t {
                 }
             }
         };
-        f41640b = new t("NO_SERVICE", 1, 2) { // from class: com.baidu.mobstat.t.2
+        f42472b = new t("NO_SERVICE", 1, 2) { // from class: com.baidu.mobstat.t.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,14 +122,14 @@ public abstract class t {
                     Context applicationContext = context.getApplicationContext();
                     a a2 = u.a(context);
                     ac acVar = new ac();
-                    acVar.f40942a = false;
-                    acVar.f40943b = "M";
-                    acVar.f40944c = false;
+                    acVar.f41774a = false;
+                    acVar.f41775b = "M";
+                    acVar.f41776c = false;
                     a2.a(applicationContext, acVar.a());
                 }
             }
         };
-        f41641c = new t("RECEIVER", 2, 3) { // from class: com.baidu.mobstat.t.3
+        f42473c = new t("RECEIVER", 2, 3) { // from class: com.baidu.mobstat.t.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -162,9 +161,9 @@ public abstract class t {
                     Context applicationContext = context.getApplicationContext();
                     a a2 = u.a(context);
                     ac acVar = new ac();
-                    acVar.f40942a = false;
-                    acVar.f40943b = "R";
-                    acVar.f40944c = false;
+                    acVar.f41774a = false;
+                    acVar.f41775b = "R";
+                    acVar.f41776c = false;
                     a2.a(applicationContext, acVar.a());
                 }
             }
@@ -201,15 +200,15 @@ public abstract class t {
                     Context applicationContext = context.getApplicationContext();
                     a a2 = u.a(context);
                     ac acVar = new ac();
-                    acVar.f40942a = false;
-                    acVar.f40943b = ExifInterface.LONGITUDE_EAST;
-                    acVar.f40944c = false;
+                    acVar.f41774a = false;
+                    acVar.f41775b = "E";
+                    acVar.f41776c = false;
                     a2.a(applicationContext, acVar.a());
                 }
             }
         };
-        f41642d = tVar;
-        f41643f = new t[]{f41639a, f41640b, f41641c, tVar};
+        f42474d = tVar;
+        f42475f = new t[]{f42471a, f42472b, f42473c, tVar};
     }
 
     public static t a(int i2) {
@@ -218,11 +217,11 @@ public abstract class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
             for (t tVar : values()) {
-                if (tVar.f41644e == i2) {
+                if (tVar.f42476e == i2) {
                     return tVar;
                 }
             }
-            return f41640b;
+            return f42472b;
         }
         return (t) invokeI.objValue;
     }
@@ -269,7 +268,7 @@ public abstract class t {
     public static t[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? (t[]) f41643f.clone() : (t[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? (t[]) f42475f.clone() : (t[]) invokeV.objValue;
     }
 
     public abstract void a(Context context);
@@ -278,7 +277,7 @@ public abstract class t {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(this.f41644e) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(this.f42476e) : (String) invokeV.objValue;
     }
 
     public t(String str, int i2, int i3) {
@@ -299,6 +298,6 @@ public abstract class t {
                 return;
             }
         }
-        this.f41644e = i3;
+        this.f42476e = i3;
     }
 }

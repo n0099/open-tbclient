@@ -1,7 +1,7 @@
 package com.baidu.android.common.util;
 
 import android.content.Context;
-import b.a.m.l;
+import b.a.m.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,23 +48,23 @@ public class InternalDeviceIdApis {
         }
     }
 
-    public static l a(Context context) {
+    public static g a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             DeviceId.getCUID(context);
-            return DeviceId.a(context).a();
+            return DeviceId.a(context).c();
         }
-        return (l) invokeL.objValue;
+        return (g) invokeL.objValue;
     }
 
     public static String getSelfC270Ids(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            l.a a2 = a(context).a();
-            if (a2 != null) {
-                return a2.y();
+            g.a k = a(context).k();
+            if (k != null) {
+                return k.r();
             }
             return null;
         }
@@ -75,15 +75,15 @@ public class InternalDeviceIdApis {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            l a2 = a(context);
+            g a2 = a(context);
             TargetPackageCuidV270Info targetPackageCuidV270Info = new TargetPackageCuidV270Info();
-            l.a d2 = a2.d(str, "upc");
-            if (d2 != null) {
-                targetPackageCuidV270Info.upcChannelCuid = d2.y();
+            g.a b2 = a2.b(str, "upc");
+            if (b2 != null) {
+                targetPackageCuidV270Info.upcChannelCuid = b2.r();
             }
-            l.a d3 = a2.d(str, "isc");
-            if (d3 != null) {
-                targetPackageCuidV270Info.iscChannelCuid = d3.y();
+            g.a b3 = a2.b(str, "isc");
+            if (b3 != null) {
+                targetPackageCuidV270Info.iscChannelCuid = b3.r();
             }
             return targetPackageCuidV270Info;
         }

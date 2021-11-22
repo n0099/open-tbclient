@@ -14,28 +14,28 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29759a;
+    public int f30628a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f29760b;
+    public boolean f30629b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29761c;
+    public String f30630c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29762d;
+    public String f30631d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29763e;
+    public String f30632e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f29764f;
+    public String f30633f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29765g;
+    public boolean f30634g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f29766h;
+    public String f30635h;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -60,14 +60,14 @@ public class a {
             try {
                 jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("type", this.f29759a);
-                    jSONObject.put("doReport", this.f29760b);
-                    jSONObject.put("name", this.f29761c);
-                    jSONObject.put("code", this.f29762d);
-                    jSONObject.put("msg", this.f29763e);
-                    jSONObject.put("data", this.f29764f);
-                    jSONObject.put("isShowSpecialToast", this.f29765g);
-                    jSONObject.put("specialToast", this.f29766h);
+                    jSONObject.put("type", this.f30628a);
+                    jSONObject.put("doReport", this.f30629b);
+                    jSONObject.put("name", this.f30630c);
+                    jSONObject.put("code", this.f30631d);
+                    jSONObject.put("msg", this.f30632e);
+                    jSONObject.put("data", this.f30633f);
+                    jSONObject.put("isShowSpecialToast", this.f30634g);
+                    jSONObject.put("specialToast", this.f30635h);
                 } catch (JSONException e3) {
                     e2 = e3;
                     e2.printStackTrace();
@@ -86,7 +86,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "type:" + this.f29759a + "name:" + this.f29761c + "code:" + this.f29762d + "msg:" + this.f29763e + "data" + this.f29764f + "doReport : " + this.f29760b;
+            return "type:" + this.f30628a + "name:" + this.f30630c + "code:" + this.f30631d + "msg:" + this.f30632e + "data" + this.f30633f + "doReport : " + this.f30629b;
         }
         return (String) invokeV.objValue;
     }

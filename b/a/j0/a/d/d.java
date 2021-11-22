@@ -33,7 +33,7 @@ public class d extends b.a.j0.a.d.a {
     public AtomicInteger i0;
     public volatile boolean j0;
     public b.a.j0.a.i.a k0;
-    public a.InterfaceC0082a l0;
+    public a.InterfaceC0084a l0;
     public a.b m0;
 
     /* loaded from: classes.dex */
@@ -42,7 +42,7 @@ public class d extends b.a.j0.a.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f3064a;
+        public final /* synthetic */ d f3157a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public class d extends b.a.j0.a.d.a {
                     return;
                 }
             }
-            this.f3064a = dVar;
+            this.f3157a = dVar;
         }
 
         @Override // b.a.j0.a.i.a
         public void playCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3064a.a0("time_end");
+                this.f3157a.a0("time_end");
             }
         }
 
@@ -74,7 +74,7 @@ public class d extends b.a.j0.a.d.a {
         public void playFailure() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f3064a.a0("video_onError");
+                this.f3157a.a0("video_onError");
             }
         }
 
@@ -82,7 +82,7 @@ public class d extends b.a.j0.a.d.a {
         public void playPause() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f3064a.d0();
+                this.f3157a.d0();
             }
         }
 
@@ -90,7 +90,7 @@ public class d extends b.a.j0.a.d.a {
         public void playResume() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f3064a.e0();
+                this.f3157a.e0();
             }
         }
 
@@ -99,11 +99,11 @@ public class d extends b.a.j0.a.d.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 try {
-                    AdVideoView adVideoView = this.f3064a.c0;
+                    AdVideoView adVideoView = this.f3157a.c0;
                     adVideoView.getLayoutParams().width = -1;
                     adVideoView.getLayoutParams().height = -1;
                     d.super.C();
-                    this.f3064a.K();
+                    this.f3157a.K();
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -112,12 +112,12 @@ public class d extends b.a.j0.a.d.a {
     }
 
     /* loaded from: classes.dex */
-    public class b implements a.InterfaceC0082a {
+    public class b implements a.InterfaceC0084a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f3065a;
+        public final /* synthetic */ d f3158a;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -134,27 +134,27 @@ public class d extends b.a.j0.a.d.a {
                     return;
                 }
             }
-            this.f3065a = dVar;
+            this.f3158a = dVar;
         }
 
-        @Override // b.a.j0.a.i.a.InterfaceC0082a
+        @Override // b.a.j0.a.i.a.InterfaceC0084a
         public void onDestroyed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f3065a.c0 != null) {
-                        AdVideoView adVideoView = this.f3065a.c0;
+                    if (this.f3158a.c0 != null) {
+                        AdVideoView adVideoView = this.f3158a.c0;
                         adVideoView.getLayoutParams().width = 1;
                         adVideoView.getLayoutParams().height = 1;
                     }
-                    if (this.f3065a.r != null) {
-                        this.f3065a.r.setVisibility(8);
+                    if (this.f3158a.r != null) {
+                        this.f3158a.r.setVisibility(8);
                     }
-                    if (this.f3065a.f3034g != null) {
-                        this.f3065a.f3034g.setVisibility(8);
+                    if (this.f3158a.f3127g != null) {
+                        this.f3158a.f3127g.setVisibility(8);
                     }
-                    if (this.f3065a.f3035h != null) {
-                        this.f3065a.f3035h.setVisibility(8);
+                    if (this.f3158a.f3128h != null) {
+                        this.f3158a.f3128h.setVisibility(8);
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -169,7 +169,7 @@ public class d extends b.a.j0.a.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f3066a;
+        public final /* synthetic */ d f3159a;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -186,28 +186,28 @@ public class d extends b.a.j0.a.d.a {
                     return;
                 }
             }
-            this.f3066a = dVar;
+            this.f3159a = dVar;
         }
 
         @Override // b.a.j0.a.i.a.b
         public void onPrepared() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3066a.Z();
+                this.f3159a.Z();
             }
         }
     }
 
     /* renamed from: b.a.j0.a.d.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class View$OnClickListenerC0080d implements View.OnClickListener {
+    public class View$OnClickListenerC0082d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f3067e;
+        public final /* synthetic */ d f3160e;
 
-        public View$OnClickListenerC0080d(d dVar) {
+        public View$OnClickListenerC0082d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -222,14 +222,14 @@ public class d extends b.a.j0.a.d.a {
                     return;
                 }
             }
-            this.f3067e = dVar;
+            this.f3160e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f3067e.G();
+                this.f3160e.G();
             }
         }
     }
@@ -240,7 +240,7 @@ public class d extends b.a.j0.a.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f3068e;
+        public final /* synthetic */ d f3161e;
 
         public e(d dVar) {
             Interceptable interceptable = $ic;
@@ -257,14 +257,14 @@ public class d extends b.a.j0.a.d.a {
                     return;
                 }
             }
-            this.f3068e = dVar;
+            this.f3161e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3068e.I();
+                this.f3161e.I();
             }
         }
     }
@@ -310,7 +310,7 @@ public class d extends b.a.j0.a.d.a {
         this.m0 = new c(this);
         this.w = "video";
         try {
-            AdVideoView adVideoView = new AdVideoView(this.f3032e);
+            AdVideoView adVideoView = new AdVideoView(this.f3125e);
             this.c0 = adVideoView;
             if (this.K == 17) {
                 adVideoView.setDisplayMode(7);
@@ -370,7 +370,7 @@ public class d extends b.a.j0.a.d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.a();
-            this.c0.setOnClickListener(new View$OnClickListenerC0080d(this));
+            this.c0.setOnClickListener(new View$OnClickListenerC0082d(this));
             Q();
         }
     }
@@ -394,7 +394,7 @@ public class d extends b.a.j0.a.d.a {
                 try {
                     try {
                         try {
-                            mediaMetadataRetriever.setDataSource(this.f3032e, Uri.parse(c0()));
+                            mediaMetadataRetriever.setDataSource(this.f3125e, Uri.parse(c0()));
                             long j = currentPosition * 1000;
                             r3 = j > 0 ? mediaMetadataRetriever.getFrameAtTime(j, 3) : null;
                             mediaMetadataRetriever.release();

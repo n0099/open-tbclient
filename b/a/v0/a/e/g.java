@@ -26,7 +26,7 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f29110a;
+    public static int f29979a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -35,7 +35,7 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f29111e;
+        public final /* synthetic */ Context f29980e;
 
         public b(Context context) {
             Interceptable interceptable = $ic;
@@ -52,14 +52,14 @@ public final class g {
                     return;
                 }
             }
-            this.f29111e = context;
+            this.f29980e = context;
         }
 
         @Override // b.a.v0.a.f.c
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g.k(this.f29111e);
+                g.k(this.f29980e);
                 if (b.a.v0.a.c.h().i() != null && !b.a.v0.a.c.h().i().equals("")) {
                     b.a.v0.a.f.i.a("BaiDuAB sdk  init success");
                 } else {
@@ -83,7 +83,7 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f29114e;
+        public final /* synthetic */ String f29983e;
 
         /* loaded from: classes6.dex */
         public class a implements b.a<JSONObject> {
@@ -135,7 +135,7 @@ public final class g {
                     return;
                 }
             }
-            this.f29114e = str;
+            this.f29983e = str;
         }
 
         @Override // b.a.v0.a.f.c
@@ -145,7 +145,7 @@ public final class g {
                 return;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put("exids", this.f29114e);
+            hashMap.put("exids", this.f29983e);
             b.a.v0.a.d.b.c(b.a.v0.a.d.b.d("http://absample.baidu.com/appabapp/appapi/updateStatus", hashMap), new a(this));
         }
     }
@@ -270,8 +270,8 @@ public final class g {
     }
 
     public static /* synthetic */ int f() {
-        int i2 = f29110a;
-        f29110a = i2 + 1;
+        int i2 = f29979a;
+        f29979a = i2 + 1;
         return i2;
     }
 
@@ -382,10 +382,10 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f29112a;
+        public final /* synthetic */ long f29981a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f29113b;
+        public final /* synthetic */ Context f29982b;
 
         public c(long j, Context context) {
             Interceptable interceptable = $ic;
@@ -402,8 +402,8 @@ public final class g {
                     return;
                 }
             }
-            this.f29112a = j;
-            this.f29113b = context;
+            this.f29981a = j;
+            this.f29982b = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -415,8 +415,8 @@ public final class g {
             }
             b.a.v0.a.c.h().b(optString);
             b.a.v0.a.f.d.f("token", optString);
-            b.a.v0.a.f.d.g("token_update_time", this.f29112a);
-            b.a.v0.a.f.d.f("lastkey", g.i(this.f29113b));
+            b.a.v0.a.f.d.g("token_update_time", this.f29981a);
+            b.a.v0.a.f.d.f("lastkey", g.i(this.f29982b));
         }
 
         @Override // b.a.v0.a.d.b.a
@@ -473,7 +473,7 @@ public final class g {
         public final void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                while (g.f29110a < 2) {
+                while (g.f29979a < 2) {
                     synchronized (this) {
                         g.f();
                     }

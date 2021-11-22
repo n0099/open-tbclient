@@ -16,31 +16,31 @@ public class p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f22882a;
+    public String f24403a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22883b;
+    public String f24404b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f22884c;
+    public String f24405c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f22885d;
+    public String f24406d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22886e;
+    public String f24407e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22887f;
+    public String f24408f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22888g;
+    public String f24409g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f22889h;
+    public String f24410h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f22890i;
+    public String f24411i;
     public int j;
     public String k;
     public String l;
@@ -173,34 +173,34 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, statisticItem)) == null) {
             if (statisticItem != null) {
-                if (!StringUtils.isNull(this.f22882a)) {
-                    statisticItem.param("obj_locate", this.f22882a);
-                    statisticItem.param("page_type", a.a(this.f22882a));
+                if (!StringUtils.isNull(this.f24403a)) {
+                    statisticItem.param("obj_locate", this.f24403a);
+                    statisticItem.param("page_type", a.a(this.f24403a));
                 }
-                if (!StringUtils.isNull(this.f22884c)) {
-                    statisticItem.param("tid", this.f22884c);
+                if (!StringUtils.isNull(this.f24405c)) {
+                    statisticItem.param("tid", this.f24405c);
                 }
-                if (!StringUtils.isNull(this.f22885d)) {
-                    statisticItem.param("fid", this.f22885d);
+                if (!StringUtils.isNull(this.f24406d)) {
+                    statisticItem.param("fid", this.f24406d);
                 }
-                if (!StringUtils.isNull(this.f22886e)) {
-                    statisticItem.param("uid", this.f22886e);
+                if (!StringUtils.isNull(this.f24407e)) {
+                    statisticItem.param("uid", this.f24407e);
                 }
-                if (!StringUtils.isNull(this.f22887f)) {
-                    statisticItem.param("obj_source", this.f22887f);
+                if (!StringUtils.isNull(this.f24408f)) {
+                    statisticItem.param("obj_source", this.f24408f);
                 } else {
                     statisticItem.param("obj_source", 0);
                 }
-                if (!StringUtils.isNull(this.f22888g)) {
-                    statisticItem.param("obj_param1", this.f22888g);
+                if (!StringUtils.isNull(this.f24409g)) {
+                    statisticItem.param("obj_param1", this.f24409g);
                 } else {
                     statisticItem.param("obj_param1", 0);
                 }
-                if (!StringUtils.isNull(this.f22889h)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.f22889h);
+                if (!StringUtils.isNull(this.f24410h)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.f24410h);
                 }
-                if (!StringUtils.isNull(this.f22890i)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.f22890i);
+                if (!StringUtils.isNull(this.f24411i)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.f24411i);
                 }
                 int i2 = this.j;
                 if (i2 > 0) {
@@ -248,15 +248,15 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             p pVar = new p();
-            pVar.f22882a = this.f22882a;
-            pVar.f22883b = this.f22883b;
-            pVar.f22884c = this.f22884c;
-            pVar.f22885d = this.f22885d;
-            pVar.f22886e = this.f22886e;
-            pVar.f22887f = this.f22887f;
-            pVar.f22888g = this.f22888g;
-            pVar.f22889h = this.f22889h;
-            pVar.f22890i = this.f22890i;
+            pVar.f24403a = this.f24403a;
+            pVar.f24404b = this.f24404b;
+            pVar.f24405c = this.f24405c;
+            pVar.f24406d = this.f24406d;
+            pVar.f24407e = this.f24407e;
+            pVar.f24408f = this.f24408f;
+            pVar.f24409g = this.f24409g;
+            pVar.f24410h = this.f24410h;
+            pVar.f24411i = this.f24411i;
             pVar.k = this.k;
             pVar.l = this.l;
             pVar.m = this.m;

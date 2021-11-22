@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -58,7 +58,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NativeEmotionManagerActivity f51802a;
+        public final /* synthetic */ NativeEmotionManagerActivity f52715a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(NativeEmotionManagerActivity nativeEmotionManagerActivity, FragmentManager fragmentManager) {
@@ -78,7 +78,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
                     return;
                 }
             }
-            this.f51802a = nativeEmotionManagerActivity;
+            this.f52715a = nativeEmotionManagerActivity;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -86,10 +86,10 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (ListUtils.isEmpty(this.f51802a.fragments)) {
+                if (ListUtils.isEmpty(this.f52715a.fragments)) {
                     return 0;
                 }
-                return this.f51802a.fragments.size();
+                return this.f52715a.fragments.size();
             }
             return invokeV.intValue;
         }
@@ -99,10 +99,10 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (ListUtils.isEmpty(this.f51802a.fragments) || this.f51802a.fragments.size() <= i2) {
+                if (ListUtils.isEmpty(this.f52715a.fragments) || this.f52715a.fragments.size() <= i2) {
                     return null;
                 }
-                return (Fragment) this.f51802a.fragments.get(i2);
+                return (Fragment) this.f52715a.fragments.get(i2);
             }
             return (Fragment) invokeI.objValue;
         }
@@ -111,7 +111,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         public CharSequence getPageTitle(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.f51802a.mTitles) ? "" : (CharSequence) this.f51802a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.f52715a.mTitles) ? "" : (CharSequence) this.f52715a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
         }
     }
 
@@ -121,7 +121,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NativeEmotionManagerActivity f51803e;
+        public final /* synthetic */ NativeEmotionManagerActivity f52716e;
 
         public b(NativeEmotionManagerActivity nativeEmotionManagerActivity) {
             Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
                     return;
                 }
             }
-            this.f51803e = nativeEmotionManagerActivity;
+            this.f52716e = nativeEmotionManagerActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -146,11 +146,11 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 super.onPageSelected(i2);
-                if (this.f51803e.mManager == null) {
+                if (this.f52716e.mManager == null) {
                     return;
                 }
-                this.f51803e.fragmentPostion = i2;
-                this.f51803e.ctrlIfShowEditButton();
+                this.f52716e.fragmentPostion = i2;
+                this.f52716e.ctrlIfShowEditButton();
             }
         }
     }

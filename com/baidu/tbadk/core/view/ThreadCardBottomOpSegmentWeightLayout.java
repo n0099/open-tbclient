@@ -27,7 +27,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ThreadCardBottomOpSegmentWeightLayout f45395a;
+        public final /* synthetic */ ThreadCardBottomOpSegmentWeightLayout f46245a;
 
         public a(ThreadCardBottomOpSegmentWeightLayout threadCardBottomOpSegmentWeightLayout) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
                     return;
                 }
             }
-            this.f45395a = threadCardBottomOpSegmentWeightLayout;
+            this.f46245a = threadCardBottomOpSegmentWeightLayout;
         }
 
         @Override // com.baidu.tbadk.core.view.AgreeView.d
         public void a(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                this.f45395a.w(z);
+                this.f46245a.w(z);
             }
         }
     }

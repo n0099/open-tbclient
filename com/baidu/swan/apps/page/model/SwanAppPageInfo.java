@@ -21,8 +21,10 @@ public class SwanAppPageInfo implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
     public String appDesc;
     public String appName;
+    public String fragmentId;
     public String iconUrl;
     public String imageUrl;
+    public String scheme;
     public String title;
     public String type;
     public String url;
@@ -114,6 +116,8 @@ public class SwanAppPageInfo implements Parcelable {
         this.appName = jSONObject.optString("appName");
         this.iconUrl = jSONObject.optString("iconUrl");
         this.appDesc = jSONObject.optString("appDesc");
+        this.scheme = jSONObject.optString("scheme");
+        this.fragmentId = jSONObject.optString("pageId");
     }
 
     @Override // android.os.Parcelable
@@ -130,7 +134,7 @@ public class SwanAppPageInfo implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SwanAppPageInfo{appName='" + this.appName + ExtendedMessageFormat.QUOTE + ", iconUrl='" + this.iconUrl + ExtendedMessageFormat.QUOTE + ", appDesc='" + this.appDesc + ExtendedMessageFormat.QUOTE + ", title='" + this.title + ExtendedMessageFormat.QUOTE + ", imageUrl='" + this.imageUrl + ExtendedMessageFormat.QUOTE + ", type='" + this.type + ExtendedMessageFormat.QUOTE + ", url='" + this.url + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SwanAppPageInfo{appName='" + this.appName + ExtendedMessageFormat.QUOTE + ", iconUrl='" + this.iconUrl + ExtendedMessageFormat.QUOTE + ", appDesc='" + this.appDesc + ExtendedMessageFormat.QUOTE + ", title='" + this.title + ExtendedMessageFormat.QUOTE + ", imageUrl='" + this.imageUrl + ExtendedMessageFormat.QUOTE + ", type='" + this.type + ExtendedMessageFormat.QUOTE + ", url='" + this.url + ExtendedMessageFormat.QUOTE + ", scheme='" + this.scheme + ExtendedMessageFormat.QUOTE + ", fragmentId='" + this.fragmentId + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -146,6 +150,8 @@ public class SwanAppPageInfo implements Parcelable {
             parcel.writeString(this.imageUrl);
             parcel.writeString(this.type);
             parcel.writeString(this.url);
+            parcel.writeString(this.scheme);
+            parcel.writeString(this.fragmentId);
         }
     }
 
@@ -196,5 +202,7 @@ public class SwanAppPageInfo implements Parcelable {
         this.imageUrl = parcel.readString();
         this.type = parcel.readString();
         this.url = parcel.readString();
+        this.scheme = parcel.readString();
+        this.fragmentId = parcel.readString();
     }
 }

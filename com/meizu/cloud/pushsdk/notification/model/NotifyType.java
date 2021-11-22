@@ -47,7 +47,7 @@ public class NotifyType implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                b.l.a.a.a.b("notify_type", "parse json string error " + e2.getMessage());
+                b.j.a.a.a.b("notify_type", "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -79,7 +79,7 @@ public class NotifyType implements Parcelable {
             return notifyType;
         }
         str = "no such tag notify_type";
-        b.l.a.a.a.b("notify_type", str);
+        b.j.a.a.a.b("notify_type", str);
         return notifyType;
     }
 

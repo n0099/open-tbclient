@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -26,10 +26,10 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f48587e;
+    public LinearLayout f49451e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f48588f;
+    public b f49452f;
 
     /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
@@ -37,13 +37,13 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.a1.a f48589e;
+        public final /* synthetic */ b.a.r0.a1.a f49453e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f48590f;
+        public final /* synthetic */ int f49454f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ GameRankHorizontalLayout f48591g;
+        public final /* synthetic */ GameRankHorizontalLayout f49455g;
 
         public a(GameRankHorizontalLayout gameRankHorizontalLayout, b.a.r0.a1.a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -60,18 +60,18 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f48591g = gameRankHorizontalLayout;
-            this.f48589e = aVar;
-            this.f48590f = i2;
+            this.f49455g = gameRankHorizontalLayout;
+            this.f49453e = aVar;
+            this.f49454f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48591g.f48588f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f49455g.f49452f == null) {
                 return;
             }
-            this.f48591g.f48588f.a(this.f48589e, this.f48590f);
+            this.f49455g.f49452f.a(this.f49453e, this.f49454f);
             if (b.a.q0.s.e0.b.j().k("game_rank_list_show_times", 0) != 0) {
                 b.a.q0.s.e0.b.j().v("game_rank_list_show_times", 0);
             }
@@ -110,7 +110,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
             setFillViewport(true);
             setHorizontalScrollBarEnabled(false);
             LinearLayout linearLayout = new LinearLayout(context);
-            this.f48587e = linearLayout;
+            this.f49451e = linearLayout;
             addView(linearLayout, -1, -1);
         }
     }
@@ -153,7 +153,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
     public void setData(b.a.r0.a1.b bVar) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (linearLayout = this.f48587e) == null || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (linearLayout = this.f49451e) == null || bVar == null) {
             return;
         }
         linearLayout.removeAllViews();
@@ -174,14 +174,14 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 layoutParams.rightMargin = 0;
             }
             c2.setLayoutParams(layoutParams);
-            this.f48587e.addView(c2);
+            this.f49451e.addView(c2);
         }
     }
 
     public void setOnCardClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f48588f = bVar;
+            this.f49452f = bVar;
         }
     }
 

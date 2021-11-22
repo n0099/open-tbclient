@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.LBSPayResult;
 import com.baidu.android.lbspay.channelpay.IChannelPay;
@@ -49,7 +48,7 @@ public class LBSPayAli implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSPayAli f34891a;
+        public static LBSPayAli f35720a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -65,7 +64,7 @@ public class LBSPayAli implements NoProguard {
                     return;
                 }
             }
-            f34891a = new LBSPayAli(null);
+            f35720a = new LBSPayAli(null);
         }
     }
 
@@ -76,7 +75,7 @@ public class LBSPayAli implements NoProguard {
     public static LBSPayAli getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f34891a : (LBSPayAli) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f35720a : (LBSPayAli) invokeV.objValue;
     }
 
     private void handleError() {
@@ -150,7 +149,7 @@ public class LBSPayAli implements NoProguard {
             if (ALI_AUTH_PAY.equals(this.mServiceType)) {
                 if (this.mChannelPay != null) {
                     if (AUTHPAY_SUCCESS_HOST.equals(host)) {
-                        if (ExifInterface.GPS_DIRECTION_TRUE.equals(data.getQueryParameter("is_success")) && "TRADE_SUCCESS".equals(data.getQueryParameter("trade_status"))) {
+                        if ("T".equals(data.getQueryParameter("is_success")) && "TRADE_SUCCESS".equals(data.getQueryParameter("trade_status"))) {
                             this.mChannelPay.paySuccess(data.getQuery());
                         } else {
                             this.mChannelPay.payError(Result.RESULT_FAILED, EventAlias.PayEventAlias.PAY_FAIL);
@@ -166,7 +165,7 @@ public class LBSPayAli implements NoProguard {
                 }
             } else if (ALI_AUTH_SIGN.equals(this.mServiceType)) {
                 if (AUTHPAY_SUCCESS_HOST.equals(host)) {
-                    if (ExifInterface.GPS_DIRECTION_TRUE.equals(data.getQueryParameter("is_success"))) {
+                    if ("T".equals(data.getQueryParameter("is_success"))) {
                         LBSPayResult.payResult(null, 0, data.getQuery());
                     } else {
                         LBSPayResult.payResult(null, 2, data.getQuery());

@@ -8,7 +8,7 @@ import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
@@ -32,31 +32,31 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdListView f20061a;
+    public BdListView f21583a;
 
     /* renamed from: b  reason: collision with root package name */
-    public OfficialBarTipListAdapter f20062b;
+    public OfficialBarTipListAdapter f21584b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f20063c;
+    public NavigationBar f21585c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoDataView f20064d;
+    public NoDataView f21586d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f20065e;
+    public NoNetworkView f21587e;
 
     /* renamed from: f  reason: collision with root package name */
-    public OfficialBarTipActivity f20066f;
+    public OfficialBarTipActivity f21588f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f20067g;
+    public ViewGroup f21589g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f20068h;
+    public boolean f21590h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f20069i;
+    public RelativeLayout f21591i;
     public TextView j;
     public boolean k;
     public TextView l;
@@ -70,7 +70,7 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarTipActivity f20070e;
+        public final /* synthetic */ OfficialBarTipActivity f21592e;
 
         public a(e eVar, OfficialBarTipActivity officialBarTipActivity) {
             Interceptable interceptable = $ic;
@@ -87,14 +87,14 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
                     return;
                 }
             }
-            this.f20070e = officialBarTipActivity;
+            this.f21592e = officialBarTipActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20070e.finish();
+                this.f21592e.finish();
             }
         }
     }
@@ -105,10 +105,10 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarTipActivity f20071e;
+        public final /* synthetic */ OfficialBarTipActivity f21593e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f20072f;
+        public final /* synthetic */ e f21594f;
 
         public b(e eVar, OfficialBarTipActivity officialBarTipActivity) {
             Interceptable interceptable = $ic;
@@ -125,22 +125,22 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
                     return;
                 }
             }
-            this.f20072f = eVar;
-            this.f20071e = officialBarTipActivity;
+            this.f21594f = eVar;
+            this.f21593e = officialBarTipActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!this.f20072f.f20068h) {
-                    if (this.f20072f.f20066f.hasNoRead()) {
-                        this.f20072f.n.setVisibility(0);
+                if (!this.f21594f.f21590h) {
+                    if (this.f21594f.f21588f.hasNoRead()) {
+                        this.f21594f.n.setVisibility(0);
                     }
-                    this.f20072f.n(this.f20071e, true);
+                    this.f21594f.n(this.f21593e, true);
                     return;
                 }
-                this.f20072f.n(this.f20071e, false);
+                this.f21594f.n(this.f21593e, false);
             }
         }
     }
@@ -151,10 +151,10 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarTipActivity f20073e;
+        public final /* synthetic */ OfficialBarTipActivity f21595e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f20074f;
+        public final /* synthetic */ e f21596f;
 
         public c(e eVar, OfficialBarTipActivity officialBarTipActivity) {
             Interceptable interceptable = $ic;
@@ -171,16 +171,16 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
                     return;
                 }
             }
-            this.f20074f = eVar;
-            this.f20073e = officialBarTipActivity;
+            this.f21596f = eVar;
+            this.f21595e = officialBarTipActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20073e.deleteSelectedDatas();
-                this.f20074f.n(this.f20073e, false);
+                this.f21595e.deleteSelectedDatas();
+                this.f21596f.n(this.f21595e, false);
             }
         }
     }
@@ -191,7 +191,7 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20075e;
+        public final /* synthetic */ e f21597e;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -208,17 +208,17 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
                     return;
                 }
             }
-            this.f20075e = eVar;
+            this.f21597e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!this.f20075e.k) {
-                    this.f20075e.p(true);
+                if (!this.f21597e.k) {
+                    this.f21597e.p(true);
                 } else {
-                    this.f20075e.p(false);
+                    this.f21597e.p(false);
                 }
             }
         }
@@ -226,17 +226,17 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
 
     /* renamed from: b.a.r0.l1.f.j.e$e  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC0995e implements View.OnClickListener {
+    public class View$OnClickListenerC1063e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarTipActivity f20076e;
+        public final /* synthetic */ OfficialBarTipActivity f21598e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f20077f;
+        public final /* synthetic */ e f21599f;
 
-        public View$OnClickListenerC0995e(e eVar, OfficialBarTipActivity officialBarTipActivity) {
+        public View$OnClickListenerC1063e(e eVar, OfficialBarTipActivity officialBarTipActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -251,16 +251,16 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
                     return;
                 }
             }
-            this.f20077f = eVar;
-            this.f20076e = officialBarTipActivity;
+            this.f21599f = eVar;
+            this.f21598e = officialBarTipActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20077f.f20066f.setAllRead();
-                this.f20077f.n(this.f20076e, false);
+                this.f21599f.f21588f.setAllRead();
+                this.f21599f.n(this.f21598e, false);
             }
         }
     }
@@ -283,11 +283,11 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
                 return;
             }
         }
-        this.f20068h = false;
-        this.f20069i = null;
+        this.f21590h = false;
+        this.f21591i = null;
         this.k = false;
         officialBarTipActivity.setContentView(R.layout.officialbar_msg_activity);
-        this.f20066f = officialBarTipActivity;
+        this.f21588f = officialBarTipActivity;
         k(officialBarTipActivity);
         l(officialBarTipActivity);
         j(officialBarTipActivity);
@@ -296,28 +296,28 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
     public OfficialBarTipListAdapter h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20062b : (OfficialBarTipListAdapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21584b : (OfficialBarTipListAdapter) invokeV.objValue;
     }
 
     public BdListView i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20061a : (BdListView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21583a : (BdListView) invokeV.objValue;
     }
 
     public final void j(OfficialBarTipActivity officialBarTipActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, officialBarTipActivity) == null) {
             RelativeLayout relativeLayout = (RelativeLayout) officialBarTipActivity.findViewById(R.id.tip_footer);
-            this.f20069i = relativeLayout;
+            this.f21591i = relativeLayout;
             TextView textView = (TextView) relativeLayout.findViewById(R.id.delete_txt);
             this.l = textView;
             textView.setOnClickListener(new c(this, officialBarTipActivity));
-            this.j = (TextView) this.f20069i.findViewById(R.id.select_all_txt);
-            int g2 = l.g(this.f20066f.getPageContext().getPageActivity(), R.dimen.ds40);
+            this.j = (TextView) this.f21591i.findViewById(R.id.select_all_txt);
+            int g2 = l.g(this.f21588f.getPageContext().getPageActivity(), R.dimen.ds40);
             Drawable drawable = SkinManager.getDrawable(R.drawable.btn_bgb_choice_n);
             drawable.setBounds(0, 0, g2, g2);
-            this.j.setText(this.f20066f.getPageContext().getString(R.string.select_all));
+            this.j.setText(this.f21588f.getPageContext().getString(R.string.select_all));
             this.j.setCompoundDrawables(drawable, null, null, null);
             this.j.setOnClickListener(new d(this));
         }
@@ -327,14 +327,14 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, officialBarTipActivity) == null) {
             NavigationBar navigationBar = (NavigationBar) officialBarTipActivity.findViewById(R.id.view_navigation_bar);
-            this.f20063c = navigationBar;
+            this.f21585c = navigationBar;
             navigationBar.setCenterTextTitle(officialBarTipActivity.getPageContext().getString(R.string.subscribe_forum_list));
-            this.f20063c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this, officialBarTipActivity));
-            this.f20063c.showBottomLine();
+            this.f21585c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this, officialBarTipActivity));
+            this.f21585c.showBottomLine();
             ViewGroup viewGroup = (ViewGroup) officialBarTipActivity.findViewById(R.id.root_view);
-            this.f20067g = viewGroup;
-            this.f20065e = (NoNetworkView) viewGroup.findViewById(R.id.no_network_view);
-            View inflate = LayoutInflater.from(this.f20066f.getBaseContext()).inflate(R.layout.im_ba_btn, (ViewGroup) null);
+            this.f21589g = viewGroup;
+            this.f21587e = (NoNetworkView) viewGroup.findViewById(R.id.no_network_view);
+            View inflate = LayoutInflater.from(this.f21588f.getBaseContext()).inflate(R.layout.im_ba_btn, (ViewGroup) null);
             this.m = inflate;
             inflate.setVisibility(8);
             TextView textView = (TextView) this.m.findViewById(R.id.all_read);
@@ -343,7 +343,7 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
             TextView textView2 = (TextView) this.m.findViewById(R.id.edit);
             this.o = textView2;
             textView2.setVisibility(0);
-            this.m = this.f20063c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.m, (View.OnClickListener) null);
+            this.m = this.f21585c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.m, (View.OnClickListener) null);
             this.o.setOnClickListener(new b(this, officialBarTipActivity));
         }
     }
@@ -351,18 +351,18 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
     public final void l(OfficialBarTipActivity officialBarTipActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, officialBarTipActivity) == null) {
-            this.f20061a = (BdListView) officialBarTipActivity.findViewById(R.id.msg_list);
+            this.f21583a = (BdListView) officialBarTipActivity.findViewById(R.id.msg_list);
             OfficialBarTipListAdapter officialBarTipListAdapter = new OfficialBarTipListAdapter(officialBarTipActivity);
-            this.f20062b = officialBarTipListAdapter;
-            this.f20061a.setAdapter((ListAdapter) officialBarTipListAdapter);
-            this.f20064d = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.f20067g, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.official_message_activity_no_data), null);
+            this.f21584b = officialBarTipListAdapter;
+            this.f21583a.setAdapter((ListAdapter) officialBarTipListAdapter);
+            this.f21586d = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.f21589g, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.official_message_activity_no_data), null);
         }
     }
 
     public void m(List<ImMessageCenterShowItemData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f20062b.n(list);
+            this.f21584b.n(list);
             if (list == null || list.size() > 0) {
                 return;
             }
@@ -374,25 +374,25 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048582, this, officialBarTipActivity, z) == null) {
             if (z) {
-                this.f20069i.setVisibility(0);
-                this.f20062b.o(true);
-                this.f20062b.notifyDataSetChanged();
+                this.f21591i.setVisibility(0);
+                this.f21584b.o(true);
+                this.f21584b.notifyDataSetChanged();
                 if (officialBarTipActivity.hasSelectedData()) {
                     o(true);
                 } else {
                     o(false);
                 }
                 this.o.setText(officialBarTipActivity.getPageContext().getString(R.string.cancel));
-                this.n.setOnClickListener(new View$OnClickListenerC0995e(this, officialBarTipActivity));
-                this.f20068h = true;
+                this.n.setOnClickListener(new View$OnClickListenerC1063e(this, officialBarTipActivity));
+                this.f21590h = true;
                 return;
             }
-            this.f20069i.setVisibility(8);
+            this.f21591i.setVisibility(8);
             this.n.setVisibility(8);
-            this.f20062b.o(false);
-            this.f20062b.notifyDataSetChanged();
+            this.f21584b.o(false);
+            this.f21584b.notifyDataSetChanged();
             this.o.setText(officialBarTipActivity.getPageContext().getString(R.string.edit));
-            this.f20068h = false;
+            this.f21590h = false;
         }
     }
 
@@ -412,44 +412,44 @@ public class e extends b.a.e.a.d<OfficialBarTipActivity> {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f20066f.getLayoutMode().k(i2 == 1);
-            this.f20066f.getLayoutMode().j(this.f20067g);
-            this.f20063c.onChangeSkinType(this.f20066f.getPageContext(), i2);
+            this.f21588f.getLayoutMode().k(i2 == 1);
+            this.f21588f.getLayoutMode().j(this.f21589g);
+            this.f21585c.onChangeSkinType(this.f21588f.getPageContext(), i2);
             SkinManager.setNavbarTitleColor(this.o, R.color.navi_op_text, R.color.navi_op_text_skin);
             SkinManager.setNavbarTitleColor(this.n, R.color.navi_op_text, R.color.navi_op_text_skin);
-            NoDataView noDataView = this.f20064d;
+            NoDataView noDataView = this.f21586d;
             if (noDataView != null) {
-                noDataView.onChangeSkinType(this.f20066f.getPageContext(), i2);
+                noDataView.onChangeSkinType(this.f21588f.getPageContext(), i2);
             }
-            NoNetworkView noNetworkView = this.f20065e;
+            NoNetworkView noNetworkView = this.f21587e;
             if (noNetworkView != null) {
-                noNetworkView.onChangeSkinType(this.f20066f.getPageContext(), i2);
+                noNetworkView.onChangeSkinType(this.f21588f.getPageContext(), i2);
             }
-            this.f20062b.notifyDataSetChanged();
+            this.f21584b.notifyDataSetChanged();
         }
     }
 
     public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            int g2 = l.g(this.f20066f.getPageContext().getPageActivity(), R.dimen.ds40);
+            int g2 = l.g(this.f21588f.getPageContext().getPageActivity(), R.dimen.ds40);
             if (z) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.btn_bgb_choice_s);
                 drawable.setBounds(0, 0, g2, g2);
-                this.j.setText(this.f20066f.getPageContext().getString(R.string.cancel_select_all));
+                this.j.setText(this.f21588f.getPageContext().getString(R.string.cancel_select_all));
                 this.j.setCompoundDrawables(drawable, null, null, null);
                 o(true);
                 this.k = true;
-                this.f20066f.updateEditStatus(true);
+                this.f21588f.updateEditStatus(true);
                 return;
             }
             Drawable drawable2 = SkinManager.getDrawable(R.drawable.btn_bgb_choice_n);
             drawable2.setBounds(0, 0, g2, g2);
-            this.j.setText(this.f20066f.getPageContext().getString(R.string.select_all));
+            this.j.setText(this.f21588f.getPageContext().getString(R.string.select_all));
             this.j.setCompoundDrawables(drawable2, null, null, null);
             o(false);
             this.k = false;
-            this.f20066f.updateEditStatus(false);
+            this.f21588f.updateEditStatus(false);
         }
     }
 }

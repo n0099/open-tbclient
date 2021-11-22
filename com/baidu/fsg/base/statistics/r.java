@@ -17,7 +17,7 @@ public class r {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37541a = "logsender";
+    public static final String f38371a = "logsender";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */

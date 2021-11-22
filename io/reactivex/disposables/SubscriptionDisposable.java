@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.NonNull;
 import org.reactivestreams.Subscription;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class SubscriptionDisposable extends ReferenceDisposable<Subscription> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -707001650852963139L;

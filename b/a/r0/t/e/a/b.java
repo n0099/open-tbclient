@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.m;
+import b.a.e.f.p.m;
 import b.a.r0.l1.h.g;
 import b.a.r0.l1.h.h;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,7 +23,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f23564a;
+    public static b f25081a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public b() {
@@ -46,10 +46,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (b.class) {
-                if (f23564a == null) {
-                    f23564a = new b();
+                if (f25081a == null) {
+                    f25081a = new b();
                 }
-                bVar = f23564a;
+                bVar = f25081a;
             }
             return bVar;
         }

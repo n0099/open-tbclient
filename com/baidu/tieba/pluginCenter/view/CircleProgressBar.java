@@ -17,19 +17,19 @@ public class CircleProgressBar extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f53352e;
+    public Paint f54271e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f53353f;
+    public Paint f54272f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f53354g;
+    public float f54273g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f53355h;
+    public int f54274h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RectF f53356i;
+    public RectF f54275i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CircleProgressBar(Context context) {
@@ -49,51 +49,51 @@ public class CircleProgressBar extends View {
                 return;
             }
         }
-        this.f53354g = 5.0f;
+        this.f54273g = 5.0f;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f53356i = new RectF(0.0f, 0.0f, 0.0f, 0.0f);
+            this.f54275i = new RectF(0.0f, 0.0f, 0.0f, 0.0f);
             Paint paint = new Paint();
-            this.f53352e = paint;
+            this.f54271e = paint;
             paint.setAntiAlias(true);
-            this.f53352e.setDither(true);
-            this.f53352e.setStyle(Paint.Style.STROKE);
-            this.f53352e.setStrokeCap(Paint.Cap.ROUND);
-            this.f53352e.setStrokeWidth(this.f53354g);
+            this.f54271e.setDither(true);
+            this.f54271e.setStyle(Paint.Style.STROKE);
+            this.f54271e.setStrokeCap(Paint.Cap.ROUND);
+            this.f54271e.setStrokeWidth(this.f54273g);
             Paint paint2 = new Paint();
-            this.f53353f = paint2;
+            this.f54272f = paint2;
             paint2.setAntiAlias(true);
-            this.f53353f.setDither(true);
-            this.f53353f.setStyle(Paint.Style.STROKE);
-            this.f53353f.setStrokeCap(Paint.Cap.ROUND);
-            this.f53353f.setStrokeWidth(this.f53354g);
+            this.f54272f.setDither(true);
+            this.f54272f.setStyle(Paint.Style.STROKE);
+            this.f54272f.setStrokeCap(Paint.Cap.ROUND);
+            this.f54272f.setStrokeWidth(this.f54273g);
         }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f53355h < 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f54274h < 0) {
             return;
         }
-        RectF rectF = this.f53356i;
-        float f2 = this.f53354g;
+        RectF rectF = this.f54275i;
+        float f2 = this.f54273g;
         rectF.left = f2;
         rectF.top = f2;
-        rectF.right = getWidth() - this.f53354g;
-        this.f53356i.bottom = getHeight() - this.f53354g;
-        canvas.drawArc(this.f53356i, 0.0f, 360.0f, false, this.f53353f);
-        canvas.drawArc(this.f53356i, -90.0f, (this.f53355h / 100) * 360.0f, false, this.f53352e);
+        rectF.right = getWidth() - this.f54273g;
+        this.f54275i.bottom = getHeight() - this.f54273g;
+        canvas.drawArc(this.f54275i, 0.0f, 360.0f, false, this.f54272f);
+        canvas.drawArc(this.f54275i, -90.0f, (this.f54274h / 100) * 360.0f, false, this.f54271e);
     }
 
     public void setCircleBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f53353f.setColor(i2);
+            this.f54272f.setColor(i2);
             postInvalidate();
         }
     }
@@ -101,7 +101,7 @@ public class CircleProgressBar extends View {
     public void setCircleForegroundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f53352e.setColor(i2);
+            this.f54271e.setColor(i2);
             postInvalidate();
         }
     }
@@ -109,7 +109,7 @@ public class CircleProgressBar extends View {
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f53355h = i2;
+            this.f54274h = i2;
             postInvalidate();
         }
     }
@@ -118,9 +118,9 @@ public class CircleProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             float f2 = i2;
-            this.f53354g = f2;
-            this.f53353f.setStrokeWidth(f2);
-            this.f53352e.setStrokeWidth(f2);
+            this.f54273g = f2;
+            this.f54272f.setStrokeWidth(f2);
+            this.f54271e.setStrokeWidth(f2);
             postInvalidate();
         }
     }
@@ -144,7 +144,7 @@ public class CircleProgressBar extends View {
                 return;
             }
         }
-        this.f53354g = 5.0f;
+        this.f54273g = 5.0f;
         a();
     }
 }

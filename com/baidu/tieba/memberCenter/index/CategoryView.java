@@ -25,19 +25,19 @@ public class CategoryView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f51458e;
+    public Context f52370e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f51459f;
+    public View f52371f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51460g;
+    public TextView f52372g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f51461h;
+    public TextView f52373h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f51462i;
+    public ImageView f52374i;
     public d j;
     public View.OnClickListener k;
 
@@ -47,7 +47,7 @@ public class CategoryView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CategoryView f51463e;
+        public final /* synthetic */ CategoryView f52375e;
 
         public a(CategoryView categoryView) {
             Interceptable interceptable = $ic;
@@ -64,16 +64,16 @@ public class CategoryView extends LinearLayout {
                     return;
                 }
             }
-            this.f51463e = categoryView;
+            this.f52375e = categoryView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f51463e.j == null || StringUtils.isNull(this.f51463e.j.d()) || StringUtils.isNull(this.f51463e.j.c())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f52375e.j == null || StringUtils.isNull(this.f52375e.j.d()) || StringUtils.isNull(this.f52375e.j.c())) {
                 return;
             }
-            int b2 = this.f51463e.j.b();
+            int b2 = this.f52375e.j.b();
             if (b2 == 1) {
                 TiebaStatic.log("c10441");
             } else if (b2 == 2) {
@@ -81,7 +81,7 @@ public class CategoryView extends LinearLayout {
             } else if (b2 == 3) {
                 TiebaStatic.log("c10449");
             }
-            MemberCenterStatic.a((TbPageContext) j.a(this.f51463e.f51458e), new String[]{this.f51463e.j.d()});
+            MemberCenterStatic.a((TbPageContext) j.a(this.f52375e.f52370e), new String[]{this.f52375e.j.d()});
         }
     }
 
@@ -104,20 +104,20 @@ public class CategoryView extends LinearLayout {
             }
         }
         this.k = new a(this);
-        this.f51458e = context;
+        this.f52370e = context;
         c();
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f51458e).inflate(R.layout.index_category, this);
-            this.f51459f = inflate;
-            this.f51460g = (TextView) inflate.findViewById(R.id.class_name);
-            this.f51461h = (TextView) this.f51459f.findViewById(R.id.sprend_name);
-            this.f51462i = (ImageView) this.f51459f.findViewById(R.id.spread_icon);
-            this.f51459f.setOnClickListener(this.k);
-            this.f51462i.setOnClickListener(this.k);
+            View inflate = LayoutInflater.from(this.f52370e).inflate(R.layout.index_category, this);
+            this.f52371f = inflate;
+            this.f52372g = (TextView) inflate.findViewById(R.id.class_name);
+            this.f52373h = (TextView) this.f52371f.findViewById(R.id.sprend_name);
+            this.f52374i = (ImageView) this.f52371f.findViewById(R.id.spread_icon);
+            this.f52371f.setOnClickListener(this.k);
+            this.f52374i.setOnClickListener(this.k);
         }
     }
 
@@ -127,25 +127,25 @@ public class CategoryView extends LinearLayout {
             return;
         }
         this.j = dVar;
-        this.f51460g.setText(dVar.a());
+        this.f52372g.setText(dVar.a());
         if (StringUtils.isNull(dVar.d())) {
-            this.f51462i.setVisibility(8);
-            this.f51461h.setVisibility(8);
+            this.f52374i.setVisibility(8);
+            this.f52373h.setVisibility(8);
             return;
         }
         if (StringUtils.isNull(dVar.c())) {
-            this.f51461h.setVisibility(8);
+            this.f52373h.setVisibility(8);
         } else {
-            this.f51461h.setVisibility(0);
-            this.f51461h.setText(dVar.c());
+            this.f52373h.setVisibility(0);
+            this.f52373h.setText(dVar.c());
         }
-        this.f51462i.setVisibility(0);
+        this.f52374i.setVisibility(0);
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b.a.q0.w0.a.a((TbPageContext) j.a(this.f51458e), this.f51459f);
+            b.a.q0.v0.a.a((TbPageContext) j.a(this.f52370e), this.f52371f);
         }
     }
 
@@ -169,7 +169,7 @@ public class CategoryView extends LinearLayout {
             }
         }
         this.k = new a(this);
-        this.f51458e = context;
+        this.f52370e = context;
         c();
     }
 
@@ -193,7 +193,7 @@ public class CategoryView extends LinearLayout {
             }
         }
         this.k = new a(this);
-        this.f51458e = context;
+        this.f52370e = context;
         c();
     }
 }

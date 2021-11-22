@@ -20,13 +20,13 @@ public class PublishProgressBar extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45373e;
+    public int f46223e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f45374f;
+    public Paint f46224f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f45375g;
+    public Rect f46225g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PublishProgressBar(Context context, AttributeSet attributeSet) {
@@ -47,15 +47,15 @@ public class PublishProgressBar extends View {
                 return;
             }
         }
-        this.f45373e = 0;
+        this.f46223e = 0;
         a(context, attributeSet);
     }
 
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            this.f45374f = new Paint(1);
-            this.f45375g = new Rect();
+            this.f46224f = new Paint(1);
+            this.f46225g = new Rect();
             b();
         }
     }
@@ -66,8 +66,8 @@ public class PublishProgressBar extends View {
             int color = SkinManager.getColor(R.color.CAM_X0302);
             setBackgroundColor(color);
             getBackground().setAlpha(168);
-            this.f45374f.setColor(color);
-            this.f45374f.setAlpha(168);
+            this.f46224f.setColor(color);
+            this.f46224f.setAlpha(168);
             postInvalidate();
         }
     }
@@ -82,13 +82,13 @@ public class PublishProgressBar extends View {
             if (i2 > 100) {
                 return 100;
             }
-            int i3 = this.f45373e;
+            int i3 = this.f46223e;
             if (i2 == i3) {
                 return i3;
             }
-            this.f45373e = i2;
+            this.f46223e = i2;
             postInvalidate();
-            return this.f45373e;
+            return this.f46223e;
         }
         return invokeI.intValue;
     }
@@ -98,8 +98,8 @@ public class PublishProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f45375g.set(0, 0, (int) (getWidth() * (this.f45373e / 100.0f)), getHeight());
-            canvas.drawRect(this.f45375g, this.f45374f);
+            this.f46225g.set(0, 0, (int) (getWidth() * (this.f46223e / 100.0f)), getHeight());
+            canvas.drawRect(this.f46225g, this.f46224f);
         }
     }
 
@@ -122,7 +122,7 @@ public class PublishProgressBar extends View {
                 return;
             }
         }
-        this.f45373e = 0;
+        this.f46223e = 0;
         a(context, attributeSet);
     }
 }

@@ -11,16 +11,16 @@ public class b0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13749a;
+    public int f14517a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13750b;
+    public int f14518b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13751c;
+    public int f14519c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13752d;
+    public int f14520d;
 
     public b0() {
         Interceptable interceptable = $ic;
@@ -35,10 +35,10 @@ public class b0 {
                 return;
             }
         }
-        this.f13749a = 0;
-        this.f13750b = 0;
-        this.f13751c = 0;
-        this.f13752d = 0;
+        this.f14517a = 0;
+        this.f14518b = 0;
+        this.f14519c = 0;
+        this.f14520d = 0;
     }
 
     public void a(JSONObject jSONObject) {
@@ -46,9 +46,9 @@ public class b0 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f13749a = jSONObject.optInt("days_new_user", 0);
-        this.f13750b = jSONObject.optInt("days_low_active", 0);
-        this.f13751c = jSONObject.optInt("limit_day", 0);
-        this.f13752d = jSONObject.optInt("limit_count", 0);
+        this.f14517a = jSONObject.optInt("days_new_user", 0);
+        this.f14518b = jSONObject.optInt("days_low_active", 0);
+        this.f14519c = jSONObject.optInt("limit_day", 0);
+        this.f14520d = jSONObject.optInt("limit_count", 0);
     }
 }

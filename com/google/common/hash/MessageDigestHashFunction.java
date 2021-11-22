@@ -1,7 +1,7 @@
 package com.google.common.hash;
 
-import b.i.d.a.n;
-import b.i.d.d.f;
+import b.h.d.a.n;
+import b.h.d.d.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,8 +13,8 @@ import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
-public final class MessageDigestHashFunction extends b.i.d.d.b implements Serializable {
+/* loaded from: classes11.dex */
+public final class MessageDigestHashFunction extends b.h.d.d.b implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bytes;
@@ -22,7 +22,7 @@ public final class MessageDigestHashFunction extends b.i.d.d.b implements Serial
     public final boolean supportsClone;
     public final String toString;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class SerializedForm implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -62,41 +62,41 @@ public final class MessageDigestHashFunction extends b.i.d.d.b implements Serial
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
-    public static final class b extends b.i.d.d.a {
+    /* loaded from: classes11.dex */
+    public static final class b extends b.h.d.d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final MessageDigest f63644b;
+        public final MessageDigest f64544b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f63645c;
+        public final int f64545c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f63646d;
+        public boolean f64546d;
 
         public /* synthetic */ b(MessageDigest messageDigest, int i2, a aVar) {
             this(messageDigest, i2);
         }
 
-        @Override // b.i.d.d.f
+        @Override // b.h.d.d.f
         public HashCode e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 l();
-                this.f63646d = true;
-                if (this.f63645c == this.f63644b.getDigestLength()) {
-                    return HashCode.fromBytesNoCopy(this.f63644b.digest());
+                this.f64546d = true;
+                if (this.f64545c == this.f64544b.getDigestLength()) {
+                    return HashCode.fromBytesNoCopy(this.f64544b.digest());
                 }
-                return HashCode.fromBytesNoCopy(Arrays.copyOf(this.f63644b.digest(), this.f63645c));
+                return HashCode.fromBytesNoCopy(Arrays.copyOf(this.f64544b.digest(), this.f64545c));
             }
             return (HashCode) invokeV.objValue;
         }
@@ -104,16 +104,16 @@ public final class MessageDigestHashFunction extends b.i.d.d.b implements Serial
         public final void l() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                n.x(!this.f63646d, "Cannot re-use a Hasher after calling hash() on it");
+                n.x(!this.f64546d, "Cannot re-use a Hasher after calling hash() on it");
             }
         }
 
-        @Override // b.i.d.d.a
+        @Override // b.h.d.d.a
         public void update(byte b2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b2) == null) {
                 l();
-                this.f63644b.update(b2);
+                this.f64544b.update(b2);
             }
         }
 
@@ -132,25 +132,25 @@ public final class MessageDigestHashFunction extends b.i.d.d.b implements Serial
                     return;
                 }
             }
-            this.f63644b = messageDigest;
-            this.f63645c = i2;
+            this.f64544b = messageDigest;
+            this.f64545c = i2;
         }
 
-        @Override // b.i.d.d.a
+        @Override // b.h.d.d.a
         public void update(byte[] bArr, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i2, i3) == null) {
                 l();
-                this.f63644b.update(bArr, i2, i3);
+                this.f64544b.update(bArr, i2, i3);
             }
         }
 
-        @Override // b.i.d.d.a
+        @Override // b.h.d.d.a
         public void update(ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
                 l();
-                this.f63644b.update(byteBuffer);
+                this.f64544b.update(byteBuffer);
             }
         }
     }
@@ -211,7 +211,7 @@ public final class MessageDigestHashFunction extends b.i.d.d.b implements Serial
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bytes * 8 : invokeV.intValue;
     }
 
-    @Override // b.i.d.d.e
+    @Override // b.h.d.d.e
     public f newHasher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

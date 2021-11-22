@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Drawable> f25849a;
+    public HashMap<String, Drawable> f27411a;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -27,14 +27,14 @@ public class i {
                 return;
             }
         }
-        this.f25849a = new HashMap<>();
+        this.f27411a = new HashMap<>();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f25849a.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f27411a.isEmpty()) {
             return;
         }
-        this.f25849a.clear();
+        this.f27411a.clear();
     }
 }

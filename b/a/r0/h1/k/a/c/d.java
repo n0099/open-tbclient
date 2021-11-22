@@ -19,19 +19,19 @@ public class d extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f17601e;
+    public boolean f19070e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17602f;
+    public int f19071f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f17603g;
+    public long f19072g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f17604h;
+    public String f19073h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d2 f17605i;
+    public d2 f19074i;
 
     static {
         InterceptResult invokeClinit;
@@ -69,12 +69,12 @@ public class d extends BaseCardInfo {
             return;
         }
         d2 d2Var = new d2();
-        this.f17605i = d2Var;
-        d2Var.Y2(threadInfo);
-        this.f17605i.c3();
+        this.f19074i = d2Var;
+        d2Var.a3(threadInfo);
+        this.f19074i.e3();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

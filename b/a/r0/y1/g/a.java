@@ -1,7 +1,6 @@
 package b.a.r0.y1.g;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,30 +18,30 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f27603a;
+    public e f29106a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c> f27604b;
+    public List<c> f29107b;
 
     /* renamed from: b.a.r0.y1.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1350a {
+    public static class C1417a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f27605a;
+        public String f29108a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27606b;
+        public String f29109b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f27607c;
+        public String f29110c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f27608d;
+        public String f29111d;
 
-        public C1350a() {
+        public C1417a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,10 +60,10 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f27605a = jSONObject.optString(BigdayActivityConfig.IMG_URL);
-            this.f27606b = jSONObject.optString("title");
-            this.f27607c = jSONObject.optString("desc");
-            this.f27608d = jSONObject.optString("link");
+            this.f29108a = jSONObject.optString(BigdayActivityConfig.IMG_URL);
+            this.f29109b = jSONObject.optString("title");
+            this.f29110c = jSONObject.optString("desc");
+            this.f29111d = jSONObject.optString("link");
         }
     }
 
@@ -74,16 +73,16 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f27609a;
+        public long f29112a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f27610b;
+        public long f29113b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f27611c;
+        public long f29114c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f27612d;
+        public String f29115d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -103,8 +102,8 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                long j = this.f27609a;
-                return (j == 1 || j == 2) && this.f27610b > this.f27611c;
+                long j = this.f29112a;
+                return (j == 1 || j == 2) && this.f29113b > this.f29114c;
             }
             return invokeV.booleanValue;
         }
@@ -114,10 +113,10 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f27609a = jSONObject.optInt("props_id");
-            this.f27610b = jSONObject.optLong("end_time");
-            this.f27611c = jSONObject.optLong("now_time");
-            this.f27612d = jSONObject.optString("pic_url");
+            this.f29112a = jSONObject.optInt("props_id");
+            this.f29113b = jSONObject.optLong("end_time");
+            this.f29114c = jSONObject.optLong("now_time");
+            this.f29115d = jSONObject.optString("pic_url");
         }
     }
 
@@ -127,10 +126,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f27613a;
+        public String f29116a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<C1350a> f27614b;
+        public ArrayList<C1417a> f29117b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -145,7 +144,7 @@ public class a {
                     return;
                 }
             }
-            this.f27614b = new ArrayList<>();
+            this.f29117b = new ArrayList<>();
         }
 
         public void a(JSONObject jSONObject) throws Exception {
@@ -153,7 +152,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f27613a = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+            this.f29116a = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
             JSONArray optJSONArray = jSONObject.optJSONArray("menu_list");
             if (optJSONArray == null) {
                 return;
@@ -161,9 +160,9 @@ public class a {
             int length = optJSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                C1350a c1350a = new C1350a();
-                c1350a.a(jSONObject2);
-                this.f27614b.add(c1350a);
+                C1417a c1417a = new C1417a();
+                c1417a.a(jSONObject2);
+                this.f29117b.add(c1417a);
             }
         }
     }
@@ -174,10 +173,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long f27615a;
+        public long f29118a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f27616b;
+        public long f29119b;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -196,7 +195,7 @@ public class a {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27615a >= 0 && this.f27616b >= 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29118a >= 0 && this.f29119b >= 0 : invokeV.booleanValue;
         }
 
         public void b(JSONObject jSONObject) throws Exception {
@@ -206,10 +205,10 @@ public class a {
             }
             jSONObject.optLong("scores_total");
             jSONObject.optLong("scores_fetch");
-            this.f27615a = jSONObject.optLong("scores_money");
-            this.f27616b = jSONObject.optLong("scores_other");
+            this.f29118a = jSONObject.optLong("scores_money");
+            this.f29119b = jSONObject.optLong("scores_other");
             jSONObject.optLong("update_time");
-            jSONObject.optLong(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
+            jSONObject.optLong("level");
             jSONObject.optLong(Constants.EXTRA_CONFIG_LIMIT);
         }
     }
@@ -220,19 +219,19 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f27617a;
+        public String f29120a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27618b;
+        public String f29121b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f27619c;
+        public String f29122c;
 
         /* renamed from: d  reason: collision with root package name */
-        public b f27620d;
+        public b f29123d;
 
         /* renamed from: e  reason: collision with root package name */
-        public d f27621e;
+        public d f29124e;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -247,8 +246,8 @@ public class a {
                     return;
                 }
             }
-            this.f27620d = new b();
-            this.f27621e = new d();
+            this.f29123d = new b();
+            this.f29124e = new d();
         }
 
         public void a(JSONObject jSONObject) throws Exception {
@@ -256,11 +255,11 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f27617a = jSONObject.optString("id");
-            this.f27618b = jSONObject.optString("name");
-            this.f27619c = jSONObject.optString("portrait");
-            this.f27620d.b(jSONObject.optJSONObject("pay_member_info"));
-            this.f27621e.b(jSONObject.optJSONObject("Parr_scores"));
+            this.f29120a = jSONObject.optString("id");
+            this.f29121b = jSONObject.optString("name");
+            this.f29122c = jSONObject.optString("portrait");
+            this.f29123d.b(jSONObject.optJSONObject("pay_member_info"));
+            this.f29124e.b(jSONObject.optJSONObject("Parr_scores"));
         }
     }
 
@@ -277,8 +276,8 @@ public class a {
                 return;
             }
         }
-        this.f27603a = new e();
-        this.f27604b = new ArrayList();
+        this.f29106a = new e();
+        this.f29107b = new ArrayList();
     }
 
     public void a(JSONObject jSONObject) throws Exception {
@@ -286,7 +285,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f27603a.a(jSONObject.optJSONObject("user"));
+        this.f29106a.a(jSONObject.optJSONObject("user"));
         JSONArray optJSONArray = jSONObject.optJSONArray("special_List");
         if (optJSONArray == null) {
             return;
@@ -295,7 +294,7 @@ public class a {
         for (int i2 = 0; i2 < length; i2++) {
             c cVar = new c();
             cVar.a(optJSONArray.getJSONObject(i2));
-            this.f27604b.add(cVar);
+            this.f29107b.add(cVar);
         }
     }
 }

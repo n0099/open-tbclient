@@ -144,7 +144,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
                 jSONObject.put("uk", uk);
                 jSONObject.put("rtc_device_id", cuid);
                 jSONObject.put("sdk_version", "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
-                jSONObject.put("signal_sdk_version", 103010L);
+                jSONObject.put("signal_sdk_version", 103050L);
                 jSONObject.put("unique_key", "" + currentTimeMillis);
                 jSONObject.put("source", this.mSource);
                 jSONObject.put(TiebaStatic.Params.RESOURCE_ID, this.mResourceId);
@@ -174,7 +174,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
         trackRequest(i2, "room/create");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x007d  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0081  */
     /* JADX WARN: Removed duplicated region for block: B:24:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imrtc.request.HttpExecutor.ResponseHandler
     /*

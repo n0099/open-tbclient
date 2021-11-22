@@ -10,10 +10,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import b.a.e0.b;
-import b.a.e0.f;
+import b.a.e0.c;
 import b.a.e0.g;
-import b.a.e0.j;
+import b.a.e0.h;
+import b.a.e0.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,16 +25,19 @@ public class ProgressButton extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f42089e;
+    public TextView f43024e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f42090f;
+    public ImageView f43025f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f42091g;
+    public Animation f43026g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f42092h;
+    public boolean f43027h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Context f43028i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ProgressButton(Context context) {
@@ -60,12 +63,12 @@ public class ProgressButton extends FrameLayout {
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            LayoutInflater.from(context).inflate(g.button_progress, (ViewGroup) this, true);
-            this.f42089e = (TextView) findViewById(f.text_view);
-            this.f42090f = (ImageView) findViewById(f.progress_bar);
-            this.f42091g = AnimationUtils.loadAnimation(context, b.loading_rotate);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, j.ProgressButton);
-            this.f42089e.setTextColor(obtainStyledAttributes.getColor(j.ProgressButton_textColor, -1));
+            this.f43028i = context;
+            LayoutInflater.from(context).inflate(h.button_progress, (ViewGroup) this, true);
+            this.f43024e = (TextView) findViewById(g.text_view);
+            this.f43025f = (ImageView) findViewById(g.progress_bar);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, k.ProgressButton);
+            this.f43024e.setTextColor(obtainStyledAttributes.getColor(k.ProgressButton_textColor, -1));
             obtainStyledAttributes.recycle();
         }
     }
@@ -74,7 +77,7 @@ public class ProgressButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             super.setEnabled(z);
-            this.f42092h = z;
+            this.f43027h = z;
         }
     }
 
@@ -83,7 +86,7 @@ public class ProgressButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             super.setPressed(z);
-            if (this.f42092h) {
+            if (this.f43027h) {
                 setAlpha(z ? 0.2f : 1.0f);
             } else {
                 setAlpha(0.2f);
@@ -94,18 +97,29 @@ public class ProgressButton extends FrameLayout {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f42089e.setText(str);
-            this.f42090f.setVisibility(4);
-            this.f42089e.setVisibility(0);
+            this.f43024e.setText(str);
+            this.f43025f.setVisibility(4);
+            this.f43024e.setVisibility(0);
         }
     }
 
     public void startLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f42090f.setVisibility(0);
-            this.f42090f.startAnimation(this.f42091g);
-            this.f42089e.setVisibility(4);
+            this.f43025f.setVisibility(0);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f43028i, c.loading_rotate);
+            this.f43026g = loadAnimation;
+            this.f43025f.startAnimation(loadAnimation);
+            this.f43024e.setVisibility(4);
+        }
+    }
+
+    public void stopLoading() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f43025f.clearAnimation();
+            this.f43025f.setVisibility(8);
+            this.f43024e.setVisibility(0);
         }
     }
 

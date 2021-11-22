@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.r0.l3.w;
+import b.a.e.f.p.l;
+import b.a.r0.m3.w;
 import b.a.r0.q1.i;
 import b.a.r0.q1.o.f;
 import b.a.r0.q1.o.j.c;
@@ -37,16 +37,16 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f51204f;
+    public LinearLayout f52116f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f51205g;
+    public View f52117g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f51206h;
+    public TbImageView f52118h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f51207i;
+    public TextView f52119i;
     public TextView j;
     public MoreButton k;
     public ImageView l;
@@ -57,10 +57,10 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SingleLineCard f51208e;
+        public final /* synthetic */ SingleLineCard f52120e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SingleLineCardView f51209f;
+        public final /* synthetic */ SingleLineCardView f52121f;
 
         public a(SingleLineCardView singleLineCardView, SingleLineCard singleLineCard) {
             Interceptable interceptable = $ic;
@@ -77,16 +77,16 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
                     return;
                 }
             }
-            this.f51209f = singleLineCardView;
-            this.f51208e = singleLineCard;
+            this.f52121f = singleLineCardView;
+            this.f52120e = singleLineCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                i.e(this.f51208e).d(TiebaStatic.Params.OBJ_URL, this.f51208e.getScheme()).b("obj_locate", this.f51209f.getStatPosition()).a(this.f51208e);
-                w.c(this.f51209f.mContext, this.f51208e.getScheme());
+                i.e(this.f52120e).d(TiebaStatic.Params.OBJ_URL, this.f52120e.getScheme()).b("obj_locate", this.f52121f.getStatPosition()).a(this.f52120e);
+                w.c(this.f52121f.mContext, this.f52120e.getScheme());
             }
         }
     }
@@ -124,22 +124,22 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         boolean z = false;
         if (isNightMode()) {
             if (!b.a(singleLineCard.getBgColorNight())) {
-                this.f51204f.setBackgroundColor(singleLineCard.getBgColorNight());
+                this.f52116f.setBackgroundColor(singleLineCard.getBgColorNight());
                 z = true;
             }
             if (z) {
                 if (TextUtils.isEmpty(singleLineCard.getScheme())) {
-                    SkinManager.setBackgroundColor(this.f51204f, R.color.CAM_X0201);
+                    SkinManager.setBackgroundColor(this.f52116f, R.color.CAM_X0201);
                     return;
                 } else {
-                    SkinManager.setBackgroundResource(this.f51204f, R.drawable.addresslist_item_bg);
+                    SkinManager.setBackgroundResource(this.f52116f, R.drawable.addresslist_item_bg);
                     return;
                 }
             }
             return;
         }
         if (!b.a(singleLineCard.getBgColor())) {
-            this.f51204f.setBackgroundColor(singleLineCard.getBgColor());
+            this.f52116f.setBackgroundColor(singleLineCard.getBgColor());
             z = true;
         }
         if (z) {
@@ -181,7 +181,7 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, singleLineCard) == null) || singleLineCard == null) {
             return;
         }
-        setTextColor(this.f51207i, singleLineCard.getTitleColor(), singleLineCard.getTitleColorNight(), R.color.CAM_X0105);
+        setTextColor(this.f52119i, singleLineCard.getTitleColor(), singleLineCard.getTitleColorNight(), R.color.CAM_X0105);
     }
 
     public final String c(SingleLineCard singleLineCard) {
@@ -196,14 +196,14 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_single_line, (ViewGroup) null);
-            this.f51204f = linearLayout;
-            this.f51205g = (View) findViewById(linearLayout, R.id.leftLine);
-            this.f51206h = (TbImageView) findViewById(this.f51204f, R.id.leftIcon);
-            this.f51207i = (TextView) findViewById(this.f51204f, R.id.title);
-            this.j = (TextView) findViewById(this.f51204f, R.id.title_prefix);
-            this.k = (MoreButton) findViewById(this.f51204f, R.id.more);
-            this.l = (ImageView) findViewById(this.f51204f, R.id.rightIcon);
-            return this.f51204f;
+            this.f52116f = linearLayout;
+            this.f52117g = (View) findViewById(linearLayout, R.id.leftLine);
+            this.f52118h = (TbImageView) findViewById(this.f52116f, R.id.leftIcon);
+            this.f52119i = (TextView) findViewById(this.f52116f, R.id.title);
+            this.j = (TextView) findViewById(this.f52116f, R.id.title_prefix);
+            this.k = (MoreButton) findViewById(this.f52116f, R.id.more);
+            this.l = (ImageView) findViewById(this.f52116f, R.id.rightIcon);
+            return this.f52116f;
         }
         return (View) invokeV.objValue;
     }
@@ -213,8 +213,8 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
     public void onChangeSkinType(SingleLineCard singleLineCard, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, singleLineCard, i2) == null) {
-            b.a.q0.w0.a.a(this.mContext, getRootView());
-            SkinManager.setBackgroundColor(this.f51205g, R.color.CAM_X0308);
+            b.a.q0.v0.a.a(this.mContext, getRootView());
+            SkinManager.setBackgroundColor(this.f52117g, R.color.CAM_X0308);
             if (singleLineCard != null) {
                 setBgColor(singleLineCard);
                 setTitleColor(singleLineCard);
@@ -230,67 +230,67 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, singleLineCard) == null) {
             int g2 = l.g(getContext(), R.dimen.ds80);
-            ViewGroup.LayoutParams layoutParams = this.f51204f.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f52116f.getLayoutParams();
             if (singleLineCard.getMaxLines() > 1) {
                 layoutParams.height = -2;
-                this.f51204f.setMinimumHeight(g2);
+                this.f52116f.setMinimumHeight(g2);
             } else if (singleLineCard.getHeight() > 0) {
                 int e2 = l.e(getContext(), singleLineCard.getHeight());
                 layoutParams.height = e2;
-                this.f51204f.setMinimumHeight(e2);
+                this.f52116f.setMinimumHeight(e2);
             } else {
                 layoutParams.height = g2;
-                this.f51204f.setMinimumHeight(g2);
+                this.f52116f.setMinimumHeight(g2);
             }
-            this.f51204f.setLayoutParams(layoutParams);
+            this.f52116f.setLayoutParams(layoutParams);
             if (singleLineCard.isShowLeftIcon()) {
-                this.f51206h.setVisibility(0);
+                this.f52118h.setVisibility(0);
                 if (!TextUtils.isEmpty(c(singleLineCard))) {
-                    this.f51206h.setImageDrawable(null);
-                    this.f51206h.startLoad(c(singleLineCard), 10, false);
+                    this.f52118h.setImageDrawable(null);
+                    this.f52118h.startLoad(c(singleLineCard), 10, false);
                 } else if (!TextUtils.isEmpty(singleLineCard.getIconTitle())) {
-                    this.f51206h.setVisibility(8);
+                    this.f52118h.setVisibility(8);
                     setPrefixTitle(singleLineCard);
                 } else {
                     this.j.setVisibility(8);
-                    SkinManager.setImageResource(this.f51206h, f.a(singleLineCard.getIconType()));
+                    SkinManager.setImageResource(this.f52118h, f.a(singleLineCard.getIconType()));
                 }
             } else {
                 this.j.setVisibility(8);
-                this.f51206h.setVisibility(8);
+                this.f52118h.setVisibility(8);
             }
             if (singleLineCard.isShowLeftLine()) {
-                this.f51205g.setVisibility(0);
+                this.f52117g.setVisibility(0);
             } else {
-                this.f51205g.setVisibility(8);
+                this.f52117g.setVisibility(8);
             }
             setBgColor(singleLineCard);
             setTitleColor(singleLineCard);
             setMoreColor(singleLineCard.getButtonInfo());
-            this.f51207i.setTextSize(0, getResources().getDisplayMetrics().density * (singleLineCard.getTextSize() / 2.0f));
+            this.f52119i.setTextSize(0, getResources().getDisplayMetrics().density * (singleLineCard.getTextSize() / 2.0f));
             if (singleLineCard.getMaxLines() > 1) {
-                this.f51207i.setSingleLine(false);
-                this.f51207i.setMaxLines(singleLineCard.getMaxLines());
+                this.f52119i.setSingleLine(false);
+                this.f52119i.setMaxLines(singleLineCard.getMaxLines());
             } else {
-                this.f51207i.setSingleLine(true);
+                this.f52119i.setSingleLine(true);
             }
-            this.f51207i.setText(singleLineCard.getCardTitle());
+            this.f52119i.setText(singleLineCard.getCardTitle());
             SpannableString changeParamsColor = changeParamsColor(singleLineCard.getCardTitle(), singleLineCard.getParams(), singleLineCard.getParamColor(), singleLineCard.getParamColorNight());
             if (changeParamsColor != null) {
-                this.f51207i.setText(changeParamsColor);
+                this.f52119i.setText(changeParamsColor);
             }
             if (singleLineCard.getGravity() == 1) {
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f51207i.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f52119i.getLayoutParams();
                 layoutParams2.weight = 0.0f;
                 layoutParams2.width = -2;
-                this.f51207i.setLayoutParams(layoutParams2);
-                this.f51204f.setGravity(17);
+                this.f52119i.setLayoutParams(layoutParams2);
+                this.f52116f.setGravity(17);
             } else {
-                LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f51207i.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f52119i.getLayoutParams();
                 layoutParams3.weight = 1.0f;
                 layoutParams3.width = 0;
-                this.f51207i.setLayoutParams(layoutParams3);
-                this.f51204f.setGravity(0);
+                this.f52119i.setLayoutParams(layoutParams3);
+                this.f52116f.setGravity(0);
             }
             if (!TextUtils.isEmpty(singleLineCard.getScheme())) {
                 setOnClickListener(new a(this, singleLineCard));

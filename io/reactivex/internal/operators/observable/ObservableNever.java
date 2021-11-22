@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.internal.disposables.EmptyDisposable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ObservableNever extends Observable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public static final Observable<Object> INSTANCE;

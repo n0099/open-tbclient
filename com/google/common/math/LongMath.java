@@ -1,8 +1,8 @@
 package com.google.common.math;
 
 import androidx.core.view.InputDeviceCompat;
-import b.i.d.a.n;
-import b.i.d.f.e;
+import b.h.d.a.n;
+import b.h.d.f.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.primitives.UnsignedLongs;
 import java.math.RoundingMode;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class LongMath {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static abstract class MillerRabinTester {
         public static final /* synthetic */ MillerRabinTester[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -265,12 +265,12 @@ public final class LongMath {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f63666a;
+        public static final /* synthetic */ int[] f64566a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -287,37 +287,37 @@ public final class LongMath {
                 }
             }
             int[] iArr = new int[RoundingMode.values().length];
-            f63666a = iArr;
+            f64566a = iArr;
             try {
                 iArr[RoundingMode.UNNECESSARY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f63666a[RoundingMode.DOWN.ordinal()] = 2;
+                f64566a[RoundingMode.DOWN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f63666a[RoundingMode.FLOOR.ordinal()] = 3;
+                f64566a[RoundingMode.FLOOR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f63666a[RoundingMode.UP.ordinal()] = 4;
+                f64566a[RoundingMode.UP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f63666a[RoundingMode.CEILING.ordinal()] = 5;
+                f64566a[RoundingMode.CEILING.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f63666a[RoundingMode.HALF_DOWN.ordinal()] = 6;
+                f64566a[RoundingMode.HALF_DOWN.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f63666a[RoundingMode.HALF_UP.ordinal()] = 7;
+                f64566a[RoundingMode.HALF_UP.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f63666a[RoundingMode.HALF_EVEN.ordinal()] = 8;
+                f64566a[RoundingMode.HALF_EVEN.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -364,7 +364,7 @@ public final class LongMath {
             }
             int i3 = (int) ((j ^ j2) >> 63);
             int i4 = i3 | 1;
-            switch (a.f63666a[roundingMode.ordinal()]) {
+            switch (a.f64566a[roundingMode.ordinal()]) {
                 case 1:
                     e.d(i2 == 0);
                     r9 = false;

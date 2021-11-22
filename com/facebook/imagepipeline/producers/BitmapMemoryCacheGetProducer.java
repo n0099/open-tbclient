@@ -14,7 +14,6 @@ import com.facebook.imagepipeline.image.CloseableImage;
 /* loaded from: classes11.dex */
 public class BitmapMemoryCacheGetProducer extends BitmapMemoryCacheProducer {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String ORIGIN_SUBCATEGORY = "pipe_ui";
     public static final String PRODUCER_NAME = "BitmapMemoryCacheGetProducer";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,23 +39,16 @@ public class BitmapMemoryCacheGetProducer extends BitmapMemoryCacheProducer {
     }
 
     @Override // com.facebook.imagepipeline.producers.BitmapMemoryCacheProducer
-    public String getOriginSubcategory() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ORIGIN_SUBCATEGORY : (String) invokeV.objValue;
-    }
-
-    @Override // com.facebook.imagepipeline.producers.BitmapMemoryCacheProducer
     public String getProducerName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? PRODUCER_NAME : (String) invokeV.objValue;
     }
 
     @Override // com.facebook.imagepipeline.producers.BitmapMemoryCacheProducer
     public Consumer<CloseableReference<CloseableImage>> wrapConsumer(Consumer<CloseableReference<CloseableImage>> consumer, CacheKey cacheKey, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, consumer, cacheKey, z)) == null) ? consumer : (Consumer) invokeLLZ.objValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumer, cacheKey, z)) == null) ? consumer : (Consumer) invokeLLZ.objValue;
     }
 }

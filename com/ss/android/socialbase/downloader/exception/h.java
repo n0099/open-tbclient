@@ -13,13 +13,13 @@ public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f69310a;
+    public static final h f70230a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f69311b;
+    public static final h f70231b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final /* synthetic */ h[] f69312c;
+    public static final /* synthetic */ h[] f70232c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,10 +35,10 @@ public final class h {
                 return;
             }
         }
-        f69310a = new h("RETURN", 0);
+        f70230a = new h("RETURN", 0);
         h hVar = new h("CONTINUE", 1);
-        f69311b = hVar;
-        f69312c = new h[]{f69310a, hVar};
+        f70231b = hVar;
+        f70232c = new h[]{f70230a, hVar};
     }
 
     public h(String str, int i2) {
@@ -69,6 +69,6 @@ public final class h {
     public static h[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) f69312c.clone() : (h[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) f70232c.clone() : (h[]) invokeV.objValue;
     }
 }

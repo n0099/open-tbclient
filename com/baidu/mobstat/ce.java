@@ -29,14 +29,14 @@ public class ce extends cd {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ boolean f41243f;
+    public static final /* synthetic */ boolean f42075f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public ByteBuffer f41244g;
+    public ByteBuffer f42076g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Random f41245h;
+    public final Random f42077h;
 
     /* loaded from: classes7.dex */
     public class a extends Throwable {
@@ -44,10 +44,10 @@ public class ce extends cd {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ce f41246a;
+        public final /* synthetic */ ce f42078a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f41247b;
+        public int f42079b;
 
         public a(ce ceVar, int i2) {
             Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public class ce extends cd {
                     return;
                 }
             }
-            this.f41246a = ceVar;
-            this.f41247b = i2;
+            this.f42078a = ceVar;
+            this.f42079b = i2;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41247b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42079b : invokeV.intValue;
         }
     }
 
@@ -88,7 +88,7 @@ public class ce extends cd {
                 return;
             }
         }
-        f41243f = !ce.class.desiredAssertionStatus();
+        f42075f = !ce.class.desiredAssertionStatus();
     }
 
     public ce() {
@@ -104,7 +104,7 @@ public class ce extends cd {
                 return;
             }
         }
-        this.f41245h = new Random();
+        this.f42077h = new Random();
     }
 
     @Override // com.baidu.mobstat.cd
@@ -114,11 +114,11 @@ public class ce extends cd {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, csVar, czVar)) == null) {
             if (csVar.c("Sec-WebSocket-Key") && czVar.c("Sec-WebSocket-Accept")) {
                 if (a(csVar.b("Sec-WebSocket-Key")).equals(czVar.b("Sec-WebSocket-Accept"))) {
-                    return cd.b.f41240a;
+                    return cd.b.f42072a;
                 }
-                return cd.b.f41241b;
+                return cd.b.f42073b;
             }
-            return cd.b.f41241b;
+            return cd.b.f42073b;
         }
         return (cd.b) invokeLL.objValue;
     }
@@ -127,7 +127,7 @@ public class ce extends cd {
     public cd.a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? cd.a.f41238c : (cd.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? cd.a.f42070c : (cd.a) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.cd
@@ -138,31 +138,31 @@ public class ce extends cd {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, byteBuffer)) == null) {
             while (true) {
                 linkedList = new LinkedList();
-                if (this.f41244g == null) {
+                if (this.f42076g == null) {
                     break;
                 }
                 try {
                     byteBuffer.mark();
                     int remaining = byteBuffer.remaining();
-                    int remaining2 = this.f41244g.remaining();
+                    int remaining2 = this.f42076g.remaining();
                     if (remaining2 > remaining) {
-                        this.f41244g.put(byteBuffer.array(), byteBuffer.position(), remaining);
+                        this.f42076g.put(byteBuffer.array(), byteBuffer.position(), remaining);
                         byteBuffer.position(byteBuffer.position() + remaining);
                         return Collections.emptyList();
                     }
-                    this.f41244g.put(byteBuffer.array(), byteBuffer.position(), remaining2);
+                    this.f42076g.put(byteBuffer.array(), byteBuffer.position(), remaining2);
                     byteBuffer.position(byteBuffer.position() + remaining2);
-                    linkedList.add(e((ByteBuffer) this.f41244g.duplicate().position(0)));
-                    this.f41244g = null;
+                    linkedList.add(e((ByteBuffer) this.f42076g.duplicate().position(0)));
+                    this.f42076g = null;
                 } catch (a e2) {
-                    this.f41244g.limit();
+                    this.f42076g.limit();
                     ByteBuffer allocate = ByteBuffer.allocate(a(e2.a()));
-                    if (!f41243f && allocate.limit() <= this.f41244g.limit()) {
+                    if (!f42075f && allocate.limit() <= this.f42076g.limit()) {
                         throw new AssertionError();
                     }
-                    this.f41244g.rewind();
-                    allocate.put(this.f41244g);
-                    this.f41244g = allocate;
+                    this.f42076g.rewind();
+                    allocate.put(this.f42076g);
+                    this.f42076g = allocate;
                 }
             }
             while (byteBuffer.hasRemaining()) {
@@ -172,7 +172,7 @@ public class ce extends cd {
                 } catch (a e3) {
                     byteBuffer.reset();
                     ByteBuffer allocate2 = ByteBuffer.allocate(a(e3.a()));
-                    this.f41244g = allocate2;
+                    this.f42076g = allocate2;
                     allocate2.put(byteBuffer);
                 }
             }
@@ -197,9 +197,9 @@ public class ce extends cd {
                     boolean z2 = (b4 & ByteCompanionObject.MIN_VALUE) != 0;
                     int i3 = (byte) (b4 & ByteCompanionObject.MAX_VALUE);
                     cq.a a2 = a((byte) (b2 & 15));
-                    if (z || !(a2 == cq.a.f41256d || a2 == cq.a.f41257e || a2 == cq.a.f41258f)) {
+                    if (z || !(a2 == cq.a.f42088d || a2 == cq.a.f42089e || a2 == cq.a.f42090f)) {
                         if (i3 < 0 || i3 > 125) {
-                            if (a2 == cq.a.f41256d || a2 == cq.a.f41257e || a2 == cq.a.f41258f) {
+                            if (a2 == cq.a.f42088d || a2 == cq.a.f42089e || a2 == cq.a.f42090f) {
                                 throw new ci("more than 125 octets");
                             }
                             if (i3 != 126) {
@@ -237,7 +237,7 @@ public class ce extends cd {
                                 allocate.put(byteBuffer.array(), byteBuffer.position(), allocate.limit());
                                 byteBuffer.position(byteBuffer.position() + allocate.limit());
                             }
-                            if (a2 == cq.a.f41258f) {
+                            if (a2 == cq.a.f42090f) {
                                 crVar = new co();
                             } else {
                                 crVar = new cr();
@@ -246,7 +246,7 @@ public class ce extends cd {
                             }
                             allocate.flip();
                             crVar.a(allocate);
-                            if (a2 != cq.a.f41254b || dc.b(crVar.c())) {
+                            if (a2 != cq.a.f42086b || dc.b(crVar.c())) {
                                 return crVar;
                             }
                             throw new ch(1007);
@@ -269,15 +269,15 @@ public class ce extends cd {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cqVar)) == null) {
             ByteBuffer c2 = cqVar.c();
             int i2 = 0;
-            boolean z = this.f41234d == by.b.f41210a;
+            boolean z = this.f42066d == by.b.f42042a;
             int i3 = c2.remaining() <= 125 ? 1 : c2.remaining() <= 65535 ? 2 : 8;
             ByteBuffer allocate = ByteBuffer.allocate((i3 > 1 ? i3 + 1 : i3) + 1 + (z ? 4 : 0) + c2.remaining());
             byte a2 = a(cqVar.f());
             boolean d2 = cqVar.d();
             byte b2 = ByteCompanionObject.MIN_VALUE;
-            allocate.put((byte) (((byte) (d2 ? com.alipay.sdk.encrypt.a.f34123g : 0)) | a2));
+            allocate.put((byte) (((byte) (d2 ? com.alipay.sdk.encrypt.a.f34957g : 0)) | a2));
             byte[] a3 = a(c2.remaining(), i3);
-            if (f41243f || a3.length == i3) {
+            if (f42075f || a3.length == i3) {
                 if (i3 == 1) {
                     byte b3 = a3[0];
                     if (!z) {
@@ -301,7 +301,7 @@ public class ce extends cd {
                 }
                 if (z) {
                     ByteBuffer allocate2 = ByteBuffer.allocate(4);
-                    allocate2.putInt(this.f41245h.nextInt());
+                    allocate2.putInt(this.f42077h.nextInt());
                     allocate.put(allocate2.array());
                     while (c2.hasRemaining()) {
                         allocate.put((byte) (c2.get() ^ allocate2.get(i2 % 4)));
@@ -310,7 +310,7 @@ public class ce extends cd {
                 } else {
                     allocate.put(c2);
                 }
-                if (f41243f || allocate.remaining() == 0) {
+                if (f42075f || allocate.remaining() == 0) {
                     allocate.flip();
                     return allocate;
                 }
@@ -337,7 +337,7 @@ public class ce extends cd {
             try {
                 crVar.a(byteBuffer);
                 crVar.a(true);
-                crVar.a(cq.a.f41255c);
+                crVar.a(cq.a.f42087c);
                 crVar.b(z);
                 return Collections.singletonList(crVar);
             } catch (ch e2) {
@@ -351,22 +351,22 @@ public class ce extends cd {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) {
-            if (aVar == cq.a.f41253a) {
+            if (aVar == cq.a.f42085a) {
                 return (byte) 0;
             }
-            if (aVar == cq.a.f41254b) {
+            if (aVar == cq.a.f42086b) {
                 return (byte) 1;
             }
-            if (aVar == cq.a.f41255c) {
+            if (aVar == cq.a.f42087c) {
                 return (byte) 2;
             }
-            if (aVar == cq.a.f41258f) {
+            if (aVar == cq.a.f42090f) {
                 return (byte) 8;
             }
-            if (aVar == cq.a.f41256d) {
+            if (aVar == cq.a.f42088d) {
                 return (byte) 9;
             }
-            if (aVar == cq.a.f41257e) {
+            if (aVar == cq.a.f42089e) {
                 return (byte) 10;
             }
             throw new RuntimeException("Don't know how to handle " + aVar.toString());
@@ -397,7 +397,7 @@ public class ce extends cd {
             ctVar.a(HTTP.CONN_DIRECTIVE, "Upgrade");
             ctVar.a("Sec-WebSocket-Version", "8");
             byte[] bArr = new byte[16];
-            this.f41245h.nextBytes(bArr);
+            this.f42077h.nextBytes(bArr);
             ctVar.a("Sec-WebSocket-Key", db.a(bArr));
             return ctVar;
         }
@@ -427,20 +427,20 @@ public class ce extends cd {
                     if (b2 != 2) {
                         switch (b2) {
                             case 8:
-                                return cq.a.f41258f;
+                                return cq.a.f42090f;
                             case 9:
-                                return cq.a.f41256d;
+                                return cq.a.f42088d;
                             case 10:
-                                return cq.a.f41257e;
+                                return cq.a.f42089e;
                             default:
                                 throw new ci("unknow optcode " + ((int) b2));
                         }
                     }
-                    return cq.a.f41255c;
+                    return cq.a.f42087c;
                 }
-                return cq.a.f41254b;
+                return cq.a.f42086b;
             }
-            return cq.a.f41253a;
+            return cq.a.f42085a;
         }
         return (cq.a) invokeB.objValue;
     }
@@ -449,7 +449,7 @@ public class ce extends cd {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f41244g = null;
+            this.f42076g = null;
         }
     }
 }

@@ -16,10 +16,10 @@ public class u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f13452a;
+    public long f14234a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13453b;
+    public int f14235b;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -38,13 +38,13 @@ public class u {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13452a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14234a : invokeV.longValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13453b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14235b : invokeV.intValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -53,8 +53,8 @@ public class u {
             return;
         }
         try {
-            this.f13452a = jSONObject.optLong("cartoon_id");
-            this.f13453b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+            this.f14234a = jSONObject.optLong("cartoon_id");
+            this.f14235b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }
@@ -65,7 +65,7 @@ public class u {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, cartoonThread) == null) || cartoonThread == null) {
             return;
         }
-        this.f13452a = cartoonThread.cartoon_id.longValue();
-        this.f13453b = cartoonThread.chapter_id.intValue();
+        this.f14234a = cartoonThread.cartoon_id.longValue();
+        this.f14235b = cartoonThread.chapter_id.intValue();
     }
 }

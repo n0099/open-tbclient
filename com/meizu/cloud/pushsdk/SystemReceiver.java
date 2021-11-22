@@ -11,22 +11,22 @@ import com.meizu.cloud.pushsdk.util.d;
 public class SystemReceiver extends IntentReceiver {
     public void a(Context context) {
         String appVersionName = MzSystemUtils.getAppVersionName(context, "com.meizu.cloud");
-        b.l.a.a.a.d("SystemReceiver", context.getPackageName() + " start register cloudVersion_name " + appVersionName);
+        b.j.a.a.a.d("SystemReceiver", context.getPackageName() + " start register cloudVersion_name " + appVersionName);
         Intent intent = new Intent();
         if ("com.meizu.cloud".equals(MzSystemUtils.getMzPushServicePackageName(context))) {
-            b.l.a.a.a.b("SystemReceiver", "cloud pushService start");
+            b.j.a.a.a.b("SystemReceiver", "cloud pushService start");
             intent.setAction("com.meizu.pushservice.action.START");
             intent.setClassName("com.meizu.cloud", "com.meizu.cloud.pushsdk.pushservice.MzPushService");
         } else if (!TextUtils.isEmpty(appVersionName) && MzSystemUtils.compareVersion(appVersionName, "4.5.7")) {
-            b.l.a.a.a.b("SystemReceiver", "flyme 4.x start register cloud versionName " + appVersionName);
+            b.j.a.a.a.b("SystemReceiver", "flyme 4.x start register cloud versionName " + appVersionName);
             intent.setPackage("com.meizu.cloud");
             intent.setAction(PushConstants.MZ_PUSH_ON_START_PUSH_REGISTER);
         } else if (TextUtils.isEmpty(appVersionName) || !appVersionName.startsWith("3")) {
-            b.l.a.a.a.b("SystemReceiver", context.getPackageName() + " start register ");
+            b.j.a.a.a.b("SystemReceiver", context.getPackageName() + " start register ");
             intent.setClassName(context.getPackageName(), "com.meizu.cloud.pushsdk.pushservice.MzPushService");
             intent.setAction("com.meizu.pushservice.action.START");
         } else {
-            b.l.a.a.a.b("SystemReceiver", "flyme 3.x start register cloud versionName " + appVersionName);
+            b.j.a.a.a.b("SystemReceiver", "flyme 3.x start register cloud versionName " + appVersionName);
             intent.setAction(PushConstants.REQUEST_REGISTRATION_INTENT);
             intent.setPackage("com.meizu.cloud");
         }
@@ -37,7 +37,7 @@ public class SystemReceiver extends IntentReceiver {
         try {
             context.startService(intent);
         } catch (SecurityException e2) {
-            b.l.a.a.a.b("SystemReceiver", "start service error " + e2.getMessage());
+            b.j.a.a.a.b("SystemReceiver", "start service error " + e2.getMessage());
         }
     }
 
@@ -50,7 +50,7 @@ public class SystemReceiver extends IntentReceiver {
                     com.meizu.cloud.pushsdk.c.a.a(context, false).a();
                 }
             } catch (Exception e2) {
-                b.l.a.a.a.b("SystemReceiver", "onHandleIntent Exception " + e2.getMessage());
+                b.j.a.a.a.b("SystemReceiver", "onHandleIntent Exception " + e2.getMessage());
             }
         }
     }
@@ -60,7 +60,7 @@ public class SystemReceiver extends IntentReceiver {
         try {
             super.onReceive(context, intent);
         } catch (Exception e2) {
-            b.l.a.a.a.b("SystemReceiver", "Event core error " + e2.getMessage());
+            b.j.a.a.a.b("SystemReceiver", "Event core error " + e2.getMessage());
             String packageName = context.getPackageName();
             d.a(context, packageName, null, null, PushManager.TAG, "SystemReceiver " + e2.getMessage(), 3000);
         }

@@ -1,11 +1,10 @@
 package b.a.r0.r.d.b;
 
 import android.os.Build;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import b.a.q0.s.z.l;
 import b.a.q0.s.z.n;
 import b.a.q0.s.z.o;
-import com.baidu.android.ext.manage.PopItemMethodConstant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
@@ -50,8 +49,8 @@ public class a extends n {
             String cuid = TbadkCoreApplication.getInst().getCuid();
             String str = Build.VERSION.RELEASE;
             String str2 = Build.MODEL;
-            int k = b.a.e.e.p.l.k(getContext());
-            int i2 = b.a.e.e.p.l.i(getContext());
+            int k = b.a.e.f.p.l.k(getContext());
+            int i2 = b.a.e.f.p.l.i(getContext());
             String str3 = String.valueOf(k) + "," + String.valueOf(i2);
             String versionName = TbadkCoreApplication.getInst().getVersionName();
             try {
@@ -102,7 +101,7 @@ public class a extends n {
         return (JSONObject) invokeV.objValue;
     }
 
-    @o(isAsync = false, value = PopItemMethodConstant.showToast)
+    @o(isAsync = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {

@@ -10,28 +10,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+import com.heytap.openid.IOpenID;
+/* loaded from: classes7.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.baidu.sofire.m.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static abstract class AbstractBinderC1680a extends Binder implements a {
+    /* loaded from: classes7.dex */
+    public static abstract class AbstractBinderC1715a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.sofire.m.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C1681a implements a {
+        /* loaded from: classes7.dex */
+        public static class C1716a implements a {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static a f43117a;
+            public static a f44063a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f43118b;
+            public IBinder f44064b;
 
-            public C1681a(IBinder iBinder) {
+            public C1716a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +47,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f43118b = iBinder;
+                this.f44064b = iBinder;
             }
 
             @Override // com.baidu.sofire.m.a
@@ -57,15 +58,15 @@ public interface a extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken("com.heytap.openid.IOpenID");
+                        obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
                         obtain.writeString(str);
                         obtain.writeString(str2);
                         obtain.writeString(str3);
-                        if (this.f43118b.transact(1, obtain, obtain2, 0) || AbstractBinderC1680a.a() == null) {
+                        if (this.f44064b.transact(1, obtain, obtain2, 0) || AbstractBinderC1715a.a() == null) {
                             obtain2.readException();
                             return obtain2.readString();
                         }
-                        return AbstractBinderC1680a.a().a(str, str2, str3);
+                        return AbstractBinderC1715a.a().a(str, str2, str3);
                     } finally {
                         obtain2.recycle();
                         obtain.recycle();
@@ -78,14 +79,14 @@ public interface a extends IInterface {
             public final IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43118b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44064b : (IBinder) invokeV.objValue;
             }
         }
 
         public static a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C1681a.f43117a : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C1716a.f44063a : (a) invokeV.objValue;
         }
 
         public static a a(IBinder iBinder) {
@@ -95,8 +96,8 @@ public interface a extends IInterface {
                 if (iBinder == null) {
                     return null;
                 }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1681a(iBinder) : (a) queryLocalInterface;
+                IInterface queryLocalInterface = iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1716a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }
@@ -110,10 +111,10 @@ public interface a extends IInterface {
                     if (i2 != 1598968902) {
                         return super.onTransact(i2, parcel, parcel2, i3);
                     }
-                    parcel2.writeString("com.heytap.openid.IOpenID");
+                    parcel2.writeString(IOpenID.Stub.DESCRIPTOR);
                     return true;
                 }
-                parcel.enforceInterface("com.heytap.openid.IOpenID");
+                parcel.enforceInterface(IOpenID.Stub.DESCRIPTOR);
                 String a2 = a(parcel.readString(), parcel.readString(), parcel.readString());
                 parcel2.writeNoException();
                 parcel2.writeString(a2);

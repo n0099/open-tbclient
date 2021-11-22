@@ -8,13 +8,13 @@ import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.e.e.p.j;
-import b.a.e.e.p.l;
-import b.a.e.l.e.n;
+import b.a.e.f.p.j;
+import b.a.e.f.p.l;
+import b.a.e.m.e.n;
 import b.a.q0.s.g0.f;
 import b.a.q0.s.g0.g;
-import b.a.r0.x0.r0;
 import b.a.r0.x0.s;
+import b.a.r0.x0.s0;
 import b.a.r0.x0.t;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -36,22 +36,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
-public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements r0 {
+/* loaded from: classes8.dex */
+public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements s0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f46922f;
+    public View f47786f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdSwipeRefreshLayout f46923g;
+    public BdSwipeRefreshLayout f47787g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdTypeRecyclerView f46924h;
+    public BdTypeRecyclerView f47788h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.r0.w.f.c.a f46925i;
+    public b.a.r0.w.f.c.a f47789i;
     public g j;
     public PbListView k;
     public AlaLiveTabYanzhiModel l;
@@ -60,13 +60,13 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
     public BdListView.p o;
     public RecyclerView.OnScrollListener p;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements AlaLiveTabYanzhiModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveTabYanzhiSubFragment f46926a;
+        public final /* synthetic */ LiveTabYanzhiSubFragment f47790a;
 
         public a(LiveTabYanzhiSubFragment liveTabYanzhiSubFragment) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
                     return;
                 }
             }
-            this.f46926a = liveTabYanzhiSubFragment;
+            this.f47790a = liveTabYanzhiSubFragment;
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabYanzhiModel.b
@@ -91,12 +91,12 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
                 if (z) {
-                    this.f46926a.j();
+                    this.f47790a.j();
                 } else {
-                    this.f46926a.k();
+                    this.f47790a.k();
                 }
-                this.f46926a.m();
-                this.f46926a.setData(list);
+                this.f47790a.m();
+                this.f47790a.setData(list);
             }
         }
 
@@ -104,21 +104,21 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
         public void b(int i2, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
-                this.f46926a.m();
+                this.f47790a.m();
                 if (z) {
-                    this.f46926a.showToast(R.string.data_load_error);
+                    this.f47790a.showToast(R.string.data_load_error);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class b implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LiveTabYanzhiSubFragment f46927e;
+        public final /* synthetic */ LiveTabYanzhiSubFragment f47791e;
 
         public b(LiveTabYanzhiSubFragment liveTabYanzhiSubFragment) {
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
                     return;
                 }
             }
-            this.f46927e = liveTabYanzhiSubFragment;
+            this.f47791e = liveTabYanzhiSubFragment;
         }
 
         @Override // b.a.q0.s.g0.f.g
@@ -143,21 +143,21 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (j.z()) {
-                    this.f46927e.l.refresh();
+                    this.f47791e.l.refresh();
                 } else {
-                    this.f46927e.m();
+                    this.f47791e.m();
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class c implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LiveTabYanzhiSubFragment f46928e;
+        public final /* synthetic */ LiveTabYanzhiSubFragment f47792e;
 
         public c(LiveTabYanzhiSubFragment liveTabYanzhiSubFragment) {
             Interceptable interceptable = $ic;
@@ -174,7 +174,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
                     return;
                 }
             }
-            this.f46928e = liveTabYanzhiSubFragment;
+            this.f47792e = liveTabYanzhiSubFragment;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
@@ -182,21 +182,21 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!l.D()) {
-                    this.f46928e.hideLoadingView();
+                    this.f47792e.hideLoadingView();
                 } else {
-                    this.f46928e.l.loadMore();
+                    this.f47792e.l.loadMore();
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class d extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveTabYanzhiSubFragment f46929a;
+        public final /* synthetic */ LiveTabYanzhiSubFragment f47793a;
 
         public d(LiveTabYanzhiSubFragment liveTabYanzhiSubFragment) {
             Interceptable interceptable = $ic;
@@ -213,7 +213,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
                     return;
                 }
             }
-            this.f46929a = liveTabYanzhiSubFragment;
+            this.f47793a = liveTabYanzhiSubFragment;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
@@ -223,7 +223,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
                 super.onScrolled(recyclerView, i2, i3);
                 String str = "dy" + i3 + ", dx" + i2;
                 if (i3 >= 4) {
-                    LiveTabYanzhiSubFragment liveTabYanzhiSubFragment = this.f46929a;
+                    LiveTabYanzhiSubFragment liveTabYanzhiSubFragment = this.f47793a;
                     if (liveTabYanzhiSubFragment.isHideTopHeader) {
                         return;
                     }
@@ -289,14 +289,14 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
     public final void hideLoadingView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f46924h.setNextPage(null);
+            this.f47788h.setNextPage(null);
         }
     }
 
     public final void i(BdListView.p pVar) {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, pVar) == null) || (bdTypeRecyclerView = this.f46924h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, pVar) == null) || (bdTypeRecyclerView = this.f47788h) == null) {
             return;
         }
         bdTypeRecyclerView.setOnSrollToBottomListener(pVar);
@@ -305,17 +305,17 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f46923g = (BdSwipeRefreshLayout) this.f46922f.findViewById(R.id.live_tab_refresh_layout);
-            this.mTopContainer = (LinearLayout) this.f46922f.findViewById(R.id.top_container);
+            this.f47787g = (BdSwipeRefreshLayout) this.f47786f.findViewById(R.id.live_tab_refresh_layout);
+            this.mTopContainer = (LinearLayout) this.f47786f.findViewById(R.id.top_container);
             g gVar = new g(getPageContext());
             this.j = gVar;
-            this.f46923g.setProgressView(gVar);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.f46922f.findViewById(R.id.live_tab_list_view);
-            this.f46924h = bdTypeRecyclerView;
+            this.f47787g.setProgressView(gVar);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.f47786f.findViewById(R.id.live_tab_list_view);
+            this.f47788h = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.mContext));
-            this.f46924h.setFadingEdgeLength(0);
-            this.f46924h.setOverScrollMode(2);
-            this.f46925i = new b.a.r0.w.f.c.a(getPageContext(), this.f46924h, 102);
+            this.f47788h.setFadingEdgeLength(0);
+            this.f47788h.setOverScrollMode(2);
+            this.f47789i = new b.a.r0.w.f.c.a(getPageContext(), this.f47788h, 102);
             PbListView pbListView = new PbListView(this.mContext);
             this.k = pbListView;
             pbListView.a();
@@ -327,12 +327,12 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
             this.k.A(R.color.CAM_X0110);
             this.k.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.j.U(getPageContext().getUniqueId());
-            this.f46924h.addOnScrollListener(this.p);
+            this.f47788h.addOnScrollListener(this.p);
             h(this.n);
             i(this.o);
             if (isFromFrs()) {
-                this.f46923g.setEnabled(false);
-                this.f46923g.interruptRefresh();
+                this.f47787g.setEnabled(false);
+                this.f47787g.interruptRefresh();
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -345,7 +345,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
             return;
         }
         if (pbListView.b().getParent() == null) {
-            this.f46924h.setNextPage(this.k);
+            this.f47788h.setNextPage(this.k);
         }
         this.k.s(l.g(this.mContext, R.dimen.tbds182));
         this.k.C(this.mContext.getResources().getString(R.string.loading));
@@ -359,7 +359,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
             return;
         }
         if (pbListView.b().getParent() == null) {
-            this.f46924h.setNextPage(this.k);
+            this.f47788h.setNextPage(this.k);
         }
         this.k.s(l.g(this.mContext, R.dimen.tbds182));
         this.k.C(this.mContext.getResources().getString(R.string.list_no_more));
@@ -371,12 +371,12 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (isFromFrs()) {
                 t tVar = new t();
-                tVar.f26328a = 1120;
-                tVar.f26329b = true;
+                tVar.f27908a = 1120;
+                tVar.f27909b = true;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
                 return;
             }
-            this.f46923g.setRefreshing(true);
+            this.f47787g.setRefreshing(true);
         }
     }
 
@@ -395,12 +395,12 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (isFromFrs()) {
                 t tVar = new t();
-                tVar.f26328a = 1120;
-                tVar.f26329b = false;
+                tVar.f27908a = 1120;
+                tVar.f27909b = false;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
                 return;
             }
-            this.f46923g.setRefreshing(false);
+            this.f47787g.setRefreshing(false);
         }
     }
 
@@ -408,7 +408,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
     public void notifyListViewChanged() {
         b.a.r0.w.f.c.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (aVar = this.f46925i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (aVar = this.f47789i) == null) {
             return;
         }
         aVar.b();
@@ -428,7 +428,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
                 pbListView.E(SkinManager.getColor(R.color.CAM_X0109));
                 this.k.d(i2);
             }
-            b.a.r0.w.f.c.a aVar = this.f46925i;
+            b.a.r0.w.f.c.a aVar = this.f47789i;
             if (aVar != null) {
                 aVar.b();
             }
@@ -459,14 +459,14 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.f46922f == null) {
-                this.f46922f = layoutInflater.inflate(R.layout.live_tab_sub_tab_layout, (ViewGroup) null);
+            if (this.f47786f == null) {
+                this.f47786f = layoutInflater.inflate(R.layout.live_tab_sub_tab_layout, (ViewGroup) null);
                 initView();
             }
             if (this.isAfterLazyLoaded) {
                 loadData();
             }
-            return this.f46922f;
+            return this.f47786f;
         }
         return (View) invokeLLL.objValue;
     }
@@ -476,10 +476,10 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onDestroy();
-            BdTypeRecyclerView bdTypeRecyclerView = this.f46924h;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f47788h;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.removeOnScrollListener(this.p);
-                this.f46924h.setOnSrollToBottomListener(null);
+                this.f47788h.setOnSrollToBottomListener(null);
             }
             g gVar = this.j;
             if (gVar != null) {
@@ -501,14 +501,14 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
         }
     }
 
-    @Override // b.a.r0.x0.r0
+    @Override // b.a.r0.x0.s0
     public void onLoadingComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
         }
     }
 
-    @Override // b.a.r0.x0.r0
+    @Override // b.a.r0.x0.s0
     public void onPullRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
@@ -528,7 +528,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
     public void refreshPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f46924h.setSelection(0);
+            this.f47788h.setSelection(0);
             l();
         }
     }
@@ -542,7 +542,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
                 }
                 list.add(new s());
             }
-            this.f46925i.c(list);
+            this.f47789i.c(list);
         }
     }
 }

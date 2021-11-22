@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.x.n;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.imagetool.MultiImgToolView;
@@ -27,7 +27,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f14227e;
+        public final /* synthetic */ n f14994e;
 
         public a(n nVar) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class c {
                     return;
                 }
             }
-            this.f14227e = nVar;
+            this.f14994e = nVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             n nVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (nVar = this.f14227e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (nVar = this.f14994e) == null) {
                 return;
             }
             nVar.sendAction(new b.a.q0.x.a(14, -1, Boolean.TRUE));
@@ -70,7 +70,7 @@ public class c {
                 return null;
             }
             multiImgToolView.setAsyncLocalImageLoader(bVar);
-            b.a.r0.l3.m0.a aVar = new b.a.r0.l3.m0.a(context);
+            b.a.r0.m3.m0.a aVar = new b.a.r0.m3.m0.a(context);
             aVar.e(multiImgToolView.getDragLayer());
             aVar.g(multiImgToolView.getDragHorizonScrollView());
             aVar.f(multiImgToolView.getDragHorizonScrollView());

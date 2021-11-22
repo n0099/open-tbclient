@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,19 +30,19 @@ public class AppPrivacyPolicyActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f68559a;
+    public ImageView f69479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f68560b;
+    public WebView f69480b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f68561c;
+    public long f69481c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f68562d;
+    public long f69482d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f68563e;
+    public String f69483e;
 
     public AppPrivacyPolicyActivity() {
         Interceptable interceptable = $ic;
@@ -60,14 +61,14 @@ public class AppPrivacyPolicyActivity extends Activity {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            this.f68559a = (ImageView) findViewById(R.id.iv_privacy_back);
-            this.f68560b = (WebView) findViewById(R.id.privacy_webview);
-            this.f68559a.setOnClickListener(new View.OnClickListener(this) { // from class: com.ss.android.downloadlib.addownload.compliance.AppPrivacyPolicyActivity.1
+            this.f69479a = (ImageView) findViewById(R.id.iv_privacy_back);
+            this.f69480b = (WebView) findViewById(R.id.privacy_webview);
+            this.f69479a.setOnClickListener(new View.OnClickListener(this) { // from class: com.ss.android.downloadlib.addownload.compliance.AppPrivacyPolicyActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AppPrivacyPolicyActivity f68564a;
+                public final /* synthetic */ AppPrivacyPolicyActivity f69484a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -84,19 +85,19 @@ public class AppPrivacyPolicyActivity extends Activity {
                             return;
                         }
                     }
-                    this.f68564a = this;
+                    this.f69484a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        e.a("lp_app_privacy_click_close", this.f68564a.f68562d);
-                        this.f68564a.finish();
+                        e.a("lp_app_privacy_click_close", this.f69484a.f69482d);
+                        this.f69484a.finish();
                     }
                 }
             });
-            WebSettings settings = this.f68560b.getSettings();
+            WebSettings settings = this.f69480b.getSettings();
             settings.setDefaultFontSize(16);
             settings.setCacheMode(-1);
             settings.setJavaScriptEnabled(true);
@@ -111,12 +112,12 @@ public class AppPrivacyPolicyActivity extends Activity {
             settings.setDisplayZoomControls(false);
             settings.setSavePassword(false);
             settings.setAllowFileAccess(false);
-            this.f68560b.setWebViewClient(new WebViewClient(this) { // from class: com.ss.android.downloadlib.addownload.compliance.AppPrivacyPolicyActivity.2
+            this.f69480b.setWebViewClient(new WebViewClient(this) { // from class: com.ss.android.downloadlib.addownload.compliance.AppPrivacyPolicyActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AppPrivacyPolicyActivity f68565a;
+                public final /* synthetic */ AppPrivacyPolicyActivity f69485a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -133,7 +134,7 @@ public class AppPrivacyPolicyActivity extends Activity {
                             return;
                         }
                     }
-                    this.f68565a = this;
+                    this.f69485a = this;
                 }
 
                 private boolean a(Uri uri) {
@@ -161,9 +162,9 @@ public class AppPrivacyPolicyActivity extends Activity {
                     return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) ? a(Uri.parse(str)) : invokeLL.booleanValue;
                 }
             });
-            a(this.f68560b);
-            this.f68560b.setScrollBarStyle(0);
-            this.f68560b.loadUrl(this.f68563e);
+            a(this.f69480b);
+            this.f69480b.setScrollBarStyle(0);
+            this.f69480b.loadUrl(this.f69483e);
         }
     }
 
@@ -171,7 +172,7 @@ public class AppPrivacyPolicyActivity extends Activity {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e.a("lp_app_privacy_click_close", this.f68562d);
+            e.a("lp_app_privacy_click_close", this.f69482d);
             super.onBackPressed();
         }
     }
@@ -187,6 +188,7 @@ public class AppPrivacyPolicyActivity extends Activity {
             } else {
                 com.ss.android.socialbase.appdownloader.c.a((Activity) this);
             }
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 
@@ -203,16 +205,16 @@ public class AppPrivacyPolicyActivity extends Activity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            this.f68561c = getIntent().getLongExtra("app_info_id", 0L);
-            com.ss.android.downloadlib.addownload.b.b a2 = c.a().a(this.f68561c);
+            this.f69481c = getIntent().getLongExtra("app_info_id", 0L);
+            com.ss.android.downloadlib.addownload.b.b a2 = c.a().a(this.f69481c);
             if (a2 == null) {
                 return false;
             }
-            this.f68562d = a2.f68487b;
-            String str = a2.f68494i;
-            this.f68563e = str;
+            this.f69482d = a2.f69407b;
+            String str = a2.f69414i;
+            this.f69483e = str;
             if (TextUtils.isEmpty(str)) {
-                this.f68563e = j.i().optString("ad_privacy_backup_url", "https://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html");
+                this.f69483e = j.i().optString("ad_privacy_backup_url", "https://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html");
                 return true;
             }
             return true;

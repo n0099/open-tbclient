@@ -66,7 +66,7 @@ public class PersonCenterDynamicTabHttpResMessage extends HttpResponsedMessage {
             for (ThreadInfo threadInfo : getShoubaiThreadListResIdl.data.thread_list) {
                 if (threadInfo != null) {
                     d2 d2Var = new d2();
-                    d2Var.Y2(threadInfo);
+                    d2Var.a3(threadInfo);
                     this.mThreadDataList.add(d2Var);
                 }
             }

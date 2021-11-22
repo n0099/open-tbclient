@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import b.a.e.e.m.e;
+import b.a.e.f.m.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
@@ -30,19 +30,19 @@ public class BdTopToast extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f55216e;
+    public View f56138e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BottomShadowLinearLayout f55217f;
+    public BottomShadowLinearLayout f56139f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f55218g;
+    public ImageView f56140g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f55219h;
+    public TextView f56141h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Animation f55220i;
+    public Animation f56142i;
     public Animation j;
     public Runnable k;
     public int l;
@@ -54,7 +54,7 @@ public class BdTopToast extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdTopToast f55221a;
+        public final /* synthetic */ BdTopToast f56143a;
 
         public a(BdTopToast bdTopToast) {
             Interceptable interceptable = $ic;
@@ -71,16 +71,16 @@ public class BdTopToast extends LinearLayout {
                     return;
                 }
             }
-            this.f55221a = bdTopToast;
+            this.f56143a = bdTopToast;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f55221a.f();
-                if (this.f55221a.getParent() != null) {
-                    ((ViewGroup) this.f55221a.getParent()).removeView(this.f55221a);
+                this.f56143a.f();
+                if (this.f56143a.getParent() != null) {
+                    ((ViewGroup) this.f56143a.getParent()).removeView(this.f56143a);
                 }
             }
         }
@@ -106,7 +106,7 @@ public class BdTopToast extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTopToast f55222e;
+        public final /* synthetic */ BdTopToast f56144e;
 
         public b(BdTopToast bdTopToast) {
             Interceptable interceptable = $ic;
@@ -123,14 +123,14 @@ public class BdTopToast extends LinearLayout {
                     return;
                 }
             }
-            this.f55222e = bdTopToast;
+            this.f56144e = bdTopToast;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f55222e.c();
+                this.f56144e.c();
             }
         }
     }
@@ -169,13 +169,13 @@ public class BdTopToast extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOrientation(1);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.f55216e = new View(getContext());
-                addView(this.f55216e, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
+                this.f56138e = new View(getContext());
+                addView(this.f56138e, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
             }
             LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-            this.f55217f = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
-            this.f55218g = (ImageView) findViewById(R.id.bd_top_toast_icon);
-            this.f55219h = (TextView) findViewById(R.id.bd_top_toast_content);
+            this.f56139f = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+            this.f56140g = (ImageView) findViewById(R.id.bd_top_toast_icon);
+            this.f56141h = (TextView) findViewById(R.id.bd_top_toast_content);
             e();
         }
     }
@@ -183,7 +183,7 @@ public class BdTopToast extends LinearLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f55220i = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+            this.f56142i = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
             Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
             this.j = loadAnimation;
             loadAnimation.setAnimationListener(new a(this));
@@ -202,15 +202,15 @@ public class BdTopToast extends LinearLayout {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setBackgroundColor(this.f55216e, R.color.CAM_X0207);
+            SkinManager.setBackgroundColor(this.f56138e, R.color.CAM_X0207);
             if (this.m) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f55218g, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, null);
-                SkinManager.setViewTextColor(this.f55219h, R.color.CAM_X0302);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56140g, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, null);
+                SkinManager.setViewTextColor(this.f56141h, R.color.CAM_X0302);
             } else {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f55218g, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, null);
-                SkinManager.setViewTextColor(this.f55219h, R.color.CAM_X0301);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56140g, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, null);
+                SkinManager.setViewTextColor(this.f56141h, R.color.CAM_X0301);
             }
-            this.f55217f.onChangeSkinType();
+            this.f56139f.onChangeSkinType();
         }
     }
 
@@ -218,7 +218,7 @@ public class BdTopToast extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.f55219h.setText(str);
+            this.f56141h.setText(str);
             return this;
         }
         return (BdTopToast) invokeL.objValue;
@@ -245,7 +245,7 @@ public class BdTopToast extends LinearLayout {
         f();
         viewGroup.addView(this, -1, -2);
         onChangeSkinType();
-        startAnimation(this.f55220i);
+        startAnimation(this.f56142i);
         if (this.l >= 0) {
             e.a().postDelayed(this.k, this.l);
         } else {

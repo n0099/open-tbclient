@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f27167a;
+    public TbPageContext f28670a;
 
     public c(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -36,11 +36,11 @@ public class c {
                 return;
             }
         }
-        this.f27167a = tbPageContext;
+        this.f28670a = tbPageContext;
         SocketMessageTask socketMessageTask = new SocketMessageTask(309643);
         socketMessageTask.setResponsedClass(CommitCardInfoSocketResMsg.class);
         MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, b.a.r0.l3.f0.a.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, b.a.r0.m3.f0.a.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
         tbHttpMessageTask.setResponsedClass(CommitCardInfoHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
@@ -52,7 +52,7 @@ public class c {
             commitCardInfoReqMsg.resource_id = str;
             commitCardInfoReqMsg.card_type = i2;
             commitCardInfoReqMsg.image_info = str2;
-            commitCardInfoReqMsg.setTag(this.f27167a.getUniqueId());
+            commitCardInfoReqMsg.setTag(this.f28670a.getUniqueId());
             MessageManager.getInstance().sendMessage(commitCardInfoReqMsg);
         }
     }

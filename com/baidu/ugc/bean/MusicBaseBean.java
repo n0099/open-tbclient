@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class MusicBaseBean implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MUSIC_MENU_COLUMNS = 5;

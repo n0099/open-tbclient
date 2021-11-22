@@ -13,10 +13,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public EncryptAlgorithm f29345a;
+    public EncryptAlgorithm f30214a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29346b;
+    public String f30215b;
 
     public a(EncryptAlgorithm encryptAlgorithm, String str) {
         Interceptable interceptable = $ic;
@@ -33,19 +33,19 @@ public class a {
                 return;
             }
         }
-        this.f29345a = encryptAlgorithm;
-        this.f29346b = str;
+        this.f30214a = encryptAlgorithm;
+        this.f30215b = str;
     }
 
     public EncryptAlgorithm a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29345a : (EncryptAlgorithm) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30214a : (EncryptAlgorithm) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29346b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30215b : (String) invokeV.objValue;
     }
 }

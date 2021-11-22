@@ -10,7 +10,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11868a;
+    public String f12621a;
 
     public a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -27,6 +27,6 @@ public class a {
                 return;
             }
         }
-        this.f11868a = str2;
+        this.f12621a = str2;
     }
 }

@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
-public class e implements m0 {
+public class e implements n0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<m0> f25685a;
+    public static final AtomicReference<n0> f27276a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final m0 f25686b;
+    public static final n0 f27277b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,8 +40,8 @@ public class e implements m0 {
                 return;
             }
         }
-        f25685a = new AtomicReference<>(null);
-        f25686b = new e();
+        f27276a = new AtomicReference<>(null);
+        f27277b = new e();
     }
 
     public e() {
@@ -58,28 +58,28 @@ public class e implements m0 {
         }
     }
 
-    public static m0 e() {
+    public static n0 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            m0 m0Var = f25685a.get();
-            return m0Var == null ? f25686b : m0Var;
+            n0 n0Var = f27276a.get();
+            return n0Var == null ? f27277b : n0Var;
         }
-        return (m0) invokeV.objValue;
+        return (n0) invokeV.objValue;
     }
 
-    @Override // b.a.r0.x0.m0
-    public b.a.e.l.e.a<? extends c2, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+    @Override // b.a.r0.x0.n0
+    public b.a.e.m.e.a<? extends c2, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
             BdLog.e("Frs extra project not loaded.");
             return null;
         }
-        return (b.a.e.l.e.a) invokeLLZ.objValue;
+        return (b.a.e.m.e.a) invokeLLZ.objValue;
     }
 
-    @Override // b.a.r0.x0.m0
+    @Override // b.a.r0.x0.n0
     public k<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -90,25 +90,25 @@ public class e implements m0 {
         return (k) invokeLLL.objValue;
     }
 
-    @Override // b.a.r0.x0.m0
-    public b.a.e.l.e.a<? extends d2, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+    @Override // b.a.r0.x0.n0
+    public b.a.e.m.e.a<? extends d2, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
             BdLog.e("Frs extra project not loaded.");
             return null;
         }
-        return (b.a.e.l.e.a) invokeCommon.objValue;
+        return (b.a.e.m.e.a) invokeCommon.objValue;
     }
 
-    @Override // b.a.r0.x0.m0
-    public b.a.e.l.e.a<? extends d2, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+    @Override // b.a.r0.x0.n0
+    public b.a.e.m.e.a<? extends d2, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
             BdLog.e("Frs extra project not loaded.");
             return null;
         }
-        return (b.a.e.l.e.a) invokeLLL.objValue;
+        return (b.a.e.m.e.a) invokeLLL.objValue;
     }
 }

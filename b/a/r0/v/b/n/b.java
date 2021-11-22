@@ -1,7 +1,7 @@
 package b.a.r0.v.b.n;
 
 import android.content.Context;
-import b.a.p0.a.c1.d.k;
+import b.a.p0.a.c1.d.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class b implements k {
+public class b implements l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,7 +41,7 @@ public class b implements k {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? TbadkCoreApplication.getInst().getZid(context, null, 0, null) : (String) invokeL.objValue;
     }
 
-    @Override // b.a.p0.a.c1.d.k
+    @Override // b.a.p0.a.c1.d.l
     public String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

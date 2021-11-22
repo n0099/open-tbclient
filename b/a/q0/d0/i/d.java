@@ -15,10 +15,10 @@ public class d extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f12063a;
+    public int f12941a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12064b;
+    public int f12942b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class d extends b {
                 return null;
             }
             b.a.q0.c0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.resizeBitmap(bitmap, this.f12063a, this.f12064b, z);
+            return BitmapHelper.resizeBitmap(bitmap, this.f12941a, this.f12942b, z);
         }
         return (Bitmap) invokeLZ.objValue;
     }
@@ -71,7 +71,7 @@ public class d extends b {
     public Bitmap c(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadResizedBitmap(str, this.f12063a, this.f12064b), true) : (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadResizedBitmap(str, this.f12941a, this.f12942b), true) : (Bitmap) invokeL.objValue;
     }
 
     @Override // b.a.q0.d0.i.b
@@ -84,19 +84,19 @@ public class d extends b {
         if (split.length != 2) {
             return;
         }
-        this.f12063a = b.a.e.e.m.b.e(split[0], 0);
-        this.f12064b = b.a.e.e.m.b.e(split[1], 0);
+        this.f12941a = b.a.e.f.m.b.e(split[0], 0);
+        this.f12942b = b.a.e.f.m.b.e(split[1], 0);
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12064b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12942b : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12063a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12941a : invokeV.intValue;
     }
 }

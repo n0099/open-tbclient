@@ -7,9 +7,9 @@ import android.content.ServiceConnection;
 import android.media.MediaMetadataRetriever;
 import android.os.IBinder;
 import android.os.RemoteException;
-import b.a.e.e.m.b;
-import b.a.r0.z3.c;
-import b.a.r0.z3.d;
+import b.a.e.f.m.b;
+import b.a.r0.a4.c;
+import b.a.r0.a4.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.video.convert.IVideoConvertListener;
 import com.baidu.tieba.video.convert.IVideoConvertService;
@@ -31,31 +31,31 @@ public class VideoConvertUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f54640a;
+    public Context f55560a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IVideoConvertService f54641b;
+    public IVideoConvertService f55561b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54642c;
+    public String f55562c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54643d;
+    public String f55563d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f54644e;
+    public File f55564e;
 
     /* renamed from: f  reason: collision with root package name */
-    public File f54645f;
+    public File f55565f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f54646g;
+    public d f55566g;
 
     /* renamed from: h  reason: collision with root package name */
-    public IntenalConvertListener f54647h;
+    public IntenalConvertListener f55567h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f54648i;
+    public int f55568i;
     public boolean j;
     public boolean k;
     public int l;
@@ -88,29 +88,29 @@ public class VideoConvertUtil {
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertAborted() throws RemoteException {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.this$0.f54646g == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.this$0.f55566g == null) {
                 return;
             }
-            this.this$0.f54646g.onConvertAborted();
+            this.this$0.f55566g.onConvertAborted();
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertFailed() throws RemoteException {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.this$0.f54646g == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.this$0.f55566g == null) {
                 return;
             }
-            this.this$0.f54646g.onConvertFailed();
+            this.this$0.f55566g.onConvertFailed();
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertProgress(int i2) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                if (this.this$0.f54646g != null) {
-                    this.this$0.f54646g.onConvertProgress(i2);
+                if (this.this$0.f55566g != null) {
+                    this.this$0.f55566g.onConvertProgress(i2);
                 }
-                if ((this.this$0.f54644e == null || this.this$0.f54644e.exists()) && (this.this$0.f54645f == null || this.this$0.f54645f.exists())) {
+                if ((this.this$0.f55564e == null || this.this$0.f55564e.exists()) && (this.this$0.f55565f == null || this.this$0.f55565f.exists())) {
                     return;
                 }
                 this.this$0.a();
@@ -121,9 +121,9 @@ public class VideoConvertUtil {
         public void onConvertSuccess() throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.this$0.f54648i = 1;
-                if (this.this$0.f54646g != null) {
-                    this.this$0.f54646g.onConvertSuccess();
+                this.this$0.f55568i = 1;
+                if (this.this$0.f55566g != null) {
+                    this.this$0.f55566g.onConvertSuccess();
                 }
             }
         }
@@ -139,7 +139,7 @@ public class VideoConvertUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoConvertUtil f54649e;
+        public final /* synthetic */ VideoConvertUtil f55569e;
 
         public a(VideoConvertUtil videoConvertUtil) {
             Interceptable interceptable = $ic;
@@ -156,16 +156,16 @@ public class VideoConvertUtil {
                     return;
                 }
             }
-            this.f54649e = videoConvertUtil;
+            this.f55569e = videoConvertUtil;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                this.f54649e.f54641b = IVideoConvertService.Stub.asInterface(iBinder);
-                if (this.f54649e.k) {
-                    this.f54649e.p();
+                this.f55569e.f55561b = IVideoConvertService.Stub.asInterface(iBinder);
+                if (this.f55569e.k) {
+                    this.f55569e.p();
                 }
             }
         }
@@ -174,13 +174,13 @@ public class VideoConvertUtil {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                if (this.f54649e.k) {
-                    if (!this.f54649e.j && this.f54649e.f54648i == -3 && this.f54649e.f54646g != null) {
-                        this.f54649e.f54646g.onConvertFailed();
+                if (this.f55569e.k) {
+                    if (!this.f55569e.j && this.f55569e.f55568i == -3 && this.f55569e.f55566g != null) {
+                        this.f55569e.f55566g.onConvertFailed();
                     }
-                    this.f54649e.k = false;
+                    this.f55569e.k = false;
                 }
-                this.f54649e.f54641b = null;
+                this.f55569e.f55561b = null;
             }
         }
     }
@@ -198,7 +198,7 @@ public class VideoConvertUtil {
                 return;
             }
         }
-        n = c.f28286f;
+        n = c.f15921f;
     }
 
     public VideoConvertUtil(Context context) {
@@ -216,23 +216,23 @@ public class VideoConvertUtil {
                 return;
             }
         }
-        this.f54648i = -3;
+        this.f55568i = -3;
         this.j = false;
         this.k = false;
         this.l = 1;
         this.m = new a(this);
-        this.f54640a = context;
-        this.f54647h = new IntenalConvertListener(this, null);
+        this.f55560a = context;
+        this.f55567h = new IntenalConvertListener(this, null);
     }
 
     private void bindService() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.f54640a == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.f55560a == null) {
             return;
         }
         Intent intent = new Intent("com.baidu.tieba.video.convert.VideoConvertService");
         intent.setPackage("com.baidu.tieba");
-        this.f54640a.bindService(intent, this.m, 1);
+        this.f55560a.bindService(intent, this.m, 1);
     }
 
     public static boolean l() {
@@ -289,12 +289,12 @@ public class VideoConvertUtil {
 
     private void startService() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || this.f54640a == null) {
+        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || this.f55560a == null) {
             return;
         }
         Intent intent = new Intent("com.baidu.tieba.video.convert.VideoConvertService");
         intent.setPackage("com.baidu.tieba");
-        this.f54640a.startService(intent);
+        this.f55560a.startService(intent);
     }
 
     public static String t(String str) {
@@ -328,7 +328,7 @@ public class VideoConvertUtil {
     private void unbindService() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65553, this) == null) || this.f54641b == null || (context = this.f54640a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65553, this) == null) || this.f55561b == null || (context = this.f55560a) == null) {
             return;
         }
         context.unbindService(this.m);
@@ -337,7 +337,7 @@ public class VideoConvertUtil {
     public void a() {
         IVideoConvertService iVideoConvertService;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVideoConvertService = this.f54641b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVideoConvertService = this.f55561b) == null) {
             return;
         }
         try {
@@ -352,12 +352,12 @@ public class VideoConvertUtil {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             this.k = true;
             this.j = false;
-            this.f54648i = -3;
-            this.f54642c = str;
-            this.f54643d = str2;
-            this.f54644e = new File(this.f54642c);
-            this.f54645f = new File(this.f54643d);
-            if (this.f54641b == null) {
+            this.f55568i = -3;
+            this.f55562c = str;
+            this.f55563d = str2;
+            this.f55564e = new File(this.f55562c);
+            this.f55565f = new File(this.f55563d);
+            if (this.f55561b == null) {
                 startService();
                 bindService();
                 return;
@@ -380,14 +380,14 @@ public class VideoConvertUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                this.f54641b.setIVideoConvertListener(this.f54647h);
-                this.f54641b.setConvertType(this.l);
-                i2 = this.f54641b.doConvert(this.f54642c, this.f54643d);
+                this.f55561b.setIVideoConvertListener(this.f55567h);
+                this.f55561b.setConvertType(this.l);
+                i2 = this.f55561b.doConvert(this.f55562c, this.f55563d);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 i2 = -1;
             }
-            d dVar = this.f54646g;
+            d dVar = this.f55566g;
             if (dVar != null) {
                 if (i2 == 0) {
                     dVar.b();
@@ -403,8 +403,8 @@ public class VideoConvertUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                if (this.f54641b != null) {
-                    return this.f54641b.isConvertRunning();
+                if (this.f55561b != null) {
+                    return this.f55561b.isConvertRunning();
                 }
                 return false;
             } catch (RemoteException e2) {
@@ -425,7 +425,7 @@ public class VideoConvertUtil {
     public void s(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
-            this.f54646g = dVar;
+            this.f55566g = dVar;
         }
     }
 }

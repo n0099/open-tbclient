@@ -23,10 +23,10 @@ public class HotRanklistModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f49995e;
+    public b f50907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.e.c.g.a f49996f;
+    public b.a.e.c.g.a f50908f;
 
     /* loaded from: classes9.dex */
     public class a extends b.a.e.c.g.a {
@@ -34,7 +34,7 @@ public class HotRanklistModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotRanklistModel f49997a;
+        public final /* synthetic */ HotRanklistModel f50909a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HotRanklistModel hotRanklistModel, int i2, int i3) {
@@ -55,7 +55,7 @@ public class HotRanklistModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f49997a = hotRanklistModel;
+            this.f50909a = hotRanklistModel;
         }
 
         @Override // b.a.e.c.g.a
@@ -64,11 +64,11 @@ public class HotRanklistModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            if (((responsedMessage instanceof ResponseHttpHotRanklistMessage) || (responsedMessage instanceof ResponseSocketHotRanklistMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f49997a.getUniqueId()) {
+            if (((responsedMessage instanceof ResponseHttpHotRanklistMessage) || (responsedMessage instanceof ResponseSocketHotRanklistMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f50909a.getUniqueId()) {
                 if (!responsedMessage.hasError()) {
-                    this.f49997a.z(responsedMessage);
+                    this.f50909a.z(responsedMessage);
                 } else {
-                    this.f49997a.f49995e.loadNetDataCallback(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
+                    this.f50909a.f50907e.loadNetDataCallback(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
                 }
             }
         }
@@ -97,9 +97,9 @@ public class HotRanklistModel extends BdBaseModel {
                 return;
             }
         }
-        this.f49995e = null;
+        this.f50907e = null;
         a aVar = new a(this, CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, 309289);
-        this.f49996f = aVar;
+        this.f50908f = aVar;
         registerListener(aVar);
     }
 
@@ -118,7 +118,7 @@ public class HotRanklistModel extends BdBaseModel {
     public void B(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f49995e = bVar;
+            this.f50907e = bVar;
         }
     }
 
@@ -178,12 +178,12 @@ public class HotRanklistModel extends BdBaseModel {
                         jVar = responseSocketHotRanklistMessage.getHotRanklistData();
                     }
                 }
-                if (!StringUtils.isNull(str) && !ListUtils.isEmpty(jVar.f18461b)) {
-                    jVar.f18460a = jVar.f18461b.get(0).f18486f;
+                if (!StringUtils.isNull(str) && !ListUtils.isEmpty(jVar.f19795b)) {
+                    jVar.f19794a = jVar.f19795b.get(0).f19820f;
                 } else {
-                    jVar.f18460a = str;
+                    jVar.f19794a = str;
                 }
-                this.f49995e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+                this.f50907e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
             }
         }
         str = null;
@@ -193,7 +193,7 @@ public class HotRanklistModel extends BdBaseModel {
         }
         if (!StringUtils.isNull(str)) {
         }
-        jVar.f18460a = str;
-        this.f49995e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+        jVar.f19794a = str;
+        this.f50907e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
     }
 }

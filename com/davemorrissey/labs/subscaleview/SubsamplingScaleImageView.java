@@ -884,7 +884,7 @@ public class SubsamplingScaleImageView extends View {
                 return 0;
             }
             try {
-                int attributeInt = new ExifInterface(str.substring(7)).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+                int attributeInt = new ExifInterface(str.substring(7)).getAttributeInt("Orientation", 1);
                 if (attributeInt != 1 && attributeInt != 0) {
                     if (attributeInt == 6) {
                         return 90;

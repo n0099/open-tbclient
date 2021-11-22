@@ -16,7 +16,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ExecutorService f65135a;
+    public final ExecutorService f66048a;
 
     /* loaded from: classes2.dex */
     public class a implements Callable<Void> {
@@ -24,10 +24,10 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f65136a;
+        public final /* synthetic */ e f66049a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final File f65137b;
+        public final File f66050b;
 
         public a(e eVar, File file) {
             Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
                     return;
                 }
             }
-            this.f65136a = eVar;
-            this.f65137b = file;
+            this.f66049a = eVar;
+            this.f66050b = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f65136a.b(this.f65137b);
+                this.f66049a.b(this.f66050b);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -75,7 +75,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
                 return;
             }
         }
-        this.f65135a = com.kwad.sdk.core.i.b.b();
+        this.f66048a = com.kwad.sdk.core.i.b.b();
     }
 
     private void a(List<File> list) {
@@ -123,7 +123,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
     public void a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
-            this.f65135a.submit(new a(this, file));
+            this.f66048a.submit(new a(this, file));
         }
     }
 

@@ -10,31 +10,31 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f12919a = "com.baidu.tieba";
+    public static String f13699a = "com.baidu.tieba";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f12920b = "com.baidu.tieba:remote";
+    public static String f13700b = "com.baidu.tieba:remote";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f12921c = "com.baidu.tieba:bdservice_v1";
+    public static String f13701c = "com.baidu.tieba:bdservice_v1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f12922d = "com.baidu.tieba:pluginInstaller";
+    public static String f13702d = "com.baidu.tieba:pluginInstaller";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f12923e = "com.baidu.tieba:daemon";
+    public static String f13703e = "com.baidu.tieba:daemon";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f12924f = "com.baidu.tieba:cdnTachometer";
+    public static String f13704f = "com.baidu.tieba:cdnTachometer";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f12925g = "plugininstaller_settings";
+    public static String f13705g = "plugininstaller_settings";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f12926h = "daemon_settings";
+    public static String f13706h = "daemon_settings";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f12927i = "cdnTachometer_settings";
+    public static String f13707i = "cdnTachometer_settings";
     public static final String[] j;
     public static final String[] k;
     public transient /* synthetic */ FieldHolder $fh;

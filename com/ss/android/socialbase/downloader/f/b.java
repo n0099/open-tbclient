@@ -13,31 +13,31 @@ public class b implements c, d, e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f69318a;
+    public final int f70238a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f69319b;
+    public final int f70239b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f69320c;
+    public final Object f70240c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f69321d;
+    public final Object f70241d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f69322e;
+    public a f70242e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f69323f;
+    public a f70243f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f69324g;
+    public a f70244g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f69325h;
+    public a f70245h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f69326i;
+    public a f70246i;
     public volatile boolean j;
     public int k;
 
@@ -56,12 +56,12 @@ public class b implements c, d, e {
                 return;
             }
         }
-        this.f69320c = new Object();
-        this.f69321d = new Object();
+        this.f70240c = new Object();
+        this.f70241d = new Object();
         i2 = i2 < 64 ? 64 : i2;
         i3 = i3 < 8192 ? 8192 : i3;
-        this.f69318a = i2;
-        this.f69319b = i3;
+        this.f70238a = i2;
+        this.f70239b = i3;
     }
 
     @Override // com.ss.android.socialbase.downloader.f.d
@@ -71,26 +71,26 @@ public class b implements c, d, e {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a aVar2 = this.f69326i;
+            a aVar2 = this.f70246i;
             if (aVar2 != null) {
-                this.f69326i = aVar2.f69317d;
-                aVar2.f69317d = null;
+                this.f70246i = aVar2.f70237d;
+                aVar2.f70237d = null;
                 return aVar2;
             }
-            synchronized (this.f69321d) {
-                aVar = this.f69324g;
+            synchronized (this.f70241d) {
+                aVar = this.f70244g;
                 while (aVar == null) {
                     if (!this.j) {
-                        this.f69321d.wait();
-                        aVar = this.f69324g;
+                        this.f70241d.wait();
+                        aVar = this.f70244g;
                     } else {
                         throw new p("read");
                     }
                 }
-                this.f69326i = aVar.f69317d;
-                this.f69325h = null;
-                this.f69324g = null;
-                aVar.f69317d = null;
+                this.f70246i = aVar.f70237d;
+                this.f70245h = null;
+                this.f70244g = null;
+                aVar.f70237d = null;
             }
             return aVar;
         }
@@ -103,28 +103,28 @@ public class b implements c, d, e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.f69320c) {
+            synchronized (this.f70240c) {
                 if (!this.j) {
-                    a aVar = this.f69322e;
+                    a aVar = this.f70242e;
                     if (aVar == null) {
-                        if (this.k < this.f69318a) {
+                        if (this.k < this.f70238a) {
                             this.k++;
-                            return new a(this.f69319b);
+                            return new a(this.f70239b);
                         }
                         do {
-                            this.f69320c.wait();
+                            this.f70240c.wait();
                             if (!this.j) {
-                                aVar = this.f69322e;
+                                aVar = this.f70242e;
                             } else {
                                 throw new p("obtain");
                             }
                         } while (aVar == null);
                     }
-                    this.f69322e = aVar.f69317d;
-                    if (aVar == this.f69323f) {
-                        this.f69323f = null;
+                    this.f70242e = aVar.f70237d;
+                    if (aVar == this.f70243f) {
+                        this.f70243f = null;
                     }
-                    aVar.f69317d = null;
+                    aVar.f70237d = null;
                     return aVar;
                 }
                 throw new p("obtain");
@@ -137,11 +137,11 @@ public class b implements c, d, e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.j = true;
-            synchronized (this.f69320c) {
-                this.f69320c.notifyAll();
+            synchronized (this.f70240c) {
+                this.f70240c.notifyAll();
             }
-            synchronized (this.f69321d) {
-                this.f69321d.notifyAll();
+            synchronized (this.f70241d) {
+                this.f70241d.notifyAll();
             }
         }
     }
@@ -150,16 +150,16 @@ public class b implements c, d, e {
     public void a(@NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            synchronized (this.f69320c) {
-                a aVar2 = this.f69323f;
+            synchronized (this.f70240c) {
+                a aVar2 = this.f70243f;
                 if (aVar2 == null) {
-                    this.f69323f = aVar;
-                    this.f69322e = aVar;
+                    this.f70243f = aVar;
+                    this.f70242e = aVar;
                 } else {
-                    aVar2.f69317d = aVar;
-                    this.f69323f = aVar;
+                    aVar2.f70237d = aVar;
+                    this.f70243f = aVar;
                 }
-                this.f69320c.notify();
+                this.f70240c.notify();
             }
         }
     }
@@ -168,15 +168,15 @@ public class b implements c, d, e {
     public void b(@NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            synchronized (this.f69321d) {
-                a aVar2 = this.f69325h;
+            synchronized (this.f70241d) {
+                a aVar2 = this.f70245h;
                 if (aVar2 == null) {
-                    this.f69325h = aVar;
-                    this.f69324g = aVar;
-                    this.f69321d.notify();
+                    this.f70245h = aVar;
+                    this.f70244g = aVar;
+                    this.f70241d.notify();
                 } else {
-                    aVar2.f69317d = aVar;
-                    this.f69325h = aVar;
+                    aVar2.f70237d = aVar;
+                    this.f70245h = aVar;
                 }
             }
         }

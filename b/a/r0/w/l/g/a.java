@@ -17,25 +17,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f25194a;
+    public TbPageContext f26711a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f25195b;
+    public b f26712b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpMessageListener f25196c;
+    public HttpMessageListener f26713c;
 
     /* renamed from: b.a.r0.w.l.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1229a extends HttpMessageListener {
+    public class C1297a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f25197a;
+        public final /* synthetic */ a f26714a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1229a(a aVar, int i2) {
+        public C1297a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -52,7 +52,7 @@ public class a {
                     return;
                 }
             }
-            this.f25197a = aVar;
+            this.f26714a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,8 +63,8 @@ public class a {
                 AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
                 boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
                 String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-                if (this.f25197a.f25195b != null) {
-                    this.f25197a.f25195b.a(z, errorString);
+                if (this.f26714a.f26712b != null) {
+                    this.f26714a.f26712b.a(z, errorString);
                 }
             }
         }
@@ -90,11 +90,11 @@ public class a {
                 return;
             }
         }
-        C1229a c1229a = new C1229a(this, AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
-        this.f25196c = c1229a;
-        this.f25194a = tbPageContext;
-        this.f25195b = bVar;
-        tbPageContext.registerListener(c1229a);
+        C1297a c1297a = new C1297a(this, AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+        this.f26713c = c1297a;
+        this.f26711a = tbPageContext;
+        this.f26712b = bVar;
+        tbPageContext.registerListener(c1297a);
     }
 
     public void b(String str, int i2) {
@@ -104,7 +104,7 @@ public class a {
             httpMessage.addParam("props_id", i2);
             httpMessage.addParam("effect_id", str);
             httpMessage.addParam("buy_action", 0);
-            this.f25194a.sendMessage(httpMessage);
+            this.f26711a.sendMessage(httpMessage);
         }
     }
 
@@ -115,7 +115,7 @@ public class a {
             httpMessage.addParam("props_id", i3);
             httpMessage.addParam("mark_id", i2);
             httpMessage.addParam("buy_action", z ? 1 : 0);
-            this.f25194a.sendMessage(httpMessage);
+            this.f26711a.sendMessage(httpMessage);
         }
     }
 }

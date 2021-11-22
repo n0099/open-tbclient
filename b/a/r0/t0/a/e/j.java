@@ -60,7 +60,7 @@ public final /* synthetic */ class j {
         HashMap wrapError;
         final HashMap hashMap = new HashMap();
         try {
-            hostNetworkInfo.isNetworkAvailableForImmediately(new NetworkInfoAuto.Result() { // from class: b.a.r0.t0.a.e.f
+            hostNetworkInfo.isNetworkAvailableForImmediately(new NetworkInfoAuto.Result() { // from class: b.a.r0.t0.a.e.b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -83,7 +83,7 @@ public final /* synthetic */ class j {
         HashMap wrapError;
         final HashMap hashMap = new HashMap();
         try {
-            hostNetworkInfo.getNetInfo(new NetworkInfoAuto.Result() { // from class: b.a.r0.t0.a.e.e
+            hostNetworkInfo.getNetInfo(new NetworkInfoAuto.Result() { // from class: b.a.r0.t0.a.e.f
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -106,7 +106,7 @@ public final /* synthetic */ class j {
         HashMap wrapError;
         final HashMap hashMap = new HashMap();
         try {
-            hostNetworkInfo.getDnsIp(NetworkInfoAuto.DnsUrl.fromMap((HashMap) obj), new NetworkInfoAuto.Result() { // from class: b.a.r0.t0.a.e.b
+            hostNetworkInfo.getDnsIp(NetworkInfoAuto.DnsUrl.fromMap((HashMap) obj), new NetworkInfoAuto.Result() { // from class: b.a.r0.t0.a.e.e
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -130,7 +130,7 @@ public final /* synthetic */ class j {
         if (interceptable == null || interceptable.invokeLL(65544, null, binaryMessenger, hostNetworkInfo) == null) {
             BasicMessageChannel basicMessageChannel = new BasicMessageChannel(binaryMessenger, "dev.flutter.pigeon.HostNetworkInfo.isNetWorkAvailable", new StandardMessageCodec());
             if (hostNetworkInfo != null) {
-                basicMessageChannel.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.e.g
+                basicMessageChannel.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.e.h
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -147,7 +147,7 @@ public final /* synthetic */ class j {
             }
             BasicMessageChannel basicMessageChannel2 = new BasicMessageChannel(binaryMessenger, "dev.flutter.pigeon.HostNetworkInfo.isNetworkAvailableForImmediately", new StandardMessageCodec());
             if (hostNetworkInfo != null) {
-                basicMessageChannel2.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.e.d
+                basicMessageChannel2.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.e.i
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -164,7 +164,7 @@ public final /* synthetic */ class j {
             }
             BasicMessageChannel basicMessageChannel3 = new BasicMessageChannel(binaryMessenger, "dev.flutter.pigeon.HostNetworkInfo.getNetInfo", new StandardMessageCodec());
             if (hostNetworkInfo != null) {
-                basicMessageChannel3.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.e.h
+                basicMessageChannel3.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.e.g
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -181,7 +181,7 @@ public final /* synthetic */ class j {
             }
             BasicMessageChannel basicMessageChannel4 = new BasicMessageChannel(binaryMessenger, "dev.flutter.pigeon.HostNetworkInfo.getDnsIp", new StandardMessageCodec());
             if (hostNetworkInfo != null) {
-                basicMessageChannel4.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.e.i
+                basicMessageChannel4.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.e.d
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

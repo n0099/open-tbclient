@@ -1,9 +1,9 @@
 package com.baidu.tieba.flutter.plugin.networkService;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.b;
-import b.a.e.e.m.e;
-import b.a.e.e.p.l;
+import b.a.e.f.m.b;
+import b.a.e.f.m.e;
+import b.a.e.f.p.l;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
@@ -130,7 +130,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
                     HashMap<String, String> hashMap = new HashMap<>();
                     hashMap.put("server", this.flutterNetModel.getHttpUrl());
                     hashMap.put(RetrieveTaskManager.KEY, this.flutterNetModel.getHttpUrl());
-                    hashMap.put("state", this.httpNetContext.getStat().stat.f1792h);
+                    hashMap.put("state", this.httpNetContext.getStat().stat.f1795h);
                     if (this.httpNetContext.getPerformance() != null && this.flutterNetModel.getStartRequestTime() > 0 && this.httpNetContext.getPerformance().containsKey("startTime")) {
                         long g2 = b.g(this.httpNetContext.getPerformance().get("startTime"), 0L) - this.flutterNetModel.getStartRequestTime();
                         if (g2 > 0) {

@@ -13,7 +13,7 @@ public class gt extends XMPushService.i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ gs f71050a;
+    public final /* synthetic */ gs f71970a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gt(gs gsVar, int i2) {
@@ -33,7 +33,7 @@ public class gt extends XMPushService.i {
                 return;
             }
         }
-        this.f71050a = gsVar;
+        this.f71970a = gsVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -47,7 +47,7 @@ public class gt extends XMPushService.i {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f71050a.c();
+            this.f71970a.c();
         }
     }
 }

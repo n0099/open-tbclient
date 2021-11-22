@@ -24,31 +24,31 @@ public class h {
     public static ArrayList<BasicNameValuePair> E = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1511a = -100000000;
+    public static int f1507a = -100000000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f1512b;
+    public static final int f1508b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f1513c;
+    public static final int f1509c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f1514d;
+    public static final int f1510d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f1515e;
+    public static final int f1511e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f1516f;
+    public static final int f1512f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f1517g;
+    public static final int f1513g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f1518h;
+    public static final int f1514h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f1519i;
+    public static final int f1515i;
     public static final int j;
     public static final int k;
     public static final int l;
@@ -81,14 +81,14 @@ public class h {
                 return;
             }
         }
-        f1512b = (-100000000) - 200;
-        f1513c = (-100000000) + com.baidu.fsg.face.base.c.a.ERROR_CODE_CAMERA_EXCEPTION;
-        f1514d = (-100000000) - 213;
-        f1515e = (-100000000) - 214;
-        f1516f = (-100000000) - 221;
-        f1517g = (-100000000) - 230;
-        f1518h = (-100000000) - 232;
-        f1519i = (-100000000) - 233;
+        f1508b = (-100000000) - 200;
+        f1509c = (-100000000) + com.baidu.fsg.face.base.c.a.ERROR_CODE_CAMERA_EXCEPTION;
+        f1510d = (-100000000) - 213;
+        f1511e = (-100000000) - 214;
+        f1512f = (-100000000) - 221;
+        f1513g = (-100000000) - 230;
+        f1514h = (-100000000) - 232;
+        f1515i = (-100000000) - 233;
         j = (-100000000) - 234;
         k = (-100000000) - 235;
         l = (-100000000) - 236;
@@ -107,7 +107,7 @@ public class h {
         y = (-100000000) - 310;
         z = (-100000000) - 311;
         A = (-100000000) + ErrorCode.ARGS_ERROR;
-        D = b.a.e.c.c.f1478a;
+        D = b.a.e.c.c.f1474a;
         E = null;
     }
 
@@ -168,7 +168,7 @@ public class h {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
-            int i3 = f1511a - i2;
+            int i3 = f1507a - i2;
             Application app = BdBaseApplication.getInst().getApp();
             if (i3 > -300 && i3 <= -200) {
                 return app.getString(R.string.im_error_codec);

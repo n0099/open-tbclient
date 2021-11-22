@@ -58,10 +58,10 @@ public class ImmersiveKeyboardAdjust {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f36231a;
+                public final /* synthetic */ View f37060a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ImmersiveKeyboardAdjust f36232b;
+                public final /* synthetic */ ImmersiveKeyboardAdjust f37061b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -78,8 +78,8 @@ public class ImmersiveKeyboardAdjust {
                             return;
                         }
                     }
-                    this.f36232b = this;
-                    this.f36231a = view;
+                    this.f37061b = this;
+                    this.f37060a = view;
                 }
 
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -87,12 +87,12 @@ public class ImmersiveKeyboardAdjust {
                     int computeUsableHeight;
                     View view2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (computeUsableHeight = this.f36232b.computeUsableHeight(this.f36231a)) == this.f36232b.usableHeightPrevious || (view2 = this.f36231a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (computeUsableHeight = this.f37061b.computeUsableHeight(this.f37060a)) == this.f37061b.usableHeightPrevious || (view2 = this.f37060a) == null) {
                         return;
                     }
                     view2.getLayoutParams().height = computeUsableHeight;
-                    this.f36231a.requestLayout();
-                    this.f36232b.usableHeightPrevious = computeUsableHeight;
+                    this.f37060a.requestLayout();
+                    this.f37061b.usableHeightPrevious = computeUsableHeight;
                 }
             };
         }

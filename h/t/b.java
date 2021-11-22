@@ -1,7 +1,7 @@
 package h.t;
 
 import rx.subjects.ReplaySubject$ReplayProducer;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface b<T> {
     void a(ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer);
 

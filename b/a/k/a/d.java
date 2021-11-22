@@ -11,7 +11,7 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, c> f3116a;
+    public static HashMap<String, c> f3209a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static synchronized c a(String str, Context context) {
@@ -22,14 +22,14 @@ public final class d {
                 if (TextUtils.isEmpty(str)) {
                     str = context.getPackageName() + "_preferences";
                 }
-                if (f3116a == null) {
-                    f3116a = new HashMap<>();
+                if (f3209a == null) {
+                    f3209a = new HashMap<>();
                 }
-                if (f3116a.get(str) != null) {
-                    return f3116a.get(str);
+                if (f3209a.get(str) != null) {
+                    return f3209a.get(str);
                 }
                 c cVar = new c(str);
-                f3116a.put(str, cVar);
+                f3209a.put(str, cVar);
                 return cVar;
             }
         }

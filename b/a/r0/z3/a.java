@@ -1,87 +1,88 @@
 package b.a.r0.z3;
 
+import android.content.Context;
+import b.a.a0.a.b;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f28267a;
+    /* renamed from: b.a.r0.z3.a$a  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public static class C1431a implements b.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public float f28268b;
+        /* renamed from: a  reason: collision with root package name */
+        public final WeakReference<f> f29422a;
 
-    /* renamed from: c  reason: collision with root package name */
-    public float f28269c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public float f28270d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public float f28271e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public float f28272f;
-
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static a a(int i2, float f2, float f3, float f4, float f5, float f6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
-            a aVar = new a();
-            aVar.f28267a = i2;
-            aVar.f28268b = f2;
-            aVar.f28269c = f3;
-            aVar.f28270d = f4;
-            aVar.f28271e = f5;
-            aVar.f28272f = f6;
-            return aVar;
-        }
-        return (a) invokeCommon.objValue;
-    }
-
-    public static a b(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            if (i2 != 4) {
-                                if (i2 != 5) {
-                                    return null;
-                                }
-                                return a(i2, 0.47f, 3.0f, 2.14f, 1.41f, 1.03f);
-                            }
-                            return a(i2, 0.53f, 3.0f, 1.64f, 1.08f, 0.62f);
-                        }
-                        return a(i2, 0.59f, 3.0f, 1.11f, 0.71f, 0.67f);
-                    }
-                    return a(i2, 0.1f, 2.0f, 0.39f, 0.31f, 0.66f);
+        public C1431a(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return a(i2, 0.1f, 1.0f, 0.0f, 0.0f, 0.09f);
             }
-            return a(i2, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+            this.f29422a = new WeakReference<>(fVar);
         }
-        return (a) invokeI.objValue;
+
+        @Override // b.a.a0.a.b.a
+        public void onProgress(int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
+            }
+        }
+
+        @Override // b.a.a0.a.b.a
+        public void onResult(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) || this.f29422a.get() == null) {
+                return;
+            }
+            if (z) {
+                this.f29422a.get().a();
+            } else {
+                this.f29422a.get().b();
+            }
+        }
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b.a.a0.a.b.n() : invokeV.booleanValue;
+    }
+
+    public static void b(Context context, f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, fVar) == null) {
+            c(context);
+            b.a.a0.a.b.p(new C1431a(fVar));
+        }
+    }
+
+    public static void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            new b.a.a0.a.j.c(context).a("cover_style", FileHelper.CreateFileIfNotFound(".cover_style"));
+            FileHelper.makeDirectory(".stickers");
+            FileHelper.makeDirectory(".filters");
+        }
     }
 }

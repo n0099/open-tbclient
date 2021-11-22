@@ -48,7 +48,7 @@ public class d extends b {
         p("percard#");
     }
 
-    @Override // b.a.r0.b0.e0.i, com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // b.a.r0.b0.f0.i, com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

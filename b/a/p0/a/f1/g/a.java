@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.f1.g.b;
 import b.a.p0.a.k;
+import b.a.p0.a.z2.g1.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,31 +21,31 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f5063d;
+    public static final boolean f4838d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Map<String, a> f5064e;
+    public static final Map<String, a> f4839e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f5065a;
+    public Map<String, String> f4840a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f5066b;
+    public final b f4841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f5067c;
+    public final String f4842c;
 
     /* renamed from: b.a.p0.a.f1.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0182a implements b.a.p0.a.v2.e1.b<b> {
+    public class C0170a implements c<b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f5068e;
+        public final /* synthetic */ a f4843e;
 
-        public C0182a(a aVar) {
+        public C0170a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,22 +60,22 @@ public final class a {
                     return;
                 }
             }
-            this.f5068e = aVar;
+            this.f4843e = aVar;
         }
 
         public final void a(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                boolean unused = a.f5063d;
+                boolean unused = a.f4838d;
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v2.e1.b
+        @Override // b.a.p0.a.z2.g1.c
         /* renamed from: b */
         public void onCallback(b bVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && a.f5063d) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && a.f4838d) {
                 c();
             }
         }
@@ -84,20 +85,20 @@ public final class a {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 synchronized (this) {
                     a("SwanLaunch", "\n\n\n");
-                    a("SwanLaunch", ">>>>>> SWAN Launch Log For " + this.f5068e.f5067c);
+                    a("SwanLaunch", ">>>>>> SWAN Launch Log For " + this.f4843e.f4842c);
                     StringBuilder sb = new StringBuilder();
-                    for (Map.Entry entry : this.f5068e.f5065a.entrySet()) {
+                    for (Map.Entry entry : this.f4843e.f4840a.entrySet()) {
                         sb.append(String.format("%s[%s] ", entry.getKey(), entry.getValue()));
                     }
-                    for (b.C0183b c0183b : this.f5068e.f5066b.i()) {
+                    for (b.C0171b c0171b : this.f4843e.f4841b.i()) {
                         StringBuilder sb2 = new StringBuilder();
-                        for (String str : c0183b.f5075b) {
+                        for (String str : c0171b.f4850b) {
                             sb2.append(str);
                             sb2.append(" ");
                         }
-                        for (String str2 : c0183b.f5074a) {
-                            String h2 = this.f5068e.f5066b.h();
-                            a(TextUtils.isEmpty(c0183b.f5076c) ? h2 : c0183b.f5076c, String.format(Locale.getDefault(), "[%s]> %s%s>>> %s", h2, sb, sb2, str2));
+                        for (String str2 : c0171b.f4849a) {
+                            String h2 = this.f4843e.f4841b.h();
+                            a(TextUtils.isEmpty(c0171b.f4851c) ? h2 : c0171b.f4851c, String.format(Locale.getDefault(), "[%s]> %s%s>>> %s", h2, sb, sb2, str2));
                         }
                     }
                 }
@@ -118,8 +119,8 @@ public final class a {
                 return;
             }
         }
-        f5063d = k.f6397a;
-        f5064e = new HashMap();
+        f4838d = k.f6863a;
+        f4839e = new HashMap();
     }
 
     public a(String str) {
@@ -137,22 +138,22 @@ public final class a {
                 return;
             }
         }
-        this.f5065a = new HashMap();
+        this.f4840a = new HashMap();
         b bVar = new b();
         bVar.g("SwanLaunch");
         bVar.l(c());
-        this.f5066b = bVar;
-        this.f5067c = str;
+        this.f4841b = bVar;
+        this.f4842c = str;
     }
 
     public static a d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            a aVar = f5064e.get(str);
+            a aVar = f4839e.get(str);
             if (aVar == null) {
                 a aVar2 = new a(str);
-                f5064e.put(str, aVar2);
+                f4839e.put(str, aVar2);
                 return aVar2;
             }
             return aVar;
@@ -160,28 +161,28 @@ public final class a {
         return (a) invokeL.objValue;
     }
 
-    public final b.a.p0.a.v2.e1.b<b> c() {
+    public final c<b> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0182a(this) : (b.a.p0.a.v2.e1.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0170a(this) : (c) invokeV.objValue;
     }
 
-    public b.C0183b e() {
+    public b.C0171b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5066b.d() : (b.C0183b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4841b.d() : (b.C0171b) invokeV.objValue;
     }
 
-    public b.C0183b f(String str) {
+    public b.C0171b f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f5066b.e(str) : (b.C0183b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f4841b.e(str) : (b.C0171b) invokeL.objValue;
     }
 
-    public b.C0183b g(String str, String str2) {
+    public b.C0171b g(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this.f5066b.f(str, str2) : (b.C0183b) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this.f4841b.f(str, str2) : (b.C0171b) invokeLL.objValue;
     }
 
     public synchronized a h() {
@@ -189,7 +190,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                this.f5066b.j();
+                this.f4841b.j();
             }
             return this;
         }

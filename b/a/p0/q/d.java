@@ -1,143 +1,35 @@
 package b.a.p0.q;
 
-import android.annotation.SuppressLint;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.http.request.PostByteRequest;
+import com.baidu.searchbox.http.request.PostStringRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public Set<String> f11396a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public b.a.p0.q.e.a<List<b.a.p0.q.a>> f11397b;
-
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final d f11398a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-607713473, "Lb/a/p0/q/d$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-607713473, "Lb/a/p0/q/d$b;");
-                    return;
-                }
-            }
-            f11398a = new d(null);
+    public static void a(@NonNull Object obj, @Nullable Map<String, String> map) {
+        String remove;
+        int parseInt;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, obj, map) == null) || map == null || !map.containsKey("SWAN-TIMEOUT-SETTING") || (remove = map.remove("SWAN-TIMEOUT-SETTING")) == null || !TextUtils.isDigitsOnly(remove) || (parseInt = Integer.parseInt(remove)) <= 0) {
+            return;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-612922179, "Lb/a/p0/q/d;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-612922179, "Lb/a/p0/q/d;");
-                return;
-            }
-        }
-        String str = ProcessUtils.getCurProcessName() + ".trace";
-        AppRuntime.getAppContext().getExternalFilesDir(null);
-    }
-
-    public /* synthetic */ d(a aVar) {
-        this();
-    }
-
-    public static d b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f11398a : (d) invokeV.objValue;
-    }
-
-    public void a(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-        }
-    }
-
-    public b.a.p0.q.e.a<List<b.a.p0.q.a>> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11397b : (b.a.p0.q.e.a) invokeV.objValue;
-    }
-
-    public Set<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Set<String> set = this.f11396a;
-            if (set != null) {
-                return set;
-            }
-            HashSet hashSet = new HashSet();
-            this.f11396a = hashSet;
-            hashSet.add("V8JavaScriptContext");
-            this.f11396a.add(FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT);
-            return this.f11396a;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    @SuppressLint({"NewApi"})
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public d() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (obj instanceof PostStringRequest.PostStringRequestBuilder) {
+            PostStringRequest.PostStringRequestBuilder postStringRequestBuilder = (PostStringRequest.PostStringRequestBuilder) obj;
+            postStringRequestBuilder.readTimeout(parseInt);
+            postStringRequestBuilder.writeTimeout(parseInt);
+            postStringRequestBuilder.connectionTimeout(parseInt);
+        } else if (obj instanceof PostByteRequest.PostByteRequestBuilder) {
+            PostByteRequest.PostByteRequestBuilder postByteRequestBuilder = (PostByteRequest.PostByteRequestBuilder) obj;
+            postByteRequestBuilder.readTimeout(parseInt);
+            postByteRequestBuilder.writeTimeout(parseInt);
+            postByteRequestBuilder.connectionTimeout(parseInt);
         }
     }
 }

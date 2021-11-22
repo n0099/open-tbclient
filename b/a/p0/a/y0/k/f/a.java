@@ -6,8 +6,8 @@ import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.e0.d;
 import b.a.p0.a.f1.e.b;
 import b.a.p0.a.k;
-import b.a.p0.a.r1.h;
-import b.a.p0.a.v2.q;
+import b.a.p0.a.u1.h;
+import b.a.p0.a.z2.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
@@ -25,34 +25,34 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f9074e;
+    public static final boolean f9421e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, Long> f9075a;
+    public final HashMap<String, Long> f9422a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, String> f9076b;
+    public final HashMap<String, String> f9423b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9077c;
+    public boolean f9424c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9078d;
+    public boolean f9425d;
 
     /* renamed from: b.a.p0.a.y0.k.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0466a implements Runnable {
+    public class RunnableC0481a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a f9079e;
+        public final /* synthetic */ b.a f9426e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f9080f;
+        public final /* synthetic */ a f9427f;
 
-        public RunnableC0466a(a aVar, b.a aVar2) {
+        public RunnableC0481a(a aVar, b.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,15 +67,15 @@ public class a {
                     return;
                 }
             }
-            this.f9080f = aVar;
-            this.f9079e = aVar2;
+            this.f9427f = aVar;
+            this.f9426e = aVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9080f.j(this.f9079e);
+                this.f9427f.j(this.f9426e);
             }
         }
     }
@@ -93,7 +93,7 @@ public class a {
                 return;
             }
         }
-        f9074e = k.f6397a;
+        f9421e = k.f6863a;
     }
 
     public a() {
@@ -109,17 +109,17 @@ public class a {
                 return;
             }
         }
-        this.f9075a = new HashMap<>();
-        this.f9076b = new HashMap<>();
-        this.f9077c = false;
-        this.f9078d = false;
+        this.f9422a = new HashMap<>();
+        this.f9423b = new HashMap<>();
+        this.f9424c = false;
+        this.f9425d = false;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f9075a.clear();
-            this.f9076b.clear();
+            this.f9422a.clear();
+            this.f9423b.clear();
         }
     }
 
@@ -127,7 +127,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                this.f9078d = true;
+                this.f9425d = true;
             }
         }
     }
@@ -138,7 +138,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             synchronized (this) {
-                containsKey = this.f9075a.containsKey(str);
+                containsKey = this.f9422a.containsKey(str);
             }
             return containsKey;
         }
@@ -151,7 +151,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             synchronized (this) {
-                containsKey = this.f9076b.containsKey(str);
+                containsKey = this.f9423b.containsKey(str);
             }
             return containsKey;
         }
@@ -164,7 +164,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                z = this.f9078d;
+                z = this.f9425d;
             }
             return z;
         }
@@ -175,8 +175,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
             synchronized (this) {
-                if (!this.f9078d) {
-                    this.f9076b.put(str, str2);
+                if (!this.f9425d) {
+                    this.f9423b.put(str, str2);
                 }
             }
         }
@@ -186,11 +186,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             synchronized (this) {
-                if (f9074e) {
+                if (f9421e) {
                     String str2 = "inline video record: action " + str;
                 }
-                if (!this.f9078d && !this.f9075a.containsKey(str)) {
-                    this.f9075a.put(str, Long.valueOf(System.currentTimeMillis()));
+                if (!this.f9425d && !this.f9422a.containsKey(str)) {
+                    this.f9422a.put(str, Long.valueOf(System.currentTimeMillis()));
                 }
             }
         }
@@ -200,11 +200,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
             synchronized (this) {
-                if (f9074e) {
+                if (f9421e) {
                     String str2 = "inline video record: action " + str;
                 }
-                if (!this.f9075a.containsKey(str)) {
-                    this.f9075a.put(str, Long.valueOf(j));
+                if (!this.f9422a.containsKey(str)) {
+                    this.f9422a.put(str, Long.valueOf(j));
                 }
             }
         }
@@ -214,13 +214,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             synchronized (this) {
-                if (this.f9077c) {
+                if (this.f9424c) {
                     return;
                 }
-                this.f9077c = true;
-                boolean equals = TextUtils.equals("1", this.f9076b.get("autoPlay"));
-                boolean equals2 = TextUtils.equals("1", this.f9076b.get("playMethod"));
-                if (f9074e) {
+                this.f9424c = true;
+                boolean equals = TextUtils.equals("1", this.f9423b.get("autoPlay"));
+                boolean equals2 = TextUtils.equals("1", this.f9423b.get("playMethod"));
+                if (f9421e) {
                     String str = "submit: autoPlay:" + equals + ",apiPlay:" + equals2;
                 }
                 if (!equals && !equals2) {
@@ -229,36 +229,36 @@ public class a {
                 }
                 h.r("video");
                 HybridUbcFlow p = h.p("video");
-                for (Map.Entry<String, Long> entry : this.f9075a.entrySet()) {
-                    d.g("VideoStaticRecorder", "submit: event key: " + entry.getKey() + " value " + entry.getValue());
+                for (Map.Entry<String, Long> entry : this.f9422a.entrySet()) {
+                    d.i("VideoStaticRecorder", "submit: event key: " + entry.getKey() + " value " + entry.getValue());
                     UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(entry.getKey());
                     ubcFlowEvent.h(entry.getValue().longValue());
-                    p.C(ubcFlowEvent);
+                    p.F(ubcFlowEvent);
                 }
-                for (Map.Entry<String, String> entry2 : this.f9076b.entrySet()) {
-                    d.g("VideoStaticRecorder", "submit: ext key: " + entry2.getKey() + " value " + entry2.getValue());
-                    p.A(entry2.getKey(), entry2.getValue());
+                for (Map.Entry<String, String> entry2 : this.f9423b.entrySet()) {
+                    d.i("VideoStaticRecorder", "submit: ext key: " + entry2.getKey() + " value " + entry2.getValue());
+                    p.D(entry2.getKey(), entry2.getValue());
                 }
-                String g2 = p.g("fmpArrived");
-                if (TextUtils.isEmpty(g2)) {
-                    g2 = "0";
+                String h2 = p.h("fmpArrived");
+                if (TextUtils.isEmpty(h2)) {
+                    h2 = "0";
                 }
-                p.A("fmpArrived", g2);
+                p.D("fmpArrived", h2);
                 long l = aVar.l("launch_time", 0L);
                 UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_start");
                 ubcFlowEvent2.h(l);
-                p.C(ubcFlowEvent2);
-                p.A("launchID", aVar.U());
-                p.A("scheme", aVar.V());
-                p.A("appid", aVar.G());
-                p.A("page", aVar.d0());
-                long j = aVar.q0().getLong("click_time", 0L);
+                p.F(ubcFlowEvent2);
+                p.D("launchID", aVar.V());
+                p.D("scheme", aVar.W());
+                p.D("appid", aVar.H());
+                p.D("page", aVar.e0());
+                long j = aVar.s0().getLong("click_time", 0L);
                 if (j > 0) {
                     UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("user_action");
                     ubcFlowEvent3.h(j);
-                    p.C(ubcFlowEvent3);
+                    p.F(ubcFlowEvent3);
                 }
-                p.x();
+                p.A();
                 b();
             }
         }
@@ -267,7 +267,7 @@ public class a {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            q.j(new RunnableC0466a(this, b.a.p0.a.a2.d.g().r().K()), "VideoStaticRecorder");
+            q.k(new RunnableC0481a(this, b.a.p0.a.d2.d.J().r().V()), "VideoStaticRecorder");
         }
     }
 }

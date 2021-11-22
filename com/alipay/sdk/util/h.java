@@ -17,7 +17,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f34224a;
+    public static String f35058a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -123,16 +123,16 @@ public class h {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f34224a)) {
+            if (TextUtils.isEmpty(f35058a)) {
                 try {
                     str = context.getApplicationContext().getPackageName();
                 } catch (Throwable th) {
                     c.a(th);
                     str = "";
                 }
-                f34224a = (str + "0000000000000000000000000000").substring(0, 24);
+                f35058a = (str + "0000000000000000000000000000").substring(0, 24);
             }
-            return f34224a;
+            return f35058a;
         }
         return (String) invokeL.objValue;
     }

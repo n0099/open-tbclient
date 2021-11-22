@@ -1,10 +1,10 @@
 package b.a.r0.l1.t;
 
 import android.text.TextUtils;
-import b.a.e.e.d.l;
-import b.a.q0.d1.i0;
-import b.a.q0.d1.l0;
-import b.a.q0.d1.q;
+import b.a.e.f.d.l;
+import b.a.q0.c1.i0;
+import b.a.q0.c1.l0;
+import b.a.q0.c1.q;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -23,7 +23,7 @@ public class e extends b.a.r0.l1.t.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f20409b;
+    public static e f21931b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -32,13 +32,13 @@ public class e extends b.a.r0.l1.t.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PersonalSettingItemData f20410a;
+        public final /* synthetic */ PersonalSettingItemData f21932a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f20411b;
+        public final /* synthetic */ String f21933b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f20412c;
+        public final /* synthetic */ e f21934c;
 
         public a(e eVar, PersonalSettingItemData personalSettingItemData, String str) {
             Interceptable interceptable = $ic;
@@ -55,19 +55,19 @@ public class e extends b.a.r0.l1.t.a {
                     return;
                 }
             }
-            this.f20412c = eVar;
-            this.f20410a = personalSettingItemData;
-            this.f20411b = str;
+            this.f21934c = eVar;
+            this.f21932a = personalSettingItemData;
+            this.f21933b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.i0
+        @Override // b.a.q0.c1.i0
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f20412c.b().g(this.f20411b, OrmObject.jsonStrWithObject(this.f20410a));
+                this.f21934c.b().g(this.f21933b, OrmObject.jsonStrWithObject(this.f21932a));
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -87,7 +87,7 @@ public class e extends b.a.r0.l1.t.a {
                 return;
             }
         }
-        f20409b = new e();
+        f21931b = new e();
     }
 
     public e() {
@@ -107,7 +107,7 @@ public class e extends b.a.r0.l1.t.a {
     public static e j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f20409b : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f21931b : (e) invokeV.objValue;
     }
 
     @Override // b.a.r0.l1.t.a
@@ -132,8 +132,8 @@ public class e extends b.a.r0.l1.t.a {
                 l<String> b2 = b();
                 String str = myUid + "@" + toUid;
                 String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
-                synchronized (this.f20389a) {
-                    this.f20389a.put(str, personalSettingItemData);
+                synchronized (this.f21911a) {
+                    this.f21911a.put(str, personalSettingItemData);
                 }
                 b2.g(str, jsonStrWithObject);
             } else if (TbConfig.getDebugSwitch()) {
@@ -151,8 +151,8 @@ public class e extends b.a.r0.l1.t.a {
             String toUid = personalSettingItemData.getToUid();
             if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
                 String str = myUid + "@" + toUid;
-                synchronized (this.f20389a) {
-                    this.f20389a.put(str, personalSettingItemData);
+                synchronized (this.f21911a) {
+                    this.f21911a.put(str, personalSettingItemData);
                 }
                 l0.c(new a(this, personalSettingItemData, str), qVar);
             } else if (TbConfig.getDebugSwitch()) {
@@ -173,8 +173,8 @@ public class e extends b.a.r0.l1.t.a {
                 return null;
             }
             String str3 = str + "@" + str2;
-            synchronized (this.f20389a) {
-                ChatSetting chatSetting = this.f20389a.get(str3);
+            synchronized (this.f21911a) {
+                ChatSetting chatSetting = this.f21911a.get(str3);
                 if (chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
                     personalSettingItemData = (PersonalSettingItemData) chatSetting;
                 }

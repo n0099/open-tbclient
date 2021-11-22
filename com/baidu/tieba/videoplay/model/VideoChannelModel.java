@@ -1,9 +1,9 @@
 package com.baidu.tieba.videoplay.model;
 
 import b.a.e.a.f;
-import b.a.e.e.p.j;
-import b.a.e.e.p.l;
-import b.a.r0.b4.i;
+import b.a.e.f.p.j;
+import b.a.e.f.p.l;
+import b.a.r0.c4.i;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -36,19 +36,19 @@ public class VideoChannelModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f55124e;
+    public TbPageContext f56046e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f55125f;
+    public c f56047f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55126g;
+    public int f56048g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f55127h;
+    public boolean f56049h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f55128i;
+    public int f56050i;
     public HttpMessageListener j;
     public final CustomMessageListener k;
 
@@ -58,7 +58,7 @@ public class VideoChannelModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelModel f55129a;
+        public final /* synthetic */ VideoChannelModel f56051a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(VideoChannelModel videoChannelModel, int i2, boolean z) {
@@ -79,7 +79,7 @@ public class VideoChannelModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f55129a = videoChannelModel;
+            this.f56051a = videoChannelModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -87,9 +87,9 @@ public class VideoChannelModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (this.f55129a.f55126g == 1) {
-                    this.f55129a.f55127h = false;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921576, Integer.valueOf(this.f55129a.f55128i)));
+                if (this.f56051a.f56048g == 1) {
+                    this.f56051a.f56049h = false;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921576, Integer.valueOf(this.f56051a.f56050i)));
                 }
                 if (httpResponsedMessage == null || httpResponsedMessage.getError() != 0) {
                     return;
@@ -99,14 +99,14 @@ public class VideoChannelModel extends BdBaseModel {
                     arrayList = ((VideoChannelHttpResponseMessage) httpResponsedMessage).getVideoItemDatas();
                 }
                 TbSingleton.getInstance().clearVideoRecord();
-                if (this.f55129a.f55125f != null) {
-                    if (this.f55129a.f55126g == 1) {
-                        this.f55129a.f55125f.a(arrayList, this.f55129a.f55127h);
+                if (this.f56051a.f56047f != null) {
+                    if (this.f56051a.f56048g == 1) {
+                        this.f56051a.f56047f.a(arrayList, this.f56051a.f56049h);
                     } else {
-                        this.f55129a.f55125f.b(arrayList);
+                        this.f56051a.f56047f.b(arrayList);
                     }
                 }
-                VideoChannelModel.x(this.f55129a);
+                VideoChannelModel.x(this.f56051a);
             }
         }
     }
@@ -117,7 +117,7 @@ public class VideoChannelModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelModel f55130a;
+        public final /* synthetic */ VideoChannelModel f56052a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(VideoChannelModel videoChannelModel, int i2, boolean z) {
@@ -138,7 +138,7 @@ public class VideoChannelModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f55130a = videoChannelModel;
+            this.f56052a = videoChannelModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -149,14 +149,14 @@ public class VideoChannelModel extends BdBaseModel {
                 return;
             }
             if (!j.z()) {
-                l.J(this.f55130a.f55124e.getPageActivity(), this.f55130a.f55124e.getResources().getString(i.neterror));
+                l.J(this.f56052a.f56046e.getPageActivity(), this.f56052a.f56046e.getResources().getString(i.neterror));
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof Integer) && ((Integer) data).intValue() == this.f55130a.f55128i && !this.f55130a.f55127h) {
-                this.f55130a.f55127h = true;
-                this.f55130a.E();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921575, Integer.valueOf(this.f55130a.f55128i)));
+            if ((data instanceof Integer) && ((Integer) data).intValue() == this.f56052a.f56050i && !this.f56052a.f56049h) {
+                this.f56052a.f56049h = true;
+                this.f56052a.E();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921575, Integer.valueOf(this.f56052a.f56050i)));
             }
         }
     }
@@ -186,10 +186,10 @@ public class VideoChannelModel extends BdBaseModel {
                 return;
             }
         }
-        this.f55127h = false;
+        this.f56049h = false;
         this.j = new a(this, CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED, true);
         this.k = new b(this, 2921574, true);
-        this.f55124e = tbPageContext;
+        this.f56046e = tbPageContext;
         setUniqueId(bdUniqueId);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED, TbConfig.SERVER_ADDRESS + "c/f/video/feed");
         tbHttpMessageTask.setResponsedClass(VideoChannelHttpResponseMessage.class);
@@ -204,8 +204,8 @@ public class VideoChannelModel extends BdBaseModel {
     }
 
     public static /* synthetic */ int x(VideoChannelModel videoChannelModel) {
-        int i2 = videoChannelModel.f55126g;
-        videoChannelModel.f55126g = i2 + 1;
+        int i2 = videoChannelModel.f56048g;
+        videoChannelModel.f56048g = i2 + 1;
         return i2;
     }
 
@@ -227,7 +227,7 @@ public class VideoChannelModel extends BdBaseModel {
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f55126g = 1;
+            this.f56048g = 1;
             sendMessage(D(1));
         }
     }
@@ -235,14 +235,14 @@ public class VideoChannelModel extends BdBaseModel {
     public void F(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f55128i = i2;
+            this.f56050i = i2;
         }
     }
 
     public void G(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f55125f = cVar;
+            this.f56047f = cVar;
         }
     }
 
@@ -269,8 +269,8 @@ public class VideoChannelModel extends BdBaseModel {
     public void loadMore() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.f55126g < 2) {
-                this.f55126g = 2;
+            if (this.f56048g < 2) {
+                this.f56048g = 2;
             }
             sendMessage(D(2));
         }

@@ -20,7 +20,7 @@ public class DpRTCSession {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f37222a;
+    public c f38052a;
 
     public DpRTCSession() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class DpRTCSession {
                 return;
             }
         }
-        this.f37222a = new c(DpStatConstants.SESSION_TYPE_RTC_COMMON);
+        this.f38052a = new c(DpStatConstants.SESSION_TYPE_RTC_COMMON);
     }
 
     private synchronized JSONObject a(JSONObject jSONObject) throws JSONException {
@@ -43,7 +43,7 @@ public class DpRTCSession {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
             synchronized (this) {
-                this.f37222a.a(jSONObject);
+                this.f38052a.a(jSONObject);
             }
             return jSONObject;
         }
@@ -70,7 +70,7 @@ public class DpRTCSession {
         if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, str2) == null) {
             synchronized (this) {
                 if (20488 == i2) {
-                    this.f37222a.a(new e((int) DpStatConstants.SESSION_TYPE_RTC_COMMON, str, str2));
+                    this.f38052a.a(new e((int) DpStatConstants.SESSION_TYPE_RTC_COMMON, str, str2));
                 }
             }
         }

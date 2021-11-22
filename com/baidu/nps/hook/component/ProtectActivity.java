@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,6 +77,7 @@ public final class ProtectActivity extends Activity {
                 finish();
             } catch (Exception unused2) {
             }
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

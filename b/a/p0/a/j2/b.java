@@ -1,150 +1,67 @@
 package b.a.p0.a.j2;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.swan.ubc.Flow;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import b.a.p0.a.c;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class b {
+public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static a a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return new a(g() ? b.a.p0.a.c1.a.q0().beginFlow(str) : null, b.a.p0.r.e.d(str));
-        }
-        return (a) invokeL.objValue;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public FrameLayout f6862a;
 
-    public static void b(@NonNull a aVar) {
+    public b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
-            if (g()) {
-                b.a.p0.a.c1.a.q0().b(aVar.b());
-            }
-            Flow a2 = aVar.a();
-            if (a2 != null) {
-                a2.cancel();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f6862a = null;
     }
 
-    public static void c(@NonNull a aVar) {
+    public void a(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            if (g()) {
-                b.a.p0.a.c1.a.q0().c(aVar.b());
-            }
-            Flow a2 = aVar.a();
-            if (a2 != null) {
-                a2.end();
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null) {
+            return;
         }
-    }
-
-    public static void d(@NonNull a aVar, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, aVar, str, str2) == null) {
-            if (g()) {
-                b.a.p0.a.c1.a.q0().a(aVar.b(), str, str2);
-            }
-            Flow a2 = aVar.a();
-            if (a2 != null) {
-                a2.addEvent(str, str2);
-            }
+        if (this.f6862a == null) {
+            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
+            this.f6862a = frameLayout;
+            frameLayout.setBackgroundResource(c.aiapps_night_mode_cover_layer);
         }
+        viewGroup.removeView(this.f6862a);
+        viewGroup.addView(this.f6862a, new FrameLayout.LayoutParams(-1, -1));
     }
 
-    public static void e(@NonNull a aVar, String str, String str2, long j) {
+    public void b(ViewGroup viewGroup) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{aVar, str, str2, Long.valueOf(j)}) == null) {
-            if (g()) {
-                b.a.p0.a.c1.a.q0().g(aVar.b(), str, str2, j);
-            }
-            Flow a2 = aVar.a();
-            if (a2 != null) {
-                a2.addEvent(str, str2, j);
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.f6862a) == null) {
+            return;
         }
+        viewGroup.removeView(frameLayout);
+        this.f6862a = null;
     }
 
-    public static void f(@NonNull a aVar, String str) {
+    public void c(int i2) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, aVar, str) == null) {
-            if (g()) {
-                b.a.p0.a.c1.a.q0().h(aVar.b(), str);
-            }
-            Flow a2 = aVar.a();
-            if (a2 != null) {
-                a2.setValueWithDuration(str);
-            }
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (frameLayout = this.f6862a) == null) {
+            return;
         }
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? b.a.p0.a.c1.a.q0().e() : invokeV.booleanValue;
-    }
-
-    public static void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
-            if (g()) {
-                b.a.p0.a.c1.a.q0().i(str, str2);
-            }
-            b.a.p0.r.e.h(str, str2);
-        }
-    }
-
-    public static void i(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, jSONObject) == null) {
-            if (g()) {
-                b.a.p0.a.c1.a.q0().f(str, jSONObject);
-            }
-            b.a.p0.r.e.l(str2, jSONObject);
-        }
-    }
-
-    public static void j(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, map) == null) {
-            if (g()) {
-                b.a.p0.a.c1.a.q0().d(str, map);
-            }
-            b.a.p0.r.e.j(str, map);
-        }
-    }
-
-    public static void k(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, jSONObject) == null) {
-            if (g()) {
-                b.a.p0.a.c1.a.q0().f(str, jSONObject);
-            }
-            b.a.p0.r.e.l(str, jSONObject);
-        }
-    }
-
-    public static void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
-            b.a.p0.a.c1.a.q0().i(str, str2);
-        }
-    }
-
-    public static void m(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, jSONObject) == null) {
-            b.a.p0.a.c1.a.q0().f(str, jSONObject);
-        }
+        frameLayout.setVisibility(i2);
     }
 }

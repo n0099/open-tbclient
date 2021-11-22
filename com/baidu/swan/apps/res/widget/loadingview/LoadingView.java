@@ -6,13 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.c;
-import b.a.p0.a.e;
+import b.a.p0.a.c2.b.d.b;
+import b.a.p0.a.d;
 import b.a.p0.a.f;
 import b.a.p0.a.g;
-import b.a.p0.a.z1.b.d.b;
+import b.a.p0.a.u1.l.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.SmoothProgressBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,21 +28,21 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f44224e;
+    public View f45022e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SmoothProgressBar f44225f;
+    public SmoothProgressBar f45023f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44226g;
+    public TextView f45024g;
 
     /* loaded from: classes8.dex */
-    public class a implements b.a.p0.a.g2.a {
+    public class a implements b.a.p0.a.j2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LoadingView f44227a;
+        public final /* synthetic */ LoadingView f45025a;
 
         public a(LoadingView loadingView) {
             Interceptable interceptable = $ic;
@@ -57,7 +59,7 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
                     return;
                 }
             }
-            this.f44227a = loadingView;
+            this.f45025a = loadingView;
         }
     }
 
@@ -90,7 +92,7 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.p0.a.z1.b.d.b
+    @Override // b.a.p0.a.c2.b.d.b
     public LoadingView getLoadingView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -100,10 +102,15 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(getContext()).inflate(g.aiapps_loading_layout, (ViewGroup) this, true);
-            this.f44224e = findViewById(f.root_container);
-            this.f44225f = (SmoothProgressBar) findViewById(f.loading_bar);
-            this.f44226g = (TextView) findViewById(f.message);
+            View d2 = e.e() ? b.a.p0.a.u1.n.a.a().d(g.aiapps_loading_layout) : null;
+            if (d2 != null) {
+                addView(d2, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(d.swan_loading_view_height)));
+            } else {
+                LayoutInflater.from(getContext()).inflate(g.aiapps_loading_layout, (ViewGroup) this, true);
+            }
+            this.f45022e = findViewById(f.root_container);
+            this.f45023f = (SmoothProgressBar) findViewById(f.loading_bar);
+            this.f45024g = (TextView) findViewById(f.message);
             setPageResources();
         }
     }
@@ -113,7 +120,7 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onAttachedToWindow();
-            b.a.p0.a.c1.a.H().f(this, new a(this));
+            b.a.p0.a.c1.a.M().f(this, new a(this));
         }
     }
 
@@ -122,29 +129,29 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDetachedFromWindow();
-            b.a.p0.a.c1.a.H().g(this);
+            b.a.p0.a.c1.a.M().g(this);
         }
     }
 
     public void setMsg(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f44226g.setText(i2);
+            this.f45024g.setText(i2);
         }
     }
 
     public void setPageResources() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View view = this.f44224e;
+            View view = this.f45022e;
             if (view != null) {
-                view.setBackground(view.getResources().getDrawable(e.aiapps_loading_bg));
+                view.setBackground(view.getResources().getDrawable(b.a.p0.a.e.aiapps_loading_bg));
             }
-            SmoothProgressBar smoothProgressBar = this.f44225f;
+            SmoothProgressBar smoothProgressBar = this.f45023f;
             if (smoothProgressBar != null) {
-                smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(e.aiapps_loading_progress_animation));
+                smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(b.a.p0.a.e.aiapps_loading_progress_animation));
             }
-            TextView textView = this.f44226g;
+            TextView textView = this.f45024g;
             if (textView != null) {
                 textView.setTextColor(textView.getResources().getColor(c.aiapps_loading_text_color));
             }
@@ -161,7 +168,7 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     public void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f44226g.setText(str);
+            this.f45024g.setText(str);
         }
     }
 

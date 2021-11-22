@@ -3,8 +3,8 @@ package com.google.android.exoplayer2.metadata.scte35;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import b.i.b.a.i0.l;
-import b.i.b.a.i0.s;
+import b.h.b.a.i0.l;
+import b.h.b.a.i0.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -79,13 +79,13 @@ public final class SpliceInsertCommand extends SpliceCommand {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f62978a;
+        public final int f63878a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f62979b;
+        public final long f63879b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f62980c;
+        public final long f63880c;
 
         public /* synthetic */ b(int i2, long j, long j2, a aVar) {
             this(i2, j, j2);
@@ -100,9 +100,9 @@ public final class SpliceInsertCommand extends SpliceCommand {
         public void b(Parcel parcel) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, parcel) == null) {
-                parcel.writeInt(this.f62978a);
-                parcel.writeLong(this.f62979b);
-                parcel.writeLong(this.f62980c);
+                parcel.writeInt(this.f63878a);
+                parcel.writeLong(this.f63879b);
+                parcel.writeLong(this.f63880c);
             }
         }
 
@@ -121,9 +121,9 @@ public final class SpliceInsertCommand extends SpliceCommand {
                     return;
                 }
             }
-            this.f62978a = i2;
-            this.f62979b = j;
-            this.f62980c = j2;
+            this.f63878a = i2;
+            this.f63879b = j;
+            this.f63880c = j2;
         }
     }
 

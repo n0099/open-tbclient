@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import b.a.e.e.d.l;
-import b.a.e.e.p.k;
+import b.a.e.f.d.l;
+import b.a.e.f.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -29,16 +29,16 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f50316a;
+        public String f51228a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f50317b;
+        public int f51229b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f50318c;
+        public String f51230c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f50319d;
+        public int f51231d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -103,10 +103,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                     if (msgInfo != null) {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        aVar.f50316a = k.getDateStringMouth(date);
-                        aVar.f50317b = msgInfo.type.intValue();
-                        aVar.f50318c = msgInfo.content;
-                        aVar.f50319d = msgInfo.id.intValue();
+                        aVar.f51228a = k.getDateStringMouth(date);
+                        aVar.f51229b = msgInfo.type.intValue();
+                        aVar.f51230c = msgInfo.content;
+                        aVar.f51231d = msgInfo.id.intValue();
                         this.msg.add(aVar);
                     }
                 }

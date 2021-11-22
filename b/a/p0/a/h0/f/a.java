@@ -6,9 +6,13 @@ import androidx.annotation.NonNull;
 public interface a {
     void addJavascriptInterface(@NonNull Object obj, @NonNull String str);
 
+    void continueTimer();
+
     void evaluateJavascript(String str, ValueCallback<String> valueCallback);
 
     String getContainerId();
+
+    String getUrl();
 
     boolean isDestroyed();
 
@@ -16,5 +20,5 @@ public interface a {
 
     void onJSLoaded();
 
-    boolean post(Runnable runnable);
+    void suspendTimer();
 }

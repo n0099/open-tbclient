@@ -13,10 +13,10 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13640a;
+    public int f14422a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13641b;
+    public int f14423b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public class e {
                 return;
             }
         }
-        this.f13640a = -2;
-        this.f13641b = -1;
+        this.f14422a = -2;
+        this.f14423b = -1;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f13640a = i2;
+            this.f14422a = i2;
         }
     }
 
@@ -49,10 +49,10 @@ public class e {
         }
         ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
         if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(this.f13641b, this.f13640a);
+            layoutParams = new ViewGroup.LayoutParams(this.f14423b, this.f14422a);
         } else {
-            layoutParams.height = this.f13640a;
-            layoutParams.width = this.f13641b;
+            layoutParams.height = this.f14422a;
+            layoutParams.width = this.f14423b;
         }
         viewPager.setLayoutParams(layoutParams);
     }

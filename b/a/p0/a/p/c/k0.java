@@ -1,14 +1,15 @@
 package b.a.p0.a.p.c;
 
-import android.content.Context;
-import b.a.p0.a.p.d.h1;
+import b.a.p0.a.p.d.g1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes.dex */
-public class k0 implements h1 {
+public class k0 implements g1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,39 +27,39 @@ public class k0 implements h1 {
         }
     }
 
-    @Override // b.a.p0.a.p.d.h1
-    public void a(Context context, b.a.p0.a.v2.e1.b<Boolean> bVar) {
+    @Override // b.a.p0.a.p.d.g1
+    public String[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, bVar) == null) || bVar == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-        bVar.onCallback(null);
+        return (String[]) invokeV.objValue;
     }
 
-    @Override // b.a.p0.a.p.d.h1
-    public void b(boolean z, b.a.p0.a.v2.e1.b<String> bVar) {
+    @Override // b.a.p0.a.p.d.g1
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, bVar) == null) || bVar == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-        bVar.onCallback(null);
+        return invokeV.booleanValue;
     }
 
-    @Override // b.a.p0.a.p.d.h1
-    public void c(Context context, b.a.p0.a.v2.e1.b<String> bVar) {
+    @Override // b.a.p0.a.p.d.g1
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, bVar) == null) || bVar == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (b.a.p0.a.c1.a.w0().d()) {
+                return null;
+            }
+            if (b.a.p0.a.h0.s.a.b()) {
+                return b.a.p0.a.h0.s.a.f6079b + File.separator + "libcom.baidu.zeus.so";
+            }
+            return b.a.p0.a.h0.s.a.f6081d + File.separator + "libcom.baidu.zeus.so";
         }
-        bVar.onCallback(null);
-    }
-
-    @Override // b.a.p0.a.p.d.h1
-    public void d(b.a.p0.a.v2.e1.b<Integer> bVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || bVar == null) {
-            return;
-        }
-        bVar.onCallback(null);
+        return (String) invokeV.objValue;
     }
 }

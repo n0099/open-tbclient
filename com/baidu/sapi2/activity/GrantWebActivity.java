@@ -121,7 +121,7 @@ public class GrantWebActivity extends BaseActivity {
             if (data != null) {
                 this.t = data.getQueryParameter("channel_id");
                 this.u = data.getQueryParameter("u");
-                this.v = data.getQueryParameter(h.f37508f);
+                this.v = data.getQueryParameter(h.f38338f);
                 this.w = data.getQueryParameter(TTDownloadField.TT_FORCE);
                 this.x = data.getQueryParameter("wap_tpl");
             }
@@ -193,7 +193,7 @@ public class GrantWebActivity extends BaseActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ GrantWebActivity f42396a;
+                    public final /* synthetic */ GrantWebActivity f43342a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -210,7 +210,7 @@ public class GrantWebActivity extends BaseActivity {
                                 return;
                             }
                         }
-                        this.f42396a = this;
+                        this.f43342a = this;
                     }
 
                     @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
@@ -218,7 +218,7 @@ public class GrantWebActivity extends BaseActivity {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            this.f42396a.b();
+                            this.f43342a.b();
                             return false;
                         }
                         return invokeV.booleanValue;
@@ -229,7 +229,7 @@ public class GrantWebActivity extends BaseActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ GrantWebActivity f42397a;
+                    public final /* synthetic */ GrantWebActivity f43343a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -246,14 +246,14 @@ public class GrantWebActivity extends BaseActivity {
                                 return;
                             }
                         }
-                        this.f42397a = this;
+                        this.f43343a = this;
                     }
 
                     @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                     public void onFinish() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f42397a.finish();
+                            this.f43343a.finish();
                         }
                     }
                 });
@@ -262,7 +262,7 @@ public class GrantWebActivity extends BaseActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ GrantWebActivity f42398a;
+                    public final /* synthetic */ GrantWebActivity f43344a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -279,7 +279,7 @@ public class GrantWebActivity extends BaseActivity {
                                 return;
                             }
                         }
-                        this.f42398a = this;
+                        this.f43344a = this;
                     }
 
                     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
@@ -287,7 +287,7 @@ public class GrantWebActivity extends BaseActivity {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
                             Log.d(GrantWebActivity.y, "GrantWebPage login failed");
-                            this.f42398a.finish();
+                            this.f43344a.finish();
                         }
                     }
 
@@ -295,7 +295,7 @@ public class GrantWebActivity extends BaseActivity {
                     public void onSuccess(AccountType accountType) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountType) == null) {
-                            this.f42398a.e();
+                            this.f43344a.e();
                             SapiAccountManager.getGlobalCallback().onLoginStatusChange();
                         }
                     }
@@ -305,7 +305,7 @@ public class GrantWebActivity extends BaseActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ GrantWebActivity f42399a;
+                    public final /* synthetic */ GrantWebActivity f43345a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -322,7 +322,7 @@ public class GrantWebActivity extends BaseActivity {
                                 return;
                             }
                         }
-                        this.f42399a = this;
+                        this.f43345a = this;
                     }
 
                     @Override // com.baidu.sapi2.SapiJsCallBacks.GrantWebCallback
@@ -331,18 +331,18 @@ public class GrantWebActivity extends BaseActivity {
                         if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
                             if (i2 == 0) {
                                 Log.d(GrantWebActivity.y, "after grant web, then back to wap");
-                                this.f42399a.finish();
+                                this.f43345a.finish();
                                 return;
                             }
                             Log.d(GrantWebActivity.y, "after grant web, still stay in app");
                             if (SapiAccountManager.getCheckUrlIsAvailablelister() != null) {
-                                if (TextUtils.isEmpty(this.f42399a.v)) {
-                                    GrantWebActivity grantWebActivity = this.f42399a;
+                                if (TextUtils.isEmpty(this.f43345a.v)) {
+                                    GrantWebActivity grantWebActivity = this.f43345a;
                                     grantWebActivity.v = grantWebActivity.u;
                                 }
-                                SapiAccountManager.getCheckUrlIsAvailablelister().handleWebPageUrl(this.f42399a.v);
+                                SapiAccountManager.getCheckUrlIsAvailablelister().handleWebPageUrl(this.f43345a.v);
                             }
-                            this.f42399a.finish();
+                            this.f43345a.finish();
                         }
                     }
                 });
@@ -351,7 +351,7 @@ public class GrantWebActivity extends BaseActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ GrantWebActivity f42400a;
+                    public final /* synthetic */ GrantWebActivity f43346a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -368,14 +368,14 @@ public class GrantWebActivity extends BaseActivity {
                                 return;
                             }
                         }
-                        this.f42400a = this;
+                        this.f43346a = this;
                     }
 
                     @Override // com.baidu.sapi2.SapiJsCallBacks.CurrentAccountBdussExpiredCallback
                     public void onBdussExpired() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f42400a.a(true);
+                            this.f43346a.a(true);
                         }
                     }
                 });
@@ -462,10 +462,10 @@ public class GrantWebActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean f42401a;
+                public final /* synthetic */ boolean f43347a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ GrantWebActivity f42402b;
+                public final /* synthetic */ GrantWebActivity f43348b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -482,8 +482,8 @@ public class GrantWebActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f42402b = this;
-                    this.f42401a = z3;
+                    this.f43348b = this;
+                    this.f43347a = z3;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -492,8 +492,8 @@ public class GrantWebActivity extends BaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
                         LoginActivity.supportShareLogin = true;
-                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f42401a;
-                        this.f42402b.finish();
+                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f43347a;
+                        this.f43348b.finish();
                     }
                 }
 
@@ -502,10 +502,10 @@ public class GrantWebActivity extends BaseActivity {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, webAuthResult) == null) {
-                        this.f42402b.e();
+                        this.f43348b.e();
                         SapiAccountManager.getGlobalCallback().onLoginStatusChange();
                         LoginActivity.supportShareLogin = true;
-                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f42401a;
+                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f43347a;
                     }
                 }
             }, webLoginDTO);

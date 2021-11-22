@@ -9,7 +9,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class Partially {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,7 +17,7 @@ public final class Partially {
     @Target({ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.FIELD})
     @Documented
     @Retention(RetentionPolicy.CLASS)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public @interface GwtIncompatible {
         String value();
     }

@@ -16,7 +16,7 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NewLogoActivity f16328a;
+    public NewLogoActivity f17828a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, newLogoActivity)) == null) {
             d dVar = new d();
-            dVar.f16328a = newLogoActivity;
+            dVar.f17828a = newLogoActivity;
             return dVar;
         }
         return (d) invokeL.objValue;
@@ -50,7 +50,7 @@ public class d {
             Bundle bundle = new Bundle();
             bundle.putInt(SplashAdFragment.AT_ACTIVITY_FLAG, 1);
             splashAdFragment.setArguments(bundle);
-            this.f16328a.getSupportFragmentManager().beginTransaction().add(R.id.layout_root, splashAdFragment).commitAllowingStateLoss();
+            this.f17828a.getSupportFragmentManager().beginTransaction().add(R.id.layout_root, splashAdFragment).commitAllowingStateLoss();
         }
     }
 }

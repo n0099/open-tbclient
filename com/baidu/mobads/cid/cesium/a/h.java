@@ -14,7 +14,7 @@ public final class h extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f40521f;
+    public a f41353f;
 
     /* renamed from: com.baidu.mobads.cid.cesium.a.h$1  reason: invalid class name */
     /* loaded from: classes7.dex */
@@ -29,13 +29,13 @@ public final class h extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Class<?> f40522a;
+        public Class<?> f41354a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Method f40523b;
+        public Method f41355b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Method f40524c;
+        public Method f41356c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public final class h extends g {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, obj)) == null) {
                 try {
-                    return ((Long) this.f40524c.invoke(obj, new Object[0])).longValue();
+                    return ((Long) this.f41356c.invoke(obj, new Object[0])).longValue();
                 } catch (Exception unused) {
                     throw new e.a("");
                 }
@@ -75,9 +75,9 @@ public final class h extends g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
                 try {
-                    this.f40522a = Class.forName(e.a(d.a()), true, Object.class.getClassLoader());
-                    this.f40523b = e.a(this.f40522a, e.a(d.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                    this.f40524c = e.a(this.f40522a, e.a(d.c()), null);
+                    this.f41354a = Class.forName(e.a(d.a()), true, Object.class.getClassLoader());
+                    this.f41355b = e.a(this.f41354a, e.a(d.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                    this.f41356c = e.a(this.f41354a, e.a(d.c()), null);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -89,7 +89,7 @@ public final class h extends g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLII(65543, this, obj, bArr, i2, i3) == null) {
                 try {
-                    this.f40523b.invoke(obj, bArr, Integer.valueOf(i2), Integer.valueOf(i3));
+                    this.f41355b.invoke(obj, bArr, Integer.valueOf(i2), Integer.valueOf(i3));
                 } catch (Exception unused) {
                     throw new e.a("");
                 }
@@ -100,7 +100,7 @@ public final class h extends g {
         public Object b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? this.f40522a.newInstance() : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? this.f41354a.newInstance() : invokeV.objValue;
         }
     }
 
@@ -119,12 +119,12 @@ public final class h extends g {
                 return;
             }
         }
-        this.f40516a = 1099511627775L;
-        this.f40517b = 4;
-        this.f40518c = 32;
-        this.f40519d = i2;
-        this.f40520e = i3;
-        this.f40521f = new a(null);
+        this.f41348a = 1099511627775L;
+        this.f41349b = 4;
+        this.f41350c = 32;
+        this.f41351d = i2;
+        this.f41352e = i3;
+        this.f41353f = new a(null);
     }
 
     @Override // com.baidu.mobads.cid.cesium.a.g
@@ -134,9 +134,9 @@ public final class h extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
             try {
-                Object b2 = this.f40521f.b();
-                this.f40521f.a(b2, bArr, i2, i3);
-                j = this.f40521f.a(b2);
+                Object b2 = this.f41353f.b();
+                this.f41353f.a(b2, bArr, i2, i3);
+                j = this.f41353f.a(b2);
             } catch (Exception unused) {
                 j = 4294967295L;
             }

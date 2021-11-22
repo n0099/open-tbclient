@@ -30,23 +30,23 @@ public class c implements a.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f4751f;
+    public static final boolean f4732f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f4752a;
+    public a.b f4733a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LocalServerSocket f4753b;
+    public LocalServerSocket f4734b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.p0.a.e0.h.c.a f4754c;
+    public b.a.p0.a.e0.h.c.a f4735c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4755d;
+    public String f4736d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f4756e;
+    public boolean f4737e;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -54,19 +54,19 @@ public class c implements a.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, String> f4757a;
+        public Map<String, String> f4738a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f4758b;
+        public String f4739b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f4759c;
+        public String f4740c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f4760d;
+        public String f4741d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f4761e;
+        public boolean f4742e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class c implements a.c {
                     return;
                 }
             }
-            this.f4757a = new HashMap();
+            this.f4738a = new HashMap();
         }
     }
 
@@ -91,7 +91,7 @@ public class c implements a.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a f4762a;
+        public a f4743a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class c implements a.c {
                     return;
                 }
             }
-            this.f4762a = aVar;
+            this.f4743a = aVar;
         }
 
         public String a() {
@@ -139,14 +139,13 @@ public class c implements a.c {
                 printWriter.print("Content-Length: " + a().getBytes().length + Part.CRLF);
                 Map<String, String> b2 = b();
                 if (b2 != null && b2.size() > 0) {
-                    for (Map.Entry<String, String> entry : b().entrySet()) {
+                    for (Map.Entry<String, String> entry : b2.entrySet()) {
                         d(printWriter, entry.getKey(), entry.getValue());
                     }
                 }
                 printWriter.append(Part.CRLF);
                 printWriter.append((CharSequence) a());
                 printWriter.flush();
-                printWriter.close();
             }
         }
     }
@@ -164,7 +163,7 @@ public class c implements a.c {
                 return;
             }
         }
-        f4751f = k.f6397a;
+        f4732f = k.f6863a;
     }
 
     public c(String str, a.b bVar) {
@@ -182,33 +181,33 @@ public class c implements a.c {
                 return;
             }
         }
-        this.f4755d = str;
-        this.f4752a = bVar;
+        this.f4736d = str;
+        this.f4733a = bVar;
     }
 
     @Override // b.a.p0.a.e0.h.a.c
     public void start() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f4756e) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f4737e) {
             return;
         }
         try {
-            this.f4753b = new LocalServerSocket(this.f4755d);
-            this.f4756e = true;
+            this.f4734b = new LocalServerSocket(this.f4736d);
+            this.f4737e = true;
             int i2 = 0;
-            while (this.f4756e) {
-                LocalSocket accept = this.f4753b.accept();
+            while (this.f4737e) {
+                LocalSocket accept = this.f4734b.accept();
                 b.a.p0.a.e0.h.c.a aVar = new b.a.p0.a.e0.h.c.a(accept.getInputStream(), accept.getOutputStream());
-                this.f4754c = aVar;
-                aVar.o(this.f4752a);
-                ExecutorUtilsExt.postOnSerial(this.f4754c, "V8InspectorServer");
-                if (b.a.p0.a.u1.a.a.G() && (i2 = i2 + 1) > 10) {
-                    boolean z = f4751f;
+                this.f4735c = aVar;
+                aVar.o(this.f4733a);
+                ExecutorUtilsExt.postOnSerial(this.f4735c, "V8InspectorServer");
+                if (b.a.p0.a.x1.a.a.H() && (i2 = i2 + 1) > 10) {
+                    boolean z = f4732f;
                     return;
                 }
             }
         } catch (IOException e2) {
-            b.a.p0.a.e0.d.c("V8InspectorServer", "launch local server fail", e2);
+            b.a.p0.a.e0.d.d("V8InspectorServer", "launch local server fail", e2);
         }
     }
 
@@ -216,22 +215,22 @@ public class c implements a.c {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f4756e = false;
-            LocalServerSocket localServerSocket = this.f4753b;
+            this.f4737e = false;
+            LocalServerSocket localServerSocket = this.f4734b;
             if (localServerSocket != null) {
                 try {
                     localServerSocket.close();
                 } catch (IOException e2) {
-                    b.a.p0.a.e0.d.c("V8InspectorServer", "stop local server fail", e2);
+                    b.a.p0.a.e0.d.d("V8InspectorServer", "stop local server fail", e2);
                 }
-                this.f4753b = null;
+                this.f4734b = null;
             }
-            b.a.p0.a.e0.h.c.a aVar = this.f4754c;
+            b.a.p0.a.e0.h.c.a aVar = this.f4735c;
             if (aVar != null) {
                 aVar.l();
-                this.f4754c = null;
+                this.f4735c = null;
             }
-            this.f4752a = null;
+            this.f4733a = null;
         }
     }
 }

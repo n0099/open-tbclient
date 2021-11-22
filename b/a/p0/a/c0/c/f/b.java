@@ -10,9 +10,9 @@ import org.json.JSONObject;
 public final class b extends b.a.p0.a.c0.a.a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String O;
-    public boolean P;
+    public String P;
     public boolean Q;
+    public boolean R;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b() {
@@ -33,7 +33,7 @@ public final class b extends b.a.p0.a.c0.a.a.b {
         }
     }
 
-    @Override // b.a.p0.a.c0.a.a.b, b.a.p0.a.c0.a.c.c, b.a.p0.a.c0.a.d.b, b.a.p0.a.c0.b.b, b.a.p0.a.l1.a
+    @Override // b.a.p0.a.c0.a.a.b, b.a.p0.a.c0.a.c.c, b.a.p0.a.c0.a.d.b, b.a.p0.a.c0.b.b, b.a.p0.a.m1.a
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
@@ -41,11 +41,11 @@ public final class b extends b.a.p0.a.c0.a.a.b {
         }
         super.a(jSONObject);
         if (this.l == null) {
-            this.l = new b.a.p0.a.l1.e.a.a();
+            this.l = new b.a.p0.a.m1.e.a.a();
         }
         this.x = jSONObject.optString("value");
-        this.O = jSONObject.optString("type");
-        this.P = jSONObject.optInt("confirmHold") == 1;
-        this.Q = jSONObject.optInt("adjustPosition", 1) == 1;
+        this.P = jSONObject.optString("type");
+        this.Q = jSONObject.optInt("confirmHold") == 1;
+        this.R = jSONObject.optInt("adjustPosition", 1) == 1;
     }
 }

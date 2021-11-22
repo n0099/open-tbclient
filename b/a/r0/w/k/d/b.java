@@ -16,25 +16,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<d2> f25116a;
+    public List<d2> f26633a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<d2> f25117b;
+    public List<d2> f26634b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25118c;
+    public boolean f26635c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f25119d;
+    public boolean f26636d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f25120e;
+    public int f26637e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f25121f;
+    public int f26638f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f25122g;
+    public int f26639g;
 
     public b(List<d2> list, boolean z, int i2) {
         Interceptable interceptable = $ic;
@@ -51,11 +51,11 @@ public class b {
                 return;
             }
         }
-        this.f25120e = 2;
-        this.f25121f = 2;
-        this.f25122g = 1;
-        this.f25119d = z;
-        this.f25121f = i2;
+        this.f26637e = 2;
+        this.f26638f = 2;
+        this.f26639g = 1;
+        this.f26636d = z;
+        this.f26638f = i2;
         j(list);
     }
 
@@ -63,12 +63,12 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (this.f25118c) {
-                int size = this.f25117b.size();
+            if (this.f26635c) {
+                int size = this.f26634b.size();
                 if (i2 == 0) {
-                    return (size - 1) - this.f25122g;
+                    return (size - 1) - this.f26639g;
                 }
-                int i3 = this.f25122g;
+                int i3 = this.f26639g;
                 return i2 == size - i3 ? i3 : i2;
             }
             return i2;
@@ -80,7 +80,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<d2> list = this.f25116a;
+            List<d2> list = this.f26633a;
             if (list == null) {
                 return 0;
             }
@@ -92,15 +92,15 @@ public class b {
     public int c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f25118c ? i2 - this.f25122g : i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f26635c ? i2 - this.f26639g : i2 : invokeI.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f25118c) {
-                return this.f25122g;
+            if (this.f26635c) {
+                return this.f26639g;
             }
             return 0;
         }
@@ -110,7 +110,7 @@ public class b {
     public List<d2> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f25117b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26634b : (List) invokeV.objValue;
     }
 
     public final List<d2> f() {
@@ -118,26 +118,26 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            List<d2> list = this.f25116a;
+            List<d2> list = this.f26633a;
             if (list != null) {
-                if (this.f25118c) {
-                    if (list.size() > this.f25121f && this.f25116a.size() >= this.f25122g) {
-                        arrayList.addAll(this.f25116a.subList(0, this.f25121f));
-                        List<d2> list2 = this.f25116a;
-                        int i2 = this.f25121f;
-                        arrayList.addAll(0, list2.subList(i2 - this.f25122g, i2));
-                        arrayList.addAll(this.f25116a.subList(0, this.f25122g));
+                if (this.f26635c) {
+                    if (list.size() > this.f26638f && this.f26633a.size() >= this.f26639g) {
+                        arrayList.addAll(this.f26633a.subList(0, this.f26638f));
+                        List<d2> list2 = this.f26633a;
+                        int i2 = this.f26638f;
+                        arrayList.addAll(0, list2.subList(i2 - this.f26639g, i2));
+                        arrayList.addAll(this.f26633a.subList(0, this.f26639g));
                     } else {
-                        arrayList.addAll(this.f25116a);
-                        List<d2> list3 = this.f25116a;
-                        arrayList.addAll(0, list3.subList(list3.size() - this.f25122g, this.f25116a.size()));
-                        arrayList.addAll(this.f25116a.subList(0, this.f25122g));
+                        arrayList.addAll(this.f26633a);
+                        List<d2> list3 = this.f26633a;
+                        arrayList.addAll(0, list3.subList(list3.size() - this.f26639g, this.f26633a.size()));
+                        arrayList.addAll(this.f26633a.subList(0, this.f26639g));
                     }
                 } else if (list != null && list.size() > 0) {
-                    int size = this.f25116a.size();
-                    int i3 = this.f25122g;
+                    int size = this.f26633a.size();
+                    int i3 = this.f26639g;
                     if (size >= i3) {
-                        arrayList.addAll(this.f25116a.subList(0, i3));
+                        arrayList.addAll(this.f26633a.subList(0, i3));
                     }
                 }
             }
@@ -149,24 +149,24 @@ public class b {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f25122g = i2;
-            j(this.f25116a);
+            this.f26639g = i2;
+            j(this.f26633a);
         }
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f25121f = i2;
-            j(this.f25116a);
+            this.f26638f = i2;
+            j(this.f26633a);
         }
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f25120e = i2;
-            j(this.f25116a);
+            this.f26637e = i2;
+            j(this.f26633a);
         }
     }
 
@@ -175,14 +175,14 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, list) == null) || list == null) {
             return;
         }
-        this.f25116a = list;
-        if (list != null && list.size() >= this.f25120e && list.size() <= this.f25121f) {
-            this.f25118c = true;
-        } else if (list.size() > this.f25121f && this.f25119d) {
-            this.f25118c = true;
+        this.f26633a = list;
+        if (list != null && list.size() >= this.f26637e && list.size() <= this.f26638f) {
+            this.f26635c = true;
+        } else if (list.size() > this.f26638f && this.f26636d) {
+            this.f26635c = true;
         } else {
-            this.f25118c = false;
+            this.f26635c = false;
         }
-        this.f25117b = f();
+        this.f26634b = f();
     }
 }

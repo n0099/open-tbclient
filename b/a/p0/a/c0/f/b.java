@@ -12,7 +12,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f4130a;
+    public a f4275a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -27,19 +27,19 @@ public class b {
                 return;
             }
         }
-        this.f4130a = new a(501);
+        this.f4275a = new a(501);
     }
 
     public boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f4130a.b(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f4275a.b(i2) : invokeI.booleanValue;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f4130a.d(i2);
+            this.f4275a.d(i2);
         }
     }
 
@@ -58,6 +58,6 @@ public class b {
                 return;
             }
         }
-        this.f4130a = new a(501, z);
+        this.f4275a = new a(501, z);
     }
 }

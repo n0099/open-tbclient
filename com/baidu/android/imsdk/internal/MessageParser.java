@@ -85,8 +85,8 @@ public class MessageParser {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.msg : (ChatMsg) invokeV.objValue;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:30:0x013e  */
-        /* JADX WARN: Removed duplicated region for block: B:32:0x0142  */
+        /* JADX WARN: Removed duplicated region for block: B:30:0x013f  */
+        /* JADX WARN: Removed duplicated region for block: B:32:0x0143  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -357,8 +357,8 @@ public class MessageParser {
         return (ChatMsg) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:106:0x026f A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x0271 A[Catch: Exception -> 0x032b, TryCatch #1 {Exception -> 0x032b, blocks: (B:115:0x028f, B:117:0x0295, B:119:0x02af, B:121:0x02c1, B:122:0x02c8, B:124:0x02d0, B:128:0x02dd, B:129:0x02e0, B:131:0x02e6, B:133:0x02ec, B:135:0x02f2, B:136:0x02f5, B:138:0x02fb, B:140:0x0300, B:142:0x030c, B:144:0x031b, B:143:0x0310, B:109:0x0279, B:104:0x0262, B:108:0x0271), top: B:160:0x0262 }] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x0271 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x0273 A[Catch: Exception -> 0x032d, TryCatch #1 {Exception -> 0x032d, blocks: (B:115:0x0291, B:117:0x0297, B:119:0x02b1, B:121:0x02c3, B:122:0x02ca, B:124:0x02d2, B:128:0x02df, B:129:0x02e2, B:131:0x02e8, B:133:0x02ee, B:135:0x02f4, B:136:0x02f7, B:138:0x02fd, B:140:0x0302, B:142:0x030e, B:144:0x031d, B:143:0x0312, B:109:0x027b, B:104:0x0264, B:108:0x0273), top: B:160:0x0264 }] */
     /* JADX WARN: Type inference failed for: r0v11, types: [T, java.lang.Long] */
     /* JADX WARN: Type inference failed for: r1v13 */
     /* JADX WARN: Type inference failed for: r1v14, types: [boolean, int] */
@@ -629,12 +629,12 @@ public class MessageParser {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
                 NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                 newAckMessage.addTriples(list2);
-                if (a.f28673e) {
+                if (a.f29542e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
-                    bLCPRequest.f38603a = 2L;
-                    bLCPRequest.f38604b = 95L;
-                    bLCPRequest.f38605c = newAckMessage.getBody().getBytes();
-                    bLCPRequest.f38606d = System.nanoTime();
+                    bLCPRequest.f39435a = 2L;
+                    bLCPRequest.f39436b = 95L;
+                    bLCPRequest.f39437c = newAckMessage.getBody().getBytes();
+                    bLCPRequest.f39438d = System.nanoTime();
                     b.a.u.a.b.a.c(bLCPRequest, new b(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;

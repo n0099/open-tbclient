@@ -16,11 +16,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f3140b;
+    public static a f3233b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> f3141a;
+    public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> f3234a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class a {
                 return;
             }
         }
-        f3140b = new a();
+        f3233b = new a();
     }
 
     public a() {
@@ -51,25 +51,25 @@ public class a {
                 return;
             }
         }
-        this.f3141a = new HashMap();
+        this.f3234a = new HashMap();
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3140b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3233b : (a) invokeV.objValue;
     }
 
     public void a(int i2, ActivityCompat.OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, onRequestPermissionsResultCallback) == null) || this.f3141a == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, onRequestPermissionsResultCallback) == null) || this.f3234a == null) {
             return;
         }
         synchronized (a.class) {
-            if (this.f3141a.containsKey(Integer.valueOf(i2))) {
-                this.f3141a.remove(Integer.valueOf(i2));
+            if (this.f3234a.containsKey(Integer.valueOf(i2))) {
+                this.f3234a.remove(Integer.valueOf(i2));
             }
-            this.f3141a.put(Integer.valueOf(i2), onRequestPermissionsResultCallback);
+            this.f3234a.put(Integer.valueOf(i2), onRequestPermissionsResultCallback);
         }
     }
 
@@ -77,11 +77,11 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.f3141a;
+            Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.f3234a;
             if (map == null || !map.containsKey(Integer.valueOf(i2))) {
                 return null;
             }
-            return this.f3141a.get(Integer.valueOf(i2));
+            return this.f3234a.get(Integer.valueOf(i2));
         }
         return (ActivityCompat.OnRequestPermissionsResultCallback) invokeI.objValue;
     }
@@ -90,8 +90,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             synchronized (a.class) {
-                if (this.f3141a != null && this.f3141a.containsKey(Integer.valueOf(i2))) {
-                    this.f3141a.remove(Integer.valueOf(i2));
+                if (this.f3234a != null && this.f3234a.containsKey(Integer.valueOf(i2))) {
+                    this.f3234a.remove(Integer.valueOf(i2));
                 }
             }
         }

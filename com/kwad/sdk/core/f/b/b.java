@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 /* loaded from: classes2.dex */
 public interface b extends IInterface {
 
@@ -19,7 +18,7 @@ public interface b extends IInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f64568a;
+        public IBinder f65481a;
 
         public a(IBinder iBinder) {
             Interceptable interceptable = $ic;
@@ -36,7 +35,7 @@ public interface b extends IInterface {
                     return;
                 }
             }
-            this.f64568a = iBinder;
+            this.f65481a = iBinder;
         }
 
         public String a() {
@@ -47,8 +46,8 @@ public interface b extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     try {
-                        obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                        this.f64568a.transact(1, obtain, obtain2, 0);
+                        obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                        this.f65481a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } catch (Exception e2) {
@@ -69,7 +68,7 @@ public interface b extends IInterface {
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64568a : (IBinder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65481a : (IBinder) invokeV.objValue;
         }
 
         public boolean b() {
@@ -81,8 +80,8 @@ public interface b extends IInterface {
                 boolean z = false;
                 try {
                     try {
-                        obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                        this.f64568a.transact(1, obtain, obtain2, 0);
+                        obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                        this.f65481a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         if (obtain2.readInt() == 0) {
                             z = true;

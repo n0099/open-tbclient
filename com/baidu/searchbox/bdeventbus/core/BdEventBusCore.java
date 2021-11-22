@@ -130,10 +130,6 @@ public final class BdEventBusCore {
                         AsyncPoster asyncPoster = getAsyncPoster();
                         Intrinsics.checkNotNullExpressionValue(subscription, "subscription");
                         asyncPoster.enqueue(obj, subscription);
-                    } else if (threadMode == 4) {
-                        MainHandlerPoster mainHandlerPoster = getMainHandlerPoster();
-                        Intrinsics.checkNotNullExpressionValue(subscription, "subscription");
-                        mainHandlerPoster.enqueue(obj, subscription);
                     }
                 } else if (UiThreadUtils.isOnUiThread()) {
                     BackgroundPoster backgroundPoster = getBackgroundPoster();
@@ -145,9 +141,9 @@ public final class BdEventBusCore {
             } else if (UiThreadUtils.isOnUiThread()) {
                 subscription.getAction().call(obj);
             } else {
-                MainHandlerPoster mainHandlerPoster2 = getMainHandlerPoster();
+                MainHandlerPoster mainHandlerPoster = getMainHandlerPoster();
                 Intrinsics.checkNotNullExpressionValue(subscription, "subscription");
-                mainHandlerPoster2.enqueue(obj, subscription);
+                mainHandlerPoster.enqueue(obj, subscription);
             }
         }
     }

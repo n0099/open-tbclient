@@ -38,22 +38,22 @@ public final class a implements i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f24188a;
+    public static final boolean f25651a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f24189b;
+    public static String f25652b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.r0.v.b.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1183a implements g.b {
+    public static class C1249a implements g.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f24190a;
+        public final /* synthetic */ Context f25653a;
 
-        public C1183a(Context context) {
+        public C1249a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,14 +68,14 @@ public final class a implements i {
                     return;
                 }
             }
-            this.f24190a = context;
+            this.f25653a = context;
         }
 
         @Override // b.a.q0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(b.a.q0.a.g.z) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f24190a, null, (String) hashMap.get(b.a.q0.a.g.z), true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(b.a.q0.a.g.A) instanceof String)) {
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f25653a, null, (String) hashMap.get(b.a.q0.a.g.A), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
@@ -95,8 +95,8 @@ public final class a implements i {
                 return;
             }
         }
-        f24188a = k.f6397a;
-        f24189b = NewUrlSchemaHelper.SCHEME;
+        f25651a = k.f6863a;
+        f25652b = NewUrlSchemaHelper.SCHEME;
     }
 
     public a() {
@@ -144,7 +144,7 @@ public final class a implements i {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str5 + str4;
             }
-            String str7 = f24189b;
+            String str7 = f25652b;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str7 = str7 + str;
@@ -160,7 +160,7 @@ public final class a implements i {
             }
             StringBuilder sb2 = new StringBuilder(sb.substring(0, sb.length() - 1));
             String str8 = str7 + "?" + ((Object) sb2);
-            if (f24188a) {
+            if (f25651a) {
                 String str9 = "encodeParams: " + ((Object) sb2);
             }
             return str8;
@@ -178,7 +178,7 @@ public final class a implements i {
             if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
                 Uri parse = Uri.parse(str);
                 if (b.a.q0.a.g.c(parse)) {
-                    b.a.q0.a.g.b().j(str, parse, new C1183a(context));
+                    b.a.q0.a.g.b().j(str, parse, new C1249a(context));
                 } else {
                     TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context);
                     tbWebViewActivityConfig.setUri(parse);
@@ -199,13 +199,13 @@ public final class a implements i {
     }
 
     @Override // b.a.p0.a.p.d.i
-    public b.a.p0.a.q2.a a(Context context, String str, String str2, String str3, String str4, String str5) {
+    public b.a.p0.a.u2.a a(Context context, String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, str3, str4, str5})) == null) {
             if (context == null) {
-                b.a.p0.a.q2.a aVar = new b.a.p0.a.q2.a();
-                aVar.e("Context exception");
+                b.a.p0.a.u2.a aVar = new b.a.p0.a.u2.a();
+                aVar.f("Context exception");
                 return aVar;
             } else if (TextUtils.isEmpty(str5)) {
                 return c(str5);
@@ -222,8 +222,8 @@ public final class a implements i {
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
-                    b.a.p0.a.q2.a aVar2 = new b.a.p0.a.q2.a();
-                    aVar2.e("invoke failed");
+                    b.a.p0.a.u2.a aVar2 = new b.a.p0.a.u2.a();
+                    aVar2.f("invoke failed");
                     return aVar2;
                 }
                 try {
@@ -231,33 +231,33 @@ public final class a implements i {
                     jSONObject.put("launchMode", "standard");
                     String b2 = b(str, str2, str3, str4, jSONObject);
                     boolean d2 = d(context, b2);
-                    if (f24188a) {
+                    if (f25651a) {
                         String str6 = "result = " + d2 + org.apache.commons.lang3.StringUtils.LF + "拼接后的uri is: " + b2;
                     }
                     if (d2) {
                         return null;
                     }
-                    b.a.p0.a.q2.a aVar3 = new b.a.p0.a.q2.a();
-                    aVar3.e("invoke failed");
+                    b.a.p0.a.u2.a aVar3 = new b.a.p0.a.u2.a();
+                    aVar3.f("invoke failed");
                     return aVar3;
                 } catch (JSONException e3) {
-                    if (f24188a) {
+                    if (f25651a) {
                         Log.getStackTraceString(e3);
                     }
                     return c(str5);
                 }
             }
         }
-        return (b.a.p0.a.q2.a) invokeCommon.objValue;
+        return (b.a.p0.a.u2.a) invokeCommon.objValue;
     }
 
-    public final b.a.p0.a.q2.a c(String str) {
+    public final b.a.p0.a.u2.a c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            b.a.p0.a.q2.a aVar = new b.a.p0.a.q2.a();
-            aVar.j(5L);
-            aVar.h(1L);
+            b.a.p0.a.u2.a aVar = new b.a.p0.a.u2.a();
+            aVar.k(5L);
+            aVar.i(1L);
             StringBuilder sb = new StringBuilder();
             sb.append("Error in parameter parsing: from PageTransitionAction:\n called by");
             sb.append(TextUtils.isEmpty(str) ? " empty" : "");
@@ -265,26 +265,26 @@ public final class a implements i {
             sb.append(str);
             sb.append(org.apache.commons.lang3.StringUtils.LF);
             sb.append(" appId:");
-            sb.append(b.a.p0.a.a2.d.g().getAppId());
+            sb.append(b.a.p0.a.d2.d.J().getAppId());
             sb.append(org.apache.commons.lang3.StringUtils.LF);
             sb.append(" curPage:");
-            sb.append(b.a.p0.a.g1.f.T().S());
+            sb.append(b.a.p0.a.g1.f.U().T());
             sb.append(org.apache.commons.lang3.StringUtils.LF);
-            aVar.e(sb.toString());
+            aVar.f(sb.toString());
             return aVar;
         }
-        return (b.a.p0.a.q2.a) invokeL.objValue;
+        return (b.a.p0.a.u2.a) invokeL.objValue;
     }
 
     public final void e(String str) {
-        b.a.p0.a.a2.e i2;
-        b.a.p0.a.v1.c.e.a z;
+        b.a.p0.a.d2.e L;
+        b.a.p0.a.y1.c.e.a z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (i2 = b.a.p0.a.a2.e.i()) == null || (z = i2.z()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (L = b.a.p0.a.d2.e.L()) == null || (z = L.z()) == null) {
             return;
         }
         Bundle bundle = new Bundle();
         bundle.putString("key_param_url", str);
-        z.K(bundle, c.class);
+        z.V(bundle, c.class);
     }
 }

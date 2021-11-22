@@ -28,25 +28,25 @@ public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f13155a = 2;
+    public static final int f13935a = 2;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f13156b = 3;
+    public static final int f13936b = 3;
     @JvmField
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f13157c = 2;
+    public static final int f13937c = 2;
     @JvmField
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f13158d = 3;
+    public static final int f13938d = 3;
     @JvmField
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f13159e = 4;
+    public static final int f13939e = 4;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f13160f;
+    public static final a f13940f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -56,14 +56,14 @@ public final class c {
 
         /* renamed from: b.a.q0.s.m.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static final class C0687a implements PermissionJudgePolicy.OnPermissionsGrantedListener {
+        public static final class C0722a implements PermissionJudgePolicy.OnPermissionsGrantedListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ IntentConfig f13161a;
+            public final /* synthetic */ IntentConfig f13941a;
 
-            public C0687a(IntentConfig intentConfig) {
+            public C0722a(IntentConfig intentConfig) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,14 +78,14 @@ public final class c {
                         return;
                     }
                 }
-                this.f13161a = intentConfig;
+                this.f13941a = intentConfig;
             }
 
             @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
             public final void onPermissionsGranted() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this.f13161a));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this.f13941a));
                 }
             }
         }
@@ -107,13 +107,13 @@ public final class c {
         public final int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.f13155a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.f13935a : invokeV.intValue;
         }
 
         public final int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c.f13156b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c.f13936b : invokeV.intValue;
         }
 
         public final void c(int i2, Context context, String str, String str2, String str3, String str4, Integer num, boolean z) {
@@ -225,7 +225,7 @@ public final class c {
                 PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
                 permissionJudgePolicy.clearRequestPermissionList();
                 permissionJudgePolicy.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                permissionJudgePolicy.setOnPermissionsGrantedListener(new C0687a(intentConfig));
+                permissionJudgePolicy.setOnPermissionsGrantedListener(new C0722a(intentConfig));
                 return permissionJudgePolicy.startRequestPermission(activity);
             }
             return invokeLL.booleanValue;
@@ -249,6 +249,6 @@ public final class c {
                 return;
             }
         }
-        f13160f = new a(null);
+        f13940f = new a(null);
     }
 }

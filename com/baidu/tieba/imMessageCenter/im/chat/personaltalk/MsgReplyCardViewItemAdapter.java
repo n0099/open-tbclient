@@ -69,7 +69,7 @@ public class MsgReplyCardViewItemAdapter extends MsgCommonItemAdapter<MsgReplyCa
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, b.a.e.l.e.a
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         j0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
@@ -82,7 +82,7 @@ public class MsgReplyCardViewItemAdapter extends MsgCommonItemAdapter<MsgReplyCa
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), view, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.Z(i2, view, viewGroup, chatMessage, msgViewHolder);
             MsgReplyCardView msgItemView = msgViewHolder.getMsgItemView();
-            msgItemView.K(this.m, chatMessage, viewGroup);
+            msgItemView.M(this.m, chatMessage, viewGroup);
             msgItemView.n(this.n);
             msgItemView.p(i2);
             this.m.getLayoutMode().k(false);
@@ -93,7 +93,7 @@ public class MsgReplyCardViewItemAdapter extends MsgCommonItemAdapter<MsgReplyCa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: p0 */
     public MsgCommonItemAdapter.MsgViewHolder<MsgReplyCardView> T(ViewGroup viewGroup) {
         InterceptResult invokeL;

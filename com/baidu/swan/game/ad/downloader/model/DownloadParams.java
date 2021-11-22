@@ -19,22 +19,22 @@ public class DownloadParams {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f44548a;
+    public String f45356a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44549b;
+    public String f45357b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f44550c;
+    public String f45358c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f44551d;
+    public String f45359d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f44552e;
+    public String f45360e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f44553f;
+    public long f45361f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes8.dex */
@@ -147,8 +147,8 @@ public class DownloadParams {
                 return;
             }
         }
-        this.f44548a = str;
-        this.f44549b = str2;
+        this.f45356a = str;
+        this.f45357b = str2;
     }
 
     public JSONObject a() {
@@ -157,12 +157,12 @@ public class DownloadParams {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("url", this.f44548a);
-                jSONObject.put("name", this.f44549b);
-                jSONObject.put(TTDownloadField.TT_USERAGENT, this.f44550c);
-                jSONObject.put("contentDisposition", this.f44551d);
-                jSONObject.put("mimeType", this.f44552e);
-                jSONObject.put(XAdRemoteAPKDownloadExtraInfo.CONTENT_LENGTH, this.f44553f);
+                jSONObject.put("url", this.f45356a);
+                jSONObject.put("name", this.f45357b);
+                jSONObject.put(TTDownloadField.TT_USERAGENT, this.f45358c);
+                jSONObject.put("contentDisposition", this.f45359d);
+                jSONObject.put("mimeType", this.f45360e);
+                jSONObject.put(XAdRemoteAPKDownloadExtraInfo.CONTENT_LENGTH, this.f45361f);
             } catch (JSONException unused) {
             }
             return jSONObject;
@@ -185,7 +185,7 @@ public class DownloadParams {
                 return;
             }
         }
-        this.f44548a = str;
-        this.f44549b = str2;
+        this.f45356a = str;
+        this.f45357b = str2;
     }
 }

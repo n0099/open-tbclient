@@ -69,23 +69,23 @@ public class NoOpImageCacheStatsTracker implements ImageCacheStatsTracker {
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
-    public void onBitmapCacheMiss(CacheKey cacheKey) {
+    public void onBitmapCacheMiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cacheKey) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
-    public void onBitmapCachePut(CacheKey cacheKey) {
+    public void onBitmapCachePut() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cacheKey) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
-    public void onDiskCacheGetFail(CacheKey cacheKey) {
+    public void onDiskCacheGetFail() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cacheKey) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
@@ -97,65 +97,58 @@ public class NoOpImageCacheStatsTracker implements ImageCacheStatsTracker {
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
-    public void onDiskCacheMiss(CacheKey cacheKey) {
+    public void onDiskCacheMiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cacheKey) == null) {
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
-    public void onDiskCachePut(CacheKey cacheKey) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cacheKey) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
     public void onMemoryCacheHit(CacheKey cacheKey) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cacheKey) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, cacheKey) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
-    public void onMemoryCacheMiss(CacheKey cacheKey) {
+    public void onMemoryCacheMiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cacheKey) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
-    public void onMemoryCachePut(CacheKey cacheKey) {
+    public void onMemoryCachePut() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cacheKey) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
     public void onStagingAreaHit(CacheKey cacheKey) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cacheKey) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, cacheKey) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
-    public void onStagingAreaMiss(CacheKey cacheKey) {
+    public void onStagingAreaMiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, cacheKey) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
-    public void registerBitmapMemoryCache(MemoryCache<?, ?> memoryCache) {
+    public void registerBitmapMemoryCache(CountingMemoryCache<?, ?> countingMemoryCache) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, memoryCache) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, countingMemoryCache) == null) {
         }
     }
 
     @Override // com.facebook.imagepipeline.cache.ImageCacheStatsTracker
-    public void registerEncodedMemoryCache(MemoryCache<?, ?> memoryCache) {
+    public void registerEncodedMemoryCache(CountingMemoryCache<?, ?> countingMemoryCache) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, memoryCache) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, countingMemoryCache) == null) {
         }
     }
 }

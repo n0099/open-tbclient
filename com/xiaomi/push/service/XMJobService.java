@@ -25,7 +25,7 @@ public class XMJobService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Service f71365a;
+    public static Service f72285a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -38,22 +38,22 @@ public class XMJobService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Binder f71366a;
+        public Binder f72286a;
 
         /* renamed from: a  reason: collision with other field name */
         public Handler f843a;
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class HandlerC2029a extends Handler {
+        public static class HandlerC2067a extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public JobService f71367a;
+            public JobService f72287a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public HandlerC2029a(JobService jobService) {
+            public HandlerC2067a(JobService jobService) {
                 super(jobService.getMainLooper());
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -70,7 +70,7 @@ public class XMJobService extends Service {
                         return;
                     }
                 }
-                this.f71367a = jobService;
+                this.f72287a = jobService;
             }
 
             @Override // android.os.Handler
@@ -79,7 +79,7 @@ public class XMJobService extends Service {
                 if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                     JobParameters jobParameters = (JobParameters) message.obj;
                     com.xiaomi.channel.commonutils.logger.b.m73a("Job finished " + jobParameters.getJobId());
-                    this.f71367a.jobFinished(jobParameters, false);
+                    this.f72287a.jobFinished(jobParameters, false);
                     if (jobParameters.getJobId() == 1) {
                         er.a(false);
                     }
@@ -102,8 +102,8 @@ public class XMJobService extends Service {
                     return;
                 }
             }
-            this.f71366a = null;
-            this.f71366a = (Binder) com.xiaomi.push.bh.a((Object) this, "onBind", new Intent());
+            this.f72286a = null;
+            this.f72286a = (Binder) com.xiaomi.push.bh.a((Object) this, "onBind", new Intent());
             com.xiaomi.push.bh.a((Object) this, "attachBaseContext", service);
         }
 
@@ -118,7 +118,7 @@ public class XMJobService extends Service {
                 intent.setPackage(getPackageName());
                 startService(intent);
                 if (this.f843a == null) {
-                    this.f843a = new HandlerC2029a(this);
+                    this.f843a = new HandlerC2067a(this);
                 }
                 Handler handler = this.f843a;
                 handler.sendMessage(Message.obtain(handler, 1, jobParameters));
@@ -187,9 +187,9 @@ public class XMJobService extends Service {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
             if (Build.VERSION.SDK_INT >= 21) {
-                this.f842a = new a(this).f71366a;
+                this.f842a = new a(this).f72286a;
             }
-            f71365a = this;
+            f72285a = this;
         }
     }
 
@@ -198,7 +198,7 @@ public class XMJobService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            f71365a = null;
+            f72285a = null;
         }
     }
 }

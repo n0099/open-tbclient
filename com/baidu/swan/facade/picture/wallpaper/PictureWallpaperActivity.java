@@ -9,11 +9,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import androidx.annotation.AnyThread;
-import b.a.p0.a.v2.n0;
-import b.a.p0.a.v2.q;
-import b.a.p0.a.v2.q0;
-import b.a.p0.a.z1.b.f.e;
-import b.a.p0.e.d;
+import b.a.p0.a.c2.b.f.e;
+import b.a.p0.a.z2.n0;
+import b.a.p0.a.z2.q;
+import b.a.p0.a.z2.q0;
+import b.a.p0.g.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.swan.apps.SwanAppBaseActivity;
@@ -42,18 +42,18 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PictureWallpaperActivity f44462e;
+        public final /* synthetic */ PictureWallpaperActivity f45270e;
 
         /* renamed from: com.baidu.swan.facade.picture.wallpaper.PictureWallpaperActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C1700a implements PictureView.c {
+        public class C1736a implements PictureView.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f44463a;
+            public final /* synthetic */ a f45271a;
 
-            public C1700a(a aVar) {
+            public C1736a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,14 +68,14 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
                         return;
                     }
                 }
-                this.f44463a = aVar;
+                this.f45271a = aVar;
             }
 
             @Override // com.baidu.swan.facade.picture.widget.PictureView.c
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f44463a.f44462e.onLoadImage(false);
+                    this.f45271a.f45270e.onLoadImage(false);
                 }
             }
 
@@ -83,7 +83,7 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f44463a.f44462e.onLoadImage(true);
+                    this.f45271a.f45270e.onLoadImage(true);
                 }
             }
         }
@@ -103,14 +103,14 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
                     return;
                 }
             }
-            this.f44462e = pictureWallpaperActivity;
+            this.f45270e = pictureWallpaperActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44462e.mCropView.setData(this.f44462e.mPicUrl, this.f44462e.mPicUrlReferer, new C1700a(this));
+                this.f45270e.mCropView.setData(this.f45270e.mPicUrl, this.f45270e.mPicUrlReferer, new C1736a(this));
             }
         }
     }
@@ -121,10 +121,10 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PictureCropView f44464e;
+        public final /* synthetic */ PictureCropView f45272e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PictureWallpaperActivity f44465f;
+        public final /* synthetic */ PictureWallpaperActivity f45273f;
 
         public b(PictureWallpaperActivity pictureWallpaperActivity, PictureCropView pictureCropView) {
             Interceptable interceptable = $ic;
@@ -141,8 +141,8 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
                     return;
                 }
             }
-            this.f44465f = pictureWallpaperActivity;
-            this.f44464e = pictureCropView;
+            this.f45273f = pictureWallpaperActivity;
+            this.f45272e = pictureCropView;
         }
 
         @Override // java.lang.Runnable
@@ -150,18 +150,18 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bitmap croppedImage = this.f44464e.getCroppedImage();
+                Bitmap croppedImage = this.f45272e.getCroppedImage();
                 if (croppedImage != null) {
                     try {
-                        WallpaperManager.getInstance(this.f44465f.getApplicationContext()).setBitmap(croppedImage);
+                        WallpaperManager.getInstance(this.f45273f.getApplicationContext()).setBitmap(croppedImage);
                         z = true;
                     } catch (IOException e2) {
                         e2.printStackTrace();
                     }
-                    this.f44465f.onSetWallpaperResult(z);
+                    this.f45273f.onSetWallpaperResult(z);
                 }
                 z = false;
-                this.f44465f.onSetWallpaperResult(z);
+                this.f45273f.onSetWallpaperResult(z);
             }
         }
     }
@@ -172,10 +172,10 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f44466e;
+        public final /* synthetic */ boolean f45274e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PictureWallpaperActivity f44467f;
+        public final /* synthetic */ PictureWallpaperActivity f45275f;
 
         public c(PictureWallpaperActivity pictureWallpaperActivity, boolean z) {
             Interceptable interceptable = $ic;
@@ -192,21 +192,21 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
                     return;
                 }
             }
-            this.f44467f = pictureWallpaperActivity;
-            this.f44466e = z;
+            this.f45275f = pictureWallpaperActivity;
+            this.f45274e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44467f.mLoadingView.setVisibility(8);
-                if (this.f44466e) {
-                    e.f(this.f44467f.getApplicationContext(), b.a.p0.e.e.swan_app_picture_set_wallpaper_succeed).u();
+                this.f45275f.mLoadingView.setVisibility(8);
+                if (this.f45274e) {
+                    e.f(this.f45275f.getApplicationContext(), b.a.p0.g.e.swan_app_picture_set_wallpaper_succeed).v();
                 } else {
-                    e.f(this.f44467f.getApplicationContext(), b.a.p0.e.e.swan_app_picture_set_wallpaper_fail).u();
+                    e.f(this.f45275f.getApplicationContext(), b.a.p0.g.e.swan_app_picture_set_wallpaper_fail).v();
                 }
-                this.f44467f.finish();
+                this.f45275f.finish();
             }
         }
     }
@@ -244,12 +244,12 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.mCropView = (PictureCropView) findViewById(b.a.p0.e.c.picture_wallpaper_browseview);
-            LoadingView loadingView = (LoadingView) findViewById(b.a.p0.e.c.picture_set_wallpaper_loading_view);
+            this.mCropView = (PictureCropView) findViewById(b.a.p0.g.c.picture_wallpaper_browseview);
+            LoadingView loadingView = (LoadingView) findViewById(b.a.p0.g.c.picture_set_wallpaper_loading_view);
             this.mLoadingView = loadingView;
-            loadingView.setMsg(b.a.p0.e.e.swan_app_picture_set_wallpaper_doing);
-            findViewById(b.a.p0.e.c.picture_wallpaper_cancel).setOnClickListener(this);
-            findViewById(b.a.p0.e.c.picture_wallpaper_pick).setOnClickListener(this);
+            loadingView.setMsg(b.a.p0.g.e.swan_app_picture_set_wallpaper_doing);
+            findViewById(b.a.p0.g.c.picture_wallpaper_cancel).setOnClickListener(this);
+            findViewById(b.a.p0.g.c.picture_wallpaper_pick).setOnClickListener(this);
             this.mCropView.post(new a(this));
         }
     }
@@ -266,7 +266,7 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
             }
             context.startActivity(intent);
             if (z) {
-                ((Activity) context).overridePendingTransition(b.a.p0.e.a.aiapps_slide_in_from_right, 0);
+                ((Activity) context).overridePendingTransition(b.a.p0.g.a.aiapps_slide_in_from_right, 0);
             }
         }
     }
@@ -276,7 +276,7 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65545, this) == null) && (pictureCropView = this.mCropView) != null && pictureCropView.hasSetBitmap()) {
             this.mLoadingView.setVisibility(0);
-            q.j(new b(this, pictureCropView), "set-wallpaper");
+            q.k(new b(this, pictureCropView), "set-wallpaper");
         }
     }
 
@@ -285,7 +285,7 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
     public void onSetWallpaperResult(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65546, this, z) == null) {
-            q0.b0(new c(this, z));
+            q0.e0(new c(this, z));
         }
     }
 
@@ -294,21 +294,21 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             int id = view.getId();
-            if (id == b.a.p0.e.c.picture_wallpaper_cancel) {
+            if (id == b.a.p0.g.c.picture_wallpaper_cancel) {
                 onBackPressed();
-            } else if (id == b.a.p0.e.c.picture_wallpaper_pick) {
+            } else if (id == b.a.p0.g.c.picture_wallpaper_pick) {
                 onSetWallpaper();
             }
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, b.a.p0.o.a.a.g, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, b.a.p0.r.a.a.g, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            int Z = q0.Z(this);
+            int c0 = q0.c0(this);
             super.onCreate(bundle);
-            q0.g(this, Z);
+            q0.g(this, c0);
             setContentView(d.swan_app_pictrue_wallpager_layout);
             n0.a(this);
             initData(getIntent());
@@ -320,7 +320,7 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
         PictureCropView pictureCropView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (pictureCropView = this.mCropView) != null && z) {
-            findViewById(b.a.p0.e.c.picture_wallpaper_pick).setEnabled(pictureCropView.hasSetBitmap());
+            findViewById(b.a.p0.g.c.picture_wallpaper_pick).setEnabled(pictureCropView.hasSetBitmap());
         }
     }
 }

@@ -29,17 +29,17 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f69264a;
+    public static volatile d f70184a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile SparseArray<Boolean> f69265b;
+    public volatile SparseArray<Boolean> f70185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f69266c;
+    public Handler f70186c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile List<ac> f69267d;
+    public volatile List<ac> f70187d;
 
     static {
         InterceptResult invokeClinit;
@@ -69,21 +69,21 @@ public class d {
                 return;
             }
         }
-        this.f69265b = new SparseArray<>();
-        this.f69266c = new Handler(Looper.getMainLooper());
-        this.f69267d = new ArrayList();
+        this.f70185b = new SparseArray<>();
+        this.f70186c = new Handler(Looper.getMainLooper());
+        this.f70187d = new ArrayList();
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f69264a == null) {
+            if (f70184a == null) {
                 synchronized (d.class) {
-                    f69264a = new d();
+                    f70184a = new d();
                 }
             }
-            return f69264a;
+            return f70184a;
         }
         return (d) invokeV.objValue;
     }
@@ -93,9 +93,9 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048595, this, acVar) == null) || acVar == null) {
             return;
         }
-        synchronized (this.f69267d) {
-            if (this.f69267d.contains(acVar)) {
-                this.f69267d.remove(acVar);
+        synchronized (this.f70187d) {
+            if (this.f70187d.contains(acVar)) {
+                this.f70187d.remove(acVar);
             }
         }
     }
@@ -363,8 +363,8 @@ public class d {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            synchronized (this.f69267d) {
-                for (ac acVar : this.f69267d) {
+            synchronized (this.f70187d) {
+                for (ac acVar : this.f70187d) {
                     if (acVar != null) {
                         acVar.a();
                     }
@@ -391,9 +391,9 @@ public class d {
         if (com.ss.android.socialbase.downloader.impls.l.a(true).g()) {
             acVar.a();
         }
-        synchronized (this.f69267d) {
-            if (!this.f69267d.contains(acVar)) {
-                this.f69267d.add(acVar);
+        synchronized (this.f70187d) {
+            if (!this.f70187d.contains(acVar)) {
+                this.f70187d.add(acVar);
             }
         }
     }
@@ -428,7 +428,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             synchronized (this) {
-                this.f69265b.put(i2, z ? Boolean.TRUE : Boolean.FALSE);
+                this.f70185b.put(i2, z ? Boolean.TRUE : Boolean.FALSE);
             }
         }
     }
@@ -438,10 +438,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
             synchronized (this) {
-                if (this.f69265b.get(i2) == null) {
+                if (this.f70185b.get(i2) == null) {
                     return -1;
                 }
-                return this.f69265b.get(i2).booleanValue() ? 1 : 0;
+                return this.f70185b.get(i2).booleanValue() ? 1 : 0;
             }
         }
         return invokeI.intValue;
@@ -726,18 +726,18 @@ public class d {
                     com.ss.android.socialbase.downloader.d.a.a(downloadTask.getMonitorDepend(), downloadTask.getDownloadInfo(), new BaseException(1003, "tryDownload but getDownloadHandler failed"), downloadTask.getDownloadInfo() != null ? downloadTask.getDownloadInfo().getStatus() : 0);
                 }
             } else if (downloadTask.isNeedDelayForCacheSync()) {
-                this.f69266c.postDelayed(new Runnable(this, b2, downloadTask) { // from class: com.ss.android.socialbase.downloader.downloader.d.1
+                this.f70186c.postDelayed(new Runnable(this, b2, downloadTask) { // from class: com.ss.android.socialbase.downloader.downloader.d.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ m f69268a;
+                    public final /* synthetic */ m f70188a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ DownloadTask f69269b;
+                    public final /* synthetic */ DownloadTask f70189b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f69270c;
+                    public final /* synthetic */ d f70190c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -754,16 +754,16 @@ public class d {
                                 return;
                             }
                         }
-                        this.f69270c = this;
-                        this.f69268a = b2;
-                        this.f69269b = downloadTask;
+                        this.f70190c = this;
+                        this.f70188a = b2;
+                        this.f70189b = downloadTask;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f69268a.a(this.f69269b);
+                            this.f70188a.a(this.f70189b);
                         }
                     }
                 }, 500L);

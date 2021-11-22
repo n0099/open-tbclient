@@ -7,13 +7,13 @@ import android.graphics.drawable.Drawable;
 import android.text.InputFilter;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.r0.x0.b1;
+import b.a.e.f.p.l;
 import b.a.r0.x0.c1;
 import b.a.r0.x0.d1;
-import b.a.r0.x0.n1;
+import b.a.r0.x0.e1;
 import b.a.r0.x0.o1;
-import b.a.r0.x0.v2.e;
+import b.a.r0.x0.p1;
+import b.a.r0.x0.w2.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -34,16 +34,16 @@ public class TabItemView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f48980e;
+    public e f49844e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48981f;
+    public int f49845f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f48982g;
+    public boolean f49846g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f48983h;
+    public int f49847h;
 
     static {
         InterceptResult invokeClinit;
@@ -78,10 +78,10 @@ public class TabItemView extends TextView {
                 return;
             }
         }
-        this.f48981f = STATE_UNCHECKED;
-        this.f48983h = 0;
-        this.f48980e = eVar;
-        this.f48982g = z;
+        this.f49845f = STATE_UNCHECKED;
+        this.f49847h = 0;
+        this.f49844e = eVar;
+        this.f49846g = z;
         a(context, i2);
     }
 
@@ -103,17 +103,17 @@ public class TabItemView extends TextView {
     public final void a(Context context, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
-            if (this.f48982g) {
-                setPadding(0, l.g(getContext(), c1.tbds20), 0, 0);
-                setTextSize(0, l.g(context, c1.tbds42));
+            if (this.f49846g) {
+                setPadding(0, l.g(getContext(), d1.tbds20), 0, 0);
+                setTextSize(0, l.g(context, d1.tbds42));
             } else {
                 setGravity(17);
             }
             setSingleLine();
             setFilters(new InputFilter[]{new InputFilter.LengthFilter(i2)});
-            e eVar = this.f48980e;
+            e eVar = this.f49844e;
             if (eVar != null) {
-                setText(eVar.f26451a);
+                setText(eVar.f28051a);
             }
             changeSkinType();
         }
@@ -122,7 +122,7 @@ public class TabItemView extends TextView {
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setState(this.f48981f);
+            setState(this.f49845f);
         }
     }
 
@@ -143,18 +143,18 @@ public class TabItemView extends TextView {
     public int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48981f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49845f : invokeV.intValue;
     }
 
     public int getTabId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            e eVar = this.f48980e;
+            e eVar = this.f49844e;
             if (eVar == null) {
                 return -1;
             }
-            return eVar.f26452b;
+            return eVar.f28052b;
         }
         return invokeV.intValue;
     }
@@ -163,11 +163,11 @@ public class TabItemView extends TextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            e eVar = this.f48980e;
+            e eVar = this.f49844e;
             if (eVar == null) {
                 return null;
             }
-            return eVar.f26454d;
+            return eVar.f28054d;
         }
         return (String) invokeV.objValue;
     }
@@ -190,8 +190,8 @@ public class TabItemView extends TextView {
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             int spaceWidth = getSpaceWidth();
             if (spaceWidth >= 0) {
-                if (this.f48982g) {
-                    setPadding(0, l.g(getContext(), c1.ds16), spaceWidth, 0);
+                if (this.f49846g) {
+                    setPadding(0, l.g(getContext(), d1.ds16), spaceWidth, 0);
                 } else {
                     setPadding(0, 0, spaceWidth, 0);
                 }
@@ -203,55 +203,55 @@ public class TabItemView extends TextView {
     public void setForNewFrame(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f48982g = z;
+            this.f49846g = z;
         }
     }
 
     public void setSelectItemColorResId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f48983h = i2;
+            this.f49847h = i2;
         }
     }
 
     public void setState(int i2) {
-        o1 o1Var;
-        List<n1> list;
+        p1 p1Var;
+        List<o1> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            e eVar = this.f48980e;
-            if (eVar != null && (o1Var = eVar.f26453c) != null && (list = o1Var.f26026b) != null && list.size() > 0) {
-                int i3 = -l.g(getContext(), c1.tbds20);
-                if (!this.f48982g) {
+            e eVar = this.f49844e;
+            if (eVar != null && (p1Var = eVar.f28053c) != null && (list = p1Var.f27622b) != null && list.size() > 0) {
+                int i3 = -l.g(getContext(), d1.tbds20);
+                if (!this.f49846g) {
                     i3 = 0;
                 }
                 if (i2 == STATE_EXPANDED) {
-                    Drawable drawable = SkinManager.getDrawable(d1.icon_toolbar_arrow_up);
+                    Drawable drawable = SkinManager.getDrawable(e1.icon_toolbar_arrow_up);
                     drawable.setBounds(0, i3, drawable.getMinimumWidth(), drawable.getMinimumHeight() + i3);
                     setCompoundDrawables(null, null, drawable, null);
                 } else {
-                    Drawable drawable2 = SkinManager.getDrawable(d1.icon_arrow_gray_down);
+                    Drawable drawable2 = SkinManager.getDrawable(e1.icon_arrow_gray_down);
                     drawable2.setBounds(0, i3, drawable2.getMinimumWidth(), drawable2.getMinimumHeight() + i3);
                     setCompoundDrawables(null, null, drawable2, null);
                 }
-                setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(c1.tbds20));
+                setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(d1.tbds20));
             }
-            if (this.f48982g) {
-                SkinManager.setViewTextColor(this, b1.CAM_X0105, 1);
+            if (this.f49846g) {
+                SkinManager.setViewTextColor(this, c1.CAM_X0105, 1);
             } else {
                 if (i2 != STATE_CHECKED && i2 != STATE_EXPANDED) {
-                    SkinManager.setViewTextColor(this, b1.CAM_X0106, 1);
+                    SkinManager.setViewTextColor(this, c1.CAM_X0106, 1);
                 } else {
-                    int i4 = this.f48983h;
+                    int i4 = this.f49847h;
                     if (i4 == 0) {
-                        SkinManager.setViewTextColor(this, b1.CAM_X0302, 1);
+                        SkinManager.setViewTextColor(this, c1.CAM_X0302, 1);
                     } else {
                         SkinManager.setViewTextColor(this, i4, 1);
                     }
                 }
                 setGravity(17);
             }
-            this.f48981f = i2;
+            this.f49845f = i2;
             invalidate();
         }
     }

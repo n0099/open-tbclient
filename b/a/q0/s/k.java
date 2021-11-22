@@ -14,23 +14,23 @@ public class k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static k f13130f;
+    public static k f13910f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13131a;
+    public int f13911a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13132b;
+    public int f13912b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13133c;
+    public String f13913c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f13134d;
+    public boolean f13914d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13135e;
+    public int f13915e;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -45,11 +45,11 @@ public class k {
                 return;
             }
         }
-        this.f13131a = 0;
-        this.f13132b = 0;
-        this.f13133c = null;
-        this.f13134d = true;
-        this.f13135e = 0;
+        this.f13911a = 0;
+        this.f13912b = 0;
+        this.f13913c = null;
+        this.f13914d = true;
+        this.f13915e = 0;
     }
 
     public static k c() {
@@ -57,13 +57,13 @@ public class k {
         k kVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            k kVar2 = f13130f;
+            k kVar2 = f13910f;
             if (kVar2 == null) {
                 synchronized (k.class) {
-                    if (f13130f == null) {
-                        f13130f = new k();
+                    if (f13910f == null) {
+                        f13910f = new k();
                     }
-                    kVar = f13130f;
+                    kVar = f13910f;
                 }
                 return kVar;
             }
@@ -75,7 +75,7 @@ public class k {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13133c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13913c : (String) invokeV.objValue;
     }
 
     public int b() {
@@ -84,7 +84,7 @@ public class k {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             b.a.q0.s.e0.b j = b.a.q0.s.e0.b.j();
             int k = j.k(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 2);
-            this.f13132b = k;
+            this.f13912b = k;
             return k;
         }
         return invokeV.intValue;
@@ -95,7 +95,7 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int k = b.a.q0.s.e0.b.j().k("image_quality", 0);
-            this.f13131a = k;
+            this.f13911a = k;
             return k;
         }
         return invokeV.intValue;
@@ -104,46 +104,46 @@ public class k {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13135e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13915e : invokeV.intValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f13131a = b.a.q0.s.e0.b.j().k("image_quality", 0);
+            this.f13911a = b.a.q0.s.e0.b.j().k("image_quality", 0);
             b.a.q0.s.e0.b.j().k("new_abstract_state", 0);
-            this.f13135e = b.a.q0.s.e0.b.j().k("view_image_quality", 0);
+            this.f13915e = b.a.q0.s.e0.b.j().k("view_image_quality", 0);
             boolean g2 = b.a.q0.s.e0.b.j().g("show_images", true);
-            this.f13134d = g2;
+            this.f13914d = g2;
             if (g2) {
                 return;
             }
-            this.f13134d = true;
+            this.f13914d = true;
             b.a.q0.s.e0.b.j().C("show_images");
             b.a.q0.s.e0.b.j().v("view_image_quality", 0);
-            this.f13135e = 0;
+            this.f13915e = 0;
         }
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13134d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13914d : invokeV.booleanValue;
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f13133c = str;
+            this.f13913c = str;
         }
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.f13132b == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.f13912b == i2) {
             return;
         }
-        this.f13132b = i2;
+        this.f13912b = i2;
         b.a.q0.s.e0.b j = b.a.q0.s.e0.b.j();
         j.v(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i2);
     }
@@ -156,10 +156,10 @@ public class k {
 
     public void k(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.f13135e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.f13915e == i2) {
             return;
         }
-        this.f13135e = i2;
+        this.f13915e = i2;
         b.a.q0.s.e0.b.j().v("view_image_quality", i2);
         TbImageHelper.getInstance().updateFrsShowBigImage();
         TbImageHelper.getInstance().updateUrlQuality();

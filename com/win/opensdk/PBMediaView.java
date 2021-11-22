@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import b.q.a.j1;
-import b.q.a.j3;
-import b.q.a.r0;
+import b.o.a.j1;
+import b.o.a.j3;
+import b.o.a.r0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class PBMediaView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public j3 f70463a;
+    public j3 f71383a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PBMediaView(Context context) {
@@ -81,8 +81,8 @@ public class PBMediaView extends FrameLayout {
                 return;
             }
         }
-        this.f70463a = new j3(context);
-        addView(this.f70463a.f33355c, new FrameLayout.LayoutParams(-1, -1));
+        this.f71383a = new j3(context);
+        addView(this.f71383a.f34189c, new FrameLayout.LayoutParams(-1, -1));
         try {
             ImageView imageView = new ImageView(context);
             int b2 = r0.b(context, 15);
@@ -97,6 +97,6 @@ public class PBMediaView extends FrameLayout {
     public j3 getHtmlWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70463a : (j3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71383a : (j3) invokeV.objValue;
     }
 }

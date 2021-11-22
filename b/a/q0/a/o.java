@@ -24,13 +24,13 @@ public class o {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f11804a;
+    public boolean f12555a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f11805b;
+    public boolean f12556b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f11806c;
+    public boolean f12557c;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -44,25 +44,25 @@ public class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Integer f11807a;
+        public Integer f12558a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f11808b;
+        public String f12559b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Integer f11809c;
+        public Integer f12560c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Long f11810d;
+        public Long f12561d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Long f11811e;
+        public Long f12562e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Integer f11812f;
+        public Integer f12563f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f11813g;
+        public String f12564g;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class o {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final o f11814a;
+        public static final o f12565a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -100,7 +100,7 @@ public class o {
                     return;
                 }
             }
-            f11814a = new o(null);
+            f12565a = new o(null);
         }
     }
 
@@ -111,7 +111,7 @@ public class o {
     public static o b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.f11814a : (o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.f12565a : (o) invokeV.objValue;
     }
 
     public final void a(b bVar, boolean z) {
@@ -120,25 +120,25 @@ public class o {
             return;
         }
         try {
-            if (this.f11804a) {
+            if (this.f12555a) {
                 boolean g2 = b.a.q0.s.e0.b.j().g("pref_key_task_first_open", true);
                 int k = b.a.q0.s.e0.b.j().k("pref_key_float_tip_num", 0);
                 long l = b.a.q0.s.e0.b.j().l("pref_key_new_task_complete_time", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (g2) {
                     if (e(bVar)) {
-                        this.f11806c = true;
+                        this.f12557c = true;
                         b.a.q0.s.e0.b.j().t("pref_key_task_first_open", false);
                     }
                 } else if (d(bVar, currentTimeMillis / 1000, l / 1000)) {
                     if (z) {
                         if (e(bVar)) {
-                            this.f11806c = true;
+                            this.f12557c = true;
                             b.a.q0.s.e0.b.j().v("pref_key_float_tip_num", 0);
                         }
-                    } else if (k >= bVar.f11812f.intValue() || !e(bVar)) {
+                    } else if (k >= bVar.f12563f.intValue() || !e(bVar)) {
                     } else {
-                        this.f11806c = true;
+                        this.f12557c = true;
                         b.a.q0.s.e0.b.j().v("pref_key_float_tip_num", k + 1);
                     }
                 }
@@ -165,8 +165,8 @@ public class o {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bVar, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (bVar != null && j2 > 0 && !TextUtils.isEmpty(bVar.f11808b) && bVar.f11810d.longValue() < bVar.f11811e.longValue() && j >= bVar.f11810d.longValue() && j <= bVar.f11811e.longValue() && bVar.f11812f.intValue() > 0 && bVar.f11807a.intValue() >= 0 && j > j2) {
-                String[] split = bVar.f11808b.split(",");
+            if (bVar != null && j2 > 0 && !TextUtils.isEmpty(bVar.f12559b) && bVar.f12561d.longValue() < bVar.f12562e.longValue() && j >= bVar.f12561d.longValue() && j <= bVar.f12562e.longValue() && bVar.f12563f.intValue() > 0 && bVar.f12558a.intValue() >= 0 && j > j2) {
+                String[] split = bVar.f12559b.split(",");
                 if (split != null && split.length > 0) {
                     for (String str : split) {
                         if ("3".equals(str)) {
@@ -179,7 +179,7 @@ public class o {
                 if (!z) {
                     return false;
                 }
-                long intValue = bVar.f11807a.intValue() * 86400;
+                long intValue = bVar.f12558a.intValue() * 86400;
                 long j3 = j - j2;
                 if (j3 > intValue && j3 < intValue + 86400) {
                     return true;
@@ -242,13 +242,13 @@ public class o {
             FloatStrategy next = it.next();
             if (currentTimeMillis > next.show_time_begin.longValue() && currentTimeMillis < next.show_time_end.longValue()) {
                 bVar2 = new b();
-                bVar2.f11808b = next.browsetimepage;
-                bVar2.f11809c = next.duration;
-                bVar2.f11812f = next.show_num;
-                bVar2.f11810d = next.show_time_begin;
-                bVar2.f11811e = next.show_time_end;
-                bVar2.f11813g = next.toast;
-                bVar2.f11807a = next.un_do_mission;
+                bVar2.f12559b = next.browsetimepage;
+                bVar2.f12560c = next.duration;
+                bVar2.f12563f = next.show_num;
+                bVar2.f12561d = next.show_time_begin;
+                bVar2.f12562e = next.show_time_end;
+                bVar2.f12564g = next.toast;
+                bVar2.f12558a = next.un_do_mission;
                 break;
             }
         }
@@ -258,13 +258,13 @@ public class o {
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("un_do_mission", bVar2.f11807a.intValue());
-            jSONObject.put("browsetimepage", bVar2.f11808b);
-            jSONObject.put("duration", bVar2.f11809c.intValue());
-            jSONObject.put("show_time_begin", bVar2.f11810d.longValue());
-            jSONObject.put("show_time_end", bVar2.f11811e.longValue());
-            jSONObject.put("show_num", bVar2.f11812f.intValue());
-            jSONObject.put("toast", bVar2.f11813g);
+            jSONObject.put("un_do_mission", bVar2.f12558a.intValue());
+            jSONObject.put("browsetimepage", bVar2.f12559b);
+            jSONObject.put("duration", bVar2.f12560c.intValue());
+            jSONObject.put("show_time_begin", bVar2.f12561d.longValue());
+            jSONObject.put("show_time_end", bVar2.f12562e.longValue());
+            jSONObject.put("show_num", bVar2.f12563f.intValue());
+            jSONObject.put("toast", bVar2.f12564g);
             String jSONObject2 = jSONObject.toString();
             if (TextUtils.isEmpty(jSONObject2)) {
                 f("");
@@ -282,10 +282,10 @@ public class o {
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f11804a = z;
-            if (z && this.f11805b) {
-                this.f11805b = false;
-                if (!this.f11806c && d.y().t()) {
+            this.f12555a = z;
+            if (z && this.f12556b) {
+                this.f12556b = false;
+                if (!this.f12557c && d.y().t()) {
                     String p = b.a.q0.s.e0.b.j().p("pref_key_strategy_json", null);
                     if (TextUtils.isEmpty(p)) {
                         return;
@@ -293,13 +293,13 @@ public class o {
                     try {
                         JSONObject jSONObject = new JSONObject(p);
                         b bVar = new b();
-                        bVar.f11807a = Integer.valueOf(jSONObject.optInt("un_do_mission", 0));
-                        bVar.f11808b = jSONObject.optString("browsetimepage", "");
-                        bVar.f11809c = Integer.valueOf(jSONObject.optInt("duration", 0));
-                        bVar.f11810d = Long.valueOf(jSONObject.optLong("show_time_begin", 0L));
-                        bVar.f11811e = Long.valueOf(jSONObject.optLong("show_time_end", 0L));
-                        bVar.f11812f = Integer.valueOf(jSONObject.optInt("show_num", 0));
-                        bVar.f11813g = jSONObject.optString("toast", null);
+                        bVar.f12558a = Integer.valueOf(jSONObject.optInt("un_do_mission", 0));
+                        bVar.f12559b = jSONObject.optString("browsetimepage", "");
+                        bVar.f12560c = Integer.valueOf(jSONObject.optInt("duration", 0));
+                        bVar.f12561d = Long.valueOf(jSONObject.optLong("show_time_begin", 0L));
+                        bVar.f12562e = Long.valueOf(jSONObject.optLong("show_time_end", 0L));
+                        bVar.f12563f = Integer.valueOf(jSONObject.optInt("show_num", 0));
+                        bVar.f12564g = jSONObject.optString("toast", null);
                         a(bVar, false);
                     } catch (JSONException e2) {
                         e2.printStackTrace();
@@ -322,8 +322,8 @@ public class o {
                 return;
             }
         }
-        this.f11804a = false;
-        this.f11805b = true;
-        this.f11806c = false;
+        this.f12555a = false;
+        this.f12556b = true;
+        this.f12557c = false;
     }
 }

@@ -4,7 +4,6 @@ import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Typeface;
 import android.text.TextUtils;
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import b.a.x0.b;
@@ -284,7 +283,7 @@ public class SubTitleConfig {
                 if (subTitleConfig.mTextColorEntity != null) {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("color", subTitleConfig.mTextColorEntity.mColor);
-                    jSONObject2.put(Key.ALPHA, subTitleConfig.mTextColorEntity.mAlpha);
+                    jSONObject2.put("alpha", subTitleConfig.mTextColorEntity.mAlpha);
                     jSONObject.put("textColor", jSONObject2);
                 }
                 if (subTitleConfig.chineseShadowConfig != null) {

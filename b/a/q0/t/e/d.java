@@ -15,16 +15,16 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13958a;
+    public int f14731a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13959b;
+    public int f14732b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13960c;
+    public int f14733c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int[] f13961d;
+    public int[] f14734d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -43,25 +43,25 @@ public class d {
     public int[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13961d : (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14734d : (int[]) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13958a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14731a : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13959b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14732b : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13960c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14733c : invokeV.intValue;
     }
 
     public void e(String str) {
@@ -80,17 +80,17 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null || jSONObject == null) {
             return;
         }
-        this.f13958a = jSONObject.optInt("conn_conf");
-        this.f13959b = jSONObject.optInt("continuous_fail_count");
-        this.f13960c = jSONObject.optInt("restart_time_interval");
+        this.f14731a = jSONObject.optInt("conn_conf");
+        this.f14732b = jSONObject.optInt("continuous_fail_count");
+        this.f14733c = jSONObject.optInt("restart_time_interval");
         JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
         if (optJSONArray != null) {
-            this.f13961d = new int[optJSONArray.length()];
+            this.f14734d = new int[optJSONArray.length()];
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                this.f13961d[i2] = optJSONArray.optInt(i2);
+                this.f14734d[i2] = optJSONArray.optInt(i2);
             }
             return;
         }
-        this.f13961d = new int[0];
+        this.f14734d = new int[0];
     }
 }

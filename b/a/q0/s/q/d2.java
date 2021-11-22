@@ -22,6 +22,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.MangaCategoryActivityConfig;
@@ -108,9 +109,10 @@ import tbclient.UserPostPerm;
 import tbclient.VideoDesc;
 import tbclient.VideoInfo;
 import tbclient.Voice;
+import tbclient.VoiceRoom.VoiceRoom;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes4.dex */
-public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoData {
+public class d2 extends a implements PreLoadImageProvider, b.a.e.m.e.n, IVideoData {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId A3;
     public static final BdUniqueId B3;
@@ -124,18 +126,18 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public static final BdUniqueId J3;
     public static final BdUniqueId K3;
     public static final BdUniqueId L3;
-    public static AtomicBoolean M3;
-    public static AtomicBoolean N3;
+    public static final BdUniqueId M3;
+    public static final BdUniqueId N3;
     public static AtomicBoolean O3;
-    public static final BdUniqueId P3;
+    public static AtomicBoolean P3;
     public static final BdUniqueId Q3;
-    public static HashMap<Point, Integer> R3;
-    public static HashMap<Integer, Integer> S3;
-    public static final BdUniqueId T3;
+    public static final BdUniqueId R3;
+    public static HashMap<Point, Integer> S3;
+    public static HashMap<Integer, Integer> T3;
     public static final BdUniqueId U3;
-    public static HashMap<Point, Integer> V3;
-    public static SparseArray<m.a> W3;
-    public static final BdUniqueId Z2;
+    public static final BdUniqueId V3;
+    public static HashMap<Point, Integer> W3;
+    public static SparseArray<m.a> X3;
     public static final BdUniqueId a3;
     public static final BdUniqueId b3;
     public static final BdUniqueId c3;
@@ -164,7 +166,7 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public static final BdUniqueId z3;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public List<b.a.q0.f1.p.a> A;
+    public List<b.a.q0.e1.p.a> A;
     public long A0;
     public String A1;
     public List<HeadItem> A2;
@@ -207,7 +209,7 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public int K;
     public String K0;
     public boolean K1;
-    public b.a.r0.l3.j0.o K2;
+    public b.a.r0.m3.j0.o K2;
     public int L;
     public int L0;
     public boolean L1;
@@ -263,10 +265,11 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public ArrayList<VoiceData$VoiceModel> Y;
     public String Y0;
     public boolean Y1;
-    public boolean Y2;
+    public VoiceRoom Y2;
     public int Z;
     public String Z0;
     public boolean Z1;
+    public boolean Z2;
     public int a0;
     public String a1;
     public boolean a2;
@@ -280,27 +283,27 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public boolean d2;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13271e;
+    public boolean f14051e;
     public boolean e1;
     public boolean e2;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13272f;
+    public boolean f14052f;
     public boolean f1;
     public boolean f2;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13273g;
+    public boolean f14053g;
     public int g1;
     public boolean g2;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13274h;
+    public boolean f14054h;
     public boolean h1;
     public boolean h2;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13275i;
+    public boolean f14055i;
     public int i0;
     public boolean i1;
     public String i2;
@@ -386,7 +389,6 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
                 return;
             }
         }
-        Z2 = BdUniqueId.gen();
         a3 = BdUniqueId.gen();
         b3 = BdUniqueId.gen();
         c3 = BdUniqueId.gen();
@@ -425,39 +427,41 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         J3 = BdUniqueId.gen();
         K3 = BdUniqueId.gen();
         L3 = BdUniqueId.gen();
-        M3 = new AtomicBoolean(false);
-        N3 = new AtomicBoolean(false);
+        M3 = BdUniqueId.gen();
+        N3 = BdUniqueId.gen();
         O3 = new AtomicBoolean(false);
-        P3 = BdUniqueId.gen();
+        P3 = new AtomicBoolean(true);
+        new AtomicBoolean(true);
         Q3 = BdUniqueId.gen();
-        R3 = new HashMap<>();
+        R3 = BdUniqueId.gen();
         S3 = new HashMap<>();
-        T3 = BdUniqueId.gen();
+        T3 = new HashMap<>();
         U3 = BdUniqueId.gen();
-        V3 = new HashMap<>();
-        W3 = new SparseArray<>(3);
-        R3.put(new Point(1, 1), Integer.valueOf(R.drawable.label_frs_lottery_ing));
-        R3.put(new Point(1, 2), Integer.valueOf(R.drawable.label_frs_lottery_over));
-        R3.put(new Point(1, 3), Integer.valueOf(R.drawable.label_frs_lottery_off));
-        R3.put(new Point(1, 4), Integer.valueOf(R.drawable.label_frs_lottery_d));
-        R3.put(new Point(2, 1), Integer.valueOf(R.drawable.label_frs_activity_shaiing));
-        R3.put(new Point(2, 2), Integer.valueOf(R.drawable.label_frs_activity_shai_over));
-        R3.put(new Point(2, 3), Integer.valueOf(R.drawable.label_frs_activity_shai_off));
-        R3.put(new Point(2, 4), Integer.valueOf(R.drawable.label_frs_activity_shai_d));
-        V3.put(new Point(1, 1), Integer.valueOf(R.string.lottery_status_ing));
-        V3.put(new Point(1, 2), Integer.valueOf(R.string.lottery_status_over));
-        V3.put(new Point(1, 3), Integer.valueOf(R.string.lottery_status_off));
-        V3.put(new Point(1, 4), Integer.valueOf(R.string.lottery_status_not_start));
-        V3.put(new Point(2, 1), Integer.valueOf(R.string.share_picture_status_ing));
-        V3.put(new Point(2, 2), Integer.valueOf(R.string.share_picture_status_over));
-        V3.put(new Point(2, 3), Integer.valueOf(R.string.share_picture_status_off));
-        V3.put(new Point(2, 4), Integer.valueOf(R.string.share_picture_status_not_start));
-        S3.put(1, Integer.valueOf(R.drawable.label_interview_no));
-        S3.put(2, Integer.valueOf(R.drawable.label_interview_live));
-        S3.put(3, Integer.valueOf(R.drawable.label_interview_off));
-        W3.put(1, new m.a(R.string.interview_live_status_not_start, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-        W3.put(2, new m.a(R.string.interview_live_status_ing, R.color.CAM_X0309, R.drawable.pic_dot_title_green));
-        W3.put(3, new m.a(R.string.interview_live_status_over, R.color.CAM_X0303, R.drawable.pic_dot_title_blue));
+        V3 = BdUniqueId.gen();
+        W3 = new HashMap<>();
+        X3 = new SparseArray<>(3);
+        S3.put(new Point(1, 1), Integer.valueOf(R.drawable.label_frs_lottery_ing));
+        S3.put(new Point(1, 2), Integer.valueOf(R.drawable.label_frs_lottery_over));
+        S3.put(new Point(1, 3), Integer.valueOf(R.drawable.label_frs_lottery_off));
+        S3.put(new Point(1, 4), Integer.valueOf(R.drawable.label_frs_lottery_d));
+        S3.put(new Point(2, 1), Integer.valueOf(R.drawable.label_frs_activity_shaiing));
+        S3.put(new Point(2, 2), Integer.valueOf(R.drawable.label_frs_activity_shai_over));
+        S3.put(new Point(2, 3), Integer.valueOf(R.drawable.label_frs_activity_shai_off));
+        S3.put(new Point(2, 4), Integer.valueOf(R.drawable.label_frs_activity_shai_d));
+        W3.put(new Point(1, 1), Integer.valueOf(R.string.lottery_status_ing));
+        W3.put(new Point(1, 2), Integer.valueOf(R.string.lottery_status_over));
+        W3.put(new Point(1, 3), Integer.valueOf(R.string.lottery_status_off));
+        W3.put(new Point(1, 4), Integer.valueOf(R.string.lottery_status_not_start));
+        W3.put(new Point(2, 1), Integer.valueOf(R.string.share_picture_status_ing));
+        W3.put(new Point(2, 2), Integer.valueOf(R.string.share_picture_status_over));
+        W3.put(new Point(2, 3), Integer.valueOf(R.string.share_picture_status_off));
+        W3.put(new Point(2, 4), Integer.valueOf(R.string.share_picture_status_not_start));
+        T3.put(1, Integer.valueOf(R.drawable.label_interview_no));
+        T3.put(2, Integer.valueOf(R.drawable.label_interview_live));
+        T3.put(3, Integer.valueOf(R.drawable.label_interview_off));
+        X3.put(1, new m.a(R.string.interview_live_status_not_start, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+        X3.put(2, new m.a(R.string.interview_live_status_ing, R.color.CAM_X0309, R.drawable.pic_dot_title_green));
+        X3.put(3, new m.a(R.string.interview_live_status_over, R.color.CAM_X0303, R.drawable.pic_dot_title_blue));
     }
 
     public d2() {
@@ -473,11 +477,11 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
                 return;
             }
         }
-        this.f13271e = false;
-        this.f13272f = false;
-        this.f13273g = false;
-        this.f13274h = false;
-        this.f13275i = false;
+        this.f14051e = false;
+        this.f14052f = false;
+        this.f14053g = false;
+        this.f14054h = false;
+        this.f14055i = false;
         this.j = false;
         this.k = false;
         this.l = false;
@@ -582,29 +586,29 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.v2 : (List) invokeV.objValue;
     }
 
-    public HashMap<String, MetaData> A1() {
+    public String A1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.m0 : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.E1 : (String) invokeV.objValue;
     }
 
     public boolean A2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? r0() != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.Z == 1 : invokeV.booleanValue;
     }
 
-    public void A3(long j) {
+    public void A3(BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.o1.diffAgreeNum = j;
+        if (interceptable == null || interceptable.invokeL(1048580, this, baijiahaoData) == null) {
+            this.p2 = baijiahaoData;
         }
     }
 
     public void A4(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.E = str;
+            this.P1 = str;
         }
     }
 
@@ -620,35 +624,29 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.r1 : (r0) invokeV.objValue;
     }
 
-    public int B1() {
+    public HashMap<String, MetaData> B1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (O1() || N1()) {
-                return 2;
-            }
-            return (M1() || P1()) ? 3 : 1;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.m0 : (HashMap) invokeV.objValue;
     }
 
     public boolean B2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.C1 == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.R2 || this.V2 : invokeV.booleanValue;
     }
 
-    public void B3(long j) {
+    public void B3(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.X2 = j;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.L0 = i2;
         }
     }
 
-    public void B4(String str) {
+    public void B4(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.s = str;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            this.i0 = i2;
         }
     }
 
@@ -667,26 +665,32 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public int C1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.L : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (Q1() || P1()) {
+                return 2;
+            }
+            return (O1() || R1()) ? 3 : 1;
+        }
+        return invokeV.intValue;
     }
 
     public boolean C2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.J1 != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? r0() != 0 : invokeV.booleanValue;
     }
 
-    public void C3(@Nullable String str) {
+    public void C3(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            B3(b.a.e.e.m.b.g(str, 0L));
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.o1.diffAgreeNum = j;
         }
     }
 
     public void C4(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.F1 = str;
+            this.E = str;
         }
     }
 
@@ -702,36 +706,29 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.b0 : (String) invokeV.objValue;
     }
 
-    public ArrayList<VoiceData$VoiceModel> D1() {
+    public int D1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.Y : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.L : invokeV.intValue;
     }
 
     public boolean D2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            BaijiahaoData baijiahaoData = this.p2;
-            if (baijiahaoData == null) {
-                return false;
-            }
-            return UtilHelper.isUgcThreadType(baijiahaoData.oriUgcType);
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.C1 == 1 : invokeV.booleanValue;
     }
 
-    public void D3(SparseArray<String> sparseArray) {
+    public void D3(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, sparseArray) == null) {
-            this.k1 = sparseArray;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.X2 = j;
         }
     }
 
     public void D4(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            this.E1 = str;
+            this.s = str;
         }
     }
 
@@ -747,42 +744,29 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.X : (ArrayList) invokeV.objValue;
     }
 
-    public int E1() {
+    public ArrayList<VoiceData$VoiceModel> E1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            if (Q0() == 1) {
-                return 2;
-            }
-            if (Q0() == 2) {
-                return 3;
-            }
-            return Q0() == 3 ? 1 : 4;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.Y : (ArrayList) invokeV.objValue;
     }
 
     public boolean E2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            int i2 = this.i0;
-            return i2 == 40 || i2 == 50;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.J1 != null : invokeV.booleanValue;
     }
 
-    public void E3(long j) {
+    public void E3(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
-            this.F = j;
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+            D3(b.a.e.f.m.b.g(str, 0L));
         }
     }
 
-    public void E4(HashMap<String, MetaData> hashMap) {
+    public void E4(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, hashMap) == null) {
-            this.m0 = hashMap;
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+            this.F1 = str;
         }
     }
 
@@ -798,29 +782,36 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.V1 : (String) invokeV.objValue;
     }
 
-    public q2 F1() {
+    public VoiceRoom F1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.H0 : (q2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.Y2 : (VoiceRoom) invokeV.objValue;
     }
 
     public boolean F2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? E2() && I2() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            BaijiahaoData baijiahaoData = this.p2;
+            if (baijiahaoData == null) {
+                return false;
+            }
+            return UtilHelper.isUgcThreadType(baijiahaoData.oriUgcType);
+        }
+        return invokeV.booleanValue;
     }
 
-    public void F3(String str) {
+    public void F3(SparseArray<String> sparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
-            this.H = str;
+        if (interceptable == null || interceptable.invokeL(1048610, this, sparseArray) == null) {
+            this.k1 = sparseArray;
         }
     }
 
-    public void F4(UserPostPerm userPostPerm) {
+    public void F4(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, userPostPerm) == null) {
-            this.W2 = userPostPerm;
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+            this.E1 = str;
         }
     }
 
@@ -836,38 +827,42 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.r0 : invokeV.intValue;
     }
 
-    public void G1() {
+    public int G1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048614, this) == null) || ListUtils.getCount(this.A2) <= 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            if (Q0() == 1) {
+                return 2;
+            }
+            if (Q0() == 2) {
+                return 3;
+            }
+            return Q0() == 3 ? 1 : 4;
         }
-        SpannableStringBuilder spannableStringBuilder = this.y;
-        if (spannableStringBuilder != null) {
-            spannableStringBuilder.insert(0, (CharSequence) b.a.q0.f1.n.e.e(this.A2));
-            return;
-        }
-        SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(this.z);
-        spannableStringBuilder2.insert(0, (CharSequence) b.a.q0.f1.n.e.e(this.A2));
-        this.z = new SpannableString(spannableStringBuilder2);
+        return invokeV.intValue;
     }
 
     public boolean G2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.i0 == 11 || this.c0 == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            int i2 = this.i0;
+            return i2 == 40 || i2 == 50;
+        }
+        return invokeV.booleanValue;
     }
 
-    public void G3(List<PbContent> list) {
+    public void G3(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, list) == null) {
-            this.w = list;
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
+            this.F = j;
         }
     }
 
-    public void G4(VideoInfo videoInfo) {
+    public void G4(HashMap<String, MetaData> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, videoInfo) == null) {
-            this.t0 = videoInfo;
+        if (interceptable == null || interceptable.invokeL(1048617, this, hashMap) == null) {
+            this.m0 = hashMap;
         }
     }
 
@@ -883,38 +878,29 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.p : (String) invokeV.objValue;
     }
 
-    public void H1(SpannableString spannableString) {
+    public q2 H1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048620, this, spannableString) == null) || J() == null || showNoName() || showWeakenName()) {
-            return;
-        }
-        SpannableStringBuilder spannableStringBuilder = this.y;
-        if (spannableStringBuilder != null) {
-            spannableStringBuilder.insert(0, (CharSequence) spannableString);
-            return;
-        }
-        SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(this.z);
-        spannableStringBuilder2.insert(0, (CharSequence) spannableString);
-        this.z = new SpannableString(spannableStringBuilder2);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.H0 : (q2) invokeV.objValue;
     }
 
     public boolean H2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.i0 == 36 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? G2() && K2() : invokeV.booleanValue;
     }
 
-    public void H3(boolean z) {
+    public void H3(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048622, this, z) == null) {
-            this.S0 = z;
+        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
+            this.H = str;
         }
     }
 
-    public void H4(int i2) {
+    public void H4(UserPostPerm userPostPerm) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
-            this.L = i2;
+        if (interceptable == null || interceptable.invokeL(1048623, this, userPostPerm) == null) {
+            this.W2 = userPostPerm;
         }
     }
 
@@ -930,33 +916,38 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.C2 : (PollData) invokeV.objValue;
     }
 
-    public boolean I1() {
-        InterceptResult invokeV;
+    public void I1() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.q0 == 1 : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeV(1048626, this) == null) || ListUtils.getCount(this.A2) <= 0) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = this.y;
+        if (spannableStringBuilder != null) {
+            spannableStringBuilder.insert(0, (CharSequence) b.a.q0.e1.n.e.e(this.A2));
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(this.z);
+        spannableStringBuilder2.insert(0, (CharSequence) b.a.q0.e1.n.e.e(this.A2));
+        this.z = new SpannableString(spannableStringBuilder2);
     }
 
     public boolean I2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
-            WorksInfoData worksInfoData = this.M2;
-            return worksInfoData != null && worksInfoData.isWorks;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.i0 == 11 || this.c0 == 1 : invokeV.booleanValue;
     }
 
-    public void I3(String str) {
+    public void I3(List<PbContent> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
-            this.U = str;
+        if (interceptable == null || interceptable.invokeL(1048628, this, list) == null) {
+            this.w = list;
         }
     }
 
-    public void I4(ArrayList<VoiceData$VoiceModel> arrayList) {
+    public void I4(VideoInfo videoInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, arrayList) == null) {
-            this.Y = arrayList;
+        if (interceptable == null || interceptable.invokeL(1048629, this, videoInfo) == null) {
+            this.t0 = videoInfo;
         }
     }
 
@@ -972,29 +963,38 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.Q2 : invokeV.intValue;
     }
 
-    public boolean J1() {
-        InterceptResult invokeV;
+    public void J1(SpannableString spannableString) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? q0() == 1 : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeL(1048632, this, spannableString) == null) || J() == null || showNoName() || showWeakenName()) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = this.y;
+        if (spannableStringBuilder != null) {
+            spannableStringBuilder.insert(0, (CharSequence) spannableString);
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(this.z);
+        spannableStringBuilder2.insert(0, (CharSequence) spannableString);
+        this.z = new SpannableString(spannableStringBuilder2);
     }
 
     public boolean J2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.y0 != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.i0 == 36 : invokeV.booleanValue;
     }
 
     public void J3(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048634, this, z) == null) {
-            this.b2 = z;
+            this.S0 = z;
         }
     }
 
-    public void J4(long j) {
+    public void J4(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048635, this, j) == null) {
-            this.z0 = j;
+        if (interceptable == null || interceptable.invokeI(1048635, this, i2) == null) {
+            this.L = i2;
         }
     }
 
@@ -1013,34 +1013,30 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public boolean K1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? (J() == null || J().getAlaUserData() == null || J().getAlaUserData().live_status != 1) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? this.q0 == 1 : invokeV.booleanValue;
     }
 
     public boolean K2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
-            UserPostPerm userPostPerm = this.W2;
-            return userPostPerm != null && userPostPerm.not_show_hide_thread.intValue() == 1;
+            WorksInfoData worksInfoData = this.M2;
+            return worksInfoData != null && worksInfoData.isWorks;
         }
         return invokeV.booleanValue;
     }
 
-    public void K3(boolean z) {
+    public void K3(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048640, this, z) == null) {
-            this.Z1 = z;
+        if (interceptable == null || interceptable.invokeL(1048640, this, str) == null) {
+            this.U = str;
         }
     }
 
-    public void K4(List<PbGoodsData> list) {
+    public void K4(ArrayList<VoiceData$VoiceModel> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048641, this, list) == null) {
-            this.w2 = list;
-            if (ListUtils.isEmpty(list) || this.x2) {
-                return;
-            }
-            this.x2 = true;
+        if (interceptable == null || interceptable.invokeL(1048641, this, arrayList) == null) {
+            this.Y = arrayList;
         }
     }
 
@@ -1058,41 +1054,28 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
 
     public boolean L1() {
         InterceptResult invokeV;
-        String userId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
-            MetaData metaData = this.T;
-            return metaData == null || (userId = metaData.getUserId()) == null || userId.equals("0");
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) ? q0() == 1 : invokeV.booleanValue;
     }
 
-    public SpannableString L2() {
+    public boolean L2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
-            SpannableStringBuilder P2 = P2();
-            b.a.r0.b0.m.b(this, P2, false);
-            return new SpannableString(P2);
-        }
-        return (SpannableString) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) ? this.y0 != 0 : invokeV.booleanValue;
     }
 
-    public void L3(String str) {
+    public void L3(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048646, this, str) == null) {
-            this.m1 = str;
+        if (interceptable == null || interceptable.invokeZ(1048646, this, z) == null) {
+            this.b2 = z;
         }
     }
 
-    public boolean L4() {
-        InterceptResult invokeV;
+    public void L4(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) {
-            OriginalThreadInfo originalThreadInfo = this.y1;
-            return originalThreadInfo != null && originalThreadInfo.G && this.F == originalThreadInfo.f45039e;
+        if (interceptable == null || interceptable.invokeJ(1048647, this, j) == null) {
+            this.z0 = j;
         }
-        return invokeV.booleanValue;
     }
 
     public u M() {
@@ -1101,13 +1084,13 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) ? this.J0 : (u) invokeV.objValue;
     }
 
-    public ArrayList<b.a.q0.f1.n.b> M0() {
+    public ArrayList<b.a.q0.e1.n.b> M0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) {
-            ArrayList<b.a.q0.f1.n.b> arrayList = new ArrayList<>();
+            ArrayList<b.a.q0.e1.n.b> arrayList = new ArrayList<>();
             if (this.q2) {
-                arrayList.add(new b.a.q0.f1.n.b(TbadkCoreApplication.getInst().getResources().getString(R.string.s_card_package_icon)));
+                arrayList.add(new b.a.q0.e1.n.b(TbadkCoreApplication.getInst().getResources().getString(R.string.s_card_package_icon)));
             }
             return arrayList;
         }
@@ -1117,36 +1100,218 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public boolean M1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048650, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048650, this)) == null) ? (J() == null || J().getAlaUserData() == null || J().getAlaUserData().live_status != 1) ? false : true : invokeV.booleanValue;
+    }
+
+    public boolean M2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048651, this)) == null) {
+            UserPostPerm userPostPerm = this.W2;
+            return userPostPerm != null && userPostPerm.not_show_hide_thread.intValue() == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void M3(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048652, this, z) == null) {
+            this.Z1 = z;
+        }
+    }
+
+    public void M4(List<PbGoodsData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048653, this, list) == null) {
+            this.w2 = list;
+            if (ListUtils.isEmpty(list) || this.x2) {
+                return;
+            }
+            this.x2 = true;
+        }
+    }
+
+    public String N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) ? this.J : (String) invokeV.objValue;
+    }
+
+    public final ArrayList<m.a> N0(boolean z, boolean z2, boolean z4, boolean z5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048655, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z4), Boolean.valueOf(z5)})) == null) {
+            ArrayList<m.a> arrayList = new ArrayList<>();
+            boolean L2 = L2();
+            if (z2) {
+                if (z) {
+                    if (L2 && !G2()) {
+                        arrayList.add(new m.a(R.string.god_title));
+                    }
+                    if (j0() == 1 || p1() == 33 || (x1() != null && x1().a() != 0)) {
+                        if (k1() == null || !e2()) {
+                            if (!L2) {
+                                arrayList.add(new m.a(R.string.photo_live_tips));
+                            }
+                        } else if (l1() == 2) {
+                            arrayList.add(new m.a(R.string.interview_live));
+                        }
+                    }
+                    if (e2()) {
+                        arrayList.add(X3.get(l1()));
+                    }
+                    if (K1()) {
+                        Integer num = W3.get(new Point(w(), t()));
+                        if (num != null) {
+                            arrayList.add(new m.a(num.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                        } else {
+                            arrayList.add(new m.a(R.string.card_promotion_text));
+                        }
+                    }
+                    if (H1() != null) {
+                        arrayList.add(new m.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                    }
+                    if (!b.a.e.f.p.k.isEmpty(N())) {
+                        arrayList.add(new m.a(N()));
+                    }
+                } else {
+                    if (L2 && r0() != 1 && !G2()) {
+                        arrayList.add(new m.a(R.string.god_title));
+                    }
+                    if ((j0() == 1 || p1() == 33) && !e2() && !L2) {
+                        arrayList.add(new m.a(R.string.photo_live_tips));
+                    }
+                    if (q0() == 1) {
+                        arrayList.add(new m.a(R.string.good));
+                    }
+                    if (r0() == 1) {
+                        arrayList.add(new m.a(R.string.top));
+                    }
+                    if (e2() && k1() != null && l1() == 2) {
+                        arrayList.add(new m.a(R.string.interview_live));
+                    }
+                    if (K1()) {
+                        Integer num2 = W3.get(new Point(w(), t()));
+                        if (num2 != null) {
+                            arrayList.add(new m.a(num2.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                        } else {
+                            arrayList.add(new m.a(R.string.card_promotion_text));
+                        }
+                    }
+                    if (this.U0 == 1) {
+                        arrayList.add(new m.a(R.string.card_tbread_text));
+                    }
+                    if (G() != null) {
+                        arrayList.add(new m.a(R.string.send_app_code_gift, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                    }
+                    if (H1() != null) {
+                        arrayList.add(new m.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                    }
+                    if (!b.a.e.f.p.k.isEmpty(N())) {
+                        arrayList.add(new m.a(N()));
+                    }
+                    if (z4 && j2()) {
+                        arrayList.add(new m.a(R.string.ala_live));
+                    }
+                    if (z4 && i2()) {
+                        arrayList.add(new m.a(R.string.live_record));
+                    } else if (t2()) {
+                        arrayList.add(new m.a(R.string.video_title_str));
+                    }
+                    if (z5) {
+                        arrayList.add(new m.a(R.string.video_review_state));
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public boolean N1() {
+        InterceptResult invokeV;
+        String userId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) {
+            MetaData metaData = this.T;
+            return metaData == null || (userId = metaData.getUserId()) == null || userId.equals("0");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public SpannableString N2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048657, this)) == null) {
+            SpannableStringBuilder R2 = R2();
+            b.a.r0.b0.m.b(this, R2, false);
+            return new SpannableString(R2);
+        }
+        return (SpannableString) invokeV.objValue;
+    }
+
+    public void N3(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048658, this, str) == null) {
+            this.m1 = str;
+        }
+    }
+
+    public boolean N4() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) {
+            OriginalThreadInfo originalThreadInfo = this.y1;
+            return originalThreadInfo != null && originalThreadInfo.G && this.F == originalThreadInfo.f45888e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int O() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) ? this.L0 : invokeV.intValue;
+    }
+
+    public PushStatusData O0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) ? this.O0 : (PushStatusData) invokeV.objValue;
+    }
+
+    public boolean O1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) {
             BaijiahaoData baijiahaoData = this.p2;
             return baijiahaoData != null && baijiahaoData.oriUgcType == 1;
         }
         return invokeV.booleanValue;
     }
 
-    public SpannableString M2() {
+    public SpannableString O2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048651, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048663, this)) == null) {
             if (ListUtils.isEmpty(this.w)) {
                 return null;
             }
-            return new SpannableString(b.a.q0.f1.n.e.C(this, this.w, this.t));
+            return new SpannableString(b.a.q0.e1.n.e.C(this, this.w, this.t));
         }
         return (SpannableString) invokeV.objValue;
     }
 
-    public void M3(int i2) {
+    public void O3(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048652, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048664, this, i2) == null) {
             this.o1.hasAgree = i2 == 1;
         }
     }
 
-    public final b.a.e.l.b M4(String str) {
+    public final b.a.e.m.b O4(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048653, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048665, this, str)) == null) {
             if (str == null) {
                 return null;
             }
@@ -1168,123 +1333,38 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
             if (drawingCache != null) {
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(drawingCache);
                 bitmapDrawable.setBounds(0, 0, drawingCache.getWidth(), drawingCache.getHeight());
-                return new b.a.e.l.b(bitmapDrawable, 1);
+                return new b.a.e.m.b(bitmapDrawable, 1);
             }
             return null;
         }
-        return (b.a.e.l.b) invokeL.objValue;
+        return (b.a.e.m.b) invokeL.objValue;
     }
 
-    public String N() {
+    public long P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) ? this.J : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) ? this.z0 : invokeV.longValue;
     }
 
-    public final ArrayList<m.a> N0(boolean z, boolean z2, boolean z4, boolean z5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048655, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z4), Boolean.valueOf(z5)})) == null) {
-            ArrayList<m.a> arrayList = new ArrayList<>();
-            boolean J2 = J2();
-            if (z2) {
-                if (z) {
-                    if (J2 && !E2()) {
-                        arrayList.add(new m.a(R.string.god_title));
-                    }
-                    if (j0() == 1 || o1() == 33 || (w1() != null && w1().a() != 0)) {
-                        if (j1() == null || !c2()) {
-                            if (!J2) {
-                                arrayList.add(new m.a(R.string.photo_live_tips));
-                            }
-                        } else if (k1() == 2) {
-                            arrayList.add(new m.a(R.string.interview_live));
-                        }
-                    }
-                    if (c2()) {
-                        arrayList.add(W3.get(k1()));
-                    }
-                    if (I1()) {
-                        Integer num = V3.get(new Point(w(), t()));
-                        if (num != null) {
-                            arrayList.add(new m.a(num.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-                        } else {
-                            arrayList.add(new m.a(R.string.card_promotion_text));
-                        }
-                    }
-                    if (F1() != null) {
-                        arrayList.add(new m.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-                    }
-                    if (!b.a.e.e.p.k.isEmpty(N())) {
-                        arrayList.add(new m.a(N()));
-                    }
-                } else {
-                    if (J2 && r0() != 1 && !E2()) {
-                        arrayList.add(new m.a(R.string.god_title));
-                    }
-                    if ((j0() == 1 || o1() == 33) && !c2() && !J2) {
-                        arrayList.add(new m.a(R.string.photo_live_tips));
-                    }
-                    if (q0() == 1) {
-                        arrayList.add(new m.a(R.string.good));
-                    }
-                    if (r0() == 1) {
-                        arrayList.add(new m.a(R.string.top));
-                    }
-                    if (c2() && j1() != null && k1() == 2) {
-                        arrayList.add(new m.a(R.string.interview_live));
-                    }
-                    if (I1()) {
-                        Integer num2 = V3.get(new Point(w(), t()));
-                        if (num2 != null) {
-                            arrayList.add(new m.a(num2.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-                        } else {
-                            arrayList.add(new m.a(R.string.card_promotion_text));
-                        }
-                    }
-                    if (this.U0 == 1) {
-                        arrayList.add(new m.a(R.string.card_tbread_text));
-                    }
-                    if (G() != null) {
-                        arrayList.add(new m.a(R.string.send_app_code_gift, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-                    }
-                    if (F1() != null) {
-                        arrayList.add(new m.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-                    }
-                    if (!b.a.e.e.p.k.isEmpty(N())) {
-                        arrayList.add(new m.a(N()));
-                    }
-                    if (z4 && h2()) {
-                        arrayList.add(new m.a(R.string.ala_live));
-                    }
-                    if (z4 && g2()) {
-                        arrayList.add(new m.a(R.string.live_record));
-                    } else if (r2()) {
-                        arrayList.add(new m.a(R.string.video_title_str));
-                    }
-                    if (z5) {
-                        arrayList.add(new m.a(R.string.video_review_state));
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeCommon.objValue;
-    }
-
-    public boolean N1() {
+    public ThreadInfo P0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) ? this.u2 : (ThreadInfo) invokeV.objValue;
+    }
+
+    public boolean P1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
             BaijiahaoData baijiahaoData = this.p2;
             return baijiahaoData != null && baijiahaoData.oriUgcType == 3;
         }
         return invokeV.booleanValue;
     }
 
-    public final void N2(String str) {
+    public final void P2(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048657, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048669, this, str) == null) {
             Matcher matcher = Pattern.compile("#([ ]*[^#(\\n ]+[ ]*)++#(?!\\\\(\\\\w+\\\\))").matcher(str);
             String[] split = str.split("#([ ]*[^#(\\n ]+[ ]*)++#(?!\\\\(\\\\w+\\\\))");
             PbContent.Builder builder = new PbContent.Builder();
@@ -1310,52 +1390,76 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         }
     }
 
-    public void N3(VideoInfo videoInfo) {
+    public void P3(VideoInfo videoInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048658, this, videoInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048670, this, videoInfo) == null) {
             this.G1 = videoInfo;
         }
     }
 
-    public void N4(int i2) {
+    public void P4(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048659, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048671, this, i2) == null) {
             this.r = i2;
         }
     }
 
-    public int O() {
+    public long Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) ? this.L0 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048672, this)) == null) ? this.o1.disAgreeNum : invokeV.longValue;
     }
 
-    public PushStatusData O0() {
+    public int Q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) ? this.O0 : (PushStatusData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) {
+            if (s2()) {
+                return 4;
+            }
+            if (j2() || i2()) {
+                return 3;
+            }
+            if (O1()) {
+                return 5;
+            }
+            if (R1()) {
+                return 6;
+            }
+            if (P1()) {
+                return 7;
+            }
+            if (Q1()) {
+                return 8;
+            }
+            if (!this.z1 || this.y1 == null) {
+                return t2() ? 2 : 1;
+            }
+            return 9;
+        }
+        return invokeV.intValue;
     }
 
-    public boolean O1() {
+    public boolean Q1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) {
             BaijiahaoData baijiahaoData = this.p2;
             return baijiahaoData != null && baijiahaoData.oriUgcType == 4;
         }
         return invokeV.booleanValue;
     }
 
-    public void O2(WriteData writeData) {
+    public void Q2(WriteData writeData) {
         String m;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048663, this, writeData) == null) || writeData == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048675, this, writeData) == null) || writeData == null) {
             return;
         }
         try {
             this.B = "0";
             this.E = "";
-            this.F = b.a.e.e.m.b.g(writeData.getForumId(), 0L);
+            this.F = b.a.e.f.m.b.g(writeData.getForumId(), 0L);
             this.s = writeData.getTitle();
             this.z0 = System.currentTimeMillis() / 1000;
             String str = (System.currentTimeMillis() / 1000) + "";
@@ -1367,10 +1471,10 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
             this.U = writeData.getForumName();
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.is_vertical = Integer.valueOf(writeData.getVideoInfo().getVideoHeight() > writeData.getVideoInfo().getVideoWidth() ? 1 : 0);
-            if (b.a.e.e.p.k.isEmpty(b.a.r0.l3.s0.g.j().m())) {
+            if (b.a.e.f.p.k.isEmpty(b.a.r0.m3.s0.g.j().m())) {
                 m = writeData.getVideoInfo().getThumbPath();
             } else {
-                m = b.a.r0.l3.s0.g.j().m();
+                m = b.a.r0.m3.s0.g.j().m();
             }
             builder.thumbnail_url = m;
             builder.video_url = writeData.getVideoInfo().getVideoUrl();
@@ -1381,12 +1485,12 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
             this.t = writeData.getContent();
             z1 z1Var = new z1();
             this.G = z1Var;
-            z1Var.f13505a = writeData.getForumId();
-            this.G.f13506b = writeData.getForumName();
+            z1Var.f14287a = writeData.getForumId();
+            this.G.f14288b = writeData.getForumName();
             this.s2 = writeData.getTabId();
             this.t2 = writeData.getTabName();
-            N2(writeData.getTitle());
-            e3();
+            P2(writeData.getTitle());
+            g3();
             if (StringUtils.isNull(writeData.getItem_id()) || writeData.getItemInfo() == null) {
                 return;
             }
@@ -1406,137 +1510,113 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         }
     }
 
-    public void O3(String str) {
+    public void Q3(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048664, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048676, this, str) == null) {
             this.B = str;
         }
     }
 
-    public void O4() {
+    public void Q4() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048665, this) == null) && this.C0 == 0) {
+        if ((interceptable == null || interceptable.invokeV(1048677, this) == null) && this.C0 == 0) {
             this.C0 = 1;
-        }
-    }
-
-    public long P() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) ? this.z0 : invokeV.longValue;
-    }
-
-    public ThreadInfo P0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) ? this.u2 : (ThreadInfo) invokeV.objValue;
-    }
-
-    public boolean P1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
-            BaijiahaoData baijiahaoData = this.p2;
-            return baijiahaoData != null && baijiahaoData.oriUgcType == 2;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public SpannableStringBuilder P2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) {
-            if (this.A == null) {
-                this.A = new ArrayList();
-            }
-            return b.a.q0.f1.n.e.D(this, this.v, this.t, this.A);
-        }
-        return (SpannableStringBuilder) invokeV.objValue;
-    }
-
-    public void P3(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048670, this, i2) == null) {
-            this.g1 = i2 + 1;
-        }
-    }
-
-    public long Q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) ? this.o1.disAgreeNum : invokeV.longValue;
-    }
-
-    public int Q0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048672, this)) == null) {
-            if (q2()) {
-                return 4;
-            }
-            if (h2() || g2()) {
-                return 3;
-            }
-            if (M1()) {
-                return 5;
-            }
-            if (P1()) {
-                return 6;
-            }
-            if (N1()) {
-                return 7;
-            }
-            if (O1()) {
-                return 8;
-            }
-            if (!this.z1 || this.y1 == null) {
-                return r2() ? 2 : 1;
-            }
-            return 9;
-        }
-        return invokeV.intValue;
-    }
-
-    @Deprecated
-    public boolean Q1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) ? D2() : invokeV.booleanValue;
-    }
-
-    public SpannableStringBuilder Q2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) ? b.a.q0.f1.n.e.C(this, this.u, this.s) : (SpannableStringBuilder) invokeV.objValue;
-    }
-
-    public void Q3(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048675, this, i2) == null) {
         }
     }
 
     public long R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048676, this)) == null) ? this.X2 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048678, this)) == null) ? this.X2 : invokeV.longValue;
     }
 
     public String R0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048677, this)) == null) ? this.X0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048679, this)) == null) ? this.X0 : (String) invokeV.objValue;
     }
 
     public boolean R1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048678, this)) == null) ? N1() || O1() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048680, this)) == null) {
+            BaijiahaoData baijiahaoData = this.p2;
+            return baijiahaoData != null && baijiahaoData.oriUgcType == 2;
+        }
+        return invokeV.booleanValue;
     }
 
-    public void R2(ArrayList<v> arrayList) {
+    public SpannableStringBuilder R2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048679, this, arrayList) == null) || this.r == 1 || arrayList == null || arrayList.size() <= 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
+            if (this.A == null) {
+                this.A = new ArrayList();
+            }
+            return b.a.q0.e1.n.e.D(this, this.v, this.t, this.A);
+        }
+        return (SpannableStringBuilder) invokeV.objValue;
+    }
+
+    public void R3(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048682, this, i2) == null) {
+            this.g1 = i2 + 1;
+        }
+    }
+
+    public SparseArray<String> S() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048683, this)) == null) ? this.k1 : (SparseArray) invokeV.objValue;
+    }
+
+    public String S0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048684, this)) == null) ? this.R1 : (String) invokeV.objValue;
+    }
+
+    @Deprecated
+    public boolean S1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048685, this)) == null) ? F2() : invokeV.booleanValue;
+    }
+
+    public SpannableStringBuilder S2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048686, this)) == null) ? b.a.q0.e1.n.e.C(this, this.u, this.s) : (SpannableStringBuilder) invokeV.objValue;
+    }
+
+    public void S3(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048687, this, i2) == null) {
+        }
+    }
+
+    public long T() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) ? this.F : invokeV.longValue;
+    }
+
+    public String T0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) ? this.S1 : (String) invokeV.objValue;
+    }
+
+    public boolean T1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048690, this)) == null) ? P1() || Q1() : invokeV.booleanValue;
+    }
+
+    public void T2(ArrayList<v> arrayList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048691, this, arrayList) == null) || this.r == 1 || arrayList == null || arrayList.size() <= 0) {
             return;
         }
         Iterator<v> it = arrayList.iterator();
@@ -1557,116 +1637,116 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         }
     }
 
-    public void R3(boolean z) {
+    public void T3(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048680, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048692, this, z) == null) {
             this.f1 = z;
-        }
-    }
-
-    public SparseArray<String> S() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) ? this.k1 : (SparseArray) invokeV.objValue;
-    }
-
-    public String S0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048682, this)) == null) ? this.R1 : (String) invokeV.objValue;
-    }
-
-    public boolean S1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048683, this)) == null) ? this.Y2 : invokeV.booleanValue;
-    }
-
-    public SpannableStringBuilder S2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048684, this)) == null) {
-            if (StringUtils.isNull(this.s) || this.r == 1) {
-                return null;
-            }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(Q2());
-            this.x = spannableStringBuilder;
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeV.objValue;
-    }
-
-    public void S3(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048685, this, i2) == null) {
-            this.C = i2;
-        }
-    }
-
-    public long T() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048686, this)) == null) ? this.F : invokeV.longValue;
-    }
-
-    public String T0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048687, this)) == null) ? this.S1 : (String) invokeV.objValue;
-    }
-
-    public final boolean T1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) ? SwitchManager.getInstance().findType(ConveneThreadOpenSwitch.KEY) == 1 : invokeV.booleanValue;
-    }
-
-    public SpannableStringBuilder T2(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048689, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? U2(z, z2, false) : (SpannableStringBuilder) invokeCommon.objValue;
-    }
-
-    public void T3(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048690, this, i2) == null) {
-            this.a0 = i2;
         }
     }
 
     public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) ? this.H : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048693, this)) == null) ? this.H : (String) invokeV.objValue;
     }
 
     public int U0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048692, this)) == null) ? this.K : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048694, this)) == null) ? this.K : invokeV.intValue;
     }
 
     public boolean U1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048693, this)) == null) ? I2() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048695, this)) == null) ? this.Z2 : invokeV.booleanValue;
     }
 
-    public SpannableStringBuilder U2(boolean z, boolean z2, boolean z4) {
+    public SpannableStringBuilder U2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048696, this)) == null) {
+            if (StringUtils.isNull(this.s) || this.r == 1) {
+                return null;
+            }
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(S2());
+            this.x = spannableStringBuilder;
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeV.objValue;
+    }
+
+    public void U3(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048697, this, i2) == null) {
+            this.C = i2;
+        }
+    }
+
+    public List<PbContent> V() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048698, this)) == null) ? this.w : (List) invokeV.objValue;
+    }
+
+    public int V0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048699, this)) == null) ? this.o : invokeV.intValue;
+    }
+
+    public final boolean V1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048700, this)) == null) ? SwitchManager.getInstance().findType(ConveneThreadOpenSwitch.KEY) == 1 : invokeV.booleanValue;
+    }
+
+    public SpannableStringBuilder V2(boolean z, boolean z2) {
         InterceptResult invokeCommon;
-        SpannableStringBuilder Q2;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048701, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? W2(z, z2, false) : (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public void V3(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048702, this, i2) == null) {
+            this.a0 = i2;
+        }
+    }
+
+    public String W() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048703, this)) == null) ? this.D0 : (String) invokeV.objValue;
+    }
+
+    public List<PbContent> W0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048704, this)) == null) ? this.v : (List) invokeV.objValue;
+    }
+
+    public boolean W1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048705, this)) == null) ? K2() : invokeV.booleanValue;
+    }
+
+    public SpannableStringBuilder W2(boolean z, boolean z2, boolean z4) {
+        InterceptResult invokeCommon;
+        SpannableStringBuilder S2;
         String spannableStringBuilder;
         SpannableStringBuilder spannableStringBuilder2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048694, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048706, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z4)})) == null) {
             if (this.r == 1) {
-                Q2 = P2();
-                spannableStringBuilder = Q2.toString();
+                S2 = R2();
+                spannableStringBuilder = S2.toString();
             } else {
-                Q2 = Q2();
-                spannableStringBuilder = Q2.toString();
+                S2 = S2();
+                spannableStringBuilder = S2.toString();
             }
-            SpannableStringBuilder spannableStringBuilder3 = Q2;
+            SpannableStringBuilder spannableStringBuilder3 = S2;
             String str = spannableStringBuilder;
             if (z) {
                 spannableStringBuilder2 = g(str, spannableStringBuilder3, z, true, z2, z4);
@@ -1679,75 +1759,75 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    public void U3(int i2) {
+    public void W3(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048695, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048707, this, i2) == null) {
             this.D = i2;
         }
     }
 
-    public List<PbContent> V() {
+    public String X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048696, this)) == null) ? this.w : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048708, this)) == null) ? this.l0 : (String) invokeV.objValue;
     }
 
-    public int V0() {
+    public List<PbContent> X0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048697, this)) == null) ? this.o : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048709, this)) == null) ? this.u : (List) invokeV.objValue;
     }
 
-    public boolean V1() {
+    public boolean X1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048698, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048710, this)) == null) {
             MetaData metaData = this.T;
             return metaData != null && metaData.isForumBusinessAccount();
         }
         return invokeV.booleanValue;
     }
 
-    public SpannableStringBuilder V2(boolean z, boolean z2) {
+    public SpannableStringBuilder X2(boolean z, boolean z2) {
         InterceptResult invokeCommon;
-        SpannableStringBuilder P2;
+        SpannableStringBuilder R2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048699, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048711, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (!StringUtils.isNull(this.s) && this.r != 1) {
-                P2 = Q2();
+                R2 = S2();
             } else {
-                P2 = P2();
+                R2 = R2();
             }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(P2);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(R2);
             this.x = spannableStringBuilder;
             return spannableStringBuilder;
         }
         return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    public void V3(boolean z) {
+    public void X3(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048700, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048712, this, z) == null) {
             this.Y1 = z;
         }
     }
 
-    public String W() {
+    public z1 Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048701, this)) == null) ? this.D0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048713, this)) == null) ? this.G : (z1) invokeV.objValue;
     }
 
-    public List<PbContent> W0() {
+    public String Y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048702, this)) == null) ? this.u : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048714, this)) == null) ? this.Q0 : (String) invokeV.objValue;
     }
 
-    public boolean W1() {
+    public boolean Y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048703, this)) == null) ? this.S0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048715, this)) == null) ? this.S0 : invokeV.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:67:0x0133  */
@@ -1755,16 +1835,16 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void W2(boolean z, boolean z2) {
-        b.a.e.l.b bVar;
-        SpannableStringBuilder Q2;
+    public final void Y2(boolean z, boolean z2) {
+        b.a.e.m.b bVar;
+        SpannableStringBuilder S2;
         SpannableString spannableString;
         Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048704, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048716, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             ArrayList arrayList = new ArrayList();
             if (!z2) {
-                if (o1() == 42 && T1()) {
+                if (p1() == 42 && V1()) {
                     arrayList.add(Integer.valueOf(R.drawable.icon_convene));
                 }
                 if (r0() == 1) {
@@ -1773,39 +1853,39 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
                     arrayList.add(Integer.valueOf(R.drawable.icon_notice));
                 }
                 if (j0() == 1 || this.R.a() != 0) {
-                    if (j1() != null && o1() == 41) {
-                        if (k1() == 2) {
+                    if (k1() != null && p1() == 41) {
+                        if (l1() == 2) {
                             arrayList.add(Integer.valueOf(R.drawable.label_interview));
                         }
                     } else {
                         arrayList.add(Integer.valueOf(R.drawable.icon_zhibo));
                     }
                 }
-                if (z && c2() && (num = S3.get(Integer.valueOf(k1()))) != null) {
+                if (z && e2() && (num = T3.get(Integer.valueOf(l1()))) != null) {
                     arrayList.add(num);
                 }
-                if (q0() == 1 && !A2() && x3 != getType() && G3 != getType()) {
+                if (q0() == 1 && !C2() && z3 != getType() && I3 != getType()) {
                     arrayList.add(Integer.valueOf(R.drawable.icon_elite));
                 }
                 AnchorInfoData anchorInfoData = this.k0;
                 if (anchorInfoData != null && anchorInfoData.getGroup_id() != 0) {
                     arrayList.add(Integer.valueOf(R.drawable.icon_live_on));
                 }
-                if (c1() == 1) {
+                if (d1() == 1) {
                     arrayList.add(Integer.valueOf(R.drawable.frs_post_ding));
                 }
-                Integer num2 = R3.get(new Point(w(), t()));
+                Integer num2 = S3.get(new Point(w(), t()));
                 if (num2 != null) {
                     arrayList.add(num2);
                 }
-                if (F1() != null) {
+                if (H1() != null) {
                     arrayList.add(Integer.valueOf(R.drawable.tag_act));
                 }
                 if (G() != null) {
                     arrayList.add(Integer.valueOf(R.drawable.icon_tag_giftsend));
                 }
-                if (!b.a.e.e.p.k.isEmpty(this.J)) {
-                    bVar = M4(this.J);
+                if (!b.a.e.f.p.k.isEmpty(this.J)) {
+                    bVar = O4(this.J);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     if (arrayList.size() > 0) {
                         StringBuilder sb = new StringBuilder();
@@ -1826,7 +1906,7 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
                                 bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                             }
                             b.a.q0.s.g0.j jVar = new b.a.q0.s.g0.j(bitmapDrawable);
-                            jVar.b(b.a.e.e.p.l.e(TbadkCoreApplication.getInst().getApplicationContext(), this.q));
+                            jVar.b(b.a.e.f.p.l.e(TbadkCoreApplication.getInst().getApplicationContext(), this.q));
                             spannableString.setSpan(jVar, i4, i4 + 1, 33);
                             i4 += 2;
                         }
@@ -1835,9 +1915,9 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
                         }
                         spannableStringBuilder.append((CharSequence) spannableString);
                     }
-                    Q2 = Q2();
-                    if (Q2 != null) {
-                        spannableStringBuilder.append((CharSequence) Q2);
+                    S2 = S2();
+                    if (S2 != null) {
+                        spannableStringBuilder.append((CharSequence) S2);
                     }
                     this.x = spannableStringBuilder;
                 }
@@ -1846,43 +1926,43 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
             if (arrayList.size() > 0) {
             }
-            Q2 = Q2();
-            if (Q2 != null) {
+            S2 = S2();
+            if (S2 != null) {
             }
             this.x = spannableStringBuilder2;
         }
     }
 
-    public void W3() {
+    public void Y3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048705, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048717, this) == null) {
             this.C1 = 1;
         }
     }
 
-    public String X() {
+    public String Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048706, this)) == null) ? this.l0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048718, this)) == null) ? this.U : (String) invokeV.objValue;
     }
 
-    public String X0() {
+    public String Z0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048707, this)) == null) ? this.Q0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048719, this)) == null) ? this.I : (String) invokeV.objValue;
     }
 
-    public boolean X1() {
+    public boolean Z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048708, this)) == null) ? this.b2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048720, this)) == null) ? this.b2 : invokeV.booleanValue;
     }
 
     @Deprecated
-    public void X2(JSONObject jSONObject) {
+    public void Z2(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048709, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048721, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
@@ -2022,7 +2102,7 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
             this.j0.setUserMap(this.m0);
             this.j0.parserJson(jSONObject.optJSONObject(FeedData.TYPE_ZAN));
             this.k0.parserJson(jSONObject.optJSONObject("anchor_info"));
-            if (!b.a.e.e.p.k.isEmpty(this.s)) {
+            if (!b.a.e.f.p.k.isEmpty(this.s)) {
                 this.j0.setTitle(this.s);
             } else {
                 this.j0.setTitle(this.t);
@@ -2261,7 +2341,7 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
                 builder4.icon_size = Double.valueOf(optJSONObject22.optDouble("icon_size"));
                 builder4.score = Double.valueOf(optJSONObject22.optDouble("score"));
                 builder4.icon_url = optJSONObject22.optString("icon_url");
-                builder4.star = Integer.valueOf(optJSONObject22.optInt("star"));
+                builder4.star = Integer.valueOf(optJSONObject22.optInt(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR));
                 builder4.forum_name = optJSONObject22.optString("forum_name");
                 builder4.apk_name = optJSONObject22.optString("apk_name");
                 builder4.button_link = optJSONObject22.optString("button_link");
@@ -2304,36 +2384,36 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
             this.T2 = jSONObject.optString("tiebaplus_token");
             this.U2 = jSONObject.optString("tiebaplus_extra_param");
             this.V2 = jSONObject.optInt("tiebaplus_cant_delete") == 1;
-            e3();
+            g3();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
     }
 
-    public void X3(int i2) {
+    public void Z3(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048710, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048722, this, i2) == null) {
             this.P = i2;
         }
     }
 
-    public z1 Y() {
+    public String a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048711, this)) == null) ? this.G : (z1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048723, this)) == null) ? this.m1 : (String) invokeV.objValue;
     }
 
-    public String Y0() {
+    public String a1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048712, this)) == null) ? this.I : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048724, this)) == null) ? this.U1 : (String) invokeV.objValue;
     }
 
-    public boolean Y1() {
+    public boolean a2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048713, this)) == null) {
-            b.a.r0.l3.j0.o oVar = this.K2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048725, this)) == null) {
+            b.a.r0.m3.j0.o oVar = this.K2;
             if (oVar != null) {
                 return oVar.f();
             }
@@ -2342,10 +2422,10 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return invokeV.booleanValue;
     }
 
-    public void Y2(ThreadInfo threadInfo) {
+    public void a3(ThreadInfo threadInfo) {
         MetaData metaData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048714, this, threadInfo) == null) || threadInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048726, this, threadInfo) == null) || threadInfo == null) {
             return;
         }
         try {
@@ -2481,7 +2561,7 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
             this.j0.setUserMap(this.m0);
             this.j0.parserProtobuf(threadInfo.zan);
             this.k0.parserProtobuf(threadInfo.anchor_info);
-            if (!b.a.e.e.p.k.isEmpty(this.s)) {
+            if (!b.a.e.f.p.k.isEmpty(this.s)) {
                 this.j0.setTitle(this.s);
             } else {
                 this.j0.setTitle(this.t);
@@ -2698,190 +2778,191 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
                     this.O2.add(threadRecommendInfoData);
                 }
             }
-            this.Y2 = threadInfo.is_frs_mask.intValue() == 1;
+            this.Z2 = threadInfo.is_frs_mask.intValue() == 1;
             this.R2 = StringHelper.equals(threadInfo.is_tiebaplus_ad, "1");
             this.S2 = threadInfo.tiebaplus_order_id;
             this.T2 = threadInfo.tiebaplus_token;
             this.U2 = threadInfo.tiebaplus_extra_param;
             this.V2 = threadInfo.tiebaplus_cant_delete.intValue() == 1;
-            e3();
+            this.Y2 = threadInfo.voice_room;
+            g3();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
     }
 
-    public void Y3(int i2) {
+    public void a4(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048715, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048727, this, i2) == null) {
             this.N = i2;
-        }
-    }
-
-    public String Z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048716, this)) == null) ? this.U : (String) invokeV.objValue;
-    }
-
-    public String Z0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048717, this)) == null) ? this.U1 : (String) invokeV.objValue;
-    }
-
-    public boolean Z1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048718, this)) == null) {
-            MetaData metaData = this.T;
-            return (metaData == null || metaData.getGodUserData() == null || this.T.getGodUserData().getType() != 2) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void Z2(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048719, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            a3(z, z2, true);
-        }
-    }
-
-    public void Z3(Item item) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048720, this, item) == null) {
-            this.y2 = item;
-        }
-    }
-
-    public String a0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048721, this)) == null) ? this.m1 : (String) invokeV.objValue;
-    }
-
-    public String a1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048722, this)) == null) ? this.Q1 : (String) invokeV.objValue;
-    }
-
-    public boolean a2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048723, this)) == null) ? this.x2 : invokeV.booleanValue;
-    }
-
-    public void a3(boolean z, boolean z2, boolean z4) {
-        SpannableStringBuilder spannableStringBuilder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048724, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z4)}) == null) {
-            if (ListUtils.getCount(N0(z, z2, z4, false)) > 0) {
-                T2(z, z4);
-                return;
-            }
-            SpannableStringBuilder Q2 = Q2();
-            if (z) {
-                spannableStringBuilder = g(Q2.toString(), Q2, z, z2, z4, false);
-            } else {
-                spannableStringBuilder = new SpannableStringBuilder(Q2);
-            }
-            this.x = spannableStringBuilder;
-        }
-    }
-
-    public void a4(ItemData itemData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048725, this, itemData) == null) {
-            this.z2 = itemData;
         }
     }
 
     public String b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048726, this)) == null) ? this.B0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048728, this)) == null) ? this.B0 : (String) invokeV.objValue;
     }
 
-    public long b1() {
+    public String b1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048727, this)) == null) ? this.q1 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048729, this)) == null) ? this.Q1 : (String) invokeV.objValue;
     }
 
     public boolean b2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048728, this)) == null) ? this.f1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048730, this)) == null) {
+            MetaData metaData = this.T;
+            return (metaData == null || metaData.getGodUserData() == null || this.T.getGodUserData().getType() != 2) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
-    public void b3() {
+    public void b3(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048729, this) == null) {
-            W2(false, true);
+        if (interceptable == null || interceptable.invokeCommon(1048731, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            c3(z, z2, true);
         }
     }
 
-    public void b4(List<HeadItem> list) {
+    public void b4(Item item) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048730, this, list) == null) {
-            this.A2 = list;
+        if (interceptable == null || interceptable.invokeL(1048732, this, item) == null) {
+            this.y2 = item;
         }
     }
 
     public List<PbGoodsData> c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048731, this)) == null) ? this.w2 : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048733, this)) == null) ? this.w2 : (List) invokeV.objValue;
     }
 
-    public int c1() {
+    public long c1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048732, this)) == null) ? this.V : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048734, this)) == null) ? this.q1 : invokeV.longValue;
     }
 
     public boolean c2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048733, this)) == null) ? this.i0 == 41 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048735, this)) == null) ? this.x2 : invokeV.booleanValue;
     }
 
-    public void c3() {
+    public void c3(boolean z, boolean z2, boolean z4) {
+        SpannableStringBuilder spannableStringBuilder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048734, this) == null) {
-            W2(false, false);
+        if (interceptable == null || interceptable.invokeCommon(1048736, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z4)}) == null) {
+            if (ListUtils.getCount(N0(z, z2, z4, false)) > 0) {
+                V2(z, z4);
+                return;
+            }
+            SpannableStringBuilder S2 = S2();
+            if (z) {
+                spannableStringBuilder = g(S2.toString(), S2, z, z2, z4, false);
+            } else {
+                spannableStringBuilder = new SpannableStringBuilder(S2);
+            }
+            this.x = spannableStringBuilder;
         }
     }
 
-    public void c4(long j) {
+    public void c4(ItemData itemData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048735, this, j) == null) {
-            this.M = j;
+        if (interceptable == null || interceptable.invokeL(1048737, this, itemData) == null) {
+            this.z2 = itemData;
         }
     }
 
     public int d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048736, this)) == null) ? this.o1.hasAgree ? 1 : 0 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048738, this)) == null) ? this.o1.hasAgree ? 1 : 0 : invokeV.intValue;
     }
 
-    public SkinInfo d1() {
+    public int d1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048737, this)) == null) ? this.R0 : (SkinInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048739, this)) == null) ? this.V : invokeV.intValue;
     }
 
     public boolean d2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048738, this)) == null) ? j1() != null && o1() == 41 && j0() == 1 && k1() == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048740, this)) == null) ? this.f1 : invokeV.booleanValue;
     }
 
-    public int d3() {
+    public void d3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048741, this) == null) {
+            Y2(false, true);
+        }
+    }
+
+    public void d4(List<HeadItem> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048742, this, list) == null) {
+            this.A2 = list;
+        }
+    }
+
+    public VideoInfo e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048739, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048743, this)) == null) ? this.G1 : (VideoInfo) invokeV.objValue;
+    }
+
+    public SkinInfo e1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048744, this)) == null) ? this.R0 : (SkinInfo) invokeV.objValue;
+    }
+
+    public boolean e2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048745, this)) == null) ? this.i0 == 41 : invokeV.booleanValue;
+    }
+
+    public void e3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048746, this) == null) {
+            Y2(false, false);
+        }
+    }
+
+    public void e4(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048747, this, j) == null) {
+            this.M = j;
+        }
+    }
+
+    public String f0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048748, this)) == null) ? this.B : (String) invokeV.objValue;
+    }
+
+    public SmartApp f1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048749, this)) == null) ? this.M1 : (SmartApp) invokeV.objValue;
+    }
+
+    public boolean f2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048750, this)) == null) ? k1() != null && p1() == 41 && j0() == 1 && l1() == 2 : invokeV.booleanValue;
+    }
+
+    public int f3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048751, this)) == null) {
             if (!b.a.q0.s.k.c().g() || ListUtils.getCount(E0()) == 0) {
                 return 0;
             }
@@ -2897,9 +2978,9 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return invokeV.intValue;
     }
 
-    public void d4(List<PbLinkData> list) {
+    public void f4(List<PbLinkData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048740, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048752, this, list) == null) {
             this.v2 = list;
             if (ListUtils.isEmpty(list)) {
                 return;
@@ -2912,80 +2993,10 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         }
     }
 
-    public VideoInfo e0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048741, this)) == null) ? this.G1 : (VideoInfo) invokeV.objValue;
-    }
-
-    public SmartApp e1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048742, this)) == null) ? this.M1 : (SmartApp) invokeV.objValue;
-    }
-
-    public boolean e2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048743, this)) == null) ? this.s1 : invokeV.booleanValue;
-    }
-
-    public void e3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048744, this) == null) {
-            o3();
-            h3();
-            m3();
-            n3();
-            f3();
-            k3();
-            l3();
-        }
-    }
-
-    public void e4(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048745, this, z) == null) {
-            Y3(z ? 1 : 0);
-        }
-    }
-
-    public String f0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048746, this)) == null) ? this.B : (String) invokeV.objValue;
-    }
-
-    public int f1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048747, this)) == null) ? this.j1 : invokeV.intValue;
-    }
-
-    public boolean f2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048748, this)) == null) ? this.i0 == 41 : invokeV.booleanValue;
-    }
-
-    public final void f3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048749, this) == null) {
-            this.z = L2();
-        }
-    }
-
-    public void f4(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048750, this, str) == null) {
-            this.b0 = str;
-        }
-    }
-
     public final SpannableStringBuilder g(String str, SpannableStringBuilder spannableStringBuilder, boolean z, boolean z2, boolean z4, boolean z5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048751, this, new Object[]{str, spannableStringBuilder, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z4), Boolean.valueOf(z5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048753, this, new Object[]{str, spannableStringBuilder, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z4), Boolean.valueOf(z5)})) == null) {
             ArrayList<m.a> N0 = N0(z, z2, z4, z5);
             if (N0 == null) {
                 return new SpannableStringBuilder();
@@ -3025,9 +3036,9 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         int i10;
         int i11;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048752, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048754, this)) == null) {
             int[] iArr = new int[2];
-            int size = View.MeasureSpec.getSize(b.a.e.e.p.l.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
+            int size = View.MeasureSpec.getSize(b.a.e.f.p.l.p(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
             int i12 = (int) ((size - (dimensionPixelSize * 2)) / 3.0f);
             ArrayList<MediaData> E0 = E0();
@@ -3110,55 +3121,35 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return (int[]) invokeV.objValue;
     }
 
-    public SpannableStringBuilder g1() {
+    public int g1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048753, this)) == null) ? this.x : (SpannableStringBuilder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048755, this)) == null) ? this.j1 : invokeV.intValue;
     }
 
     public boolean g2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048754, this)) == null) ? o1() == 50 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048756, this)) == null) ? this.s1 : invokeV.booleanValue;
     }
 
-    public final void g3() {
-        AlaInfoData alaInfoData;
-        AlaUserInfoData alaUserInfoData;
+    public void g3() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048755, this) == null) || (alaInfoData = this.w0) == null) {
-            return;
-        }
-        if (alaInfoData.openRecomDuration == 1) {
-            long j = this.z0;
-            if (j > 0) {
-                String formatTimeForAlaCardCreate = StringHelper.getFormatTimeForAlaCardCreate(j);
-                if (!StringUtils.isNull(formatTimeForAlaCardCreate)) {
-                    this.P1 = formatTimeForAlaCardCreate;
-                }
-            }
-        }
-        AlaInfoData alaInfoData2 = this.w0;
-        if (alaInfoData2.openRecomFans == 1) {
-            int i2 = 0;
-            if (alaInfoData2 != null && (alaUserInfoData = alaInfoData2.user_info) != null) {
-                i2 = alaUserInfoData.anchor_fans;
-            }
-            if (TextUtils.isEmpty(this.P1) || i2 <= 0) {
-                if (i2 > 0) {
-                    this.P1 = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_card_anchor_fans) + StringHelper.numberUniformFormatExtraWithRoundInt(i2);
-                    return;
-                }
-                return;
-            }
-            this.P1 += "   " + TbadkCoreApplication.getInst().getResources().getString(R.string.ala_card_anchor_fans) + " " + StringHelper.numberUniformFormatExtraWithRoundInt(i2);
+        if (interceptable == null || interceptable.invokeV(1048757, this) == null) {
+            q3();
+            j3();
+            o3();
+            p3();
+            h3();
+            m3();
+            n3();
         }
     }
 
     public void g4(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048756, this, z) == null) {
-            this.H1 = z;
+        if (interceptable == null || interceptable.invokeZ(1048758, this, z) == null) {
+            a4(z ? 1 : 0);
         }
     }
 
@@ -3166,9 +3157,9 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public ArrayList<PreLoadImageInfo> getImages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048757, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048759, this)) == null) {
             ArrayList<MediaData> E0 = E0();
-            if (E0 == null || A2()) {
+            if (E0 == null || C2()) {
                 return null;
             }
             ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
@@ -3218,17 +3209,17 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public x0 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048758, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048760, this)) == null) {
             SparseArray<String> sparseArray = this.k1;
             if (sparseArray == null || sparseArray.size() <= 0) {
                 return null;
             }
             x0 x0Var = new x0();
-            x0Var.o(getThreadData().s1());
+            x0Var.o(getThreadData().t1());
             x0Var.k(getThreadData().T());
             x0Var.n(getThreadData().F0());
             x0Var.j(this.k1);
-            x0Var.f13484g = this.l1;
+            x0Var.f14266g = this.l1;
             x0Var.p = this.Z0;
             x0Var.k = this.Y0;
             x0Var.m = this.a1;
@@ -3244,144 +3235,144 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public String getRecomReason() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048759, this)) == null) ? this.b1 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048761, this)) == null) ? this.b1 : (String) invokeV.objValue;
     }
 
     @Override // b.a.q0.s.q.a
     public d2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048760, this)) == null) ? this : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048762, this)) == null) ? this : (d2) invokeV.objValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048761, this)) == null) ? this.s : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048763, this)) == null) ? this.s : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         OriginalThreadInfo originalThreadInfo;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048762, this)) == null) {
-            b.a.r0.l3.j0.o oVar = this.K2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048764, this)) == null) {
+            b.a.r0.m3.j0.o oVar = this.K2;
             if (oVar != null) {
-                return oVar.f() ? this.K2.g() ? AdvertAppInfo.B4 : AdvertAppInfo.C4 : this.K2.g() ? AdvertAppInfo.B4 : AdvertAppInfo.A4;
+                return oVar.f() ? this.K2.g() ? AdvertAppInfo.C4 : AdvertAppInfo.D4 : this.K2.g() ? AdvertAppInfo.C4 : AdvertAppInfo.B4;
             } else if (i0()) {
-                if (q1() != null) {
-                    return x3;
+                if (r1() != null) {
+                    return z3;
                 }
-                return a3;
+                return b3;
             } else {
                 int r0 = r0();
                 if (this.C1 == 1) {
                     if (this.D1 != null) {
-                        return o3;
+                        return q3;
                     }
-                    return this.G1 != null ? I3 : H3;
+                    return this.G1 != null ? K3 : J3;
                 } else if (this.w0 != null && this.i0 == 60) {
-                    return A3;
+                    return C3;
                 } else {
                     if (this.w0 != null && ((i2 = this.i0) == 49 || i2 == 69)) {
-                        return y3;
+                        return A3;
                     }
                     if (this.w0 != null && this.i0 == 67) {
-                        return B3;
+                        return D3;
                     }
                     int i4 = this.i0;
                     if (i4 == 51) {
-                        return z3;
+                        return B3;
                     }
                     if (i4 == 63) {
-                        return J3;
+                        return L3;
                     }
                     if (i4 == 64) {
-                        return K3;
+                        return M3;
                     }
                     if (r0 != 2 && r0 != 1) {
-                        if (this.t0 != null && b2() && !f2()) {
-                            return P3;
+                        if (this.t0 != null && d2() && !h2()) {
+                            return Q3;
                         }
-                        if (this.t0 != null && !f2()) {
-                            if (Z1()) {
-                                return G3;
+                        if (this.t0 != null && !h2()) {
+                            if (b2()) {
+                                return I3;
                             }
                             if (this instanceof y0) {
-                                return Q3;
+                                return R3;
                             }
-                            return x3;
+                            return z3;
                         } else if (this.z1 && (originalThreadInfo = this.y1) != null) {
                             if (originalThreadInfo.w) {
                                 if (originalThreadInfo.r != null) {
-                                    return F3;
+                                    return H3;
                                 }
                                 if (originalThreadInfo.f()) {
-                                    return E3;
+                                    return G3;
                                 }
-                                return D3;
+                                return F3;
                             }
-                            return C3;
-                        } else if (M1()) {
-                            return p3;
+                            return E3;
+                        } else if (O1()) {
+                            return r3;
                         } else {
-                            if (d2()) {
-                                return M3.get() ? T3 : a3;
-                            } else if (I1() && w() == 1) {
-                                return M3.get() ? U3 : a3;
-                            } else if (e2()) {
-                                return v3;
+                            if (f2()) {
+                                return O3.get() ? U3 : b3;
+                            } else if (K1() && w() == 1) {
+                                return O3.get() ? V3 : b3;
+                            } else if (g2()) {
+                                return x3;
                             } else {
-                                if (Z1()) {
-                                    return w3;
+                                if (b2()) {
+                                    return y3;
                                 }
-                                if (this.f13271e) {
-                                    return g3;
-                                }
-                                if (this.f13272f) {
+                                if (this.f14051e) {
                                     return h3;
                                 }
-                                if (this.f13273g) {
+                                if (this.f14052f) {
                                     return i3;
                                 }
-                                if (this.f13274h) {
+                                if (this.f14053g) {
                                     return j3;
                                 }
-                                if (this.f13275i) {
+                                if (this.f14054h) {
                                     return k3;
                                 }
-                                if (this.k) {
-                                    return m3;
-                                }
-                                if (this.l) {
-                                    return n3;
-                                }
-                                if (this.j) {
+                                if (this.f14055i) {
                                     return l3;
                                 }
+                                if (this.k) {
+                                    return o3;
+                                }
+                                if (this.l) {
+                                    return p3;
+                                }
+                                if (this.j) {
+                                    return m3;
+                                }
                                 if (this.m) {
-                                    return r3;
+                                    return t3;
                                 }
                                 if (this.F0) {
-                                    int d32 = d3();
-                                    if (d32 == 1) {
-                                        return c3;
-                                    }
-                                    if (d32 == 2) {
+                                    int f32 = f3();
+                                    if (f32 == 1) {
                                         return d3;
                                     }
-                                    if (d32 > 2) {
+                                    if (f32 == 2) {
                                         return e3;
                                     }
-                                    return a3;
+                                    if (f32 > 2) {
+                                        return f3;
+                                    }
+                                    return b3;
                                 }
-                                return a3;
+                                return b3;
                             }
                         }
                     }
-                    return Z2;
+                    return a3;
                 }
             }
         }
@@ -3392,7 +3383,7 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public String getVideoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048763, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048765, this)) == null) {
             VideoInfo videoInfo = this.t0;
             if (videoInfo != null) {
                 return videoInfo.video_url;
@@ -3405,31 +3396,137 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public int h0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048764, this)) == null) ? this.g1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048766, this)) == null) ? this.g1 : invokeV.intValue;
     }
 
-    public int h1() {
+    public SpannableStringBuilder h1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048765, this)) == null) ? this.s2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048767, this)) == null) ? this.x : (SpannableStringBuilder) invokeV.objValue;
     }
 
     public boolean h2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048766, this)) == null) ? o1() == 49 || o1() == 69 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048768, this)) == null) ? this.i0 == 41 : invokeV.booleanValue;
     }
 
     public final void h3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048767, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048769, this) == null) {
+            this.z = N2();
+        }
+    }
+
+    public void h4(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048770, this, str) == null) {
+            this.b0 = str;
+        }
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048771, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048772, this)) == null) ? this.L1 : invokeV.booleanValue;
+    }
+
+    public int i1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048773, this)) == null) ? this.s2 : invokeV.intValue;
+    }
+
+    public boolean i2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048774, this)) == null) ? p1() == 50 : invokeV.booleanValue;
+    }
+
+    public final void i3() {
+        AlaInfoData alaInfoData;
+        AlaUserInfoData alaUserInfoData;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048775, this) == null) || (alaInfoData = this.w0) == null) {
+            return;
+        }
+        if (alaInfoData.openRecomDuration == 1) {
+            long j = this.z0;
+            if (j > 0) {
+                String formatTimeForAlaCardCreate = StringHelper.getFormatTimeForAlaCardCreate(j);
+                if (!StringUtils.isNull(formatTimeForAlaCardCreate)) {
+                    this.P1 = formatTimeForAlaCardCreate;
+                }
+            }
+        }
+        AlaInfoData alaInfoData2 = this.w0;
+        if (alaInfoData2.openRecomFans == 1) {
+            int i2 = 0;
+            if (alaInfoData2 != null && (alaUserInfoData = alaInfoData2.user_info) != null) {
+                i2 = alaUserInfoData.anchor_fans;
+            }
+            if (TextUtils.isEmpty(this.P1) || i2 <= 0) {
+                if (i2 > 0) {
+                    this.P1 = TbadkCoreApplication.getInst().getResources().getString(R.string.ala_card_anchor_fans) + StringHelper.numberUniformFormatExtraWithRoundInt(i2);
+                    return;
+                }
+                return;
+            }
+            this.P1 += "   " + TbadkCoreApplication.getInst().getResources().getString(R.string.ala_card_anchor_fans) + " " + StringHelper.numberUniformFormatExtraWithRoundInt(i2);
+        }
+    }
+
+    public void i4(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048776, this, z) == null) {
+            this.H1 = z;
+        }
+    }
+
+    @Override // b.a.q0.s.q.a
+    public boolean isFromFrs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048777, this)) == null) ? this.Z1 : invokeV.booleanValue;
+    }
+
+    public int j0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048778, this)) == null) ? this.Q : invokeV.intValue;
+    }
+
+    public String j1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048779, this)) == null) ? this.t2 : (String) invokeV.objValue;
+    }
+
+    public boolean j2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048780, this)) == null) ? p1() == 49 || p1() == 69 : invokeV.booleanValue;
+    }
+
+    public final void j3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048781, this) == null) {
             if ((this instanceof y0) && "0".equals(f0())) {
                 this.P1 = TbadkCoreApplication.getInst().getString(R.string.video_is_checking_novisible);
                 return;
             }
             int i2 = 36;
-            if (!D2() && (!X1() || getType() == y3)) {
-                if (getType() != y3 && getType() != B3) {
+            if (!F2() && (!Z1() || getType() == A3)) {
+                if (getType() != A3 && getType() != D3) {
                     long v0 = v0() * 1000;
                     if (v0 != 0) {
                         String formatTimeForJustNow = StringHelper.getFormatTimeForJustNow(v0);
@@ -3455,7 +3552,7 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
                         i2 = 16;
                     }
                     String authInfo = UtilHelper.getAuthInfo(this.T, this.a2, i2);
-                    if (u2()) {
+                    if (w2()) {
                         String str = StringHelper.cutChineseAndEnglishWithSuffix(this.U, 12, "...") + TbadkCoreApplication.getInst().getContext().getString(R.string.forum);
                         if (!TextUtils.isEmpty(authInfo)) {
                             this.P1 = authInfo + GlideException.IndentedAppendable.INDENT + str;
@@ -3473,7 +3570,7 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
                     this.P1 += " • " + A();
                     return;
                 }
-                g3();
+                i3();
                 return;
             }
             long j2 = this.z0;
@@ -3499,124 +3596,17 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         }
     }
 
-    public void h4(boolean z) {
+    public void j4(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048768, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048782, this, z) == null) {
             this.I1 = z;
-        }
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048769, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048770, this)) == null) ? this.L1 : invokeV.booleanValue;
-    }
-
-    public String i1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048771, this)) == null) ? this.t2 : (String) invokeV.objValue;
-    }
-
-    public boolean i2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048772, this)) == null) ? r0() == 1 : invokeV.booleanValue;
-    }
-
-    public final void i3() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048773, this) == null) && n2() && !TextUtils.isEmpty(this.T.getNewGodData().getFieldName())) {
-            if (!TextUtils.isEmpty(this.P1)) {
-                this.P1 += "   " + this.T.getNewGodData().getFieldName() + b.a.q0.d1.r0.c(this.T.getNewGodData().isVideoGod());
-                return;
-            }
-            this.P1 = this.T.getNewGodData().getFieldName() + b.a.q0.d1.r0.c(this.T.getNewGodData().isVideoGod());
-        }
-    }
-
-    public void i4(ArrayList<MediaData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048774, this, arrayList) == null) {
-            this.X = arrayList;
-        }
-    }
-
-    @Override // b.a.q0.s.q.a
-    public boolean isFromFrs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048775, this)) == null) ? this.Z1 : invokeV.booleanValue;
-    }
-
-    public int j0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048776, this)) == null) ? this.Q : invokeV.intValue;
-    }
-
-    public b2 j1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048777, this)) == null) ? this.M0 : (b2) invokeV.objValue;
-    }
-
-    public boolean j2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048778, this)) == null) ? this.H1 : invokeV.booleanValue;
-    }
-
-    public void j3() {
-        MetaData metaData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048779, this) == null) || D2() || X1()) {
-            return;
-        }
-        long v0 = v0() * 1000;
-        if (v0 != 0) {
-            String formatTimeForJustNow = StringHelper.getFormatTimeForJustNow(v0);
-            if (StringHelper.isThisYear(formatTimeForJustNow)) {
-                formatTimeForJustNow = StringHelper.getFormatTimeShort(v0);
-            }
-            this.P1 = formatTimeForJustNow;
-        }
-        if (n2()) {
-            i3();
-        } else if (!this.a2 && (metaData = this.T) != null && metaData.showBazhuGrade()) {
-            String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(this.T.getBazhuGradeData().getDesc(), 24, "...");
-            if (!TextUtils.isEmpty(this.P1)) {
-                this.P1 += "   " + cutChineseAndEnglishWithSuffix;
-            } else {
-                this.P1 = cutChineseAndEnglishWithSuffix;
-            }
-        }
-        if (TextUtils.isEmpty(this.P1) || TextUtils.isEmpty(A())) {
-            return;
-        }
-        this.P1 += " • " + A();
-    }
-
-    public void j4(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048780, this, str) == null) {
-            this.p = str;
         }
     }
 
     public SpannableString k(ClickableSpan clickableSpan) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048781, this, clickableSpan)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048783, this, clickableSpan)) == null) {
             if (clickableSpan == null) {
                 return null;
             }
@@ -3653,13 +3643,49 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public int k0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048782, this)) == null) ? this.C : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048784, this)) == null) ? this.C : invokeV.intValue;
     }
 
-    public int k1() {
+    public b2 k1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048783, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048785, this)) == null) ? this.M0 : (b2) invokeV.objValue;
+    }
+
+    public boolean k2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048786, this)) == null) ? r0() == 1 : invokeV.booleanValue;
+    }
+
+    public final void k3() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048787, this) == null) && p2() && !TextUtils.isEmpty(this.T.getNewGodData().getFieldName())) {
+            if (!TextUtils.isEmpty(this.P1)) {
+                this.P1 += "   " + this.T.getNewGodData().getFieldName() + b.a.q0.c1.q0.c(this.T.getNewGodData().isVideoGod());
+                return;
+            }
+            this.P1 = this.T.getNewGodData().getFieldName() + b.a.q0.c1.q0.c(this.T.getNewGodData().isVideoGod());
+        }
+    }
+
+    public void k4(ArrayList<MediaData> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048788, this, arrayList) == null) {
+            this.X = arrayList;
+        }
+    }
+
+    public int l0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048789, this)) == null) ? this.a0 : invokeV.intValue;
+    }
+
+    public int l1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048790, this)) == null) {
             b2 b2Var = this.M0;
             if (b2Var != null) {
                 long e2 = b2Var.e();
@@ -3675,81 +3701,142 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         return invokeV.intValue;
     }
 
-    public boolean k2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048784, this)) == null) ? this.I1 : invokeV.booleanValue;
-    }
-
-    public final void k3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048785, this) == null) {
-            this.R1 = StringHelper.getFormatTimeShort(v0() * 1000);
-        }
-    }
-
-    public void k4(PollData pollData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048786, this, pollData) == null) {
-            this.C2 = pollData;
-        }
-    }
-
-    public int l0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048787, this)) == null) ? this.a0 : invokeV.intValue;
-    }
-
-    public AlaInfoData l1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048788, this)) == null) ? this.w0 : (AlaInfoData) invokeV.objValue;
-    }
-
     public boolean l2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048789, this)) == null) ? this.n1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048791, this)) == null) ? this.H1 : invokeV.booleanValue;
     }
 
-    public final void l3() {
+    public void l3() {
+        MetaData metaData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048790, this) == null) {
-            this.S1 = StringHelper.getFormatTimeShort(v0());
+        if (!(interceptable == null || interceptable.invokeV(1048792, this) == null) || F2() || Z1()) {
+            return;
         }
+        long v0 = v0() * 1000;
+        if (v0 != 0) {
+            String formatTimeForJustNow = StringHelper.getFormatTimeForJustNow(v0);
+            if (StringHelper.isThisYear(formatTimeForJustNow)) {
+                formatTimeForJustNow = StringHelper.getFormatTimeShort(v0);
+            }
+            this.P1 = formatTimeForJustNow;
+        }
+        if (p2()) {
+            k3();
+        } else if (!this.a2 && (metaData = this.T) != null && metaData.showBazhuGrade()) {
+            String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(this.T.getBazhuGradeData().getDesc(), 24, "...");
+            if (!TextUtils.isEmpty(this.P1)) {
+                this.P1 += "   " + cutChineseAndEnglishWithSuffix;
+            } else {
+                this.P1 = cutChineseAndEnglishWithSuffix;
+            }
+        }
+        if (TextUtils.isEmpty(this.P1) || TextUtils.isEmpty(A())) {
+            return;
+        }
+        this.P1 += " • " + A();
     }
 
-    public void l4(int i2) {
+    public void l4(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048791, this, i2) == null) {
-            this.Q2 = i2;
+        if (interceptable == null || interceptable.invokeL(1048793, this, str) == null) {
+            this.p = str;
         }
     }
 
     public int m0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048792, this)) == null) ? this.O : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048794, this)) == null) ? this.O : invokeV.intValue;
     }
 
-    public String m1() {
+    public AlaInfoData m1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048793, this)) == null) ? this.P1 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048795, this)) == null) ? this.w0 : (AlaInfoData) invokeV.objValue;
     }
 
     public boolean m2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048794, this)) == null) ? this.e1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048796, this)) == null) ? this.I1 : invokeV.booleanValue;
     }
 
     public final void m3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048795, this) == null) {
-            if (l1() != null && l1().share_info != null && l1().share_info.share_user_count > 0 && t2() && (this.w1 <= 0 || this.x1 != 0)) {
-                int i2 = l1().share_info.share_user_count;
+        if (interceptable == null || interceptable.invokeV(1048797, this) == null) {
+            this.R1 = StringHelper.getFormatTimeShort(v0() * 1000);
+        }
+    }
+
+    public void m4(PollData pollData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048798, this, pollData) == null) {
+            this.C2 = pollData;
+        }
+    }
+
+    public int n0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048799, this)) == null) ? this.r : invokeV.intValue;
+    }
+
+    public String n1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048800, this)) == null) ? this.P1 : (String) invokeV.objValue;
+    }
+
+    public boolean n2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048801, this)) == null) ? this.n1 : invokeV.booleanValue;
+    }
+
+    public final void n3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048802, this) == null) {
+            this.S1 = StringHelper.getFormatTimeShort(v0());
+        }
+    }
+
+    public void n4(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048803, this, i2) == null) {
+            this.Q2 = i2;
+        }
+    }
+
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048804, this)) == null) ? this.t : (String) invokeV.objValue;
+    }
+
+    public boolean o0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048805, this)) == null) ? this.W0 : invokeV.booleanValue;
+    }
+
+    public List<ThreadRecommendInfoData> o1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048806, this)) == null) ? this.O2 : (List) invokeV.objValue;
+    }
+
+    public boolean o2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048807, this)) == null) ? this.e1 : invokeV.booleanValue;
+    }
+
+    public final void o3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048808, this) == null) {
+            if (m1() != null && m1().share_info != null && m1().share_info.share_user_count > 0 && v2() && (this.w1 <= 0 || this.x1 != 0)) {
+                int i2 = m1().share_info.share_user_count;
                 if (i2 == 1) {
                     this.Q1 = TbadkCoreApplication.getInst().getString(R.string.ala_live_share_live_label_simple);
                     return;
@@ -3762,242 +3849,165 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         }
     }
 
-    public void m4(PraiseData praiseData) {
+    public void o4(PraiseData praiseData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048796, this, praiseData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048809, this, praiseData) == null) {
             this.j0 = praiseData;
-        }
-    }
-
-    public int n0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048797, this)) == null) ? this.r : invokeV.intValue;
-    }
-
-    public List<ThreadRecommendInfoData> n1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048798, this)) == null) ? this.O2 : (List) invokeV.objValue;
-    }
-
-    public boolean n2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048799, this)) == null) {
-            MetaData metaData = this.T;
-            return metaData != null && metaData.isNewGod();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void n3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048800, this) == null) {
-            SpannableStringBuilder S2 = S2();
-            this.y = S2;
-            b.a.r0.b0.m.b(this, S2, true);
-        }
-    }
-
-    public void n4(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048801, this, i2) == null) {
-            this.K = i2;
-        }
-    }
-
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048802, this)) == null) ? this.t : (String) invokeV.objValue;
-    }
-
-    public boolean o0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048803, this)) == null) ? this.W0 : invokeV.booleanValue;
-    }
-
-    public int o1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048804, this)) == null) ? this.i0 : invokeV.intValue;
-    }
-
-    public boolean o2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048805, this)) == null) ? this.i0 == 0 : invokeV.booleanValue;
-    }
-
-    public final void o3() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048806, this) == null) || StringUtils.isNull(this.T.getName_show())) {
-            return;
-        }
-        this.O1 = StringHelper.cutChineseAndEnglishWithSuffix(this.T.getName_show(), 12, "...");
-    }
-
-    public void o4(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048807, this, i2) == null) {
-            this.o = i2;
         }
     }
 
     public SpannableString p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048808, this)) == null) ? this.z : (SpannableString) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048810, this)) == null) ? this.z : (SpannableString) invokeV.objValue;
     }
 
     public int p0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048809, this)) == null) ? this.D : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048811, this)) == null) ? this.D : invokeV.intValue;
     }
 
-    public k2 p1() {
+    public int p1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048810, this)) == null) ? this.v0 : (k2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048812, this)) == null) ? this.i0 : invokeV.intValue;
     }
 
     public boolean p2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048811, this)) == null) ? this.i0 == 31 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048813, this)) == null) {
+            MetaData metaData = this.T;
+            return metaData != null && metaData.isNewGod();
+        }
+        return invokeV.booleanValue;
     }
 
-    public void p3(String str) {
+    public final void p3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048812, this, str) == null) {
-            this.t = str;
+        if (interceptable == null || interceptable.invokeV(1048814, this) == null) {
+            SpannableStringBuilder U2 = U2();
+            this.y = U2;
+            b.a.r0.b0.m.b(this, U2, true);
         }
     }
 
-    public void p4(List<PbContent> list) {
+    public void p4(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048813, this, list) == null) {
-            this.v = list;
+        if (interceptable == null || interceptable.invokeI(1048815, this, i2) == null) {
+            this.K = i2;
         }
     }
 
     public ArrayList<b> q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048814, this)) == null) ? this.G0 : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048816, this)) == null) ? this.G0 : (ArrayList) invokeV.objValue;
     }
 
     public int q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048815, this)) == null) ? this.P : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048817, this)) == null) ? this.P : invokeV.intValue;
     }
 
-    public VideoInfo q1() {
+    public k2 q1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048816, this)) == null) ? this.t0 : (VideoInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048818, this)) == null) ? this.v0 : (k2) invokeV.objValue;
     }
 
     public boolean q2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048817, this)) == null) ? this.y0 == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048819, this)) == null) ? this.i0 == 0 : invokeV.booleanValue;
     }
 
-    public void q3(ArrayList<b> arrayList) {
+    public final void q3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048818, this, arrayList) == null) {
-            this.G0 = arrayList;
+        if (!(interceptable == null || interceptable.invokeV(1048820, this) == null) || StringUtils.isNull(this.T.getName_show())) {
+            return;
         }
+        this.O1 = StringHelper.cutChineseAndEnglishWithSuffix(this.T.getName_show(), 12, "...");
     }
 
-    public void q4(List<PbContent> list) {
+    public void q4(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048819, this, list) == null) {
-            this.u = list;
+        if (interceptable == null || interceptable.invokeI(1048821, this, i2) == null) {
+            this.o = i2;
         }
     }
 
     public int r0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048820, this)) == null) ? this.N : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048822, this)) == null) ? this.N : invokeV.intValue;
     }
 
-    public VideoDesc r1() {
+    public VideoInfo r1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048821, this)) == null) ? this.u0 : (VideoDesc) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048823, this)) == null) ? this.t0 : (VideoInfo) invokeV.objValue;
     }
 
     public boolean r2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048822, this)) == null) ? o1() == 40 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048824, this)) == null) ? this.i0 == 31 : invokeV.booleanValue;
     }
 
-    public void r3(boolean z) {
+    public void r3(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048823, this, z) == null) {
-            X3(z ? 1 : 0);
+        if (interceptable == null || interceptable.invokeL(1048825, this, str) == null) {
+            this.t = str;
         }
     }
 
-    public void r4(String str) {
+    public void r4(List<PbContent> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048824, this, str) == null) {
-            this.I = str;
+        if (interceptable == null || interceptable.invokeL(1048826, this, list) == null) {
+            this.v = list;
         }
     }
 
     public Item s0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048825, this)) == null) ? this.y2 : (Item) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048827, this)) == null) ? this.y2 : (Item) invokeV.objValue;
     }
 
-    public String s1() {
+    public VideoDesc s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048826, this)) == null) {
-            if (!StringUtils.isNull(this.E) && !"0".equals(this.E)) {
-                return this.E;
-            }
-            return this.B;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048828, this)) == null) ? this.u0 : (VideoDesc) invokeV.objValue;
     }
 
     public boolean s2() {
         InterceptResult invokeV;
-        OriginalThreadInfo originalThreadInfo;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048827, this)) == null) ? (s0() == null && ((originalThreadInfo = this.y1) == null || originalThreadInfo.B == null)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048829, this)) == null) ? this.y0 == 1 : invokeV.booleanValue;
     }
 
-    public void s3(int i2) {
+    public void s3(ArrayList<b> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048828, this, i2) == null) {
-            this.o1.agreeNum = i2;
+        if (interceptable == null || interceptable.invokeL(1048830, this, arrayList) == null) {
+            this.G0 = arrayList;
         }
     }
 
-    public void s4(long j) {
+    public void s4(List<PbContent> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048829, this, j) == null) {
-            this.q1 = j;
+        if (interceptable == null || interceptable.invokeL(1048831, this, list) == null) {
+            this.u = list;
         }
     }
 
     public int t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048830, this)) == null) {
-            if (!I1() || this.G0.size() < 1) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048832, this)) == null) {
+            if (!K1() || this.G0.size() < 1) {
                 return -1;
             }
             b bVar = this.G0.get(0);
@@ -4019,104 +4029,112 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public List<HeadItem> t0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048831, this)) == null) ? this.A2 : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048833, this)) == null) ? this.A2 : (List) invokeV.objValue;
     }
 
-    @Nullable
-    public List<b.a.q0.f1.p.a> t1() {
+    public String t1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048832, this)) == null) ? this.A : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048834, this)) == null) {
+            if (!StringUtils.isNull(this.E) && !"0".equals(this.E)) {
+                return this.E;
+            }
+            return this.B;
+        }
+        return (String) invokeV.objValue;
     }
 
     public boolean t2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048833, this)) == null) ? o1() == 60 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048835, this)) == null) ? p1() == 40 : invokeV.booleanValue;
     }
 
-    public void t3(long j) {
+    public void t3(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048834, this, j) == null) {
-            this.o1.agreeNum = j;
+        if (interceptable == null || interceptable.invokeZ(1048836, this, z) == null) {
+            Z3(z ? 1 : 0);
         }
     }
 
-    public void t4(boolean z) {
+    public void t4(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048835, this, z) == null) {
-            this.N1 = z;
+        if (interceptable == null || interceptable.invokeL(1048837, this, str) == null) {
+            this.I = str;
         }
     }
 
     public long u0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048836, this)) == null) ? this.d1 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048838, this)) == null) ? this.d1 : invokeV.longValue;
     }
 
-    public SpannableStringBuilder u1() {
+    @Nullable
+    public List<b.a.q0.e1.p.a> u1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048837, this)) == null) ? this.y : (SpannableStringBuilder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048839, this)) == null) ? this.A : (List) invokeV.objValue;
     }
 
     public boolean u2() {
         InterceptResult invokeV;
+        OriginalThreadInfo originalThreadInfo;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048838, this)) == null) ? (I2() || E2()) && !StringUtils.isNull(this.U) && this.a2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048840, this)) == null) ? (s0() == null && ((originalThreadInfo = this.y1) == null || originalThreadInfo.B == null)) ? false : true : invokeV.booleanValue;
     }
 
     public void u3(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048839, this, i2) == null) {
-            this.o1.agreeType = i2;
+        if (interceptable == null || interceptable.invokeI(1048841, this, i2) == null) {
+            this.o1.agreeNum = i2;
         }
     }
 
-    public void u4(int i2) {
+    public void u4(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048840, this, i2) == null) {
-            this.j1 = i2;
+        if (interceptable == null || interceptable.invokeJ(1048842, this, j) == null) {
+            this.q1 = j;
         }
     }
 
     public long v0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048841, this)) == null) ? this.M : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048843, this)) == null) ? this.M : invokeV.longValue;
     }
 
-    public PostData v1() {
+    public SpannableStringBuilder v1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048842, this)) == null) ? this.p1 : (PostData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048844, this)) == null) ? this.y : (SpannableStringBuilder) invokeV.objValue;
     }
 
     public boolean v2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048843, this)) == null) ? this.N1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048845, this)) == null) ? p1() == 60 : invokeV.booleanValue;
     }
 
-    public void v3(int i2) {
+    public void v3(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048844, this, i2) == null) {
-            this.x0 = i2;
+        if (interceptable == null || interceptable.invokeJ(1048846, this, j) == null) {
+            this.o1.agreeNum = j;
         }
     }
 
-    public void v4(int i2) {
+    public void v4(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048845, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048847, this, z) == null) {
+            this.N1 = z;
         }
     }
 
     public int w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048846, this)) == null) {
-            if (!I1() || this.G0.size() < 1 || this.G0.get(0) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048848, this)) == null) {
+            if (!K1() || this.G0.size() < 1 || this.G0.get(0) == null) {
                 return -1;
             }
             return this.G0.get(0).a();
@@ -4127,75 +4145,69 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public String w0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048847, this)) == null) ? this.n0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048849, this)) == null) ? this.n0 : (String) invokeV.objValue;
     }
 
-    public h2 w1() {
+    public PostData w1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048848, this)) == null) ? this.R : (h2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048850, this)) == null) ? this.p1 : (PostData) invokeV.objValue;
     }
 
     public boolean w2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048849, this)) == null) {
-            int i2 = this.i0;
-            return i2 == 63 || i2 == 64;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048851, this)) == null) ? (K2() || G2()) && !StringUtils.isNull(this.U) && this.a2 : invokeV.booleanValue;
     }
 
-    public void w3(String str) {
+    public void w3(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048850, this, str) == null) {
-            this.n2 = str;
+        if (interceptable == null || interceptable.invokeI(1048852, this, i2) == null) {
+            this.o1.agreeType = i2;
         }
     }
 
-    public void w4(String str, String str2) {
+    public void w4(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048851, this, str, str2) == null) {
-            this.P0 = str;
-            this.Q0 = str2;
+        if (interceptable == null || interceptable.invokeI(1048853, this, i2) == null) {
+            this.j1 = i2;
         }
     }
 
     public String x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048852, this)) == null) ? (!I1() || this.G0.size() < 1 || this.G0.get(0) == null) ? "" : this.G0.get(0).g() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048854, this)) == null) ? (!K1() || this.G0.size() < 1 || this.G0.get(0) == null) ? "" : this.G0.get(0).g() : (String) invokeV.objValue;
     }
 
     public String x0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048853, this)) == null) ? this.P0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048855, this)) == null) ? this.P0 : (String) invokeV.objValue;
     }
 
-    public TopicModule x1() {
+    public h2 x1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048854, this)) == null) ? this.D1 : (TopicModule) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048856, this)) == null) ? this.R : (h2) invokeV.objValue;
     }
 
     public boolean x2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048855, this)) == null) ? this.Y1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048857, this)) == null) ? this.N1 : invokeV.booleanValue;
     }
 
-    public void x3(MetaData metaData) {
+    public void x3(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048856, this, metaData) == null) {
-            this.T = metaData;
+        if (interceptable == null || interceptable.invokeI(1048858, this, i2) == null) {
+            this.x0 = i2;
         }
     }
 
-    public void x4(AlaInfoData alaInfoData) {
+    public void x4(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048857, this, alaInfoData) == null) {
-            this.w0 = alaInfoData;
+        if (interceptable == null || interceptable.invokeI(1048859, this, i2) == null) {
         }
     }
 
@@ -4203,7 +4215,7 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048858, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048860, this)) == null) {
             List<PbContent> list = this.u;
             if (list == null || list.size() <= 0) {
                 return null;
@@ -4211,9 +4223,9 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
             int size = this.u.size();
             for (int i2 = 0; i2 < size; i2++) {
                 PbContent pbContent = this.u.get(i2);
-                if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && E2() && (str = pbContent.text) != null && str.length() >= 3) {
+                if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && G2() && (str = pbContent.text) != null && str.length() >= 3) {
                     ActivityItemData activityItemData = new ActivityItemData();
-                    activityItemData.link_url = b.a.q0.t0.b.d(pbContent.text);
+                    activityItemData.link_url = b.a.q0.s0.b.d(pbContent.text);
                     String str2 = pbContent.text;
                     activityItemData.activity_name = str2.substring(1, str2.length() - 2);
                     return activityItemData;
@@ -4227,70 +4239,75 @@ public class d2 extends a implements PreLoadImageProvider, b.a.e.l.e.n, IVideoDa
     public String y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048859, this)) == null) ? this.T0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048861, this)) == null) ? this.T0 : (String) invokeV.objValue;
     }
 
-    public String y1() {
+    public TopicModule y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048860, this)) == null) ? this.F1 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048862, this)) == null) ? this.D1 : (TopicModule) invokeV.objValue;
     }
 
     public boolean y2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048861, this)) == null) ? this.Z == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048863, this)) == null) {
+            int i2 = this.i0;
+            return i2 == 63 || i2 == 64;
+        }
+        return invokeV.booleanValue;
     }
 
-    public void y3(BaijiahaoData baijiahaoData) {
+    public void y3(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048862, this, baijiahaoData) == null) {
-            this.p2 = baijiahaoData;
+        if (interceptable == null || interceptable.invokeL(1048864, this, str) == null) {
+            this.n2 = str;
         }
     }
 
-    public void y4(String str) {
+    public void y4(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048863, this, str) == null) {
-            this.P1 = str;
+        if (interceptable == null || interceptable.invokeLL(1048865, this, str, str2) == null) {
+            this.P0 = str;
+            this.Q0 = str2;
         }
     }
 
     public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048864, this)) == null) ? this.W : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048866, this)) == null) ? this.W : (String) invokeV.objValue;
     }
 
     public String z0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048865, this)) == null) ? this.O1 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048867, this)) == null) ? this.O1 : (String) invokeV.objValue;
     }
 
     public String z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048866, this)) == null) ? this.E1 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048868, this)) == null) ? this.F1 : (String) invokeV.objValue;
     }
 
     public boolean z2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048867, this)) == null) ? this.R2 || this.V2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048869, this)) == null) ? this.Y1 : invokeV.booleanValue;
     }
 
-    public void z3(int i2) {
+    public void z3(MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048868, this, i2) == null) {
-            this.L0 = i2;
+        if (interceptable == null || interceptable.invokeL(1048870, this, metaData) == null) {
+            this.T = metaData;
         }
     }
 
-    public void z4(int i2) {
+    public void z4(AlaInfoData alaInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048869, this, i2) == null) {
-            this.i0 = i2;
+        if (interceptable == null || interceptable.invokeL(1048871, this, alaInfoData) == null) {
+            this.w0 = alaInfoData;
         }
     }
 }

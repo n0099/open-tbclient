@@ -4,7 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import b.a.q0.s.s.a;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -15,21 +15,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f27259e;
+        public final /* synthetic */ e f28762e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BubbleListData.BubbleData f27260f;
+        public final /* synthetic */ BubbleListData.BubbleData f28763f;
 
         public a(e eVar, BubbleListData.BubbleData bubbleData) {
             Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public class c {
                     return;
                 }
             }
-            this.f27259e = eVar;
-            this.f27260f = bubbleData;
+            this.f28762e = eVar;
+            this.f28763f = bubbleData;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -55,21 +55,21 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                e eVar = this.f27259e;
+                e eVar = this.f28762e;
                 if (eVar != null) {
-                    eVar.a(this.f27260f.getBcode());
+                    eVar.a(this.f28763f.getBcode());
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f27261e;
+        public final /* synthetic */ e f28764e;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public class c {
                     return;
                 }
             }
-            this.f27261e = eVar;
+            this.f28764e = eVar;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -94,7 +94,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                e eVar = this.f27261e;
+                e eVar = this.f28764e;
                 if (eVar != null) {
                     eVar.b();
                 }
@@ -103,18 +103,18 @@ public class c {
     }
 
     /* renamed from: b.a.r0.y1.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C1341c implements a.e {
+    /* loaded from: classes6.dex */
+    public static class C1408c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f27262e;
+        public final /* synthetic */ e f28765e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BubbleListData.BubbleData f27263f;
+        public final /* synthetic */ BubbleListData.BubbleData f28766f;
 
-        public C1341c(e eVar, BubbleListData.BubbleData bubbleData) {
+        public C1408c(e eVar, BubbleListData.BubbleData bubbleData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,8 +129,8 @@ public class c {
                     return;
                 }
             }
-            this.f27262e = eVar;
-            this.f27263f = bubbleData;
+            this.f28765e = eVar;
+            this.f28766f = bubbleData;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -138,21 +138,21 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                e eVar = this.f27262e;
+                e eVar = this.f28765e;
                 if (eVar != null) {
-                    eVar.a(this.f27263f.getBcode());
+                    eVar.a(this.f28766f.getBcode());
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class d implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f27264e;
+        public final /* synthetic */ e f28767e;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public class c {
                     return;
                 }
             }
-            this.f27264e = eVar;
+            this.f28767e = eVar;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -177,7 +177,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                e eVar = this.f27264e;
+                e eVar = this.f28767e;
                 if (eVar != null) {
                     eVar.b();
                 }
@@ -185,7 +185,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface e {
         void a(int i2);
 
@@ -226,7 +226,7 @@ public class c {
         b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(tbPageContext.getPageActivity());
         aVar.setCanceledOnTouchOutside(false);
         aVar.setMessage(String.format(tbPageContext.getString(R.string.bubble_pay_dialog_text), bubbleData.getLevel_name()));
-        aVar.setPositiveButton(R.string.open_now, new C1341c(eVar, bubbleData));
+        aVar.setPositiveButton(R.string.open_now, new C1408c(eVar, bubbleData));
         aVar.setNegativeButton(R.string.cancel, new d(eVar));
         aVar.create(tbPageContext);
         aVar.show();

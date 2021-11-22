@@ -13,10 +13,10 @@ public class k2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f13385a;
+    public long f14165a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13386b;
+    public String f14166b;
 
     public k2() {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class k2 {
             return;
         }
         try {
-            this.f13385a = jSONObject.optLong("channel_id", 0L);
-            this.f13386b = jSONObject.optString("channel_name");
+            this.f14165a = jSONObject.optLong("channel_id", 0L);
+            this.f14166b = jSONObject.optString("channel_name");
             jSONObject.optString("channel_avatar");
         } catch (Exception unused) {
         }
@@ -50,8 +50,8 @@ public class k2 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoChannelInfo) == null) || videoChannelInfo == null || videoChannelInfo.channel_id.longValue() <= 0) {
             return;
         }
-        this.f13385a = videoChannelInfo.channel_id.longValue();
-        this.f13386b = videoChannelInfo.channel_name;
+        this.f14165a = videoChannelInfo.channel_id.longValue();
+        this.f14166b = videoChannelInfo.channel_name;
         String str = videoChannelInfo.channel_avatar;
     }
 }

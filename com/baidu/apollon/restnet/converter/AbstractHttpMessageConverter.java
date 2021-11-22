@@ -15,7 +15,7 @@ public abstract class AbstractHttpMessageConverter<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f36114a;
+    public String f36943a;
 
     public AbstractHttpMessageConverter() {
         Interceptable interceptable = $ic;
@@ -30,13 +30,13 @@ public abstract class AbstractHttpMessageConverter<T> {
                 return;
             }
         }
-        this.f36114a = "";
+        this.f36943a = "";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36114a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36943a : (String) invokeV.objValue;
     }
 
     public abstract T b(Class<?> cls, e eVar) throws IOException, RestRuntimeException;
@@ -44,7 +44,7 @@ public abstract class AbstractHttpMessageConverter<T> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f36114a = str;
+            this.f36943a = str;
         }
     }
 

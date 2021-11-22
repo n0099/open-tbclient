@@ -13,7 +13,7 @@ public class b implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, String> f70015a;
+    public final HashMap<String, String> f70935a;
 
     public b(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -30,10 +30,10 @@ public class b implements Serializable {
                 return;
             }
         }
-        this.f70015a = new HashMap<>();
+        this.f70935a = new HashMap<>();
         if (bundle != null) {
             for (String str : bundle.keySet()) {
-                this.f70015a.put(str, bundle.getString(str));
+                this.f70935a.put(str, bundle.getString(str));
             }
         }
     }

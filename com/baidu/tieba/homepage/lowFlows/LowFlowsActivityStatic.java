@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.lowFlows;
 
-import b.a.r0.l3.f0.a;
+import b.a.r0.m3.f0.a;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;

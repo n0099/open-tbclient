@@ -13,7 +13,7 @@ public class iw {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public jb f71317a;
+    public jb f72237a;
 
     /* renamed from: a  reason: collision with other field name */
     public final ji f806a;
@@ -58,7 +58,7 @@ public class iw {
         this.f807a = byteArrayOutputStream;
         ji jiVar = new ji(byteArrayOutputStream);
         this.f806a = jiVar;
-        this.f71317a = jdVar.a(jiVar);
+        this.f72237a = jdVar.a(jiVar);
     }
 
     public byte[] a(iq iqVar) {
@@ -66,7 +66,7 @@ public class iw {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iqVar)) == null) {
             this.f807a.reset();
-            iqVar.b(this.f71317a);
+            iqVar.b(this.f72237a);
             return this.f807a.toByteArray();
         }
         return (byte[]) invokeL.objValue;

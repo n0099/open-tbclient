@@ -16,10 +16,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f21432a;
+    public int f22928a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f21433b;
+    public int f22929b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -34,20 +34,20 @@ public class b {
                 return;
             }
         }
-        this.f21432a = -1;
-        this.f21433b = 0;
+        this.f22928a = -1;
+        this.f22929b = 0;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21433b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22929b : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21432a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22928a : invokeV.intValue;
     }
 
     public void c(String str) {
@@ -57,11 +57,11 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f21432a = jSONObject.optInt("error_code", -1);
+            this.f22928a = jSONObject.optInt("error_code", -1);
             jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.f21433b = optJSONObject.optInt("msg_count");
+                this.f22929b = optJSONObject.optInt("msg_count");
             }
         } catch (JSONException e2) {
             e2.printStackTrace();

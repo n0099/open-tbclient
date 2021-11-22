@@ -20,13 +20,13 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21970e;
+    public Context f23469e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<b.a.r0.o1.b.a> f21971f;
+    public List<b.a.r0.o1.b.a> f23470f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f21972g;
+    public View.OnClickListener f23471g;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f21971f = new ArrayList();
-        this.f21970e = context;
+        this.f23470f = new ArrayList();
+        this.f23469e = context;
     }
 
     public void a(List<b.a.r0.o1.b.a> list) {
@@ -52,14 +52,14 @@ public class a extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f21971f = list;
+        this.f23470f = list;
         notifyDataSetChanged();
     }
 
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f21972g = onClickListener;
+            this.f23471g = onClickListener;
         }
     }
 
@@ -68,7 +68,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int size = this.f21971f.size();
+            int size = this.f23470f.size();
             int i2 = size % 3;
             int i3 = size / 3;
             return i2 == 0 ? i3 : i3 + 1;
@@ -103,13 +103,13 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                labelItemView = new LabelItemView(this.f21970e);
+                labelItemView = new LabelItemView(this.f23469e);
             } else {
                 labelItemView = (LabelItemView) view;
             }
             int i3 = i2 * 3;
-            labelItemView.setData(this.f21971f.subList(i3, Math.min(this.f21971f.size(), i3 + 3)), i2 == getCount() - 1);
-            labelItemView.setOnClickListener(this.f21972g);
+            labelItemView.setData(this.f23470f.subList(i3, Math.min(this.f23470f.size(), i3 + 3)), i2 == getCount() - 1);
+            labelItemView.setOnClickListener(this.f23471g);
             return labelItemView;
         }
         return (View) invokeILL.objValue;

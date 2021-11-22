@@ -45,6 +45,7 @@ public final class R {
         public static final int roundingBorderColor = 0x7f04035f;
         public static final int roundingBorderPadding = 0x7f040360;
         public static final int roundingBorderWidth = 0x7f040361;
+        public static final int svgImage = 0x7f040541;
         public static final int viewAspectRatio = 0x7f040489;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,16 +67,16 @@ public final class R {
     /* loaded from: classes11.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int center = 0x7f09062e;
-        public static final int centerCrop = 0x7f090632;
-        public static final int centerInside = 0x7f090633;
-        public static final int fitBottomStart = 0x7f090b21;
-        public static final int fitCenter = 0x7f090b22;
-        public static final int fitEnd = 0x7f090b23;
-        public static final int fitStart = 0x7f090b24;
-        public static final int fitXY = 0x7f090b26;
-        public static final int focusCrop = 0x7f090b50;
-        public static final int none = 0x7f09165a;
+        public static final int center = 0x7f09062d;
+        public static final int centerCrop = 0x7f090631;
+        public static final int centerInside = 0x7f090632;
+        public static final int fitBottomStart = 0x7f090b0a;
+        public static final int fitCenter = 0x7f090b0b;
+        public static final int fitEnd = 0x7f090b0c;
+        public static final int fitStart = 0x7f090b0d;
+        public static final int fitXY = 0x7f090b0f;
+        public static final int focusCrop = 0x7f090b39;
+        public static final int none = 0x7f091640;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -157,6 +158,7 @@ public final class R {
         public static final int SimpleDraweeView_roundingBorderColor = 0x0000001b;
         public static final int SimpleDraweeView_roundingBorderPadding = 0x0000001c;
         public static final int SimpleDraweeView_roundingBorderWidth = 0x0000001d;
+        public static final int SimpleDraweeView_svgImage = 0x0000001f;
         public static final int SimpleDraweeView_viewAspectRatio = 0x0000001e;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -174,7 +176,7 @@ public final class R {
                 }
             }
             GenericDraweeHierarchy = new int[]{com.baidu.tieba.R.attr.actualImageScaleType, com.baidu.tieba.R.attr.backgroundImage, com.baidu.tieba.R.attr.fadeDuration, com.baidu.tieba.R.attr.failureImage, com.baidu.tieba.R.attr.failureImageScaleType, com.baidu.tieba.R.attr.overlayImage, com.baidu.tieba.R.attr.placeholderImage, com.baidu.tieba.R.attr.placeholderImageScaleType, com.baidu.tieba.R.attr.pressedStateOverlayImage, com.baidu.tieba.R.attr.progressBarAutoRotateInterval, com.baidu.tieba.R.attr.progressBarImage, com.baidu.tieba.R.attr.progressBarImageScaleType, com.baidu.tieba.R.attr.retryImage, com.baidu.tieba.R.attr.retryImageScaleType, com.baidu.tieba.R.attr.roundAsCircle, com.baidu.tieba.R.attr.roundBottomEnd, com.baidu.tieba.R.attr.roundBottomLeft, com.baidu.tieba.R.attr.roundBottomRight, com.baidu.tieba.R.attr.roundBottomStart, com.baidu.tieba.R.attr.roundTopEnd, com.baidu.tieba.R.attr.roundTopLeft, com.baidu.tieba.R.attr.roundTopRight, com.baidu.tieba.R.attr.roundTopStart, com.baidu.tieba.R.attr.roundWithOverlayColor, com.baidu.tieba.R.attr.roundedCornerRadius, com.baidu.tieba.R.attr.roundingBorderColor, com.baidu.tieba.R.attr.roundingBorderPadding, com.baidu.tieba.R.attr.roundingBorderWidth, com.baidu.tieba.R.attr.viewAspectRatio};
-            SimpleDraweeView = new int[]{com.baidu.tieba.R.attr.actualImageResource, com.baidu.tieba.R.attr.actualImageScaleType, com.baidu.tieba.R.attr.actualImageUri, com.baidu.tieba.R.attr.backgroundImage, com.baidu.tieba.R.attr.fadeDuration, com.baidu.tieba.R.attr.failureImage, com.baidu.tieba.R.attr.failureImageScaleType, com.baidu.tieba.R.attr.overlayImage, com.baidu.tieba.R.attr.placeholderImage, com.baidu.tieba.R.attr.placeholderImageScaleType, com.baidu.tieba.R.attr.pressedStateOverlayImage, com.baidu.tieba.R.attr.progressBarAutoRotateInterval, com.baidu.tieba.R.attr.progressBarImage, com.baidu.tieba.R.attr.progressBarImageScaleType, com.baidu.tieba.R.attr.retryImage, com.baidu.tieba.R.attr.retryImageScaleType, com.baidu.tieba.R.attr.roundAsCircle, com.baidu.tieba.R.attr.roundBottomEnd, com.baidu.tieba.R.attr.roundBottomLeft, com.baidu.tieba.R.attr.roundBottomRight, com.baidu.tieba.R.attr.roundBottomStart, com.baidu.tieba.R.attr.roundTopEnd, com.baidu.tieba.R.attr.roundTopLeft, com.baidu.tieba.R.attr.roundTopRight, com.baidu.tieba.R.attr.roundTopStart, com.baidu.tieba.R.attr.roundWithOverlayColor, com.baidu.tieba.R.attr.roundedCornerRadius, com.baidu.tieba.R.attr.roundingBorderColor, com.baidu.tieba.R.attr.roundingBorderPadding, com.baidu.tieba.R.attr.roundingBorderWidth, com.baidu.tieba.R.attr.viewAspectRatio};
+            SimpleDraweeView = new int[]{com.baidu.tieba.R.attr.actualImageResource, com.baidu.tieba.R.attr.actualImageScaleType, com.baidu.tieba.R.attr.actualImageUri, com.baidu.tieba.R.attr.backgroundImage, com.baidu.tieba.R.attr.fadeDuration, com.baidu.tieba.R.attr.failureImage, com.baidu.tieba.R.attr.failureImageScaleType, com.baidu.tieba.R.attr.overlayImage, com.baidu.tieba.R.attr.placeholderImage, com.baidu.tieba.R.attr.placeholderImageScaleType, com.baidu.tieba.R.attr.pressedStateOverlayImage, com.baidu.tieba.R.attr.progressBarAutoRotateInterval, com.baidu.tieba.R.attr.progressBarImage, com.baidu.tieba.R.attr.progressBarImageScaleType, com.baidu.tieba.R.attr.retryImage, com.baidu.tieba.R.attr.retryImageScaleType, com.baidu.tieba.R.attr.roundAsCircle, com.baidu.tieba.R.attr.roundBottomEnd, com.baidu.tieba.R.attr.roundBottomLeft, com.baidu.tieba.R.attr.roundBottomRight, com.baidu.tieba.R.attr.roundBottomStart, com.baidu.tieba.R.attr.roundTopEnd, com.baidu.tieba.R.attr.roundTopLeft, com.baidu.tieba.R.attr.roundTopRight, com.baidu.tieba.R.attr.roundTopStart, com.baidu.tieba.R.attr.roundWithOverlayColor, com.baidu.tieba.R.attr.roundedCornerRadius, com.baidu.tieba.R.attr.roundingBorderColor, com.baidu.tieba.R.attr.roundingBorderPadding, com.baidu.tieba.R.attr.roundingBorderWidth, com.baidu.tieba.R.attr.viewAspectRatio, com.baidu.tieba.R.attr.svgImage};
         }
 
         public styleable() {

@@ -16,19 +16,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<AudioPlayData> f29564a;
+    public List<AudioPlayData> f30433a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<AudioPlayData> f29565b;
+    public List<AudioPlayData> f30434b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.x0.i.g.a f29566c;
+    public b.a.x0.i.g.a f30435c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29567d;
+    public int f30436d;
 
     /* renamed from: e  reason: collision with root package name */
-    public InterfaceC1423b f29568e;
+    public InterfaceC1465b f30437e;
 
     /* loaded from: classes6.dex */
     public class a extends b.a.x0.l.d.j.c.a {
@@ -36,13 +36,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f29569e;
+        public final /* synthetic */ String f30438e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AudioPlayData f29570f;
+        public final /* synthetic */ AudioPlayData f30439f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f29571g;
+        public final /* synthetic */ b f30440g;
 
         public a(b bVar, String str, AudioPlayData audioPlayData) {
             Interceptable interceptable = $ic;
@@ -59,31 +59,31 @@ public class b {
                     return;
                 }
             }
-            this.f29571g = bVar;
-            this.f29569e = str;
-            this.f29570f = audioPlayData;
+            this.f30440g = bVar;
+            this.f30438e = str;
+            this.f30439f = audioPlayData;
         }
 
         @Override // b.a.x0.l.d.j.c.a, b.a.x0.l.d.j.b
         public void onExceptionThrown(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f29571g.f29568e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f30440g.f30437e == null) {
                 return;
             }
-            this.f29571g.f29568e.onFailed(str);
+            this.f30440g.f30437e.onFailed(str);
         }
 
         @Override // b.a.x0.l.d.j.c.a
         public void onFinishedWriting(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                AudioPlayData audioPlayData = new AudioPlayData(this.f29569e, 0, (int) x.b(this.f29569e), this.f29570f.volume);
-                if (this.f29571g.f29565b == null) {
-                    this.f29571g.f29565b = new ArrayList();
+                AudioPlayData audioPlayData = new AudioPlayData(this.f30438e, 0, (int) x.b(this.f30438e), this.f30439f.volume);
+                if (this.f30440g.f30434b == null) {
+                    this.f30440g.f30434b = new ArrayList();
                 }
-                this.f29571g.f29565b.add(audioPlayData);
-                b.c(this.f29571g);
-                this.f29571g.f();
+                this.f30440g.f30434b.add(audioPlayData);
+                b.c(this.f30440g);
+                this.f30440g.f();
             }
         }
 
@@ -104,7 +104,7 @@ public class b {
 
     /* renamed from: b.a.x0.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1423b {
+    public interface InterfaceC1465b {
         void onFailed(String str);
 
         void onSuccess(List<AudioPlayData> list);
@@ -125,8 +125,8 @@ public class b {
     }
 
     public static /* synthetic */ int c(b bVar) {
-        int i2 = bVar.f29567d;
-        bVar.f29567d = i2 + 1;
+        int i2 = bVar.f30436d;
+        bVar.f30436d = i2 + 1;
         return i2;
     }
 
@@ -135,46 +135,46 @@ public class b {
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (b.a.x0.t.h.c(this.f29564a, this.f29567d) == null) {
-                InterfaceC1423b interfaceC1423b = this.f29568e;
-                if (interfaceC1423b != null) {
-                    interfaceC1423b.onSuccess(this.f29565b);
+            if (b.a.x0.t.h.c(this.f30433a, this.f30436d) == null) {
+                InterfaceC1465b interfaceC1465b = this.f30437e;
+                if (interfaceC1465b != null) {
+                    interfaceC1465b.onSuccess(this.f30434b);
                     return;
                 }
                 return;
             }
-            AudioPlayData audioPlayData2 = this.f29564a.get(this.f29567d);
+            AudioPlayData audioPlayData2 = this.f30433a.get(this.f30436d);
             if (!FileUtils.isExists(audioPlayData2.audioPath)) {
                 String str = audioPlayData2.audioPath;
                 int i2 = audioPlayData2.start;
                 audioPlayData = new AudioPlayData(str, i2, audioPlayData2.end - i2, audioPlayData2.volume);
-                if (this.f29565b == null) {
+                if (this.f30434b == null) {
                     arrayList = new ArrayList();
-                    this.f29565b = arrayList;
+                    this.f30434b = arrayList;
                 }
-                this.f29565b.add(audioPlayData);
-                this.f29567d++;
+                this.f30434b.add(audioPlayData);
+                this.f30436d++;
                 f();
             } else if (audioPlayData2.mSpeed == 1.0f) {
                 audioPlayData = new AudioPlayData(audioPlayData2.audioPath, audioPlayData2.start, audioPlayData2.end, audioPlayData2.volume);
-                if (this.f29565b == null) {
+                if (this.f30434b == null) {
                     arrayList = new ArrayList();
-                    this.f29565b = arrayList;
+                    this.f30434b = arrayList;
                 }
-                this.f29565b.add(audioPlayData);
-                this.f29567d++;
+                this.f30434b.add(audioPlayData);
+                this.f30436d++;
                 f();
             } else {
                 String str2 = FileUtils.removeExtention(audioPlayData2.audioPath) + "_speed.aac";
                 try {
                     b.a.x0.i.g.a aVar = new b.a.x0.i.g.a(audioPlayData2.audioPath, str2, null);
-                    this.f29566c = aVar;
+                    this.f30435c = aVar;
                     aVar.S(new a(this, str2, audioPlayData2));
-                    this.f29566c.D(null);
-                    this.f29566c.G(audioPlayData2.mSpeed);
-                    this.f29566c.B(audioPlayData2.start);
-                    this.f29566c.R(audioPlayData2.end);
-                    this.f29566c.I();
+                    this.f30435c.D(null);
+                    this.f30435c.G(audioPlayData2.mSpeed);
+                    this.f30435c.B(audioPlayData2.start);
+                    this.f30435c.R(audioPlayData2.end);
+                    this.f30435c.I();
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -182,17 +182,17 @@ public class b {
         }
     }
 
-    public void g(InterfaceC1423b interfaceC1423b) {
+    public void g(InterfaceC1465b interfaceC1465b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1423b) == null) {
-            this.f29568e = interfaceC1423b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1465b) == null) {
+            this.f30437e = interfaceC1465b;
         }
     }
 
     public void h(List<AudioPlayData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f29564a = list;
+            this.f30433a = list;
         }
     }
 

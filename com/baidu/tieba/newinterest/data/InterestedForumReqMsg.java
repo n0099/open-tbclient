@@ -1,7 +1,7 @@
 package com.baidu.tieba.newinterest.data;
 
 import b.a.q0.b.d;
-import b.a.q0.d1.z;
+import b.a.q0.c1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;

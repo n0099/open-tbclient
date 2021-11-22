@@ -13,10 +13,10 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f13770a;
+    public g f14538a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f13771b;
+    public g f14539b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -35,13 +35,13 @@ public class f {
     public g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13770a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14538a : (g) invokeV.objValue;
     }
 
     public g b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13771b : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14539b : (g) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -52,14 +52,14 @@ public class f {
         JSONObject optJSONObject = jSONObject.optJSONObject("homepage");
         if (optJSONObject != null) {
             g gVar = new g();
-            this.f13770a = gVar;
+            this.f14538a = gVar;
             gVar.p = 1;
             gVar.c(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("pb");
         if (optJSONObject2 != null) {
             g gVar2 = new g();
-            this.f13771b = gVar2;
+            this.f14539b = gVar2;
             gVar2.p = 2;
             gVar2.c(optJSONObject2);
         }

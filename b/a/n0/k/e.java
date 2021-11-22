@@ -17,17 +17,17 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f3701b = null;
+    public static e f3791b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f3702c = Integer.MAX_VALUE;
+    public static int f3792c = Integer.MAX_VALUE;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f3703d = 120;
+    public static long f3793d = 120;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f3704a;
+    public ThreadPoolExecutor f3794a;
 
     /* loaded from: classes.dex */
     public class a implements FileFilter {
@@ -72,8 +72,8 @@ public class e {
             }
         }
         int a2 = (a() / 2) + 2;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(a2 > 3 ? 3 : a2, f3702c, f3703d, TimeUnit.SECONDS, new PriorityBlockingQueue());
-        this.f3704a = threadPoolExecutor;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(a2 > 3 ? 3 : a2, f3792c, f3793d, TimeUnit.SECONDS, new PriorityBlockingQueue());
+        this.f3794a = threadPoolExecutor;
         threadPoolExecutor.setThreadFactory(new d());
     }
 
@@ -82,11 +82,11 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (e.class) {
-                if (f3701b == null) {
-                    f3701b = new e();
+                if (f3791b == null) {
+                    f3791b = new e();
                 }
             }
-            return f3701b;
+            return f3791b;
         }
         return (e) invokeV.objValue;
     }
@@ -108,7 +108,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             try {
-                this.f3704a.execute(aVar);
+                this.f3794a.execute(aVar);
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
             }

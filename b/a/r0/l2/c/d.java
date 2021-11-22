@@ -25,31 +25,31 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f20496a;
+    public String f22018a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f20497b;
+    public String f22019b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f20498c;
+    public String f22020c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f20499d;
+    public boolean f22021d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20500e;
+    public int f22022e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20501f;
+    public int f22023f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20502g;
+    public int f22024g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<b.a.r0.l2.c.a> f20503h;
+    public final List<b.a.r0.l2.c.a> f22025h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f20504i;
+    public b f22026i;
     public final HttpMessageListener j;
 
     /* loaded from: classes5.dex */
@@ -58,7 +58,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f20505a;
+        public final /* synthetic */ d f22027a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2) {
@@ -78,7 +78,7 @@ public class d {
                     return;
                 }
             }
-            this.f20505a = dVar;
+            this.f22027a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -87,18 +87,18 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001400) {
-                    if (this.f20505a.f20504i != null) {
-                        this.f20505a.f20504i.onLoadFailed(null);
+                    if (this.f22027a.f22026i != null) {
+                        this.f22027a.f22026i.onLoadFailed(null);
                     }
                 } else if (httpResponsedMessage.getError() != 0 || !(httpResponsedMessage instanceof PraiseListResponsedMessage)) {
-                    if (this.f20505a.f20504i != null) {
-                        this.f20505a.f20504i.onLoadFailed(null);
+                    if (this.f22027a.f22026i != null) {
+                        this.f22027a.f22026i.onLoadFailed(null);
                     }
                 } else {
                     PraiseListResponsedMessage praiseListResponsedMessage = (PraiseListResponsedMessage) httpResponsedMessage;
                     if (praiseListResponsedMessage.getError() != 0) {
-                        if (this.f20505a.f20504i != null) {
-                            this.f20505a.f20504i.onLoadFailed(praiseListResponsedMessage.getErrMsg());
+                        if (this.f22027a.f22026i != null) {
+                            this.f22027a.f22026i.onLoadFailed(praiseListResponsedMessage.getErrMsg());
                             return;
                         }
                         return;
@@ -106,19 +106,19 @@ public class d {
                     List<b.a.r0.l2.c.a> list = praiseListResponsedMessage.getmZanItemDataList();
                     if (list != null) {
                         for (b.a.r0.l2.c.a aVar : list) {
-                            this.f20505a.f20503h.add(aVar);
+                            this.f22027a.f22025h.add(aVar);
                         }
                     }
-                    d dVar = this.f20505a;
-                    dVar.f20502g = dVar.f20503h.size();
-                    this.f20505a.f20501f = praiseListResponsedMessage.getTotalNum();
-                    d.h(this.f20505a);
-                    int i2 = this.f20505a.f20500e > 5 ? 1003 : 1001;
-                    if (this.f20505a.f20502g >= this.f20505a.f20501f) {
+                    d dVar = this.f22027a;
+                    dVar.f22024g = dVar.f22025h.size();
+                    this.f22027a.f22023f = praiseListResponsedMessage.getTotalNum();
+                    d.h(this.f22027a);
+                    int i2 = this.f22027a.f22022e > 5 ? 1003 : 1001;
+                    if (this.f22027a.f22024g >= this.f22027a.f22023f) {
                         i2 = 1002;
                     }
-                    if (this.f20505a.f20504i != null) {
-                        this.f20505a.f20504i.onLoadSuccessed(this.f20505a.f20501f, this.f20505a.f20503h, i2, this.f20505a.f20501f - this.f20505a.f20502g);
+                    if (this.f22027a.f22026i != null) {
+                        this.f22027a.f22026i.onLoadSuccessed(this.f22027a.f22023f, this.f22027a.f22025h, i2, this.f22027a.f22023f - this.f22027a.f22024g);
                     }
                 }
             }
@@ -145,40 +145,40 @@ public class d {
                 return;
             }
         }
-        this.f20496a = "";
-        this.f20497b = "";
-        this.f20498c = "";
-        this.f20499d = true;
-        this.f20500e = 1;
-        this.f20501f = 0;
-        this.f20502g = 0;
-        this.f20503h = new ArrayList(100);
-        this.f20504i = null;
+        this.f22018a = "";
+        this.f22019b = "";
+        this.f22020c = "";
+        this.f22021d = true;
+        this.f22022e = 1;
+        this.f22023f = 0;
+        this.f22024g = 0;
+        this.f22025h = new ArrayList(100);
+        this.f22026i = null;
         this.j = new a(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
-        this.f20496a = "";
-        this.f20497b = "";
+        this.f22018a = "";
+        this.f22019b = "";
     }
 
     public static /* synthetic */ int h(d dVar) {
-        int i2 = dVar.f20500e;
-        dVar.f20500e = i2 + 1;
+        int i2 = dVar.f22022e;
+        dVar.f22022e = i2 + 1;
         return i2;
     }
 
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20498c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22020c : (String) invokeV.objValue;
     }
 
     public b.a.r0.l2.c.a j(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 <= -1 || i2 >= this.f20503h.size()) {
+            if (i2 <= -1 || i2 >= this.f22025h.size()) {
                 return null;
             }
-            return this.f20503h.get(i2);
+            return this.f22025h.get(i2);
         }
         return (b.a.r0.l2.c.a) invokeI.objValue;
     }
@@ -186,13 +186,13 @@ public class d {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20496a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22018a : (String) invokeV.objValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20499d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22021d : invokeV.booleanValue;
     }
 
     public void m(int i2) {
@@ -206,8 +206,8 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
-            httpMessage.addParam("post_id", this.f20497b + "");
-            httpMessage.addParam(SuggestAddrField.KEY_PAGE_NUM, this.f20500e + "");
+            httpMessage.addParam("post_id", this.f22019b + "");
+            httpMessage.addParam(SuggestAddrField.KEY_PAGE_NUM, this.f22022e + "");
             httpMessage.addParam("res_num", "20");
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -216,35 +216,35 @@ public class d {
     public void o(Bundle bundle, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, bundle, str) == null) {
-            bundle.putBoolean(str, this.f20499d);
+            bundle.putBoolean(str, this.f22021d);
         }
     }
 
     public void p(Bundle bundle, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, bundle, str) == null) {
-            bundle.putString(str, this.f20498c);
+            bundle.putString(str, this.f22020c);
         }
     }
 
     public void q(Bundle bundle, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle, str) == null) {
-            bundle.putString(str, this.f20497b);
+            bundle.putString(str, this.f22019b);
         }
     }
 
     public void r(Bundle bundle, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, bundle, str) == null) {
-            bundle.putInt(str, this.f20501f);
+            bundle.putInt(str, this.f22023f);
         }
     }
 
     public void s(Bundle bundle, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, bundle, str) == null) {
-            bundle.putString(str, this.f20496a);
+            bundle.putString(str, this.f22018a);
         }
     }
 
@@ -257,7 +257,7 @@ public class d {
     public void u(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f20501f = i2;
+            this.f22023f = i2;
         }
     }
 
@@ -286,21 +286,21 @@ public class d {
                 return;
             }
         }
-        this.f20496a = "";
-        this.f20497b = "";
-        this.f20498c = "";
-        this.f20499d = true;
-        this.f20500e = 1;
-        this.f20501f = 0;
-        this.f20502g = 0;
-        this.f20503h = new ArrayList(100);
-        this.f20504i = null;
+        this.f22018a = "";
+        this.f22019b = "";
+        this.f22020c = "";
+        this.f22021d = true;
+        this.f22022e = 1;
+        this.f22023f = 0;
+        this.f22024g = 0;
+        this.f22025h = new ArrayList(100);
+        this.f22026i = null;
         this.j = new a(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
-        this.f20496a = str;
-        this.f20497b = str2;
-        this.f20498c = str3;
-        this.f20504i = bVar;
-        this.f20499d = z;
+        this.f22018a = str;
+        this.f22019b = str2;
+        this.f22020c = str3;
+        this.f22026i = bVar;
+        this.f22021d = z;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PRAISE_LIST_HTTP_CMD, TbConfig.SERVER_ADDRESS + "c/u/zan/getuserlist");
         tbHttpMessageTask.setResponsedClass(PraiseListResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

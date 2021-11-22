@@ -19,16 +19,16 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f61523a;
+    public static final /* synthetic */ boolean f62422a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f61524b;
+    public static final Object f62423b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f61525c;
+    public static Handler f62424c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile ExecutorService f61526d;
+    public static volatile ExecutorService f62425d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,9 +44,9 @@ public class j {
                 return;
             }
         }
-        f61523a = !j.class.desiredAssertionStatus();
-        f61524b = new Object();
-        f61525c = null;
+        f62422a = !j.class.desiredAssertionStatus();
+        f62423b = new Object();
+        f62424c = null;
     }
 
     public j() {
@@ -67,17 +67,17 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f61526d == null) {
+            if (f62425d == null) {
                 synchronized (j.class) {
-                    if (f61526d == null) {
+                    if (f62425d == null) {
                         int availableProcessors = Runtime.getRuntime().availableProcessors() + 1;
                         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(availableProcessors, availableProcessors, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
                         threadPoolExecutor.allowCoreThreadTimeOut(true);
-                        f61526d = threadPoolExecutor;
+                        f62425d = threadPoolExecutor;
                     }
                 }
             }
-            return f61526d;
+            return f62425d;
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -87,11 +87,11 @@ public class j {
         Handler handler;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (f61524b) {
-                if (f61525c == null) {
-                    f61525c = new Handler(Looper.getMainLooper());
+            synchronized (f62423b) {
+                if (f62424c == null) {
+                    f62424c = new Handler(Looper.getMainLooper());
                 }
-                handler = f61525c;
+                handler = f62424c;
             }
             return handler;
         }

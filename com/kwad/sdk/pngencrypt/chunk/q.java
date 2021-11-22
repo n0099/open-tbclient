@@ -15,10 +15,10 @@ public class q extends aa {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f65944h;
+    public int f66857h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f65945i;
+    public int f66858i;
     public int j;
     public int k;
     public int l;
@@ -53,12 +53,12 @@ public class q extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (dVar.f65916a != 13) {
-                throw new PngjException("Bad IDHR len " + dVar.f65916a);
+            if (dVar.f66829a != 13) {
+                throw new PngjException("Bad IDHR len " + dVar.f66829a);
             }
             ByteArrayInputStream b2 = dVar.b();
-            this.f65944h = com.kwad.sdk.pngencrypt.n.b(b2);
-            this.f65945i = com.kwad.sdk.pngencrypt.n.b(b2);
+            this.f66857h = com.kwad.sdk.pngencrypt.n.b(b2);
+            this.f66858i = com.kwad.sdk.pngencrypt.n.b(b2);
             this.j = com.kwad.sdk.pngencrypt.n.a(b2);
             this.k = com.kwad.sdk.pngencrypt.n.a(b2);
             this.l = com.kwad.sdk.pngencrypt.n.a(b2);
@@ -70,14 +70,14 @@ public class q extends aa {
     public void a(com.kwad.sdk.pngencrypt.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar) == null) {
-            b(this.f65897e.f65976a);
-            c(this.f65897e.f65977b);
-            d(this.f65897e.f65978c);
-            int i2 = this.f65897e.f65980e ? 4 : 0;
-            if (this.f65897e.f65982g) {
+            b(this.f66810e.f66889a);
+            c(this.f66810e.f66890b);
+            d(this.f66810e.f66891c);
+            int i2 = this.f66810e.f66893e ? 4 : 0;
+            if (this.f66810e.f66895g) {
                 i2++;
             }
-            if (!this.f65897e.f65981f) {
+            if (!this.f66810e.f66894f) {
                 i2 += 2;
             }
             e(i2);
@@ -90,27 +90,27 @@ public class q extends aa {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f65944h = i2;
+            this.f66857h = i2;
         }
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65944h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f66857h : invokeV.intValue;
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f65945i = i2;
+            this.f66858i = i2;
         }
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f65945i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f66858i : invokeV.intValue;
     }
 
     public void d(int i2) {
@@ -185,7 +185,7 @@ public class q extends aa {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            if (this.f65944h < 1 || this.f65945i < 1 || this.l != 0 || this.m != 0) {
+            if (this.f66857h < 1 || this.f66858i < 1 || this.l != 0 || this.m != 0) {
                 throw new PngjException("bad IHDR: col/row/compmethod/filmethod invalid");
             }
             int i2 = this.j;

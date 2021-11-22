@@ -11,7 +11,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Random f17886a;
+    public static final Random f19339a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,12 +27,12 @@ public final class a {
                 return;
             }
         }
-        f17886a = new Random();
+        f19339a = new Random();
     }
 
     public static int a(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i2, i3)) == null) ? i2 >= i3 ? i2 : (int) ((f17886a.nextFloat() * (i3 - i2)) + i2) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i2, i3)) == null) ? i2 >= i3 ? i2 : (int) ((f19339a.nextFloat() * (i3 - i2)) + i2) : invokeII.intValue;
     }
 }

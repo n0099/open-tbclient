@@ -23,7 +23,7 @@ public class j extends BaseBean<FindPWDFromOldCardCheckSmsResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f59595a;
+    public BindFastRequest f60517a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> j(Context context) {
@@ -43,8 +43,8 @@ public class j extends BaseBean<FindPWDFromOldCardCheckSmsResponse> {
                 return;
             }
         }
-        this.f59595a = null;
-        this.f59595a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Pwd.name());
+        this.f60517a = null;
+        this.f60517a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Pwd.name());
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -61,8 +61,8 @@ public class j extends BaseBean<FindPWDFromOldCardCheckSmsResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f59595a.getmBankCard())));
-            arrayList.add(new RestNameValuePair("sms_vcode", this.f59595a.mSmsVCode));
+            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f60517a.getmBankCard())));
+            arrayList.add(new RestNameValuePair("sms_vcode", this.f60517a.mSmsVCode));
             arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
             return arrayList;
         }
@@ -73,7 +73,10 @@ public class j extends BaseBean<FindPWDFromOldCardCheckSmsResponse> {
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PayBeanFactory.BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_CHECKSMS : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 523;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean

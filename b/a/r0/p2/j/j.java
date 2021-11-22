@@ -35,7 +35,7 @@ public class j extends b.a.r0.b0.b<b.a.r0.p2.e.m> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f22415e;
+        public final /* synthetic */ j f23892e;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -52,14 +52,14 @@ public class j extends b.a.r0.b0.b<b.a.r0.p2.e.m> {
                     return;
                 }
             }
-            this.f22415e = jVar;
+            this.f23892e = jVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f22415e.p();
+                this.f23892e.p();
             }
         }
     }
@@ -89,7 +89,7 @@ public class j extends b.a.r0.b0.b<b.a.r0.p2.e.m> {
         this.o = (TextView) i4.findViewById(R.id.card_person_vedio_list_title);
         HTypeListView hTypeListView = (HTypeListView) this.n.findViewById(R.id.card_person_vedio_view_pager);
         this.p = hTypeListView;
-        this.q = new b.a.r0.p2.c.o(this.f14737f, hTypeListView);
+        this.q = new b.a.r0.p2.c.o(this.f16224f, hTypeListView);
     }
 
     @Override // b.a.r0.b0.b
@@ -102,10 +102,10 @@ public class j extends b.a.r0.b0.b<b.a.r0.p2.e.m> {
     @Override // b.a.r0.b0.b
     public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || i2 == this.f14736e) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || i2 == this.f16223e) {
             return;
         }
-        this.f14736e = i2;
+        this.f16223e = i2;
         SkinManager.setBackgroundColor(this.n, R.color.CAM_X0201);
         SkinManager.setViewTextColor(this.o, R.color.CAM_X0109);
     }
@@ -120,7 +120,7 @@ public class j extends b.a.r0.b0.b<b.a.r0.p2.e.m> {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(this.f14738g).createNormalCfg(this.m, "personal")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(this.f16225g).createNormalCfg(this.m, "personal")));
         }
     }
 
@@ -130,10 +130,10 @@ public class j extends b.a.r0.b0.b<b.a.r0.p2.e.m> {
     public void j(b.a.r0.p2.e.m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, mVar) == null) {
-            if (mVar != null && !ListUtils.isEmpty(mVar.f22323f)) {
-                this.m = mVar.f22322e;
+            if (mVar != null && !ListUtils.isEmpty(mVar.f23800f)) {
+                this.m = mVar.f23799e;
                 this.o.setText(R.string.video_title_str);
-                this.p.setData(s(mVar.f22323f));
+                this.p.setData(s(mVar.f23800f));
                 this.q.b(this.r);
                 return;
             }
@@ -141,7 +141,7 @@ public class j extends b.a.r0.b0.b<b.a.r0.p2.e.m> {
         }
     }
 
-    public final List<b.a.e.l.e.n> s(List<b.a.e.l.e.n> list) {
+    public final List<b.a.e.m.e.n> s(List<b.a.e.m.e.n> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
@@ -149,14 +149,14 @@ public class j extends b.a.r0.b0.b<b.a.r0.p2.e.m> {
             if (count <= 0) {
                 return list;
             }
-            List<b.a.e.l.e.n> arrayList = new ArrayList<>(list);
-            int g2 = b.a.e.e.p.l.g(this.f14737f.getPageActivity(), R.dimen.ds490);
-            int g3 = b.a.e.e.p.l.g(this.f14737f.getPageActivity(), R.dimen.ds32);
+            List<b.a.e.m.e.n> arrayList = new ArrayList<>(list);
+            int g2 = b.a.e.f.p.l.g(this.f16224f.getPageActivity(), R.dimen.ds490);
+            int g3 = b.a.e.f.p.l.g(this.f16224f.getPageActivity(), R.dimen.ds32);
             if (count > 3) {
                 arrayList = arrayList.subList(0, 3);
                 b.a.r0.p2.e.h hVar = new b.a.r0.p2.e.h();
-                hVar.f22304e = b.a.e.e.p.l.g(this.f14737f.getPageActivity(), R.dimen.ds120);
-                hVar.f22305f = b.a.e.e.p.l.g(this.f14737f.getPageActivity(), R.dimen.ds396);
+                hVar.f23781e = b.a.e.f.p.l.g(this.f16224f.getPageActivity(), R.dimen.ds120);
+                hVar.f23782f = b.a.e.f.p.l.g(this.f16224f.getPageActivity(), R.dimen.ds396);
                 ListUtils.add(arrayList, hVar);
             }
             b.a.r0.m2.d dVar = new b.a.r0.m2.d(g3, g2);

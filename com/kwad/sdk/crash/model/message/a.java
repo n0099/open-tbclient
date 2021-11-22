@@ -15,7 +15,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f65474a;
+    public JSONObject f66387a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public class a {
                 return;
             }
         }
-        this.f65474a = new JSONObject();
+        this.f66387a = new JSONObject();
     }
 
     private void a(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, str, obj) == null) {
             try {
-                this.f65474a.put(str, obj);
+                this.f66387a.put(str, obj);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
             }
@@ -47,7 +47,7 @@ public class a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            a(c.f65445g, (Object) str);
+            a(c.f66358g, (Object) str);
         }
     }
 
@@ -72,6 +72,6 @@ public class a {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65474a.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f66387a.toString() : (String) invokeV.objValue;
     }
 }

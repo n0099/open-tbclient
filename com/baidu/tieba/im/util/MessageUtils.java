@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.collection.LongSparseArray;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import b.a.q0.s.q.z0;
 import b.a.r0.l1.o.a;
 import b.a.r0.l1.w.b;
@@ -140,7 +140,7 @@ public class MessageUtils {
             }
         }
         if (chatMessage instanceof OfficialChatMessage) {
-            long g2 = b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+            long g2 = b.a.e.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
             if (g2 != msgInfo.userId.longValue()) {
                 longValue2 = msgInfo.userId.longValue();
             } else {
@@ -207,7 +207,7 @@ public class MessageUtils {
                 }
             }
         } else if (chatMessage instanceof PersonalChatMessage) {
-            if (b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
+            if (b.a.e.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L) != msgInfo.userId.longValue()) {
                 longValue = msgInfo.userId.longValue();
             } else {
                 longValue = msgInfo.toUid.longValue();
@@ -363,7 +363,7 @@ public class MessageUtils {
                 try {
                     JSONArray jSONArray = new JSONArray(msgInfo.content);
                     if (jSONArray.length() > 0) {
-                        long g2 = b.a.e.e.m.b.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                        long g2 = b.a.e.f.m.b.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
                         if (g2 > 0) {
                             return g2;
                         }
@@ -631,7 +631,7 @@ public class MessageUtils {
         userData.setPortrait(TbadkCoreApplication.getCurrentPortrait());
         groupChatMessage.setUserInfo(userData);
         try {
-            j3 = b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+            j3 = b.a.e.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
         } catch (Exception unused) {
             j3 = 0;
         }
@@ -673,7 +673,7 @@ public class MessageUtils {
         userData2.setPortrait(TbadkCoreApplication.getCurrentPortrait());
         personalChatMessage.setUserInfo(userData2);
         try {
-            j3 = b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+            j3 = b.a.e.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
         } catch (Exception unused) {
             j3 = 0;
         }

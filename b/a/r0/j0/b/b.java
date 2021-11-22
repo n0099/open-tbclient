@@ -1,6 +1,6 @@
 package b.a.r0.j0.b;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.u.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,20 +19,20 @@ public class b implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f18295i;
+    public static final BdUniqueId f19629i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ItemData f18296e;
+    public ItemData f19630e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18297f;
+    public int f19631f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18298g;
+    public int f19632g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f18299h;
+    public boolean f19633h;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class b implements n {
                 return;
             }
         }
-        f18295i = BdUniqueId.gen();
+        f19629i = BdUniqueId.gen();
     }
 
     public b() {
@@ -63,10 +63,10 @@ public class b implements n {
                 return;
             }
         }
-        this.f18296e = null;
-        this.f18297f = 0;
-        this.f18298g = 0;
-        this.f18299h = true;
+        this.f19630e = null;
+        this.f19631f = 0;
+        this.f19632g = 0;
+        this.f19633h = true;
     }
 
     public static b d(e eVar) {
@@ -74,9 +74,9 @@ public class b implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) {
             b bVar = new b();
-            bVar.f18296e = eVar.f14129b;
-            bVar.f18297f = eVar.f14131d;
-            bVar.f18298g = eVar.f14132e;
+            bVar.f19630e = eVar.f14896b;
+            bVar.f19631f = eVar.f14898d;
+            bVar.f19632g = eVar.f14899e;
             return bVar;
         }
         return (b) invokeL.objValue;
@@ -88,9 +88,9 @@ public class b implements n {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, manageInfo)) == null) {
             b bVar = new b();
             ItemData itemData = new ItemData();
-            bVar.f18296e = itemData;
+            bVar.f19630e = itemData;
             itemData.parseProto(manageInfo.item);
-            bVar.f18297f = manageInfo.item_source.intValue();
+            bVar.f19631f = manageInfo.item_source.intValue();
             return bVar;
         }
         return (b) invokeL.objValue;
@@ -103,10 +103,10 @@ public class b implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             b bVar = new b();
-            bVar.f18296e = this.f18296e;
-            bVar.f18297f = this.f18297f;
-            bVar.f18298g = this.f18298g;
-            bVar.f18299h = this.f18299h;
+            bVar.f19630e = this.f19630e;
+            bVar.f19631f = this.f19631f;
+            bVar.f19632g = this.f19632g;
+            bVar.f19633h = this.f19633h;
             return bVar;
         }
         return (b) invokeV.objValue;
@@ -120,19 +120,19 @@ public class b implements n {
         ItemData itemData2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
-            boolean z = this.f18297f == bVar.f18297f && this.f18298g == bVar.f18298g;
-            ItemData itemData3 = this.f18296e;
-            boolean equals = (itemData3 == null || (itemData2 = bVar.f18296e) == null) ? false : itemData3.pkgName.equals(itemData2.pkgName);
-            ItemData itemData4 = this.f18296e;
-            return z && equals && ((itemData4 == null || (itemData = bVar.f18296e) == null || (apkDetail = itemData4.apkDetail) == null || (apkDetail2 = itemData.apkDetail) == null) ? false : apkDetail.version_code.equals(apkDetail2.version_code));
+            boolean z = this.f19631f == bVar.f19631f && this.f19632g == bVar.f19632g;
+            ItemData itemData3 = this.f19630e;
+            boolean equals = (itemData3 == null || (itemData2 = bVar.f19630e) == null) ? false : itemData3.pkgName.equals(itemData2.pkgName);
+            ItemData itemData4 = this.f19630e;
+            return z && equals && ((itemData4 == null || (itemData = bVar.f19630e) == null || (apkDetail = itemData4.apkDetail) == null || (apkDetail2 = itemData.apkDetail) == null) ? false : apkDetail.version_code.equals(apkDetail2.version_code));
         }
         return invokeL.booleanValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f18295i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f19629i : (BdUniqueId) invokeV.objValue;
     }
 }

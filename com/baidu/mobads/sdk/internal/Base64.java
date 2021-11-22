@@ -2,7 +2,6 @@ package com.baidu.mobads.sdk.internal;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -179,7 +178,7 @@ public class Base64 {
                 int i4 = i2 + 1;
                 bArr[i3 + 1] = bArr2[((bytes[i2] & 3) << 4) + ((bytes[i4] & 240) >> 4)];
                 int i5 = i2 + 2;
-                bArr[i3 + 2] = bArr2[((bytes[i4] & 15) << 2) + ((bytes[i5] & ExifInterface.MARKER_SOF0) >> 6)];
+                bArr[i3 + 2] = bArr2[((bytes[i4] & 15) << 2) + ((bytes[i5] & 192) >> 6)];
                 bArr[i3 + 3] = bArr2[bytes[i5] & 63];
                 i2 += 3;
                 i3 += 4;

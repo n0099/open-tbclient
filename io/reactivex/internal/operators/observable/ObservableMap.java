@@ -12,13 +12,13 @@ import io.reactivex.annotations.Nullable;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.BasicFuseableObserver;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ObservableMap<T, U> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super T, ? extends U> function;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class MapObserver<T, U> extends BasicFuseableObserver<T, U> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

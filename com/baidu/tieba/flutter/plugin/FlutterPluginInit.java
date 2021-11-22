@@ -8,6 +8,7 @@ import com.baidu.tieba.flutter.plugin.imageLoader.ImageLoaderPlugin;
 import com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerPlugin;
 import com.baidu.tieba.flutter.plugin.networkInfo.NetworkInfoPlugin;
 import com.baidu.tieba.flutter.plugin.networkService.NetworkServicePlugin;
+import com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin;
 import com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugin;
 import com.baidu.tieba.flutter.plugin.progressHUD.ProgressHUDPlugin;
 import com.baidu.tieba.flutter.plugin.tiebaShare.TiebaSharePlugin;
@@ -56,5 +57,6 @@ public class FlutterPluginInit {
         flutterEngine.getPlugins().add(new TiebaSharePlugin());
         flutterEngine.getPlugins().add(new TiebaUtilityPlugin());
         flutterEngine.getPlugins().add(new WebViewFlutterPlugin());
+        flutterEngine.getPlugins().add(new PassProviderPlugin());
     }
 }

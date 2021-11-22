@@ -49,12 +49,12 @@ public final class a {
     public static void a(InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, inputStream) == null) {
-            e.f61433a.execute(new Runnable(inputStream) { // from class: com.bytedance.pangle.d.a.1
+            e.f62332a.execute(new Runnable(inputStream) { // from class: com.bytedance.pangle.d.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ InputStream f61276a;
+                public final /* synthetic */ InputStream f62175a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -71,7 +71,7 @@ public final class a {
                             return;
                         }
                     }
-                    this.f61276a = inputStream;
+                    this.f62175a = inputStream;
                 }
 
                 @Override // java.lang.Runnable
@@ -80,7 +80,7 @@ public final class a {
                     if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
                         return;
                     }
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f61276a));
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f62175a));
                     while (true) {
                         try {
                             String readLine = bufferedReader.readLine();

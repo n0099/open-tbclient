@@ -19,14 +19,14 @@ public class a {
 
     /* renamed from: b.a.p0.a.z.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0473a implements Camera.AutoFocusCallback {
+    public static class C0494a implements Camera.AutoFocusCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f9169a;
+        public final /* synthetic */ String f9594a;
 
-        public C0473a(String str) {
+        public C0494a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,7 +41,7 @@ public class a {
                     return;
                 }
             }
-            this.f9169a = str;
+            this.f9594a = str;
         }
 
         @Override // android.hardware.Camera.AutoFocusCallback
@@ -51,7 +51,7 @@ public class a {
             if (!(interceptable == null || interceptable.invokeZL(1048576, this, z, camera) == null) || camera == null || (parameters = camera.getParameters()) == null) {
                 return;
             }
-            parameters.setFocusMode(this.f9169a);
+            parameters.setFocusMode(this.f9594a);
             camera.setParameters(parameters);
         }
     }
@@ -112,6 +112,6 @@ public class a {
         String focusMode = parameters.getFocusMode();
         parameters.setFocusMode(c(parameters));
         camera.setParameters(parameters);
-        camera.autoFocus(new C0473a(focusMode));
+        camera.autoFocus(new C0494a(focusMode));
     }
 }

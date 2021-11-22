@@ -21,16 +21,16 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ThreadPoolExecutor f3105a;
+    public static ThreadPoolExecutor f3198a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static LinkedBlockingQueue<Runnable> f3106b;
+    public static LinkedBlockingQueue<Runnable> f3199b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ThreadFactory f3107c;
+    public static final ThreadFactory f3200c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final RejectedExecutionHandler f3108d;
+    public static final RejectedExecutionHandler f3201d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -39,15 +39,15 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f3109e;
+        public final AtomicInteger f3202e;
 
         /* renamed from: b.a.j0.a.l.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0085a implements Thread.UncaughtExceptionHandler {
+        public class C0087a implements Thread.UncaughtExceptionHandler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0085a(a aVar) {
+            public C0087a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +85,7 @@ public class d {
                     return;
                 }
             }
-            this.f3109e = new AtomicInteger(1);
+            this.f3202e = new AtomicInteger(1);
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -93,8 +93,8 @@ public class d {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, "TaskScheduler #" + this.f3109e.getAndIncrement());
-                thread.setUncaughtExceptionHandler(new C0085a(this));
+                Thread thread = new Thread(runnable, "TaskScheduler #" + this.f3202e.getAndIncrement());
+                thread.setUncaughtExceptionHandler(new C0087a(this));
                 return thread;
             }
             return (Thread) invokeL.objValue;
@@ -125,12 +125,12 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, runnable, threadPoolExecutor) == null) {
                 synchronized (this) {
-                    if (d.f3105a == null) {
-                        LinkedBlockingQueue unused = d.f3106b = new LinkedBlockingQueue();
-                        ThreadPoolExecutor unused2 = d.f3105a = new ThreadPoolExecutor(5, 5, 60L, TimeUnit.SECONDS, d.f3106b, d.f3107c);
+                    if (d.f3198a == null) {
+                        LinkedBlockingQueue unused = d.f3199b = new LinkedBlockingQueue();
+                        ThreadPoolExecutor unused2 = d.f3198a = new ThreadPoolExecutor(5, 5, 60L, TimeUnit.SECONDS, d.f3199b, d.f3200c);
                     }
                 }
-                d.f3105a.execute(runnable);
+                d.f3198a.execute(runnable);
             }
         }
     }
@@ -148,22 +148,22 @@ public class d {
                 return;
             }
         }
-        f3107c = new a();
-        f3108d = new b();
+        f3200c = new a();
+        f3201d = new b();
     }
 
     public static ScheduledThreadPoolExecutor f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? new ScheduledThreadPoolExecutor(i2, f3107c) : (ScheduledThreadPoolExecutor) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? new ScheduledThreadPoolExecutor(i2, f3200c) : (ScheduledThreadPoolExecutor) invokeI.objValue;
     }
 
     public static ThreadPoolExecutor g(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65543, null, i2, i3)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f3107c);
-            threadPoolExecutor.setRejectedExecutionHandler(f3108d);
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f3200c);
+            threadPoolExecutor.setRejectedExecutionHandler(f3201d);
             return threadPoolExecutor;
         }
         return (ThreadPoolExecutor) invokeII.objValue;

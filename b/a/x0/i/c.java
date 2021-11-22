@@ -26,19 +26,19 @@ public abstract class c implements j, Runnable {
     public b.a.x0.l.d.j.c.a D;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object f29572e;
+    public Object f30441e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Object f29573f;
+    public Object f30442f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Object f29574g;
+    public Object f30443g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f29575h;
+    public volatile long f30444h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile a f29576i;
+    public volatile a f30445i;
     public volatile long j;
     public volatile long k;
     public volatile e l;
@@ -82,9 +82,9 @@ public abstract class c implements j, Runnable {
         this.A = iArr;
         q(str);
         this.l = p();
-        this.f29572e = new Object();
-        this.f29573f = new Object();
-        this.f29574g = new Object();
+        this.f30441e = new Object();
+        this.f30442f = new Object();
+        this.f30443g = new Object();
         this.n = true;
         this.o = false;
         this.p = false;
@@ -150,8 +150,8 @@ public abstract class c implements j, Runnable {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.m == null || this.o) {
             return;
         }
-        long currentPosition = this.f29576i.getCurrentPosition();
-        long duration = this.f29576i.getDuration();
+        long currentPosition = this.f30445i.getCurrentPosition();
+        long duration = this.f30445i.getDuration();
         this.m.onProgressChanged(this.r, (currentPosition == 0 || duration == 0) ? 0.0d : currentPosition / duration, currentPosition);
     }
 
@@ -241,13 +241,13 @@ public abstract class c implements j, Runnable {
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this.f29572e) {
+            synchronized (this.f30441e) {
                 u();
                 this.n = false;
                 this.q = false;
                 this.o = false;
                 this.p = false;
-                this.f29572e.notifyAll();
+                this.f30441e.notifyAll();
             }
         }
     }
@@ -256,9 +256,9 @@ public abstract class c implements j, Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (this.n) {
-                synchronized (this.f29572e) {
+                synchronized (this.f30441e) {
                     this.n = false;
-                    this.f29572e.notifyAll();
+                    this.f30441e.notifyAll();
                 }
             }
             v();
@@ -271,8 +271,8 @@ public abstract class c implements j, Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, mediaFormat) == null) {
             try {
-                this.s = this.f29576i.e();
-                this.t = this.f29576i.b();
+                this.s = this.f30445i.e();
+                this.t = this.f30445i.b();
                 r();
                 if (this.l instanceof b.a.x0.i.g.b) {
                     ((b.a.x0.i.g.b) this.l).c(m(), i());
@@ -297,9 +297,9 @@ public abstract class c implements j, Runnable {
             }
             this.x = true;
             if (l(Math.abs(this.w)).length > 0) {
-                synchronized (this.f29573f) {
-                    this.f29575h += this.l.write(l, 0, length);
-                    b.a.x0.t.c.j("VideoMuxer: ", "bytesWritten ：" + this.f29575h + " ， empty bytesWritten time ：" + (((float) this.f29575h) / ((this.u * this.t) * this.s)) + 1000);
+                synchronized (this.f30442f) {
+                    this.f30444h += this.l.write(l, 0, length);
+                    b.a.x0.t.c.j("VideoMuxer: ", "bytesWritten ：" + this.f30444h + " ， empty bytesWritten time ：" + (((float) this.f30444h) / ((this.u * this.t) * this.s)) + 1000);
                 }
                 return null;
             }
@@ -425,9 +425,9 @@ public abstract class c implements j, Runnable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            synchronized (this.f29574g) {
-                if (this.f29576i != null) {
-                    return this.f29576i.getCurrentPosition();
+            synchronized (this.f30443g) {
+                if (this.f30445i != null) {
+                    return this.f30445i.getCurrentPosition();
                 }
                 return Long.MIN_VALUE;
             }
@@ -439,8 +439,8 @@ public abstract class c implements j, Runnable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (this.f29576i != null) {
-                return this.f29576i.getDuration();
+            if (this.f30445i != null) {
+                return this.f30445i.getDuration();
             }
             return Long.MIN_VALUE;
         }
@@ -480,7 +480,7 @@ public abstract class c implements j, Runnable {
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            synchronized (this.f29572e) {
+            synchronized (this.f30441e) {
                 t();
                 this.n = true;
             }
@@ -497,11 +497,11 @@ public abstract class c implements j, Runnable {
                 this.m.onExceptionThrown("Only API level >= 16 supported.");
                 return;
             }
-            this.f29576i = new i(str);
-            ((i) this.f29576i).k(this);
-            this.s = this.f29576i.e();
-            this.t = this.f29576i.b();
-            this.u = this.f29576i.a();
+            this.f30445i = new i(str);
+            ((i) this.f30445i).k(this);
+            this.s = this.f30445i.e();
+            this.t = this.f30445i.b();
+            this.u = this.f30445i.a();
             b.a.x0.t.c.d("SoundStreamRunnable: channels=" + this.s + ";samplingRate=" + this.t + ";byteWidth=" + this.u);
         }
     }
@@ -528,8 +528,8 @@ public abstract class c implements j, Runnable {
                     try {
                         if (!this.q) {
                             y();
-                            synchronized (this.f29574g) {
-                                this.f29576i.d();
+                            synchronized (this.f30443g) {
+                                this.f30445i.d();
                             }
                         }
                     } catch (Exception e2) {
@@ -540,18 +540,18 @@ public abstract class c implements j, Runnable {
                         this.o = true;
                         z();
                         A();
-                        synchronized (this.f29573f) {
+                        synchronized (this.f30442f) {
                             try {
                                 this.l.close();
                             } catch (Exception e3) {
                                 e3.printStackTrace();
                             }
                             this.l = null;
-                            synchronized (this.f29574g) {
-                                if (this.f29576i != null) {
-                                    this.f29576i.close();
+                            synchronized (this.f30443g) {
+                                if (this.f30445i != null) {
+                                    this.f30445i.close();
                                 }
-                                this.f29576i = null;
+                                this.f30445i = null;
                                 return;
                             }
                         }
@@ -560,18 +560,18 @@ public abstract class c implements j, Runnable {
                     this.o = true;
                     z();
                     A();
-                    synchronized (this.f29573f) {
+                    synchronized (this.f30442f) {
                         try {
                             this.l.close();
                         } catch (Exception e4) {
                             e4.printStackTrace();
                         }
                         this.l = null;
-                        synchronized (this.f29574g) {
-                            if (this.f29576i != null) {
-                                this.f29576i.close();
+                        synchronized (this.f30443g) {
+                            if (this.f30445i != null) {
+                                this.f30445i.close();
                             }
-                            this.f29576i = null;
+                            this.f30445i = null;
                             throw th;
                         }
                     }
@@ -580,7 +580,7 @@ public abstract class c implements j, Runnable {
             this.o = true;
             z();
             A();
-            synchronized (this.f29573f) {
+            synchronized (this.f30442f) {
                 try {
                     this.l.close();
                 } catch (Exception e5) {
@@ -588,11 +588,11 @@ public abstract class c implements j, Runnable {
                 }
                 this.l = null;
             }
-            synchronized (this.f29574g) {
-                if (this.f29576i != null) {
-                    this.f29576i.close();
+            synchronized (this.f30443g) {
+                if (this.f30445i != null) {
+                    this.f30445i.close();
                 }
-                this.f29576i = null;
+                this.f30445i = null;
             }
         }
     }
@@ -612,10 +612,10 @@ public abstract class c implements j, Runnable {
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            synchronized (this.f29572e) {
+            synchronized (this.f30441e) {
                 while (this.n) {
                     try {
-                        this.f29572e.wait();
+                        this.f30441e.wait();
                     } catch (InterruptedException unused) {
                     }
                 }
@@ -648,8 +648,8 @@ public abstract class c implements j, Runnable {
                 }
             }
             if (length > 0) {
-                synchronized (this.f29573f) {
-                    this.f29575h += this.l.write(bArr, 0, length);
+                synchronized (this.f30442f) {
+                    this.f30444h += this.l.write(bArr, 0, length);
                 }
             }
             return length;
@@ -663,20 +663,20 @@ public abstract class c implements j, Runnable {
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             while (true) {
                 boolean z = false;
-                if ((this.f29576i.f() || j() >= k() + this.w) && !s()) {
+                if ((this.f30445i.f() || j() >= k() + this.w) && !s()) {
                     break;
                 }
                 w();
                 if (this.o) {
                     break;
                 }
-                if (s() && this.f29576i.getCurrentPosition() >= this.k) {
+                if (s() && this.f30445i.getCurrentPosition() >= this.k) {
                     B(this.j);
                     this.x = false;
                 }
-                synchronized (this.f29574g) {
+                synchronized (this.f30443g) {
                     try {
-                        z = this.f29576i.c();
+                        z = this.f30445i.c();
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         if (this.m != null && !this.p) {
@@ -685,7 +685,7 @@ public abstract class c implements j, Runnable {
                     }
                 }
                 if (z) {
-                    byte[] g2 = this.f29576i.g();
+                    byte[] g2 = this.f30445i.g();
                     int i2 = this.w;
                     if (i2 != 0) {
                         if (i2 > 0) {
@@ -724,9 +724,9 @@ public abstract class c implements j, Runnable {
                                     }
                                 }
                                 if (i4 > 0) {
-                                    synchronized (this.f29573f) {
+                                    synchronized (this.f30442f) {
                                         b.a.x0.t.c.j("VideoMuxer: ", "----getLastBuffer-----");
-                                        this.f29575h += this.l.write(a2, 0, i4);
+                                        this.f30444h += this.l.write(a2, 0, i4);
                                     }
                                     continue;
                                 }
@@ -738,7 +738,7 @@ public abstract class c implements j, Runnable {
             e();
             if (this.m != null) {
                 this.m.onTrackEnd(this.r);
-                b.a.x0.t.c.j("VideoMuxer: ", "----所有数据输入编码器onTrackEnd-----,bytesWritten:" + this.f29575h);
+                b.a.x0.t.c.j("VideoMuxer: ", "----所有数据输入编码器onTrackEnd-----,bytesWritten:" + this.f30444h);
             }
             this.q = true;
         }

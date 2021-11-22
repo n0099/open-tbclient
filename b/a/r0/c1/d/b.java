@@ -3,7 +3,7 @@ package b.a.r0.c1.d;
 import android.view.View;
 import android.widget.TextView;
 import b.a.q0.s.g0.t.c;
-import b.a.r0.b0.e0.h;
+import b.a.r0.b0.f0.h;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -83,14 +83,14 @@ public class b extends b.a.r0.b0.b<h> {
     public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f14736e != i2) {
+            if (this.f16223e != i2) {
                 SkinManager.setBackgroundResource(i(), R.drawable.home_thread_card_item_bg);
                 SkinManager.setViewTextColor(this.p, R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.q, R.color.CAM_X0109);
                 SkinManager.setViewTextColor(this.r, R.color.CAM_X0109);
                 SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204);
             }
-            this.f14736e = i2;
+            this.f16223e = i2;
         }
     }
 
@@ -100,23 +100,23 @@ public class b extends b.a.r0.b0.b<h> {
     public void j(h hVar) {
         MetaData metaData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) || hVar == null || (metaData = hVar.f14764e) == null || metaData.getGodUserData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) || hVar == null || (metaData = hVar.f16251e) == null || metaData.getGodUserData() == null) {
             return;
         }
         this.v = hVar;
-        MetaData metaData2 = hVar.f14764e;
+        MetaData metaData2 = hVar.f16251e;
         this.u = metaData2;
         this.o.setData(metaData2);
-        this.p.setText(hVar.f14764e.getName_show());
-        this.q.setText(hVar.f14764e.getGodUserData().getIntro());
+        this.p.setText(hVar.f16251e.getName_show());
+        this.q.setText(hVar.f16251e.getGodUserData().getIntro());
         String string = this.t.getResources().getString(R.string.recommend_reason);
-        String recommendReason = hVar.f14764e.getGodUserData().getRecommendReason();
+        String recommendReason = hVar.f16251e.getGodUserData().getRecommendReason();
         if (StringUtils.isNull(recommendReason)) {
             this.r.setText("");
         } else {
             this.r.setText(String.format(string, recommendReason));
         }
-        this.n.n(hVar.f14764e);
+        this.n.n(hVar.f16251e);
         k(null, TbadkCoreApplication.getInst().getSkinType());
     }
 

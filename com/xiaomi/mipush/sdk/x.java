@@ -12,7 +12,7 @@ public final class x implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f70643a;
+    public final /* synthetic */ Context f71563a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ Intent f104a;
@@ -32,7 +32,7 @@ public final class x implements Runnable {
                 return;
             }
         }
-        this.f70643a = context;
+        this.f71563a = context;
         this.f104a = intent;
     }
 
@@ -41,7 +41,7 @@ public final class x implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                this.f70643a.startService(this.f104a);
+                this.f71563a.startService(this.f104a);
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.m73a(e2.getMessage());
             }

@@ -43,7 +43,7 @@ public class e extends a {
             } else {
                 e();
             }
-            this.f64768a.sendEmptyMessageDelayed(TTAdConstant.STYLE_SIZE_RADIO_2_3, 500L);
+            this.f65681a.sendEmptyMessageDelayed(TTAdConstant.STYLE_SIZE_RADIO_2_3, 500L);
         }
     }
 }

@@ -174,7 +174,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                 Bundle bundle = new Bundle();
                 bundle.putString("name", idCardActivity.mCardName);
                 bundle.putString(IdCardActivity.KEY_IMG_PATH, idCardActivity.mCardRealPath);
-                bundle.putString("number", idCardActivity.mCardNumber);
+                bundle.putString(IdCardActivity.KEY_NUMBER, idCardActivity.mCardNumber);
                 IdCardController.getInstance().success(bundle);
                 idCardActivity.finish();
             }
@@ -330,7 +330,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
         iDDetectBean.execBean();
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:37:0x00d9 -> B:45:0x00e9). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:37:0x00d8 -> B:45:0x00e8). Please submit an issue!!! */
     private void dealResult(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65562, this, bArr) == null) {
@@ -737,7 +737,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, com.baidu.wallet.core.SDKBaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {

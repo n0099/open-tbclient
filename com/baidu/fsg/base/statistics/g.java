@@ -19,20 +19,20 @@ public class g {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37494a = "g";
+    public static final String f38324a = "g";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f37495b;
+    public JSONArray f38325b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f37496c;
+    public byte[] f38326c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f37497d;
+    public byte[] f38327d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f37498e;
+    public byte[] f38328e;
 
     /* loaded from: classes7.dex */
     public static class a {
@@ -40,13 +40,13 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f37499a;
+        public int f38329a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37500b;
+        public String f38330b;
 
         /* renamed from: c  reason: collision with root package name */
-        public h[] f37501c;
+        public h[] f38331c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class g {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static g f37502a;
+        public static g f38332a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -84,7 +84,7 @@ public class g {
                     return;
                 }
             }
-            f37502a = new g(null);
+            f38332a = new g(null);
         }
 
         public b() {
@@ -130,10 +130,10 @@ public class g {
                 return;
             }
         }
-        this.f37495b = new JSONArray();
-        this.f37496c = new byte[0];
-        this.f37497d = new byte[0];
-        this.f37498e = new byte[0];
+        this.f38325b = new JSONArray();
+        this.f38326c = new byte[0];
+        this.f38327d = new byte[0];
+        this.f38328e = new byte[0];
     }
 
     public /* synthetic */ g(f fVar) {
@@ -143,20 +143,20 @@ public class g {
     public static g b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f37502a : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f38332a : (g) invokeV.objValue;
     }
 
     public JSONArray a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37495b : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38325b : (JSONArray) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && com.baidu.fsg.base.statistics.b.o.equals(str)) {
-            synchronized (this.f37497d) {
-                this.f37495b = new JSONArray();
+            synchronized (this.f38327d) {
+                this.f38325b = new JSONArray();
             }
             com.baidu.fsg.base.statistics.a.a(RimStatisticsUtil.getAppContext(), com.baidu.fsg.base.statistics.b.n, StringUtil.EMPTY_ARRAY, false);
         }
@@ -165,9 +165,9 @@ public class g {
     public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            synchronized (this.f37497d) {
+            synchronized (this.f38327d) {
                 try {
-                    this.f37495b.put(this.f37495b.length(), jSONObject);
+                    this.f38325b.put(this.f38325b.length(), jSONObject);
                 } catch (JSONException unused) {
                 }
             }
@@ -179,8 +179,8 @@ public class g {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.f37497d) {
-                z = this.f37495b.length() == 0;
+            synchronized (this.f38327d) {
+                z = this.f38325b.length() == 0;
             }
             return z;
         }

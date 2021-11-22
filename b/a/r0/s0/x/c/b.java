@@ -1,6 +1,6 @@
 package b.a.r0.s0.x.c;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,11 +15,11 @@ public class b implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f23453f;
+    public static final BdUniqueId f24784f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EmotionPackageData f23454e;
+    public EmotionPackageData f24785e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class b implements n {
                 return;
             }
         }
-        f23453f = BdUniqueId.gen();
+        f24784f = BdUniqueId.gen();
     }
 
     public b() {
@@ -51,10 +51,10 @@ public class b implements n {
         }
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f23453f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f24784f : (BdUniqueId) invokeV.objValue;
     }
 }

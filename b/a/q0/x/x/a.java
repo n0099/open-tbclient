@@ -11,11 +11,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f14253b;
+    public static a f15020b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f14254a;
+    public int f15021a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -30,21 +30,21 @@ public class a {
                 return;
             }
         }
-        this.f14254a = 0;
+        this.f15021a = 0;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f14253b == null) {
+            if (f15020b == null) {
                 synchronized (a.class) {
-                    if (f14253b == null) {
-                        f14253b = new a();
+                    if (f15020b == null) {
+                        f15020b = new a();
                     }
                 }
             }
-            return f14253b;
+            return f15020b;
         }
         return (a) invokeV.objValue;
     }
@@ -52,13 +52,13 @@ public class a {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14254a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15021a : invokeV.intValue;
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f14254a = i2;
+            this.f15021a = i2;
         }
     }
 }

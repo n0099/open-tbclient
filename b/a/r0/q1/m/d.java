@@ -54,7 +54,7 @@ public class d implements b.a.q0.c.e {
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(b.a.e.e.m.b.g(str, 0L))));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(b.a.e.f.m.b.g(str, 0L))));
         TbadkCoreApplication.getInst().addLikeForum(str2);
     }
 }

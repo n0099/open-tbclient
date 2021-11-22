@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.ZeusMonitorType;
+import com.baidu.webkit.internal.monitor.MonitorType;
 import org.webrtc.EglBase10;
 @TargetApi(18)
 /* loaded from: classes10.dex */
@@ -66,7 +66,7 @@ public final class EglCore {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65539, this, i2, i3)) == null) {
-            int[] iArr = {ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 8, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, 8, 12352, i3 >= 3 ? 68 : 4, ZeusMonitorType.MONITOR_TYPE_AD_FILTER, 0, ZeusMonitorType.MONITOR_TYPE_AD_FILTER};
+            int[] iArr = {MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12321, 8, 12352, i3 >= 3 ? 68 : 4, 12344, 0, 12344};
             if ((i2 & 1) != 0) {
                 iArr[10] = 12610;
                 iArr[11] = 1;
@@ -95,7 +95,7 @@ public final class EglCore {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-            EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.mEGLDisplay, this.mEGLConfig, new int[]{12375, i2, 12374, i3, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+            EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.mEGLDisplay, this.mEGLConfig, new int[]{12375, i2, 12374, i3, 12344}, 0);
             checkEglError("eglCreatePbufferSurface");
             if (eglCreatePbufferSurface != null) {
                 return eglCreatePbufferSurface;
@@ -112,7 +112,7 @@ public final class EglCore {
             if (!(obj instanceof Surface) && !(obj instanceof SurfaceTexture)) {
                 throw new RuntimeException("invalid surface: " + obj);
             }
-            EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.mEGLDisplay, this.mEGLConfig, obj, new int[]{ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+            EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.mEGLDisplay, this.mEGLConfig, obj, new int[]{12344}, 0);
             checkEglError("eglCreateWindowSurface");
             if (eglCreateWindowSurface != null) {
                 return eglCreateWindowSurface;
@@ -254,7 +254,7 @@ public final class EglCore {
                 int[] iArr = new int[2];
                 if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
                     if ((i2 & 2) != 0 && Build.VERSION.SDK_INT >= 23 && (config = getConfig(i2, 3)) != null) {
-                        EGLContext eglCreateContext = EGL14.eglCreateContext(this.mEGLDisplay, config, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 3, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+                        EGLContext eglCreateContext = EGL14.eglCreateContext(this.mEGLDisplay, config, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 3, 12344}, 0);
                         if (EGL14.eglGetError() == 12288) {
                             this.mEGLConfig = config;
                             this.mEGLContext = eglCreateContext;
@@ -264,7 +264,7 @@ public final class EglCore {
                     if (this.mEGLContext == EGL14.EGL_NO_CONTEXT) {
                         EGLConfig config2 = getConfig(i2, 2);
                         if (config2 != null) {
-                            EGLContext eglCreateContext2 = EGL14.eglCreateContext(this.mEGLDisplay, config2, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+                            EGLContext eglCreateContext2 = EGL14.eglCreateContext(this.mEGLDisplay, config2, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
                             checkEglError("eglCreateContext");
                             this.mEGLConfig = config2;
                             this.mEGLContext = eglCreateContext2;

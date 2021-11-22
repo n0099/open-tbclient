@@ -64,19 +64,19 @@ public class i extends n<b.a.q0.s.q.q, PbBjhRecommendViewHolder> {
             SkinManager.setViewTextColor(pbBjhRecommendViewHolder.mVideoInfoTv, b.a.r0.k2.f.CAM_X0109, 1, skinType);
             SkinManager.setBackgroundSelector(pbBjhRecommendViewHolder.mMainView, b.a.r0.k2.f.CAM_X0302, b.a.r0.k2.f.CAM_X0204, skinType);
             b.a.q0.s.u.c.d(pbBjhRecommendViewHolder.mMainView).i(b.a.r0.k2.f.CAM_X0205, b.a.r0.k2.f.CAM_X0204);
-            TBSelector.makeDrawableSelector().setShape(0).gradientLinear(b.a.r0.k2.f.cp_bg_line_d_alpha0, b.a.r0.k2.f.CAM_X0105).cornerRadius(b.a.e.e.p.l.g(this.m.getPbActivity(), b.a.r0.k2.g.tbds10)).into(pbBjhRecommendViewHolder.mVideoMaskIv);
+            TBSelector.makeDrawableSelector().setShape(0).gradientLinear(b.a.r0.k2.f.cp_bg_line_d_alpha0, b.a.r0.k2.f.CAM_X0105).cornerRadius(b.a.e.f.p.l.g(this.m.getPbActivity(), b.a.r0.k2.g.tbds10)).into(pbBjhRecommendViewHolder.mVideoMaskIv);
         }
         pbBjhRecommendViewHolder.mSkinType = skinType;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: j0 */
     public PbBjhRecommendViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            PbBjhRecommendViewHolder pbBjhRecommendViewHolder = new PbBjhRecommendViewHolder(LayoutInflater.from(this.f2419e).inflate(b.a.r0.k2.j.bjh_recommend_item, (ViewGroup) null), this.m.getPbActivity());
+            PbBjhRecommendViewHolder pbBjhRecommendViewHolder = new PbBjhRecommendViewHolder(LayoutInflater.from(this.f2421e).inflate(b.a.r0.k2.j.bjh_recommend_item, (ViewGroup) null), this.m.getPbActivity());
             i0(pbBjhRecommendViewHolder);
             return pbBjhRecommendViewHolder;
         }
@@ -84,7 +84,7 @@ public class i extends n<b.a.q0.s.q.q, PbBjhRecommendViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.r0.k2.u.f.n, b.a.e.l.e.a
+    @Override // b.a.r0.k2.u.f.n, b.a.e.m.e.a
     /* renamed from: k0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.q0.s.q.q qVar, PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
         InterceptResult invokeCommon;
@@ -115,19 +115,19 @@ public class i extends n<b.a.q0.s.q.q, PbBjhRecommendViewHolder> {
                     i4 = 4;
                 }
                 if (qVar.i0 == 40) {
-                    StatisticItem.make("c13536").param("tid", qVar.s1()).param("fid", qVar.T()).param("obj_source", i4).param("obj_locate", qVar.P4()).param("obj_id", this.s.Q()).param("obj_type", qVar.R1() ? 1 : 0).eventStat();
+                    StatisticItem.make("c13536").param("tid", qVar.t1()).param("fid", qVar.T()).param("obj_source", i4).param("obj_locate", qVar.R4()).param("obj_id", this.s.Q()).param("obj_type", qVar.T1() ? 1 : 0).eventStat();
                 } else {
-                    StatisticItem.make("c13533").param("tid", qVar.s1()).param("fid", qVar.T()).param("obj_source", i4).param("obj_locate", qVar.P4()).param("obj_id", this.s.Q()).eventStat();
+                    StatisticItem.make("c13533").param("tid", qVar.t1()).param("fid", qVar.T()).param("obj_source", i4).param("obj_locate", qVar.R4()).param("obj_id", this.s.Q()).eventStat();
                 }
                 if (this.s.r0()) {
                     StatisticItem statisticItem = new StatisticItem("c13588");
                     if (qVar.Y() != null) {
                         statisticItem.param("fid", qVar.Y().getForumId());
                     }
-                    statisticItem.param("tid", qVar.s1());
+                    statisticItem.param("tid", qVar.t1());
                     statisticItem.param("obj_param1", qVar.Y0);
                     statisticItem.param("obj_source", qVar.X0);
-                    statisticItem.param("obj_locate", qVar.P4());
+                    statisticItem.param("obj_locate", qVar.R4());
                     statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
                     statisticItem.param("obj_id", this.s.Q());
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -135,7 +135,7 @@ public class i extends n<b.a.q0.s.q.q, PbBjhRecommendViewHolder> {
                         statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, qVar.getThreadData().L().oriUgcNid);
                         statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, qVar.getThreadData().L().oriUgcVid);
                     }
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, qVar.B1());
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, qVar.C1());
                     statisticItem.param("ab_tag", qVar.Z0);
                     statisticItem.param("extra", qVar.a1);
                     TiebaStatic.log(statisticItem);

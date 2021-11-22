@@ -13,7 +13,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f28888a;
+    public static final boolean f29757a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class c {
                 return;
             }
         }
-        f28888a = b0.m();
+        f29757a = b0.m();
     }
 
     public static byte[] a(byte[] bArr) {
@@ -47,7 +47,7 @@ public class c {
                 byteArrayOutputStream.close();
                 return bArr2;
             } catch (Exception e2) {
-                if (f28888a) {
+                if (f29757a) {
                     e2.printStackTrace();
                     return bArr2;
                 }

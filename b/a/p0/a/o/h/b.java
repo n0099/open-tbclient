@@ -3,7 +3,7 @@ package b.a.p0.a.o.h;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import b.a.p0.a.v1.a.b.c.c;
+import b.a.p0.a.y1.a.b.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.game.ad.downloader.model.DownloadParams;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
@@ -18,12 +18,12 @@ public class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.p0.f.i.k.f.a f7092c;
+    public b.a.p0.h.i.k.f.a f7430c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DownloadParams.SwanAppDownloadType f7093d;
+    public DownloadParams.SwanAppDownloadType f7431d;
 
-    public b(b.a.p0.f.i.k.f.a aVar, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType) {
+    public b(b.a.p0.h.i.k.f.a aVar, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,11 +38,11 @@ public class b extends c {
                 return;
             }
         }
-        this.f7092c = aVar;
-        this.f7093d = swanAppDownloadType;
+        this.f7430c = aVar;
+        this.f7431d = swanAppDownloadType;
     }
 
-    @Override // b.a.p0.a.v1.a.b.c.a
+    @Override // b.a.p0.a.y1.a.b.c.a
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class b extends c {
         return invokeV.longValue;
     }
 
-    @Override // b.a.p0.a.v1.a.b.c.a
+    @Override // b.a.p0.a.y1.a.b.c.a
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -63,23 +63,23 @@ public class b extends c {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.p0.a.v1.a.b.c.c, b.a.p0.a.v1.a.b.c.a
-    public void onEvent(@NonNull b.a.p0.a.v1.a.b.a.b bVar) {
+    @Override // b.a.p0.a.y1.a.b.c.c, b.a.p0.a.y1.a.b.c.a
+    public void onEvent(@NonNull b.a.p0.a.y1.a.b.a.b bVar) {
         Bundle a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (a2 = bVar.a()) == null || this.f7092c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (a2 = bVar.a()) == null || this.f7430c == null) {
             return;
         }
         int i2 = a2.getInt("state", DownloadState.NOT_START.value());
         int i3 = a2.getInt("progress", 0);
-        this.f7092c.c(DownloadState.convert(i2), i3);
-        this.f7092c.a(i3);
+        this.f7430c.c(DownloadState.convert(i2), i3);
+        this.f7430c.a(i3);
         String string = a2.getString("packageName", "");
         if (!TextUtils.isEmpty(string)) {
-            this.f7092c.d(string);
+            this.f7430c.d(string);
         }
-        if (this.f7093d == DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
-            this.f7092c.f(true);
+        if (this.f7431d == DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
+            this.f7430c.f(true);
         }
     }
 }

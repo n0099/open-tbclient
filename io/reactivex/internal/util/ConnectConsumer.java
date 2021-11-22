@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ConnectConsumer implements Consumer<Disposable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

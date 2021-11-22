@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.view.itemcard.download;
 
 import android.os.Build;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;

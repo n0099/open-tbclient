@@ -12,9 +12,9 @@ import b.a.p0.a.f1.e.b;
 import b.a.p0.a.g;
 import b.a.p0.a.h0.g.e;
 import b.a.p0.a.k;
-import b.a.p0.a.v1.c.f.c;
-import b.a.p0.a.v2.q0;
-import b.a.p0.o.a.a.o;
+import b.a.p0.a.y1.c.f.c;
+import b.a.p0.a.z2.q0;
+import b.a.p0.r.a.a.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -34,24 +34,32 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public static final String KEY_ERROR_FORBIDDEN_INFO = "swan_error_forbidden_info";
     public static final String KEY_ERROR_MENU_NOTICE_COUNT = "swan_error_menu_notice_count";
     public static final String KEY_ERROR_MENU_PRIVACY_COUNT = "swan_error_menu_privacy_count";
+    public static final String KEY_SWAN_ERROR_CODE = "swan_error_code";
     public static final String KEY_SWAN_ERROR_TYPE = "swan_error_type";
+    public static final String KEY_SWAN_WEB_PERMIT = "webPermit";
+    public static final String KEY_SWAN_WEB_URL = "webUrl";
     public static final int SHOW_MENU_NOTICE_DEFAULT = 0;
     public static final String TAG = "SwanAppErrorActivity";
     public static final String TYPE_APP_FORBIDDEN = "type_app_forbidden";
+    public static final String TYPE_DISK_LACK = "type_2205";
     public static final String TYPE_LOAD_V8_FAILED = "type_load_v8_failed";
+    public static final String TYPE_MEMORY_LACK = "type_0049";
     public static final String TYPE_NEED_UPDATE_SDK = "type_need_update_sdk";
     public static final String TYPE_NETWORK_ERROR = "type_network_error";
     public static final String TYPE_NORMAL = "type_normal";
     public static final String TYPE_PATH_FORBIDDEN = "type_path_forbidden";
     public transient /* synthetic */ FieldHolder $fh;
     public int mEnterAnimWhenFinishing;
+    public String mErrorCode;
     public String mErrorType;
     public int mExitAnimWhenFinishing;
     public ForbiddenInfo mForbiddenInfo;
     public b mLaunchInfo;
     public int mMenuNoticeCount;
     public int mMenuPrivateCount;
-    public b.a.p0.a.g2.b mSkinDecorator;
+    public b.a.p0.a.j2.b mSkinDecorator;
+    public int mWebPermit;
+    public String mWebUrl;
 
     static {
         InterceptResult invokeClinit;
@@ -66,7 +74,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
                 return;
             }
         }
-        DEBUG = k.f6397a;
+        DEBUG = k.f6863a;
     }
 
     public SwanAppErrorActivity() {
@@ -85,6 +93,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         this.mSkinDecorator = null;
         this.mEnterAnimWhenFinishing = 0;
         this.mExitAnimWhenFinishing = 0;
+        this.mErrorCode = "";
     }
 
     private void loadFragment() {
@@ -93,7 +102,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             o a2 = getSupportFragmentManager().a();
             if (getIntent() != null) {
-                eVar = e.L2(this.mErrorType, this.mForbiddenInfo, this.mMenuNoticeCount, this.mMenuPrivateCount);
+                eVar = e.c3(this.mErrorCode, this.mErrorType, this.mWebUrl, this.mWebPermit, this.mForbiddenInfo, this.mMenuNoticeCount, this.mMenuPrivateCount);
             } else if (this.mLaunchInfo == null) {
                 boolean z = DEBUG;
                 return;
@@ -101,7 +110,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
                 eVar = new e();
             }
             a2.a(f.ai_apps_error_layout, eVar);
-            a2.d();
+            a2.e();
         }
     }
 
@@ -111,12 +120,15 @@ public class SwanAppErrorActivity extends FragmentActivity {
         if (!(interceptable == null || interceptable.invokeL(65539, this, intent) == null) || intent == null) {
             return;
         }
-        this.mLaunchInfo = b.a1(intent);
+        this.mLaunchInfo = b.d1(intent);
         this.mForbiddenInfo = (ForbiddenInfo) intent.getParcelableExtra(KEY_ERROR_FORBIDDEN_INFO);
         this.mMenuNoticeCount = intent.getIntExtra(KEY_ERROR_MENU_NOTICE_COUNT, 0);
         this.mMenuPrivateCount = intent.getIntExtra(KEY_ERROR_MENU_PRIVACY_COUNT, 0);
-        if (TextUtils.isEmpty(this.mLaunchInfo.G()) && (forbiddenInfo = this.mForbiddenInfo) != null) {
-            this.mLaunchInfo.t0(forbiddenInfo.appId);
+        this.mWebUrl = intent.getStringExtra("webUrl");
+        this.mWebPermit = intent.getIntExtra(KEY_SWAN_WEB_PERMIT, -1);
+        this.mErrorCode = intent.getStringExtra(KEY_SWAN_ERROR_CODE);
+        if (TextUtils.isEmpty(this.mLaunchInfo.H()) && (forbiddenInfo = this.mForbiddenInfo) != null) {
+            this.mLaunchInfo.v0(forbiddenInfo.appId);
         }
         this.mErrorType = intent.getStringExtra(KEY_SWAN_ERROR_TYPE);
     }
@@ -162,14 +174,14 @@ public class SwanAppErrorActivity extends FragmentActivity {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLaunchInfo : (b) invokeV.objValue;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, b.a.p0.o.a.a.g, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, b.a.p0.r.a.a.g, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             setPendingTransition(a.aiapps_hold, a.aiapps_slide_out_to_bottom);
-            int Z = q0.Z(this);
+            int c0 = q0.c0(this);
             super.onCreate(bundle);
-            q0.g(this, Z);
+            q0.g(this, c0);
             setContentView(g.aiapps_error_activity);
             parseIntent(getIntent());
             loadFragment();
@@ -195,7 +207,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
                 return;
             }
             if (this.mSkinDecorator == null) {
-                this.mSkinDecorator = new b.a.p0.a.g2.b();
+                this.mSkinDecorator = new b.a.p0.a.j2.b();
             }
             ViewGroup viewGroup = (ViewGroup) window.getDecorView();
             if (z) {
@@ -221,8 +233,8 @@ public class SwanAppErrorActivity extends FragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onStart();
-            if (TextUtils.equals(this.mErrorType, TYPE_APP_FORBIDDEN) && (i2 = b.a.p0.a.v1.c.f.e.k().i(this.mForbiddenInfo.appId)) != null && i2.C()) {
-                b.a.p0.a.c2.f.g0.a.g(this.mForbiddenInfo.appId);
+            if (TextUtils.equals(this.mErrorType, TYPE_APP_FORBIDDEN) && (i2 = b.a.p0.a.y1.c.f.e.k().i(this.mForbiddenInfo.appId)) != null && i2.D()) {
+                b.a.p0.a.f2.f.f0.a.J(this.mForbiddenInfo.appId);
             }
         }
     }
@@ -230,7 +242,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public void updateCurrentNightMode() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            onNightModeCoverChanged(b.a.p0.a.c1.a.H().a());
+            onNightModeCoverChanged(b.a.p0.a.c1.a.M().a());
         }
     }
 }

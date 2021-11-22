@@ -35,10 +35,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f68026a;
+        public final String f68947a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f68027b;
+        public final T f68948b;
 
         public b(String str, T t) {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public class f {
                     return;
                 }
             }
-            this.f68026a = str;
-            this.f68027b = t;
+            this.f68947a = str;
+            this.f68948b = t;
         }
 
         public /* synthetic */ b(String str, Object obj, a aVar) {
@@ -66,13 +66,13 @@ public class f {
         public T a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68027b : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68948b : (T) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68026a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68947a : (String) invokeV.objValue;
         }
     }
 

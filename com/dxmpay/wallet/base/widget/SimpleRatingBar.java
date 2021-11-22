@@ -38,7 +38,7 @@ public class SimpleRatingBar extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SimpleRatingBar f62472e;
+        public final /* synthetic */ SimpleRatingBar f63373e;
 
         public OnStarClickListener(SimpleRatingBar simpleRatingBar) {
             Interceptable interceptable = $ic;
@@ -55,15 +55,15 @@ public class SimpleRatingBar extends LinearLayout {
                     return;
                 }
             }
-            this.f62472e = simpleRatingBar;
+            this.f63373e = simpleRatingBar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int indexOf = this.f62472e.mStars.indexOf(view) + 1;
-                SimpleRatingBar simpleRatingBar = this.f62472e;
+                int indexOf = this.f63373e.mStars.indexOf(view) + 1;
+                SimpleRatingBar simpleRatingBar = this.f63373e;
                 if (indexOf == simpleRatingBar.mRate || indexOf <= 0 || indexOf > simpleRatingBar.mMaxRate) {
                     return;
                 }

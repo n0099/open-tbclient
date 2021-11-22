@@ -13,10 +13,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f18619a;
+    public String f20155a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Integer f18620b;
+    public Integer f20156b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -35,13 +35,13 @@ public class d {
     public Integer a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18620b : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20156b : (Integer) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18619a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20155a : (String) invokeV.objValue;
     }
 
     public void c(TopicList topicList) {
@@ -50,17 +50,17 @@ public class d {
             return;
         }
         Long l = topicList.topic_id;
-        this.f18619a = topicList.topic_name;
+        this.f20155a = topicList.topic_name;
         String str = topicList.topic_pic;
         String str2 = topicList.topic_desc;
         Long l2 = topicList.discuss_num;
-        this.f18620b = topicList.tag;
+        this.f20156b = topicList.tag;
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f18619a = str;
+            this.f20155a = str;
         }
     }
 }

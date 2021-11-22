@@ -11,13 +11,13 @@ public class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ long f37356a;
+    public final /* synthetic */ long f38186a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d.c f37357b;
+    public final /* synthetic */ d.c f38187b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ d f37358c;
+    public final /* synthetic */ d f38188c;
 
     public c(d dVar, long j, d.c cVar) {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f37358c = dVar;
-        this.f37356a = j;
-        this.f37357b = cVar;
+        this.f38188c = dVar;
+        this.f38186a = j;
+        this.f38187b = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -44,11 +44,11 @@ public class c implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                Thread.sleep(this.f37356a);
+                Thread.sleep(this.f38186a);
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            this.f37358c.b(this.f37357b);
+            this.f38188c.b(this.f38187b);
         }
     }
 }

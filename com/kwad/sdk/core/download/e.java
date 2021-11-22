@@ -41,7 +41,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f64514a;
+    public static final String f65427a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -50,7 +50,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final OutputStream f64515a;
+        public final OutputStream f65428a;
 
         public a(File file, boolean z) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class e {
                     return;
                 }
             }
-            this.f64515a = new FileOutputStream(file, z);
+            this.f65428a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.core.download.e.c
@@ -88,7 +88,7 @@ public class e {
         public void a(byte[] bArr, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
-                this.f64515a.write(bArr, i2, i3);
+                this.f65428a.write(bArr, i2, i3);
             }
         }
 
@@ -96,7 +96,7 @@ public class e {
         public void close() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f64515a.close();
+                this.f65428a.close();
             }
         }
     }
@@ -128,7 +128,7 @@ public class e {
                 return;
             }
         }
-        f64514a = al.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
+        f65427a = al.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
     }
 
     public static URLConnection a(String str, int i2, int i3, boolean z, boolean z2) {
@@ -331,7 +331,7 @@ public class e {
             if (contentLength <= 0) {
                 try {
                     Random random = new Random(System.currentTimeMillis());
-                    file = new File(f64514a, random.nextInt() + ".tmp");
+                    file = new File(f65427a, random.nextInt() + ".tmp");
                     try {
                         fileOutputStream2 = new FileOutputStream(file);
                     } catch (Throwable th4) {

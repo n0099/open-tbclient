@@ -1,7 +1,7 @@
 package b.a.r0.v1.h.e;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,19 +22,19 @@ public class d implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24387e;
+    public String f25850e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f24388f;
+    public String f25851f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f24389g;
+    public long f25852g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f24390h;
+    public int f25853h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f24391i;
+    public int f25854i;
     public String j;
     public String k;
     public String l;
@@ -71,14 +71,14 @@ public class d implements n {
                 return;
             }
         }
-        this.f24387e = "";
-        this.f24388f = "";
+        this.f25850e = "";
+        this.f25851f = "";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24388f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25851f : (String) invokeV.objValue;
     }
 
     public long d() {
@@ -99,7 +99,7 @@ public class d implements n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : (String) invokeV.objValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class d implements n {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24387e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f25850e : (String) invokeV.objValue;
     }
 
     public String i() {
@@ -121,7 +121,7 @@ public class d implements n {
     public long k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f24389g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f25852g : invokeV.longValue;
     }
 
     public String l() {
@@ -141,14 +141,14 @@ public class d implements n {
         if (!(interceptable == null || interceptable.invokeL(1048586, this, sugLiveInfo) == null) || sugLiveInfo == null) {
             return;
         }
-        this.f24387e = sugLiveInfo.word;
+        this.f25850e = sugLiveInfo.word;
         AlaLiveInfo alaLiveInfo = sugLiveInfo.ala_info;
         if (alaLiveInfo != null) {
             this.o = alaLiveInfo.room_id.longValue();
-            this.f24390h = sugLiveInfo.ala_info.live_type.intValue();
+            this.f25853h = sugLiveInfo.ala_info.live_type.intValue();
             AlaUserInfo alaUserInfo = sugLiveInfo.ala_info.user_info;
             if (alaUserInfo != null) {
-                this.f24389g = alaUserInfo.user_id.longValue();
+                this.f25852g = alaUserInfo.user_id.longValue();
             }
             YyExt yyExt = sugLiveInfo.ala_info.yy_ext;
             if (yyExt != null) {
@@ -157,8 +157,8 @@ public class d implements n {
                 this.l = yyExt.template_id;
                 this.m = yyExt.yy_uid;
                 int intValue = yyExt.is_yy_game.intValue();
-                this.f24391i = intValue;
-                this.n = q(this.f24390h, intValue);
+                this.f25854i = intValue;
+                this.n = q(this.f25853h, intValue);
             }
         }
     }
@@ -166,7 +166,7 @@ public class d implements n {
     public void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f24388f = str;
+            this.f25851f = str;
         }
     }
 

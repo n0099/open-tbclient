@@ -15,31 +15,31 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f12779a;
+    public boolean f13529a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f12780b;
+    public List<String> f13530b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12781c;
+    public String f13531c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f12782d;
+    public long f13532d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f12783e;
+    public long f13533e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12784f;
+    public String f13534f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f12785g;
+    public long f13535g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f12786h;
+    public long f13536h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f12787i;
+    public String f13537i;
     public String j;
     public String k;
     public String l;
@@ -68,7 +68,7 @@ public class d {
                 return;
             }
         }
-        this.f12779a = false;
+        this.f13529a = false;
         this.u = 0;
     }
 
@@ -89,7 +89,7 @@ public class d {
     public void C(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f12783e = j;
+            this.f13533e = j;
         }
     }
 
@@ -122,19 +122,19 @@ public class d {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f12781c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13531c : (String) invokeV.objValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f12782d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f13532d : invokeV.longValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f12784f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f13534f : (String) invokeV.objValue;
     }
 
     public String f() {
@@ -146,19 +146,19 @@ public class d {
     public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f12785g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f13535g : invokeV.longValue;
     }
 
     public List<String> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f12780b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f13530b : (List) invokeV.objValue;
     }
 
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f12786h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f13536h : invokeV.longValue;
     }
 
     public String j() {
@@ -182,7 +182,7 @@ public class d {
     public long m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f12783e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f13533e : invokeV.longValue;
     }
 
     public String n() {
@@ -200,7 +200,7 @@ public class d {
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? StringUtils.isNull(this.f12781c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? StringUtils.isNull(this.f13531c) : invokeV.booleanValue;
     }
 
     public void q(String str) {
@@ -220,21 +220,21 @@ public class d {
     public void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            this.f12781c = str;
+            this.f13531c = str;
         }
     }
 
     public void t(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
-            this.f12782d = j;
+            this.f13532d = j;
         }
     }
 
     public void u(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            this.f12784f = str;
+            this.f13534f = str;
         }
     }
 
@@ -248,21 +248,21 @@ public class d {
     public void w(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
-            this.f12785g = j;
+            this.f13535g = j;
         }
     }
 
     public void x(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, list) == null) {
-            this.f12780b = list;
+            this.f13530b = list;
         }
     }
 
     public void y(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048605, this, j) == null) {
-            this.f12786h = j;
+            this.f13536h = j;
         }
     }
 

@@ -37,8 +37,8 @@ import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
-import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.sofire.ac.FH;
+import com.baidu.tbadk.core.util.deeplink.DeepLinkCode;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -336,7 +336,7 @@ public final class SapiAccountManager implements ISAccountManager {
             HashMap hashMap = new HashMap();
             hashMap.put("show_count", "1");
             hashMap.put("success_count", z2 ? "1" : "0");
-            hashMap.put("f", z ? ComboPraiseManager.PRAISE_SOURCE_PREFIX_NA : "web");
+            hashMap.put("f", z ? "na" : DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB);
             StatService.onEventAutoStat("na_history_login", hashMap);
         }
     }

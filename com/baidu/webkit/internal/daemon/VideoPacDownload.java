@@ -27,6 +27,7 @@ import java.util.Map;
 public class VideoPacDownload implements IResourceTask, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "VideoPacDownload";
+    public static final String PMS_PACKAGE_NAME = "com.baidu.zeus.videopacdownload";
     public static boolean mDownloading;
     public static WebSettings.ProxyType mPacType;
     public static boolean mSuccessDownload;
@@ -144,10 +145,17 @@ public class VideoPacDownload implements IResourceTask, INetListener {
     }
 
     @Override // com.baidu.webkit.internal.resource.IResourceTask
+    public String getPMSPackageName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PMS_PACKAGE_NAME : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.webkit.internal.resource.IResourceTask
     public int getPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
@@ -157,27 +165,27 @@ public class VideoPacDownload implements IResourceTask, INetListener {
     public String getTaskName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "videopacdownload" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "videopacdownload" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.internal.resource.IResourceTask
     public String getTaskUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getPacUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getPacUrl() : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.webkit.net.INetListener
     public void onNetDownloadComplete(BdNet bdNet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdNet) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bdNet) == null) {
         }
     }
 
     @Override // com.baidu.webkit.net.INetListener
     public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048582, this, bdNet, bdNetTask, netError, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(1048583, this, bdNet, bdNetTask, netError, i2) == null) {
             mDownloading = false;
             Log.w(LOG_TAG, "onNetDownloadError  " + bdNetTask.getUrl());
         }
@@ -186,7 +194,7 @@ public class VideoPacDownload implements IResourceTask, INetListener {
     @Override // com.baidu.webkit.net.INetListener
     public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048583, this, bdNet, bdNetTask, bArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNet, bdNetTask, bArr, i2) == null) {
             if (this.mData == null) {
                 this.mData = new ByteArrayOutputStream();
             }
@@ -197,7 +205,7 @@ public class VideoPacDownload implements IResourceTask, INetListener {
     @Override // com.baidu.webkit.net.INetListener
     public void onNetReceiveHeaders(BdNet bdNet, BdNetTask bdNetTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNet, bdNetTask) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, bdNet, bdNetTask) == null) {
             this.mHeader = bdNetTask.getResHeaders();
         }
     }
@@ -206,7 +214,7 @@ public class VideoPacDownload implements IResourceTask, INetListener {
     public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, bdNet, bdNetTask, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, bdNet, bdNetTask, i2)) == null) {
             return false;
         }
         return invokeLLI.booleanValue;
@@ -215,7 +223,7 @@ public class VideoPacDownload implements IResourceTask, INetListener {
     @Override // com.baidu.webkit.net.INetListener
     public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048586, this, bdNet, bdNetTask, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048587, this, bdNet, bdNetTask, i2) == null) {
             Log.w(LOG_TAG, "onNetResponseCode  " + i2 + " url " + bdNetTask.getUrl());
         }
     }
@@ -223,7 +231,7 @@ public class VideoPacDownload implements IResourceTask, INetListener {
     @Override // com.baidu.webkit.net.INetListener
     public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048587, this, bdNet, bdNetTask, netState, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(1048588, this, bdNet, bdNetTask, netState, i2) == null) {
         }
     }
 
@@ -231,7 +239,7 @@ public class VideoPacDownload implements IResourceTask, INetListener {
     public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, bdNet, bdNetTask) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048589, this, bdNet, bdNetTask) == null) {
             mDownloading = false;
             if (this.mData != null) {
                 Map<String, String> map = this.mHeader;
@@ -264,7 +272,7 @@ public class VideoPacDownload implements IResourceTask, INetListener {
     @Override // com.baidu.webkit.net.INetListener
     public void onNetTaskStart(BdNet bdNet, BdNetTask bdNetTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, bdNet, bdNetTask) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048590, this, bdNet, bdNetTask) == null) {
             Log.w(LOG_TAG, "onNetTaskStart  " + bdNetTask.getUrl());
         }
     }
@@ -272,21 +280,21 @@ public class VideoPacDownload implements IResourceTask, INetListener {
     @Override // com.baidu.webkit.net.INetListener
     public void onNetUploadComplete(BdNet bdNet, BdNetTask bdNetTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, bdNet, bdNetTask) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048591, this, bdNet, bdNetTask) == null) {
         }
     }
 
     @Override // com.baidu.webkit.net.INetListener
     public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048591, this, bdNet, bdNetTask, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(1048592, this, bdNet, bdNetTask, i2, i3) == null) {
         }
     }
 
     @Override // com.baidu.webkit.internal.resource.IResourceTask
     public void onResourceReady(String str, IResourceTask.ResultType resultType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, str, resultType) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048593, this, str, resultType) == null) {
             Log.w(LOG_TAG, "onResourceReady1 ".concat(String.valueOf(resultType)));
             if (str != null) {
                 Log.w(LOG_TAG, "onResourceReady2 " + str.length());
@@ -298,10 +306,20 @@ public class VideoPacDownload implements IResourceTask, INetListener {
     }
 
     @Override // com.baidu.webkit.internal.resource.IResourceTask
+    public boolean shouldBeUnZip() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.webkit.internal.resource.IResourceTask
     public boolean shouldForceLoadFromFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;

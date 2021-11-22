@@ -6,10 +6,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.c2.f.a0;
-import b.a.p0.a.e2.c.i;
-import b.a.p0.a.e2.c.j.b;
-import b.a.p0.a.v2.w;
+import b.a.p0.a.f2.f.z;
+import b.a.p0.a.h2.c.i;
+import b.a.p0.a.h2.c.j.b;
+import b.a.p0.a.z2.w;
 import b.a.q0.a.g;
 import b.a.q0.j0.h;
 import com.baidu.adp.framework.MessageManager;
@@ -37,35 +37,35 @@ import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d extends a0 {
+public class d extends z {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f24192d = "com.baidu.tieba://";
+    public static String f25655d = "com.baidu.tieba://";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f24193c;
+    public String f25656c;
 
     /* loaded from: classes5.dex */
-    public class a implements b.a.p0.a.v2.e1.b<i<b.e>> {
+    public class a implements b.a.p0.a.z2.g1.c<i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f24194e;
+        public final /* synthetic */ CallbackHandler f25657e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f24195f;
+        public final /* synthetic */ Context f25658f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f24196g;
+        public final /* synthetic */ String f25659g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f24197h;
+        public final /* synthetic */ String f25660h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f24198i;
+        public final /* synthetic */ String f25661i;
         public final /* synthetic */ String j;
         public final /* synthetic */ String k;
         public final /* synthetic */ d l;
@@ -86,29 +86,29 @@ public class d extends a0 {
                 }
             }
             this.l = dVar;
-            this.f24194e = callbackHandler;
-            this.f24195f = context;
-            this.f24196g = str;
-            this.f24197h = str2;
-            this.f24198i = str3;
+            this.f25657e = callbackHandler;
+            this.f25658f = context;
+            this.f25659g = str;
+            this.f25660h = str2;
+            this.f25661i = str3;
             this.j = str4;
             this.k = str5;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v2.e1.b
+        @Override // b.a.p0.a.z2.g1.c
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                if (!b.a.p0.a.e2.c.d.h(iVar)) {
-                    b.a.p0.a.e2.c.d.p(iVar, this.f24194e, this.l.f24193c);
-                } else if (!this.l.l(this.f24195f, this.f24196g, this.f24197h, this.f24198i, this.j, this.k)) {
-                    b.a.p0.a.e0.d.b("PageTransitionAction", "page transition fail");
-                    this.f24194e.handleSchemeDispatchCallback(this.l.f24193c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                if (!b.a.p0.a.h2.c.d.h(iVar)) {
+                    b.a.p0.a.h2.c.d.q(iVar, this.f25657e, this.l.f25656c);
+                } else if (!this.l.l(this.f25658f, this.f25659g, this.f25660h, this.f25661i, this.j, this.k)) {
+                    b.a.p0.a.e0.d.c("PageTransitionAction", "page transition fail");
+                    this.f25657e.handleSchemeDispatchCallback(this.l.f25656c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 } else {
-                    b.a.p0.a.e0.d.g("PageTransitionAction", "page transition success");
-                    this.f24194e.handleSchemeDispatchCallback(this.l.f24193c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    b.a.p0.a.e0.d.i("PageTransitionAction", "page transition success");
+                    this.f25657e.handleSchemeDispatchCallback(this.l.f25656c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 }
             }
         }
@@ -120,7 +120,7 @@ public class d extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f24199a;
+        public final /* synthetic */ Context f25662a;
 
         public b(Context context) {
             Interceptable interceptable = $ic;
@@ -137,14 +137,14 @@ public class d extends a0 {
                     return;
                 }
             }
-            this.f24199a = context;
+            this.f25662a = context;
         }
 
         @Override // b.a.q0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(b.a.q0.a.g.z) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f24199a, null, (String) hashMap.get(b.a.q0.a.g.z), true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(b.a.q0.a.g.A) instanceof String)) {
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.f25662a, null, (String) hashMap.get(b.a.q0.a.g.A), true);
                 tbWebViewActivityConfig.setIsFromSchema(true);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
@@ -167,7 +167,7 @@ public class d extends a0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(b.a.p0.a.c2.e eVar) {
+    public d(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swanAPI/pageTransition");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -219,7 +219,7 @@ public class d extends a0 {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = str6 + str4;
                 }
-                String str8 = f24192d;
+                String str8 = f25655d;
                 if (TextUtils.isEmpty(str2)) {
                     if (!TextUtils.isEmpty(str)) {
                         str8 = str8 + str;
@@ -235,12 +235,12 @@ public class d extends a0 {
                 }
                 StringBuilder sb2 = new StringBuilder(sb.substring(0, sb.length() - 1));
                 String str9 = str8 + "?" + ((Object) sb2);
-                if (a0.f4160b) {
+                if (z.f5228b) {
                     String str10 = "encodeParams: " + ((Object) sb2);
                 }
                 return str9;
             } catch (JSONException e2) {
-                if (a0.f4160b) {
+                if (z.f5228b) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -279,8 +279,8 @@ public class d extends a0 {
         return invokeLL.booleanValue;
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
@@ -295,7 +295,7 @@ public class d extends a0 {
             }
             JSONObject d2 = w.d(param);
             String optString = d2.optString("cb");
-            this.f24193c = optString;
+            this.f25656c = optString;
             if (TextUtils.isEmpty(optString)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
@@ -308,12 +308,12 @@ public class d extends a0 {
             try {
                 optJSONObject.put("launchMode", "standard");
             } catch (JSONException e2) {
-                if (a0.f4160b) {
+                if (z.f5228b) {
                     e2.printStackTrace();
                 }
             }
-            eVar.S().g((Activity) context, "mapp_i_baiduapp_page_trans", new a(this, callbackHandler, context, optString2, optString3, optString4, optString5, optJSONObject.toString()));
-            b.a.p0.a.e0.d.g("PageTransitionAction", "callback success");
+            eVar.d0().g((Activity) context, "mapp_i_baiduapp_page_trans", new a(this, callbackHandler, context, optString2, optString3, optString4, optString5, optJSONObject.toString()));
+            b.a.p0.a.e0.d.i("PageTransitionAction", "callback success");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
@@ -345,7 +345,7 @@ public class d extends a0 {
                     str6 = m(str, str2, str3, str4, str5);
                     z = n(context, str6);
                 }
-                if (a0.f4160b) {
+                if (z.f5228b) {
                     String str7 = "result = " + z + org.apache.commons.lang3.StringUtils.LF + "拼接后的uri is: " + str6;
                 }
             }
@@ -355,14 +355,14 @@ public class d extends a0 {
     }
 
     public final void o(String str) {
-        b.a.p0.a.a2.e i2;
-        b.a.p0.a.v1.c.e.a z;
+        b.a.p0.a.d2.e L;
+        b.a.p0.a.y1.c.e.a z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (i2 = b.a.p0.a.a2.e.i()) == null || (z = i2.z()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (L = b.a.p0.a.d2.e.L()) == null || (z = L.z()) == null) {
             return;
         }
         Bundle bundle = new Bundle();
         bundle.putString("key_param_url", str);
-        z.K(bundle, c.class);
+        z.V(bundle, c.class);
     }
 }

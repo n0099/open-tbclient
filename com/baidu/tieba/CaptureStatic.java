@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import b.a.e.e.p.l;
-import b.a.e.j.d;
-import b.a.e.j.e;
-import b.a.r0.y3.f;
+import b.a.e.f.p.l;
+import b.a.e.k.d;
+import b.a.e.k.e;
+import b.a.r0.z3.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -49,28 +49,28 @@ public class CaptureStatic {
 
         /* renamed from: com.baidu.tieba.CaptureStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C1708a implements f {
+        public class C1746a implements f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f46551a;
+            public final /* synthetic */ CustomResponsedMessage f47415a;
 
             /* renamed from: com.baidu.tieba.CaptureStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes8.dex */
-            public class C1709a extends DefaultDownloadCallback {
+            public class C1747a extends DefaultDownloadCallback {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ C1708a f46552a;
+                public final /* synthetic */ C1746a f47416a;
 
-                public C1709a(C1708a c1708a) {
+                public C1747a(C1746a c1746a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c1708a};
+                        Object[] objArr = {c1746a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -80,7 +80,7 @@ public class CaptureStatic {
                             return;
                         }
                     }
-                    this.f46552a = c1708a;
+                    this.f47416a = c1746a;
                 }
 
                 @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -109,12 +109,12 @@ public class CaptureStatic {
                         if (packageInfo == null || !"libcbffmpeg.so".equals(packageInfo.name)) {
                             return;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f46552a.f46551a.getData()));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f47416a.f47415a.getData()));
                     }
                 }
             }
 
-            public C1708a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public C1746a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,27 +129,27 @@ public class CaptureStatic {
                         return;
                     }
                 }
-                this.f46551a = customResponsedMessage;
+                this.f47415a = customResponsedMessage;
             }
 
-            @Override // b.a.r0.y3.f
+            @Override // b.a.r0.z3.f
             public void a() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f46551a.getData() instanceof IntentConfig)) {
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f47415a.getData() instanceof IntentConfig)) {
                     if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libcbffmpeg.so"))) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f46551a.getData()));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f47415a.getData()));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
                         return;
                     }
                     RequestParams requestParams = new RequestParams();
-                    requestParams.setRunType(e.f2359a);
+                    requestParams.setRunType(e.f2362a);
                     requestParams.setRunNode("aps");
-                    requestParams.addChannel(new d("com.baidu.tieba.soloader.libcbffmpeg", new C1709a(this)));
+                    requestParams.addChannel(new d("com.baidu.tieba.soloader.libcbffmpeg", new C1747a(this)));
                     PmsManager.getInstance().execute(requestParams);
                 }
             }
 
-            @Override // b.a.r0.y3.f
+            @Override // b.a.r0.z3.f
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -183,7 +183,7 @@ public class CaptureStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
-                b.a.r0.y3.a.b(TbadkCoreApplication.getInst(), new C1708a(this, customResponsedMessage));
+                b.a.r0.z3.a.b(TbadkCoreApplication.getInst(), new C1746a(this, customResponsedMessage));
             }
         }
     }

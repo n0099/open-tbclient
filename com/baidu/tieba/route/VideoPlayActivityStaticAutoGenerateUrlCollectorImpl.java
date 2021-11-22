@@ -37,6 +37,7 @@ public final class VideoPlayActivityStaticAutoGenerateUrlCollectorImpl implement
             HashMap hashMap = new HashMap();
             new ArrayList();
             hashMap.put("2002001", "com.baidu.tieba.videoplay.VideoPlayActivityStatic");
+            hashMap.put("1003499", "com.baidu.tieba.videoplay.VideoPlayActivityStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;

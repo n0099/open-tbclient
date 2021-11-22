@@ -1,34 +1,32 @@
 package b.a.r0.k2.r;
 
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.data.ThreadPublishHttpResMeesage;
+import com.baidu.tieba.pb.data.ThreadPublishReqMessage;
+import com.baidu.tieba.pb.data.ThreadPublishSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<PostData> f18820a;
+    public TbPageContext f20356a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final List<Long> f18821b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f18822c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f18823d;
-
-    public v() {
+    public v(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -38,14 +36,23 @@ public class v {
                 return;
             }
         }
-        this.f18820a = new ArrayList();
-        this.f18821b = new ArrayList();
-        this.f18823d = 0;
+        this.f20356a = tbPageContext;
+        SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
+        socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
+        MessageManager.getInstance().registerTask(socketMessageTask);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, b.a.r0.m3.f0.a.a(TbConfig.URL_THREAD_PUBLISH, 309644));
+        tbHttpMessageTask.setResponsedClass(ThreadPublishHttpResMeesage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(long j, long j2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18823d : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
+            threadPublishReqMessage.tid = j;
+            threadPublishReqMessage.fid = j2;
+            threadPublishReqMessage.setTag(this.f20356a.getUniqueId());
+            MessageManager.getInstance().sendMessage(threadPublishReqMessage);
+        }
     }
 }

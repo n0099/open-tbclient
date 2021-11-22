@@ -1,86 +1,146 @@
 package b.a.p0.a.n1;
 
+import android.graphics.Bitmap;
+import android.graphics.Rect;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.FormBody;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public final class d extends RequestBody {
+public class d {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaType f6889a;
+    public String f7232a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FormBody f6890b;
+    public String f7233b;
 
-    public d(FormBody formBody) {
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f7234c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f7235d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f7236e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f7237f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f7238g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Rect f7239h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f7240i;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1330136621, "Lb/a/p0/a/n1/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1330136621, "Lb/a/p0/a/n1/d;");
+                return;
+            }
+        }
+        j = b.a.p0.a.d2.e.z;
+    }
+
+    public d(String str, String str2, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {formBody};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, str2, Long.valueOf(j2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f6890b = formBody;
+        this.f7238g = 0;
+        this.f7232a = str;
+        this.f7233b = str2;
+        this.f7236e = System.currentTimeMillis();
+        this.f7237f = j2;
+        this.f7235d = 0;
+        this.f7240i = z;
     }
 
-    public static d a(FormBody formBody, MediaType mediaType) {
-        InterceptResult invokeLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, formBody, mediaType)) == null) {
-            d dVar = new d(formBody);
-            dVar.b(mediaType);
-            return dVar;
-        }
-        return (d) invokeLL.objValue;
-    }
-
-    public void b(MediaType mediaType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mediaType) == null) {
-            this.f6889a = mediaType;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f7235d = 2;
         }
     }
 
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6890b.contentLength() : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long j2 = this.f7237f;
+            if (j2 > 0) {
+                this.f7237f = j2 - (System.currentTimeMillis() - this.f7236e);
+            }
+            return this.f7237f;
+        }
+        return invokeV.longValue;
     }
 
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            MediaType mediaType = this.f6889a;
-            return mediaType == null ? this.f6890b.contentType() : mediaType;
-        }
-        return (MediaType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7235d == 2 : invokeV.booleanValue;
     }
 
-    @Override // okhttp3.RequestBody
-    public void writeTo(BufferedSink bufferedSink) throws IOException {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bufferedSink) == null) {
-            this.f6890b.writeTo(bufferedSink);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long j2 = this.f7237f;
+            if (j2 > 0) {
+                this.f7237f = j2 - (System.currentTimeMillis() - this.f7236e);
+                if (j) {
+                    String str = "pause, left " + this.f7237f + "ms";
+                }
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f7236e = System.currentTimeMillis();
+        }
+    }
+
+    public void f(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) {
+            new WeakReference(bitmap);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f7235d = 1;
         }
     }
 }

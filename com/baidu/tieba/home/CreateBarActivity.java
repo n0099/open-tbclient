@@ -16,7 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import androidx.core.internal.view.SupportMenu;
+import b.a.e.f.p.l;
 import b.a.q0.t.c.m0;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
@@ -68,7 +69,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CreateBarActivity f49342e;
+        public final /* synthetic */ CreateBarActivity f50253e;
 
         public a(CreateBarActivity createBarActivity) {
             Interceptable interceptable = $ic;
@@ -85,17 +86,17 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     return;
                 }
             }
-            this.f49342e = createBarActivity;
+            this.f50253e = createBarActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f49342e.mCreate) {
-                    this.f49342e.startCreateTask();
-                } else if (view == this.f49342e.mImageButton) {
-                    this.f49342e.startImageTask();
+                if (view == this.f50253e.mCreate) {
+                    this.f50253e.startCreateTask();
+                } else if (view == this.f50253e.mImageButton) {
+                    this.f50253e.startImageTask();
                 }
             }
         }
@@ -107,7 +108,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CreateBarActivity f49343e;
+        public final /* synthetic */ CreateBarActivity f50254e;
 
         public b(CreateBarActivity createBarActivity) {
             Interceptable interceptable = $ic;
@@ -124,26 +125,26 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     return;
                 }
             }
-            this.f49343e = createBarActivity;
+            this.f50254e = createBarActivity;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                int length = this.f49343e.mEditName.getText().toString().trim().length();
-                if (length <= 0 || length >= 32 || this.f49343e.mEditVcode.getText().toString().trim().length() <= 0) {
-                    this.f49343e.mCreate.setEnabled(false);
+                int length = this.f50254e.mEditName.getText().toString().trim().length();
+                if (length <= 0 || length >= 32 || this.f50254e.mEditVcode.getText().toString().trim().length() <= 0) {
+                    this.f50254e.mCreate.setEnabled(false);
                 } else {
-                    this.f49343e.mCreate.setEnabled(true);
+                    this.f50254e.mCreate.setEnabled(true);
                 }
                 if (length >= 32) {
-                    this.f49343e.mErrorView.setText(this.f49343e.getPageContext().getString(R.string.bar_name_long));
-                    this.f49343e.mErrorView.setTextColor(-65536);
+                    this.f50254e.mErrorView.setText(this.f50254e.getPageContext().getString(R.string.bar_name_long));
+                    this.f50254e.mErrorView.setTextColor(SupportMenu.CATEGORY_MASK);
                     return;
                 }
-                this.f49343e.mErrorView.setText(this.f49343e.getPageContext().getString(R.string.bar_name_rule));
-                this.f49343e.mErrorView.setTextColor(-6250336);
+                this.f50254e.mErrorView.setText(this.f50254e.getPageContext().getString(R.string.bar_name_rule));
+                this.f50254e.mErrorView.setTextColor(-6250336);
             }
         }
 
@@ -168,7 +169,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CreateBarActivity f49344e;
+        public final /* synthetic */ CreateBarActivity f50255e;
 
         public c(CreateBarActivity createBarActivity) {
             Interceptable interceptable = $ic;
@@ -185,7 +186,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     return;
                 }
             }
-            this.f49344e = createBarActivity;
+            this.f50255e = createBarActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -194,11 +195,11 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    if (this.f49344e.mEditName.hasFocus()) {
-                        l.x(this.f49344e.getPageContext().getPageActivity(), this.f49344e.mEditName);
+                    if (this.f50255e.mEditName.hasFocus()) {
+                        l.x(this.f50255e.getPageContext().getPageActivity(), this.f50255e.mEditName);
                     }
-                    if (this.f49344e.mEditVcode.hasFocus()) {
-                        l.x(this.f49344e.getPageContext().getPageActivity(), this.f49344e.mEditVcode);
+                    if (this.f50255e.mEditVcode.hasFocus()) {
+                        l.x(this.f50255e.getPageContext().getPageActivity(), this.f50255e.mEditVcode);
                         return false;
                     }
                     return false;
@@ -215,16 +216,16 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f49345a;
+        public String f50256a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f49346b;
+        public String f50257b;
 
         /* renamed from: c  reason: collision with root package name */
-        public NetWork f49347c;
+        public NetWork f50258c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CreateBarActivity f49348d;
+        public final /* synthetic */ CreateBarActivity f50259d;
 
         public d(CreateBarActivity createBarActivity, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -241,12 +242,12 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     return;
                 }
             }
-            this.f49348d = createBarActivity;
-            this.f49345a = null;
-            this.f49346b = null;
-            this.f49347c = null;
-            this.f49345a = str;
-            this.f49346b = str2;
+            this.f50259d = createBarActivity;
+            this.f50256a = null;
+            this.f50257b = null;
+            this.f50258c = null;
+            this.f50256a = str;
+            this.f50257b = str2;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -254,12 +255,12 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.cancel(true);
-                NetWork netWork = this.f49347c;
+                NetWork netWork = this.f50258c;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f49348d.mProgress.setVisibility(8);
-                this.f49348d.mCreateTask = null;
+                this.f50259d.mProgress.setVisibility(8);
+                this.f50259d.mCreateTask = null;
             }
         }
 
@@ -268,7 +269,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 super.onPreExecute();
-                this.f49348d.mProgress.setVisibility(0);
+                this.f50259d.mProgress.setVisibility(0);
             }
         }
 
@@ -280,13 +281,13 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/c/forum/create");
-                    this.f49347c = netWork;
+                    this.f50258c = netWork;
                     netWork.getNetContext().getRequest().mIsNeedTbs = true;
-                    this.f49347c.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f49345a);
-                    this.f49347c.addPostData("vcode", this.f49346b);
-                    this.f49347c.addPostData("vcode_md5", this.f49348d.mVcode_md5);
-                    this.f49347c.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
-                    this.f49347c.postNetData();
+                    this.f50258c.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f50256a);
+                    this.f50258c.addPostData("vcode", this.f50257b);
+                    this.f50258c.addPostData("vcode_md5", this.f50259d.mVcode_md5);
+                    this.f50258c.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+                    this.f50258c.postNetData();
                     return null;
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
@@ -302,16 +303,16 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 super.onPostExecute((d) str);
-                this.f49348d.mProgress.setVisibility(8);
-                this.f49348d.mCreateTask = null;
-                if (this.f49347c.getNetContext().getResponse().isRequestSuccess()) {
-                    CreateBarSuccessActivity.startActivity(this.f49348d.getPageContext().getPageActivity(), this.f49345a);
-                    this.f49348d.finish();
+                this.f50259d.mProgress.setVisibility(8);
+                this.f50259d.mCreateTask = null;
+                if (this.f50258c.getNetContext().getResponse().isRequestSuccess()) {
+                    CreateBarSuccessActivity.startActivity(this.f50259d.getPageContext().getPageActivity(), this.f50256a);
+                    this.f50259d.finish();
                     return;
                 }
-                this.f49348d.showToast(this.f49347c.getErrorString());
-                if (this.f49347c.isNetSuccess()) {
-                    this.f49348d.startImageTask();
+                this.f50259d.showToast(this.f50258c.getErrorString());
+                if (this.f50258c.isNetSuccess()) {
+                    this.f50259d.startImageTask();
                 }
             }
         }
@@ -323,13 +324,13 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f49349a;
+        public NetWork f50260a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f49350b;
+        public volatile boolean f50261b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CreateBarActivity f49351c;
+        public final /* synthetic */ CreateBarActivity f50262c;
 
         public e(CreateBarActivity createBarActivity) {
             Interceptable interceptable = $ic;
@@ -346,9 +347,9 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     return;
                 }
             }
-            this.f49351c = createBarActivity;
-            this.f49349a = null;
-            this.f49350b = false;
+            this.f50262c = createBarActivity;
+            this.f50260a = null;
+            this.f50261b = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -360,22 +361,22 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/anti/vcode");
-                    this.f49349a = netWork;
+                    this.f50260a = netWork;
                     netWork.addPostData("fid", "0");
-                    this.f49349a.addPostData("pub_type", "0");
-                    this.f49349a.addPostData("fname", "");
-                    this.f49349a.addPostData("tid", "0");
-                    String postNetData = this.f49349a.postNetData();
-                    if (this.f49349a.getNetContext().getResponse().isRequestSuccess()) {
+                    this.f50260a.addPostData("pub_type", "0");
+                    this.f50260a.addPostData("fname", "");
+                    this.f50260a.addPostData("tid", "0");
+                    String postNetData = this.f50260a.postNetData();
+                    if (this.f50260a.getNetContext().getResponse().isRequestSuccess()) {
                         m0 m0Var = new m0();
                         m0Var.e(postNetData);
                         if (m0Var.c() != null && m0Var.c().length() > 0) {
-                            this.f49351c.mVcode_md5 = m0Var.b();
-                            if (this.f49350b) {
+                            this.f50262c.mVcode_md5 = m0Var.b();
+                            if (this.f50261b) {
                                 return null;
                             }
                             NetWork netWork2 = new NetWork(m0Var.c());
-                            this.f49349a = netWork2;
+                            this.f50260a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
                     }
@@ -392,13 +393,13 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 super.cancel(true);
-                this.f49350b = true;
-                NetWork netWork = this.f49349a;
+                this.f50261b = true;
+                NetWork netWork = this.f50260a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f49351c.mProgressImage.setVisibility(8);
-                this.f49351c.mGetImageTask = null;
+                this.f50262c.mProgressImage.setVisibility(8);
+                this.f50262c.mGetImageTask = null;
             }
         }
 
@@ -407,9 +408,9 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 super.onPreExecute();
-                this.f49351c.mVcode_md5 = null;
-                this.f49351c.mProgressImage.setVisibility(0);
-                this.f49351c.mImage.setImageDrawable(null);
+                this.f50262c.mVcode_md5 = null;
+                this.f50262c.mProgressImage.setVisibility(0);
+                this.f50262c.mImage.setImageDrawable(null);
             }
         }
 
@@ -419,10 +420,10 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
                 super.onPostExecute((e) bitmap);
-                this.f49351c.mProgressImage.setVisibility(8);
-                this.f49351c.mGetImageTask = null;
+                this.f50262c.mProgressImage.setVisibility(8);
+                this.f50262c.mGetImageTask = null;
                 if (bitmap != null) {
-                    this.f49351c.mImage.setImageBitmap(bitmap);
+                    this.f50262c.mImage.setImageBitmap(bitmap);
                 }
             }
         }

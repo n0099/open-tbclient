@@ -29,13 +29,13 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomDialogData f18848g;
+    public CustomDialogData f20385g;
 
     /* renamed from: h  reason: collision with root package name */
-    public f f18849h;
+    public f f20386h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f18850i;
+    public TbImageView f20387i;
     public TextView j;
     public TextView k;
     public TextView l;
@@ -68,7 +68,7 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f18850i = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
+            this.f20387i = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
             this.j = (TextView) getViewGroup().findViewById(R.id.dialog_title);
             this.k = (TextView) getViewGroup().findViewById(R.id.dialog_body);
             this.l = (TextView) getViewGroup().findViewById(R.id.yes);
@@ -104,10 +104,10 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, customDialogData) == null) || customDialogData == null) {
             return;
         }
-        this.f18848g = customDialogData;
+        this.f20385g = customDialogData;
         CustomDialogData.Head head = customDialogData.head;
         if (!TextUtils.isEmpty(head.imageUrl)) {
-            this.f18850i.startLoad(head.imageUrl, 10, false);
+            this.f20387i.startLoad(head.imageUrl, 10, false);
         }
         if (!TextUtils.isEmpty(head.text)) {
             this.j.setText(head.text);
@@ -129,7 +129,7 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
     public void f(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
-            this.f18849h = fVar;
+            this.f20386h = fVar;
         }
     }
 
@@ -140,27 +140,27 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
             if (view == this.l) {
-                CustomDialogData customDialogData = this.f18848g;
+                CustomDialogData customDialogData = this.f20385g;
                 if (customDialogData != null && (button2 = customDialogData.rightButton) != null && !StringUtils.isNull(button2.action)) {
-                    UrlManager.getInstance().dealOneLink(d(), new String[]{this.f18848g.rightButton.action});
+                    UrlManager.getInstance().dealOneLink(d(), new String[]{this.f20385g.rightButton.action});
                 }
-                f fVar = this.f18849h;
+                f fVar = this.f20386h;
                 if (fVar != null) {
                     fVar.dismiss();
                 }
-                StatisticItem statisticItem = new StatisticItem(b.a.f18640b);
+                StatisticItem statisticItem = new StatisticItem(b.a.f20176b);
                 statisticItem.param("obj_locate", 2);
                 TiebaStatic.log(statisticItem);
             } else if (view == this.m) {
-                CustomDialogData customDialogData2 = this.f18848g;
+                CustomDialogData customDialogData2 = this.f20385g;
                 if (customDialogData2 != null && (button = customDialogData2.leftButton) != null && !StringUtils.isNull(button.action)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f18846e.getPageActivity(), null, this.f18848g.leftButton.action, true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f20383e.getPageActivity(), null, this.f20385g.leftButton.action, true)));
                 }
-                f fVar2 = this.f18849h;
+                f fVar2 = this.f20386h;
                 if (fVar2 != null) {
                     fVar2.dismiss();
                 }
-                StatisticItem statisticItem2 = new StatisticItem(b.a.f18640b);
+                StatisticItem statisticItem2 = new StatisticItem(b.a.f20176b);
                 statisticItem2.param("obj_locate", 1);
                 TiebaStatic.log(statisticItem2);
             }

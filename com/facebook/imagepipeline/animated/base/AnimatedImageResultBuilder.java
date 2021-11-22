@@ -1,7 +1,6 @@
 package com.facebook.imagepipeline.animated.base;
 
 import android.graphics.Bitmap;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,15 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.CloseableReference;
-import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import java.util.List;
-import javax.annotation.Nullable;
 /* loaded from: classes11.dex */
 public class AnimatedImageResultBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public BitmapTransformation mBitmapTransformation;
     public List<CloseableReference<Bitmap>> mDecodedFrames;
     public int mFrameForPreview;
     public final AnimatedImage mImage;
@@ -58,51 +53,34 @@ public class AnimatedImageResultBuilder {
         return (AnimatedImageResult) invokeV.objValue;
     }
 
-    @Nullable
-    public BitmapTransformation getBitmapTransformation() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBitmapTransformation : (BitmapTransformation) invokeV.objValue;
-    }
-
     public List<CloseableReference<Bitmap>> getDecodedFrames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? CloseableReference.cloneOrNull(this.mDecodedFrames) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CloseableReference.cloneOrNull(this.mDecodedFrames) : (List) invokeV.objValue;
     }
 
     public int getFrameForPreview() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFrameForPreview : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFrameForPreview : invokeV.intValue;
     }
 
     public AnimatedImage getImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mImage : (AnimatedImage) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mImage : (AnimatedImage) invokeV.objValue;
     }
 
     public CloseableReference<Bitmap> getPreviewBitmap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? CloseableReference.cloneOrNull(this.mPreviewBitmap) : (CloseableReference) invokeV.objValue;
-    }
-
-    public AnimatedImageResultBuilder setBitmapTransformation(@Nullable BitmapTransformation bitmapTransformation) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bitmapTransformation)) == null) {
-            this.mBitmapTransformation = bitmapTransformation;
-            return this;
-        }
-        return (AnimatedImageResultBuilder) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? CloseableReference.cloneOrNull(this.mPreviewBitmap) : (CloseableReference) invokeV.objValue;
     }
 
     public AnimatedImageResultBuilder setDecodedFrames(List<CloseableReference<Bitmap>> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
             this.mDecodedFrames = CloseableReference.cloneOrNull(list);
             return this;
         }
@@ -112,7 +90,7 @@ public class AnimatedImageResultBuilder {
     public AnimatedImageResultBuilder setFrameForPreview(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
             this.mFrameForPreview = i2;
             return this;
         }
@@ -122,7 +100,7 @@ public class AnimatedImageResultBuilder {
     public AnimatedImageResultBuilder setPreviewBitmap(CloseableReference<Bitmap> closeableReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, closeableReference)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, closeableReference)) == null) {
             this.mPreviewBitmap = CloseableReference.cloneOrNull(closeableReference);
             return this;
         }

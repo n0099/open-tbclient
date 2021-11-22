@@ -1,88 +1,238 @@
 package b.a.p0.g.g;
 
-import android.app.Application;
-import android.net.Uri;
-import b.a.p0.a.a2.e;
-import b.a.p0.a.f1.e.b;
-import b.a.p0.a.f1.e.c;
-import b.a.p0.a.u.h.b;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import android.content.Context;
+import android.text.TextUtils;
+import b.a.p0.a.k;
+import b.a.p0.a.p.d.u;
+import b.a.p0.a.z2.q0;
+import b.a.p0.a.z2.w;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import okhttp3.FormBody;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public final class a extends b.a.p0.g.f.a {
+@Singleton
+@Service
+/* loaded from: classes.dex */
+public class a implements u {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final boolean f10264a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final b.a.p0.g.t.c<JSONObject> f10265b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final long f10266c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-893905070, "Lb/a/p0/g/g/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-893905070, "Lb/a/p0/g/g/a;");
+                return;
+            }
+        }
+        f10264a = k.f6863a;
+        f10265b = new b.a.p0.g.t.c<>();
+        f10266c = TimeUnit.MINUTES.toMillis(2L);
+    }
+
     public a() {
-        super("navigateToSwanGame");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // b.a.p0.g.f.a
-    public b a(JSONObject paramsJson, b.a.p0.a.u0.b callback) {
-        InterceptResult invokeLL;
-        b.a K;
-        String H;
-        b.a K2;
+    @Override // b.a.p0.a.p.d.u
+    public void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, paramsJson, callback)) == null) {
-            Intrinsics.checkNotNullParameter(paramsJson, "paramsJson");
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            Application b2 = b.a.p0.a.c1.a.b();
-            if (b2 == null) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            String optString = paramsJson.optString("appKey");
-            boolean z = false;
-            if (optString == null || optString.length() == 0) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            e P = e.P();
-            String str = "";
-            jSONObject.put("pre_source", (P == null || (K2 = P.K()) == null || (r8 = K2.S()) == null) ? "" : "");
-            e P2 = e.P();
-            if (P2 != null && (K = P2.K()) != null && (H = K.H()) != null) {
-                str = H;
-            }
-            jSONObject.put("pre_appid", str);
-            paramsJson.put(UBCCloudControlProcessor.UBC_KEY, jSONObject);
-            String a1 = c.a1(optString, 1, paramsJson);
-            Uri parse = (a1 == null || a1.length() == 0) ? true : true ? null : Uri.parse(a1);
-            if (parse == null) {
-                callback.onFail(202, "params may be error");
-                return null;
-            }
-            if (SchemeRouter.invokeScheme(b2, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-                callback.a(null);
-            } else {
-                callback.onFail(202, "params may be error");
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+        }
+    }
+
+    @Override // b.a.p0.a.p.d.u
+    public File b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
             return null;
         }
-        return (b.a.p0.a.u.h.b) invokeLL.objValue;
+        return (File) invokeLL.objValue;
+    }
+
+    @Override // b.a.p0.a.p.d.u
+    public JSONObject c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
+            if (f10264a) {
+                String str2 = "getIMUnReadMessageList params=" + str;
+            }
+            String str3 = b.a.p0.a.d2.d.J().getAppId() + b.a.p0.a.d2.d.J().r().M().c(context);
+            JSONObject c2 = f10265b.c(str3);
+            if (f10264a) {
+                String str4 = "getIMUnReadMessageList k=" + str3;
+            }
+            if (c2 != null) {
+                if (f10264a) {
+                    String str5 = "getIMUnReadMessageList ret with cache=" + c2;
+                }
+                return c2;
+            } else if (q0.O()) {
+                return null;
+            } else {
+                JSONObject f2 = f(context, str);
+                if (f10264a) {
+                    String str6 = "getIMUnReadMessageList ret with request=" + f2;
+                }
+                return f10265b.a(str3, f2, f10266c);
+            }
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    @Override // b.a.p0.a.p.d.u
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            f10265b.b();
+        }
+    }
+
+    public final JSONObject e(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject2 = new JSONObject();
+            w.f(jSONObject2, "pa_type", 7);
+            w.f(jSONObject2, "pa_unread_sums", Integer.valueOf(i2));
+            jSONArray.put(jSONObject2);
+            w.f(jSONObject, "un_read_list", jSONArray);
+            return jSONObject;
+        }
+        return (JSONObject) invokeI.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0026, code lost:
+        r9 = r4.optString("pa_uid");
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public JSONObject f(Context context, String str) {
+        InterceptResult invokeLL;
+        String str2;
+        ResponseBody responseBody;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048581, this, context, str)) != null) {
+            return (JSONObject) invokeLL.objValue;
+        }
+        b.a.p0.a.d2.e a0 = b.a.p0.a.d2.e.a0();
+        ResponseBody responseBody2 = null;
+        if (a0 == null) {
+            return null;
+        }
+        try {
+            JSONArray jSONArray = new JSONArray(str);
+            int length = jSONArray.length();
+            int i2 = 0;
+            int i3 = 0;
+            while (true) {
+                if (i3 >= length) {
+                    str2 = null;
+                    break;
+                }
+                JSONObject optJSONObject = jSONArray.optJSONObject(i3);
+                if (optJSONObject.optInt("pa_type") == 7) {
+                    break;
+                }
+                i3++;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            String n = b.a.p0.a.c1.a.o().n();
+            b.a.p0.p.d.a aVar = new b.a.p0.p.d.a(n, new Request.Builder().url(n).post(new FormBody.Builder().add("appkey", a0.N()).add(com.alipay.sdk.cons.b.k, str2).build()).build().body(), null);
+            aVar.f11725f = true;
+            aVar.f11726g = true;
+            aVar.f11727h = true;
+            aVar.f11721b = "POST";
+            HttpRequestBuilder a2 = b.a.p0.p.e.b.a(aVar);
+            b.a.p0.p.e.a.g().u(a2, aVar);
+            try {
+                Response executeSync = a2.build().executeSync();
+                if (!executeSync.isSuccessful()) {
+                    b.a.p0.w.d.d(null);
+                    return null;
+                }
+                responseBody = executeSync.body();
+                if (responseBody == null) {
+                    b.a.p0.w.d.d(responseBody);
+                    return null;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(responseBody.string());
+                    if (!"0".equals(jSONObject.optString("errno"))) {
+                        b.a.p0.w.d.d(responseBody);
+                        return null;
+                    }
+                    JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+                    if (optJSONObject2 != null) {
+                        i2 = optJSONObject2.optInt("num");
+                    }
+                    JSONObject e2 = e(i2);
+                    b.a.p0.a.c1.a.K().i(e2);
+                    b.a.p0.w.d.d(responseBody);
+                    return e2;
+                } catch (IOException | JSONException unused) {
+                    b.a.p0.w.d.d(responseBody);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    responseBody2 = responseBody;
+                    b.a.p0.w.d.d(responseBody2);
+                    throw th;
+                }
+            } catch (IOException | JSONException unused2) {
+                responseBody = null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } catch (JSONException unused3) {
+        }
     }
 }

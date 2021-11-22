@@ -5,7 +5,7 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import b.a.l.a;
-import b.a.l.v0.a;
+import b.a.l.w0.a;
 import b.a.q0.s.q.d2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.RichTextLayout;
@@ -32,7 +32,7 @@ public class g0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g0 f3231e;
+        public final /* synthetic */ g0 f3322e;
 
         public a(g0 g0Var) {
             Interceptable interceptable = $ic;
@@ -49,18 +49,18 @@ public class g0 extends h {
                     return;
                 }
             }
-            this.f3231e = g0Var;
+            this.f3322e = g0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             g0 g0Var;
-            a.InterfaceC0088a interfaceC0088a;
+            a.InterfaceC0090a interfaceC0090a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0088a = (g0Var = this.f3231e).f3219i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0090a = (g0Var = this.f3322e).f3310i) == null) {
                 return;
             }
-            interfaceC0088a.a(g0Var.m);
+            interfaceC0090a.a(g0Var.m);
         }
     }
 
@@ -70,7 +70,7 @@ public class g0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g0 f3232a;
+        public final /* synthetic */ g0 f3323a;
 
         public b(g0 g0Var) {
             Interceptable interceptable = $ic;
@@ -87,19 +87,19 @@ public class g0 extends h {
                     return;
                 }
             }
-            this.f3232a = g0Var;
+            this.f3323a = g0Var;
         }
 
-        @Override // b.a.l.v0.a.b
-        public boolean a(a.C0090a c0090a) {
+        @Override // b.a.l.w0.a.b
+        public boolean a(a.C0092a c0092a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0090a)) == null) {
-                if (this.f3232a.m != null && this.f3232a.m.getThreadData() != null && !this.f3232a.e().booleanValue()) {
-                    d2 threadData = this.f3232a.m.getThreadData();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0092a)) == null) {
+                if (this.f3323a.m != null && this.f3323a.m.getThreadData() != null && !this.f3323a.e().booleanValue()) {
+                    d2 threadData = this.f3323a.m.getThreadData();
                     b.a.r0.b0.m.a(threadData.f0());
-                    b.a.r0.b0.m.l(this.f3232a.l.mTitle, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    b.a.r0.b0.m.l(this.f3232a.l.mAbstract, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    b.a.r0.b0.m.l(this.f3323a.l.mTitle, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    b.a.r0.b0.m.l(this.f3323a.l.mAbstract, threadData.f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -177,10 +177,10 @@ public class g0 extends h {
         }
     }
 
-    public void v(a.InterfaceC0088a interfaceC0088a) {
+    public void v(a.InterfaceC0090a interfaceC0090a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0088a) == null) {
-            this.f3219i = interfaceC0088a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0090a) == null) {
+            this.f3310i = interfaceC0090a;
         }
     }
 

@@ -2,7 +2,7 @@ package com.baidu.tieba.interestlabel.activity;
 
 import android.os.Bundle;
 import android.view.KeyEvent;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import b.a.r0.o1.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -31,7 +31,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f50966a;
+        public static final /* synthetic */ int[] f51878a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,13 +48,13 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
                 }
             }
             int[] iArr = new int[LabelRequestEnum.values().length];
-            f50966a = iArr;
+            f51878a = iArr;
             try {
                 iArr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f50966a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                f51878a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -78,7 +78,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     public void callback(LabelRequestEnum labelRequestEnum, b bVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, bVar, i2) == null) {
-            int i3 = a.f50966a[labelRequestEnum.ordinal()];
+            int i3 = a.f51878a[labelRequestEnum.ordinal()];
             if (i3 != 1) {
                 if (i3 == 2 && i2 == 0) {
                     b.a.q0.s.e0.b.j().t("set_recommend_label", true);

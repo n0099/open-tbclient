@@ -31,31 +31,31 @@ import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 @SuppressLint({"NewApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f43189a;
+    public byte[] f44135a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f43190b;
+    public Context f44136b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43191c;
+    public String f44137c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43192d;
+    public String f44138d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43193e;
+    public int f44139e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43194f;
+    public int f44140f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f43195g;
+    public boolean f44141g;
 
     public o(Context context) {
         Interceptable interceptable = $ic;
@@ -72,18 +72,18 @@ public final class o {
                 return;
             }
         }
-        this.f43189a = new byte[8192];
-        this.f43193e = 120000;
-        this.f43194f = 120000;
-        this.f43195g = false;
-        this.f43190b = context;
+        this.f44135a = new byte[8192];
+        this.f44139e = 120000;
+        this.f44140f = 120000;
+        this.f44141g = false;
+        this.f44136b = context;
     }
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2) == null) {
-            this.f43191c = str;
-            this.f43192d = str2;
+            this.f44137c = str;
+            this.f44138d = str2;
         }
     }
 
@@ -112,14 +112,14 @@ public final class o {
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            if (!TextUtils.isEmpty(this.f43191c) && !TextUtils.isEmpty(this.f43192d)) {
-                if (!this.f43191c.equals("POST") && !this.f43191c.equals("GET")) {
-                    this.f43191c = "POST";
+            if (!TextUtils.isEmpty(this.f44137c) && !TextUtils.isEmpty(this.f44138d)) {
+                if (!this.f44137c.equals("POST") && !this.f44137c.equals("GET")) {
+                    this.f44137c = "POST";
                 }
-                URL url = new URL(this.f43192d);
+                URL url = new URL(this.f44138d);
                 String str = null;
                 int i2 = -1;
-                if (c.e(this.f43190b)) {
+                if (c.e(this.f44136b)) {
                     i2 = 0;
                 } else if (Build.VERSION.SDK_INT >= 13) {
                     str = System.getProperties().getProperty("http.proxyHost");
@@ -131,8 +131,8 @@ public final class o {
                         }
                     }
                 } else {
-                    str = Proxy.getHost(this.f43190b);
-                    i2 = Proxy.getPort(this.f43190b);
+                    str = Proxy.getHost(this.f44136b);
+                    i2 = Proxy.getPort(this.f44136b);
                 }
                 if (str != null && i2 > 0) {
                     httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(str, i2)));
@@ -146,22 +146,22 @@ public final class o {
                         c.a();
                     }
                 }
-                httpURLConnection.setRequestMethod(this.f43191c);
+                httpURLConnection.setRequestMethod(this.f44137c);
                 httpURLConnection.setDoInput(true);
-                if ("POST".equals(this.f43191c)) {
+                if ("POST".equals(this.f44137c)) {
                     httpURLConnection.setDoOutput(true);
                 }
                 httpURLConnection.setInstanceFollowRedirects(true);
-                httpURLConnection.setConnectTimeout(this.f43193e);
-                httpURLConnection.setReadTimeout(this.f43194f);
-                String str2 = c.g(this.f43190b)[0];
-                httpURLConnection.setRequestProperty("User-Agent", "eos/" + str2 + "/" + ab.a(this.f43190b) + "/3.5.8.8");
+                httpURLConnection.setConnectTimeout(this.f44139e);
+                httpURLConnection.setReadTimeout(this.f44140f);
+                String str2 = c.g(this.f44136b)[0];
+                httpURLConnection.setRequestProperty("User-Agent", "eos/" + str2 + "/" + ab.a(this.f44136b) + "/3.5.8.8");
                 httpURLConnection.setRequestProperty("Pragma", "no-cache");
                 httpURLConnection.setRequestProperty("Accept", "*/*");
                 httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                 httpURLConnection.setRequestProperty("Accept-Encoding", "gzip,deflate");
                 httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry());
-                httpURLConnection.setRequestProperty("x-device-id", q.a(e.b(this.f43190b)));
+                httpURLConnection.setRequestProperty("x-device-id", q.a(e.b(this.f44136b)));
                 return httpURLConnection;
             }
             throw new IllegalArgumentException();
@@ -186,9 +186,9 @@ public final class o {
                     if (responseCode == 200) {
                         String contentEncoding = httpURLConnection.getContentEncoding();
                         if (!TextUtils.isEmpty(contentEncoding) && AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(contentEncoding)) {
-                            this.f43195g = true;
+                            this.f44141g = true;
                         } else {
-                            this.f43195g = false;
+                            this.f44141g = false;
                         }
                         return httpURLConnection.getInputStream();
                     }
@@ -201,9 +201,9 @@ public final class o {
                     int responseCode2 = httpURLConnection.getResponseCode();
                     if (responseCode2 == 200) {
                         if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(httpURLConnection.getContentEncoding())) {
-                            this.f43195g = true;
+                            this.f44141g = true;
                         } else {
-                            this.f43195g = false;
+                            this.f44141g = false;
                         }
                         InputStream inputStream = httpURLConnection.getInputStream();
                         try {
@@ -242,12 +242,12 @@ public final class o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, httpURLConnection)) == null) {
-            if (c.f(this.f43190b) && httpURLConnection != null && httpURLConnection != null) {
+            if (c.f(this.f44136b) && httpURLConnection != null && httpURLConnection != null) {
                 try {
                     if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(httpURLConnection.getContentEncoding())) {
-                        this.f43195g = true;
+                        this.f44141g = true;
                     } else {
-                        this.f43195g = false;
+                        this.f44141g = false;
                     }
                     return httpURLConnection.getInputStream();
                 } catch (IOException unused) {
@@ -266,7 +266,7 @@ public final class o {
             if (inputStream != null) {
                 byte[] b2 = b(inputStream);
                 if (b2 != null) {
-                    if (this.f43195g) {
+                    if (this.f44141g) {
                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(b2);
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                         k.a(byteArrayInputStream, byteArrayOutputStream);
@@ -295,7 +295,7 @@ public final class o {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
             aa.a();
             try {
-                if (u.m(this.f43190b)) {
+                if (u.m(this.f44136b)) {
                     a("POST", str);
                     InputStream inputStream = null;
                     try {
@@ -340,11 +340,11 @@ public final class o {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
             aa.a();
             try {
-                if (c.f(this.f43190b)) {
+                if (c.f(this.f44136b)) {
                     if (TextUtils.isEmpty(str)) {
                         return false;
                     }
-                    if (u.m(this.f43190b)) {
+                    if (u.m(this.f44136b)) {
                         InputStream inputStream = null;
                         try {
                             a("GET", str);
@@ -390,7 +390,7 @@ public final class o {
         if (interceptable != null && (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, inputStream, file)) != null) {
             return invokeLL.booleanValue;
         }
-        if (this.f43195g) {
+        if (this.f44141g) {
             try {
                 inputStream = new GZIPInputStream(inputStream);
             } catch (IOException unused) {

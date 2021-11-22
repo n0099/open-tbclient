@@ -14,7 +14,7 @@ public class bn extends ai.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f70721a;
+    public Context f71641a;
 
     public bn(Context context) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class bn extends ai.a {
                 return;
             }
         }
-        this.f70721a = context;
+        this.f71641a = context;
     }
 
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.f70721a).m78a().isEventUploadSwitchOpen() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.f71641a).m78a().isEventUploadSwitchOpen() : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -54,8 +54,8 @@ public class bn extends ai.a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 if (a()) {
-                    com.xiaomi.channel.commonutils.logger.b.c(this.f70721a.getPackageName() + " begin upload event");
-                    com.xiaomi.clientreport.manager.a.a(this.f70721a).m80b();
+                    com.xiaomi.channel.commonutils.logger.b.c(this.f71641a.getPackageName() + " begin upload event");
+                    com.xiaomi.clientreport.manager.a.a(this.f71641a).m80b();
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);

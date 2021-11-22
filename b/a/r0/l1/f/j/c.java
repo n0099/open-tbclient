@@ -18,21 +18,21 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.e.e.k.b<MultiImageTextTopView> f20048a;
+    public b.a.e.f.k.b<MultiImageTextTopView> f21570a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.e.e.k.b<MultiImageTextBottomView> f20049b;
+    public b.a.e.f.k.b<MultiImageTextBottomView> f21571b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.e.e.k.b<SingleImageTextView> f20050c;
+    public b.a.e.f.k.b<SingleImageTextView> f21572c;
 
     /* loaded from: classes5.dex */
-    public class a implements b.a.e.e.k.c<MultiImageTextTopView> {
+    public class a implements b.a.e.f.k.c<MultiImageTextTopView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f20051a;
+        public final /* synthetic */ Context f21573a;
 
         public a(c cVar, Context context) {
             Interceptable interceptable = $ic;
@@ -49,12 +49,12 @@ public class c {
                     return;
                 }
             }
-            this.f20051a = context;
+            this.f21573a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ MultiImageTextTopView a(MultiImageTextTopView multiImageTextTopView) {
             MultiImageTextTopView multiImageTextTopView2 = multiImageTextTopView;
             e(multiImageTextTopView2);
@@ -63,7 +63,7 @@ public class c {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ MultiImageTextTopView c(MultiImageTextTopView multiImageTextTopView) {
             MultiImageTextTopView multiImageTextTopView2 = multiImageTextTopView;
             h(multiImageTextTopView2);
@@ -77,7 +77,7 @@ public class c {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: f */
         public void b(MultiImageTextTopView multiImageTextTopView) {
             Interceptable interceptable = $ic;
@@ -87,12 +87,12 @@ public class c {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: g */
         public MultiImageTextTopView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new MultiImageTextTopView(this.f20051a) : (MultiImageTextTopView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new MultiImageTextTopView(this.f21573a) : (MultiImageTextTopView) invokeV.objValue;
         }
 
         public MultiImageTextTopView h(MultiImageTextTopView multiImageTextTopView) {
@@ -109,12 +109,12 @@ public class c {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends b.a.e.e.k.b<MultiImageTextTopView> {
+    public class b extends b.a.e.f.k.b<MultiImageTextTopView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(c cVar, b.a.e.e.k.c cVar2, int i2, int i3) {
+        public b(c cVar, b.a.e.f.k.c cVar2, int i2, int i3) {
             super(cVar2, i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -126,7 +126,7 @@ public class c {
                 if ((i4 & 1) != 0) {
                     int i5 = i4 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((b.a.e.e.k.c) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
+                    super((b.a.e.f.k.c) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -137,14 +137,14 @@ public class c {
 
     /* renamed from: b.a.r0.l1.f.j.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0994c implements b.a.e.e.k.c<MultiImageTextBottomView> {
+    public class C1062c implements b.a.e.f.k.c<MultiImageTextBottomView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f20052a;
+        public final /* synthetic */ Context f21574a;
 
-        public C0994c(c cVar, Context context) {
+        public C1062c(c cVar, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,12 +159,12 @@ public class c {
                     return;
                 }
             }
-            this.f20052a = context;
+            this.f21574a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ MultiImageTextBottomView a(MultiImageTextBottomView multiImageTextBottomView) {
             MultiImageTextBottomView multiImageTextBottomView2 = multiImageTextBottomView;
             e(multiImageTextBottomView2);
@@ -173,7 +173,7 @@ public class c {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ MultiImageTextBottomView c(MultiImageTextBottomView multiImageTextBottomView) {
             MultiImageTextBottomView multiImageTextBottomView2 = multiImageTextBottomView;
             h(multiImageTextBottomView2);
@@ -187,7 +187,7 @@ public class c {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: f */
         public void b(MultiImageTextBottomView multiImageTextBottomView) {
             Interceptable interceptable = $ic;
@@ -197,12 +197,12 @@ public class c {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: g */
         public MultiImageTextBottomView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new MultiImageTextBottomView(this.f20052a) : (MultiImageTextBottomView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new MultiImageTextBottomView(this.f21574a) : (MultiImageTextBottomView) invokeV.objValue;
         }
 
         public MultiImageTextBottomView h(MultiImageTextBottomView multiImageTextBottomView) {
@@ -219,12 +219,12 @@ public class c {
     }
 
     /* loaded from: classes5.dex */
-    public class d extends b.a.e.e.k.b<MultiImageTextBottomView> {
+    public class d extends b.a.e.f.k.b<MultiImageTextBottomView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(c cVar, b.a.e.e.k.c cVar2, int i2, int i3) {
+        public d(c cVar, b.a.e.f.k.c cVar2, int i2, int i3) {
             super(cVar2, i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -236,7 +236,7 @@ public class c {
                 if ((i4 & 1) != 0) {
                     int i5 = i4 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((b.a.e.e.k.c) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
+                    super((b.a.e.f.k.c) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -246,12 +246,12 @@ public class c {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements b.a.e.e.k.c<SingleImageTextView> {
+    public class e implements b.a.e.f.k.c<SingleImageTextView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f20053a;
+        public final /* synthetic */ Context f21575a;
 
         public e(c cVar, Context context) {
             Interceptable interceptable = $ic;
@@ -268,12 +268,12 @@ public class c {
                     return;
                 }
             }
-            this.f20053a = context;
+            this.f21575a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ SingleImageTextView a(SingleImageTextView singleImageTextView) {
             SingleImageTextView singleImageTextView2 = singleImageTextView;
             e(singleImageTextView2);
@@ -282,7 +282,7 @@ public class c {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ SingleImageTextView c(SingleImageTextView singleImageTextView) {
             SingleImageTextView singleImageTextView2 = singleImageTextView;
             h(singleImageTextView2);
@@ -296,7 +296,7 @@ public class c {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: f */
         public void b(SingleImageTextView singleImageTextView) {
             Interceptable interceptable = $ic;
@@ -306,12 +306,12 @@ public class c {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: g */
         public SingleImageTextView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new SingleImageTextView(this.f20053a) : (SingleImageTextView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new SingleImageTextView(this.f21575a) : (SingleImageTextView) invokeV.objValue;
         }
 
         public SingleImageTextView h(SingleImageTextView singleImageTextView) {
@@ -359,57 +359,57 @@ public class c {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f20049b = new d(this, new C0994c(this, context), 9, 0);
+            this.f21571b = new d(this, new C1062c(this, context), 9, 0);
         }
     }
 
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f20050c = new b.a.e.e.k.b<>(new e(this, context), 1, 0);
+            this.f21572c = new b.a.e.f.k.b<>(new e(this, context), 1, 0);
         }
     }
 
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f20048a = new b(this, new a(this, context), 1, 0);
+            this.f21570a = new b(this, new a(this, context), 1, 0);
         }
     }
 
-    public b.a.e.e.k.b<MultiImageTextBottomView> d(Context context) {
+    public b.a.e.f.k.b<MultiImageTextBottomView> d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (this.f20049b == null) {
+            if (this.f21571b == null) {
                 a(context);
             }
-            return this.f20049b;
+            return this.f21571b;
         }
-        return (b.a.e.e.k.b) invokeL.objValue;
+        return (b.a.e.f.k.b) invokeL.objValue;
     }
 
-    public b.a.e.e.k.b<SingleImageTextView> e(Context context) {
+    public b.a.e.f.k.b<SingleImageTextView> e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            if (this.f20050c == null) {
+            if (this.f21572c == null) {
                 b(context);
             }
-            return this.f20050c;
+            return this.f21572c;
         }
-        return (b.a.e.e.k.b) invokeL.objValue;
+        return (b.a.e.f.k.b) invokeL.objValue;
     }
 
-    public b.a.e.e.k.b<MultiImageTextTopView> f(Context context) {
+    public b.a.e.f.k.b<MultiImageTextTopView> f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            if (this.f20048a == null) {
+            if (this.f21570a == null) {
                 c(context);
             }
-            return this.f20048a;
+            return this.f21570a;
         }
-        return (b.a.e.e.k.b) invokeL.objValue;
+        return (b.a.e.f.k.b) invokeL.objValue;
     }
 }

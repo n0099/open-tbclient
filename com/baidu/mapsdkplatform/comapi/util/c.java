@@ -12,7 +12,7 @@ public class c extends HttpClient.ProtoResultCallback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ CustomMapStyleLoader f40399a;
+    public final /* synthetic */ CustomMapStyleLoader f41231a;
 
     public c(CustomMapStyleLoader customMapStyleLoader) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class c extends HttpClient.ProtoResultCallback {
                 return;
             }
         }
-        this.f40399a = customMapStyleLoader;
+        this.f41231a = customMapStyleLoader;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            String unused = CustomMapStyleLoader.f40367a;
+            String unused = CustomMapStyleLoader.f41199a;
             String str = "sendRequest onFailed error = " + httpStateError;
         }
     }
@@ -45,7 +45,7 @@ public class c extends HttpClient.ProtoResultCallback {
     public void onSuccess(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f40399a.b(str);
+            this.f41231a.b(str);
         }
     }
 }

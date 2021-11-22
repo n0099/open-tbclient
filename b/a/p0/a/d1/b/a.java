@@ -22,16 +22,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.p0.a.d1.a f4521a;
+    public b.a.p0.a.d1.a f4450a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.p0.a.d1.a f4522b;
+    public b.a.p0.a.d1.a f4451b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SwanAppUtilsJavaScriptInterface f4523c;
+    public SwanAppUtilsJavaScriptInterface f4452c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a.p0.a.u.a f4524d;
+    public b.a.p0.a.u.a f4453d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -50,19 +50,19 @@ public class a {
     public void a(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            b.a.p0.a.d1.a aVar = this.f4521a;
+            b.a.p0.a.d1.a aVar = this.f4450a;
             if (aVar != null) {
                 aVar.setActivityRef(activity);
             }
-            b.a.p0.a.d1.a aVar2 = this.f4522b;
+            b.a.p0.a.d1.a aVar2 = this.f4451b;
             if (aVar2 != null) {
                 aVar2.setActivityRef(activity);
             }
-            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = this.f4523c;
+            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = this.f4452c;
             if (swanAppUtilsJavaScriptInterface != null) {
                 swanAppUtilsJavaScriptInterface.setActivity(activity);
             }
-            b.a.p0.a.u.a aVar3 = this.f4524d;
+            b.a.p0.a.u.a aVar3 = this.f4453d;
             if (aVar3 != null) {
                 aVar3.i(activity);
             }
@@ -73,10 +73,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, context, callbackHandler, unitedSchemeMainDispatcher, aVar2) == null) {
             SwanAppGlobalJsBridge swanAppGlobalJsBridge = new SwanAppGlobalJsBridge(context, unitedSchemeMainDispatcher, callbackHandler, aVar);
-            this.f4521a = swanAppGlobalJsBridge;
+            this.f4450a = swanAppGlobalJsBridge;
             aVar.addJavascriptInterface(swanAppGlobalJsBridge, SwanAppGlobalJsBridge.JAVASCRIPT_INTERFACE_NAME);
             SwanAppJsBridge swanAppJsBridge = new SwanAppJsBridge(context, unitedSchemeMainDispatcher, callbackHandler, aVar);
-            this.f4522b = swanAppJsBridge;
+            this.f4451b = swanAppJsBridge;
             aVar.addJavascriptInterface(swanAppJsBridge, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
             aVar.addJavascriptInterface(new SwanAppPreloadJsBridge(aVar), SwanAppPreloadJsBridge.JAVASCRIPT_INTERFACE_NAME);
             aVar2.b(aVar);
@@ -87,9 +87,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, aVar, context, aVar2) == null) {
             SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = new SwanAppUtilsJavaScriptInterface(context, aVar);
-            this.f4523c = swanAppUtilsJavaScriptInterface;
+            this.f4452c = swanAppUtilsJavaScriptInterface;
             swanAppUtilsJavaScriptInterface.setSource("swan_");
-            aVar.addJavascriptInterface(this.f4523c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+            aVar.addJavascriptInterface(this.f4452c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
             aVar2.a(aVar);
         }
     }
@@ -107,10 +107,10 @@ public class a {
             return;
         }
         b.a.p0.a.u.a aVar2 = new b.a.p0.a.u.a(context, callbackHandler, aVar);
-        this.f4524d = aVar2;
+        this.f4453d = aVar2;
         b(aVar, context, callbackHandler, unitedSchemeMainDispatcher, aVar2);
         if (aVar instanceof c) {
-            c(aVar, context, this.f4524d);
+            c(aVar, context, this.f4453d);
         } else {
             d(aVar);
         }
@@ -120,10 +120,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, aVar) == null) {
             SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = new SwanAppUtilsJavaScriptInterface(context, aVar);
-            this.f4523c = swanAppUtilsJavaScriptInterface;
+            this.f4452c = swanAppUtilsJavaScriptInterface;
             swanAppUtilsJavaScriptInterface.setSource("swan_");
-            aVar.addJavascriptInterface(this.f4523c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
-            this.f4523c.setForceShareLight(true);
+            aVar.addJavascriptInterface(this.f4452c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+            this.f4452c.setForceShareLight(true);
         }
     }
 }

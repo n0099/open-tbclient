@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Callable;
-import kotlin.collections.MapsKt__MapsKt;
 /* loaded from: classes.dex */
 public class a extends SwanKV implements SharedPreferences, SharedPreferences.Editor {
     public static /* synthetic */ Interceptable $ic;
@@ -21,17 +20,17 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
 
     /* renamed from: b.a.o0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class RunnableC0106a implements Runnable {
+    public static final class RunnableC0108a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f3756e;
+        public final /* synthetic */ a f3846e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Callable f3757f;
+        public final /* synthetic */ Callable f3847f;
 
-        public RunnableC0106a(a aVar, Callable callable) {
+        public RunnableC0108a(a aVar, Callable callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,8 +45,8 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
                     return;
                 }
             }
-            this.f3756e = aVar;
-            this.f3757f = callable;
+            this.f3846e = aVar;
+            this.f3847f = callable;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: b.a.o0.a.a */
@@ -57,10 +56,10 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
             SharedPreferences sharedPreferences;
             Map<String, ?> all;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sharedPreferences = (SharedPreferences) this.f3757f.call()) == null || (all = sharedPreferences.getAll()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sharedPreferences = (SharedPreferences) this.f3847f.call()) == null || (all = sharedPreferences.getAll()) == null) {
                 return;
             }
-            this.f3756e.m(all, false);
+            this.f3846e.importFromMap(all, false);
         }
     }
 
@@ -89,7 +88,7 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
     public void apply() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.q(false);
+            super.sync(false);
         }
     }
 
@@ -98,7 +97,7 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            super.f();
+            super.clearAll();
             return this;
         }
         return (SharedPreferences.Editor) invokeV.objValue;
@@ -109,7 +108,7 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            super.q(true);
+            super.sync(true);
             return true;
         }
         return invokeV.booleanValue;
@@ -119,57 +118,64 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
     public boolean contains(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? super.g(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? super.containKey(str) : invokeL.booleanValue;
+    }
+
+    public void d(Callable<SharedPreferences> callable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, callable) == null) {
+            new Thread(new RunnableC0108a(this, callable), "SharedPreferences-import").start();
+        }
     }
 
     @Override // android.content.SharedPreferences
     public SharedPreferences.Editor edit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (SharedPreferences.Editor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (SharedPreferences.Editor) invokeV.objValue;
     }
 
-    @Override // android.content.SharedPreferences
+    @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
     public Map<String, ?> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? MapsKt__MapsKt.emptyMap() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? super.getAll() : (Map) invokeV.objValue;
     }
 
     @Override // android.content.SharedPreferences
     public boolean getBoolean(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, str, z)) == null) ? super.j(str, z) : invokeLZ.booleanValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) ? super.getBool(str, z) : invokeLZ.booleanValue;
     }
 
     @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
     public float getFloat(String str, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048583, this, str, f2)) == null) ? super.getFloat(str, f2) : invokeLF.floatValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f2)) == null) ? super.getFloat(str, f2) : invokeLF.floatValue;
     }
 
     @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
     public String getString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) ? super.getString(str, str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) ? super.getString(str, str2) : (String) invokeLL.objValue;
     }
 
     @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
     public Set<String> getStringSet(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, set)) == null) ? super.getStringSet(str, set) : (Set) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, set)) == null) ? super.getStringSet(str, set) : (Set) invokeLL.objValue;
     }
 
     @Override // android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putBoolean(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048586, this, str, z)) == null) {
-            super.r(str, z);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048587, this, str, z)) == null) {
+            super.writeBool(str, z);
             return this;
         }
         return (SharedPreferences.Editor) invokeLZ.objValue;
@@ -179,8 +185,8 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
     public SharedPreferences.Editor putFloat(String str, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048587, this, str, f2)) == null) {
-            super.t(str, f2);
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048588, this, str, f2)) == null) {
+            super.writeFloat(str, f2);
             return this;
         }
         return (SharedPreferences.Editor) invokeLF.objValue;
@@ -190,8 +196,8 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
     public SharedPreferences.Editor putInt(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i2)) == null) {
-            super.u(str, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, str, i2)) == null) {
+            super.writeInt(str, i2);
             return this;
         }
         return (SharedPreferences.Editor) invokeLI.objValue;
@@ -201,8 +207,8 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
     public SharedPreferences.Editor putLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, str, j)) == null) {
-            super.v(str, j);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048590, this, str, j)) == null) {
+            super.writeLong(str, j);
             return this;
         }
         return (SharedPreferences.Editor) invokeLJ.objValue;
@@ -212,8 +218,8 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
     public SharedPreferences.Editor putString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) {
-            super.w(str, str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, str2)) == null) {
+            super.writeString(str, str2);
             return this;
         }
         return (SharedPreferences.Editor) invokeLL.objValue;
@@ -223,8 +229,8 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
     public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, set)) == null) {
-            super.y(str, set);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, set)) == null) {
+            super.writeStringSet(str, set);
             return this;
         }
         return (SharedPreferences.Editor) invokeLL.objValue;
@@ -233,7 +239,7 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
     @Override // android.content.SharedPreferences
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, onSharedPreferenceChangeListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, onSharedPreferenceChangeListener) == null) {
             throw new UnsupportedOperationException("Not support registerOnSharedPreferenceChangeListener");
         }
     }
@@ -242,8 +248,8 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
     public SharedPreferences.Editor remove(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            super.p(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            super.removeKey(str);
             return this;
         }
         return (SharedPreferences.Editor) invokeL.objValue;
@@ -252,15 +258,8 @@ public class a extends SwanKV implements SharedPreferences, SharedPreferences.Ed
     @Override // android.content.SharedPreferences
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, onSharedPreferenceChangeListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, onSharedPreferenceChangeListener) == null) {
             throw new UnsupportedOperationException("Not support unregisterOnSharedPreferenceChangeListener");
-        }
-    }
-
-    public void z(Callable<SharedPreferences> callable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, callable) == null) {
-            new Thread(new RunnableC0106a(this, callable), "SharedPreferences-import").start();
         }
     }
 }

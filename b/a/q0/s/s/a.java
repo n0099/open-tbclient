@@ -93,14 +93,14 @@ public class a {
 
     /* renamed from: b.a.q0.s.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC0691a implements View.OnClickListener {
+    public class View$OnClickListenerC0727a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13519e;
+        public final /* synthetic */ a f14301e;
 
-        public View$OnClickListenerC0691a(a aVar) {
+        public View$OnClickListenerC0727a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,18 +115,18 @@ public class a {
                     return;
                 }
             }
-            this.f13519e = aVar;
+            this.f14301e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                a aVar = this.f13519e;
+                a aVar = this.f14301e;
                 aVar.noTipAgainChecked = !aVar.noTipAgainChecked;
-                this.f13519e.setCheckBoxDrawable();
-                if (this.f13519e.onNoTipAgainCheckListener != null) {
-                    this.f13519e.onNoTipAgainCheckListener.a();
+                this.f14301e.setCheckBoxDrawable();
+                if (this.f14301e.onNoTipAgainCheckListener != null) {
+                    this.f14301e.onNoTipAgainCheckListener.a();
                 }
             }
         }
@@ -138,7 +138,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicBoolean f13520a;
+        public final /* synthetic */ AtomicBoolean f14302a;
 
         public b(a aVar, AtomicBoolean atomicBoolean) {
             Interceptable interceptable = $ic;
@@ -155,7 +155,7 @@ public class a {
                     return;
                 }
             }
-            this.f13520a = atomicBoolean;
+            this.f14302a = atomicBoolean;
         }
 
         @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
@@ -164,7 +164,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
                 if (view instanceof EditText) {
-                    this.f13520a.set(true);
+                    this.f14302a.set(true);
                     return true;
                 }
                 return false;
@@ -179,7 +179,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13521e;
+        public final /* synthetic */ a f14303e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -196,14 +196,14 @@ public class a {
                     return;
                 }
             }
-            this.f13521e = aVar;
+            this.f14303e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13521e.show(true);
+                this.f14303e.show(true);
             }
         }
     }
@@ -214,10 +214,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final a f13522e;
+        public final a f14304e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final e f13523f;
+        public final e f14305f;
 
         public d(a aVar, a aVar2, e eVar) {
             Interceptable interceptable = $ic;
@@ -234,18 +234,18 @@ public class a {
                     return;
                 }
             }
-            this.f13522e = aVar2;
-            this.f13523f = eVar;
+            this.f14304e = aVar2;
+            this.f14305f = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (eVar = this.f13523f) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (eVar = this.f14305f) == null) {
                 return;
             }
-            eVar.onClick(this.f13522e);
+            eVar.onClick(this.f14304e);
         }
     }
 
@@ -413,7 +413,7 @@ public class a {
                 AlertDialog alertDialog = this.mDialog;
                 if (alertDialog != null) {
                     if (z) {
-                        b.a.e.e.m.g.i(alertDialog, this.mActivity);
+                        b.a.e.f.m.g.i(alertDialog, this.mActivity);
                     } else {
                         alertDialog.show();
                     }
@@ -433,7 +433,7 @@ public class a {
                     this.mDialog.setOnDismissListener(onDismissListener);
                 }
                 if (z) {
-                    b.a.e.e.m.g.i(this.mDialog, this.mActivity);
+                    b.a.e.f.m.g.i(this.mDialog, this.mActivity);
                 } else {
                     this.mDialog.show();
                 }
@@ -449,7 +449,7 @@ public class a {
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.7f;
                 attributes.width = -1;
-                DisplayMetrics q = b.a.e.e.p.l.q(this.mActivity);
+                DisplayMetrics q = b.a.e.f.p.l.q(this.mActivity);
                 if (q != null) {
                     int dialogMargin = getDialogMargin();
                     if (UtilHelper.getRealScreenOrientation(this.mActivity) == 2) {
@@ -485,7 +485,7 @@ public class a {
             if (fVar instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) fVar;
                 tbPageContext.getLayoutMode().k(skinType == 1);
-                tbPageContext.getLayoutMode().f12905e = !isAutoNight();
+                tbPageContext.getLayoutMode().f13685e = !isAutoNight();
                 tbPageContext.getLayoutMode().j(this.mRootView);
                 if (this.mContentView != null) {
                     tbPageContext.getLayoutMode().j(this.mContentView);
@@ -607,7 +607,7 @@ public class a {
             this.noTipAgain = (TextView) inflate.findViewById(R.id.no_tip_again_text);
             this.noTipAgainCheckBox = (ImageView) inflate.findViewById(R.id.checkbox);
             setCheckBoxDrawable();
-            this.noTipAgainCheckBox.setOnClickListener(new View$OnClickListenerC0691a(this));
+            this.noTipAgainCheckBox.setOnClickListener(new View$OnClickListenerC0727a(this));
             return inflate;
         }
         return (View) invokeV.objValue;
@@ -619,7 +619,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (alertDialog = this.mDialog) == null) {
             return;
         }
-        b.a.e.e.m.g.a(alertDialog, this.mActivity);
+        b.a.e.f.m.g.a(alertDialog, this.mActivity);
     }
 
     public Dialog getDialog() {
@@ -649,7 +649,7 @@ public class a {
             } else if (i3 == 8) {
                 i2 = R.dimen.tbds120;
             }
-            return b.a.e.e.p.l.g(this.mActivity, i2);
+            return b.a.e.f.p.l.g(this.mActivity, i2);
         }
         return invokeV.intValue;
     }

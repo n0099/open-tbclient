@@ -280,7 +280,7 @@ public class PushManager implements b {
     public static String getSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? a.f63711f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? a.f64611f : (String) invokeV.objValue;
     }
 
     public static boolean isSupportPush(Context context) {
@@ -324,7 +324,7 @@ public class PushManager implements b {
                 Intent intent = new Intent();
                 intent.setAction(getReceiveSdkAction(context));
                 intent.setPackage(getMcsPackageName(context));
-                intent.putExtra("type", 12291);
+                intent.putExtra("type", CommandMessage.COMMAND_STATISTIC);
                 intent.putExtra("taskID", appMessage.getTaskID());
                 intent.putExtra("appPackage", appMessage.getAppPackage());
                 intent.putExtra("messageID", String.valueOf(appMessage.getMessageID()));
@@ -352,7 +352,7 @@ public class PushManager implements b {
                 Intent intent = new Intent();
                 intent.setAction(getReceiveSdkAction(context));
                 intent.setPackage(getMcsPackageName(context));
-                intent.putExtra("type", 12291);
+                intent.putExtra("type", CommandMessage.COMMAND_STATISTIC);
                 intent.putExtra("taskID", sptDataMessage.getTaskID());
                 intent.putExtra("appPackage", sptDataMessage.getAppPackage());
                 intent.putExtra("messageID", sptDataMessage.getMessageID());
@@ -437,7 +437,7 @@ public class PushManager implements b {
         if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
             try {
                 checkAll();
-                startMcsService(12293, jSONObject);
+                startMcsService(CommandMessage.COMMAND_GET_ALIAS, jSONObject);
             } catch (Exception unused) {
                 if (getPushCallback() != null) {
                     getPushCallback().onGetAliases(-2, null);
@@ -567,7 +567,7 @@ public class PushManager implements b {
         if (interceptable == null || interceptable.invokeL(1048595, this, jSONObject) == null) {
             try {
                 checkAll();
-                startMcsService(12296, jSONObject);
+                startMcsService(CommandMessage.COMMAND_GET_TAGS, jSONObject);
             } catch (Exception unused) {
                 if (getPushCallback() != null) {
                     getPushCallback().onGetTags(-2, null);
@@ -634,7 +634,7 @@ public class PushManager implements b {
         if (interceptable == null || interceptable.invokeL(1048601, this, jSONObject) == null) {
             try {
                 checkAll();
-                startMcsService(12299, jSONObject);
+                startMcsService(CommandMessage.COMMAND_PAUSE_PUSH, jSONObject);
             } catch (Exception e2) {
                 LogUtil.e(LogUtil.TAG, e2);
             }
@@ -723,7 +723,7 @@ public class PushManager implements b {
             try {
                 checkAll();
                 if (list != null && list.size() != 0) {
-                    startMcsService(12292, CommandMessage.parseToString(list), jSONObject);
+                    startMcsService(CommandMessage.COMMAND_SET_ALIAS, CommandMessage.parseToString(list), jSONObject);
                 }
             } catch (Exception unused) {
                 if (getPushCallback() != null) {
@@ -793,7 +793,7 @@ public class PushManager implements b {
                     jSONObject2.put("startMin", i3);
                     jSONObject2.put("endHour", i4);
                     jSONObject2.put("endMin", i5);
-                    startMcsService(12298, jSONObject2.toString(), jSONObject);
+                    startMcsService(CommandMessage.COMMAND_SET_PUSH_TIME, jSONObject2.toString(), jSONObject);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -828,7 +828,7 @@ public class PushManager implements b {
             try {
                 checkAll();
                 if (list != null && list.size() != 0) {
-                    startMcsService(12295, CommandMessage.parseToString(list), jSONObject);
+                    startMcsService(CommandMessage.COMMAND_SET_TAGS, CommandMessage.parseToString(list), jSONObject);
                 }
             } catch (Exception unused) {
                 if (getPushCallback() != null) {
@@ -879,7 +879,7 @@ public class PushManager implements b {
             try {
                 checkAll();
                 if (list != null && list.size() != 0) {
-                    startMcsService(12301, CommandMessage.parseToString(list), jSONObject);
+                    startMcsService(CommandMessage.COMMAND_SET_ACCOUNTS, CommandMessage.parseToString(list), jSONObject);
                 }
             } catch (Exception unused) {
                 if (getPushCallback() != null) {
@@ -914,7 +914,7 @@ public class PushManager implements b {
         if (interceptable == null || interceptable.invokeL(1048624, this, jSONObject) == null) {
             try {
                 checkContext();
-                startMcsService(12290, jSONObject);
+                startMcsService(CommandMessage.COMMAND_UNREGISTER, jSONObject);
             } catch (Exception unused) {
                 if (getPushCallback() != null) {
                     getPushCallback().onUnRegister(-2);
@@ -964,7 +964,7 @@ public class PushManager implements b {
             try {
                 checkAll();
                 if (list != null && list.size() != 0) {
-                    startMcsService(12294, CommandMessage.parseToString(list), jSONObject);
+                    startMcsService(CommandMessage.COMMAND_UNSET_ALIAS, CommandMessage.parseToString(list), jSONObject);
                 }
             } catch (Exception unused) {
                 if (getPushCallback() != null) {
@@ -989,7 +989,7 @@ public class PushManager implements b {
             try {
                 checkAll();
                 if (list != null && list.size() != 0) {
-                    startMcsService(12297, CommandMessage.parseToString(list), jSONObject);
+                    startMcsService(CommandMessage.COMMAND_UNSET_TAGS, CommandMessage.parseToString(list), jSONObject);
                 }
             } catch (Exception unused) {
                 if (getPushCallback() != null) {
@@ -1014,7 +1014,7 @@ public class PushManager implements b {
             try {
                 checkAll();
                 if (list != null && list.size() != 0) {
-                    startMcsService(12303, CommandMessage.parseToString(list), jSONObject);
+                    startMcsService(CommandMessage.COMMAND_UNSET_ACCOUNTS, CommandMessage.parseToString(list), jSONObject);
                 }
             } catch (Exception unused) {
                 if (getPushCallback() != null) {

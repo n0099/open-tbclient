@@ -48,7 +48,7 @@ public class o extends b.a.p0.a.y0.a<b.a.p0.a.y0.k.g.a> {
         ArrayList arrayList = (ArrayList) obj;
         boolean z = command.arg1 != 0;
         String str = (String) arrayList.get(0);
-        String f2 = b.a.p0.a.l2.b.l().f(str, (String) arrayList.get(1));
+        String f2 = b.a.p0.a.p2.b.l().f(str, (String) arrayList.get(1));
         command.ret = aVar.O(str, f2, (String) arrayList.get(2), z) ? 1 : 0;
         String str2 = command.what;
         d(aVar, str2, "DataSource: " + str + " ;UserAgent: " + ((String) arrayList.get(2)) + " ;Cookies: " + f2 + ";hideUrlLog: " + z, true);

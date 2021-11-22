@@ -18,10 +18,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Log.ISdkLogCallback f34190a = null;
+    public static Log.ISdkLogCallback f35024a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34191b = "alipaysdk";
+    public static final String f35025b = "alipaysdk";
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -41,7 +41,7 @@ public class c {
     public static void a(Log.ISdkLogCallback iSdkLogCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, iSdkLogCallback) == null) {
-            f34190a = iSdkLogCallback;
+            f35024a = iSdkLogCallback;
         }
     }
 
@@ -77,7 +77,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             try {
-                Log.ISdkLogCallback iSdkLogCallback = f34190a;
+                Log.ISdkLogCallback iSdkLogCallback = f35024a;
                 if (iSdkLogCallback != null) {
                     iSdkLogCallback.onLogLine(String.format("[AlipaySDK] %s %s", new SimpleDateFormat("hh:mm:ss.SSS", Locale.getDefault()).format(new Date()), str));
                 }

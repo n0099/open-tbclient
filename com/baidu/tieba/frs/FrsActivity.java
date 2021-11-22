@@ -9,14 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.g;
-import b.a.e.e.p.k;
-import b.a.q0.d1.s0;
+import b.a.e.f.m.g;
+import b.a.e.f.p.k;
+import b.a.q0.c1.r0;
 import b.a.q0.j0.i;
 import b.a.q0.o0.e;
-import b.a.r0.x0.e1;
-import b.a.r0.x0.l0;
-import b.a.r0.x0.w2.f;
+import b.a.r0.x0.f1;
+import b.a.r0.x0.m0;
+import b.a.r0.x0.x2.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -61,14 +61,14 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.ItemInfo;
 /* loaded from: classes9.dex */
-public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, VoiceManager.j, UserIconBox.c, FrsCommonImageLayout.e, IVideoNeedPreload, l0 {
+public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, VoiceManager.j, UserIconBox.c, FrsCommonImageLayout.e, IVideoNeedPreload, m0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean doRefresh;
     public GuidePopupWindow frsGuidePopupView;
     public boolean isNeedTransition;
     public ItemInfo mCommentTabItemInfo;
-    public b.a.e.e.k.b<TbImageView> mFrsCommonImagePool;
+    public b.a.e.f.k.b<TbImageView> mFrsCommonImagePool;
     public CustomMessageListener mGuideWindowListener;
     public boolean mIsFromSchema;
     public long mSpecialTabPageStayTime;
@@ -76,7 +76,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
     public FrsTabController mTabController;
     public i mTipsEventListener;
     public f mTransitionController;
-    public b.a.e.e.k.b<TbImageView> mUserIconPool;
+    public b.a.e.f.k.b<TbImageView> mUserIconPool;
     public WeakReference<Context> mWeakContext;
 
     /* loaded from: classes9.dex */
@@ -85,7 +85,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ FrsActivity f48178g;
+        public final /* synthetic */ FrsActivity f49042g;
 
         public a(FrsActivity frsActivity) {
             Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
                     return;
                 }
             }
-            this.f48178g = frsActivity;
+            this.f49042g = frsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -112,10 +112,10 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tipEvent)) == null) {
-                if (tipEvent.pageId <= 0 || this.f48178g.getPageId() != tipEvent.pageId) {
+                if (tipEvent.pageId <= 0 || this.f49042g.getPageId() != tipEvent.pageId) {
                     return true;
                 }
-                DefaultNavigationBarCoverTip.makeText(this.f48178g.getActivity(), tipEvent.message, tipEvent.linkUrl).show();
+                DefaultNavigationBarCoverTip.makeText(this.f49042g.getActivity(), tipEvent.message, tipEvent.linkUrl).show();
                 return true;
             }
             return invokeL.booleanValue;
@@ -128,7 +128,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ FrsActivity f48179g;
+        public final /* synthetic */ FrsActivity f49043g;
 
         public b(FrsActivity frsActivity) {
             Interceptable interceptable = $ic;
@@ -145,7 +145,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
                     return;
                 }
             }
-            this.f48179g = frsActivity;
+            this.f49043g = frsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -155,7 +155,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, goodsEvent)) == null) {
-                if (goodsEvent == null || this.f48179g.mTabController.P() == null) {
+                if (goodsEvent == null || this.f49043g.mTabController.P() == null) {
                     return false;
                 }
                 if (goodsEvent.getDispose()) {
@@ -164,7 +164,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
                 if (WriteActivityConfig.isAsyncWriting()) {
                     return false;
                 }
-                WriteActivityConfig.newInstance(this.f48179g).setType(9).setForumWriteData(this.f48179g.mTabController.P().getForumWriteData()).setCallFrom("2").setGoodsList(goodsEvent.getGoodsList()).send();
+                WriteActivityConfig.newInstance(this.f49043g).setType(9).setForumWriteData(this.f49043g.mTabController.P().getForumWriteData()).setCallFrom("2").setGoodsList(goodsEvent.getGoodsList()).send();
                 goodsEvent.setDispost(true);
                 return true;
             }
@@ -178,7 +178,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsActivity f48180a;
+        public final /* synthetic */ FrsActivity f49044a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(FrsActivity frsActivity, int i2) {
@@ -198,7 +198,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
                     return;
                 }
             }
-            this.f48180a = frsActivity;
+            this.f49044a = frsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -206,7 +206,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f48180a.showGuideWindow();
+                this.f49044a.showGuideWindow();
             }
         }
     }
@@ -217,7 +217,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsActivity f48181a;
+        public final /* synthetic */ FrsActivity f49045a;
 
         public d(FrsActivity frsActivity) {
             Interceptable interceptable = $ic;
@@ -234,7 +234,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
                     return;
                 }
             }
-            this.f48181a = frsActivity;
+            this.f49045a = frsActivity;
         }
 
         @Override // b.a.q0.o0.b
@@ -294,7 +294,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (frsTabController = this.mTabController) == null || frsTabController.U() == null || this.mTabController.U().getForum() == null) {
             return;
         }
-        SpecHotTopicHelper.removeSpecTopicIconForFrs(Long.valueOf(b.a.e.e.m.b.g(this.mTabController.U().getForum().getId(), 0L)));
+        SpecHotTopicHelper.removeSpecTopicIconForFrs(Long.valueOf(b.a.e.f.m.b.g(this.mTabController.U().getForum().getId(), 0L)));
     }
 
     private void setWindowData() {
@@ -365,7 +365,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.e
-    public b.a.e.e.k.b<TbImageView> getFrsCommonImageLayoutPool() {
+    public b.a.e.f.k.b<TbImageView> getFrsCommonImageLayoutPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -374,7 +374,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
             }
             return this.mFrsCommonImagePool;
         }
-        return (b.a.e.e.k.b) invokeV.objValue;
+        return (b.a.e.f.k.b) invokeV.objValue;
     }
 
     public FrsFragment getFrsFragment() {
@@ -411,7 +411,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
         return (b.a.r0.g.e.a) invokeI.objValue;
     }
 
-    @Override // b.a.r0.x0.l0
+    @Override // b.a.r0.x0.m0
     public ItemInfo getItemInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -456,7 +456,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
             if (pageStayDurationItem != null) {
                 FrsTabController frsTabController = this.mTabController;
                 if (frsTabController != null && frsTabController.P() != null) {
-                    pageStayDurationItem.t(b.a.e.e.m.b.g(this.mTabController.P().forumId, 0L));
+                    pageStayDurationItem.t(b.a.e.f.m.b.g(this.mTabController.P().forumId, 0L));
                 }
                 if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
                     pageStayDurationItem.q(TbadkCoreApplication.getInst().getAdAdSense().q);
@@ -497,7 +497,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.c
-    public b.a.e.e.k.b<TbImageView> getUserIconPool() {
+    public b.a.e.f.k.b<TbImageView> getUserIconPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -506,7 +506,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
             }
             return this.mUserIconPool;
         }
-        return (b.a.e.e.k.b) invokeV.objValue;
+        return (b.a.e.f.k.b) invokeV.objValue;
     }
 
     public int getUserIconViewId() {
@@ -550,13 +550,13 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
         fVar.h();
     }
 
-    @Override // b.a.r0.x0.l0
+    @Override // b.a.r0.x0.m0
     public boolean isInScoreTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             FrsTabController frsTabController = this.mTabController;
-            return (frsTabController == null || frsTabController.P() == null || this.mTabController.P().getTabController() == null || this.mTabController.P().getTabController().z() == null || this.mTabController.P().getTabController().z().f49028d != 16) ? false : true;
+            return (frsTabController == null || frsTabController.P() == null || this.mTabController.P().getTabController() == null || this.mTabController.P().getTabController().z() == null || this.mTabController.P().getTabController().z().f49892d != 16) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -725,7 +725,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             super.onResume();
             if (this.doRefresh) {
-                s0.g(this.mWeakContext);
+                r0.g(this.mWeakContext);
                 this.doRefresh = false;
             }
             FrsTabController frsTabController = this.mTabController;
@@ -786,7 +786,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
         }
     }
 
-    @Override // b.a.r0.x0.l0
+    @Override // b.a.r0.x0.m0
     public void setItemInfo(ItemInfo itemInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, itemInfo) == null) {
@@ -820,7 +820,7 @@ public class FrsActivity extends BaseFragmentActivity implements b.a.r0.g.e.b, V
     public void updateLoadingViewState(View view, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048614, this, view, z) == null) {
-            if (view.getId() == e1.frs) {
+            if (view.getId() == f1.frs) {
                 TbSingleton.getInstance().setFrsRootViewLoadingShow(z);
             } else if (view.getId() == 16908290) {
                 TbSingleton.getInstance().setFrsContentViewLoadingShow(z);

@@ -15,13 +15,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f69007a;
+    public InputStream f69927a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f69008b;
+    public boolean f69928b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f69009c;
+    public int f69929c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class d {
     public final void a(InputStream inputStream, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, inputStream, z) == null) {
-            this.f69007a = inputStream;
-            this.f69008b = z;
-            this.f69009c = 0;
+            this.f69927a = inputStream;
+            this.f69928b = z;
+            this.f69929c = 0;
         }
     }
 
@@ -58,8 +58,8 @@ public class d {
             return;
         }
         long j = i2;
-        long skip = this.f69007a.skip(j);
-        this.f69009c = (int) (this.f69009c + skip);
+        long skip = this.f69927a.skip(j);
+        this.f69929c = (int) (this.f69929c + skip);
         if (skip != j) {
             throw new EOFException();
         }
@@ -97,7 +97,7 @@ public class d {
     public final void a() {
         InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (inputStream = this.f69007a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (inputStream = this.f69927a) == null) {
             return;
         }
         try {
@@ -120,13 +120,13 @@ public class d {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if (i2 >= 0 && i2 <= 4) {
                 int i3 = 0;
-                if (this.f69008b) {
+                if (this.f69928b) {
                     for (int i4 = (i2 - 1) * 8; i4 >= 0; i4 -= 8) {
-                        int read = this.f69007a.read();
+                        int read = this.f69927a.read();
                         if (read == -1) {
                             throw new EOFException();
                         }
-                        this.f69009c++;
+                        this.f69929c++;
                         i3 |= read << i4;
                     }
                     return i3;
@@ -134,11 +134,11 @@ public class d {
                 int i5 = i2 * 8;
                 int i6 = 0;
                 while (i3 != i5) {
-                    int read2 = this.f69007a.read();
+                    int read2 = this.f69927a.read();
                     if (read2 == -1) {
                         throw new EOFException();
                     }
-                    this.f69009c++;
+                    this.f69929c++;
                     i6 |= read2 << i3;
                     i3 += 8;
                 }

@@ -15,10 +15,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f27682a;
+    public List<String> f29185a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27683b;
+    public String f29186b;
 
     public c(f<?> fVar) {
         Interceptable interceptable = $ic;
@@ -35,36 +35,36 @@ public class c {
                 return;
             }
         }
-        this.f27683b = "7a7c80";
+        this.f29186b = "7a7c80";
         ArrayList arrayList = new ArrayList();
-        this.f27682a = arrayList;
+        this.f29185a = arrayList;
         arrayList.add("7a7c80");
-        this.f27682a.add("f55925");
-        this.f27682a.add("ff5460");
-        this.f27682a.add("cc3314");
-        this.f27682a.add("26bf85");
-        this.f27682a.add("33aaff");
-        this.f27682a.add("3385ff");
-        this.f27682a.add("3668b2");
-        this.f27682a.add("673699");
+        this.f29185a.add("f55925");
+        this.f29185a.add("ff5460");
+        this.f29185a.add("cc3314");
+        this.f29185a.add("26bf85");
+        this.f29185a.add("33aaff");
+        this.f29185a.add("3385ff");
+        this.f29185a.add("3668b2");
+        this.f29185a.add("673699");
     }
 
     public List<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27682a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29185a : (List) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27683b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29186b : (String) invokeV.objValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f27683b = str;
+            this.f29186b = str;
         }
     }
 }

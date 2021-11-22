@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import b.a.q0.s.q.g;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;

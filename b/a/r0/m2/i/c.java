@@ -1,8 +1,8 @@
 package b.a.r0.m2.i;
 
 import android.view.View;
-import b.a.e.l.e.n;
-import b.a.r0.b0.c0;
+import b.a.e.m.e.n;
+import b.a.r0.b0.d0;
 import b.a.r0.n2.e.h;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,19 +22,19 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f21204a;
+    public TbPageContext f22359a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f21205b;
+    public NavigationBar f22360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeListView f21206c;
+    public BdTypeListView f22361c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a.r0.m2.i.a f21207d;
+    public b.a.r0.m2.i.a f22362d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c0<h> f21208e;
+    public d0<h> f22363e;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -42,7 +42,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f21209e;
+        public final /* synthetic */ c f22364e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public class c {
                     return;
                 }
             }
-            this.f21209e = cVar;
+            this.f22364e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f21209e.f21204a.getPageActivity().finish();
+                this.f22364e.f22359a.getPageActivity().finish();
             }
         }
     }
@@ -86,26 +86,26 @@ public class c {
                 return;
             }
         }
-        this.f21204a = tbPageContext;
+        this.f22359a = tbPageContext;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f21205b.setCenterTextTitle(this.f21204a.getString(R.string.person_center_more));
-            this.f21205b.showBottomLine();
-            this.f21205b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.f21205b.onChangeSkinType(this.f21204a, TbadkCoreApplication.getInst().getSkinType());
+            this.f22360b.setCenterTextTitle(this.f22359a.getString(R.string.person_center_more));
+            this.f22360b.showBottomLine();
+            this.f22360b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            this.f22360b.onChangeSkinType(this.f22359a, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void c(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.f21205b = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
+            this.f22360b = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
             BdTypeListView bdTypeListView = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-            this.f21206c = bdTypeListView;
-            this.f21207d = new b.a.r0.m2.i.a(this.f21204a, bdTypeListView, this.f21208e);
+            this.f22361c = bdTypeListView;
+            this.f22362d = new b.a.r0.m2.i.a(this.f22359a, bdTypeListView, this.f22363e);
             b();
         }
     }
@@ -113,23 +113,23 @@ public class c {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f21207d.a();
-            SkinManager.setBackgroundColor(this.f21206c, R.color.CAM_X0201);
-            this.f21205b.onChangeSkinType(this.f21204a, TbadkCoreApplication.getInst().getSkinType());
+            this.f22362d.a();
+            SkinManager.setBackgroundColor(this.f22361c, R.color.CAM_X0201);
+            this.f22360b.onChangeSkinType(this.f22359a, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void e(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f21206c.setData(list);
+            this.f22361c.setData(list);
         }
     }
 
-    public void f(c0<h> c0Var) {
+    public void f(d0<h> d0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c0Var) == null) {
-            this.f21208e = c0Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, d0Var) == null) {
+            this.f22363e = d0Var;
         }
     }
 }

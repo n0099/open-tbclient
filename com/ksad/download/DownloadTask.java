@@ -674,7 +674,7 @@ public class DownloadTask implements Serializable {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ DownloadTask f63771a;
+                public final /* synthetic */ DownloadTask f64684a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -691,14 +691,14 @@ public class DownloadTask implements Serializable {
                             return;
                         }
                     }
-                    this.f63771a = this;
+                    this.f64684a = this;
                 }
 
                 @Override // com.kwai.filedownloader.i
                 public void a(com.kwai.filedownloader.a aVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) {
-                        this.f63771a.onStarted(aVar);
+                        this.f64684a.onStarted(aVar);
                     }
                 }
 
@@ -706,7 +706,7 @@ public class DownloadTask implements Serializable {
                 public void a(com.kwai.filedownloader.a aVar, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, i2, i3) == null) {
-                        this.f63771a.onPending(aVar, i2, i3);
+                        this.f64684a.onPending(aVar, i2, i3);
                     }
                 }
 
@@ -714,7 +714,7 @@ public class DownloadTask implements Serializable {
                 public void a(com.kwai.filedownloader.a aVar, String str, boolean z, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{aVar, str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-                        this.f63771a.onConnected(aVar, str, z, i2, i3);
+                        this.f64684a.onConnected(aVar, str, z, i2, i3);
                     }
                 }
 
@@ -722,7 +722,7 @@ public class DownloadTask implements Serializable {
                 public void a(com.kwai.filedownloader.a aVar, Throwable th) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048579, this, aVar, th) == null) {
-                        this.f63771a.onError(aVar, th);
+                        this.f64684a.onError(aVar, th);
                     }
                 }
 
@@ -730,7 +730,7 @@ public class DownloadTask implements Serializable {
                 public void b(com.kwai.filedownloader.a aVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048580, this, aVar) == null) {
-                        this.f63771a.onBlockCompleted(aVar);
+                        this.f64684a.onBlockCompleted(aVar);
                     }
                 }
 
@@ -738,7 +738,7 @@ public class DownloadTask implements Serializable {
                 public void b(com.kwai.filedownloader.a aVar, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLII(1048581, this, aVar, i2, i3) == null) {
-                        this.f63771a.onDownloading(aVar, i2, i3);
+                        this.f64684a.onDownloading(aVar, i2, i3);
                     }
                 }
 
@@ -746,7 +746,7 @@ public class DownloadTask implements Serializable {
                 public void c(com.kwai.filedownloader.a aVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048582, this, aVar) == null) {
-                        this.f63771a.onCompleted(aVar);
+                        this.f64684a.onCompleted(aVar);
                     }
                 }
 
@@ -754,7 +754,7 @@ public class DownloadTask implements Serializable {
                 public void c(com.kwai.filedownloader.a aVar, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLII(1048583, this, aVar, i2, i3) == null) {
-                        this.f63771a.onPause(aVar, i2, i3);
+                        this.f64684a.onPause(aVar, i2, i3);
                     }
                 }
 
@@ -762,7 +762,7 @@ public class DownloadTask implements Serializable {
                 public void d(com.kwai.filedownloader.a aVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-                        this.f63771a.onWarn(aVar);
+                        this.f64684a.onWarn(aVar);
                     }
                 }
             });

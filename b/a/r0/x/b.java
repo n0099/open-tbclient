@@ -4,7 +4,6 @@ import android.os.Looper;
 import android.util.AndroidRuntimeException;
 import android.view.View;
 import androidx.annotation.RestrictTo;
-import androidx.constraintlayout.motion.widget.Key;
 import b.a.r0.x.a;
 import b.a.r0.x.b;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,31 +28,31 @@ public abstract class b<T extends b<T>> implements a.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f25407a;
+    public float f26929a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f25408b;
+    public float f26930b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25409c;
+    public boolean f26931c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f25410d;
+    public final Object f26932d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b.a.r0.x.c f25411e;
+    public final b.a.r0.x.c f26933e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f25412f;
+    public boolean f26934f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f25413g;
+    public float f26935g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f25414h;
+    public float f26936h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f25415i;
+    public long f26937i;
     public float j;
     public final ArrayList<j> k;
     public final ArrayList<k> l;
@@ -76,7 +75,7 @@ public abstract class b<T extends b<T>> implements a.b {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (C1248b) objArr2[1]);
+                    super((String) objArr2[0], (C1317b) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -106,7 +105,7 @@ public abstract class b<T extends b<T>> implements a.b {
 
     /* renamed from: b.a.r0.x.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1248b extends l {
+    public static class C1317b extends l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -129,7 +128,7 @@ public abstract class b<T extends b<T>> implements a.b {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (C1248b) objArr2[1]);
+                    super((String) objArr2[0], (C1317b) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -175,7 +174,7 @@ public abstract class b<T extends b<T>> implements a.b {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (C1248b) objArr2[1]);
+                    super((String) objArr2[0], (C1317b) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -221,7 +220,7 @@ public abstract class b<T extends b<T>> implements a.b {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (C1248b) objArr2[1]);
+                    super((String) objArr2[0], (C1317b) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -267,7 +266,7 @@ public abstract class b<T extends b<T>> implements a.b {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (C1248b) objArr2[1]);
+                    super((String) objArr2[0], (C1317b) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -313,7 +312,7 @@ public abstract class b<T extends b<T>> implements a.b {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (C1248b) objArr2[1]);
+                    super((String) objArr2[0], (C1317b) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -359,7 +358,7 @@ public abstract class b<T extends b<T>> implements a.b {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (C1248b) objArr2[1]);
+                    super((String) objArr2[0], (C1317b) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -393,10 +392,10 @@ public abstract class b<T extends b<T>> implements a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public float f25416a;
+        public float f26938a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f25417b;
+        public float f26939b;
 
         public i() {
             Interceptable interceptable = $ic;
@@ -428,7 +427,7 @@ public abstract class b<T extends b<T>> implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public /* synthetic */ l(String str, C1248b c1248b) {
+        public /* synthetic */ l(String str, C1317b c1317b) {
             this(str);
         }
 
@@ -466,13 +465,13 @@ public abstract class b<T extends b<T>> implements a.b {
                 return;
             }
         }
-        m = new c(Key.TRANSLATION_Y);
-        n = new d(Key.SCALE_X);
-        o = new e(Key.SCALE_Y);
-        p = new f(Key.ROTATION);
-        q = new g(Key.ROTATION_X);
-        r = new h(Key.ROTATION_Y);
-        s = new a(Key.ALPHA);
+        m = new c("translationY");
+        n = new d("scaleX");
+        o = new e("scaleY");
+        p = new f("rotation");
+        q = new g("rotationX");
+        r = new h("rotationY");
+        s = new a("alpha");
     }
 
     public <K> b(K k2, b.a.r0.x.c<K> cVar) {
@@ -490,17 +489,17 @@ public abstract class b<T extends b<T>> implements a.b {
                 return;
             }
         }
-        this.f25407a = 0.0f;
-        this.f25408b = Float.MAX_VALUE;
-        this.f25409c = false;
-        this.f25412f = false;
-        this.f25413g = Float.MAX_VALUE;
-        this.f25414h = -Float.MAX_VALUE;
-        this.f25415i = 0L;
+        this.f26929a = 0.0f;
+        this.f26930b = Float.MAX_VALUE;
+        this.f26931c = false;
+        this.f26934f = false;
+        this.f26935g = Float.MAX_VALUE;
+        this.f26936h = -Float.MAX_VALUE;
+        this.f26937i = 0L;
         this.k = new ArrayList<>();
         this.l = new ArrayList<>();
-        this.f25410d = k2;
-        this.f25411e = cVar;
+        this.f26932d = k2;
+        this.f26933e = cVar;
         if (cVar != p && cVar != q && cVar != r) {
             if (cVar == s) {
                 this.j = 0.00390625f;
@@ -533,18 +532,18 @@ public abstract class b<T extends b<T>> implements a.b {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            long j3 = this.f25415i;
+            long j3 = this.f26937i;
             if (j3 == 0) {
-                this.f25415i = j2;
-                g(this.f25408b);
+                this.f26937i = j2;
+                g(this.f26930b);
                 return false;
             }
-            this.f25415i = j2;
+            this.f26937i = j2;
             boolean j4 = j(j2 - j3);
-            float min = Math.min(this.f25408b, this.f25413g);
-            this.f25408b = min;
-            float max = Math.max(min, this.f25414h);
-            this.f25408b = max;
+            float min = Math.min(this.f26930b, this.f26935g);
+            this.f26930b = min;
+            float max = Math.max(min, this.f26936h);
+            this.f26930b = max;
             g(max);
             if (j4) {
                 c(false);
@@ -569,13 +568,13 @@ public abstract class b<T extends b<T>> implements a.b {
     public final void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f25412f = false;
+            this.f26934f = false;
             b.a.r0.x.a.i().l(this);
-            this.f25415i = 0L;
-            this.f25409c = false;
+            this.f26937i = 0L;
+            this.f26931c = false;
             for (int i2 = 0; i2 < this.k.size(); i2++) {
                 if (this.k.get(i2) != null) {
-                    this.k.get(i2).a(this, z, this.f25408b, this.f25407a);
+                    this.k.get(i2).a(this, z, this.f26930b, this.f26929a);
                 }
             }
             f(this.k);
@@ -585,7 +584,7 @@ public abstract class b<T extends b<T>> implements a.b {
     public final float d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25411e.a(this.f25410d) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26933e.a(this.f26932d) : invokeV.floatValue;
     }
 
     public float e() {
@@ -597,10 +596,10 @@ public abstract class b<T extends b<T>> implements a.b {
     public void g(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.f25411e.b(this.f25410d, f2);
+            this.f26933e.b(this.f26932d, f2);
             for (int i2 = 0; i2 < this.l.size(); i2++) {
                 if (this.l.get(i2) != null) {
-                    this.l.get(i2).a(this, this.f25408b, this.f25407a);
+                    this.l.get(i2).a(this, this.f26930b, this.f26929a);
                 }
             }
             f(this.l);
@@ -611,7 +610,7 @@ public abstract class b<T extends b<T>> implements a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (Looper.myLooper() == Looper.getMainLooper()) {
-                if (this.f25412f) {
+                if (this.f26934f) {
                     return;
                 }
                 i();
@@ -623,15 +622,15 @@ public abstract class b<T extends b<T>> implements a.b {
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f25412f) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f26934f) {
             return;
         }
-        this.f25412f = true;
-        if (!this.f25409c) {
-            this.f25408b = d();
+        this.f26934f = true;
+        if (!this.f26931c) {
+            this.f26930b = d();
         }
-        float f2 = this.f25408b;
-        if (f2 <= this.f25413g && f2 >= this.f25414h) {
+        float f2 = this.f26930b;
+        if (f2 <= this.f26935g && f2 >= this.f26936h) {
             b.a.r0.x.a.i().f(this, 0L);
             return;
         }

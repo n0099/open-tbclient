@@ -47,7 +47,7 @@ public class PluginFragmentActivityWrapper extends GenerateFragmentActivityWrapp
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PluginFragmentActivityWrapper f61532a;
+                public final /* synthetic */ PluginFragmentActivityWrapper f62431a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -64,7 +64,7 @@ public class PluginFragmentActivityWrapper extends GenerateFragmentActivityWrapp
                             return;
                         }
                     }
-                    this.f61532a = this;
+                    this.f62431a = this;
                 }
 
                 @Override // com.bytedance.pangle.b, android.app.Application.ActivityLifecycleCallbacks
@@ -72,7 +72,7 @@ public class PluginFragmentActivityWrapper extends GenerateFragmentActivityWrapp
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, activity2) == null) {
                         super.onActivityDestroyed(activity2);
-                        if (activity2 == this.f61532a.mOriginActivity) {
+                        if (activity2 == this.f62431a.mOriginActivity) {
                             Zeus.getAppApplication().unregisterActivityLifecycleCallbacks(this);
                         }
                     }

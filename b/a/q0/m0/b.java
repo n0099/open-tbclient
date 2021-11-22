@@ -12,7 +12,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragment f12764a;
+    public BaseFragment f13514a;
 
     public b(BaseFragment baseFragment) {
         Interceptable interceptable = $ic;
@@ -29,12 +29,12 @@ public class b {
                 return;
             }
         }
-        this.f12764a = baseFragment;
+        this.f13514a = baseFragment;
     }
 
     public BaseFragment a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12764a : (BaseFragment) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13514a : (BaseFragment) invokeV.objValue;
     }
 }

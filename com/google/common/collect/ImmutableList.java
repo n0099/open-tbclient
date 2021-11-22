@@ -1,12 +1,12 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.i.d.a.n;
-import b.i.d.c.m;
-import b.i.d.c.o0;
-import b.i.d.c.o1;
-import b.i.d.c.p1;
-import b.i.d.c.u0;
+import b.h.d.a.n;
+import b.h.d.c.m;
+import b.h.d.c.o0;
+import b.h.d.c.o1;
+import b.h.d.c.p1;
+import b.h.d.c.u0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -27,13 +27,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.RandomAccess;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public abstract class ImmutableList<E> extends ImmutableCollection<E> implements List<E>, RandomAccess {
     public static /* synthetic */ Interceptable $ic;
     public static final p1<Object> EMPTY_ITR;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static class ReverseImmutableList<E> extends ImmutableList<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +164,7 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static class SerializedForm implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -196,7 +196,7 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public class SubList extends ImmutableList<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -303,7 +303,7 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class a<E> extends ImmutableCollection.a<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -358,8 +358,8 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                this.f63340c = true;
-                return ImmutableList.asImmutableList(this.f63338a, this.f63339b);
+                this.f64240c = true;
+                return ImmutableList.asImmutableList(this.f64238a, this.f64239b);
             }
             return (ImmutableList) invokeV.objValue;
         }
@@ -385,13 +385,13 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class b<E> extends b.i.d.c.a<E> {
+    /* loaded from: classes11.dex */
+    public static class b<E> extends b.h.d.c.a<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final ImmutableList<E> f63341g;
+        public final ImmutableList<E> f64241g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(ImmutableList<E> immutableList, int i2) {
@@ -412,14 +412,14 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
                     return;
                 }
             }
-            this.f63341g = immutableList;
+            this.f64241g = immutableList;
         }
 
-        @Override // b.i.d.c.a
+        @Override // b.h.d.c.a
         public E a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f63341g.get(i2) : (E) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f64241g.get(i2) : (E) invokeI.objValue;
         }
     }
 

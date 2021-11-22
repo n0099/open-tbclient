@@ -246,8 +246,6 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
             if (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) != null && WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false")) {
                 str = "tryToUpdateHttpDnsCache http_dns false";
-            } else if (WebSettingsGlobalBlink.getNativeHttpdnsEnabled()) {
-                str = "getNativeHttpdnsEnabled enabled";
             } else if (WebSettingsGlobalBlink.isSFSwitchEnabled()) {
                 str = "tryToUpdateHttpDnsCache festival return";
             } else {
@@ -279,8 +277,6 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         if (interceptable == null || interceptable.invokeL(65549, null, context) == null) {
             if (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) != null && WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false")) {
                 str = "tryToUpdateHttpDnsCacheStaticIP http_dns false";
-            } else if (WebSettingsGlobalBlink.getNativeHttpdnsEnabled()) {
-                str = "getNativeHttpdnsEnabled enabled1";
             } else if (WebSettingsGlobalBlink.isSFSwitchEnabled()) {
                 str = "tryToUpdateHttpDnsCacheStaticIP festival return";
             } else {

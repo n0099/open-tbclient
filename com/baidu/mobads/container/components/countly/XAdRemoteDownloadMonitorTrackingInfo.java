@@ -1,6 +1,7 @@
 package com.baidu.mobads.container.components.countly;
 
 import android.content.Context;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
 import com.baidu.mobads.container.landingpage.XAdRemoteAbstractTrackingInfo;
 import com.baidu.mobads.container.util.DeviceUtils;
@@ -73,7 +74,7 @@ public class XAdRemoteDownloadMonitorTrackingInfo extends XAdRemoteAbstractTrack
                 hashMap.put("typeProcId", str2);
                 hashMap.put("url2", "");
                 hashMap.putAll(this.mExtraInfo.mExtras);
-                hashMap.put("sn", DeviceUtils.getInstance().getEncodedSN(this.mContext));
+                hashMap.put(IAdRequestParam.SN, DeviceUtils.getInstance().getEncodedSN(this.mContext));
             } catch (Exception e2) {
                 RemoteXAdLogger.getInstance().d(e2);
             }

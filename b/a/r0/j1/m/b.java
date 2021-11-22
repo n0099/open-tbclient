@@ -3,6 +3,7 @@ package b.a.r0.j1.m;
 import b.a.q0.s.q.d2;
 import b.a.r0.x0.k;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -19,9 +20,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f18490a;
+    public List<b.a.e.m.e.a> f19824a;
 
     public b(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+        k kVar;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,22 +38,22 @@ public class b {
                 return;
             }
         }
-        this.f18490a = new ArrayList();
-        k kVar = (k) MessageManager.getInstance().runTask(2921336, k.class, tbPageContext).getData();
-        if (kVar != null) {
-            this.f18490a.add(kVar);
+        this.f19824a = new ArrayList();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921336, k.class, tbPageContext);
+        if (runTask != null && (kVar = (k) runTask.getData()) != null) {
+            this.f19824a.add(kVar);
         }
-        this.f18490a.add(new c(tbPageContext, d2.H3));
-        this.f18490a.add(new a(tbPageContext, d2.I3));
-        bdTypeRecyclerView.addAdapters(this.f18490a);
+        this.f19824a.add(new c(tbPageContext, d2.J3));
+        this.f19824a.add(new a(tbPageContext, d2.K3));
+        bdTypeRecyclerView.addAdapters(this.f19824a);
     }
 
     public void a(TbPageTag tbPageTag) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, tbPageTag) == null) || ListUtils.isEmpty(this.f18490a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, tbPageTag) == null) || ListUtils.isEmpty(this.f19824a)) {
             return;
         }
-        for (b.a.e.l.e.a aVar : this.f18490a) {
+        for (b.a.e.m.e.a aVar : this.f19824a) {
             if (aVar instanceof k) {
                 ((k) aVar).r0(tbPageTag);
             }

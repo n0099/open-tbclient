@@ -1,8 +1,8 @@
 package b.a.r0.h1.k.a.d;
 
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.e0.k;
+import b.a.r0.b0.f0.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -31,25 +31,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdUniqueId f17614a;
+    public BdUniqueId f19083a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TopicDetailView f17615b;
+    public TopicDetailView f19084b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b.a.e.c.g.a f17616c;
+    public final b.a.e.c.g.a f19085c;
 
     /* renamed from: b.a.r0.h1.k.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0896a extends b.a.e.c.g.a {
+    public class C0964a extends b.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f17617a;
+        public final /* synthetic */ a f19086a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0896a(a aVar, int i2, int i3) {
+        public C0964a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -67,7 +67,7 @@ public class a {
                     return;
                 }
             }
-            this.f17617a = aVar;
+            this.f19086a = aVar;
         }
 
         @Override // b.a.e.c.g.a
@@ -76,10 +76,10 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                     GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
-                    this.f17617a.d(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
+                    this.f19086a.d(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
                 } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                     GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
-                    this.f17617a.d(getMyPostSocketResponseMessage.getError(), getMyPostSocketResponseMessage.getResponseData());
+                    this.f19086a.d(getMyPostSocketResponseMessage.getError(), getMyPostSocketResponseMessage.getResponseData());
                 }
             }
         }
@@ -91,13 +91,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f17618e;
+        public long f19087e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f17619f;
+        public long f19088f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f17620g;
+        public final /* synthetic */ a f19089g;
 
         public b(a aVar, long j, long j2) {
             Interceptable interceptable = $ic;
@@ -114,9 +114,9 @@ public class a {
                     return;
                 }
             }
-            this.f17620g = aVar;
-            this.f17618e = j;
-            this.f17619f = j2;
+            this.f19089g = aVar;
+            this.f19087e = j;
+            this.f19088f = j2;
         }
 
         @Override // java.lang.Runnable
@@ -128,8 +128,8 @@ public class a {
                 float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                 int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
                 RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                requestGetMyPostNetMessage.setTag(this.f17620g.f17614a);
-                requestGetMyPostNetMessage.setParams(this.f17618e, this.f17619f, 0L, k, i2, f2, i3);
+                requestGetMyPostNetMessage.setTag(this.f19089g.f19083a);
+                requestGetMyPostNetMessage.setParams(this.f19087e, this.f19088f, 0L, k, i2, f2, i3);
                 MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             }
         }
@@ -150,8 +150,8 @@ public class a {
                 return;
             }
         }
-        this.f17616c = new C0896a(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
-        this.f17615b = topicDetailView;
+        this.f19085c = new C0964a(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
+        this.f19084b = topicDetailView;
     }
 
     public b c(long j, long j2) {
@@ -174,10 +174,10 @@ public class a {
         builder.author = builder2.build(true);
         ThreadInfo build = builder.build(true);
         d2 d2Var = new d2();
-        d2Var.Y2(build);
-        d2Var.J4(new Date().getTime());
+        d2Var.a3(build);
+        d2Var.L4(new Date().getTime());
         if (k.Y(d2Var)) {
-            this.f17615b.sendThreadFakeUpdateList(d2Var);
+            this.f19084b.sendThreadFakeUpdateList(d2Var);
         }
     }
 
@@ -199,11 +199,11 @@ public class a {
     public void f(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.f17614a = bdUniqueId;
-            this.f17616c.setTag(bdUniqueId);
-            this.f17616c.getHttpMessageListener().setSelfListener(true);
-            this.f17616c.getSocketMessageListener().setSelfListener(true);
-            MessageManager.getInstance().registerListener(this.f17616c);
+            this.f19083a = bdUniqueId;
+            this.f19085c.setTag(bdUniqueId);
+            this.f19085c.getHttpMessageListener().setSelfListener(true);
+            this.f19085c.getSocketMessageListener().setSelfListener(true);
+            MessageManager.getInstance().registerListener(this.f19085c);
         }
     }
 }

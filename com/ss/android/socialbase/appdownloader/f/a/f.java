@@ -12,10 +12,10 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f69010a;
+    public int[] f69930a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f69011b;
+    public int[] f69931b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -43,13 +43,13 @@ public class f {
             int b5 = dVar.b();
             int b6 = dVar.b();
             f fVar = new f();
-            fVar.f69010a = dVar.b(b3);
+            fVar.f69930a = dVar.b(b3);
             if (b4 != 0) {
                 dVar.b(b4);
             }
             int i2 = (b6 == 0 ? b2 : b6) - b5;
             if (i2 % 4 == 0) {
-                fVar.f69011b = dVar.b(i2 / 4);
+                fVar.f69931b = dVar.b(i2 / 4);
                 if (b6 != 0) {
                     int i3 = b2 - b6;
                     if (i3 % 4 == 0) {
@@ -70,15 +70,15 @@ public class f {
         int[] iArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 < 0 || (iArr = this.f69010a) == null || i2 >= iArr.length) {
+            if (i2 < 0 || (iArr = this.f69930a) == null || i2 >= iArr.length) {
                 return null;
             }
             int i3 = iArr[i2];
-            int a2 = a(this.f69011b, i3);
+            int a2 = a(this.f69931b, i3);
             StringBuilder sb = new StringBuilder(a2);
             while (a2 != 0) {
                 i3 += 2;
-                sb.append((char) a(this.f69011b, i3));
+                sb.append((char) a(this.f69931b, i3));
                 a2--;
             }
             return sb.toString();

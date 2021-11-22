@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
-import b.a.e.e.m.b;
-import b.a.r0.b0.e0.n;
-import b.a.r0.z2.y;
+import b.a.e.f.m.b;
+import b.a.r0.a3.y;
+import b.a.r0.b0.f0.o;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class BannerListData implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<AdvertAppInfo> advertAppList;
     public ArrayList<FeedForumData> feedForumList;
-    public n recomTopicData;
+    public o recomTopicData;
 
     /* loaded from: classes8.dex */
     public class a implements Comparator<AdvertAppInfo> {
@@ -59,7 +59,7 @@ public class BannerListData implements Serializable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, advertAppInfo, advertAppInfo2)) == null) {
-                return (advertAppInfo != null ? b.e(advertAppInfo.d4, 0) : 0) - (advertAppInfo2 != null ? b.e(advertAppInfo2.d4, 0) : 0);
+                return (advertAppInfo != null ? b.e(advertAppInfo.e4, 0) : 0) - (advertAppInfo2 != null ? b.e(advertAppInfo2.e4, 0) : 0);
             }
             return invokeLL.intValue;
         }
@@ -105,8 +105,8 @@ public class BannerListData implements Serializable {
             StringBuilder sb = new StringBuilder();
             int size = this.advertAppList.size();
             for (int i2 = 0; i2 < size; i2++) {
-                if (!TextUtils.isEmpty(this.advertAppList.get(i2).X3)) {
-                    sb.append(this.advertAppList.get(i2).X3);
+                if (!TextUtils.isEmpty(this.advertAppList.get(i2).Y3)) {
+                    sb.append(this.advertAppList.get(i2).Y3);
                     if (i2 != size - 1) {
                         sb.append(",");
                     }
@@ -117,10 +117,10 @@ public class BannerListData implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public n getRecomTopicData() {
+    public o getRecomTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recomTopicData : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recomTopicData : (o) invokeV.objValue;
     }
 
     public void parserJson(String str) {
@@ -149,7 +149,7 @@ public class BannerListData implements Serializable {
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     if (list.get(i2) != null) {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                        advertAppInfo.W4(list.get(i2));
+                        advertAppInfo.Y4(list.get(i2));
                         this.advertAppList.add(advertAppInfo);
                         if (h2 != null) {
                             h2.add(advertAppInfo);

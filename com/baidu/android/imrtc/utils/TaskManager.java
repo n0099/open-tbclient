@@ -1,6 +1,5 @@
 package com.baidu.android.imrtc.utils;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,10 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -26,55 +21,6 @@ public class TaskManager {
     public static TaskManager instance;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor service;
-    public ExecutorService singleThreadService;
-
-    /* loaded from: classes6.dex */
-    public static class Task implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String mAction;
-        public String mJson;
-
-        public Task() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        public Task(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.mAction = str;
-            this.mJson = str2;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -109,11 +55,10 @@ public class TaskManager {
             }
         }
         this.service = null;
-        this.singleThreadService = null;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        ThreadPoolExecutor.DiscardOldestPolicy discardOldestPolicy = new ThreadPoolExecutor.DiscardOldestPolicy();
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), discardOldestPolicy);
         this.service = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(true);
-        this.singleThreadService = Executors.newSingleThreadExecutor();
     }
 
     public static TaskManager getInstance() {
@@ -132,26 +77,9 @@ public class TaskManager {
         return (TaskManager) invokeV.objValue;
     }
 
-    public <T> Future<T> submitForLocalCallable(Callable<T> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, callable)) == null) ? this.singleThreadService.submit(callable) : (Future) invokeL.objValue;
-    }
-
-    public void submitForLocalOperation(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-            try {
-                this.singleThreadService.submit(runnable);
-            } catch (Exception e2) {
-                LogUtils.e("TaskManager", "Exception ", e2);
-            }
-        }
-    }
-
     public void submitForNetWork(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
             try {
                 this.service.submit(runnable);
             } catch (Throwable th) {

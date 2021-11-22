@@ -44,7 +44,7 @@ public class e extends b.a.p0.a.y0.a<b.a.p0.a.y0.i.c> {
             int i2 = command.arg1;
             String str = command.what;
             d(cVar, str, "(keyboardHeight)" + i2, false);
-            cVar.z0(i2);
+            cVar.A0(i2);
         }
     }
 }

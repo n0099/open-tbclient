@@ -22,10 +22,10 @@ public class ConstrastLoadingView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f38290a;
+    public ImageView f39120a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f38291b;
+    public ImageView f39121b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConstrastLoadingView(Context context) {
@@ -52,8 +52,8 @@ public class ConstrastLoadingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_constrast_loading, this);
-            this.f38290a = (ImageView) findViewById(R.id.iv_recog_circle);
-            this.f38291b = (ImageView) findViewById(R.id.iv_recog_logo);
+            this.f39120a = (ImageView) findViewById(R.id.iv_recog_circle);
+            this.f39121b = (ImageView) findViewById(R.id.iv_recog_logo);
             a();
         }
     }
@@ -61,7 +61,7 @@ public class ConstrastLoadingView extends LinearLayout {
     public void clearAnim() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f38290a.clearAnimation();
+            this.f39120a.clearAnimation();
             clearAnimation();
             setVisibility(4);
         }
@@ -120,7 +120,7 @@ public class ConstrastLoadingView extends LinearLayout {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f38290a.startAnimation(a(true, IMLikeRequest.TIME_INTERVAL));
+            this.f39120a.startAnimation(a(true, IMLikeRequest.TIME_INTERVAL));
         }
     }
 }

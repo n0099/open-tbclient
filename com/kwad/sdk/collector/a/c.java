@@ -29,10 +29,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static com.kwad.sdk.collector.a.d f64123a;
+    public static com.kwad.sdk.collector.a.d f65036a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f64124b;
+    public static Context f65037b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -60,13 +60,13 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 ArrayList arrayList = new ArrayList();
-                this.f64122b = arrayList;
-                arrayList.add(new com.kwad.sdk.collector.a.a(this, this.f64121a) { // from class: com.kwad.sdk.collector.a.c.a.1
+                this.f65035b = arrayList;
+                arrayList.add(new com.kwad.sdk.collector.a.a(this, this.f65034a) { // from class: com.kwad.sdk.collector.a.c.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f64125c;
+                    public final /* synthetic */ a f65038c;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -86,7 +86,7 @@ public class c {
                                 return;
                             }
                         }
-                        this.f64125c = this;
+                        this.f65038c = this;
                     }
 
                     @Override // com.kwad.sdk.collector.a.a
@@ -124,12 +124,12 @@ public class c {
                         return invokeL.booleanValue;
                     }
                 });
-                this.f64122b.add(new com.kwad.sdk.collector.a.a(this, this.f64121a) { // from class: com.kwad.sdk.collector.a.c.a.2
+                this.f65035b.add(new com.kwad.sdk.collector.a.a(this, this.f65034a) { // from class: com.kwad.sdk.collector.a.c.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f64126c;
+                    public final /* synthetic */ a f65039c;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -149,7 +149,7 @@ public class c {
                                 return;
                             }
                         }
-                        this.f64126c = this;
+                        this.f65039c = this;
                     }
 
                     @Override // com.kwad.sdk.collector.a.a
@@ -185,11 +185,11 @@ public class c {
 
     /* renamed from: com.kwad.sdk.collector.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1891c extends com.kwad.sdk.collector.a.a {
+    public static class C1931c extends com.kwad.sdk.collector.a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1891c() {
+        public C1931c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -229,13 +229,13 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 ArrayList arrayList = new ArrayList();
-                this.f64122b = arrayList;
-                arrayList.add(new com.kwad.sdk.collector.a.a(this, this.f64121a) { // from class: com.kwad.sdk.collector.a.c.d.1
+                this.f65035b = arrayList;
+                arrayList.add(new com.kwad.sdk.collector.a.a(this, this.f65034a) { // from class: com.kwad.sdk.collector.a.c.d.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f64127c;
+                    public final /* synthetic */ d f65040c;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -255,7 +255,7 @@ public class c {
                                 return;
                             }
                         }
-                        this.f64127c = this;
+                        this.f65040c = this;
                     }
 
                     @Override // com.kwad.sdk.collector.a.a
@@ -265,12 +265,12 @@ public class c {
                         return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, context)) == null) ? new File("/system/app/Superuser.apk").exists() : invokeL.booleanValue;
                     }
                 });
-                this.f64122b.add(new com.kwad.sdk.collector.a.a(this, this.f64121a) { // from class: com.kwad.sdk.collector.a.c.d.2
+                this.f65035b.add(new com.kwad.sdk.collector.a.a(this, this.f65034a) { // from class: com.kwad.sdk.collector.a.c.d.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f64128c;
+                    public final /* synthetic */ d f65041c;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -290,7 +290,7 @@ public class c {
                                 return;
                             }
                         }
-                        this.f64128c = this;
+                        this.f65041c = this;
                     }
 
                     @Override // com.kwad.sdk.collector.a.a
@@ -309,12 +309,12 @@ public class c {
                         return invokeL.booleanValue;
                     }
                 });
-                this.f64122b.add(new com.kwad.sdk.collector.a.a(this, this.f64121a) { // from class: com.kwad.sdk.collector.a.c.d.3
+                this.f65035b.add(new com.kwad.sdk.collector.a.a(this, this.f65034a) { // from class: com.kwad.sdk.collector.a.c.d.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f64129c;
+                    public final /* synthetic */ d f65042c;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -334,7 +334,7 @@ public class c {
                                 return;
                             }
                         }
-                        this.f64129c = this;
+                        this.f65042c = this;
                     }
 
                     @Override // com.kwad.sdk.collector.a.a
@@ -344,12 +344,12 @@ public class c {
                         return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, context)) == null) ? c.a(new String[]{"/system/xbin/which", "su"}) != null : invokeL.booleanValue;
                     }
                 });
-                this.f64122b.add(new com.kwad.sdk.collector.a.a(this, this.f64121a) { // from class: com.kwad.sdk.collector.a.c.d.4
+                this.f65035b.add(new com.kwad.sdk.collector.a.a(this, this.f65034a) { // from class: com.kwad.sdk.collector.a.c.d.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f64130c;
+                    public final /* synthetic */ d f65043c;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -369,7 +369,7 @@ public class c {
                                 return;
                             }
                         }
-                        this.f64130c = this;
+                        this.f65043c = this;
                     }
 
                     @Override // com.kwad.sdk.collector.a.a
@@ -418,13 +418,13 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 ArrayList arrayList = new ArrayList();
-                this.f64122b = arrayList;
-                arrayList.add(new com.kwad.sdk.collector.a.a(this, this.f64121a) { // from class: com.kwad.sdk.collector.a.c.e.1
+                this.f65035b = arrayList;
+                arrayList.add(new com.kwad.sdk.collector.a.a(this, this.f65034a) { // from class: com.kwad.sdk.collector.a.c.e.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ e f64131c;
+                    public final /* synthetic */ e f65044c;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -444,7 +444,7 @@ public class c {
                                 return;
                             }
                         }
-                        this.f64131c = this;
+                        this.f65044c = this;
                     }
 
                     @Override // com.kwad.sdk.collector.a.a
@@ -466,12 +466,12 @@ public class c {
                         return invokeL.booleanValue;
                     }
                 });
-                this.f64122b.add(new com.kwad.sdk.collector.a.a(this, this.f64121a) { // from class: com.kwad.sdk.collector.a.c.e.2
+                this.f65035b.add(new com.kwad.sdk.collector.a.a(this, this.f65034a) { // from class: com.kwad.sdk.collector.a.c.e.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ e f64132c;
+                    public final /* synthetic */ e f65045c;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -491,7 +491,7 @@ public class c {
                                 return;
                             }
                         }
-                        this.f64132c = this;
+                        this.f65045c = this;
                     }
 
                     @Override // com.kwad.sdk.collector.a.a
@@ -528,12 +528,12 @@ public class c {
                         return invokeL.booleanValue;
                     }
                 });
-                this.f64122b.add(new com.kwad.sdk.collector.a.a(this, this.f64121a) { // from class: com.kwad.sdk.collector.a.c.e.3
+                this.f65035b.add(new com.kwad.sdk.collector.a.a(this, this.f65034a) { // from class: com.kwad.sdk.collector.a.c.e.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ e f64133c;
+                    public final /* synthetic */ e f65046c;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -553,7 +553,7 @@ public class c {
                                 return;
                             }
                         }
-                        this.f64133c = this;
+                        this.f65046c = this;
                     }
 
                     @Override // com.kwad.sdk.collector.a.a
@@ -601,22 +601,22 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             if (com.kwad.sdk.core.config.c.L()) {
-                com.kwad.sdk.collector.a.d dVar = f64123a;
+                com.kwad.sdk.collector.a.d dVar = f65036a;
                 if (dVar != null) {
                     return dVar;
                 }
-                com.kwad.sdk.collector.a.d dVar2 = new com.kwad.sdk.collector.a.d(f64124b);
-                boolean a2 = new d().a(f64124b);
-                boolean a3 = new e().a(f64124b);
-                boolean a4 = new b().a(f64124b);
-                boolean a5 = new a().a(f64124b);
-                boolean a6 = new C1891c().a(f64124b);
+                com.kwad.sdk.collector.a.d dVar2 = new com.kwad.sdk.collector.a.d(f65037b);
+                boolean a2 = new d().a(f65037b);
+                boolean a3 = new e().a(f65037b);
+                boolean a4 = new b().a(f65037b);
+                boolean a5 = new a().a(f65037b);
+                boolean a6 = new C1931c().a(f65037b);
                 dVar2.a(a2);
                 dVar2.b(a3);
                 dVar2.c(a4);
                 dVar2.e(a5);
                 dVar2.f(a6);
-                f64123a = dVar2;
+                f65036a = dVar2;
                 return dVar2;
             }
             return null;
@@ -664,6 +664,6 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || context == null) {
             return;
         }
-        f64124b = context.getApplicationContext();
+        f65037b = context.getApplicationContext();
     }
 }

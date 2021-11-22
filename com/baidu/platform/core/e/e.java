@@ -4,6 +4,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.search.share.RouteShareURLOption;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,11 +94,11 @@ public class e extends com.baidu.platform.base.e {
                 str2 = "bt";
                 str4 = str7;
             }
-            aVar.a("sn", str5);
-            aVar.a(com.baidu.fsg.base.statistics.h.f37503a, str6);
+            aVar.a(IAdRequestParam.SN, str5);
+            aVar.a(com.baidu.fsg.base.statistics.h.f38333a, str6);
             String str8 = "&" + aVar.a() + ("&start=" + name + "&end=" + name2);
-            this.f42041a.a("url", "http://map.baidu.com/?newmap=1&s=" + str2 + (AppMD5.encodeUrlParamsValue(str8) + str4));
-            this.f42041a.a("from", "android_map_sdk");
+            this.f42889a.a("url", "http://map.baidu.com/?newmap=1&s=" + str2 + (AppMD5.encodeUrlParamsValue(str8) + str4));
+            this.f42889a.a("from", "android_map_sdk");
         }
     }
 

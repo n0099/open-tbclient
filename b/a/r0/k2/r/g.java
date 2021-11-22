@@ -50,7 +50,7 @@ public class g {
                     sb.append(String.valueOf((int) sqrt2));
                 }
                 sb.append("&src=");
-                sb.append(b.a.e.e.p.k.getUrlEncode(C.B()));
+                sb.append(b.a.e.f.p.k.getUrlEncode(C.B()));
                 return sb.toString();
             }
             return null;
@@ -60,28 +60,28 @@ public class g {
 
     public static void b(PostData postData, AbsPbActivity.e eVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, postData, eVar) == null) || postData == null || postData.M() == null || postData.M().y() == null || eVar == null || eVar.f52183a == null || eVar.f52184b == null || postData.M().y().size() == 0) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, postData, eVar) == null) || postData == null || postData.M() == null || postData.M().y() == null || eVar == null || eVar.f53096a == null || eVar.f53097b == null || postData.M().y().size() == 0) {
             return;
         }
-        String str = (String) ListUtils.getItem(eVar.f52183a, eVar.j);
+        String str = (String) ListUtils.getItem(eVar.f53096a, eVar.j);
         if (StringUtils.isNull(str)) {
             return;
         }
-        eVar.f52183a = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.f52184b;
-        eVar.f52184b = new ConcurrentHashMap<>();
+        eVar.f53096a = new ArrayList<>();
+        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.f53097b;
+        eVar.f53097b = new ConcurrentHashMap<>();
         Iterator<TbRichTextData> it = postData.M().y().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null && next.getType() == 8) {
                 String a2 = a(next);
                 if (!StringUtils.isNull(a2) && concurrentHashMap.get(a2) != null) {
-                    eVar.f52183a.add(a2);
-                    eVar.f52184b.put(a2, concurrentHashMap.get(a2));
+                    eVar.f53096a.add(a2);
+                    eVar.f53097b.put(a2, concurrentHashMap.get(a2));
                 }
             }
         }
-        eVar.j = ListUtils.getPosition(eVar.f52183a, str);
+        eVar.j = ListUtils.getPosition(eVar.f53096a, str);
     }
 
     public static PostData c(f fVar, boolean z, int i2) {
@@ -111,8 +111,8 @@ public class g {
             PostData postData = new PostData();
             MetaData J = fVar.O().J();
             String userId = J.getUserId();
-            HashMap<String, MetaData> A1 = fVar.O().A1();
-            if (A1 != null && (metaData = A1.get(userId)) != null && metaData.getUserId() != null) {
+            HashMap<String, MetaData> B1 = fVar.O().B1();
+            if (B1 != null && (metaData = B1.get(userId)) != null && metaData.getUserId() != null) {
                 J = metaData;
             }
             postData.m0(1);

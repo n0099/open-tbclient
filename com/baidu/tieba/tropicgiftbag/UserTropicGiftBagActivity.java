@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -46,7 +46,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserTropicGiftBagActivity f54621e;
+        public final /* synthetic */ UserTropicGiftBagActivity f55541e;
 
         public a(UserTropicGiftBagActivity userTropicGiftBagActivity) {
             Interceptable interceptable = $ic;
@@ -63,21 +63,21 @@ public class UserTropicGiftBagActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54621e = userTropicGiftBagActivity;
+            this.f55541e = userTropicGiftBagActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TbPageContext<?> pageContext = this.f54621e.getPageContext();
-                if (view.getId() == this.f54621e.mKnow.getId()) {
+                TbPageContext<?> pageContext = this.f55541e.getPageContext();
+                if (view.getId() == this.f55541e.mKnow.getId()) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    this.f54621e.sendStatisticLog(2);
-                    this.f54621e.finish();
+                    this.f55541e.sendStatisticLog(2);
+                    this.f55541e.finish();
                 }
-                if (view.getId() == this.f54621e.mClose.getId()) {
-                    this.f54621e.finish();
+                if (view.getId() == this.f55541e.mClose.getId()) {
+                    this.f55541e.finish();
                 }
             }
         }

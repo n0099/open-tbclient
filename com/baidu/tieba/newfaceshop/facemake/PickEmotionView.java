@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -21,10 +21,10 @@ public class PickEmotionView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EmotionView f51875e;
+    public EmotionView f52788e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f51876f;
+    public ImageView f52789f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PickEmotionView(Context context) {
@@ -50,28 +50,28 @@ public class PickEmotionView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f51875e = new EmotionView(getContext());
-            addView(this.f51875e, new FrameLayout.LayoutParams(-1, -1));
-            this.f51876f = new ImageView(getContext());
+            this.f52788e = new EmotionView(getContext());
+            addView(this.f52788e, new FrameLayout.LayoutParams(-1, -1));
+            this.f52789f = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 53;
             layoutParams.topMargin = l.g(getContext(), R.dimen.ds8);
             layoutParams.rightMargin = l.g(getContext(), R.dimen.ds8);
-            addView(this.f51876f, layoutParams);
+            addView(this.f52789f, layoutParams);
         }
     }
 
     public EmotionView getEmotionView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51875e : (EmotionView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52788e : (EmotionView) invokeV.objValue;
     }
 
     public int getLoadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            EmotionView emotionView = this.f51875e;
+            EmotionView emotionView = this.f52788e;
             if (emotionView != null) {
                 return emotionView.getLoadProcType();
             }
@@ -84,9 +84,9 @@ public class PickEmotionView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                SkinManager.setBackgroundResource(this.f51876f, R.drawable.ic_post_image_selected_s);
+                SkinManager.setBackgroundResource(this.f52789f, R.drawable.ic_post_image_selected_s);
             } else {
-                SkinManager.setBackgroundResource(this.f51876f, R.drawable.ic_post_image_selected_n);
+                SkinManager.setBackgroundResource(this.f52789f, R.drawable.ic_post_image_selected_n);
             }
         }
     }
@@ -94,9 +94,9 @@ public class PickEmotionView extends FrameLayout {
     public void setData(EmotionImageData emotionImageData, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, emotionImageData, i2) == null) {
-            this.f51875e.setLoadProcType(i2);
-            this.f51875e.enablePreview();
-            this.f51875e.loadData(emotionImageData);
+            this.f52788e.setLoadProcType(i2);
+            this.f52788e.enablePreview();
+            this.f52788e.loadData(emotionImageData);
         }
     }
 

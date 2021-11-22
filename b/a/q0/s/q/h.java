@@ -14,25 +14,25 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f13334a;
+    public long f14114a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13335b;
+    public String f14115b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13336c;
+    public String f14116c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13337d;
+    public int f14117d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13338e;
+    public int f14118e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13339f;
+    public String f14119f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13340g;
+    public String f14120g;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -54,13 +54,13 @@ public class h {
             return;
         }
         try {
-            this.f13334a = jSONObject.optLong("activity_id");
-            this.f13335b = jSONObject.optString("main_title");
-            this.f13336c = jSONObject.optString("sub_title");
-            this.f13337d = jSONObject.optInt("back_pic_width");
-            this.f13338e = jSONObject.optInt("back_pic_height");
-            this.f13339f = jSONObject.optString("back_pic");
-            this.f13340g = jSONObject.optString("subpage_link");
+            this.f14114a = jSONObject.optLong("activity_id");
+            this.f14115b = jSONObject.optString("main_title");
+            this.f14116c = jSONObject.optString("sub_title");
+            this.f14117d = jSONObject.optInt("back_pic_width");
+            this.f14118e = jSONObject.optInt("back_pic_height");
+            this.f14119f = jSONObject.optString("back_pic");
+            this.f14120g = jSONObject.optString("subpage_link");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -72,13 +72,13 @@ public class h {
             return;
         }
         try {
-            this.f13334a = activityInfo.activity_id.longValue();
-            this.f13335b = activityInfo.main_title;
-            this.f13336c = activityInfo.sub_title;
-            this.f13337d = activityInfo.back_pic_width.intValue();
-            this.f13338e = activityInfo.back_pic_height.intValue();
-            this.f13339f = activityInfo.back_pic;
-            this.f13340g = activityInfo.subpage_link;
+            this.f14114a = activityInfo.activity_id.longValue();
+            this.f14115b = activityInfo.main_title;
+            this.f14116c = activityInfo.sub_title;
+            this.f14117d = activityInfo.back_pic_width.intValue();
+            this.f14118e = activityInfo.back_pic_height.intValue();
+            this.f14119f = activityInfo.back_pic;
+            this.f14120g = activityInfo.subpage_link;
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

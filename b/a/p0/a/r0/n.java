@@ -17,8 +17,10 @@ import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -35,13 +37,13 @@ public class n {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f7598a = "/aigames/sandbox/";
+    public static String f8113a = "/aigames/sandbox/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f7599b;
+    public static String f8114b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f7600c;
+    public static String f8115c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -49,7 +51,7 @@ public class n {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f7601a;
+        public static final /* synthetic */ int[] f8116a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -66,15 +68,40 @@ public class n {
                 }
             }
             int[] iArr = new int[PathType.values().length];
-            f7601a = iArr;
+            f8116a = iArr;
             try {
                 iArr[PathType.BD_FILE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f7601a[PathType.RELATIVE.ordinal()] = 2;
+                f8116a[PathType.RELATIVE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public long f8117a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f8117a = 0L;
         }
     }
 
@@ -93,10 +120,61 @@ public class n {
         }
     }
 
-    public static JsFunction A(String str, Map<String, Object> map) {
+    public static long A(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0L;
+            }
+            return z(new File(str));
+        }
+        return invokeL.longValue;
+    }
+
+    public static String B(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            if (str.startsWith(b.a.p0.a.r0.a.USER_DATA_PATH)) {
+                return P(str);
+            }
+            return str.startsWith("bdfile://tmp") ? N(str) : "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static JSExceptionType C(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
+            if (i2 != -5) {
+                if (i2 != -4) {
+                    if (i2 != -3) {
+                        if (i2 != -2) {
+                            if (i2 != -1) {
+                                return JSExceptionType.Error;
+                            }
+                            return JSExceptionType.Error;
+                        }
+                        return JSExceptionType.TypeError;
+                    }
+                    return JSExceptionType.SyntaxError;
+                }
+                return JSExceptionType.ReferenceError;
+            }
+            return JSExceptionType.RangeError;
+        }
+        return (JSExceptionType) invokeI.objValue;
+    }
+
+    public static JsFunction D(String str, Map<String, Object> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, map)) == null) {
             if (!TextUtils.isEmpty(str) && map != null) {
                 Object obj = map.get(str);
                 if (obj instanceof JsFunction) {
@@ -108,10 +186,10 @@ public class n {
         return (JsFunction) invokeLL.objValue;
     }
 
-    public static Map<String, JsFunction> B(JsObject jsObject) {
+    public static Map<String, JsFunction> E(JsObject jsObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jsObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, jsObject)) == null) {
             if (jsObject == null) {
                 return null;
             }
@@ -126,16 +204,16 @@ public class n {
         return (Map) invokeL.objValue;
     }
 
-    public static String C(String str, String str2, String str3, String str4) {
+    public static String F(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, str, str2, str3, str4)) == null) ? D(str, str2, str3, str4, false) : (String) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, str3, str4)) == null) ? G(str, str2, str3, str4, false) : (String) invokeLLLL.objValue;
     }
 
-    public static String D(String str, String str2, String str3, String str4, boolean z) {
+    public static String G(String str, String str2, String str3, String str4, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, str4, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, str4, Boolean.valueOf(z)})) == null) {
             if (TextUtils.isEmpty(str)) {
                 return com.baidu.pass.biometrics.face.liveness.b.a.g0;
             }
@@ -160,18 +238,18 @@ public class n {
     }
 
     @NonNull
-    public static <T> T E(String str, Map<String, Object> map, @NonNull T t) {
+    public static <T> T H(String str, Map<String, Object> map, @NonNull T t) {
         InterceptResult invokeLLL;
         T t2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, map, t)) == null) ? (TextUtils.isEmpty(str) || map == null || (t2 = (T) map.get(str)) == null) ? t : t2 : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, str, map, t)) == null) ? (TextUtils.isEmpty(str) || map == null || (t2 = (T) map.get(str)) == null) ? t : t2 : (T) invokeLLL.objValue;
     }
 
-    public static String F(String str, Map<String, Object> map) {
+    public static String I(String str, Map<String, Object> map) {
         InterceptResult invokeLL;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, map)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, map)) == null) {
             if (TextUtils.isEmpty(str) || map == null || (obj = map.get(str)) == null || !(obj instanceof String)) {
                 return null;
             }
@@ -180,44 +258,44 @@ public class n {
         return (String) invokeLL.objValue;
     }
 
-    public static Map<String, Object> G(f fVar, JsObject jsObject, b.a.p0.a.r0.o.b bVar, String str) {
+    public static Map<String, Object> J(f fVar, JsObject jsObject, b.a.p0.a.r0.o.b bVar, String str) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, null, fVar, jsObject, bVar, str)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65546, null, fVar, jsObject, bVar, str)) == null) {
             if (jsObject != null && fVar != null && bVar != null) {
-                Map<String, JsFunction> B = B(jsObject);
-                if (B == null) {
-                    X(jsObject);
+                Map<String, JsFunction> E = E(jsObject);
+                if (E == null) {
+                    b0(jsObject);
                     return null;
                 }
-                Map<String, Object> j = j(jsObject);
-                if (j == null) {
-                    X(jsObject);
+                Map<String, Object> l = l(jsObject);
+                if (l == null) {
+                    b0(jsObject);
                     bVar.errMsg = str;
-                    k(B.get(com.baidu.pass.biometrics.face.liveness.b.a.g0), B.get(XAdRemoteEvent.COMPLETE), bVar, B.get("success"));
+                    m(E.get(com.baidu.pass.biometrics.face.liveness.b.a.g0), E.get(XAdRemoteEvent.COMPLETE), bVar, E.get("success"));
                     return null;
                 }
                 HashMap hashMap = new HashMap();
-                for (String str2 : B.keySet()) {
-                    hashMap.put(str2, B.get(str2));
+                for (String str2 : E.keySet()) {
+                    hashMap.put(str2, E.get(str2));
                 }
-                for (String str3 : j.keySet()) {
-                    hashMap.put(str3, j.get(str3));
+                for (String str3 : l.keySet()) {
+                    hashMap.put(str3, l.get(str3));
                 }
-                X(jsObject);
+                b0(jsObject);
                 return hashMap;
             }
-            X(jsObject);
+            b0(jsObject);
             return null;
         }
         return (Map) invokeLLLL.objValue;
     }
 
-    public static String H(String str, int i2) {
+    public static String K(String str, int i2) {
         InterceptResult invokeLI;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i2)) == null) {
             if (TextUtils.isEmpty(str)) {
                 str = "path";
             }
@@ -257,10 +335,10 @@ public class n {
         return (String) invokeLI.objValue;
     }
 
-    public static String I(String str) {
+    public static String L(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
@@ -278,31 +356,31 @@ public class n {
         return (String) invokeL.objValue;
     }
 
-    public static String J(String str, String str2) {
+    public static String M(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) {
-            String w = w(AppRuntime.getAppContext());
-            return w + File.separator + str + f7598a + str2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, str2)) == null) {
+            String y = y(AppRuntime.getAppContext());
+            return y + File.separator + str + f8113a + str2;
         }
         return (String) invokeLL.objValue;
     }
 
-    public static String K(String str) {
+    public static String N(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
                 if (str.startsWith("bdfile://tmp" + File.separator) || "bdfile://tmp".equals(str)) {
-                    String n = n();
-                    if (TextUtils.isEmpty(n)) {
+                    String p = p();
+                    if (TextUtils.isEmpty(p)) {
                         return null;
                     }
                     String substring = str.substring(9);
                     if (substring.startsWith(File.separator)) {
-                        return n + substring;
+                        return p + substring;
                     }
-                    return n + File.separator + substring;
+                    return p + File.separator + substring;
                 }
             }
             return null;
@@ -310,10 +388,10 @@ public class n {
         return (String) invokeL.objValue;
     }
 
-    public static int L(String str, JsObject jsObject) {
+    public static int O(String str, JsObject jsObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, jsObject)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, jsObject)) == null) {
             if (jsObject != null && !TextUtils.isEmpty(str)) {
                 for (int i2 = 0; i2 < jsObject.length(); i2++) {
                     if (str.equals(jsObject.getPropertyName(i2))) {
@@ -326,21 +404,21 @@ public class n {
         return invokeLL.intValue;
     }
 
-    public static String M(String str) {
+    public static String P(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
                 if (str.startsWith(b.a.p0.a.r0.a.USER_DATA_PATH + File.separator) || b.a.p0.a.r0.a.USER_DATA_PATH.equals(str)) {
-                    String n = n();
-                    if (TextUtils.isEmpty(n)) {
+                    String p = p();
+                    if (TextUtils.isEmpty(p)) {
                         return null;
                     }
                     String substring = str.substring(9);
                     if (substring.startsWith(File.separator)) {
-                        return n + substring;
+                        return p + substring;
                     }
-                    return n + File.separator + substring;
+                    return p + File.separator + substring;
                 }
             }
             return null;
@@ -348,10 +426,10 @@ public class n {
         return (String) invokeL.objValue;
     }
 
-    public static byte[] N(String str) {
+    public static byte[] Q(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
             if (str == null || str.length() < 1) {
                 return null;
             }
@@ -367,10 +445,10 @@ public class n {
         return (byte[]) invokeL.objValue;
     }
 
-    public static boolean O(String str) {
+    public static boolean R(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -384,15 +462,27 @@ public class n {
         return invokeL.booleanValue;
     }
 
-    public static boolean P(f fVar, b.a.p0.a.l0.a aVar, JsObject jsObject, String str) {
+    public static boolean S(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return str.equalsIgnoreCase(b.a.p0.a.r0.a.USER_DATA_PATH + File.separator + "record.pro");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean T(f fVar, b.a.p0.a.l0.a aVar, JsObject jsObject, String str) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65552, null, fVar, aVar, jsObject, str)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65556, null, fVar, aVar, jsObject, str)) == null) {
             if (fVar == null || aVar == null) {
                 if (jsObject == null && !TextUtils.isEmpty(str)) {
                     d(aVar, str + "Object;");
                 }
-                X(jsObject);
+                b0(jsObject);
                 return false;
             }
             return true;
@@ -400,10 +490,10 @@ public class n {
         return invokeLLLL.booleanValue;
     }
 
-    public static boolean Q(File file, File file2) {
+    public static boolean U(File file, File file2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, file, file2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, file, file2)) == null) {
             if (file == null || file2 == null) {
                 return true;
             }
@@ -415,10 +505,10 @@ public class n {
         return invokeLL.booleanValue;
     }
 
-    public static boolean R(String str) {
+    public static boolean V(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -433,29 +523,29 @@ public class n {
             StringBuilder sb3 = new StringBuilder();
             sb3.append("bdfile://code");
             sb3.append(File.separator);
-            return (z || z2 || (str.startsWith(sb3.toString()) || "bdfile://code".equals(str))) && !O(str);
+            return (!(z || z2 || (str.startsWith(sb3.toString()) || "bdfile://code".equals(str))) || S(str) || R(str)) ? false : true;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean S(String str) {
+    public static boolean W(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
             StringBuilder sb = new StringBuilder();
             sb.append(b.a.p0.a.r0.a.USER_DATA_PATH);
             sb.append(File.separator);
-            return (str.startsWith(sb.toString()) || b.a.p0.a.r0.a.USER_DATA_PATH.equals(str)) && !O(str);
+            return ((!str.startsWith(sb.toString()) && !b.a.p0.a.r0.a.USER_DATA_PATH.equals(str)) || R(str) || S(str)) ? false : true;
         }
         return invokeL.booleanValue;
     }
 
-    public static void T(String str, String str2) {
+    public static void X(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65556, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65560, null, str, str2) == null) {
             if (!TextUtils.isEmpty(str)) {
                 File file = new File(str + "/tmp");
                 if (!file.exists()) {
@@ -484,36 +574,36 @@ public class n {
         }
     }
 
-    public static String U(String str) {
+    public static String Y(String str) {
         InterceptResult invokeL;
-        String y;
+        String B;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
-            int i2 = a.f7601a[b.a.p0.a.k2.b.s(str).ordinal()];
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
+            int i2 = a.f8116a[b.a.p0.a.o2.b.s(str).ordinal()];
             if (i2 == 1) {
-                y = y(str);
+                B = B(str);
             } else if (i2 != 2) {
-                y = str;
+                B = str;
             } else {
-                y = b.a.p0.a.g1.f.T().z() + str;
+                B = b.a.p0.a.g1.f.U().z() + str;
             }
-            return TextUtils.isEmpty(y) ? str : y;
+            return TextUtils.isEmpty(B) ? str : B;
         }
         return (String) invokeL.objValue;
     }
 
-    public static String V(String str) {
+    public static String Z(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            String n = n();
-            if (TextUtils.isEmpty(n)) {
+            String p = p();
+            if (TextUtils.isEmpty(p)) {
                 return null;
             }
-            String str2 = n + File.separator;
+            String str2 = p + File.separator;
             if (str.startsWith(str2) && str.length() > str2.length()) {
                 return WebGLImageLoader.BDFILE + str.substring(str2.length());
             }
@@ -522,52 +612,7 @@ public class n {
         return (String) invokeL.objValue;
     }
 
-    public static void W(JsFunction jsFunction) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65559, null, jsFunction) == null) || jsFunction == null) {
-            return;
-        }
-        jsFunction.release();
-    }
-
-    public static void X(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65560, null, jsObject) == null) || jsObject == null) {
-            return;
-        }
-        jsObject.release();
-    }
-
-    public static void Y(JsFunction jsFunction, JsFunction jsFunction2, Object obj, JsFunction jsFunction3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65561, null, jsFunction, jsFunction2, obj, jsFunction3) == null) {
-            if (jsFunction != null) {
-                jsFunction.call(obj);
-            }
-            if (jsFunction2 != null) {
-                jsFunction2.call(obj);
-            }
-            W(jsFunction3);
-        }
-    }
-
-    public static void Z(b.a.p0.a.l0.a aVar, c cVar, JSExceptionType jSExceptionType, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65562, null, aVar, cVar, jSExceptionType, str, str2) == null) || aVar == null) {
-            return;
-        }
-        if (cVar == null) {
-            aVar.throwJSException(jSExceptionType, str2 + str);
-            return;
-        }
-        int i2 = cVar.f7458a;
-        if (i2 != 0) {
-            JSExceptionType z = z(i2);
-            aVar.throwJSException(z, str2 + cVar.f7459b);
-        }
-    }
-
-    public static boolean a(b bVar, b.a.p0.a.r0.o.b bVar2, Map<Integer, String> map, b.a.p0.a.l0.a aVar) {
+    public static boolean a(b.a.p0.a.r0.b bVar, b.a.p0.a.r0.o.b bVar2, Map<Integer, String> map, b.a.p0.a.l0.a aVar) {
         InterceptResult invokeLLLL;
         String str;
         Map<String, Object> map2;
@@ -576,33 +621,33 @@ public class n {
             if (map != null) {
                 for (Integer num : map.keySet()) {
                     if (num.intValue() != 7) {
-                        str = H(map.get(num), num.intValue());
+                        str = K(map.get(num), num.intValue());
                         break;
                     }
                 }
             }
             str = null;
-            if (bVar2 == null || bVar == null || (map2 = bVar.f7457c) == null) {
+            if (bVar2 == null || bVar == null || (map2 = bVar.f7971c) == null) {
                 return false;
             }
-            c cVar = bVar.f7455a;
-            JsFunction A = A(com.baidu.pass.biometrics.face.liveness.b.a.g0, map2);
-            JsFunction A2 = A(XAdRemoteEvent.COMPLETE, map2);
-            JsFunction A3 = A("success", map2);
+            c cVar = bVar.f7969a;
+            JsFunction D = D(com.baidu.pass.biometrics.face.liveness.b.a.g0, map2);
+            JsFunction D2 = D(XAdRemoteEvent.COMPLETE, map2);
+            JsFunction D3 = D("success", map2);
             if (!TextUtils.isEmpty(str)) {
-                String str2 = bVar.f7456b + str;
+                String str2 = bVar.f7970b + str;
                 bVar2.errMsg = str2;
                 d(aVar, str2);
-                k(A, A2, bVar2, A3);
+                m(D, D2, bVar2, D3);
                 return false;
             } else if (cVar == null) {
-                bVar2.errMsg = bVar.f7456b + "unknown error";
-                k(A, A2, bVar2, A3);
+                bVar2.errMsg = bVar.f7970b + "unknown error";
+                m(D, D2, bVar2, D3);
                 return false;
             } else {
-                bVar2.errMsg = bVar.f7456b + cVar.f7459b;
-                if (cVar.f7458a != 0) {
-                    k(A, A2, bVar2, A3);
+                bVar2.errMsg = bVar.f7970b + cVar.f7973b;
+                if (cVar.f7972a != 0) {
+                    m(D, D2, bVar2, D3);
                     return false;
                 }
                 return true;
@@ -611,43 +656,88 @@ public class n {
         return invokeLLLL.booleanValue;
     }
 
+    public static void a0(JsFunction jsFunction) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65564, null, jsFunction) == null) || jsFunction == null) {
+            return;
+        }
+        jsFunction.release();
+    }
+
     public static void b(Object obj, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65564, null, obj, map) == null) {
-            Y(A("success", map), A(XAdRemoteEvent.COMPLETE, map), obj, A(com.baidu.pass.biometrics.face.liveness.b.a.g0, map));
+        if (interceptable == null || interceptable.invokeLL(65565, null, obj, map) == null) {
+            c0(D("success", map), D(XAdRemoteEvent.COMPLETE, map), obj, D(com.baidu.pass.biometrics.face.liveness.b.a.g0, map));
         }
+    }
+
+    public static void b0(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65566, null, jsObject) == null) || jsObject == null) {
+            return;
+        }
+        jsObject.release();
     }
 
     public static void c() {
         Context appContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || (appContext = AppRuntime.getAppContext()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65567, null) == null) || (appContext = AppRuntime.getAppContext()) == null) {
             return;
         }
-        String w = w(appContext);
-        String str = w + File.separator + "swangame/anonymous/sandbox";
+        String y = y(appContext);
+        String str = y + File.separator + "swangame/anonymous/sandbox";
         if (!TextUtils.isEmpty(str)) {
-            b.a.p0.t.d.L(str);
+            b.a.p0.w.d.M(str);
         }
-        String str2 = w + File.separator + f7600c + f7598a;
+        String str2 = y + File.separator + f8115c + f8113a;
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        b.a.p0.t.d.L(str2);
+        b.a.p0.w.d.M(str2);
+    }
+
+    public static void c0(JsFunction jsFunction, JsFunction jsFunction2, Object obj, JsFunction jsFunction3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65568, null, jsFunction, jsFunction2, obj, jsFunction3) == null) {
+            if (jsFunction != null) {
+                jsFunction.call(obj);
+            }
+            if (jsFunction2 != null) {
+                jsFunction2.call(obj);
+            }
+            a0(jsFunction3);
+        }
     }
 
     public static void d(b.a.p0.a.l0.a aVar, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65566, null, aVar, str) == null) || aVar == null || aVar.y() == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(65569, null, aVar, str) == null) || aVar == null || aVar.z() == null || TextUtils.isEmpty(str)) {
             return;
         }
-        aVar.y().b(str);
+        aVar.z().b(str);
+    }
+
+    public static void d0(b.a.p0.a.l0.a aVar, c cVar, JSExceptionType jSExceptionType, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLLL(65570, null, aVar, cVar, jSExceptionType, str, str2) == null) || aVar == null) {
+            return;
+        }
+        if (cVar == null) {
+            aVar.throwJSException(jSExceptionType, str2 + str);
+            return;
+        }
+        int i2 = cVar.f7972a;
+        if (i2 != 0) {
+            JSExceptionType C = C(i2);
+            aVar.throwJSException(C, str2 + cVar.f7973b);
+        }
     }
 
     public static void e(String str, String str2) {
         File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65567, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65571, null, str, str2) == null) {
             try {
                 new File(str2).mkdirs();
                 String[] list = new File(str).list();
@@ -669,8 +759,8 @@ public class n {
                             fileOutputStream.write(bArr, 0, read);
                         }
                         fileOutputStream.flush();
-                        b.a.p0.t.d.d(fileOutputStream);
-                        b.a.p0.t.d.d(fileInputStream);
+                        b.a.p0.w.d.d(fileOutputStream);
+                        b.a.p0.w.d.d(fileInputStream);
                     }
                     if (file.isDirectory()) {
                         e(str + "/" + list[i2], str2 + "/" + list[i2]);
@@ -682,10 +772,22 @@ public class n {
         }
     }
 
-    public static boolean f(String str) {
+    public static boolean f(File file, b bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, file, bVar)) == null) {
+            if (bVar != null) {
+                bVar.f8117a = 0L;
+            }
+            return h(file, bVar);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) {
             File file = new File(str);
             if (file.isFile() && file.exists()) {
                 return file.delete();
@@ -695,24 +797,61 @@ public class n {
         return invokeL.booleanValue;
     }
 
-    public static void g(List<String> list) {
+    public static boolean h(File file, b bVar) {
+        InterceptResult invokeLL;
+        boolean delete;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65569, null, list) == null) || list == null || list.size() == 0) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, file, bVar)) == null) {
+            if (bVar == null) {
+                bVar = new b();
+            }
+            if (file == null) {
+                return false;
+            }
+            boolean z = true;
+            if (file.exists()) {
+                if (file.isFile()) {
+                    long z2 = z(file);
+                    delete = file.delete();
+                    if (delete) {
+                        bVar.f8117a += z2;
+                    }
+                } else if (!file.isDirectory()) {
+                    return true;
+                } else {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null) {
+                        for (File file2 : listFiles) {
+                            z &= h(file2, bVar);
+                        }
+                    }
+                    delete = file.delete();
+                }
+                return z & delete;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void i(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65575, null, list) == null) || list == null || list.size() == 0) {
             return;
         }
         for (String str : list) {
             File file = new File(str);
             if (file.exists()) {
-                b.a.p0.t.d.i(file);
+                b.a.p0.w.d.j(file);
             }
         }
     }
 
-    public static boolean h(String str) {
+    public static boolean j(String str) {
         InterceptResult invokeL;
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, str)) == null) {
             if (!str.endsWith(File.separator)) {
                 str = str + File.separator;
             }
@@ -721,12 +860,12 @@ public class n {
                 boolean z = true;
                 for (int i2 = 0; i2 < listFiles.length; i2++) {
                     if (listFiles[i2].isFile()) {
-                        z = f(listFiles[i2].getAbsolutePath());
+                        z = g(listFiles[i2].getAbsolutePath());
                         if (!z) {
                             break;
                         }
                     } else {
-                        z = h(listFiles[i2].getAbsolutePath());
+                        z = j(listFiles[i2].getAbsolutePath());
                         if (!z) {
                             break;
                         }
@@ -742,36 +881,36 @@ public class n {
         return invokeL.booleanValue;
     }
 
-    public static void i(String str) {
+    public static void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65571, null, str) == null) {
-            String h2 = b.a.p0.a.c1.a.a0().h(AppRuntime.getAppContext());
+        if (interceptable == null || interceptable.invokeL(65577, null, str) == null) {
+            String h2 = b.a.p0.a.c1.a.h0().h(AppRuntime.getAppContext());
             if (!TextUtils.isEmpty(h2)) {
-                b.a.p0.t.d.L(J(h2, str));
-                b.a.p0.t.d.L(J(b.a.p0.t.f.d(h2.getBytes(), false), str));
+                b.a.p0.w.d.M(M(h2, str));
+                b.a.p0.w.d.M(M(b.a.p0.w.f.d(h2.getBytes(), false), str));
             }
-            String i2 = b.a.p0.a.c1.a.a0().i(AppRuntime.getAppContext());
+            String i2 = b.a.p0.a.c1.a.h0().i(AppRuntime.getAppContext());
             if (!TextUtils.isEmpty(i2)) {
-                b.a.p0.t.d.L(J(i2, str));
-                b.a.p0.t.d.L(J(b.a.p0.t.f.d(i2.replace("|", "").getBytes(), false), str));
+                b.a.p0.w.d.M(M(i2, str));
+                b.a.p0.w.d.M(M(b.a.p0.w.f.d(i2.replace("|", "").getBytes(), false), str));
             }
             Context appContext = AppRuntime.getAppContext();
             if (appContext == null) {
                 return;
             }
-            String str2 = w(appContext) + File.separator + "swangame/anonymous/sandbox" + File.separator + str;
+            String str2 = y(appContext) + File.separator + "swangame/anonymous/sandbox" + File.separator + str;
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            b.a.p0.t.d.L(str2);
+            b.a.p0.w.d.M(str2);
         }
     }
 
-    public static Map<String, Object> j(JsObject jsObject) {
+    public static Map<String, Object> l(JsObject jsObject) {
         InterceptResult invokeL;
         Object valueOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, jsObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, jsObject)) == null) {
             if (jsObject == null) {
                 return null;
             }
@@ -798,27 +937,27 @@ public class n {
         return (Map) invokeL.objValue;
     }
 
-    public static void k(JsFunction jsFunction, JsFunction jsFunction2, Object obj, JsFunction jsFunction3) {
+    public static void m(JsFunction jsFunction, JsFunction jsFunction2, Object obj, JsFunction jsFunction3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65573, null, jsFunction, jsFunction2, obj, jsFunction3) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65579, null, jsFunction, jsFunction2, obj, jsFunction3) == null) {
             if (jsFunction != null) {
                 jsFunction.call(obj);
             }
             if (jsFunction2 != null) {
                 jsFunction2.call(obj);
             }
-            W(jsFunction3);
+            a0(jsFunction3);
             if (obj instanceof b.a.p0.a.r0.o.b) {
                 b.a.p0.a.c1.b.j().b(((b.a.p0.a.r0.o.b) obj).errMsg);
             }
         }
     }
 
-    public static String l(String str) {
+    public static String n(String str) {
         InterceptResult invokeL;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
@@ -844,19 +983,19 @@ public class n {
                     }
                     sb.append(hexString);
                 }
-                b.a.p0.t.d.d(fileInputStream);
+                b.a.p0.w.d.d(fileInputStream);
             } catch (Exception e3) {
                 e = e3;
                 fileInputStream2 = fileInputStream;
-                if (b.a.p0.a.k.f6397a) {
+                if (b.a.p0.a.k.f6863a) {
                     e.printStackTrace();
                 }
-                b.a.p0.t.d.d(fileInputStream2);
+                b.a.p0.w.d.d(fileInputStream2);
                 return sb.toString();
             } catch (Throwable th2) {
                 th = th2;
                 fileInputStream2 = fileInputStream;
-                b.a.p0.t.d.d(fileInputStream2);
+                b.a.p0.w.d.d(fileInputStream2);
                 throw th;
             }
             return sb.toString();
@@ -864,11 +1003,11 @@ public class n {
         return (String) invokeL.objValue;
     }
 
-    public static List<String> m(String str, boolean z) {
+    public static List<String> o(String str, boolean z) {
         InterceptResult invokeLZ;
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65575, null, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65581, null, str, z)) == null) {
             ArrayList arrayList = new ArrayList();
             if (TextUtils.isEmpty(str)) {
                 return arrayList;
@@ -911,29 +1050,29 @@ public class n {
         return (List) invokeLZ.objValue;
     }
 
-    public static String n() {
+    public static String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) {
             Context appContext = AppRuntime.getAppContext();
             if (appContext == null) {
                 return "";
             }
-            String w = w(appContext);
-            if (b.a.p0.a.a2.e.i() == null) {
-                return w;
+            String y = y(appContext);
+            if (b.a.p0.a.d2.e.L() == null) {
+                return y;
             }
-            String U = b.a.p0.a.a2.e.U();
-            return w + File.separator + "swangame/anonymous/sandbox" + File.separator + U;
+            String f0 = b.a.p0.a.d2.e.f0();
+            return y + File.separator + "swangame/anonymous/sandbox" + File.separator + f0;
         }
         return (String) invokeV.objValue;
     }
 
-    public static byte[] o(String str) {
+    public static byte[] q(String str) {
         InterceptResult invokeL;
         BufferedInputStream bufferedInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65577, null, str)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65583, null, str)) != null) {
             return (byte[]) invokeL.objValue;
         }
         File file = new File(str);
@@ -959,8 +1098,8 @@ public class n {
                     byteArrayOutputStream.write(bArr, 0, read);
                 } else {
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    b.a.p0.t.d.d(bufferedInputStream);
-                    b.a.p0.t.d.d(byteArrayOutputStream);
+                    b.a.p0.w.d.d(bufferedInputStream);
+                    b.a.p0.w.d.d(byteArrayOutputStream);
                     return byteArray;
                 }
             }
@@ -968,22 +1107,22 @@ public class n {
             e = e3;
             bufferedInputStream2 = bufferedInputStream;
             e.printStackTrace();
-            b.a.p0.t.d.d(bufferedInputStream2);
-            b.a.p0.t.d.d(byteArrayOutputStream);
+            b.a.p0.w.d.d(bufferedInputStream2);
+            b.a.p0.w.d.d(byteArrayOutputStream);
             return new byte[0];
         } catch (Throwable th2) {
             th = th2;
             bufferedInputStream2 = bufferedInputStream;
-            b.a.p0.t.d.d(bufferedInputStream2);
-            b.a.p0.t.d.d(byteArrayOutputStream);
+            b.a.p0.w.d.d(bufferedInputStream2);
+            b.a.p0.w.d.d(byteArrayOutputStream);
             throw th;
         }
     }
 
-    public static byte[] p(JsObject jsObject) {
+    public static byte[] r(JsObject jsObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, jsObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, jsObject)) == null) {
             if (jsObject == null) {
                 return null;
             }
@@ -1001,40 +1140,40 @@ public class n {
         return (byte[]) invokeL.objValue;
     }
 
-    public static String q(Context context) {
+    public static String s(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) ? context == null ? "" : context.getCacheDir().getAbsolutePath() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65585, null, context)) == null) ? context == null ? "" : context.getCacheDir().getAbsolutePath() : (String) invokeL.objValue;
     }
 
-    public static String r() {
+    public static String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65586, null)) == null) {
             Context appContext = AppRuntime.getAppContext();
             if (appContext == null) {
                 return "";
             }
-            String q = q(appContext);
-            b.a.p0.a.a2.e i2 = b.a.p0.a.a2.e.i();
-            if (i2 == null) {
-                return q;
+            String s = s(appContext);
+            b.a.p0.a.d2.e L = b.a.p0.a.d2.e.L();
+            if (L == null) {
+                return s;
             }
-            String U = b.a.p0.a.a2.e.U();
-            String Y = i2.Y();
-            String d2 = i2.j() != null ? i2.j().d() : "";
-            String i3 = b.a.p0.a.c1.a.a0().i(appContext);
+            String f0 = b.a.p0.a.d2.e.f0();
+            String j0 = L.j0();
+            String d2 = L.M() != null ? L.M().d() : "";
+            String i2 = b.a.p0.a.c1.a.h0().i(appContext);
             StringBuilder sb = new StringBuilder();
-            sb.append(q(appContext));
+            sb.append(s(appContext));
             sb.append(File.separator);
             if (TextUtils.isEmpty(d2)) {
-                d2 = i3;
+                d2 = i2;
             }
             sb.append(d2);
             sb.append("/aigames/swancache/");
-            sb.append(U);
+            sb.append(f0);
             sb.append(File.separator);
-            sb.append(Y);
+            sb.append(j0);
             sb.append(File.separator);
             sb.append("code");
             return sb.toString();
@@ -1043,10 +1182,10 @@ public class n {
     }
 
     @NonNull
-    public static String[] s(String str, String str2) throws Exception {
+    public static String[] u(String str, String str2) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65581, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65587, null, str, str2)) == null) {
             String[] strArr = new String[2];
             if (TextUtils.isEmpty(str)) {
                 strArr[0] = "";
@@ -1054,8 +1193,8 @@ public class n {
                 return strArr;
             }
             if (TextUtils.equals(str2, "hex")) {
-                byte[] N = N(str);
-                str = N == null ? "" : new String(N, "utf-8");
+                byte[] Q = Q(str);
+                str = Q == null ? "" : new String(Q, "utf-8");
                 str2 = "";
             }
             strArr[0] = str;
@@ -1065,23 +1204,23 @@ public class n {
         return (String[]) invokeLL.objValue;
     }
 
-    public static b t(c cVar, String str, Map<String, Object> map) {
+    public static b.a.p0.a.r0.b v(c cVar, String str, Map<String, Object> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65582, null, cVar, str, map)) == null) {
-            b bVar = new b();
-            bVar.f7455a = cVar;
-            bVar.f7456b = str;
-            bVar.f7457c = map;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65588, null, cVar, str, map)) == null) {
+            b.a.p0.a.r0.b bVar = new b.a.p0.a.r0.b();
+            bVar.f7969a = cVar;
+            bVar.f7970b = str;
+            bVar.f7971c = map;
             return bVar;
         }
-        return (b) invokeLLL.objValue;
+        return (b.a.p0.a.r0.b) invokeLLL.objValue;
     }
 
-    public static String u(int i2) {
+    public static String w(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65583, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65589, null, i2)) == null) {
             if (i2 != 1) {
                 if (i2 == 2 || i2 == 3 || i2 == 5) {
                     return "fail TypeError: data argument must not be a " + "Number;".toLowerCase();
@@ -1101,18 +1240,18 @@ public class n {
         return (String) invokeI.objValue;
     }
 
-    public static c v(String str, String str2, String str3) {
+    public static c x(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65584, null, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65590, null, str, str2, str3)) == null) {
             c cVar = new c();
             if (str == null) {
-                cVar.f7459b = str3;
-                cVar.f7458a = -2;
+                cVar.f7973b = str3;
+                cVar.f7972a = -2;
                 return cVar;
             } else if ("".equals(str)) {
-                cVar.f7459b = str2;
-                cVar.f7458a = -1;
+                cVar.f7973b = str2;
+                cVar.f7972a = -1;
                 return cVar;
             } else {
                 return null;
@@ -1121,96 +1260,52 @@ public class n {
         return (c) invokeLLL.objValue;
     }
 
-    public static String w(Context context) {
+    public static String y(Context context) {
         InterceptResult invokeL;
         File externalFilesDir;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65585, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, context)) == null) {
             if (context == null) {
                 return "";
             }
-            if (TextUtils.isEmpty(f7599b) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
-                f7599b = externalFilesDir.getAbsolutePath();
+            if (TextUtils.isEmpty(f8114b) && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
+                f8114b = externalFilesDir.getAbsolutePath();
             }
-            return f7599b;
+            return f8114b;
         }
         return (String) invokeL.objValue;
     }
 
-    public static long x(String str) {
+    public static long z(File file) {
         InterceptResult invokeL;
         FileInputStream fileInputStream;
-        Throwable th;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65586, null, str)) != null) {
-            return invokeL.longValue;
-        }
-        if (TextUtils.isEmpty(str)) {
-            return 0L;
-        }
-        File file = new File(str);
-        if (!file.exists() || !file.isFile()) {
-            return 0L;
-        }
-        FileInputStream fileInputStream2 = null;
-        try {
-            fileInputStream = new FileInputStream(file);
-            try {
-                long available = fileInputStream.available();
-                b.a.p0.t.d.d(fileInputStream);
-                return available;
-            } catch (Exception unused) {
-                fileInputStream2 = fileInputStream;
-                b.a.p0.t.d.d(fileInputStream2);
-                return 0L;
-            } catch (Throwable th2) {
-                th = th2;
-                b.a.p0.t.d.d(fileInputStream);
-                throw th;
-            }
-        } catch (Exception unused2) {
-        } catch (Throwable th3) {
-            fileInputStream = null;
-            th = th3;
-        }
-    }
-
-    public static String y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65587, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            if (str.startsWith(b.a.p0.a.r0.a.USER_DATA_PATH)) {
-                return M(str);
-            }
-            return str.startsWith("bdfile://tmp") ? K(str) : "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static JSExceptionType z(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65588, null, i2)) == null) {
-            if (i2 != -5) {
-                if (i2 != -4) {
-                    if (i2 != -3) {
-                        if (i2 != -2) {
-                            if (i2 != -1) {
-                                return JSExceptionType.Error;
-                            }
-                            return JSExceptionType.Error;
-                        }
-                        return JSExceptionType.TypeError;
-                    }
-                    return JSExceptionType.SyntaxError;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65592, null, file)) == null) {
+            if (file != null && file.exists() && file.isFile()) {
+                FileInputStream fileInputStream2 = null;
+                try {
+                    fileInputStream = new FileInputStream(file);
+                } catch (Exception unused) {
+                } catch (Throwable th) {
+                    th = th;
                 }
-                return JSExceptionType.ReferenceError;
+                try {
+                    long available = fileInputStream.available();
+                    b.a.p0.w.d.d(fileInputStream);
+                    return available;
+                } catch (Exception unused2) {
+                    fileInputStream2 = fileInputStream;
+                    b.a.p0.w.d.d(fileInputStream2);
+                    return 0L;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileInputStream2 = fileInputStream;
+                    b.a.p0.w.d.d(fileInputStream2);
+                    throw th;
+                }
             }
-            return JSExceptionType.RangeError;
+            return 0L;
         }
-        return (JSExceptionType) invokeI.objValue;
+        return invokeL.longValue;
     }
 }

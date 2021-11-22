@@ -15,7 +15,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, h> f7584a;
+    public HashMap<String, h> f8099a;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class g {
                 return;
             }
         }
-        this.f7584a = new HashMap<>();
+        this.f8099a = new HashMap<>();
     }
 
     public void a(h hVar, String... strArr) {
@@ -40,7 +40,7 @@ public class g {
         }
         for (String str : strArr) {
             if (!TextUtils.isEmpty(str)) {
-                this.f7584a.put(str, hVar);
+                this.f8099a.put(str, hVar);
             }
         }
     }
@@ -48,7 +48,7 @@ public class g {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f7584a.clear();
+            this.f8099a.clear();
         }
     }
 
@@ -60,12 +60,12 @@ public class g {
             if (strArr != null && strArr.length != 0) {
                 for (String str : strArr) {
                     if (!TextUtils.isEmpty(str)) {
-                        for (String str2 : this.f7584a.keySet()) {
+                        for (String str2 : this.f8099a.keySet()) {
                             if (str2.startsWith(str) || str.startsWith(str2)) {
                                 if (arrayList == null) {
                                     arrayList = new ArrayList<>();
                                 }
-                                arrayList.add(this.f7584a.get(str2));
+                                arrayList.add(this.f8099a.get(str2));
                             }
                         }
                     }
@@ -82,8 +82,8 @@ public class g {
             return;
         }
         for (String str : strArr) {
-            if (!TextUtils.isEmpty(str) && this.f7584a.get(str) == hVar) {
-                this.f7584a.remove(str);
+            if (!TextUtils.isEmpty(str) && this.f8099a.get(str) == hVar) {
+                this.f8099a.remove(str);
             }
         }
     }

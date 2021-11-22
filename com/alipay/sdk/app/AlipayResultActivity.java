@@ -7,6 +7,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.alipay.sdk.sys.a;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +24,7 @@ public class AlipayResultActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, a> f33974a;
+    public static final ConcurrentHashMap<String, a> f34808a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -44,7 +45,7 @@ public class AlipayResultActivity extends Activity {
                 return;
             }
         }
-        f33974a = new ConcurrentHashMap<>();
+        f34808a = new ConcurrentHashMap<>();
     }
 
     public AlipayResultActivity() {
@@ -64,7 +65,7 @@ public class AlipayResultActivity extends Activity {
     private void a(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, str, bundle) == null) {
-            a remove = f33974a.remove(str);
+            a remove = f34808a.remove(str);
             if (remove == null) {
                 return;
             }
@@ -78,6 +79,11 @@ public class AlipayResultActivity extends Activity {
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
+        Intent intent;
+        String stringExtra;
+        Bundle bundleExtra;
+        String stringExtra2;
+        com.alipay.sdk.sys.a a2;
         Throwable th;
         JSONObject jSONObject;
         Bundle bundle2;
@@ -85,61 +91,65 @@ public class AlipayResultActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                Intent intent = getIntent();
-                String stringExtra = intent.getStringExtra("session");
-                Bundle bundleExtra = intent.getBundleExtra("result");
-                String stringExtra2 = intent.getStringExtra("scene");
-                com.alipay.sdk.sys.a a2 = a.C1522a.a(stringExtra);
-                if (a2 == null) {
-                    finish();
-                    return;
-                }
-                com.alipay.sdk.app.statistic.a.a(a2, "biz", "BSPSession", stringExtra + "|" + SystemClock.elapsedRealtime());
-                if (TextUtils.equals("mqpSchemePay", stringExtra2)) {
-                    a(stringExtra, bundleExtra);
-                    return;
-                }
-                if ((TextUtils.isEmpty(stringExtra) || bundleExtra == null) && intent.getData() != null) {
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(new String(Base64.decode(intent.getData().getQuery(), 2), "UTF-8"));
-                        jSONObject = jSONObject2.getJSONObject("result");
-                        stringExtra = jSONObject2.getString("session");
-                        com.alipay.sdk.app.statistic.a.a(a2, "biz", "BSPUriSession", stringExtra);
-                        bundle2 = new Bundle();
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                    try {
-                        Iterator<String> keys = jSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            bundle2.putString(next, jSONObject.getString(next));
-                        }
-                        bundleExtra = bundle2;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        bundleExtra = bundle2;
-                        com.alipay.sdk.app.statistic.a.a(a2, "biz", "BSPResEx", th);
-                        com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.x0, th);
-                        if (TextUtils.isEmpty(stringExtra)) {
-                        }
-                        com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f34167d);
-                        finish();
-                    }
-                }
-                if (TextUtils.isEmpty(stringExtra) && bundleExtra != null) {
-                    com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.Z, "" + SystemClock.elapsedRealtime());
-                    com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.a0, bundleExtra.getInt("endCode", -1) + "|" + bundleExtra.getString("memo", "-"));
-                    OpenAuthTask.a(stringExtra, 9000, StatHelper.SENSOR_OK, bundleExtra);
-                    com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f34167d);
-                    finish();
-                    return;
-                }
-                com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f34167d);
-                finish();
+                intent = getIntent();
+                stringExtra = intent.getStringExtra("session");
+                bundleExtra = intent.getBundleExtra("result");
+                stringExtra2 = intent.getStringExtra("scene");
+                a2 = a.C1564a.a(stringExtra);
             } catch (Throwable unused) {
                 finish();
             }
+            if (a2 == null) {
+                finish();
+                LogUtil.logActivity(this, "onCreate");
+                return;
+            }
+            com.alipay.sdk.app.statistic.a.a(a2, "biz", "BSPSession", stringExtra + "|" + SystemClock.elapsedRealtime());
+            if (TextUtils.equals("mqpSchemePay", stringExtra2)) {
+                a(stringExtra, bundleExtra);
+                LogUtil.logActivity(this, "onCreate");
+                return;
+            }
+            if ((TextUtils.isEmpty(stringExtra) || bundleExtra == null) && intent.getData() != null) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(new String(Base64.decode(intent.getData().getQuery(), 2), "UTF-8"));
+                    jSONObject = jSONObject2.getJSONObject("result");
+                    stringExtra = jSONObject2.getString("session");
+                    com.alipay.sdk.app.statistic.a.a(a2, "biz", "BSPUriSession", stringExtra);
+                    bundle2 = new Bundle();
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+                try {
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        bundle2.putString(next, jSONObject.getString(next));
+                    }
+                    bundleExtra = bundle2;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bundleExtra = bundle2;
+                    com.alipay.sdk.app.statistic.a.a(a2, "biz", "BSPResEx", th);
+                    com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.x0, th);
+                    if (TextUtils.isEmpty(stringExtra)) {
+                    }
+                    com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f35001d);
+                    finish();
+                    LogUtil.logActivity(this, "onCreate");
+                }
+            }
+            if (TextUtils.isEmpty(stringExtra) && bundleExtra != null) {
+                com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.Z, "" + SystemClock.elapsedRealtime());
+                com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.a0, bundleExtra.getInt("endCode", -1) + "|" + bundleExtra.getString("memo", "-"));
+                OpenAuthTask.a(stringExtra, 9000, StatHelper.SENSOR_OK, bundleExtra);
+                com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f35001d);
+                finish();
+            } else {
+                com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f35001d);
+                finish();
+            }
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

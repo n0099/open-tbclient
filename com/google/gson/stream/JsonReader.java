@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.Reader;
 import org.apache.commons.lang3.CharUtils;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class JsonReader implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MIN_INCOMPLETE_INTEGER = -922337203685477580L;

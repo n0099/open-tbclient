@@ -1,40 +1,49 @@
 package b.a.p0.a.j1.e;
 
-import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class c extends ProviderDelegation {
+public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public c() {
+    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (!(interceptable == null || interceptable.invokeLLLI(65536, null, context, drawable, mode, i2) == null) || context == null || drawable == null) {
+            return;
+        }
+        int d2 = d(context);
+        if (i2 >= 0 && i2 < 255) {
+            d2 = Color.argb((Color.alpha(d2) * i2) / 255, Color.red(d2), Color.green(d2), Color.blue(d2));
+        }
+        drawable.setColorFilter(d2, mode);
+    }
+
+    public static void b(Context context, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, drawable) == null) {
+            c(context, drawable, 255);
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
+    public static void c(Context context, Drawable drawable, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65538, null, context, drawable, i2) == null) {
+            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i2);
+        }
+    }
+
+    public static int d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            Bundle bundle2 = new Bundle();
-            bundle2.putInt("font_size_level", b.a.p0.a.c1.a.u().b(b.a.p0.a.c1.a.b()));
-            return bundle2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return 0;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeL.intValue;
     }
 }

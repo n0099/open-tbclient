@@ -13,10 +13,10 @@ public final class q<T> implements d.a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.g f71939e;
+    public final h.g f72858e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.d<T> f71940f;
+    public final h.d<T> f72859f;
 
     /* loaded from: classes2.dex */
     public class a implements h.n.a {
@@ -24,54 +24,54 @@ public final class q<T> implements d.a<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h.j f71941e;
+        public final /* synthetic */ h.j f72860e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ g.a f71942f;
+        public final /* synthetic */ g.a f72861f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ q f71943g;
+        public final /* synthetic */ q f72862g;
 
         /* renamed from: h.o.a.q$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C2053a extends h.j<T> {
+        public class C2089a extends h.j<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ Thread f71944i;
+            public final /* synthetic */ Thread f72863i;
             public final /* synthetic */ a j;
 
             /* renamed from: h.o.a.q$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            public class C2054a implements h.f {
+            public class C2090a implements h.f {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ h.f f71945e;
+                public final /* synthetic */ h.f f72864e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ C2053a f71946f;
+                public final /* synthetic */ C2089a f72865f;
 
                 /* renamed from: h.o.a.q$a$a$a$a  reason: collision with other inner class name */
                 /* loaded from: classes2.dex */
-                public class C2055a implements h.n.a {
+                public class C2091a implements h.n.a {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ long f71947e;
+                    public final /* synthetic */ long f72866e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ C2054a f71948f;
+                    public final /* synthetic */ C2090a f72867f;
 
-                    public C2055a(C2054a c2054a, long j) {
+                    public C2091a(C2090a c2090a, long j) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c2054a, Long.valueOf(j)};
+                            Object[] objArr = {c2090a, Long.valueOf(j)};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -81,25 +81,25 @@ public final class q<T> implements d.a<T> {
                                 return;
                             }
                         }
-                        this.f71948f = c2054a;
-                        this.f71947e = j;
+                        this.f72867f = c2090a;
+                        this.f72866e = j;
                     }
 
                     @Override // h.n.a
                     public void call() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.f71948f.f71945e.request(this.f71947e);
+                            this.f72867f.f72864e.request(this.f72866e);
                         }
                     }
                 }
 
-                public C2054a(C2053a c2053a, h.f fVar) {
+                public C2090a(C2089a c2089a, h.f fVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c2053a, fVar};
+                        Object[] objArr = {c2089a, fVar};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -109,25 +109,25 @@ public final class q<T> implements d.a<T> {
                             return;
                         }
                     }
-                    this.f71946f = c2053a;
-                    this.f71945e = fVar;
+                    this.f72865f = c2089a;
+                    this.f72864e = fVar;
                 }
 
                 @Override // h.f
                 public void request(long j) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                        if (this.f71946f.f71944i == Thread.currentThread()) {
-                            this.f71945e.request(j);
+                        if (this.f72865f.f72863i == Thread.currentThread()) {
+                            this.f72864e.request(j);
                         } else {
-                            this.f71946f.j.f71942f.b(new C2055a(this, j));
+                            this.f72865f.j.f72861f.b(new C2091a(this, j));
                         }
                     }
                 }
             }
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C2053a(a aVar, h.j jVar, Thread thread) {
+            public C2089a(a aVar, h.j jVar, Thread thread) {
                 super(jVar);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -145,14 +145,14 @@ public final class q<T> implements d.a<T> {
                     }
                 }
                 this.j = aVar;
-                this.f71944i = thread;
+                this.f72863i = thread;
             }
 
             @Override // h.j
             public void f(h.f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                    this.j.f71941e.f(new C2054a(this, fVar));
+                    this.j.f72860e.f(new C2090a(this, fVar));
                 }
             }
 
@@ -161,9 +161,9 @@ public final class q<T> implements d.a<T> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     try {
-                        this.j.f71941e.onCompleted();
+                        this.j.f72860e.onCompleted();
                     } finally {
-                        this.j.f71942f.unsubscribe();
+                        this.j.f72861f.unsubscribe();
                     }
                 }
             }
@@ -173,9 +173,9 @@ public final class q<T> implements d.a<T> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
                     try {
-                        this.j.f71941e.onError(th);
+                        this.j.f72860e.onError(th);
                     } finally {
-                        this.j.f71942f.unsubscribe();
+                        this.j.f72861f.unsubscribe();
                     }
                 }
             }
@@ -184,7 +184,7 @@ public final class q<T> implements d.a<T> {
             public void onNext(T t) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                    this.j.f71941e.onNext(t);
+                    this.j.f72860e.onNext(t);
                 }
             }
         }
@@ -204,16 +204,16 @@ public final class q<T> implements d.a<T> {
                     return;
                 }
             }
-            this.f71943g = qVar;
-            this.f71941e = jVar;
-            this.f71942f = aVar;
+            this.f72862g = qVar;
+            this.f72860e = jVar;
+            this.f72861f = aVar;
         }
 
         @Override // h.n.a
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f71943g.f71940f.D(new C2053a(this, this.f71941e, Thread.currentThread()));
+                this.f72862g.f72859f.D(new C2089a(this, this.f72860e, Thread.currentThread()));
             }
         }
     }
@@ -233,8 +233,8 @@ public final class q<T> implements d.a<T> {
                 return;
             }
         }
-        this.f71939e = gVar;
-        this.f71940f = dVar;
+        this.f72858e = gVar;
+        this.f72859f = dVar;
     }
 
     @Override // h.d.a, h.n.b
@@ -245,7 +245,7 @@ public final class q<T> implements d.a<T> {
     public void call(h.j<? super T> jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-            g.a createWorker = this.f71939e.createWorker();
+            g.a createWorker = this.f72858e.createWorker();
             jVar.b(createWorker);
             createWorker.b(new a(this, jVar, createWorker));
         }

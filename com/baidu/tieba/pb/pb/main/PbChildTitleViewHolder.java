@@ -22,16 +22,16 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f52203a;
+    public View f53116a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f52204b;
+    public View f53117b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f52205c;
+    public ViewGroup f53118c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f52206d;
+    public TextView f53119d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbChildTitleViewHolder(View view) {
@@ -51,40 +51,40 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f52203a = view;
-        this.f52204b = view.findViewById(i.pb_child_title_top_line);
-        this.f52205c = (ViewGroup) view.findViewById(i.rl_pb_child_title_area);
+        this.f53116a = view;
+        this.f53117b = view.findViewById(i.pb_child_title_top_line);
+        this.f53118c = (ViewGroup) view.findViewById(i.rl_pb_child_title_area);
         TextView textView = (TextView) view.findViewById(i.tv_pb_child_title);
-        this.f52206d = textView;
+        this.f53119d = textView;
         c.d(textView).A(l.F_X02);
     }
 
     public void bindData(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f52206d.setText(eVar.d());
+            this.f53119d.setText(eVar.d());
         }
     }
 
     public View getRootView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52203a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53116a : (View) invokeV.objValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundColor(this.f52204b, f.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f52205c, f.CAM_X0205);
-            SkinManager.setViewTextColor(this.f52206d, f.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f53117b, f.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f53118c, f.CAM_X0205);
+            SkinManager.setViewTextColor(this.f53119d, f.CAM_X0105);
         }
     }
 
     public void setViewVisibility(int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (view = this.f52203a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (view = this.f53116a) == null) {
             return;
         }
         view.setVisibility(i2);

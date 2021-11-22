@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.InstallActivity;
 import com.google.zxing.Dimension;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class SymbolInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final SymbolInfo[] PROD_SYMBOLS;

@@ -14,7 +14,7 @@ import tbclient.FrsPage.RecommendBook;
 /* loaded from: classes4.dex */
 public class i0 extends d2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId X3;
+    public static final BdUniqueId Y3;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class i0 extends d2 {
                 return;
             }
         }
-        X3 = BdUniqueId.gen();
+        Y3 = BdUniqueId.gen();
     }
 
     public i0() {
@@ -47,7 +47,7 @@ public class i0 extends d2 {
         }
     }
 
-    public void P4(RecommendBook recommendBook) {
+    public void R4(RecommendBook recommendBook) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, recommendBook) == null) || recommendBook == null) {
             return;
@@ -60,10 +60,10 @@ public class i0 extends d2 {
         String str4 = recommendBook.link_url;
     }
 
-    @Override // b.a.q0.s.q.d2, com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // b.a.q0.s.q.d2, com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? X3 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Y3 : (BdUniqueId) invokeV.objValue;
     }
 }

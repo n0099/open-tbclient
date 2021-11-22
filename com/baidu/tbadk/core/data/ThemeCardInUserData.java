@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -122,7 +121,7 @@ public class ThemeCardInUserData extends OrmObject implements Serializable {
         this.cardId = jSONObject.optLong("props_id");
         this.cardImageUrlAndroid = jSONObject.optString("img_android");
         this.cardImageUrlIos = jSONObject.optString("img_ios");
-        this.freeLevel = jSONObject.optInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 0);
+        this.freeLevel = jSONObject.optInt("level", 0);
         this.coordinate = jSONObject.optString("coordinate");
     }
 }

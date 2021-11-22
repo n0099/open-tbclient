@@ -2,7 +2,7 @@ package com.dxm.credit.marketdialog.entrance;
 
 import android.app.Activity;
 import android.content.Context;
-import b.e.b.a.a;
+import b.d.b.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ public class ShowMarketDialogAction implements RouterAction {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<a> f62047a;
+    public WeakReference<a> f62948a;
 
     public ShowMarketDialogAction() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class ShowMarketDialogAction implements RouterAction {
         if (interceptable == null || interceptable.invokeLL(65537, this, context, hashMap) == null) {
             a aVar = new a((Activity) context);
             aVar.e((hashMap == null || hashMap.size() <= 0) ? "0" : (String) hashMap.get("queryType"));
-            this.f62047a = new WeakReference<>(aVar);
+            this.f62948a = new WeakReference<>(aVar);
         }
     }
 
@@ -56,8 +56,8 @@ public class ShowMarketDialogAction implements RouterAction {
                 }
                 return;
             }
-            WeakReference<a> weakReference = this.f62047a;
-            if (weakReference != null && weakReference.get() != null && (aVar = this.f62047a.get()) != null && aVar.d() != null && aVar.d().a() != null && aVar.d().a().size() > 0) {
+            WeakReference<a> weakReference = this.f62948a;
+            if (weakReference != null && weakReference.get() != null && (aVar = this.f62948a.get()) != null && aVar.d() != null && aVar.d().a() != null && aVar.d().a().size() > 0) {
                 boolean z = false;
                 int i2 = 0;
                 while (true) {

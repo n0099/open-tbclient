@@ -15,31 +15,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f20465a;
+    public int f21987a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f20466b;
+    public int f21988b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f20467c;
+    public byte[] f21989c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20468d;
+    public int f21990d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20469e;
+    public int f21991e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20470f;
+    public int f21992f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20471g;
+    public int f21993g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20472h;
+    public int f21994h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20473i;
+    public int f21995i;
     public int j;
     public int[] k;
     public int[] l;
@@ -70,7 +70,7 @@ public class b {
                 return;
             }
         }
-        this.f20472h = 12;
+        this.f21994h = 12;
         this.j = 4096;
         this.k = new int[5003];
         this.l = new int[5003];
@@ -81,10 +81,10 @@ public class b {
         this.t = 0;
         this.u = new int[]{0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, 65535};
         this.w = new byte[256];
-        this.f20465a = i2;
-        this.f20466b = i3;
-        this.f20467c = bArr;
-        this.f20468d = Math.max(2, i4);
+        this.f21987a = i2;
+        this.f21988b = i3;
+        this.f21989c = bArr;
+        this.f21990d = Math.max(2, i4);
     }
 
     public final int a(int i2) {
@@ -136,8 +136,8 @@ public class b {
         this.p = i2;
         int i3 = 0;
         this.o = false;
-        this.f20471g = i2;
-        this.f20473i = a(i2);
+        this.f21993g = i2;
+        this.f21995i = a(i2);
         int i4 = 1 << (i2 - 1);
         this.q = i4;
         this.r = i4 + 1;
@@ -154,7 +154,7 @@ public class b {
         while (true) {
             int h3 = h();
             if (h3 != -1) {
-                int i8 = (h3 << this.f20472h) + h2;
+                int i8 = (h3 << this.f21994h) + h2;
                 int i9 = (h3 << i6) ^ h2;
                 int[] iArr2 = this.k;
                 if (iArr2[i9] == i8) {
@@ -200,10 +200,10 @@ public class b {
     public void f(OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, outputStream) == null) {
-            outputStream.write(this.f20468d);
-            this.f20469e = this.f20465a * this.f20466b;
-            this.f20470f = 0;
-            e(this.f20468d + 1, outputStream);
+            outputStream.write(this.f21990d);
+            this.f21991e = this.f21987a * this.f21988b;
+            this.f21992f = 0;
+            e(this.f21990d + 1, outputStream);
             outputStream.write(0);
         }
     }
@@ -223,14 +223,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i2 = this.f20469e;
+            int i2 = this.f21991e;
             if (i2 == 0) {
                 return -1;
             }
-            this.f20469e = i2 - 1;
-            byte[] bArr = this.f20467c;
-            int i3 = this.f20470f;
-            this.f20470f = i3 + 1;
+            this.f21991e = i2 - 1;
+            byte[] bArr = this.f21989c;
+            int i3 = this.f21992f;
+            this.f21992f = i3 + 1;
             return bArr[i3] & 255;
         }
         return invokeV.intValue;
@@ -249,25 +249,25 @@ public class b {
             } else {
                 this.s = i2;
             }
-            this.t += this.f20471g;
+            this.t += this.f21993g;
             while (this.t >= 8) {
                 b((byte) (this.s & 255), outputStream);
                 this.s >>= 8;
                 this.t -= 8;
             }
-            if (this.n > this.f20473i || this.o) {
+            if (this.n > this.f21995i || this.o) {
                 if (this.o) {
                     int i6 = this.p;
-                    this.f20471g = i6;
-                    this.f20473i = a(i6);
+                    this.f21993g = i6;
+                    this.f21995i = a(i6);
                     this.o = false;
                 } else {
-                    int i7 = this.f20471g + 1;
-                    this.f20471g = i7;
-                    if (i7 == this.f20472h) {
-                        this.f20473i = this.j;
+                    int i7 = this.f21993g + 1;
+                    this.f21993g = i7;
+                    if (i7 == this.f21994h) {
+                        this.f21995i = this.j;
                     } else {
-                        this.f20473i = a(i7);
+                        this.f21995i = a(i7);
                     }
                 }
             }

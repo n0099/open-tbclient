@@ -1,6 +1,6 @@
 package b.a.r0.v0.c.o;
 
-import b.a.e.l.e.e;
+import b.a.e.m.e.e;
 import b.a.r0.v0.b.c;
 import b.a.r0.v0.b.d;
 import b.a.r0.v0.c.f;
@@ -28,16 +28,16 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f24295a;
+    public List<b.a.e.m.e.a> f25758a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f24296b;
+    public BdTypeListView f25759b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f24297c;
+    public k f25760c;
 
     /* renamed from: d  reason: collision with root package name */
-    public m f24298d;
+    public m f25761d;
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -55,41 +55,41 @@ public class a {
             }
         }
         ArrayList arrayList = new ArrayList();
-        this.f24295a = arrayList;
-        this.f24296b = bdTypeListView;
-        arrayList.add(new g(baseActivity.getPageContext(), h.f24276h));
-        this.f24295a.add(new i(baseActivity.getPageContext(), j.f24281g));
-        this.f24295a.add(new f(baseActivity.getPageContext(), n.f25994g));
-        this.f24295a.add(new b.a.r0.v0.b.a(baseActivity.getPageContext(), b.a.r0.v0.b.b.f24252f));
-        this.f24295a.add(new c(baseActivity.getPageContext(), d.k));
-        this.f24295a.add(new b.a.r0.v0.c.a(baseActivity.getPageContext()));
-        k kVar = new k(baseActivity.getPageContext(), l.f24285i);
-        this.f24297c = kVar;
-        this.f24295a.add(kVar);
-        m mVar = new m(baseActivity.getPageContext(), b.a.r0.v0.c.n.f24291h);
-        this.f24298d = mVar;
-        this.f24295a.add(mVar);
+        this.f25758a = arrayList;
+        this.f25759b = bdTypeListView;
+        arrayList.add(new g(baseActivity.getPageContext(), h.f25739h));
+        this.f25758a.add(new i(baseActivity.getPageContext(), j.f25744g));
+        this.f25758a.add(new f(baseActivity.getPageContext(), n.f27580g));
+        this.f25758a.add(new b.a.r0.v0.b.a(baseActivity.getPageContext(), b.a.r0.v0.b.b.f25715f));
+        this.f25758a.add(new c(baseActivity.getPageContext(), d.k));
+        this.f25758a.add(new b.a.r0.v0.c.a(baseActivity.getPageContext()));
+        k kVar = new k(baseActivity.getPageContext(), l.f25748i);
+        this.f25760c = kVar;
+        this.f25758a.add(kVar);
+        m mVar = new m(baseActivity.getPageContext(), b.a.r0.v0.c.n.f25754h);
+        this.f25761d = mVar;
+        this.f25758a.add(mVar);
     }
 
-    public List<b.a.e.l.e.a> a() {
+    public List<b.a.e.m.e.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24295a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25758a : (List) invokeV.objValue;
     }
 
     public void b() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f24296b) != null && (bdTypeListView.getAdapter2() instanceof e)) {
-            this.f24296b.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f25759b) != null && (bdTypeListView.getAdapter2() instanceof e)) {
+            this.f25759b.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f24297c.onDestroy();
-            this.f24298d.onDestroy();
+            this.f25760c.onDestroy();
+            this.f25761d.onDestroy();
         }
     }
 }

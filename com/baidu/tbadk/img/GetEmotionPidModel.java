@@ -23,10 +23,10 @@ public class GetEmotionPidModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f45953e;
+    public b f46803e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f45954f;
+    public final HttpMessageListener f46804f;
 
     /* loaded from: classes8.dex */
     public class a extends HttpMessageListener {
@@ -34,7 +34,7 @@ public class GetEmotionPidModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GetEmotionPidModel f45955a;
+        public final /* synthetic */ GetEmotionPidModel f46805a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(GetEmotionPidModel getEmotionPidModel, int i2) {
@@ -54,19 +54,19 @@ public class GetEmotionPidModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f45955a = getEmotionPidModel;
+            this.f46805a = getEmotionPidModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003331 && (httpResponsedMessage instanceof GetEmotionPidResponseMessage) && this.f45955a.f45953e != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003331 && (httpResponsedMessage instanceof GetEmotionPidResponseMessage) && this.f46805a.f46803e != null) {
                 GetEmotionPidResponseMessage getEmotionPidResponseMessage = (GetEmotionPidResponseMessage) httpResponsedMessage;
                 if (getEmotionPidResponseMessage.getImageInfo() != null) {
-                    this.f45955a.f45953e.a(getEmotionPidResponseMessage.getImageInfo());
+                    this.f46805a.f46803e.a(getEmotionPidResponseMessage.getImageInfo());
                 } else {
-                    this.f45955a.f45953e.onFail(getEmotionPidResponseMessage.getError(), getEmotionPidResponseMessage.getErrorString());
+                    this.f46805a.f46803e.onFail(getEmotionPidResponseMessage.getError(), getEmotionPidResponseMessage.getErrorString());
                 }
             }
         }
@@ -92,12 +92,12 @@ public class GetEmotionPidModel extends BdBaseModel {
                 return;
             }
         }
-        this.f45954f = new a(this, CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
+        this.f46804f = new a(this, CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f45954f.setTag(getUniqueId());
-        this.f45954f.setSelfListener(true);
-        registerListener(this.f45954f);
+        this.f46804f.setTag(getUniqueId());
+        this.f46804f.setSelfListener(true);
+        registerListener(this.f46804f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -105,7 +105,7 @@ public class GetEmotionPidModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f45954f);
+            MessageManager.getInstance().unRegisterListener(this.f46804f);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
             return true;
         }
@@ -134,7 +134,7 @@ public class GetEmotionPidModel extends BdBaseModel {
     public void x(String str, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
-            this.f45953e = bVar;
+            this.f46803e = bVar;
             if (TextUtils.isEmpty(str)) {
                 if (bVar != null) {
                     bVar.onFail(0, "picUrl is empty");

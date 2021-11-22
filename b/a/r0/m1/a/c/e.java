@@ -19,13 +19,13 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RequestCommitInviteMessage f20971e;
+    public RequestCommitInviteMessage f22126e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f20972f;
+    public long f22127f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f20973g;
+    public long f22128g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(InviteFriendListActivity inviteFriendListActivity) {
@@ -62,8 +62,8 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) || bundle == null) {
             return;
         }
-        this.f20972f = bundle.getLong("gid", -1L);
-        this.f20973g = bundle.getLong("groupid", -1L);
+        this.f22127f = bundle.getLong("gid", -1L);
+        this.f22128g = bundle.getLong("groupid", -1L);
     }
 
     public void initWithIntent(Intent intent) {
@@ -71,8 +71,8 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) || intent == null) {
             return;
         }
-        this.f20972f = intent.getLongExtra("gid", -1L);
-        this.f20973g = intent.getLongExtra("groupid", -1L);
+        this.f22127f = intent.getLongExtra("gid", -1L);
+        this.f22128g = intent.getLongExtra("groupid", -1L);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -104,16 +104,16 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
     public void x(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            bundle.putLong("gid", this.f20972f);
-            bundle.putLong("groupid", this.f20973g);
+            bundle.putLong("gid", this.f22127f);
+            bundle.putLong("groupid", this.f22128g);
         }
     }
 
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            RequestCommitInviteMessage w = w(this.f20972f, this.f20973g, str);
-            this.f20971e = w;
+            RequestCommitInviteMessage w = w(this.f22127f, this.f22128g, str);
+            this.f22126e = w;
             super.sendMessage(w);
         }
     }

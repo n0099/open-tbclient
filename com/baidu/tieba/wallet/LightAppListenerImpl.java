@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.location.Address;
 import android.text.TextUtils;
-import b.a.e.e.i.a;
+import b.a.e.f.i.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.wallet.pay.ShareUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -98,7 +98,7 @@ public class LightAppListenerImpl implements ILightAppListener {
                     this.val$callback = iLocationCallback;
                 }
 
-                @Override // b.a.e.e.i.a.c
+                @Override // b.a.e.f.i.a.c
                 public void onLocationGeted(int i2, String str, Address address) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, address) == null) {

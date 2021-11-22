@@ -27,23 +27,23 @@ public class b extends AlertDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.a.b.a f63873a;
+    public com.kwad.sdk.a.b.a f64786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f63874b;
+    public AdTemplate f64787b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public KsAdVideoPlayConfig f63875c;
+    public KsAdVideoPlayConfig f64788c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f63876d;
+    public Handler f64789d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f63877e;
+    public Activity f64790e;
 
     /* renamed from: f  reason: collision with root package name */
-    public KsInterstitialAd.AdInteractionListener f63878f;
+    public KsInterstitialAd.AdInteractionListener f64791f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(@NonNull Activity activity, @NonNull AdTemplate adTemplate, KsVideoPlayConfig ksVideoPlayConfig, KsInterstitialAd.AdInteractionListener adInteractionListener) {
@@ -63,24 +63,24 @@ public class b extends AlertDialog {
                 return;
             }
         }
-        this.f63876d = new Handler(Looper.getMainLooper());
-        this.f63877e = activity;
-        this.f63878f = adInteractionListener;
-        this.f63875c = new KsAdVideoPlayConfig.Builder().videoSoundEnable(ksVideoPlayConfig != null && ksVideoPlayConfig.isVideoSoundEnable()).dataFlowAutoStart(true).build();
+        this.f64789d = new Handler(Looper.getMainLooper());
+        this.f64790e = activity;
+        this.f64791f = adInteractionListener;
+        this.f64788c = new KsAdVideoPlayConfig.Builder().videoSoundEnable(ksVideoPlayConfig != null && ksVideoPlayConfig.isVideoSoundEnable()).dataFlowAutoStart(true).build();
         setOwnerActivity(activity);
-        this.f63874b = adTemplate;
-        if (this.f63873a == null) {
+        this.f64787b = adTemplate;
+        if (this.f64786a == null) {
             com.kwad.sdk.a.b.a aVar = new com.kwad.sdk.a.b.a(Wrapper.wrapContextIfNeed(activity));
-            this.f63873a = aVar;
-            aVar.a(this.f63874b, this, this.f63875c, adInteractionListener);
+            this.f64786a = aVar;
+            aVar.a(this.f64787b, this, this.f64788c, adInteractionListener);
         }
     }
 
     public void a(KsInterstitialAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adInteractionListener) == null) {
-            this.f63878f = adInteractionListener;
-            com.kwad.sdk.a.b.a aVar = this.f63873a;
+            this.f64791f = adInteractionListener;
+            com.kwad.sdk.a.b.a aVar = this.f64786a;
             if (aVar != null) {
                 aVar.setAdInteractionListener(adInteractionListener);
             }
@@ -95,12 +95,12 @@ public class b extends AlertDialog {
                 if (isShowing()) {
                     return true;
                 }
-                this.f63876d.post(new Runnable(this) { // from class: com.kwad.sdk.a.b.1
+                this.f64789d.post(new Runnable(this) { // from class: com.kwad.sdk.a.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f63879a;
+                    public final /* synthetic */ b f64792a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -117,18 +117,18 @@ public class b extends AlertDialog {
                                 return;
                             }
                         }
-                        this.f63879a = this;
+                        this.f64792a = this;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f63879a.f63877e.isFinishing()) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f64792a.f64790e.isFinishing()) {
                             return;
                         }
-                        this.f63879a.show();
-                        this.f63879a.f63878f.onAdShow();
-                        com.kwad.sdk.core.report.a.a(this.f63879a.f63874b, (JSONObject) null);
+                        this.f64792a.show();
+                        this.f64792a.f64791f.onAdShow();
+                        com.kwad.sdk.core.report.a.a(this.f64792a.f64787b, (JSONObject) null);
                     }
                 });
                 return true;
@@ -145,8 +145,8 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.dismiss();
-            this.f63878f.onPageDismiss();
-            this.f63876d.removeCallbacksAndMessages(null);
+            this.f64791f.onPageDismiss();
+            this.f64789d.removeCallbacksAndMessages(null);
         }
     }
 
@@ -163,7 +163,7 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(this.f63873a);
+            setContentView(this.f64786a);
             setCanceledOnTouchOutside(false);
             getWindow().setBackgroundDrawable(new ColorDrawable(0));
             getWindow().setLayout(-1, -1);
@@ -175,7 +175,7 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDetachedFromWindow();
-            com.kwad.sdk.a.b.a aVar = this.f63873a;
+            com.kwad.sdk.a.b.a aVar = this.f64786a;
             if (aVar != null) {
                 aVar.d();
             }

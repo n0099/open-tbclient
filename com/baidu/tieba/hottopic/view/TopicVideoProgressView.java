@@ -23,19 +23,19 @@ public class TopicVideoProgressView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50096e;
+    public int f51008e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MediaController.MediaPlayerControl f50097f;
+    public MediaController.MediaPlayerControl f51009f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50098g;
+    public boolean f51010g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f50099h;
+    public View f51011h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f50100i;
+    public Handler f51012i;
 
     /* loaded from: classes9.dex */
     public class a extends Handler {
@@ -43,7 +43,7 @@ public class TopicVideoProgressView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TopicVideoProgressView f50101a;
+        public final /* synthetic */ TopicVideoProgressView f51013a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(TopicVideoProgressView topicVideoProgressView, Looper looper) {
@@ -63,14 +63,14 @@ public class TopicVideoProgressView extends RelativeLayout {
                     return;
                 }
             }
-            this.f50101a = topicVideoProgressView;
+            this.f51013a = topicVideoProgressView;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1 && this.f50101a.f50098g && this.f50101a.f50097f != null && this.f50101a.f50097f.isPlaying()) {
-                sendMessageDelayed(obtainMessage(1), this.f50101a.f50096e - (this.f50101a.f() % this.f50101a.f50096e));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1 && this.f51013a.f51010g && this.f51013a.f51009f != null && this.f51013a.f51009f.isPlaying()) {
+                sendMessageDelayed(obtainMessage(1), this.f51013a.f51008e - (this.f51013a.f() % this.f51013a.f51008e));
             }
         }
     }
@@ -93,16 +93,16 @@ public class TopicVideoProgressView extends RelativeLayout {
                 return;
             }
         }
-        this.f50096e = 50;
-        this.f50098g = true;
-        this.f50100i = new a(this, Looper.getMainLooper());
+        this.f51008e = 50;
+        this.f51010g = true;
+        this.f51012i = new a(this, Looper.getMainLooper());
         e(context);
     }
 
     public void destroy() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (handler = this.f50100i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (handler = this.f51012i) == null) {
             return;
         }
         handler.removeMessages(1);
@@ -112,9 +112,9 @@ public class TopicVideoProgressView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             View view = new View(context);
-            this.f50099h = view;
+            this.f51011h = view;
             view.setBackgroundColor(getResources().getColor(b.CAM_X0303));
-            addView(this.f50099h, 0, (int) context.getResources().getDimension(c.ds6));
+            addView(this.f51011h, 0, (int) context.getResources().getDimension(c.ds6));
             setBackgroundColor(getResources().getColor(b.CAM_X0204));
         }
     }
@@ -123,16 +123,16 @@ public class TopicVideoProgressView extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            MediaController.MediaPlayerControl mediaPlayerControl = this.f50097f;
-            if (mediaPlayerControl == null || this.f50099h == null) {
+            MediaController.MediaPlayerControl mediaPlayerControl = this.f51009f;
+            if (mediaPlayerControl == null || this.f51011h == null) {
                 return 0;
             }
             int currentPosition = mediaPlayerControl.getCurrentPosition();
-            int duration = this.f50097f.getDuration();
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f50099h.getLayoutParams();
+            int duration = this.f51009f.getDuration();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f51011h.getLayoutParams();
             if ((layoutParams instanceof RelativeLayout.LayoutParams) && duration > 0) {
                 layoutParams.width = (int) (((getWidth() * 1.0f) * currentPosition) / duration);
-                this.f50099h.setLayoutParams(layoutParams);
+                this.f51011h.setLayoutParams(layoutParams);
             }
             return currentPosition;
         }
@@ -143,14 +143,14 @@ public class TopicVideoProgressView extends RelativeLayout {
         RelativeLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f50098g = false;
-            this.f50100i.removeMessages(1);
-            View view = this.f50099h;
+            this.f51010g = false;
+            this.f51012i.removeMessages(1);
+            View view = this.f51011h;
             if (view == null || (layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams()) == null) {
                 return;
             }
             layoutParams.width = 0;
-            this.f50099h.setLayoutParams(layoutParams);
+            this.f51011h.setLayoutParams(layoutParams);
         }
     }
 
@@ -158,7 +158,7 @@ public class TopicVideoProgressView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             SkinManager.setBackgroundColor(this, b.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f50099h, b.CAM_X0303);
+            SkinManager.setBackgroundColor(this.f51011h, b.CAM_X0303);
         }
     }
 
@@ -172,25 +172,25 @@ public class TopicVideoProgressView extends RelativeLayout {
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, mediaPlayerControl) == null) {
-            this.f50097f = mediaPlayerControl;
+            this.f51009f = mediaPlayerControl;
         }
     }
 
     public void showProgress() {
         MediaController.MediaPlayerControl mediaPlayerControl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (mediaPlayerControl = this.f50097f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (mediaPlayerControl = this.f51009f) == null) {
             return;
         }
         int duration = ((mediaPlayerControl.getDuration() / 200) / 50) * 50;
-        this.f50096e = duration;
+        this.f51008e = duration;
         if (duration < 50) {
-            this.f50096e = 50;
+            this.f51008e = 50;
         }
-        this.f50098g = true;
-        this.f50100i.removeMessages(1);
-        Handler handler = this.f50100i;
-        handler.sendMessageDelayed(handler.obtainMessage(1), this.f50096e - (this.f50097f.getCurrentPosition() % this.f50096e));
+        this.f51010g = true;
+        this.f51012i.removeMessages(1);
+        Handler handler = this.f51012i;
+        handler.sendMessageDelayed(handler.obtainMessage(1), this.f51008e - (this.f51009f.getCurrentPosition() % this.f51008e));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -212,9 +212,9 @@ public class TopicVideoProgressView extends RelativeLayout {
                 return;
             }
         }
-        this.f50096e = 50;
-        this.f50098g = true;
-        this.f50100i = new a(this, Looper.getMainLooper());
+        this.f51008e = 50;
+        this.f51010g = true;
+        this.f51012i = new a(this, Looper.getMainLooper());
         e(context);
     }
 
@@ -237,9 +237,9 @@ public class TopicVideoProgressView extends RelativeLayout {
                 return;
             }
         }
-        this.f50096e = 50;
-        this.f50098g = true;
-        this.f50100i = new a(this, Looper.getMainLooper());
+        this.f51008e = 50;
+        this.f51010g = true;
+        this.f51012i = new a(this, Looper.getMainLooper());
         e(context);
     }
 }

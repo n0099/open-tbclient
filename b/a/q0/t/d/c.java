@@ -33,31 +33,31 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedList<ImMessageCenterPojo> f13902a;
+    public final LinkedList<ImMessageCenterPojo> f14675a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13903b;
+    public int f14676b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13904c;
+    public int f14677c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13905d;
+    public int f14678d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13906e;
+    public int f14679e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13907f;
+    public int f14680f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13908g;
+    public boolean f14681g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13909h;
+    public int f14682h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13910i;
+    public boolean f14683i;
     public final CustomMessageListener j;
 
     /* loaded from: classes4.dex */
@@ -66,7 +66,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f13911a;
+        public final /* synthetic */ c f14684a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2) {
@@ -86,7 +86,7 @@ public class c {
                     return;
                 }
             }
-            this.f13911a = cVar;
+            this.f14684a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -97,19 +97,19 @@ public class c {
                 return;
             }
             if (customResponsedMessage.getCmd() == 2001120) {
-                this.f13911a.p(customResponsedMessage);
+                this.f14684a.p(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016002) {
-                this.f13911a.o(customResponsedMessage);
+                this.f14684a.o(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016004) {
-                this.f13911a.m(customResponsedMessage);
+                this.f14684a.m(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016007) {
-                this.f13911a.q(customResponsedMessage);
+                this.f14684a.q(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016001) {
-                this.f13911a.n(customResponsedMessage);
+                this.f14684a.n(customResponsedMessage);
             } else if (customResponsedMessage.getCmd() == 2016010) {
-                this.f13911a.s();
+                this.f14684a.s();
             } else if (customResponsedMessage.getCmd() == 2016011) {
-                this.f13911a.r();
+                this.f14684a.r();
             }
         }
     }
@@ -127,15 +127,15 @@ public class c {
                 return;
             }
         }
-        this.f13902a = new LinkedList<>();
-        this.f13903b = 0;
-        this.f13904c = 0;
-        this.f13905d = 0;
-        this.f13906e = 0;
-        this.f13907f = 0;
-        this.f13908g = false;
-        this.f13909h = 0;
-        this.f13910i = false;
+        this.f14675a = new LinkedList<>();
+        this.f14676b = 0;
+        this.f14677c = 0;
+        this.f14678d = 0;
+        this.f14679e = 0;
+        this.f14680f = 0;
+        this.f14681g = false;
+        this.f14682h = 0;
+        this.f14683i = false;
         this.j = new a(this, 0);
     }
 
@@ -208,8 +208,8 @@ public class c {
             i2 = 0;
         }
         boolean z2 = i2 > 0 ? z : false;
-        this.f13909h = i2;
-        this.f13910i = z2;
+        this.f14682h = i2;
+        this.f14683i = z2;
     }
 
     public final void i(int i2, int i3, int i4, int i5) {
@@ -229,12 +229,12 @@ public class c {
             if (d.d().e() == 0) {
                 i6 = 0;
             }
-            this.f13908g = i6 > 0 ? z : false;
-            this.f13907f = i6;
-            this.f13903b = i2;
-            this.f13904c = i3;
-            this.f13905d = i4;
-            this.f13906e = i5;
+            this.f14681g = i6 > 0 ? z : false;
+            this.f14680f = i6;
+            this.f14676b = i2;
+            this.f14677c = i3;
+            this.f14678d = i4;
+            this.f14679e = i5;
         }
     }
 
@@ -284,22 +284,22 @@ public class c {
             return;
         }
         if (memoryChangedMessage.getType() == 1) {
-            t(this.f13902a, data);
+            t(this.f14675a, data);
             if (j(data)) {
-                this.f13902a.add(data);
+                this.f14675a.add(data);
             }
         } else if (memoryChangedMessage.getType() == 2) {
-            t(this.f13902a, data);
+            t(this.f14675a, data);
         }
-        h(this.f13902a);
+        h(this.f14675a);
         v();
     }
 
     public final void n(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, customResponsedMessage) == null) {
-            this.f13902a.clear();
-            h(this.f13902a);
+            this.f14675a.clear();
+            h(this.f14675a);
             v();
         }
     }
@@ -333,13 +333,13 @@ public class c {
             if (responsedMemoryListMessage.getType() != 1 || data == null) {
                 return;
             }
-            this.f13902a.clear();
+            this.f14675a.clear();
             for (ImMessageCenterPojo imMessageCenterPojo : data) {
                 if (imMessageCenterPojo != null && j(imMessageCenterPojo)) {
-                    this.f13902a.add(imMessageCenterPojo);
+                    this.f14675a.add(imMessageCenterPojo);
                 }
             }
-            h(this.f13902a);
+            h(this.f14675a);
             v();
         }
     }
@@ -347,8 +347,8 @@ public class c {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            i(this.f13903b, this.f13904c, this.f13905d, this.f13906e);
-            h(this.f13902a);
+            i(this.f14676b, this.f14677c, this.f14678d, this.f14679e);
+            h(this.f14675a);
             v();
         }
     }
@@ -356,8 +356,8 @@ public class c {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            i(this.f13903b, this.f13904c, this.f13905d, this.f13906e);
-            h(this.f13902a);
+            i(this.f14676b, this.f14677c, this.f14678d, this.f14679e);
+            h(this.f14675a);
             v();
         }
     }
@@ -379,17 +379,17 @@ public class c {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f13902a.clear();
-            this.f13903b = 0;
-            this.f13904c = 0;
-            this.f13905d = 0;
-            this.f13906e = 0;
-            this.f13907f = 0;
-            this.f13908g = false;
-            this.f13909h = 0;
-            this.f13910i = false;
-            this.f13909h = 0;
-            this.f13910i = false;
+            this.f14675a.clear();
+            this.f14676b = 0;
+            this.f14677c = 0;
+            this.f14678d = 0;
+            this.f14679e = 0;
+            this.f14680f = 0;
+            this.f14681g = false;
+            this.f14682h = 0;
+            this.f14683i = false;
+            this.f14682h = 0;
+            this.f14683i = false;
         }
     }
 
@@ -397,14 +397,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             NewsRemindMessage newsRemindMessage = new NewsRemindMessage();
-            newsRemindMessage.setMsgAgreeCount(this.f13903b);
-            newsRemindMessage.setMsgAtCount(this.f13904c);
-            newsRemindMessage.setMsgReplyCount(this.f13905d);
-            newsRemindMessage.setMsgFansCount(this.f13906e);
-            newsRemindMessage.setMsgCount(this.f13907f);
-            newsRemindMessage.setHasMsgRemind(this.f13908g);
-            newsRemindMessage.setChatCount(this.f13909h);
-            newsRemindMessage.setHasChatRemind(this.f13910i);
+            newsRemindMessage.setMsgAgreeCount(this.f14676b);
+            newsRemindMessage.setMsgAtCount(this.f14677c);
+            newsRemindMessage.setMsgReplyCount(this.f14678d);
+            newsRemindMessage.setMsgFansCount(this.f14679e);
+            newsRemindMessage.setMsgCount(this.f14680f);
+            newsRemindMessage.setHasMsgRemind(this.f14681g);
+            newsRemindMessage.setChatCount(this.f14682h);
+            newsRemindMessage.setHasChatRemind(this.f14683i);
             MessageManager.getInstance().dispatchResponsedMessage(newsRemindMessage);
         }
     }

@@ -1,7 +1,7 @@
 package b.a.p0.a.p0.g.c;
 
 import androidx.annotation.NonNull;
-import b.a.p0.a.a1.e;
+import b.a.p0.a.a1.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +16,7 @@ public abstract class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7284a;
+    public static final String f7709a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public abstract class b implements a {
                 return;
             }
         }
-        f7284a = e.g() + File.separator + "extension_core";
+        f7709a = d.g() + File.separator + "extension_core";
     }
 
     public b() {
@@ -80,6 +80,6 @@ public abstract class b implements a {
     public File f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new File(f7284a) : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new File(f7709a) : (File) invokeV.objValue;
     }
 }

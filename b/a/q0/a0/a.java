@@ -14,7 +14,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UserData f11864a;
+    public UserData f12615a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class a {
     public UserData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11864a : (UserData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12615a : (UserData) invokeV.objValue;
     }
 
     public void b(DataRes dataRes) {
@@ -42,7 +42,7 @@ public class a {
             return;
         }
         UserData userData = new UserData();
-        this.f11864a = userData;
+        this.f12615a = userData;
         userData.parserProtobuf(dataRes.user);
     }
 }

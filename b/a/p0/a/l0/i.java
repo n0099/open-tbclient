@@ -1,17 +1,9 @@
 package b.a.p0.a.l0;
+
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 /* loaded from: classes.dex */
 public interface i {
-    void a(a aVar);
+    String a();
 
-    void b(a aVar);
-
-    void c(a aVar);
-
-    void d(a aVar);
-
-    void e(a aVar);
-
-    void f(a aVar);
-
-    void g(a aVar);
+    a b(String str, b.a.p0.a.l0.p.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy);
 }

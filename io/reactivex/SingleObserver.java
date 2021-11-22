@@ -2,7 +2,7 @@ package io.reactivex;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface SingleObserver<T> {
     void onError(@NonNull Throwable th);
 

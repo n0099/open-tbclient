@@ -18,10 +18,10 @@ public class n {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f20157a = 1500;
+    public static int f21679a = 1500;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f20158b = 500;
+    public static int f21680b = 500;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -84,7 +84,7 @@ public class n {
     public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a.q0.s.e0.b.j().k("key_max_stranger", f20157a) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a.q0.s.e0.b.j().k("key_max_stranger", f21679a) : invokeV.intValue;
     }
 
     public static String d() {
@@ -144,7 +144,7 @@ public class n {
                 }
                 return arrayList;
             } finally {
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
             }
         }
         return (List) invokeV.objValue;
@@ -153,7 +153,7 @@ public class n {
     public static void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2) == null) {
-            int i3 = f20158b;
+            int i3 = f21680b;
             if (i2 < i3) {
                 i2 = i3;
             }

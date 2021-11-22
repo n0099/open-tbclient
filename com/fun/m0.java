@@ -8,7 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Process;
 import androidx.annotation.Nullable;
-import b.g.m0;
+import b.f.m0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,10 +26,10 @@ public class m0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile NetworkInfo f62864a;
+    public static volatile NetworkInfo f63764a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashSet<b> f62865b;
+    public static final HashSet<b> f63765b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes11.dex */
@@ -80,7 +80,7 @@ public class m0 {
             }
         }
         a aVar = new a();
-        f62865b = new HashSet<>();
+        f63765b = new HashSet<>();
         Context appContext = FunAdSdk.getAppContext();
         a(appContext, appContext.registerReceiver(aVar, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE")));
     }
@@ -89,18 +89,18 @@ public class m0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, intent) == null) {
             if (intent == null || context.checkPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, Process.myPid(), Process.myUid()) != 0) {
-                f62864a = null;
+                f63764a = null;
                 return;
             }
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null) {
-                f62864a = null;
+                f63764a = null;
                 return;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
             LogPrinter.d("activeNetworkInfo:" + activeNetworkInfo, new Object[0]);
-            f62864a = activeNetworkInfo;
-            HashSet<b> hashSet = f62865b;
+            f63764a = activeNetworkInfo;
+            HashSet<b> hashSet = f63765b;
             synchronized (hashSet) {
                 Iterator<b> it = hashSet.iterator();
                 while (it.hasNext()) {
@@ -113,11 +113,11 @@ public class m0 {
     public static void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            HashSet<b> hashSet = f62865b;
+            HashSet<b> hashSet = f63765b;
             synchronized (hashSet) {
                 hashSet.add(bVar);
             }
-            ((m0.b) bVar).a(f62864a);
+            ((m0.b) bVar).a(f63764a);
         }
     }
 }

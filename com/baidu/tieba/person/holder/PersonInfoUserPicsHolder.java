@@ -2,8 +2,8 @@ package com.baidu.tieba.person.holder;
 
 import android.view.View;
 import android.widget.TextView;
-import b.a.e.e.p.l;
-import b.a.e.l.e.n;
+import b.a.e.f.p.l;
+import b.a.e.m.e.n;
 import b.a.r0.m2.d;
 import b.a.r0.m2.g.e;
 import b.a.r0.m2.g.f;

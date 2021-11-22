@@ -5,9 +5,9 @@ import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes.dex */
 public interface b<T extends a> extends c<T> {
-    void c(PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo);
+    void b(String str, PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo);
 
-    void d(b.a.p0.a.o0.d.a aVar);
+    void d(b.a.p0.a.o0.d.b bVar);
 
     boolean i();
 

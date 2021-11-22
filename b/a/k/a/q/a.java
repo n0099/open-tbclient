@@ -15,7 +15,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3143a = "a";
+    public static final String f3236a = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public final class a {
             try {
                 return ((Boolean) Class.forName("android.os.Build").getMethod("hasSmartBar", new Class[0]).invoke(null, new Object[0])).booleanValue();
             } catch (Exception e2) {
-                BdLog.g(f3143a, "get hasSmartBar method Exception ", e2);
+                BdLog.g(f3236a, "get hasSmartBar method Exception ", e2);
                 if (Build.DEVICE.equals("mx2")) {
                     return true;
                 }
@@ -61,7 +61,7 @@ public final class a {
                 try {
                     objArr[0] = View.class.getField("SYSTEM_UI_FLAG_HIDE_NAVIGATION").get(null);
                 } catch (Exception e2) {
-                    BdLog.g(f3143a, "get SYSTEM_UI_FLAG_HIDE_NAVIGATION Exception ", e2);
+                    BdLog.g(f3236a, "get SYSTEM_UI_FLAG_HIDE_NAVIGATION Exception ", e2);
                 }
                 method.invoke(view, objArr);
             } catch (Exception e3) {
@@ -85,7 +85,7 @@ public final class a {
                 }
                 return true;
             } catch (Exception e2) {
-                BdLog.g(f3143a, "Initialize Exception", e2);
+                BdLog.g(f3236a, "Initialize Exception", e2);
                 return false;
             }
         }

@@ -3,7 +3,7 @@ package com.baidu.swan.bdprivate.extensions.loginauthmobile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.z2.q0;
 import b.a.p0.b.f;
 import b.a.p0.b.g;
 import b.a.p0.b.h;
@@ -27,7 +27,7 @@ public class LoginServiceAgreementActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoginServiceAgreementActivity f44399e;
+        public final /* synthetic */ LoginServiceAgreementActivity f45207e;
 
         public a(LoginServiceAgreementActivity loginServiceAgreementActivity) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class LoginServiceAgreementActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f44399e = loginServiceAgreementActivity;
+            this.f45207e = loginServiceAgreementActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44399e.finish();
+                this.f45207e.finish();
             }
         }
     }
@@ -74,9 +74,9 @@ public class LoginServiceAgreementActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int Z = q0.Z(this);
+            int c0 = q0.c0(this);
             super.onCreate(bundle);
-            q0.g(this, Z);
+            q0.g(this, c0);
             Intent intent = getIntent();
             if (intent == null) {
                 finish();

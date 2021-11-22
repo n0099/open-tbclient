@@ -20,7 +20,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 @TargetApi(18)
@@ -127,7 +126,7 @@ public class EglBase14 implements EglBase {
             if (context != null && context.egl14Context == EGL14.EGL_NO_CONTEXT) {
                 throw new RuntimeException("Invalid sharedContext");
             }
-            int[] iArr = {EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, ZeusMonitorType.MONITOR_TYPE_AD_FILTER};
+            int[] iArr = {EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344};
             if (context != null) {
                 eGLContext = context.egl14Context;
             } else {
@@ -152,7 +151,7 @@ public class EglBase14 implements EglBase {
             }
             checkIsNotReleased();
             if (this.eglSurface == EGL14.EGL_NO_SURFACE) {
-                EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.eglDisplay, this.eglConfig, obj, new int[]{ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+                EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.eglDisplay, this.eglConfig, obj, new int[]{12344}, 0);
                 this.eglSurface = eglCreateWindowSurface;
                 if (eglCreateWindowSurface != EGL14.EGL_NO_SURFACE) {
                     return;
@@ -230,7 +229,7 @@ public class EglBase14 implements EglBase {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             checkIsNotReleased();
             if (this.eglSurface == EGL14.EGL_NO_SURFACE) {
-                EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.eglDisplay, this.eglConfig, new int[]{12375, i2, 12374, i3, ZeusMonitorType.MONITOR_TYPE_AD_FILTER}, 0);
+                EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.eglDisplay, this.eglConfig, new int[]{12375, i2, 12374, i3, 12344}, 0);
                 this.eglSurface = eglCreatePbufferSurface;
                 if (eglCreatePbufferSurface != EGL14.EGL_NO_SURFACE) {
                     return;

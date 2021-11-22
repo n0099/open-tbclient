@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class m implements b.a.p0.a.p.d.b {
+public class m implements b.a.p0.a.p.d.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,7 +24,7 @@ public class m implements b.a.p0.a.p.d.b {
         }
     }
 
-    @Override // b.a.p0.a.p.d.b
+    @Override // b.a.p0.a.p.d.c
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {

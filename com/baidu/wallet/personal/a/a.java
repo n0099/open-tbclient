@@ -20,20 +20,20 @@ public abstract class a<T> extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<T> f60606a;
+    public List<T> f61528a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f60607b;
+    public boolean f61529b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LayoutInflater f60608c;
+    public LayoutInflater f61530c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC1822a f60609d;
+    public InterfaceC1863a f61531d;
 
     /* renamed from: com.baidu.wallet.personal.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC1822a {
+    public interface InterfaceC1863a {
         void a(boolean z);
     }
 
@@ -65,15 +65,15 @@ public abstract class a<T> extends BaseAdapter {
                 return;
             }
         }
-        this.f60606a = new ArrayList();
-        this.f60608c = LayoutInflater.from(context);
+        this.f61528a = new ArrayList();
+        this.f61530c = LayoutInflater.from(context);
     }
 
     private View a(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, viewGroup, i2)) == null) {
-            View inflate = this.f60607b ? this.f60608c.inflate(a(i2), viewGroup, false) : this.f60608c.inflate(a(i2), (ViewGroup) null);
+            View inflate = this.f61529b ? this.f61530c.inflate(a(i2), viewGroup, false) : this.f61530c.inflate(a(i2), (ViewGroup) null);
             inflate.setTag(a(i2, inflate));
             if (inflate != null) {
                 a(inflate, i2);
@@ -91,10 +91,10 @@ public abstract class a<T> extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f60606a == null) {
+                if (this.f61528a == null) {
                     return;
                 }
-                this.f60606a.clear();
+                this.f61528a.clear();
                 notifyDataSetChanged();
             }
         }
@@ -110,10 +110,10 @@ public abstract class a<T> extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
             synchronized (this) {
-                if (this.f60606a == null) {
+                if (this.f61528a == null) {
                     return;
                 }
-                this.f60606a.add(t);
+                this.f61528a.add(t);
             }
         }
     }
@@ -123,7 +123,7 @@ public abstract class a<T> extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<T> list = this.f60606a;
+            List<T> list = this.f61528a;
             if (list == null) {
                 return 0;
             }
@@ -137,9 +137,9 @@ public abstract class a<T> extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            List<T> list = this.f60606a;
+            List<T> list = this.f61528a;
             if (list != null && i2 < list.size() && i2 >= 0) {
-                return this.f60606a.get(i2);
+                return this.f61528a.get(i2);
             }
             return null;
         }
@@ -170,24 +170,24 @@ public abstract class a<T> extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter
     public void notifyDataSetChanged() {
-        InterfaceC1822a interfaceC1822a;
+        InterfaceC1863a interfaceC1863a;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.notifyDataSetChanged();
-            if (this.f60609d == null) {
+            if (this.f61531d == null) {
                 return;
             }
-            if (this.f60606a.size() == 0) {
-                interfaceC1822a = this.f60609d;
+            if (this.f61528a.size() == 0) {
+                interfaceC1863a = this.f61531d;
                 z = true;
-            } else if (this.f60606a.size() <= 0) {
+            } else if (this.f61528a.size() <= 0) {
                 return;
             } else {
-                interfaceC1822a = this.f60609d;
+                interfaceC1863a = this.f61531d;
                 z = false;
             }
-            interfaceC1822a.a(z);
+            interfaceC1863a.a(z);
         }
     }
 }

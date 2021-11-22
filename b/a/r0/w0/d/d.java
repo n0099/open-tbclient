@@ -88,9 +88,9 @@ public class d extends b.a.r0.b0.b<b.a.r0.w0.c.b> {
         this.r = bVar;
         this.m.startLoad(bVar.g(), 10, false);
         this.n.setText(p(bVar.o(), bVar.t()));
-        this.o.setText(String.format(this.f14737f.getString(R.string.concern), bVar.i()));
-        this.p.setText(String.format(this.f14737f.getString(R.string.search_bar_thread), bVar.q()));
-        k(this.f14737f, TbadkCoreApplication.getInst().getSkinType());
+        this.o.setText(String.format(this.f16224f.getString(R.string.concern), bVar.i()));
+        this.p.setText(String.format(this.f16224f.getString(R.string.search_bar_thread), bVar.q()));
+        k(this.f16224f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener

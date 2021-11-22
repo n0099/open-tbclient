@@ -19,13 +19,13 @@ public class l extends ContextThemeWrapper implements ResContext {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ContextThemeWrapper f63985a;
+    public final ContextThemeWrapper f64898a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Resources.Theme f63986b;
+    public Resources.Theme f64899b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f63987c;
+    public int f64900c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(ContextThemeWrapper contextThemeWrapper) {
@@ -46,8 +46,8 @@ public class l extends ContextThemeWrapper implements ResContext {
                 return;
             }
         }
-        this.f63985a = contextThemeWrapper;
-        this.f63987c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
+        this.f64898a = contextThemeWrapper;
+        this.f64900c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -79,7 +79,7 @@ public class l extends ContextThemeWrapper implements ResContext {
     public Context getDelegatedContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63985a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64898a : (Context) invokeV.objValue;
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -99,10 +99,10 @@ public class l extends ContextThemeWrapper implements ResContext {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if ("layout_inflater".equals(str)) {
-                LayoutInflater layoutInflater = (LayoutInflater) this.f63985a.getSystemService(str);
+                LayoutInflater layoutInflater = (LayoutInflater) this.f64898a.getSystemService(str);
                 return !(layoutInflater.getContext() instanceof ResContext) ? layoutInflater.cloneInContext(this) : layoutInflater;
             }
-            return this.f63985a.getSystemService(str);
+            return this.f64898a.getSystemService(str);
         }
         return invokeL.objValue;
     }
@@ -121,12 +121,12 @@ public class l extends ContextThemeWrapper implements ResContext {
             }
             Resources externalResource = Loader.get().getExternalResource();
             if (externalResource != null) {
-                if (this.f63986b == null) {
+                if (this.f64899b == null) {
                     Resources.Theme newTheme = externalResource.newTheme();
-                    this.f63986b = newTheme;
-                    newTheme.applyStyle(this.f63987c, true);
+                    this.f64899b = newTheme;
+                    newTheme.applyStyle(this.f64900c, true);
                 }
-                return this.f63986b;
+                return this.f64899b;
             }
             return theme;
         }
@@ -137,7 +137,7 @@ public class l extends ContextThemeWrapper implements ResContext {
     public void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, componentCallbacks) == null) {
-            this.f63985a.registerComponentCallbacks(componentCallbacks);
+            this.f64898a.registerComponentCallbacks(componentCallbacks);
         }
     }
 
@@ -145,7 +145,7 @@ public class l extends ContextThemeWrapper implements ResContext {
     public void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, componentCallbacks) == null) {
-            this.f63985a.unregisterComponentCallbacks(componentCallbacks);
+            this.f64898a.unregisterComponentCallbacks(componentCallbacks);
         }
     }
 }

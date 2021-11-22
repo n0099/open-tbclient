@@ -24,7 +24,7 @@ public class d extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.d f29044b;
+    public a.d f29913b;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public class d extends a {
                 return;
             }
         }
-        this.f29044b = null;
-        this.f29040a = context;
+        this.f29913b = null;
+        this.f29909a = context;
     }
 
     public void a(a.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.f29044b = dVar;
+            this.f29913b = dVar;
         }
     }
 
@@ -90,7 +90,7 @@ public class d extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return ("type=ipv4,ipv6&dn=" + f.S(this.f29040a).x).getBytes();
+            return ("type=ipv4,ipv6&dn=" + f.S(this.f29909a).x).getBytes();
         }
         return (byte[]) invokeV.objValue;
     }
@@ -101,7 +101,7 @@ public class d extends a {
         if (interceptable == null || interceptable.invokeIL(1048582, this, i2, str) == null) {
             e.b("LCPHttpDnsUrlRequest", "HttpDns failure errorcode:" + i2 + ",errormsg:" + str);
             b.a.u.a.c.a.f(true);
-            b.a.u.a.c.a.c(this.f29040a).b(f.S(this.f29040a).x, this.f29044b);
+            b.a.u.a.c.a.c(this.f29909a).b(f.S(this.f29909a).x, this.f29913b);
         }
     }
 
@@ -110,9 +110,9 @@ public class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
             String str = new String(bArr);
-            e.a("LCPHttpDnsUrlRequest", "onSuccess----ip of " + f.S(this.f29040a).x + " is " + str);
+            e.a("LCPHttpDnsUrlRequest", "onSuccess----ip of " + f.S(this.f29909a).x + " is " + str);
             try {
-                JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(f.S(this.f29040a).x);
+                JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(f.S(this.f29909a).x);
                 JSONArray optJSONArray = jSONObject.optJSONArray("ip");
                 JSONArray optJSONArray2 = jSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
                 int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
@@ -126,23 +126,23 @@ public class d extends a {
                         arrayList.add(optJSONArray2.getString(0));
                     }
                     b.a.u.a.c.a.j(arrayList);
-                    if (this.f29044b == null || b.a.u.a.c.a.f28970c.size() <= 0) {
+                    if (this.f29913b == null || b.a.u.a.c.a.f29839c.size() <= 0) {
                         return;
                     }
-                    this.f29044b.a(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, b.a.u.a.c.a.f28970c.get(0));
-                    if (b.a.u.a.c.a.f28970c.size() > 1) {
-                        b.a.u.a.c.a.f28971d++;
+                    this.f29913b.a(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, b.a.u.a.c.a.f29839c.get(0));
+                    if (b.a.u.a.c.a.f29839c.size() > 1) {
+                        b.a.u.a.c.a.f29840d++;
                         return;
                     }
                     return;
                 }
                 e.b("LCPHttpDnsUrlRequest", "HttpDnsResponse ips is null ");
                 b.a.u.a.c.a.f(true);
-                b.a.u.a.c.a.c(this.f29040a).b(f.S(this.f29040a).x, this.f29044b);
+                b.a.u.a.c.a.c(this.f29909a).b(f.S(this.f29909a).x, this.f29913b);
             } catch (Exception e2) {
                 e.b("LCPHttpDnsUrlRequest", "HttpDnsRequester ip parse exception " + e2.getMessage());
                 b.a.u.a.c.a.f(true);
-                b.a.u.a.c.a.c(this.f29040a).b(f.S(this.f29040a).x, this.f29044b);
+                b.a.u.a.c.a.c(this.f29909a).b(f.S(this.f29909a).x, this.f29913b);
             }
         }
     }

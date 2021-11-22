@@ -14,11 +14,11 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SecureRandom f40610a;
+    public static final SecureRandom f41442a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f40611b;
+    public e f41443b;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public class c {
                 return;
             }
         }
-        f40610a = new SecureRandom();
+        f41442a = new SecureRandom();
     }
 
     public c() {
@@ -49,8 +49,8 @@ public class c {
                 return;
             }
         }
-        this.f40611b = null;
-        this.f40611b = new e(new b(), 16);
+        this.f41443b = null;
+        this.f41443b = new e(new b(), 16);
     }
 
     public static byte[] a(byte[] bArr, byte[] bArr2, byte[] bArr3) {
@@ -67,7 +67,7 @@ public class c {
     public void a(int i2, byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i2, bArr, bArr2) == null) {
-            this.f40611b.a(i2, bArr, bArr2, f40610a);
+            this.f41443b.a(i2, bArr, bArr2, f41442a);
         }
     }
 
@@ -76,7 +76,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
             if (bArr != null) {
-                return this.f40611b.a(bArr, 0, bArr.length);
+                return this.f41443b.a(bArr, 0, bArr.length);
             }
             throw new IllegalArgumentException("Null input buffer");
         }

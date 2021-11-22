@@ -1,7 +1,6 @@
 package b.a.q0.b0;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +33,7 @@ public class b {
             UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                jSONObject.put("type", "jump");
                 jSONObject.put("value", "0");
                 JSONObject jSONObject2 = new JSONObject();
                 if (StringUtils.isNull(str)) {
@@ -55,7 +54,7 @@ public class b {
             UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                jSONObject.put("type", "jump");
                 jSONObject.put("value", "1");
                 JSONObject jSONObject2 = new JSONObject();
                 if (StringUtils.isNull(str)) {

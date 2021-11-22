@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.db.pojo;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;

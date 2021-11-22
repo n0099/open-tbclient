@@ -1,6 +1,6 @@
 package b.a.q0.p0;
 
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f12794a;
+    public static final String f13544a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,6 +27,6 @@ public class c {
                 return;
             }
         }
-        f12794a = k.getUrlEncode("http://tieba.baidu.com/mo/q/tbeanget?_client_return_page=close");
+        f13544a = k.getUrlEncode("http://tieba.baidu.com/mo/q/tbeanget?_client_return_page=close");
     }
 }

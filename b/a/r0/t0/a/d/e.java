@@ -71,7 +71,7 @@ public final /* synthetic */ class e {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, binaryMessenger, hostImagePicker) == null) {
             BasicMessageChannel basicMessageChannel = new BasicMessageChannel(binaryMessenger, "dev.flutter.pigeon.HostImagePicker.editUserPortrait", new StandardMessageCodec());
             if (hostImagePicker != null) {
-                basicMessageChannel.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.d.a
+                basicMessageChannel.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.d.d
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -88,7 +88,7 @@ public final /* synthetic */ class e {
             }
             BasicMessageChannel basicMessageChannel2 = new BasicMessageChannel(binaryMessenger, "dev.flutter.pigeon.HostImagePicker.takePhoto", new StandardMessageCodec());
             if (hostImagePicker != null) {
-                basicMessageChannel2.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.d.d
+                basicMessageChannel2.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.d.c
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,7 +105,7 @@ public final /* synthetic */ class e {
             }
             BasicMessageChannel basicMessageChannel3 = new BasicMessageChannel(binaryMessenger, "dev.flutter.pigeon.HostImagePicker.chosePhotoLibrary", new StandardMessageCodec());
             if (hostImagePicker != null) {
-                basicMessageChannel3.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.d.c
+                basicMessageChannel3.setMessageHandler(new BasicMessageChannel.MessageHandler() { // from class: b.a.r0.t0.a.d.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

@@ -19,20 +19,20 @@ public class d extends GZIPOutputStream {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f28881i;
+    public static final boolean f29750i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MessageDigest f28882e;
+    public MessageDigest f29751e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28883f;
+    public int f29752f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28884g;
+    public int f29753g;
 
     /* renamed from: h  reason: collision with root package name */
-    public StringBuilder f28885h;
+    public StringBuilder f29754h;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class d extends GZIPOutputStream {
                 return;
             }
         }
-        f28881i = b0.m();
+        f29750i = b0.m();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,17 +68,17 @@ public class d extends GZIPOutputStream {
                 return;
             }
         }
-        this.f28882e = null;
-        this.f28883f = 0;
-        this.f28884g = 0;
+        this.f29751e = null;
+        this.f29752f = 0;
+        this.f29753g = 0;
     }
 
     public byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageDigest messageDigest = this.f28882e;
-            if (messageDigest == null || this.f28883f != 2) {
+            MessageDigest messageDigest = this.f29751e;
+            if (messageDigest == null || this.f29752f != 2) {
                 return null;
             }
             return messageDigest.digest();
@@ -90,7 +90,7 @@ public class d extends GZIPOutputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            StringBuilder sb = this.f28885h;
+            StringBuilder sb = this.f29754h;
             return sb != null ? sb.toString() : "";
         }
         return (String) invokeV.objValue;
@@ -99,14 +99,14 @@ public class d extends GZIPOutputStream {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f28882e == null) {
+            if (this.f29751e == null) {
                 try {
-                    this.f28882e = MessageDigest.getInstance("MD5");
+                    this.f29751e = MessageDigest.getInstance("MD5");
                 } catch (NoSuchAlgorithmException e2) {
                     e2.printStackTrace();
                 }
             }
-            MessageDigest messageDigest = this.f28882e;
+            MessageDigest messageDigest = this.f29751e;
             if (messageDigest != null) {
                 messageDigest.reset();
             }
@@ -116,10 +116,10 @@ public class d extends GZIPOutputStream {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f28883f = 1;
-            this.f28884g = 0;
-            if (f28881i) {
-                this.f28885h = new StringBuilder();
+            this.f29752f = 1;
+            this.f29753g = 0;
+            if (f29750i) {
+                this.f29754h = new StringBuilder();
             }
         }
     }
@@ -127,7 +127,7 @@ public class d extends GZIPOutputStream {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f28883f = 2;
+            this.f29752f = 2;
         }
     }
 
@@ -137,21 +137,21 @@ public class d extends GZIPOutputStream {
         if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i2, i3) == null) {
             synchronized (this) {
                 super.write(bArr, i2, i3);
-                this.f28884g += i3;
-                if (this.f28883f == 1) {
-                    if (bArr[i2] == 58 && this.f28882e == null) {
+                this.f29753g += i3;
+                if (this.f29752f == 1) {
+                    if (bArr[i2] == 58 && this.f29751e == null) {
                         i2++;
                         i3--;
                     }
-                    if (this.f28882e == null) {
+                    if (this.f29751e == null) {
                         e();
                     }
-                    if (this.f28882e == null) {
+                    if (this.f29751e == null) {
                         return;
                     }
-                    this.f28882e.update(bArr, i2, i3);
-                    if (f28881i) {
-                        this.f28885h.append(new String(bArr, i2, i3));
+                    this.f29751e.update(bArr, i2, i3);
+                    if (f29750i) {
+                        this.f29754h.append(new String(bArr, i2, i3));
                     }
                 }
             }

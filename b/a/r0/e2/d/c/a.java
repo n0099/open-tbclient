@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class a<T, V extends TypeAdapter.ViewHolder> extends b.a.e.l.e.a<T, V> {
+public abstract class a<T, V extends TypeAdapter.ViewHolder> extends b.a.e.m.e.a<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean m;

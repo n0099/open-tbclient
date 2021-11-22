@@ -13,6 +13,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import b.a.a0.b.a.g;
 import b.a.x0.t.c;
 import b.a.x0.t.h;
@@ -50,7 +51,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(18)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMultiMediaDataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InnerMultiMediaProcessor";
@@ -1184,7 +1185,7 @@ public class InnerMultiMediaProcessor extends InnerMediaProcessor implements IMu
                     int i5 = this.mFrameRate == 0 ? 30 : this.mFrameRate;
                     sb.append(" muxer w*h->");
                     sb.append(i2);
-                    sb.append("*");
+                    sb.append(ProxyConfig.MATCH_ALL_SCHEMES);
                     sb.append(i3);
                     sb.append(" bitrate->");
                     sb.append(i4);

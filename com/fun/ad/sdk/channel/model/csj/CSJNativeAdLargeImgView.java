@@ -23,10 +23,10 @@ public final class CSJNativeAdLargeImgView extends e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f62750f;
+    public ImageView f63650f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f62751g;
+    public float f63651g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdLargeImgView(Context context) {
@@ -46,7 +46,7 @@ public final class CSJNativeAdLargeImgView extends e0 {
                 return;
             }
         }
-        this.f62751g = 1.78f;
+        this.f63651g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,7 +68,7 @@ public final class CSJNativeAdLargeImgView extends e0 {
                 return;
             }
         }
-        this.f62751g = 1.78f;
+        this.f63651g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -90,7 +90,7 @@ public final class CSJNativeAdLargeImgView extends e0 {
                 return;
             }
         }
-        this.f62751g = 1.78f;
+        this.f63651g = 1.78f;
     }
 
     @Override // com.fun.module.csj.e0
@@ -104,8 +104,8 @@ public final class CSJNativeAdLargeImgView extends e0 {
                 return;
             }
             LogPrinter.d("CSJNativeAdView ttImage width: " + tTImage.getWidth() + ", height: " + tTImage.getHeight(), new Object[0]);
-            this.f62751g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
-            GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f62750f);
+            this.f63651g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
+            GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f63650f);
             LogPrinter.d("CSJNativeAdView ttImage url: " + tTImage.getImageUrl(), new Object[0]);
         }
     }
@@ -115,7 +115,7 @@ public final class CSJNativeAdLargeImgView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f62750f = (ImageView) findViewById(R.id.ad_img);
+            this.f63650f = (ImageView) findViewById(R.id.ad_img);
         }
     }
 
@@ -124,11 +124,11 @@ public final class CSJNativeAdLargeImgView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f62750f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f63650f.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f62751g);
-            this.f62750f.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (i6 / this.f63651g);
+            this.f63650f.setLayoutParams(layoutParams);
         }
     }
 }

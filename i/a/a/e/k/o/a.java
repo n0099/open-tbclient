@@ -11,22 +11,22 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import i.a.a.e.k.k;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
 import tv.athena.revenue.payui.view.dialog.CancelType;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a implements i.a.a.e.o.g.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f72297a;
+    public int f73216a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f72298b;
+    public int f73217b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i.a.a.e.k.c f72299c;
+    public i.a.a.e.k.c f73218c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AbsViewEventHandler f72300d;
+    public AbsViewEventHandler f73219d;
 
     public a(int i2, int i3, i.a.a.e.k.c cVar, AbsViewEventHandler absViewEventHandler) {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public class a implements i.a.a.e.o.g.c {
             }
         }
         RLog.info("AmountDialogListener", "create AmountDialogListener appId:" + i2 + " userChannel:" + i3);
-        this.f72297a = i2;
-        this.f72298b = i3;
-        this.f72299c = cVar;
-        this.f72300d = absViewEventHandler;
+        this.f73216a = i2;
+        this.f73217b = i3;
+        this.f73218c = cVar;
+        this.f73219d = absViewEventHandler;
     }
 
     @Override // i.a.a.e.o.g.c
@@ -55,8 +55,8 @@ public class a implements i.a.a.e.o.g.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
             RLog.info("AmountDialogListener", "PayAmountDialog notifyCancelType clickArea:" + cancelType);
-            this.f72299c.b(cancelType, this.f72300d);
-            k.a(this.f72297a, this.f72298b, cancelType);
+            this.f73218c.b(cancelType, this.f73219d);
+            k.a(this.f73216a, this.f73217b, cancelType);
         }
     }
 

@@ -22,31 +22,31 @@ public class d implements com.kwad.sdk.core.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64586a;
+    public String f65499a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64587b;
+    public String f65500b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64588c;
+    public String f65501c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f64589d;
+    public String f65502d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f64590e;
+    public String f65503e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f64591f;
+    public String f65504f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f64592g;
+    public int f65505g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f64593h;
+    public int f65506h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f64594i;
+    public String f65507i;
     public int j;
     public int k;
     public String l;
@@ -94,18 +94,18 @@ public class d implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
             d dVar = new d();
-            dVar.f64587b = ap.d(KsAdSDKImpl.get().getContext());
+            dVar.f65500b = ap.d(KsAdSDKImpl.get().getContext());
             String[] g2 = ap.g(KsAdSDKImpl.get().getContext());
-            dVar.f64588c = g2[0];
-            dVar.f64589d = g2[1];
-            dVar.f64590e = ap.f(KsAdSDKImpl.get().getContext());
-            dVar.f64591f = com.kwad.sdk.core.f.a.a();
+            dVar.f65501c = g2[0];
+            dVar.f65502d = g2[1];
+            dVar.f65503e = ap.f(KsAdSDKImpl.get().getContext());
+            dVar.f65504f = com.kwad.sdk.core.f.a.a();
             dVar.p = ap.e();
             dVar.q = ap.f();
-            dVar.f64592g = 1;
-            dVar.f64593h = ap.k();
-            dVar.f64594i = ap.j();
-            dVar.f64586a = ap.l();
+            dVar.f65505g = 1;
+            dVar.f65506h = ap.k();
+            dVar.f65507i = ap.j();
+            dVar.f65499a = ap.l();
             dVar.k = ap.l(KsAdSDKImpl.get().getContext());
             dVar.j = ap.k(KsAdSDKImpl.get().getContext());
             dVar.l = ap.m(KsAdSDKImpl.get().getContext());
@@ -134,9 +134,9 @@ public class d implements com.kwad.sdk.core.b {
             String str = dVar.m;
             sb.append(str != null ? Integer.valueOf(str.hashCode()) : "");
             sb.append(",o:");
-            sb.append(dVar.f64591f);
+            sb.append(dVar.f65504f);
             sb.append(",i:");
-            sb.append(dVar.f64587b);
+            sb.append(dVar.f65500b);
             com.kwad.sdk.core.d.a.a(sb.toString());
             try {
                 dVar.u = ap.i();
@@ -162,17 +162,17 @@ public class d implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "imei", this.f64587b);
-            q.a(jSONObject, "imei1", this.f64588c);
-            q.a(jSONObject, IAdRequestParam.IMEI2, this.f64589d);
-            q.a(jSONObject, "meid", this.f64590e);
-            q.a(jSONObject, "oaid", this.f64591f);
+            q.a(jSONObject, "imei", this.f65500b);
+            q.a(jSONObject, "imei1", this.f65501c);
+            q.a(jSONObject, IAdRequestParam.IMEI2, this.f65502d);
+            q.a(jSONObject, "meid", this.f65503e);
+            q.a(jSONObject, "oaid", this.f65504f);
             q.a(jSONObject, "deviceModel", this.p);
             q.a(jSONObject, "deviceBrand", this.q);
-            q.a(jSONObject, HttpConstants.HTTP_OS_TYPE_OLD, this.f64592g);
-            q.a(jSONObject, "osVersion", this.f64594i);
-            q.a(jSONObject, "osApi", this.f64593h);
-            q.a(jSONObject, "language", this.f64586a);
+            q.a(jSONObject, HttpConstants.HTTP_OS_TYPE_OLD, this.f65505g);
+            q.a(jSONObject, "osVersion", this.f65507i);
+            q.a(jSONObject, "osApi", this.f65506h);
+            q.a(jSONObject, "language", this.f65499a);
             q.a(jSONObject, "androidId", this.l);
             q.a(jSONObject, "deviceId", this.m);
             q.a(jSONObject, "deviceVendor", this.n);

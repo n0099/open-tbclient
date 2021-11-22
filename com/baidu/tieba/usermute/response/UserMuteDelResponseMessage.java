@@ -1,6 +1,6 @@
 package com.baidu.tieba.usermute.response;
 
-import b.a.e.e.m.b;
+import b.a.e.f.m.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;

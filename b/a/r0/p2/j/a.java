@@ -29,13 +29,13 @@ public class a extends b.a.r0.b0.b<b.a.r0.p2.e.c> {
     public int n;
     public b.a.r0.p2.e.c o;
     public b p;
-    public b.a.e.e.k.b<PersonCommonForumItemView> q;
+    public b.a.e.f.k.b<PersonCommonForumItemView> q;
     public TextView r;
     public ListViewPager s;
 
     /* renamed from: b.a.r0.p2.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class C1093a {
+    public static /* synthetic */ class C1158a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -46,7 +46,7 @@ public class a extends b.a.r0.b0.b<b.a.r0.p2.e.c> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f22409a;
+        public final /* synthetic */ a f23886a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class a extends b.a.r0.b0.b<b.a.r0.p2.e.c> {
                     return;
                 }
             }
-            this.f22409a = aVar;
+            this.f23886a = aVar;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -81,10 +81,10 @@ public class a extends b.a.r0.b0.b<b.a.r0.p2.e.c> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f22409a.o == null || ListUtils.isEmpty(this.f22409a.o.f22283e)) {
+                if (this.f23886a.o == null || ListUtils.isEmpty(this.f23886a.o.f23760e)) {
                     return 0;
                 }
-                return this.f22409a.o.f22283e.size() % 4 == 0 ? this.f22409a.o.f22283e.size() / 4 : (this.f22409a.o.f22283e.size() / 4) + 1;
+                return this.f23886a.o.f23760e.size() % 4 == 0 ? this.f23886a.o.f23760e.size() / 4 : (this.f23886a.o.f23760e.size() / 4) + 1;
             }
             return invokeV.intValue;
         }
@@ -94,12 +94,12 @@ public class a extends b.a.r0.b0.b<b.a.r0.p2.e.c> {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) {
-                List<b.a.r0.p2.e.f> t = this.f22409a.t(i2);
+                List<b.a.r0.p2.e.f> t = this.f23886a.t(i2);
                 if (ListUtils.isEmpty(t)) {
                     return null;
                 }
-                PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.f22409a.m.getPageActivity());
-                personCommonForumCardView.setForumItemViewBdObjectPool(this.f22409a.q);
+                PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.f23886a.m.getPageActivity());
+                personCommonForumCardView.setForumItemViewBdObjectPool(this.f23886a.q);
                 personCommonForumCardView.setData(t);
                 personCommonForumCardView.setVerticalSpacing(TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
                 viewGroup.addView(personCommonForumCardView);
@@ -115,7 +115,7 @@ public class a extends b.a.r0.b0.b<b.a.r0.p2.e.c> {
             return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
         }
 
-        public /* synthetic */ b(a aVar, C1093a c1093a) {
+        public /* synthetic */ b(a aVar, C1158a c1158a) {
             this(aVar);
         }
     }
@@ -191,13 +191,13 @@ public class a extends b.a.r0.b0.b<b.a.r0.p2.e.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             b.a.r0.p2.e.c cVar = this.o;
-            if (cVar == null || ListUtils.isEmpty(cVar.f22283e)) {
+            if (cVar == null || ListUtils.isEmpty(cVar.f23760e)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             int i3 = i2 * 4;
             for (int i4 = i3; i4 < i3 + 4; i4++) {
-                b.a.r0.p2.e.f fVar = (b.a.r0.p2.e.f) ListUtils.getItem(this.o.f22283e, i4);
+                b.a.r0.p2.e.f fVar = (b.a.r0.p2.e.f) ListUtils.getItem(this.o.f23760e, i4);
                 if (fVar != null) {
                     arrayList.add(fVar);
                 }
@@ -212,18 +212,18 @@ public class a extends b.a.r0.b0.b<b.a.r0.p2.e.c> {
         b.a.r0.p2.e.c cVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cVar)) == null) {
-            if (cVar == null || ListUtils.isEmpty(cVar.f22283e) || cVar == (cVar2 = this.o)) {
+            if (cVar == null || ListUtils.isEmpty(cVar.f23760e) || cVar == (cVar2 = this.o)) {
                 return false;
             }
-            if (cVar2 == null || ListUtils.isEmpty(cVar2.f22283e)) {
+            if (cVar2 == null || ListUtils.isEmpty(cVar2.f23760e)) {
                 return true;
             }
-            if (!ListUtils.isEmpty(cVar.f22283e)) {
-                if (cVar.f22283e.size() != this.o.f22283e.size()) {
+            if (!ListUtils.isEmpty(cVar.f23760e)) {
+                if (cVar.f23760e.size() != this.o.f23760e.size()) {
                     return true;
                 }
-                for (int i2 = 0; i2 < cVar.f22283e.size(); i2++) {
-                    if (this.o.f22283e.get(i2) == null || cVar.f22283e.get(i2).f22293e != this.o.f22283e.get(i2).f22293e) {
+                for (int i2 = 0; i2 < cVar.f23760e.size(); i2++) {
+                    if (this.o.f23760e.get(i2) == null || cVar.f23760e.get(i2).f23770e != this.o.f23760e.get(i2).f23770e) {
                         return true;
                     }
                 }
@@ -241,8 +241,8 @@ public class a extends b.a.r0.b0.b<b.a.r0.p2.e.c> {
         if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
             if (u(cVar)) {
                 this.o = cVar;
-                if (ListUtils.getCount(cVar.f22283e) <= 2) {
-                    this.s.getLayoutParams().height = b.a.e.e.p.l.g(this.m.getPageActivity(), R.dimen.ds140);
+                if (ListUtils.getCount(cVar.f23760e) <= 2) {
+                    this.s.getLayoutParams().height = b.a.e.f.p.l.g(this.m.getPageActivity(), R.dimen.ds140);
                 }
                 this.s.setAdapter(this.p);
             }
@@ -250,7 +250,7 @@ public class a extends b.a.r0.b0.b<b.a.r0.p2.e.c> {
         }
     }
 
-    public void w(b.a.e.e.k.b<PersonCommonForumItemView> bVar) {
+    public void w(b.a.e.f.k.b<PersonCommonForumItemView> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
             this.q = bVar;

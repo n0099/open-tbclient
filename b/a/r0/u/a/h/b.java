@@ -6,10 +6,10 @@ import com.baidu.tieba.advert.sdk.data.AdLoadState;
 public interface b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f23940a;
+    public static final boolean f25428a;
 
     static {
-        f23940a = b.a.f0.a.b.a.f2781a.get() != null && b.a.f0.a.b.a.f2781a.get().s();
+        f25428a = b.a.f0.a.b.a.f2874a.get() != null && b.a.f0.a.b.a.f2874a.get().s();
     }
 
     void a();

@@ -1,6 +1,6 @@
 package b.a.p0.a.c0.c.b;
 
-import b.a.p0.a.v2.n0;
+import b.a.p0.a.z2.n0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,7 +31,7 @@ public final class c extends b.a.p0.a.c0.a.c.c {
         }
     }
 
-    @Override // b.a.p0.a.c0.a.c.c, b.a.p0.a.c0.a.d.b, b.a.p0.a.c0.b.b, b.a.p0.a.l1.a
+    @Override // b.a.p0.a.c0.a.c.c, b.a.p0.a.c0.a.d.b, b.a.p0.a.c0.b.b, b.a.p0.a.m1.a
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
@@ -40,7 +40,7 @@ public final class c extends b.a.p0.a.c0.a.c.c {
         super.a(jSONObject);
         JSONObject jSONObject2 = this.n;
         if (jSONObject2 != null) {
-            n0.g((float) jSONObject2.optDouble("lineHeight", 0.0d));
+            this.C = n0.g((float) jSONObject2.optDouble("lineHeight", 0.0d));
         }
     }
 }

@@ -14,7 +14,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f35751a;
+    public Context f36580a;
 
     /* renamed from: com.baidu.android.pushservice.message.a$1  reason: invalid class name */
     /* loaded from: classes6.dex */
@@ -22,7 +22,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f35752a;
+        public static final /* synthetic */ int[] f36581a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -39,29 +39,29 @@ public class a {
                 }
             }
             int[] iArr = new int[h.a().length];
-            f35752a = iArr;
+            f36581a = iArr;
             try {
-                iArr[h.f35789b.ordinal()] = 1;
+                iArr[h.f36618b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f35752a[h.f35790c.ordinal()] = 2;
+                f36581a[h.f36619c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f35752a[h.f35794g.ordinal()] = 3;
+                f36581a[h.f36623g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f35752a[h.f35791d.ordinal()] = 4;
+                f36581a[h.f36620d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f35752a[h.f35793f.ordinal()] = 5;
+                f36581a[h.f36622f.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f35752a[h.f35792e.ordinal()] = 6;
+                f36581a[h.f36621e.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -82,24 +82,24 @@ public class a {
                 return;
             }
         }
-        this.f35751a = context;
+        this.f36580a = context;
     }
 
     public c a(h hVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hVar)) == null) {
-            int i2 = AnonymousClass1.f35752a[hVar.ordinal()];
+            int i2 = AnonymousClass1.f36581a[hVar.ordinal()];
             if (i2 != 1) {
                 if (i2 == 2 || i2 == 3) {
-                    return new l(this.f35751a);
+                    return new l(this.f36580a);
                 }
                 if (i2 != 6) {
                     return null;
                 }
-                return new j(this.f35751a);
+                return new j(this.f36580a);
             }
-            return new b(this.f35751a);
+            return new b(this.f36580a);
         }
         return (c) invokeL.objValue;
     }

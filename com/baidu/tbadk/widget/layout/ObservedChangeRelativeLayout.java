@@ -3,7 +3,7 @@ package com.baidu.tbadk.widget.layout;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-import b.a.q0.f1.j.e;
+import b.a.q0.e1.j.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +16,7 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f46288e;
+    public e f47146e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ObservedChangeRelativeLayout(Context context) {
@@ -41,7 +41,7 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
     public e getOnSizeChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46288e : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47146e : (e) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -49,7 +49,7 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            e eVar = this.f46288e;
+            e eVar = this.f47146e;
             if (eVar != null) {
                 eVar.a(this, i2, i3, i4, i5);
             }
@@ -67,7 +67,7 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
     public void setOnSizeChangeListener(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.f46288e = eVar;
+            this.f47146e = eVar;
         }
     }
 

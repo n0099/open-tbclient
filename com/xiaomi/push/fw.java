@@ -15,7 +15,7 @@ public class fw extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public gf f70974a;
+    public gf f71894a;
 
     /* renamed from: a  reason: collision with other field name */
     public gg f421a;
@@ -36,7 +36,7 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f70974a = null;
+        this.f71894a = null;
         this.f421a = null;
         this.f422a = null;
     }
@@ -56,10 +56,10 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f70974a = null;
+        this.f71894a = null;
         this.f421a = null;
         this.f422a = null;
-        this.f70974a = gfVar;
+        this.f71894a = gfVar;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -80,7 +80,7 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f70974a = null;
+        this.f71894a = null;
         this.f421a = null;
         this.f422a = null;
     }
@@ -103,7 +103,7 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f70974a = null;
+        this.f71894a = null;
         this.f421a = null;
         this.f422a = null;
         this.f422a = th;
@@ -124,7 +124,7 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f70974a = null;
+        this.f71894a = null;
         this.f421a = null;
         this.f422a = null;
         this.f422a = th;
@@ -144,7 +144,7 @@ public class fw extends Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String message = super.getMessage();
-            return (message != null || (ggVar = this.f421a) == null) ? (message != null || (gfVar = this.f70974a) == null) ? message : gfVar.toString() : ggVar.toString();
+            return (message != null || (ggVar = this.f421a) == null) ? (message != null || (gfVar = this.f71894a) == null) ? message : gfVar.toString() : ggVar.toString();
         }
         return (String) invokeV.objValue;
     }
@@ -196,7 +196,7 @@ public class fw extends Exception {
             if (ggVar != null) {
                 sb.append(ggVar);
             }
-            gf gfVar = this.f70974a;
+            gf gfVar = this.f71894a;
             if (gfVar != null) {
                 sb.append(gfVar);
             }

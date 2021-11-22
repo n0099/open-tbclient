@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.v2.w;
+import b.a.p0.a.z2.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,9 +23,9 @@ import org.json.JSONObject;
 public class h extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String C0;
-    public JSONObject D0;
-    public boolean E0;
+    public String I0;
+    public JSONObject J0;
+    public boolean K0;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -33,10 +33,10 @@ public class h extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f5294e;
+        public final /* synthetic */ JSONObject f5492e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f5295f;
+        public final /* synthetic */ h f5493f;
 
         public a(h hVar, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -53,16 +53,16 @@ public class h extends d {
                     return;
                 }
             }
-            this.f5295f = hVar;
-            this.f5294e = jSONObject;
+            this.f5493f = hVar;
+            this.f5492e = jSONObject;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.p0.a.g1.f.T().u(new b.a.p0.a.t1.c.c.b(this.f5295f.C0, this.f5294e.toString(), this.f5295f.D0.optString("slaveId")).a());
-                this.f5295f.E0 = false;
+                b.a.p0.a.g1.f.U().u(new b.a.p0.a.w1.d.c.b(this.f5493f.I0, this.f5492e.toString(), this.f5493f.J0.optString("slaveId")).a());
+                this.f5493f.K0 = false;
             }
         }
     }
@@ -80,10 +80,10 @@ public class h extends d {
                 return;
             }
         }
-        this.E0 = true;
+        this.K0 = true;
     }
 
-    public static h F2(String str, String str2) {
+    public static h V2(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
@@ -92,47 +92,33 @@ public class h extends d {
                 Bundle bundle = new Bundle();
                 bundle.putString("plugin_fun_page_path", str);
                 bundle.putString("plugin_pay_params", str2);
-                hVar.d1(bundle);
+                hVar.g1(bundle);
             }
             return hVar;
         }
         return (h) invokeLL.objValue;
     }
 
-    public final void E2(View view) {
+    @Override // b.a.p0.a.h0.g.d, com.baidu.swan.support.v4.app.Fragment
+    public void C0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.D0 == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.l0 = null;
+            super.C0();
         }
-        TextView textView = (TextView) view.findViewById(b.a.p0.a.f.id_swan_app_plugin_app_name);
-        b.a.p0.a.a2.e P = b.a.p0.a.a2.e.P();
-        if (P != null) {
-            textView.setText(P.M().J());
-        }
-        JSONObject optJSONObject = this.D0.optJSONObject("args");
-        if (optJSONObject == null) {
-            return;
-        }
-        ((TextView) view.findViewById(b.a.p0.a.f.id_swan_app_plugin_money)).setText(String.format(Locale.CHINA, "%.2f", Double.valueOf((optJSONObject.optLong("fee") * 1.0d) / 100.0d)));
-        TextView textView2 = (TextView) view.findViewById(b.a.p0.a.f.id_swan_app_plugin_service_name);
-        b.a.p0.n.h.h g2 = b.a.p0.a.t1.g.b.g(this.D0.optString("pluginProvider"));
-        if (g2 != null) {
-            textView2.setText(g2.s);
-        }
-        ((Button) view.findViewById(b.a.p0.a.f.id_swan_app_plugin_pay)).setOnClickListener(new a(this, optJSONObject));
     }
 
     @Override // b.a.p0.a.h0.g.d
-    public boolean I() {
+    public boolean K() {
         InterceptResult invokeV;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!this.E0 || (jSONObject = this.D0) == null) {
+            if (!this.K0 || (jSONObject = this.J0) == null) {
                 return false;
             }
-            b.a.p0.a.t1.c.c.a aVar = new b.a.p0.a.t1.c.c.a(jSONObject.optString("componentId"));
-            aVar.f7949a = this.D0.optString("slaveId");
+            b.a.p0.a.w1.d.c.a aVar = new b.a.p0.a.w1.d.c.a(jSONObject.optString("componentId"));
+            aVar.f9220a = this.J0.optString("slaveId");
             aVar.b();
             return false;
         }
@@ -140,30 +126,43 @@ public class h extends d {
     }
 
     @Override // b.a.p0.a.h0.g.d
-    public void K1(View view) {
+    public void R1(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            L1(view);
-            f2(-1);
-            n2(-16777216);
-            h2(P(b.a.p0.a.h.swan_app_plugin_fun_page_title));
-            j2(true);
-            t2(false);
+            S1(view);
+            q2(-1);
+            z2(-16777216);
+            s2(P(b.a.p0.a.h.swan_app_plugin_fun_page_title));
+            u2(true);
+            G2(false);
         }
     }
 
-    @Override // b.a.p0.a.h0.g.d
-    public boolean R1() {
-        InterceptResult invokeV;
+    public final void U2(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || view == null || this.J0 == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        TextView textView = (TextView) view.findViewById(b.a.p0.a.f.id_swan_app_plugin_app_name);
+        b.a.p0.a.d2.e a0 = b.a.p0.a.d2.e.a0();
+        if (a0 != null) {
+            textView.setText(a0.X().K());
+        }
+        JSONObject optJSONObject = this.J0.optJSONObject("args");
+        if (optJSONObject == null) {
+            return;
+        }
+        ((TextView) view.findViewById(b.a.p0.a.f.id_swan_app_plugin_money)).setText(String.format(Locale.CHINA, "%.2f", Double.valueOf((optJSONObject.optLong("fee") * 1.0d) / 100.0d)));
+        TextView textView2 = (TextView) view.findViewById(b.a.p0.a.f.id_swan_app_plugin_service_name);
+        b.a.p0.q.i.i g2 = b.a.p0.a.w1.h.b.g(this.J0.optString("pluginProvider"));
+        if (g2 != null) {
+            textView2.setText(g2.s);
+        }
+        ((Button) view.findViewById(b.a.p0.a.f.id_swan_app_plugin_pay)).setOnClickListener(new a(this, optJSONObject));
     }
 
     @Override // b.a.p0.a.h0.g.d
-    public boolean T1() {
+    public boolean Z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -173,9 +172,19 @@ public class h extends d {
     }
 
     @Override // b.a.p0.a.h0.g.d
-    public void Y1() {
+    public boolean b2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // b.a.p0.a.h0.g.d
+    public void g2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
@@ -183,7 +192,7 @@ public class h extends d {
     public boolean isSlidable(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
             return true;
         }
         return invokeL.booleanValue;
@@ -192,57 +201,48 @@ public class h extends d {
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
-            Bundle n = n();
-            if (n == null) {
+            Bundle o = o();
+            if (o == null) {
                 return;
             }
-            this.C0 = n.getString("plugin_fun_page_path");
-            this.D0 = w.d(n.getString("plugin_pay_params"));
+            this.I0 = o.getString("plugin_fun_page_path");
+            this.J0 = w.d(o.getString("plugin_pay_params"));
         }
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            b.a.p0.a.a2.d.g().r().S().v();
+            b.a.p0.a.d2.d.J().r().d0().v();
         }
     }
 
     @Override // b.a.p0.a.h0.g.d, com.baidu.swan.support.v4.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
-            r2(1);
+            E2(1);
         }
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
-    public View w0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public View z0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(b.a.p0.a.g.swan_app_plugin_fun_page_fragment, viewGroup, false);
-            K1(inflate);
-            E2(inflate);
-            if (J1()) {
-                inflate = M1(inflate);
+            R1(inflate);
+            U2(inflate);
+            if (Q1()) {
+                inflate = T1(inflate);
             }
-            return u1(inflate, this);
+            return A1(inflate, this);
         }
         return (View) invokeLLL.objValue;
-    }
-
-    @Override // b.a.p0.a.h0.g.d, com.baidu.swan.support.v4.app.Fragment
-    public void z0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.k0 = null;
-            super.z0();
-        }
     }
 }

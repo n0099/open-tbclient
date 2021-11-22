@@ -65,20 +65,20 @@ public final class c {
                     return true;
                 } else {
                     com.bytedance.pangle.log.c a2 = com.bytedance.pangle.log.c.a(ZeusLogger.TAG_LOAD, PluginLoader.TAG, "loadPlugin:".concat(String.valueOf(str)));
-                    a(com.bytedance.pangle.b.b.f61248g, b.a.w, plugin2.mPkgName, plugin2.getVersion(), -1L, null);
+                    a(com.bytedance.pangle.b.b.f62147g, b.a.w, plugin2.mPkgName, plugin2.getVersion(), -1L, null);
                     StringBuilder sb = new StringBuilder();
                     boolean a3 = a(str, plugin2, sb);
                     a2.b("loadPluginInternal:".concat(String.valueOf(a3)));
                     if (a3) {
                         plugin2.setLifeCycle(3);
-                        a(com.bytedance.pangle.b.b.f61249h, b.a.x, plugin2.mPkgName, plugin2.getVersion(), a2.a(), sb.toString());
+                        a(com.bytedance.pangle.b.b.f62148h, b.a.x, plugin2.mPkgName, plugin2.getVersion(), a2.a(), sb.toString());
                     } else {
                         sb.append("plugin:");
                         sb.append(plugin2.mPkgName);
                         sb.append(" versionCode:");
                         sb.append(plugin2.getVersion());
                         sb.append("load failed;");
-                        a(com.bytedance.pangle.b.b.f61249h, b.a.y, plugin2.mPkgName, plugin2.getVersion(), -1L, sb.toString());
+                        a(com.bytedance.pangle.b.b.f62148h, b.a.y, plugin2.mPkgName, plugin2.getVersion(), -1L, sb.toString());
                     }
                     ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginLoader loadFinished, ".concat(String.valueOf(plugin2)));
                     if (plugin2.isLoaded()) {
@@ -187,7 +187,7 @@ public final class c {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Plugin f61458a;
+                            public final /* synthetic */ Plugin f62357a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -204,14 +204,14 @@ public final class c {
                                         return;
                                     }
                                 }
-                                this.f61458a = plugin2;
+                                this.f62357a = plugin2;
                             }
 
                             @Override // android.content.ComponentCallbacks
                             public final void onConfigurationChanged(Configuration configuration) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, configuration) == null) {
-                                    this.f61458a.mResources.updateConfiguration(configuration, Zeus.getAppApplication().getResources().getDisplayMetrics());
+                                    this.f62357a.mResources.updateConfiguration(configuration, Zeus.getAppApplication().getResources().getDisplayMetrics());
                                 }
                             }
 

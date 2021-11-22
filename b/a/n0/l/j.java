@@ -23,7 +23,7 @@ public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3720a;
+    public static String f3810a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(Context context) {
@@ -34,15 +34,15 @@ public final class j {
             } catch (Throwable th) {
                 c.d(th);
             }
-            if (!TextUtils.isEmpty(f3720a)) {
-                return f3720a;
+            if (!TextUtils.isEmpty(f3810a)) {
+                return f3810a;
             }
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
             if (packageInfo == null) {
                 return "";
             }
-            f3720a = b(packageInfo, packageInfo.applicationInfo.sourceDir);
-            return f3720a;
+            f3810a = b(packageInfo, packageInfo.applicationInfo.sourceDir);
+            return f3810a;
         }
         return (String) invokeL.objValue;
     }

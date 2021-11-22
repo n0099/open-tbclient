@@ -17,7 +17,7 @@ import io.reactivex.internal.util.BlockingIgnoringReceiver;
 import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.internal.util.NotificationLite;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ObservableBlockingSubscribe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

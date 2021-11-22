@@ -1,7 +1,7 @@
 package b.a.p0.a.y0.j;
 
 import androidx.annotation.NonNull;
-import b.a.p0.a.a2.e;
+import b.a.p0.a.d2.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,8 +18,8 @@ public class a {
             if (str.startsWith(ImageSource.FILE_SCHEME)) {
                 str = str.substring(8);
             }
-            e i2 = e.i();
-            return (!b.a.p0.a.k2.b.E(str) || i2 == null) ? str : b.a.p0.a.k2.b.H(str, i2);
+            e L = e.L();
+            return (!b.a.p0.a.o2.b.E(str) || L == null) ? str : b.a.p0.a.o2.b.H(str, L);
         }
         return (String) invokeL.objValue;
     }

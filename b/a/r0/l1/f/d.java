@@ -29,16 +29,16 @@ public class d extends b.a.e.a.c<MsglistActivity<?>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f19980b;
+    public TextView f21502b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f19981c;
+    public LinearLayout f21503c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f19982d;
+    public TextView f21504d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f19983e;
+    public TextView f21505e;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -46,16 +46,16 @@ public class d extends b.a.e.a.c<MsglistActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f19984e;
+        public final /* synthetic */ long f21506e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f19985f;
+        public final /* synthetic */ String f21507f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f19986g;
+        public final /* synthetic */ String f21508g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f19987h;
+        public final /* synthetic */ d f21509h;
 
         public a(d dVar, long j, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -72,17 +72,17 @@ public class d extends b.a.e.a.c<MsglistActivity<?>> {
                     return;
                 }
             }
-            this.f19987h = dVar;
-            this.f19984e = j;
-            this.f19985f = str;
-            this.f19986g = str2;
+            this.f21509h = dVar;
+            this.f21506e = j;
+            this.f21507f = str;
+            this.f21508g = str2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(this.f19987h.mContext.getPageActivity(), String.valueOf(this.f19984e), this.f19985f, this.f19986g, "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(this.f21509h.mContext.getPageActivity(), String.valueOf(this.f21506e), this.f21507f, this.f21508g, "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
             }
         }
     }
@@ -106,7 +106,7 @@ public class d extends b.a.e.a.c<MsglistActivity<?>> {
                 return;
             }
         }
-        this.f19980b = null;
+        this.f21502b = null;
         f();
     }
 
@@ -114,12 +114,12 @@ public class d extends b.a.e.a.c<MsglistActivity<?>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TextView textView = (TextView) c(R.id.tex_msgcontent);
-            this.f19980b = textView;
+            this.f21502b = textView;
             textView.setMovementMethod(LinkMovementMethod.getInstance());
-            this.f19981c = (LinearLayout) c(R.id.lay_add_friend);
-            this.f19982d = (TextView) c(R.id.btn_add_friend);
-            this.f19983e = (TextView) c(R.id.text_add_friend);
-            this.f19981c.setVisibility(8);
+            this.f21503c = (LinearLayout) c(R.id.lay_add_friend);
+            this.f21504d = (TextView) c(R.id.btn_add_friend);
+            this.f21505e = (TextView) c(R.id.text_add_friend);
+            this.f21503c.setVisibility(8);
         }
     }
 
@@ -133,8 +133,8 @@ public class d extends b.a.e.a.c<MsglistActivity<?>> {
                     JSONObject jSONObject = new JSONObject(chatMessage.getContent());
                     String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
                     if (optString != null && optString.equals(TbEnum.SystemMessage.EVENT_ID_ADD_FRIEND)) {
-                        this.f19981c.setVisibility(0);
-                        this.f19980b.setVisibility(8);
+                        this.f21503c.setVisibility(0);
+                        this.f21502b.setVisibility(8);
                         String optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
                         JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
                         if (optJSONObject == null) {
@@ -150,11 +150,11 @@ public class d extends b.a.e.a.c<MsglistActivity<?>> {
                         }
                         String userName = toUserInfo.getUserName();
                         String portrait = toUserInfo.getPortrait();
-                        this.f19983e.setText(optString2);
+                        this.f21505e.setText(optString2);
                         if (optInt == 1) {
-                            this.f19982d.setVisibility(0);
-                            this.f19982d.setText(optString3);
-                            this.f19982d.setOnClickListener(new a(this, optLong, userName, portrait));
+                            this.f21504d.setVisibility(0);
+                            this.f21504d.setText(optString3);
+                            this.f21504d.setOnClickListener(new a(this, optLong, userName, portrait));
                             return true;
                         }
                     }
@@ -170,17 +170,17 @@ public class d extends b.a.e.a.c<MsglistActivity<?>> {
     public void h(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage) == null) {
-            this.f19981c.setVisibility(8);
+            this.f21503c.setVisibility(8);
             if (chatMessage == null) {
-                this.f19980b.setText("");
+                this.f21502b.setText("");
             } else if (g(chatMessage)) {
             } else {
-                this.f19980b.setVisibility(0);
+                this.f21502b.setVisibility(0);
                 String v = b.a.r0.l1.w.c.v(chatMessage);
                 if (!TextUtils.isEmpty(v)) {
-                    this.f19980b.setText(v);
+                    this.f21502b.setText(v);
                 } else {
-                    this.f19980b.setText("");
+                    this.f21502b.setText("");
                 }
             }
         }

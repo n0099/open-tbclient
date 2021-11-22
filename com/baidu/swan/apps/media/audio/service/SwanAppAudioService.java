@@ -23,8 +23,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes8.dex */
-public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.f.a {
+public final class SwanAppAudioService extends Service implements b.a.p0.a.j1.c.g.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final int INVALID_DURATION = -1;
@@ -195,7 +196,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f43746a;
+        public final /* synthetic */ String f44511a;
 
         public b(SwanAppAudioService swanAppAudioService, String str) {
             Interceptable interceptable = $ic;
@@ -212,14 +213,14 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
                     return;
                 }
             }
-            this.f43746a = str;
+            this.f44511a = str;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.u
         public void a(IAudioListener iAudioListener) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iAudioListener) == null) {
-                iAudioListener.onChangeSrc(this.f43746a);
+                iAudioListener.onChangeSrc(this.f44511a);
             }
         }
     }
@@ -260,7 +261,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f43747a;
+        public final /* synthetic */ int f44512a;
 
         public d(SwanAppAudioService swanAppAudioService, int i2) {
             Interceptable interceptable = $ic;
@@ -277,14 +278,14 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
                     return;
                 }
             }
-            this.f43747a = i2;
+            this.f44512a = i2;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.u
         public void a(IAudioListener iAudioListener) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iAudioListener) == null) {
-                iAudioListener.onError(this.f43747a);
+                iAudioListener.onError(this.f44512a);
             }
         }
     }
@@ -295,10 +296,10 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f43748a;
+        public final /* synthetic */ int f44513a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f43749b;
+        public final /* synthetic */ int f44514b;
 
         public e(SwanAppAudioService swanAppAudioService, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -315,15 +316,15 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
                     return;
                 }
             }
-            this.f43748a = i2;
-            this.f43749b = i3;
+            this.f44513a = i2;
+            this.f44514b = i3;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.u
         public void a(IAudioListener iAudioListener) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iAudioListener) == null) {
-                iAudioListener.onTimeUpdate(this.f43748a, this.f43749b);
+                iAudioListener.onTimeUpdate(this.f44513a, this.f44514b);
             }
         }
     }
@@ -334,7 +335,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f43750a;
+        public final /* synthetic */ int f44515a;
 
         public f(SwanAppAudioService swanAppAudioService, int i2) {
             Interceptable interceptable = $ic;
@@ -351,14 +352,14 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
                     return;
                 }
             }
-            this.f43750a = i2;
+            this.f44515a = i2;
         }
 
         @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.u
         public void a(IAudioListener iAudioListener) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iAudioListener) == null) {
-                iAudioListener.onDownloadProgress(this.f43750a);
+                iAudioListener.onDownloadProgress(this.f44515a);
             }
         }
     }
@@ -489,17 +490,20 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43751e;
+        public final /* synthetic */ long f44516e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAudioService f43752f;
+        public final /* synthetic */ String f44517f;
 
-        public k(SwanAppAudioService swanAppAudioService, String str) {
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ SwanAppAudioService f44518g;
+
+        public k(SwanAppAudioService swanAppAudioService, long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppAudioService, str};
+                Object[] objArr = {swanAppAudioService, Long.valueOf(j), str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -509,15 +513,17 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
                     return;
                 }
             }
-            this.f43752f = swanAppAudioService;
-            this.f43751e = str;
+            this.f44518g = swanAppAudioService;
+            this.f44516e = j;
+            this.f44517f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.p0.a.c1.a.e().a(this.f43751e, this.f43752f);
+                b.a.p0.a.j1.c.d.b(SwanAppAudioService.TAG, "post#setParams id=" + this.f44516e + " params=" + this.f44517f);
+                b.a.p0.a.c1.a.f().a(this.f44517f, this.f44518g);
             }
         }
     }
@@ -527,7 +533,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f43753a;
+        public static final /* synthetic */ int[] f44519a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -544,37 +550,37 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
                 }
             }
             int[] iArr = new int[BgMusicPlayState.values().length];
-            f43753a = iArr;
+            f44519a = iArr;
             try {
                 iArr[BgMusicPlayState.READY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f43753a[BgMusicPlayState.PLAY.ordinal()] = 2;
+                f44519a[BgMusicPlayState.PLAY.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f43753a[BgMusicPlayState.REPLAY.ordinal()] = 3;
+                f44519a[BgMusicPlayState.REPLAY.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f43753a[BgMusicPlayState.PAUSE.ordinal()] = 4;
+                f44519a[BgMusicPlayState.PAUSE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f43753a[BgMusicPlayState.STOP.ordinal()] = 5;
+                f44519a[BgMusicPlayState.STOP.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f43753a[BgMusicPlayState.END.ordinal()] = 6;
+                f44519a[BgMusicPlayState.END.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f43753a[BgMusicPlayState.INTERRUPT.ordinal()] = 7;
+                f44519a[BgMusicPlayState.INTERRUPT.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f43753a[BgMusicPlayState.LOADING.ordinal()] = 8;
+                f44519a[BgMusicPlayState.LOADING.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -585,27 +591,33 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public m(SwanAppAudioService swanAppAudioService) {
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ long f44520e;
+
+        public m(SwanAppAudioService swanAppAudioService, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppAudioService};
+                Object[] objArr = {swanAppAudioService, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.f44520e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.p0.a.c1.a.e().play();
+                b.a.p0.a.j1.c.d.b(SwanAppAudioService.TAG, "post#play  id=" + this.f44520e);
+                b.a.p0.a.c1.a.f().play();
             }
         }
     }
@@ -615,27 +627,33 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public n(SwanAppAudioService swanAppAudioService) {
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ long f44521e;
+
+        public n(SwanAppAudioService swanAppAudioService, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppAudioService};
+                Object[] objArr = {swanAppAudioService, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.f44521e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.p0.a.c1.a.e().pause();
+                b.a.p0.a.j1.c.d.b(SwanAppAudioService.TAG, "post#pause  id=" + this.f44521e);
+                b.a.p0.a.c1.a.f().pause();
             }
         }
     }
@@ -645,27 +663,33 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public o(SwanAppAudioService swanAppAudioService) {
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ long f44522e;
+
+        public o(SwanAppAudioService swanAppAudioService, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppAudioService};
+                Object[] objArr = {swanAppAudioService, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.f44522e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.p0.a.c1.a.e().stop();
+                b.a.p0.a.j1.c.d.b(SwanAppAudioService.TAG, "post#stop id=" + this.f44522e);
+                b.a.p0.a.c1.a.f().stop();
             }
         }
     }
@@ -676,14 +700,17 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f43754e;
+        public final /* synthetic */ long f44523e;
 
-        public p(SwanAppAudioService swanAppAudioService, int i2) {
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ int f44524f;
+
+        public p(SwanAppAudioService swanAppAudioService, long j, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppAudioService, Integer.valueOf(i2)};
+                Object[] objArr = {swanAppAudioService, Long.valueOf(j), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -693,14 +720,16 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
                     return;
                 }
             }
-            this.f43754e = i2;
+            this.f44523e = j;
+            this.f44524f = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.p0.a.c1.a.e().seek(this.f43754e);
+                b.a.p0.a.j1.c.d.b(SwanAppAudioService.TAG, "post#seek id=" + this.f44523e + " position=" + this.f44524f);
+                b.a.p0.a.c1.a.f().seek(this.f44524f);
             }
         }
     }
@@ -711,14 +740,17 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAudioService f43755e;
+        public final /* synthetic */ long f44525e;
 
-        public q(SwanAppAudioService swanAppAudioService) {
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ SwanAppAudioService f44526f;
+
+        public q(SwanAppAudioService swanAppAudioService, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppAudioService};
+                Object[] objArr = {swanAppAudioService, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -728,16 +760,18 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
                     return;
                 }
             }
-            this.f43755e = swanAppAudioService;
+            this.f44526f = swanAppAudioService;
+            this.f44525e = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43755e.notifyEventOnStop();
-                this.f43755e.stopSelf();
-                b.a.p0.a.c1.a.e().onRelease();
+                b.a.p0.a.j1.c.d.b(SwanAppAudioService.TAG, "post#release id=" + this.f44525e);
+                this.f44526f.notifyEventOnStop();
+                this.f44526f.stopSelf();
+                b.a.p0.a.c1.a.f().onRelease();
             }
         }
     }
@@ -843,7 +877,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAudioService f43756a;
+        public final /* synthetic */ SwanAppAudioService f44527a;
 
         public v(SwanAppAudioService swanAppAudioService) {
             Interceptable interceptable = $ic;
@@ -860,7 +894,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
                     return;
                 }
             }
-            this.f43756a = swanAppAudioService;
+            this.f44527a = swanAppAudioService;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -869,10 +903,8 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         public void onCallbackDied(IAudioListener iAudioListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iAudioListener) == null) {
-                if (SwanAppAudioService.DEBUG) {
-                    String str = "onCallbackDied: " + iAudioListener.getClass().getName();
-                }
-                this.f43756a.stop();
+                b.a.p0.a.j1.c.d.b(SwanAppAudioService.TAG, "AudioRemoteCallbackList#onCallbackDied");
+                this.f44527a.stop();
             }
         }
 
@@ -894,7 +926,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
                 return;
             }
         }
-        DEBUG = b.a.p0.a.k.f6397a;
+        DEBUG = b.a.p0.a.k.f6863a;
     }
 
     public SwanAppAudioService() {
@@ -917,7 +949,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
 
     private void handleAudioEvent(@NonNull u uVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, uVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, uVar) == null) {
             try {
                 try {
                     int beginBroadcast = this.mCallback.beginBroadcast();
@@ -937,8 +969,8 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
 
     private void handleStateChanged(BgMusicPlayState bgMusicPlayState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, bgMusicPlayState) == null) {
-            int i2 = l.f43753a[bgMusicPlayState.ordinal()];
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bgMusicPlayState) == null) {
+            int i2 = l.f44519a[bgMusicPlayState.ordinal()];
             if (i2 == 1) {
                 notifyEventOnCanPlay();
             } else if (i2 == 2) {
@@ -956,35 +988,35 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
 
     private void notifyEventOnCanPlay() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
             handleAudioEvent(new r(this));
         }
     }
 
     private void notifyEventOnEnded() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             handleAudioEvent(new c(this));
         }
     }
 
     private void notifyEventOnError(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65545, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65544, this, i2) == null) {
             handleAudioEvent(new d(this, i2));
         }
     }
 
     private void notifyEventOnPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             handleAudioEvent(new t(this));
         }
     }
 
     private void notifyEventOnPlay() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             handleAudioEvent(new s(this));
         }
     }
@@ -992,14 +1024,14 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyEventOnStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             handleAudioEvent(new a(this));
         }
     }
 
     private void notifyOnChangeSrc(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
             handleAudioEvent(new b(this, str));
         }
     }
@@ -1007,7 +1039,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.p0.a.c1.a.e().getDuration() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.p0.a.c1.a.f().getDuration() : invokeV.intValue;
     }
 
     public boolean isDestroyed() {
@@ -1022,7 +1054,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b.a.p0.a.c1.a.e().isPlaying() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b.a.p0.a.c1.a.f().isPlaying() : invokeV.booleanValue;
     }
 
     @Override // android.app.Service
@@ -1031,7 +1063,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, intent)) == null) {
-            boolean z = DEBUG;
+            b.a.p0.a.j1.c.d.b(TAG, "#onBind");
             return this.mBinder;
         }
         return (IBinder) invokeL.objValue;
@@ -1042,7 +1074,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onCreate();
-            boolean z = DEBUG;
+            b.a.p0.a.j1.c.d.b(TAG, "#onCreate");
         }
     }
 
@@ -1050,7 +1082,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            boolean z = DEBUG;
+            b.a.p0.a.j1.c.d.b(TAG, "#onDestroy");
             this.mCallback.kill();
             this.mMainHandler.removeCallbacksAndMessages(null);
             release();
@@ -1061,11 +1093,12 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
     public void onError(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+            b.a.p0.a.n2.u.a.b(MediaStreamTrack.AUDIO_TRACK_KIND, 2008, "error code is" + i2, -1, "");
             notifyEventOnError(i2);
         }
     }
 
-    @Override // b.a.p0.a.i1.c.f.a
+    @Override // b.a.p0.a.j1.c.g.a
     public void onGetCurrentSong(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
@@ -1073,7 +1106,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         }
     }
 
-    @Override // b.a.p0.a.i1.c.f.a
+    @Override // b.a.p0.a.j1.c.g.a
     public void onGetDownloadProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
@@ -1081,14 +1114,14 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         }
     }
 
-    @Override // b.a.p0.a.i1.c.f.a
+    @Override // b.a.p0.a.j1.c.g.a
     public void onGetDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
         }
     }
 
-    @Override // b.a.p0.a.i1.c.f.a
+    @Override // b.a.p0.a.j1.c.g.a
     public void onGetPosition(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
@@ -1096,10 +1129,11 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         }
     }
 
-    @Override // b.a.p0.a.i1.c.f.a
+    @Override // b.a.p0.a.j1.c.g.a
     public void onInvokeFailed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            b.a.p0.a.n2.u.a.b(MediaStreamTrack.AUDIO_TRACK_KIND, 2001, "invoke fail", -1, "");
             notifyEventOnError(-1);
         }
     }
@@ -1138,13 +1172,11 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         }
     }
 
-    @Override // b.a.p0.a.i1.c.f.a
+    @Override // b.a.p0.a.j1.c.g.a
     public void onStateChanged(BgMusicPlayState bgMusicPlayState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bgMusicPlayState) == null) {
-            if (DEBUG) {
-                String str = "onStateChanged() " + bgMusicPlayState;
-            }
+            b.a.p0.a.j1.c.d.c(TAG, "#onStateChanged state=" + bgMusicPlayState, new Exception("stack"));
             handleStateChanged(bgMusicPlayState);
         }
     }
@@ -1154,7 +1186,7 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, intent)) == null) {
-            boolean z = DEBUG;
+            b.a.p0.a.j1.c.d.b(TAG, "#onUnbind");
             return false;
         }
         return invokeL.booleanValue;
@@ -1163,42 +1195,54 @@ public final class SwanAppAudioService extends Service implements b.a.p0.a.i1.c.
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.mMainHandler.post(new n(this));
+            long nanoTime = System.nanoTime();
+            b.a.p0.a.j1.c.d.b(TAG, "#pause id=" + nanoTime);
+            this.mMainHandler.post(new n(this, nanoTime));
         }
     }
 
     public void play() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.mMainHandler.post(new m(this));
+            long nanoTime = System.nanoTime();
+            b.a.p0.a.j1.c.d.b(TAG, "#play id=" + nanoTime);
+            this.mMainHandler.post(new m(this, nanoTime));
         }
     }
 
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.mMainHandler.post(new q(this));
+            long nanoTime = System.nanoTime();
+            b.a.p0.a.j1.c.d.b(TAG, "#release id=" + nanoTime);
+            this.mMainHandler.post(new q(this, nanoTime));
         }
     }
 
     public void seek(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.mMainHandler.post(new p(this, i2));
+            long nanoTime = System.nanoTime();
+            b.a.p0.a.j1.c.d.b(TAG, "#seek id=" + nanoTime);
+            this.mMainHandler.post(new p(this, nanoTime, i2));
         }
     }
 
     public void setParams(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            this.mMainHandler.post(new k(this, str));
+            long nanoTime = System.nanoTime();
+            b.a.p0.a.j1.c.d.b(TAG, "#setParams id=" + nanoTime);
+            this.mMainHandler.post(new k(this, nanoTime, str));
         }
     }
 
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.mMainHandler.post(new o(this));
+            long nanoTime = System.nanoTime();
+            b.a.p0.a.j1.c.d.b(TAG, "#stop id=" + nanoTime);
+            this.mMainHandler.post(new o(this, nanoTime));
         }
     }
 }

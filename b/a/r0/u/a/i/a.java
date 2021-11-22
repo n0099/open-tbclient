@@ -2,8 +2,8 @@ package b.a.r0.u.a.i;
 
 import android.os.Environment;
 import android.text.TextUtils;
-import b.a.e.e.j.a.e;
-import b.a.e.e.p.q;
+import b.a.e.f.j.a.e;
+import b.a.e.f.p.q;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.advert.sdk.data.AdInfo;
@@ -23,14 +23,14 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23941b;
+    public static final String f25429b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f23942c;
+    public static final String f25430c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdInfo f23943a;
+    public AdInfo f25431a;
 
     static {
         InterceptResult invokeClinit;
@@ -45,8 +45,8 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
                 return;
             }
         }
-        f23941b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
-        f23942c = File.separator;
+        f25429b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+        f25430c = File.separator;
     }
 
     public a() {
@@ -67,32 +67,32 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, file) == null) {
             if (z && file != null) {
-                File file2 = new File(f23941b + f23942c + (q.c(this.f23943a.adVideoUrl) + ".mp4"));
+                File file2 = new File(f25429b + f25430c + (q.c(this.f25431a.adVideoUrl) + ".mp4"));
                 if (file2.exists()) {
                     file2.delete();
                 }
                 if (file.renameTo(file2)) {
-                    this.f23943a.videoLocalPath = file2.getAbsolutePath();
+                    this.f25431a.videoLocalPath = file2.getAbsolutePath();
                 } else {
-                    this.f23943a.videoLocalPath = "";
+                    this.f25431a.videoLocalPath = "";
                 }
             } else {
-                this.f23943a.videoLocalPath = "";
+                this.f25431a.videoLocalPath = "";
             }
-            b.a.r0.u.a.j.a.g(this.f23943a);
+            b.a.r0.u.a.j.a.g(this.f25431a);
         }
     }
 
     public void c(AdInfo adInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adInfo) == null) {
-            this.f23943a = adInfo;
+            this.f25431a = adInfo;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0093, code lost:
-        if (r12.equalsIgnoreCase(r11.f23943a.videoMd5) == false) goto L26;
+        if (r12.equalsIgnoreCase(r11.f25431a.videoMd5) == false) goto L26;
      */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /*
@@ -107,14 +107,14 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
         if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) != null) {
             return (Boolean) invokeL.objValue;
         }
-        String str = f23941b + f23942c + "advideo.temp";
+        String str = f25429b + f25430c + "advideo.temp";
         file = new File(str);
         if (file.exists()) {
             file.delete();
         }
         z = false;
         try {
-            new File(f23941b).mkdirs();
+            new File(f25429b).mkdirs();
             if (!file.createNewFile()) {
                 b(false, null);
                 return Boolean.FALSE;
@@ -123,10 +123,10 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
             e2.printStackTrace();
         }
         e eVar = new e();
-        eVar.b().s(this.f23943a.adVideoUrl);
-        c2 = new b.a.e.e.j.a.c(eVar).c(str, null, 3, 3000, -1, -1, true, true);
+        eVar.b().s(this.f25431a.adVideoUrl);
+        c2 = new b.a.e.f.j.a.c(eVar).c(str, null, 3, 3000, -1, -1, true, true);
         try {
-            if (TextUtils.isEmpty(this.f23943a.videoMd5)) {
+            if (TextUtils.isEmpty(this.f25431a.videoMd5)) {
                 b(c2, file);
                 return Boolean.valueOf(c2);
             }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.personcenter.privilege.entereffect;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.r0.w.l.g.d.d.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigHttp;
@@ -17,7 +17,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

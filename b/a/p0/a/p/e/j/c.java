@@ -24,7 +24,7 @@ public final class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f7190a;
+        public static final c f7606a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,7 +40,7 @@ public final class c {
                     return;
                 }
             }
-            f7190a = new c(null);
+            f7606a = new c(null);
         }
     }
 
@@ -51,7 +51,7 @@ public final class c {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f7190a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f7606a : (c) invokeV.objValue;
     }
 
     public i b() {

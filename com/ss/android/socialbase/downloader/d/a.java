@@ -8,6 +8,7 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -342,7 +343,7 @@ public class a {
                         jSONObject.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, f.a(errorMessage, a2.a("exception_msg_length", 500)));
                     }
                     jSONObject.put("connect_time", j);
-                    jSONObject.put("pkg_name", downloadInfo.getPackageName());
+                    jSONObject.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, downloadInfo.getPackageName());
                     jSONObject.put("name", downloadInfo.getTitle());
                     if ((a3 != 1 || a3 == 3) && (g2 = com.ss.android.socialbase.downloader.downloader.c.g()) != null) {
                         g2.a("download_connect", jSONObject, null, null);
@@ -384,7 +385,7 @@ public class a {
         if (errorMessage != null) {
         }
         jSONObject.put("connect_time", j);
-        jSONObject.put("pkg_name", downloadInfo.getPackageName());
+        jSONObject.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, downloadInfo.getPackageName());
         jSONObject.put("name", downloadInfo.getTitle());
         if (a3 != 1) {
         }
@@ -497,7 +498,7 @@ public class a {
                     jSONObject2.put("rw_write_time", j4 / d3);
                     jSONObject2.put("rw_sync_time", j5 / d3);
                 }
-                jSONObject2.put("pkg_name", downloadInfo.getPackageName());
+                jSONObject2.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, downloadInfo.getPackageName());
                 jSONObject2.put("name", downloadInfo.getTitle());
                 if (i2 != 1 && i2 != 3) {
                     i6 = 2;
@@ -546,7 +547,7 @@ public class a {
             }
             if (z3) {
             }
-            jSONObject22.put("pkg_name", downloadInfo.getPackageName());
+            jSONObject22.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, downloadInfo.getPackageName());
             jSONObject22.put("name", downloadInfo.getTitle());
             if (i2 != 1) {
                 i6 = 2;

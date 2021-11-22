@@ -1,8 +1,8 @@
 package b.a.r0.v1;
 
 import android.text.TextUtils;
-import b.a.e.e.d.l;
-import b.a.e.e.p.p;
+import b.a.e.f.d.l;
+import b.a.e.f.p.p;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
@@ -42,7 +42,7 @@ public class e implements CustomMessageTask.CustomRunnable<Object> {
             LinkedList linkedList = new LinkedList();
             if (list != null) {
                 for (l.b<String> bVar : list) {
-                    String str = bVar.f1704a;
+                    String str = bVar.f1707a;
                     if (!TextUtils.isEmpty(str)) {
                         linkedList.add(str);
                     }

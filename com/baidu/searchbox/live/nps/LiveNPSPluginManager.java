@@ -1089,7 +1089,7 @@ public class LiveNPSPluginManager {
                 try {
                     hashMap.put(URLDecoder.decode(split[0], "UTF-8"), split.length > 1 ? URLDecoder.decode(split[1], "UTF-8") : "");
                 } catch (UnsupportedEncodingException e2) {
-                    throw new RuntimeException("This method requires UTF-8 encoding support", e2);
+                    e2.printStackTrace();
                 }
             }
             return hashMap;
@@ -1263,9 +1263,10 @@ public class LiveNPSPluginManager {
         if (this.mLiveNPSPlugin.getYYLiveEntry() != null) {
             this.mLiveNPSPlugin.getYYLiveEntry().dispatchHostEvent(context, str, map);
         }
-        if (this.mLiveNPSPlugin.getLiveBjhEntry() != null) {
-            this.mLiveNPSPlugin.getLiveBjhEntry().dispatchHostEvent(context, str, map);
+        if (getPluginInstallVersion() < 503500000 || this.mLiveNPSPlugin.getLiveBjhEntry() == null) {
+            return;
         }
+        this.mLiveNPSPlugin.getLiveBjhEntry().dispatchHostEvent(context, str, map);
     }
 
     public void dispatchLiveMasterRouter(@NonNull Application application, String str, Map<String, Object> map) {

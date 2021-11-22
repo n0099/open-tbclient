@@ -70,9 +70,16 @@ public final class WebStorageImpl extends WebStorage {
     }
 
     @Override // com.baidu.webkit.sdk.WebStorage
+    public final void deleteAllDataIncludeServiceWorker() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.webkit.sdk.WebStorage
     public final void deleteOrigin(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             android.webkit.WebStorage.getInstance().deleteOrigin(str);
         }
     }
@@ -80,7 +87,7 @@ public final class WebStorageImpl extends WebStorage {
     @Override // com.baidu.webkit.sdk.WebStorage
     public final void getOrigins(ValueCallback<Map> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, valueCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, valueCallback) == null) {
             android.webkit.WebStorage.getInstance().getOrigins(valueCallback);
         }
     }
@@ -88,7 +95,7 @@ public final class WebStorageImpl extends WebStorage {
     @Override // com.baidu.webkit.sdk.WebStorage
     public final void getQuotaForOrigin(String str, ValueCallback<Long> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, valueCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, valueCallback) == null) {
             android.webkit.WebStorage.getInstance().getQuotaForOrigin(str, valueCallback);
         }
     }
@@ -96,7 +103,7 @@ public final class WebStorageImpl extends WebStorage {
     @Override // com.baidu.webkit.sdk.WebStorage
     public final void getUsageForOrigin(String str, ValueCallback<Long> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, valueCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, valueCallback) == null) {
             android.webkit.WebStorage.getInstance().getUsageForOrigin(str, valueCallback);
         }
     }
@@ -104,7 +111,7 @@ public final class WebStorageImpl extends WebStorage {
     @Override // com.baidu.webkit.sdk.WebStorage
     public final void setQuotaForOrigin(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048582, this, str, j) == null) {
             android.webkit.WebStorage.getInstance().setQuotaForOrigin(str, j);
         }
     }

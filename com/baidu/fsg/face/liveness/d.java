@@ -35,35 +35,35 @@ public final class d {
     public static final String Z = "videoFileException";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38208a = "#startLiveness";
+    public static final String f39038a = "#startLiveness";
     public static final String aa = "videoFileTooLargeException";
     public static final String ab = "videoMediaRecordIdealBitrate";
     public static final String ac = "videoFileSize";
     public static final String ad = "videoFileUploadTimeout";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38209b = "@queryVideo";
+    public static final String f39039b = "@queryVideo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38210c = "enterLiveness";
+    public static final String f39040c = "enterLiveness";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38211d = "userSwitchSound";
+    public static final String f39041d = "userSwitchSound";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38212e = "@getPortrait";
+    public static final String f39042e = "@getPortrait";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38213f = "passLiveness";
+    public static final String f39043f = "passLiveness";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38214g = "faceDetected";
+    public static final String f39044g = "faceDetected";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f38215h = "showBlink";
+    public static final String f39045h = "showBlink";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f38216i = "detectBlink";
+    public static final String f39046i = "detectBlink";
     public static final String j = "showMouth";
     public static final String k = "detectMouth";
     public static final String l = "firstTimeOut";

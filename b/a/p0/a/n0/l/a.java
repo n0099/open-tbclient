@@ -18,10 +18,10 @@ public class a implements b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f6876a;
+    public final String f7205a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f6877b;
+    public JSONObject f7206b;
 
     public a(String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class a implements b.a {
             }
         }
         JSONObject jSONObject = new JSONObject();
-        this.f6877b = jSONObject;
-        this.f6876a = str;
+        this.f7206b = jSONObject;
+        this.f7205a = str;
         try {
             jSONObject.put(IntentConfig.PKG_ID, str);
             if (z) {
@@ -60,16 +60,16 @@ public class a implements b.a {
     }
 
     private void update() throws JSONException {
-        PMSAppInfo s;
+        PMSAppInfo u;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isValid() && (s = b.a.p0.n.g.a.h().s(this.f6876a)) != null) {
-            this.f6877b.put("app_name", s.appName);
-            this.f6877b.put("pkg_vername", s.versionName);
-            this.f6877b.put("pkg_vercode", s.versionCode);
-            this.f6877b.put("create_time", s.createTime);
-            this.f6877b.put("last_launch_time", s.getLastLaunchTime());
-            this.f6877b.put("launch_count", s.getLaunchCount());
-            this.f6877b.put("install_src", s.getInstallSrc());
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isValid() && (u = b.a.p0.q.g.a.i().u(this.f7205a)) != null) {
+            this.f7206b.put("app_name", u.appName);
+            this.f7206b.put("pkg_vername", u.versionName);
+            this.f7206b.put("pkg_vercode", u.versionCode);
+            this.f7206b.put("create_time", u.createTime);
+            this.f7206b.put("last_launch_time", u.getLastLaunchTime());
+            this.f7206b.put("launch_count", u.getLaunchCount());
+            this.f7206b.put("install_src", u.getInstallSrc());
         }
     }
 
@@ -77,20 +77,20 @@ public class a implements b.a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6876a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7205a : (String) invokeV.objValue;
     }
 
     @Override // b.a.p0.a.n0.l.b.a
     public JSONObject b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f6877b : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7206b : (JSONObject) invokeV.objValue;
     }
 
     @Override // b.a.p0.a.n0.l.b.a
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !TextUtils.isEmpty(this.f6876a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !TextUtils.isEmpty(this.f7205a) : invokeV.booleanValue;
     }
 }

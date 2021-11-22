@@ -109,7 +109,6 @@ public class NetworkUtils {
         return (NetworkInfo) invokeL.objValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static String b(int i2, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -136,14 +135,12 @@ public class NetworkUtils {
                 case 13:
                 case 18:
                 case 19:
-                    break;
+                    return "4g";
+                case 20:
+                    return "5g";
                 default:
-                    if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) {
-                        return "unknown";
-                    }
-                    break;
+                    return (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) ? "unknown" : "4g";
             }
-            return "4g";
         }
         return (String) invokeIL.objValue;
     }
@@ -157,7 +154,7 @@ public class NetworkUtils {
             int hashCode = d2.hashCode();
             if (hashCode == -284840886) {
                 if (d2.equals("unknown")) {
-                    c2 = 4;
+                    c2 = 5;
                 }
                 c2 = 65535;
             } else if (hashCode == 1653) {
@@ -170,14 +167,19 @@ public class NetworkUtils {
                     c2 = 2;
                 }
                 c2 = 65535;
-            } else if (hashCode != 1715) {
+            } else if (hashCode == 1715) {
+                if (d2.equals("4g")) {
+                    c2 = 3;
+                }
+                c2 = 65535;
+            } else if (hashCode != 1746) {
                 if (hashCode == 3649301 && d2.equals("wifi")) {
                     c2 = 0;
                 }
                 c2 = 65535;
             } else {
-                if (d2.equals("4g")) {
-                    c2 = 3;
+                if (d2.equals("5g")) {
+                    c2 = 4;
                 }
                 c2 = 65535;
             }
@@ -187,9 +189,12 @@ public class NetworkUtils {
                 if (c2 != 2) {
                     if (c2 != 3) {
                         if (c2 != 4) {
-                            return 0;
+                            if (c2 != 5) {
+                                return 0;
+                            }
+                            return !z ? 1 : 0;
                         }
-                        return !z ? 1 : 0;
+                        return 5;
                     }
                     return 4;
                 }

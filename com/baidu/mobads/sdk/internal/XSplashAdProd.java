@@ -101,6 +101,7 @@ public class XSplashAdProd extends XAbstractAdProdTemplate {
         this.mLimitRegionClick = z3;
     }
 
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 0, expect 1 */
     public static void registerEnterTransition(Activity activity, JSONObject jSONObject, SplashAd.SplashFocusAdListener splashFocusAdListener) {
         XSplashAdProd xSplashAdProd;
         Interceptable interceptable = $ic;
@@ -116,10 +117,13 @@ public class XSplashAdProd extends XAbstractAdProdTemplate {
                 jSONObject2.putOpt("splash_focus_params", jSONObject);
                 hashMap.put("splash_focus_activity", activity);
                 tempInstance.handleEvent(jSONObject2, hashMap);
-            } catch (JSONException e2) {
-                XAdLogger.getInstance().e(e2);
+            } finally {
+                tempInstance = null;
             }
-            tempInstance = null;
+        } catch (JSONException e2) {
+            XAdLogger.getInstance().e(e2);
+        } catch (Throwable th) {
+            XAdLogger.getInstance().e(th);
         }
     }
 

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class URIParsedResult extends ParsedResult {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern USER_IN_HOST;

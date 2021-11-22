@@ -24,14 +24,14 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ExecutorService f69415a;
+    public static ExecutorService f70335a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile SparseArray<c> f69416b;
+    public volatile SparseArray<c> f70336b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f69417c;
+    public int f70337c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public class d {
                 return;
             }
         }
-        f69415a = new ThreadPoolExecutor(2, 2, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("Download_OP_Thread"));
+        f70335a = new ThreadPoolExecutor(2, 2, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("Download_OP_Thread"));
     }
 
     public d() {
@@ -62,14 +62,14 @@ public class d {
                 return;
             }
         }
-        this.f69417c = 0;
-        this.f69416b = new SparseArray<>();
+        this.f70337c = 0;
+        this.f70336b = new SparseArray<>();
     }
 
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            f69415a.execute(runnable);
+            f70335a.execute(runnable);
         }
     }
 
@@ -78,16 +78,16 @@ public class d {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             try {
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < this.f69416b.size(); i2++) {
-                    int keyAt = this.f69416b.keyAt(i2);
-                    if (!this.f69416b.get(keyAt).d()) {
+                for (int i2 = 0; i2 < this.f70336b.size(); i2++) {
+                    int keyAt = this.f70336b.keyAt(i2);
+                    if (!this.f70336b.get(keyAt).d()) {
                         arrayList.add(Integer.valueOf(keyAt));
                     }
                 }
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
                     Integer num = (Integer) arrayList.get(i3);
                     if (num != null) {
-                        this.f69416b.remove(num.intValue());
+                        this.f70336b.remove(num.intValue());
                     }
                 }
             } catch (Throwable th) {
@@ -101,11 +101,11 @@ public class d {
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             synchronized (d.class) {
                 b();
-                c cVar = this.f69416b.get(i2);
+                c cVar = this.f70336b.get(i2);
                 if (cVar != null) {
                     cVar.a();
                     c(cVar);
-                    this.f69416b.remove(i2);
+                    this.f70336b.remove(i2);
                 }
             }
         }
@@ -116,13 +116,13 @@ public class d {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             cVar.f();
             synchronized (d.class) {
-                if (this.f69417c >= 500) {
+                if (this.f70337c >= 500) {
                     b();
-                    this.f69417c = 0;
+                    this.f70337c = 0;
                 } else {
-                    this.f69417c++;
+                    this.f70337c++;
                 }
-                this.f69416b.put(cVar.e(), cVar);
+                this.f70336b.put(cVar.e(), cVar);
             }
             DownloadTask c2 = cVar.c();
             try {
@@ -200,12 +200,12 @@ public class d {
         synchronized (d.class) {
             try {
                 if (com.ss.android.socialbase.downloader.i.a.a(524288)) {
-                    int indexOfValue = this.f69416b.indexOfValue(cVar);
+                    int indexOfValue = this.f70336b.indexOfValue(cVar);
                     if (indexOfValue >= 0) {
-                        this.f69416b.removeAt(indexOfValue);
+                        this.f70336b.removeAt(indexOfValue);
                     }
                 } else {
-                    this.f69416b.remove(cVar.e());
+                    this.f70336b.remove(cVar.e());
                 }
             }
         }
@@ -217,11 +217,11 @@ public class d {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             synchronized (d.class) {
                 b();
-                c cVar = this.f69416b.get(i2);
+                c cVar = this.f70336b.get(i2);
                 if (cVar != null) {
                     cVar.b();
                     c(cVar);
-                    this.f69416b.remove(i2);
+                    this.f70336b.remove(i2);
                     return cVar;
                 }
                 return null;
@@ -236,8 +236,8 @@ public class d {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             synchronized (d.class) {
                 boolean z = false;
-                if (this.f69416b != null && this.f69416b.size() > 0) {
-                    c cVar = this.f69416b.get(i2);
+                if (this.f70336b != null && this.f70336b.size() > 0) {
+                    c cVar = this.f70336b.get(i2);
                     if (cVar != null && cVar.d()) {
                         z = true;
                     }
@@ -257,8 +257,8 @@ public class d {
             synchronized (d.class) {
                 b();
                 arrayList = new ArrayList();
-                for (int i2 = 0; i2 < this.f69416b.size(); i2++) {
-                    c cVar = this.f69416b.get(this.f69416b.keyAt(i2));
+                for (int i2 = 0; i2 < this.f70336b.size(); i2++) {
+                    c cVar = this.f70336b.get(this.f70336b.keyAt(i2));
                     if (cVar != null) {
                         arrayList.add(Integer.valueOf(cVar.e()));
                     }
@@ -272,7 +272,7 @@ public class d {
     public void a(int i2, long j) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || (cVar = this.f69416b.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || (cVar = this.f70336b.get(i2)) == null) {
             return;
         }
         cVar.c(j);

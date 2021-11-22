@@ -50,6 +50,7 @@ import com.baidu.minivideo.arface.bean.SharpnessFilter;
 import com.baidu.minivideo.plugin.capture.bean.FaceItem;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.searchbox.fluency.utils.FpsConstants;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1045,7 +1046,7 @@ public class a {
             }
             if (!b.a.a0.a.j.h.a(b.a.a0.a.b.e())) {
                 try {
-                    System.loadLibrary("c++_shared");
+                    System.loadLibrary(SwanKV.LIB_CPP_SHARED);
                     System.loadLibrary("ardatabasic2");
                     System.loadLibrary("opencv_java3");
                     System.loadLibrary("anakin_lite");

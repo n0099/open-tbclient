@@ -18,10 +18,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4560a;
+    public static final boolean f4530a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, b.a.p0.a.p.e.a> f4561b;
+    public static final Map<String, b.a.p0.a.p.e.a> f4531b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,17 +37,17 @@ public class c {
                 return;
             }
         }
-        f4560a = k.f6397a;
-        f4561b = new HashMap(2);
+        f4530a = k.f6863a;
+        f4531b = new HashMap(2);
     }
 
     public static b.a.p0.a.p.e.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            boolean z = f4560a;
-            d.k(true);
-            return g.M().W().a(AppRuntime.getAppContext());
+            boolean z = f4530a;
+            d.n(true);
+            return g.U().f0().b(AppRuntime.getAppContext());
         }
         return (b.a.p0.a.p.e.a) invokeV.objValue;
     }
@@ -64,29 +64,29 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (c.class) {
-                b.a.p0.a.a2.e P = b.a.p0.a.a2.e.P();
-                if (P != null && !TextUtils.isEmpty(P.getAppId())) {
-                    str = P.getAppId();
+                b.a.p0.a.d2.e a0 = b.a.p0.a.d2.e.a0();
+                if (a0 != null && !TextUtils.isEmpty(a0.getAppId())) {
+                    str = a0.getAppId();
                     String a2 = b.a.p0.a.v.a.a(str);
-                    aVar = f4561b.get(a2);
+                    aVar = f4531b.get(a2);
                     if (aVar == null) {
                         e();
                         aVar = a();
-                        f4561b.put(a2, aVar);
-                        if (f4560a) {
+                        f4531b.put(a2, aVar);
+                        if (f4530a) {
                             String str2 = "can not find sconsole for appId - " + str;
                         }
                     }
-                    if (f4560a) {
+                    if (f4530a) {
                         String str3 = "get sconsole for appId - " + str;
                     }
                 }
                 str = "_no_id_";
                 String a22 = b.a.p0.a.v.a.a(str);
-                aVar = f4561b.get(a22);
+                aVar = f4531b.get(a22);
                 if (aVar == null) {
                 }
-                if (f4560a) {
+                if (f4530a) {
                 }
             }
             return aVar;
@@ -98,11 +98,11 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            b.a.p0.a.a2.e P = b.a.p0.a.a2.e.P();
-            if (P != null && !TextUtils.isEmpty(P.f3961f)) {
-                return b.b(b.a.p0.a.v.a.a(P.f3961f));
+            b.a.p0.a.d2.e a0 = b.a.p0.a.d2.e.a0();
+            if (a0 != null && !TextUtils.isEmpty(a0.f4474f)) {
+                return b.b(b.a.p0.a.v.a.a(a0.f4474f));
             }
-            boolean z = f4560a;
+            boolean z = f4530a;
             return false;
         }
         return invokeV.booleanValue;
@@ -119,14 +119,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
             synchronized (c.class) {
-                if (f4561b.size() > 0) {
-                    for (String str : f4561b.keySet()) {
-                        b.a.p0.a.p.e.a aVar = f4561b.get(str);
+                if (f4531b.size() > 0) {
+                    for (String str : f4531b.keySet()) {
+                        b.a.p0.a.p.e.a aVar = f4531b.get(str);
                         if (aVar != null) {
-                            aVar.E();
+                            aVar.F();
                         }
                     }
-                    f4561b.clear();
+                    f4531b.clear();
                 }
             }
         }

@@ -21,24 +21,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d implements ShareService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ShareService.IOnSocialListener f27080a;
+    public ShareService.IOnSocialListener f28612a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f27081b;
+    public CustomMessageListener f28613b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f27082a;
+        public final /* synthetic */ d f28614a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2) {
@@ -58,7 +58,7 @@ public class d implements ShareService {
                     return;
                 }
             }
-            this.f27082a = dVar;
+            this.f28614a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,17 +69,17 @@ public class d implements ShareService {
                 return;
             }
             Integer num = (Integer) customResponsedMessage.getData();
-            if (this.f27082a.f27080a != null) {
+            if (this.f28614a.f28612a != null) {
                 if (num.intValue() == 1) {
-                    this.f27082a.f27080a.onComplete("");
+                    this.f28614a.f28612a.onComplete("");
                 } else if (num.intValue() == 2) {
-                    this.f27082a.f27080a.onError("");
+                    this.f28614a.f28612a.onError("");
                 } else if (num.intValue() == 3) {
-                    this.f27082a.f27080a.onCancel("");
+                    this.f28614a.f28612a.onCancel("");
                 }
-                this.f27082a.f27080a = null;
+                this.f28614a.f28612a = null;
             }
-            MessageManager.getInstance().unRegisterListener(this.f27082a.f27081b);
+            MessageManager.getInstance().unRegisterListener(this.f28614a.f28613b);
         }
     }
 
@@ -111,8 +111,8 @@ public class d implements ShareService {
                 return;
             }
         }
-        this.f27080a = null;
-        this.f27081b = new a(this, 2921550);
+        this.f28612a = null;
+        this.f28613b = new a(this, 2921550);
     }
 
     public final void a(Context context, View view, String str, String str2, String str3, String str4, String str5, ShareService.IOnSocialListener iOnSocialListener) {
@@ -139,8 +139,8 @@ public class d implements ShareService {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            this.f27080a = iOnSocialListener;
-            MessageManager.getInstance().registerListener(this.f27081b);
+            this.f28612a = iOnSocialListener;
+            MessageManager.getInstance().registerListener(this.f28613b);
             if (context == null) {
                 context = TbadkCoreApplication.getInst();
             }

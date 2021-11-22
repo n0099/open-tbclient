@@ -12,6 +12,4 @@ public interface ExecutorSupplier {
     Executor forLocalStorageRead();
 
     Executor forLocalStorageWrite();
-
-    Executor forThumbnailProducer();
 }

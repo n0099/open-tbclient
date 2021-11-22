@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.e2.e.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class b extends b.a.e.l.e.a<c, a> {
+public class b extends b.a.e.m.e.a<c, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,13 +32,13 @@ public class b extends b.a.e.l.e.a<c, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f16243a;
+        public int f17256a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f16244b;
+        public TextView f17257b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f16245c;
+        public View f17258c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(View view, TextView textView, View view2) {
@@ -58,9 +58,9 @@ public class b extends b.a.e.l.e.a<c, a> {
                     return;
                 }
             }
-            this.f16243a = 3;
-            this.f16244b = textView;
-            this.f16245c = view2;
+            this.f17256a = 3;
+            this.f17257b = textView;
+            this.f17258c = view2;
         }
 
         public void a(c cVar) {
@@ -68,24 +68,24 @@ public class b extends b.a.e.l.e.a<c, a> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) || cVar == null) {
                 return;
             }
-            this.f16244b.setText(cVar.f16292e);
-            this.f16245c.setVisibility(cVar.f16293f ? 0 : 8);
+            this.f17257b.setText(cVar.f17305e);
+            this.f17258c.setVisibility(cVar.f17306f ? 0 : 8);
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f16243a == i2) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f17256a == i2) {
                 return;
             }
-            SkinManager.setViewTextColor(this.f16244b, b.a.r0.j1.b.CAM_X0105);
-            SkinManager.setBackgroundColor(this.f16245c, b.a.r0.j1.b.CAM_X0204);
-            this.f16243a = i2;
+            SkinManager.setViewTextColor(this.f17257b, b.a.r0.j1.b.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f17258c, b.a.r0.j1.b.CAM_X0204);
+            this.f17256a = i2;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), b.a.r0.e2.e.a.f16286b);
+        super(tbPageContext.getPageActivity(), b.a.r0.e2.e.a.f17299b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class b extends b.a.e.l.e.a<c, a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public a T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -134,7 +134,7 @@ public class b extends b.a.e.l.e.a<c, a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, c cVar, a aVar) {
         InterceptResult invokeCommon;

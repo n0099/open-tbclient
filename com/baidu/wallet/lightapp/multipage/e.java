@@ -29,10 +29,10 @@ public class e implements i.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f59241a;
+    public JSONArray f60163a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Long f59242b;
+    public Long f60164b;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.e$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -46,7 +46,7 @@ public class e implements i.b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static e f59243a;
+        public static e f60165a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -62,7 +62,7 @@ public class e implements i.b {
                     return;
                 }
             }
-            f59243a = new e(null);
+            f60165a = new e(null);
         }
     }
 
@@ -73,7 +73,7 @@ public class e implements i.b {
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f59243a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f60165a : (e) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x001f  */
@@ -119,7 +119,7 @@ public class e implements i.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, context) == null) {
             JSONArray jSONArray = new JSONArray();
-            this.f59241a = jSONArray;
+            this.f60163a = jSONArray;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_behaviour_book", jSONArray.toString());
         }
     }
@@ -145,7 +145,7 @@ public class e implements i.b {
             LogUtil.d("LangbridgeBehaviourMonitor", "coldDown");
             DXMSdkSAUtils.onEvent("#MW_BHM_ColdDown");
             Long valueOf = Long.valueOf(System.currentTimeMillis());
-            this.f59242b = valueOf;
+            this.f60164b = valueOf;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", valueOf);
             i.a().c(context);
         }
@@ -164,7 +164,7 @@ public class e implements i.b {
                 return;
             }
         }
-        this.f59242b = -1L;
+        this.f60164b = -1L;
     }
 
     public void a(@NonNull Context context, int i2, @NonNull String str, List<String> list) {
@@ -197,10 +197,10 @@ public class e implements i.b {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, this, context, i2)) == null) {
-            if (this.f59242b.longValue() == -1) {
-                this.f59242b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
+            if (this.f60164b.longValue() == -1) {
+                this.f60164b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
             }
-            return System.currentTimeMillis() < this.f59242b.longValue() + ((long) (i2 * 1000));
+            return System.currentTimeMillis() < this.f60164b.longValue() + ((long) (i2 * 1000));
         }
         return invokeLI.booleanValue;
     }
@@ -226,10 +226,10 @@ public class e implements i.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) {
-            if (this.f59241a == null) {
-                this.f59241a = b(context);
+            if (this.f60163a == null) {
+                this.f60163a = b(context);
             }
-            return this.f59241a;
+            return this.f60163a;
         }
         return (JSONArray) invokeL.objValue;
     }

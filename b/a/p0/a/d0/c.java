@@ -7,13 +7,13 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.l;
-import b.a.p0.a.r1.l.d;
-import b.a.p0.a.s.a.f;
-import b.a.p0.a.v2.n0;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.u1.l.d;
+import b.a.p0.a.z2.n0;
+import b.a.p0.a.z2.q0;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,10 +28,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4519a;
+    public static final String f4448a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f4520b;
+    public static final String[] f4449b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,8 +47,8 @@ public class c {
                 return;
             }
         }
-        f4519a = a.b();
-        f4520b = new String[]{a.c(), a.d(), "https://ossapi.baidu.com", "https://ext.baidu.com"};
+        f4448a = a.b();
+        f4449b = new String[]{a.c(), a.b(), "https://ossapi.baidu.com", "https://ext.baidu.com"};
     }
 
     public static String a(String str, String str2, String str3) {
@@ -110,8 +110,8 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String a2 = d.a();
-            return a2 != null ? a(str, "launchid", a2) : str;
+            String b2 = d.b();
+            return b2 != null ? a(str, "launchid", b2) : str;
         }
         return (String) invokeL.objValue;
     }
@@ -123,7 +123,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             String str = null;
             try {
-                networkInfo = ((ConnectivityManager) b.a.p0.a.c1.a.b().getSystemService("connectivity")).getActiveNetworkInfo();
+                networkInfo = ((ConnectivityManager) b.a.p0.a.c1.a.c().getSystemService("connectivity")).getActiveNetworkInfo();
             } catch (NullPointerException unused) {
                 networkInfo = null;
             }
@@ -166,7 +166,7 @@ public class c {
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b.a.p0.a.c1.a.m().a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b.a.p0.a.c1.a.n().a() : (String) invokeV.objValue;
     }
 
     public static String e() {
@@ -257,7 +257,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            NetworkInfo c2 = SwanAppNetworkUtils.c(b.a.p0.a.c1.a.b());
+            NetworkInfo c2 = SwanAppNetworkUtils.c(b.a.p0.a.c1.a.c());
             if (c2 == null) {
                 return 0;
             }
@@ -320,7 +320,7 @@ public class c {
     public static String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? b.a.p0.a.c1.a.a0().i(AppRuntime.getAppContext()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? b.a.p0.a.c1.a.h0().i(AppRuntime.getAppContext()) : (String) invokeV.objValue;
     }
 
     public static boolean u(String str) {
@@ -330,7 +330,7 @@ public class c {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            for (String str2 : f4520b) {
+            for (String str2 : f4449b) {
                 if (str.startsWith(str2)) {
                     return true;
                 }
@@ -350,7 +350,7 @@ public class c {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65559, null, str, z)) == null) {
-            String a2 = a(a(a(a(a(a(a(a(a(a(str, "uid", l()), "ua", k()), "ut", m()), "osbranch", e()), "pkgname", p()), "network", o()), "appname", d()), "hostname", d()), "swan_sdk_version", r()), "mnpunion", String.valueOf(f.f7771d.f() ? 2 : 0));
+            String a2 = a(a(a(a(a(a(a(a(a(a(str, "uid", l()), "ua", k()), "ut", m()), "osbranch", e()), "pkgname", p()), "network", o()), "appname", d()), "hostname", d()), "swan_sdk_version", r()), "mnpunion", String.valueOf(SwanAppAllianceLoginHelper.f44256d.f() ? 2 : 0));
             return z ? b(a2) : a2;
         }
         return (String) invokeLZ.objValue;

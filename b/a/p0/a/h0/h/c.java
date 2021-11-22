@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import b.a.p0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,36 +19,72 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final FrameLayout.LayoutParams f5347f;
+    public static final FrameLayout.LayoutParams f5545f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f5348a;
+    public Context f5546a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f5349b;
+    public View f5547b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f5350c;
+    public FrameLayout f5548c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f5351d;
+    public int f5549d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f5352e;
+    public b f5550e;
 
     /* loaded from: classes.dex */
-    public interface a {
-        void onCustomViewHidden();
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Activity f5551e;
+
+        public a(c cVar, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f5551e = activity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                b.a.p0.a.r2.d.b.a.c().e(this.f5551e, -1.0f);
+            }
+        }
     }
 
     /* loaded from: classes.dex */
-    public static class b extends FrameLayout {
+    public interface b {
+        void onCustomViewHidden();
+    }
+
+    /* renamed from: b.a.p0.a.h0.h.c$c  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public static class C0220c extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Context context) {
+        public C0220c(Context context) {
             super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -91,7 +128,7 @@ public class c {
                 return;
             }
         }
-        f5347f = new FrameLayout.LayoutParams(-1, -1);
+        f5545f = new FrameLayout.LayoutParams(-1, -1);
     }
 
     public c(Context context) {
@@ -109,23 +146,24 @@ public class c {
                 return;
             }
         }
-        this.f5348a = context;
+        this.f5546a = context;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f5349b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f5547b == null) {
             return;
         }
-        Context context = this.f5348a;
+        Context context = this.f5546a;
         Activity activity = context instanceof Activity ? (Activity) context : null;
         if (activity != null) {
+            q0.a0(new a(this, activity));
             b(activity, false);
-            ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.f5350c);
-            this.f5350c = null;
-            this.f5349b = null;
-            this.f5352e.onCustomViewHidden();
-            activity.setRequestedOrientation(this.f5351d);
+            ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.f5548c);
+            this.f5548c = null;
+            this.f5547b = null;
+            this.f5550e.onCustomViewHidden();
+            activity.setRequestedOrientation(this.f5549d);
         }
     }
 
@@ -136,24 +174,24 @@ public class c {
         }
     }
 
-    public void c(View view, int i2, a aVar) {
+    public void c(View view, int i2, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view, i2, aVar) == null) {
-            Context context = this.f5348a;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view, i2, bVar) == null) {
+            Context context = this.f5546a;
             Activity activity = context instanceof Activity ? (Activity) context : null;
             if (activity != null) {
-                if (this.f5349b != null) {
-                    aVar.onCustomViewHidden();
+                if (this.f5547b != null) {
+                    bVar.onCustomViewHidden();
                     return;
                 }
-                this.f5351d = activity.getRequestedOrientation();
-                b bVar = new b(activity);
-                this.f5350c = bVar;
-                bVar.addView(view, f5347f);
-                ((FrameLayout) activity.getWindow().getDecorView()).addView(this.f5350c, f5347f);
-                this.f5349b = view;
+                this.f5549d = activity.getRequestedOrientation();
+                C0220c c0220c = new C0220c(activity);
+                this.f5548c = c0220c;
+                c0220c.addView(view, f5545f);
+                ((FrameLayout) activity.getWindow().getDecorView()).addView(this.f5548c, f5545f);
+                this.f5547b = view;
                 b(activity, true);
-                this.f5352e = aVar;
+                this.f5550e = bVar;
                 activity.setRequestedOrientation(i2);
             }
         }

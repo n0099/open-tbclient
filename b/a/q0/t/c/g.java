@@ -22,19 +22,19 @@ public class g implements b.a.r0.q1.o.h.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13781e;
+    public String f14549e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13782f;
+    public String f14550f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13783g;
+    public String f14551g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13784h;
+    public String f14552h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f13785i;
+    public String f14553i;
     public String j;
     public String k;
     public String l;
@@ -61,10 +61,10 @@ public class g implements b.a.r0.q1.o.h.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.m == 2 || StringUtils.isNull(this.f13782f)) {
+            if (this.m == 2 || StringUtils.isNull(this.f14550f)) {
                 return true;
             }
-            return StringUtils.isNull(this.f13781e) && StringUtils.isNull(this.f13785i) && StringUtils.isNull(this.k);
+            return StringUtils.isNull(this.f14549e) && StringUtils.isNull(this.f14553i) && StringUtils.isNull(this.k);
         }
         return invokeV.booleanValue;
     }
@@ -88,11 +88,11 @@ public class g implements b.a.r0.q1.o.h.b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f13781e = jSONObject.optString("url");
-        this.f13782f = jSONObject.optString("icon_url");
-        this.f13783g = jSONObject.optString("view_statistics_url");
-        this.f13784h = jSONObject.optString("click_statistics_url");
-        this.f13785i = jSONObject.optString("scheme");
+        this.f14549e = jSONObject.optString("url");
+        this.f14550f = jSONObject.optString("icon_url");
+        this.f14551g = jSONObject.optString("view_statistics_url");
+        this.f14552h = jSONObject.optString("click_statistics_url");
+        this.f14553i = jSONObject.optString("scheme");
         this.j = jSONObject.optString("package_name");
         this.k = jSONObject.optString("deeplink");
         this.m = jSONObject.optInt("source", 1);
@@ -100,10 +100,10 @@ public class g implements b.a.r0.q1.o.h.b {
         this.n = jSONObject.optString(LegoListActivityConfig.AD_ID);
         b.a aVar = new b.a();
         this.o = aVar;
-        aVar.f22624a = jSONObject.optString("parallel_charge_url");
-        this.o.f22626c = d(b(jSONObject, "show_urls"));
-        this.o.f22627d = d(b(jSONObject, "click_urls"));
-        String c2 = b.a.e.e.p.q.c(TbadkApplication.getInst().getAndroidId());
+        aVar.f24145a = jSONObject.optString("parallel_charge_url");
+        this.o.f24147c = d(b(jSONObject, "show_urls"));
+        this.o.f24148d = d(b(jSONObject, "click_urls"));
+        String c2 = b.a.e.f.p.q.c(TbadkApplication.getInst().getAndroidId());
         String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
         StringBuilder sb = new StringBuilder();
         sb.append("&ANDROIDID=");
@@ -111,13 +111,13 @@ public class g implements b.a.r0.q1.o.h.b {
         sb.append("&OAID=");
         sb.append(lastCachedOid != null ? lastCachedOid.toUpperCase() : "");
         String sb2 = sb.toString();
-        if (!StringUtils.isNull(this.f13783g)) {
-            this.f13783g += sb2;
+        if (!StringUtils.isNull(this.f14551g)) {
+            this.f14551g += sb2;
         }
-        if (StringUtils.isNull(this.f13784h)) {
+        if (StringUtils.isNull(this.f14552h)) {
             return;
         }
-        this.f13784h += sb2;
+        this.f14552h += sb2;
     }
 
     public final ArrayList<String> d(JSONArray jSONArray) {

@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.c1.a;
-import b.a.p0.g.c.i.c;
+import b.a.p0.i.b.i.c;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
@@ -74,7 +74,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String a2 = a.m().a();
+            String a2 = a.n().a();
             if (!TextUtils.isEmpty(a2)) {
                 if (a2.equals(BaseWebViewActivity.SHOUBAI_SCHEME)) {
                     return "baiduboxapp://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
@@ -104,7 +104,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             if (TextUtils.isEmpty(stringExtra)) {
                 return;
             }
-            b.a.p0.g.c.a.n().q(stringExtra, this.mOpportunity);
+            b.a.p0.i.b.a.n().q(stringExtra, this.mOpportunity);
         }
     }
 
@@ -114,7 +114,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             if (!TextUtils.isEmpty(this.mOpportunity)) {
                 c.b("notifyList", this.mOpportunity);
             }
-            SchemeRouter.invoke(a.b(), getInstallPageUrlScheme());
+            SchemeRouter.invoke(a.c(), getInstallPageUrlScheme());
         }
     }
 
@@ -152,8 +152,8 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             startInstallPage(intent);
         } else if (c2 != 2) {
         } else {
-            b.a.p0.g.c.h.a.f().l();
-            b.a.p0.g.c.h.a.f().n("todayfirst");
+            b.a.p0.i.b.h.a.f().l();
+            b.a.p0.i.b.h.a.f().n("todayfirst");
         }
     }
 

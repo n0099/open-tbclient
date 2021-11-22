@@ -17,19 +17,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f16390b;
+    public static volatile a f17890b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f16391a;
+    public ThreadPoolExecutor f17891a;
 
     /* renamed from: b.a.r0.f2.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0837a implements FileFilter {
+    public static class C0902a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0837a() {
+        public C0902a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,7 +68,7 @@ public class a {
         c2 = c2 <= 0 ? 1 : c2;
         int i4 = c2 > 4 ? 4 : c2;
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i4, i4, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.f16391a = threadPoolExecutor;
+        this.f17891a = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(true);
     }
 
@@ -76,14 +76,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f16390b == null) {
+            if (f17890b == null) {
                 synchronized (a.class) {
-                    if (f16390b == null) {
-                        f16390b = new a();
+                    if (f17890b == null) {
+                        f17890b = new a();
                     }
                 }
             }
-            return f16390b;
+            return f17890b;
         }
         return (a) invokeV.objValue;
     }
@@ -91,7 +91,7 @@ public class a {
     public void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.f16391a.execute(runnable);
+            this.f17891a.execute(runnable);
         }
     }
 
@@ -100,7 +100,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                return new File("/sys/devices/system/cpu/").listFiles(new C0837a()).length;
+                return new File("/sys/devices/system/cpu/").listFiles(new C0902a()).length;
             } catch (Exception unused) {
                 return 1;
             }

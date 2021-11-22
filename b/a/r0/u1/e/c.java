@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdListView;
@@ -29,24 +29,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c implements b.a.q0.x0.a, View.OnClickListener, AdapterView.OnItemClickListener {
+public class c implements b.a.q0.w0.a, View.OnClickListener, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<SelectLocationActivity> f24026e;
+    public TbPageContext<SelectLocationActivity> f25514e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f24027f;
+    public NavigationBar f25515f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f24028g;
+    public ImageView f25516g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f24029h;
+    public LinearLayout f25517h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdListView f24030i;
+    public BdListView f25518i;
     public b j;
     public Intent k;
 
@@ -65,9 +65,9 @@ public class c implements b.a.q0.x0.a, View.OnClickListener, AdapterView.OnItemC
                 return;
             }
         }
-        this.f24026e = tbPageContext;
-        this.f24029h = linearLayout;
-        this.f24027f = navigationBar;
+        this.f25514e = tbPageContext;
+        this.f25517h = linearLayout;
+        this.f25515f = navigationBar;
         b();
         a();
     }
@@ -75,37 +75,37 @@ public class c implements b.a.q0.x0.a, View.OnClickListener, AdapterView.OnItemC
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.f24026e.getPageActivity()).inflate(R.layout.select_location_activity, (ViewGroup) this.f24029h, true);
-            this.f24030i = (BdListView) this.f24029h.findViewById(R.id.select_position_list);
-            b bVar = new b(this.f24026e);
+            LayoutInflater.from(this.f25514e.getPageActivity()).inflate(R.layout.select_location_activity, (ViewGroup) this.f25517h, true);
+            this.f25518i = (BdListView) this.f25517h.findViewById(R.id.select_position_list);
+            b bVar = new b(this.f25514e);
             this.j = bVar;
-            this.f24030i.setAdapter((ListAdapter) bVar);
-            this.f24030i.setOnItemClickListener(this);
+            this.f25518i.setAdapter((ListAdapter) bVar);
+            this.f25518i.setOnItemClickListener(this);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f24027f.setCenterTextTitle(this.f24026e.getResources().getString(R.string.select_position_title));
-            ImageView imageView = (ImageView) this.f24027f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-            this.f24028g = imageView;
+            this.f25515f.setCenterTextTitle(this.f25514e.getResources().getString(R.string.select_position_title));
+            ImageView imageView = (ImageView) this.f25515f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+            this.f25516g = imageView;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-            layoutParams.setMargins(0, 0, l.g(this.f24026e.getPageActivity(), R.dimen.ds10), 0);
-            this.f24028g.setLayoutParams(layoutParams);
-            this.f24028g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            this.f24028g.setOnClickListener(this);
+            layoutParams.setMargins(0, 0, l.g(this.f25514e.getPageActivity(), R.dimen.ds10), 0);
+            this.f25516g.setLayoutParams(layoutParams);
+            this.f25516g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.f25516g.setOnClickListener(this);
         }
     }
 
-    @Override // b.a.q0.x0.a
+    @Override // b.a.q0.w0.a
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : (Intent) invokeV.objValue;
     }
 
-    @Override // b.a.q0.x0.a
+    @Override // b.a.q0.w0.a
     public boolean isOnViewCancel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -115,14 +115,14 @@ public class c implements b.a.q0.x0.a, View.OnClickListener, AdapterView.OnItemC
         return invokeV.booleanValue;
     }
 
-    @Override // b.a.q0.x0.a
+    @Override // b.a.q0.w0.a
     public boolean isOnViewTop() {
         InterceptResult invokeV;
         View childAt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BdListView bdListView = this.f24030i;
-            return bdListView != null && bdListView.getFirstVisiblePosition() == 0 && (childAt = this.f24030i.getChildAt(0)) != null && childAt.getTop() == 0;
+            BdListView bdListView = this.f25518i;
+            return bdListView != null && bdListView.getFirstVisiblePosition() == 0 && (childAt = this.f25518i.getChildAt(0)) != null && childAt.getTop() == 0;
         }
         return invokeV.booleanValue;
     }
@@ -130,8 +130,8 @@ public class c implements b.a.q0.x0.a, View.OnClickListener, AdapterView.OnItemC
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && view == this.f24028g) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002012, new SearchLocationActivityConfig(this.f24026e.getPageActivity(), 23009)));
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && view == this.f25516g) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002012, new SearchLocationActivityConfig(this.f25514e.getPageActivity(), 23009)));
         }
     }
 
@@ -148,8 +148,8 @@ public class c implements b.a.q0.x0.a, View.OnClickListener, AdapterView.OnItemC
         if (i2 == 0) {
             messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
             locationEvent.isShowLocation = false;
-            this.f24026e.getOrignalPage().publishEvent(locationEvent);
-            this.f24026e.getOrignalPage().finish();
+            this.f25514e.getOrignalPage().publishEvent(locationEvent);
+            this.f25514e.getOrignalPage().finish();
             return;
         }
         Object item = this.j.getItem(i2);
@@ -160,16 +160,16 @@ public class c implements b.a.q0.x0.a, View.OnClickListener, AdapterView.OnItemC
             locationEvent.locAddr = nearByAddressData.getAddr();
             locationEvent.locSn = nearByAddressData.getSn();
             locationEvent.isShowLocation = true;
-            this.f24026e.getOrignalPage().publishEvent(locationEvent);
-            this.f24026e.getOrignalPage().finish();
+            this.f25514e.getOrignalPage().publishEvent(locationEvent);
+            this.f25514e.getOrignalPage().finish();
         }
     }
 
-    @Override // b.a.q0.x0.a
+    @Override // b.a.q0.w0.a
     public void onViewChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f24028g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.f25516g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_search40, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             this.j.notifyDataSetChanged();
         }
     }

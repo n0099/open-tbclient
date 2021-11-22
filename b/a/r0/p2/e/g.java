@@ -23,21 +23,21 @@ public class g extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f22298e;
+    public boolean f23775e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f22299f;
+    public boolean f23776f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22300g;
+    public String f23777g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f22301h;
+    public String f23778h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f22302i;
+    public String f23779i;
     public int j;
-    public List<b.a.e.l.e.n> k;
+    public List<b.a.e.m.e.n> k;
 
     static {
         InterceptResult invokeClinit;
@@ -74,20 +74,20 @@ public class g extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, user) == null) || user == null || ListUtils.isEmpty(user.gift_list)) {
             return;
         }
-        this.f22300g = String.valueOf(user.id);
-        this.f22301h = user.name;
-        this.f22302i = user.name_show;
+        this.f23777g = String.valueOf(user.id);
+        this.f23778h = user.name;
+        this.f23779i = user.name_show;
         this.j = user.sex.intValue();
-        String str = this.f22300g;
+        String str = this.f23777g;
         if (str != null && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            this.f22298e = true;
+            this.f23775e = true;
         } else {
-            this.f22298e = false;
+            this.f23775e = false;
         }
         if (user.sex.intValue() == 2) {
-            this.f22299f = false;
+            this.f23776f = false;
         } else {
-            this.f22299f = true;
+            this.f23776f = true;
         }
         Integer num = user.gift_num;
         if (num != null) {
@@ -103,7 +103,7 @@ public class g extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

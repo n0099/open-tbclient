@@ -21,31 +21,31 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragmentActivity f27343a;
+    public BaseFragmentActivity f28846a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f27344b;
+    public View.OnClickListener f28847b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f27345c;
+    public Context f28848c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f27346d;
+    public View f28849d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CategoryView f27347e;
+    public CategoryView f28850e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f27348f;
+    public LinearLayout f28851f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TaskItemView f27349g;
+    public TaskItemView f28852g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TaskItemView f27350h;
+    public TaskItemView f28853h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TaskItemView f27351i;
+    public TaskItemView f28854i;
     public View j;
 
     public i(View view, BaseFragmentActivity baseFragmentActivity, View.OnClickListener onClickListener) {
@@ -63,9 +63,9 @@ public class i {
                 return;
             }
         }
-        this.f27343a = baseFragmentActivity;
-        this.f27345c = baseFragmentActivity.getActivity();
-        this.f27344b = onClickListener;
+        this.f28846a = baseFragmentActivity;
+        this.f28848c = baseFragmentActivity.getActivity();
+        this.f28847b = onClickListener;
         b(view);
     }
 
@@ -74,38 +74,38 @@ public class i {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, qVar) == null) || qVar == null) {
             return;
         }
-        if (qVar.f27478e) {
+        if (qVar.f28981e) {
             this.j.setVisibility(0);
         } else {
             this.j.setVisibility(8);
         }
-        this.f27347e.fillView(qVar.a());
+        this.f28850e.fillView(qVar.a());
         List<r> d2 = qVar.d();
         if (d2 == null || d2.size() <= 0) {
             return;
         }
         int size = d2.size();
         if (size == 1) {
-            this.f27349g.renderView(d2.get(0));
-            this.f27349g.hideDivideLine();
-            this.f27349g.setVisibility(0);
-            this.f27350h.setVisibility(8);
-            this.f27351i.setVisibility(8);
+            this.f28852g.renderView(d2.get(0));
+            this.f28852g.hideDivideLine();
+            this.f28852g.setVisibility(0);
+            this.f28853h.setVisibility(8);
+            this.f28854i.setVisibility(8);
         } else if (size != 2) {
-            this.f27349g.renderView(d2.get(0));
-            this.f27350h.renderView(d2.get(1));
-            this.f27351i.renderView(d2.get(2));
-            this.f27351i.hideDivideLine();
-            this.f27349g.setVisibility(0);
-            this.f27350h.setVisibility(0);
-            this.f27351i.setVisibility(0);
+            this.f28852g.renderView(d2.get(0));
+            this.f28853h.renderView(d2.get(1));
+            this.f28854i.renderView(d2.get(2));
+            this.f28854i.hideDivideLine();
+            this.f28852g.setVisibility(0);
+            this.f28853h.setVisibility(0);
+            this.f28854i.setVisibility(0);
         } else {
-            this.f27349g.renderView(d2.get(0));
-            this.f27350h.renderView(d2.get(1));
-            this.f27350h.hideDivideLine();
-            this.f27349g.setVisibility(0);
-            this.f27350h.setVisibility(0);
-            this.f27351i.setVisibility(8);
+            this.f28852g.renderView(d2.get(0));
+            this.f28853h.renderView(d2.get(1));
+            this.f28853h.hideDivideLine();
+            this.f28852g.setVisibility(0);
+            this.f28853h.setVisibility(0);
+            this.f28854i.setVisibility(8);
         }
     }
 
@@ -114,22 +114,22 @@ public class i {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null) {
             return;
         }
-        this.f27346d = view;
-        this.f27347e = (CategoryView) view.findViewById(R.id.category);
-        this.f27348f = (LinearLayout) this.f27346d.findViewById(R.id.ly_items);
-        this.f27349g = (TaskItemView) this.f27346d.findViewById(R.id.task_view_one);
-        this.f27350h = (TaskItemView) this.f27346d.findViewById(R.id.task_view_two);
-        this.f27351i = (TaskItemView) this.f27346d.findViewById(R.id.task_view_three);
-        this.f27349g.setOnCommenClickListener(this.f27344b);
-        this.f27350h.setOnCommenClickListener(this.f27344b);
-        this.f27351i.setOnCommenClickListener(this.f27344b);
-        this.j = this.f27346d.findViewById(R.id.divider_sp_line);
+        this.f28849d = view;
+        this.f28850e = (CategoryView) view.findViewById(R.id.category);
+        this.f28851f = (LinearLayout) this.f28849d.findViewById(R.id.ly_items);
+        this.f28852g = (TaskItemView) this.f28849d.findViewById(R.id.task_view_one);
+        this.f28853h = (TaskItemView) this.f28849d.findViewById(R.id.task_view_two);
+        this.f28854i = (TaskItemView) this.f28849d.findViewById(R.id.task_view_three);
+        this.f28852g.setOnCommenClickListener(this.f28847b);
+        this.f28853h.setOnCommenClickListener(this.f28847b);
+        this.f28854i.setOnCommenClickListener(this.f28847b);
+        this.j = this.f28849d.findViewById(R.id.divider_sp_line);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b.a.q0.w0.a.a(this.f27343a.getPageContext(), this.f27346d);
+            b.a.q0.v0.a.a(this.f28846a.getPageContext(), this.f28849d);
         }
     }
 }

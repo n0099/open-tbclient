@@ -2,7 +2,7 @@ package b.a.r0.h1.k.b.d;
 
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.h1.k.b.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -64,9 +64,9 @@ public class b extends b.a.r0.b0.b<c> {
             return;
         }
         this.n = cVar;
-        SkinManager.setBackgroundColor(this.m, cVar.f17654f);
+        SkinManager.setBackgroundColor(this.m, cVar.f19123f);
         ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
-        layoutParams.height = l.g(this.f14738g, cVar.f17653e);
+        layoutParams.height = l.g(this.f16225g, cVar.f19122e);
         this.m.setLayoutParams(layoutParams);
     }
 

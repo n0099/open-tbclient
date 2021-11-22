@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import b.a.q0.s.u.c;
-import b.a.r0.x0.b1;
 import b.a.r0.x0.c1;
-import b.a.r0.x0.e1;
+import b.a.r0.x0.d1;
 import b.a.r0.x0.f1;
-import b.a.r0.x0.h1;
+import b.a.r0.x0.g1;
+import b.a.r0.x0.i1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,16 +23,16 @@ public class FrsForumToolDialogView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f49104e;
+    public TextView f49968e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f49105f;
+    public TextView f49969f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f49106g;
+    public TbImageView f49970g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49107h;
+    public TextView f49971h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsForumToolDialogView(Context context) {
@@ -58,41 +58,41 @@ public class FrsForumToolDialogView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(f1.frs_forum_tool_dialog, this);
-            this.f49106g = (TbImageView) findViewById(e1.iv_image);
-            this.f49105f = (TextView) findViewById(e1.tv_content);
-            this.f49104e = (TextView) findViewById(e1.btn_cancle);
-            this.f49107h = (TextView) findViewById(e1.btn_more);
-            this.f49104e.setText(h1.cancel);
-            this.f49107h.setText(h1.know_more);
-            this.f49106g.setPlaceHolder(3);
-            this.f49106g.setDrawCorner(true);
-            this.f49106g.setAutoChangeStyle(true);
-            this.f49106g.setConrers(3);
-            this.f49106g.setRadiusById(h1.J_X06);
-            c d2 = c.d(this.f49105f);
-            d2.v(b1.CAM_X0107);
-            d2.w(c1.M_T_X001);
-            d2.z(c1.T_X06);
-            c d3 = c.d(this.f49104e);
-            d3.v(b1.CAM_X0105);
-            d3.n(h1.J_X07);
-            d3.l(c1.L_X02);
-            d3.z(c1.T_X08);
-            d3.k(b1.CAM_X0902);
-            d3.f(b1.CAM_X0201);
-            c d4 = c.d(this.f49107h);
-            d4.v(b1.CAM_X0302);
-            d4.n(h1.J_X07);
-            d4.z(c1.T_X08);
-            d4.l(c1.L_X02);
-            d4.e(h1.A_X07);
-            d4.k(b1.CAM_X0302);
-            d4.f(b1.CAM_X0201);
+            LayoutInflater.from(context).inflate(g1.frs_forum_tool_dialog, this);
+            this.f49970g = (TbImageView) findViewById(f1.iv_image);
+            this.f49969f = (TextView) findViewById(f1.tv_content);
+            this.f49968e = (TextView) findViewById(f1.btn_cancle);
+            this.f49971h = (TextView) findViewById(f1.btn_more);
+            this.f49968e.setText(i1.cancel);
+            this.f49971h.setText(i1.know_more);
+            this.f49970g.setPlaceHolder(3);
+            this.f49970g.setDrawCorner(true);
+            this.f49970g.setAutoChangeStyle(true);
+            this.f49970g.setConrers(3);
+            this.f49970g.setRadiusById(i1.J_X06);
+            c d2 = c.d(this.f49969f);
+            d2.v(c1.CAM_X0107);
+            d2.w(d1.M_T_X001);
+            d2.z(d1.T_X06);
+            c d3 = c.d(this.f49968e);
+            d3.v(c1.CAM_X0105);
+            d3.n(i1.J_X07);
+            d3.l(d1.L_X02);
+            d3.z(d1.T_X08);
+            d3.k(c1.CAM_X0902);
+            d3.f(c1.CAM_X0201);
+            c d4 = c.d(this.f49971h);
+            d4.v(c1.CAM_X0302);
+            d4.n(i1.J_X07);
+            d4.z(d1.T_X08);
+            d4.l(d1.L_X02);
+            d4.e(i1.A_X07);
+            d4.k(c1.CAM_X0302);
+            d4.f(c1.CAM_X0201);
             c d5 = c.d(this);
-            d5.n(h1.J_X06);
+            d5.n(i1.J_X06);
             d5.m(0);
-            d5.f(b1.CAM_X0201);
+            d5.f(c1.CAM_X0201);
         }
     }
 
@@ -101,7 +101,7 @@ public class FrsForumToolDialogView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || onClickListener == null) {
             return;
         }
-        this.f49104e.setOnClickListener(onClickListener);
+        this.f49968e.setOnClickListener(onClickListener);
     }
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {
@@ -109,13 +109,13 @@ public class FrsForumToolDialogView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || onClickListener == null) {
             return;
         }
-        this.f49107h.setOnClickListener(onClickListener);
+        this.f49971h.setOnClickListener(onClickListener);
     }
 
     public void setContent(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f49105f.setText(str);
+            this.f49969f.setText(str);
         }
     }
 
@@ -123,9 +123,9 @@ public class FrsForumToolDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
             if (i2 != 1 && i2 != 2) {
-                this.f49106g.startLoad(str, 10, false);
+                this.f49970g.startLoad(str, 10, false);
             } else {
-                this.f49106g.startLoad(str, 24, false);
+                this.f49970g.startLoad(str, 24, false);
             }
         }
     }

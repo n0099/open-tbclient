@@ -13,7 +13,7 @@ public final class ad extends ai.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f71399a;
+    public final /* synthetic */ int f72319a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ ao f884a;
@@ -38,7 +38,7 @@ public final class ad extends ai.a {
         }
         this.f885a = str;
         this.f884a = aoVar;
-        this.f71399a = i2;
+        this.f72319a = i2;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -53,7 +53,7 @@ public final class ad extends ai.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f884a.a(this.f71399a);
+            this.f884a.a(this.f72319a);
         }
     }
 }

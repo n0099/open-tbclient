@@ -10,8 +10,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
-import b.a.e.l.e.n;
+import b.a.e.f.p.j;
+import b.a.e.m.e.n;
 import b.a.q0.g0.g;
 import b.a.r0.w.l.g.d.a;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -45,26 +45,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AlaEnterEffectFragment extends AbsFragment {
     public static /* synthetic */ Interceptable $ic;
     public static final String x;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f47219e;
+    public View f48083e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f47220f;
+    public HeadImageView f48084f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f47221g;
+    public TextView f48085g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f47222h;
+    public TextView f48086h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f47223i;
+    public TbImageView f48087i;
     public BdTypeListView j;
     public b.a.r0.w.l.g.d.c.a k;
     public b.a.r0.w.l.g.d.a l;
@@ -80,13 +80,13 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public a.b v;
     public CustomMessageListener w;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaEnterEffectFragment f47224a;
+        public final /* synthetic */ AlaEnterEffectFragment f48088a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AlaEnterEffectFragment alaEnterEffectFragment, int i2) {
@@ -106,27 +106,27 @@ public class AlaEnterEffectFragment extends AbsFragment {
                     return;
                 }
             }
-            this.f47224a = alaEnterEffectFragment;
+            this.f48088a = alaEnterEffectFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f47224a.k == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f48088a.k == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String)) {
                 return;
             }
-            this.f47224a.k.e((String) customResponsedMessage.getData(), true);
+            this.f48088a.k.e((String) customResponsedMessage.getData(), true);
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class b extends b.a.e.e.l.c<b.a.e.l.d.a> {
+    /* loaded from: classes8.dex */
+    public class b extends b.a.e.f.l.c<b.a.e.m.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaEnterEffectFragment f47225a;
+        public final /* synthetic */ AlaEnterEffectFragment f48089a;
 
         public b(AlaEnterEffectFragment alaEnterEffectFragment) {
             Interceptable interceptable = $ic;
@@ -143,39 +143,39 @@ public class AlaEnterEffectFragment extends AbsFragment {
                     return;
                 }
             }
-            this.f47225a = alaEnterEffectFragment;
+            this.f48089a = alaEnterEffectFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.l.c
-        public void onLoaded(b.a.e.l.d.a aVar, String str, int i2) {
+        @Override // b.a.e.f.l.c
+        public void onLoaded(b.a.e.m.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((b) aVar, str, i2);
                 if (aVar == null || aVar.p() == null) {
                     return;
                 }
-                this.f47225a.f47223i.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.f47225a.f47223i.setImageBitmap(BitmapHelper.fastblur(aVar.p(), 15, 0.75f));
+                this.f48089a.f48087i.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.f48089a.f48087i.setImageBitmap(BitmapHelper.fastblur(aVar.p(), 15, 0.75f));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class c implements a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaEnterEffectFragment f47226a;
+        public final /* synthetic */ AlaEnterEffectFragment f48090a;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes8.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f47227e;
+            public final /* synthetic */ c f48091e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -192,16 +192,16 @@ public class AlaEnterEffectFragment extends AbsFragment {
                         return;
                     }
                 }
-                this.f47227e = cVar;
+                this.f48091e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f47227e.f47226a.hideNetRefreshView();
-                    this.f47227e.f47226a.showLoadingView();
-                    this.f47227e.f47226a.l.d();
+                    this.f48091e.f48090a.hideNetRefreshView();
+                    this.f48091e.f48090a.showLoadingView();
+                    this.f48091e.f48090a.l.d();
                 }
             }
         }
@@ -221,32 +221,32 @@ public class AlaEnterEffectFragment extends AbsFragment {
                     return;
                 }
             }
-            this.f47226a = alaEnterEffectFragment;
+            this.f48090a = alaEnterEffectFragment;
         }
 
         @Override // b.a.r0.w.l.g.d.a.b
         public void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, alaGetEnterEffectResponsedMessage) == null) {
-                this.f47226a.hideLoadingView();
-                this.f47226a.hideNetRefreshView();
+                this.f48090a.hideLoadingView();
+                this.f48090a.hideNetRefreshView();
                 if (alaGetEnterEffectResponsedMessage == null || alaGetEnterEffectResponsedMessage.getError() != 0) {
-                    this.f47226a.i(TbadkCoreApplication.getCurrentPortrait());
-                    this.f47226a.f47222h.setText(this.f47226a.getString(R.string.ala_enter_effect_count, 0));
-                    this.f47226a.f47221g.setText(TbadkCoreApplication.getCurrentAccountNameShow());
+                    this.f48090a.i(TbadkCoreApplication.getCurrentPortrait());
+                    this.f48090a.f48086h.setText(this.f48090a.getString(R.string.ala_enter_effect_count, 0));
+                    this.f48090a.f48085g.setText(TbadkCoreApplication.getCurrentAccountNameShow());
                     if (j.z()) {
-                        this.f47226a.showNetRefreshView(R.drawable.pic_live_empty04, R.string.ala_net_data_error_fail_tip, false, null);
+                        this.f48090a.showNetRefreshView(R.drawable.pic_live_empty04, R.string.ala_net_data_error_fail_tip, false, null);
                         return;
                     } else {
-                        this.f47226a.showNetRefreshView(R.drawable.pic_live_empty03, R.string.ala_net_fail_tip, true, new a(this));
+                        this.f48090a.showNetRefreshView(R.drawable.pic_live_empty03, R.string.ala_net_fail_tip, true, new a(this));
                         return;
                     }
                 }
-                this.f47226a.i(alaGetEnterEffectResponsedMessage.getPortrait());
-                this.f47226a.f47221g.setText(alaGetEnterEffectResponsedMessage.getUserName());
-                this.f47226a.f47222h.setText(this.f47226a.getString(R.string.ala_enter_effect_count, Integer.valueOf(alaGetEnterEffectResponsedMessage.getEnterEffectCount())));
+                this.f48090a.i(alaGetEnterEffectResponsedMessage.getPortrait());
+                this.f48090a.f48085g.setText(alaGetEnterEffectResponsedMessage.getUserName());
+                this.f48090a.f48086h.setText(this.f48090a.getString(R.string.ala_enter_effect_count, Integer.valueOf(alaGetEnterEffectResponsedMessage.getEnterEffectCount())));
                 List<n> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
-                this.f47226a.k.c(effectList);
+                this.f48090a.k.c(effectList);
                 if (ListUtils.isEmpty(effectList) || !j.H()) {
                     return;
                 }
@@ -259,7 +259,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
                             String str2 = alaDynamicGift.giftZip.zipDownloadUrl;
                             String str3 = alaDynamicGift.giftName;
                             ResourceDownloader.checkAndDownloadResZipInMainThread(str, str2, str3, AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName, AlaDynamicGiftLocalInfoConfig.PIC_MD5_PREFIX, alaEnterEffectData.gift.giftZip.zipMD5, false);
-                            this.f47226a.k.d(alaEnterEffectData.gift.giftId, 102);
+                            this.f48090a.k.d(alaEnterEffectData.gift.giftId, 102);
                         }
                     }
                 }
@@ -267,13 +267,13 @@ public class AlaEnterEffectFragment extends AbsFragment {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaEnterEffectFragment f47228a;
+        public final /* synthetic */ AlaEnterEffectFragment f48092a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(AlaEnterEffectFragment alaEnterEffectFragment, int i2) {
@@ -293,7 +293,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
                     return;
                 }
             }
-            this.f47228a = alaEnterEffectFragment;
+            this.f48092a = alaEnterEffectFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -306,7 +306,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
                 if (wrapDownloadData.status != 4 || (downloadData = wrapDownloadData.data) == null || StringUtils.isNull(downloadData.getId())) {
                     return;
                 }
-                this.f47228a.k.d(downloadData.getId(), 101);
+                this.f48092a.k.d(downloadData.getId(), 101);
             }
         }
     }
@@ -368,7 +368,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gVar = this.m) == null) {
             return;
         }
-        gVar.dettachView(this.f47219e);
+        gVar.dettachView(this.f48083e);
     }
 
     public void hideNetRefreshView() {
@@ -384,34 +384,34 @@ public class AlaEnterEffectFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             if (!StringUtils.isNull(str)) {
-                this.f47220f.startLoad(str, 25, false);
-                b.a.e.e.l.d.h().m(str, 25, new b(this), null);
+                this.f48084f.startLoad(str, 25, false);
+                b.a.e.f.l.d.h().m(str, 25, new b(this), null);
                 return;
             }
-            this.f47220f.startLoad(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
-            this.f47223i.startLoad(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
+            this.f48084f.startLoad(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
+            this.f48087i.startLoad(String.valueOf(R.drawable.icon_default_avatar100_bg), 24, false);
         }
     }
 
     public final void initView() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (view = this.f47219e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (view = this.f48083e) == null) {
             return;
         }
         HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.ala_enter_effect_header);
-        this.f47220f = headImageView;
+        this.f48084f = headImageView;
         headImageView.setIsRound(true);
-        this.f47223i = (TbImageView) this.f47219e.findViewById(R.id.ala_enter_effect_header_container_bg);
-        this.f47221g = (TextView) this.f47219e.findViewById(R.id.ala_enter_effect_name);
-        this.f47222h = (TextView) this.f47219e.findViewById(R.id.ala_enter_effect_count);
-        this.o = (TextView) this.f47219e.findViewById(R.id.ala_enter_effect_description_txt);
-        this.q = this.f47219e.findViewById(R.id.ala_enter_effect_mask);
-        this.r = (ImageView) this.f47219e.findViewById(R.id.empty_image);
-        this.s = (TextView) this.f47219e.findViewById(R.id.empty_text);
-        this.t = (RelativeLayout) this.f47219e.findViewById(R.id.ala_enter_effect_list_layout);
-        this.j = (BdTypeListView) this.f47219e.findViewById(R.id.ala_enter_effect_list_view);
-        View findViewById = this.f47219e.findViewById(R.id.emptyview);
+        this.f48087i = (TbImageView) this.f48083e.findViewById(R.id.ala_enter_effect_header_container_bg);
+        this.f48085g = (TextView) this.f48083e.findViewById(R.id.ala_enter_effect_name);
+        this.f48086h = (TextView) this.f48083e.findViewById(R.id.ala_enter_effect_count);
+        this.o = (TextView) this.f48083e.findViewById(R.id.ala_enter_effect_description_txt);
+        this.q = this.f48083e.findViewById(R.id.ala_enter_effect_mask);
+        this.r = (ImageView) this.f48083e.findViewById(R.id.empty_image);
+        this.s = (TextView) this.f48083e.findViewById(R.id.empty_text);
+        this.t = (RelativeLayout) this.f48083e.findViewById(R.id.ala_enter_effect_list_layout);
+        this.j = (BdTypeListView) this.f48083e.findViewById(R.id.ala_enter_effect_list_view);
+        View findViewById = this.f48083e.findViewById(R.id.emptyview);
         this.p = findViewById;
         this.j.setEmptyView(findViewById);
         this.k = new b.a.r0.w.l.g.d.c.a(getPageContext(), this.j);
@@ -442,9 +442,9 @@ public class AlaEnterEffectFragment extends AbsFragment {
             if (alaNetRefreshView != null) {
                 alaNetRefreshView.onChangeSkinType();
             }
-            SkinManager.setBackgroundColor(this.f47219e, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f47221g, R.color.common_color_10310, 1, i2);
-            SkinManager.setViewTextColor(this.f47222h, R.color.white_alpha70, 1, i2);
+            SkinManager.setBackgroundColor(this.f48083e, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f48085g, R.color.common_color_10310, 1, i2);
+            SkinManager.setViewTextColor(this.f48086h, R.color.white_alpha70, 1, i2);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0109, 1, i2);
             SkinManager.setViewTextColor(this.s, R.color.CAM_X0106, 1, i2);
             if (i2 == 1) {
@@ -486,12 +486,12 @@ public class AlaEnterEffectFragment extends AbsFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.f47219e = LayoutInflater.from(getContext()).inflate(R.layout.ala_enter_effect_fragment_layout, (ViewGroup) null);
+            this.f48083e = LayoutInflater.from(getContext()).inflate(R.layout.ala_enter_effect_fragment_layout, (ViewGroup) null);
             initView();
             this.l = new b.a.r0.w.l.g.d.a(getPageContext(), this.v);
             showLoadingView();
             this.l.d();
-            return this.f47219e;
+            return this.f48083e;
         }
         return (View) invokeLLL.objValue;
     }
@@ -526,7 +526,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
             if (this.m == null) {
                 this.m = new g(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
             }
-            this.m.attachView(this.f47219e, false);
+            this.m.attachView(this.f48083e, false);
         }
     }
 

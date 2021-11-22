@@ -15,31 +15,31 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13052a;
+    public int f13832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13053b;
+    public int f13833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13054c;
+    public String f13834c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13055d;
+    public String f13835d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13056e;
+    public String f13836e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13057f;
+    public String f13837f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13058g;
+    public String f13838g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13059h;
+    public boolean f13839h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f13060i;
+    public String f13840i;
 
     static {
         InterceptResult invokeClinit;
@@ -76,14 +76,14 @@ public class f {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, urlParserResIdl) == null) || urlParserResIdl == null || (dataRes = urlParserResIdl.data) == null) {
             return;
         }
-        this.f13052a = dataRes.status.intValue();
-        this.f13053b = urlParserResIdl.data.url_type.intValue();
+        this.f13832a = dataRes.status.intValue();
+        this.f13833b = urlParserResIdl.data.url_type.intValue();
         DataRes dataRes2 = urlParserResIdl.data;
-        this.f13055d = dataRes2.image;
-        this.f13056e = dataRes2.title;
-        this.f13057f = dataRes2.link_from;
-        this.f13058g = dataRes2.price_txt;
-        this.f13059h = dataRes2.is_recognize.intValue() == 1;
-        this.f13060i = urlParserResIdl.data.description;
+        this.f13835d = dataRes2.image;
+        this.f13836e = dataRes2.title;
+        this.f13837f = dataRes2.link_from;
+        this.f13838g = dataRes2.price_txt;
+        this.f13839h = dataRes2.is_recognize.intValue() == 1;
+        this.f13840i = urlParserResIdl.data.description;
     }
 }

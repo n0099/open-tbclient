@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class h extends b.a.e.l.e.a<b.a.r0.w.l.d.k, CardViewHolder<b.a.r0.w.l.h.a>> {
+public class h extends b.a.e.m.e.a<b.a.r0.w.l.d.k, CardViewHolder<b.a.r0.w.l.h.a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
@@ -29,10 +29,10 @@ public class h extends b.a.e.l.e.a<b.a.r0.w.l.d.k, CardViewHolder<b.a.r0.w.l.h.a
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.w.l.d.k f25149e;
+        public final /* synthetic */ b.a.r0.w.l.d.k f26666e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f25150f;
+        public final /* synthetic */ h f26667f;
 
         public a(h hVar, b.a.r0.w.l.d.k kVar) {
             Interceptable interceptable = $ic;
@@ -49,22 +49,22 @@ public class h extends b.a.e.l.e.a<b.a.r0.w.l.d.k, CardViewHolder<b.a.r0.w.l.h.a
                     return;
                 }
             }
-            this.f25150f = hVar;
-            this.f25149e = kVar;
+            this.f26667f = hVar;
+            this.f26666e = kVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f25150f.i0(this.f25149e);
+                this.f26667f.i0(this.f26666e);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), b.a.r0.w.l.d.k.f25187f);
+        super(tbPageContext.getPageActivity(), b.a.r0.w.l.d.k.f26704f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +90,7 @@ public class h extends b.a.e.l.e.a<b.a.r0.w.l.d.k, CardViewHolder<b.a.r0.w.l.h.a
             return;
         }
         aVar.u(8);
-        aVar.v(this.f2419e.getResources().getString(R.string.ala_person_live_my_love_family));
+        aVar.v(this.f2421e.getResources().getString(R.string.ala_person_live_my_love_family));
         aVar.k(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -99,11 +99,11 @@ public class h extends b.a.e.l.e.a<b.a.r0.w.l.d.k, CardViewHolder<b.a.r0.w.l.h.a
         if (!(interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) || kVar == null || kVar.g() == null) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLoveFamilyActivityConfig(this.f2419e, kVar.g().b().user_id)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLoveFamilyActivityConfig(this.f2421e, kVar.g().b().user_id)));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: j0 */
     public CardViewHolder<b.a.r0.w.l.h.a> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -112,7 +112,7 @@ public class h extends b.a.e.l.e.a<b.a.r0.w.l.d.k, CardViewHolder<b.a.r0.w.l.h.a
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: k0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.w.l.d.k kVar, CardViewHolder<b.a.r0.w.l.h.a> cardViewHolder) {
         InterceptResult invokeCommon;

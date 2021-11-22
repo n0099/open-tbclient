@@ -16,22 +16,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseFragment f18322a;
+    public BaseFragment f19656a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f18323b;
+    public BdTypeRecyclerView f19657b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ItemCardViewWrapperAdapter f18324c;
+    public ItemCardViewWrapperAdapter f19658c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f18325d;
+    public List<b.a.e.m.e.a> f19659d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18326e;
+    public int f19660e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18327f;
+    public int f19661f;
 
     public a(BaseFragment baseFragment, BdTypeRecyclerView bdTypeRecyclerView, int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -48,21 +48,21 @@ public class a {
                 return;
             }
         }
-        this.f18325d = new ArrayList();
-        this.f18322a = baseFragment;
-        this.f18323b = bdTypeRecyclerView;
-        this.f18326e = i2;
-        this.f18327f = i3;
+        this.f19659d = new ArrayList();
+        this.f19656a = baseFragment;
+        this.f19657b = bdTypeRecyclerView;
+        this.f19660e = i2;
+        this.f19661f = i3;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ItemCardViewWrapperAdapter itemCardViewWrapperAdapter = new ItemCardViewWrapperAdapter(this.f18322a.getContext(), b.f18295i, this.f18326e, this.f18323b, this.f18327f);
-            this.f18324c = itemCardViewWrapperAdapter;
-            this.f18325d.add(itemCardViewWrapperAdapter);
-            this.f18323b.addAdapters(this.f18325d);
+            ItemCardViewWrapperAdapter itemCardViewWrapperAdapter = new ItemCardViewWrapperAdapter(this.f19656a.getContext(), b.f19629i, this.f19660e, this.f19657b, this.f19661f);
+            this.f19658c = itemCardViewWrapperAdapter;
+            this.f19659d.add(itemCardViewWrapperAdapter);
+            this.f19657b.addAdapters(this.f19659d);
         }
     }
 }

@@ -12,19 +12,19 @@ public class z0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f13500a;
+    public long f14282a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13501b;
+    public String f14283b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13502c;
+    public String f14284c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13503d;
+    public String f14285d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f13504e;
+    public long f14286e;
 
     public z0() {
         Interceptable interceptable = $ic;
@@ -39,41 +39,41 @@ public class z0 {
                 return;
             }
         }
-        this.f13500a = -1L;
-        this.f13501b = null;
-        this.f13502c = null;
-        this.f13503d = "";
-        this.f13504e = -1L;
+        this.f14282a = -1L;
+        this.f14283b = null;
+        this.f14284c = null;
+        this.f14285d = "";
+        this.f14286e = -1L;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13502c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14284c : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13501b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14283b : (String) invokeV.objValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13500a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14282a : invokeV.longValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13503d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14285d : (String) invokeV.objValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13504e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14286e : invokeV.longValue;
     }
 
     public z0(long j, long j2, String str, String str2, String str3, long j3) {
@@ -91,15 +91,15 @@ public class z0 {
                 return;
             }
         }
-        this.f13500a = -1L;
-        this.f13501b = null;
-        this.f13502c = null;
-        this.f13503d = "";
-        this.f13504e = -1L;
-        this.f13500a = j;
-        this.f13504e = j2;
-        this.f13501b = str;
-        this.f13502c = str2;
-        this.f13503d = str3;
+        this.f14282a = -1L;
+        this.f14283b = null;
+        this.f14284c = null;
+        this.f14285d = "";
+        this.f14286e = -1L;
+        this.f14282a = j;
+        this.f14286e = j2;
+        this.f14283b = str;
+        this.f14284c = str2;
+        this.f14285d = str3;
     }
 }

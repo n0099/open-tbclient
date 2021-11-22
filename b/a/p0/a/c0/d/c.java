@@ -25,20 +25,20 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f4121d;
+    public static final boolean f4266d;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.p0.a.w2.g.a f4122a;
+    public b.a.p0.a.a3.g.a f4267a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayMap<String, b.a.p0.a.c0.b.a> f4123b;
+    public ArrayMap<String, b.a.p0.a.c0.b.a> f4268b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayMap<String, List<b.a.p0.a.c0.b.a>> f4124c;
+    public ArrayMap<String, List<b.a.p0.a.c0.b.a>> f4269c;
 
     static {
         InterceptResult invokeClinit;
@@ -53,10 +53,10 @@ public final class c {
                 return;
             }
         }
-        f4121d = k.f6397a;
+        f4266d = k.f6863a;
     }
 
-    public c(@NonNull b.a.p0.a.w2.g.a aVar) {
+    public c(@NonNull b.a.p0.a.a3.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,9 +71,9 @@ public final class c {
                 return;
             }
         }
-        this.f4122a = aVar;
-        this.f4123b = new ArrayMap<>();
-        this.f4124c = new ArrayMap<>();
+        this.f4267a = aVar;
+        this.f4268b = new ArrayMap<>();
+        this.f4269c = new ArrayMap<>();
     }
 
     @Nullable
@@ -84,9 +84,9 @@ public final class c {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            b.a.p0.a.c0.b.a aVar = this.f4123b.get(str);
+            b.a.p0.a.c0.b.a aVar = this.f4268b.get(str);
             if (aVar == null) {
-                d.b("Component-Container", "getContainerView : get a null  component#" + str);
+                d.c("Component-Container", "getContainerView : get a null  component#" + str);
                 return null;
             }
             return aVar.m();
@@ -105,22 +105,22 @@ public final class c {
                 return false;
             }
             b.a.p0.a.c0.b.b n = aVar.n();
-            String str = n.f4055e;
-            String str2 = n.f4056f;
+            String str = n.f4195e;
+            String str2 = n.f4196f;
             String o = aVar.o();
             SwanAppComponentContainerView m = aVar.m();
             if (m == null) {
                 b.a.p0.a.c0.g.a.a("Component-Container", "insert " + o + " with a null container view");
                 return false;
             }
-            if (this.f4123b.containsKey(str2)) {
-                d.l("Component-Container", o + " repeat insert: " + str2);
+            if (this.f4268b.containsKey(str2)) {
+                d.o("Component-Container", o + " repeat insert: " + str2);
             }
             if (TextUtils.isEmpty(str2)) {
                 b.a.p0.a.c0.g.a.a("Component-Container", "insert " + o + " with a empty component id");
                 return false;
             }
-            b.a.p0.a.l1.e.a.a aVar2 = n.l;
+            b.a.p0.a.m1.e.a.a aVar2 = n.l;
             if (aVar2 == null) {
                 b.a.p0.a.c0.g.a.a("Component-Container", "insert " + o + " with a null position");
                 return false;
@@ -136,15 +136,15 @@ public final class c {
                 }
                 sb.append(obj);
                 b.a.p0.a.c0.g.a.a("Component-Container", sb.toString());
-                n.l = new b.a.p0.a.l1.e.a.a();
+                n.l = new b.a.p0.a.m1.e.a.a();
             }
             if (!b.c(n)) {
-                if (TextUtils.isEmpty(n.f4058h)) {
-                    b2 = this.f4122a.c(m, n.l);
+                if (TextUtils.isEmpty(n.f4198h)) {
+                    b2 = this.f4267a.c(m, n.l);
                 } else {
-                    SwanAppComponentContainerView a2 = a(n.f4058h);
+                    SwanAppComponentContainerView a2 = a(n.f4198h);
                     if (a2 == null) {
-                        d.b("Component-Container", "insert " + o + " to parent with a null parent container view");
+                        d.c("Component-Container", "insert " + o + " to parent with a null parent container view");
                         return false;
                     }
                     if (a2.indexOfChild(m) >= 0) {
@@ -161,13 +161,13 @@ public final class c {
                 }
             }
             if (b2) {
-                this.f4123b.put(n.f4056f, aVar);
+                this.f4268b.put(n.f4196f, aVar);
                 if (aVar.s(2)) {
-                    d.l("Component-Container", o + " insert with FLAG_CAN_NO_COMPONENT_ID");
-                    List<b.a.p0.a.c0.b.a> list = this.f4124c.get(str);
+                    d.o("Component-Container", o + " insert with FLAG_CAN_NO_COMPONENT_ID");
+                    List<b.a.p0.a.c0.b.a> list = this.f4269c.get(str);
                     if (list == null) {
                         list = new ArrayList<>();
-                        this.f4124c.put(str, list);
+                        this.f4269c.put(str, list);
                     }
                     list.add(aVar);
                 }
@@ -181,14 +181,14 @@ public final class c {
         b.a.p0.a.c0.b.a value;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            boolean z = f4121d;
-            for (Map.Entry<String, b.a.p0.a.c0.b.a> entry : this.f4123b.entrySet()) {
+            boolean z = f4266d;
+            for (Map.Entry<String, b.a.p0.a.c0.b.a> entry : this.f4268b.entrySet()) {
                 if (entry != null && (value = entry.getValue()) != null) {
                     value.y();
                 }
             }
-            this.f4123b.clear();
-            this.f4124c.clear();
+            this.f4268b.clear();
+            this.f4269c.clear();
         }
     }
 
@@ -197,21 +197,21 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, aVar, swanAppComponentContainerView, bVar)) == null) {
             String o = aVar.o();
-            if (f4121d) {
+            if (f4266d) {
                 r0 = o + " perform position update";
             }
-            b.a.p0.a.l1.e.a.a aVar2 = bVar.l;
+            b.a.p0.a.m1.e.a.a aVar2 = bVar.l;
             if (aVar2 != null && aVar2.i()) {
                 if (b.c(bVar) && !b.e(this, bVar, swanAppComponentContainerView)) {
                     b.a.p0.a.c0.g.a.a("Component-Container", o + " performPositionUpdateForScroll fail");
                 }
-                String str = bVar.f4058h;
+                String str = bVar.f4198h;
                 if (TextUtils.isEmpty(str)) {
-                    return this.f4122a.a(swanAppComponentContainerView, bVar.l);
+                    return this.f4267a.a(swanAppComponentContainerView, bVar.l);
                 }
                 SwanAppComponentContainerView a2 = a(str);
                 if (a2 == null) {
-                    d.b("Component-Container", "update " + o + " to parent with a null parent container view");
+                    d.c("Component-Container", "update " + o + " to parent with a null parent container view");
                     return false;
                 } else if (swanAppComponentContainerView.getParent() == a2) {
                     a2.updateViewLayout(swanAppComponentContainerView, bVar.b());
@@ -247,8 +247,8 @@ public final class c {
                 return false;
             }
             b.a.p0.a.c0.b.b n = aVar.n();
-            String str = n.f4055e;
-            String str2 = n.f4056f;
+            String str = n.f4195e;
+            String str2 = n.f4196f;
             String o = aVar.o();
             SwanAppComponentContainerView m = aVar.m();
             if (m == null) {
@@ -259,12 +259,12 @@ public final class c {
                 return false;
             } else {
                 if (!b.c(n)) {
-                    if (TextUtils.isEmpty(n.f4058h)) {
-                        z = this.f4122a.removeView(m);
+                    if (TextUtils.isEmpty(n.f4198h)) {
+                        z = this.f4267a.removeView(m);
                     } else {
-                        SwanAppComponentContainerView a2 = a(n.f4058h);
+                        SwanAppComponentContainerView a2 = a(n.f4198h);
                         if (a2 == null) {
-                            d.b("Component-Container", "remove " + o + " to parent with a null parent container view");
+                            d.c("Component-Container", "remove " + o + " to parent with a null parent container view");
                         } else if (a2 == m.getParent()) {
                             a2.removeView(m);
                             z = true;
@@ -279,10 +279,10 @@ public final class c {
                     }
                 }
                 if (z || aVar.s(1)) {
-                    this.f4123b.remove(str2);
+                    this.f4268b.remove(str2);
                     if (aVar.s(2)) {
-                        d.l("Component-Container", o + " remove with FLAG_CAN_NO_COMPONENT_ID");
-                        List<b.a.p0.a.c0.b.a> list = this.f4124c.get(str);
+                        d.o("Component-Container", o + " remove with FLAG_CAN_NO_COMPONENT_ID");
+                        List<b.a.p0.a.c0.b.a> list = this.f4269c.get(str);
                         if (list != null) {
                             list.remove(aVar);
                         }
@@ -310,8 +310,8 @@ public final class c {
                 b.a.p0.a.c0.g.a.a("Component-Container", "update " + o + " with a null container view");
                 return false;
             }
-            if (!this.f4123b.containsKey(n.f4056f)) {
-                d.b("Component-Container", "don't insert" + o);
+            if (!this.f4268b.containsKey(n.f4196f)) {
+                d.c("Component-Container", "don't insert" + o);
             }
             if (aVar instanceof b.a.p0.a.c0.c.e.c.a) {
                 if (bVar.a(7)) {
@@ -325,18 +325,18 @@ public final class c {
                 }
             }
             if (bVar.a(3) && !d(aVar, m, n)) {
-                d.b("Component-Container", o + " perform position update fail");
+                d.c("Component-Container", o + " perform position update fail");
                 return false;
             } else if (aVar instanceof b.a.p0.a.c0.a.d.a) {
                 b.a.p0.a.c0.a.d.a aVar2 = (b.a.p0.a.c0.a.d.a) aVar;
                 if (aVar2.J()) {
-                    if (f4121d) {
+                    if (f4266d) {
                         String str = o + "perform position update with animation";
                     }
                     if (aVar2.M()) {
                         return true;
                     }
-                    d.b("Component-Container", o + " perform position update with animation fail");
+                    d.c("Component-Container", o + " perform position update with animation fail");
                     return false;
                 }
                 return true;

@@ -1,9 +1,9 @@
 package com.google.common.base;
 
 import androidx.core.view.InputDeviceCompat;
-import b.i.d.a.g;
-import b.i.d.a.n;
-import b.i.d.a.r;
+import b.h.d.a.g;
+import b.h.d.a.n;
+import b.h.d.a.r;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,34 +12,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public abstract class Optional<T> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Iterable<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterable f63145e;
+        public final /* synthetic */ Iterable f64045e;
 
         /* renamed from: com.google.common.base.Optional$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class C1867a extends AbstractIterator<T> {
+        /* loaded from: classes11.dex */
+        public class C1907a extends AbstractIterator<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final Iterator<? extends Optional<? extends T>> f63146g;
+            public final Iterator<? extends Optional<? extends T>> f64046g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ a f63147h;
+            public final /* synthetic */ a f64047h;
 
             /* JADX DEBUG: Type inference failed for r6v4. Raw type applied. Possible types: java.util.Iterator<T>, java.util.Iterator<? extends com.google.common.base.Optional<? extends T>> */
-            public C1867a(a aVar) {
+            public C1907a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,10 +54,10 @@ public abstract class Optional<T> implements Serializable {
                         return;
                     }
                 }
-                this.f63147h = aVar;
-                Iterator it = this.f63147h.f63145e.iterator();
+                this.f64047h = aVar;
+                Iterator it = this.f64047h.f64045e.iterator();
                 n.p(it);
-                this.f63146g = (Iterator<T>) it;
+                this.f64046g = (Iterator<T>) it;
             }
 
             @Override // com.google.common.base.AbstractIterator
@@ -65,8 +65,8 @@ public abstract class Optional<T> implements Serializable {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    while (this.f63146g.hasNext()) {
-                        Optional<? extends T> next = this.f63146g.next();
+                    while (this.f64046g.hasNext()) {
+                        Optional<? extends T> next = this.f64046g.next();
                         if (next.isPresent()) {
                             return next.get();
                         }
@@ -92,14 +92,14 @@ public abstract class Optional<T> implements Serializable {
                     return;
                 }
             }
-            this.f63145e = iterable;
+            this.f64045e = iterable;
         }
 
         @Override // java.lang.Iterable
         public Iterator<T> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1867a(this) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C1907a(this) : (Iterator) invokeV.objValue;
         }
     }
 

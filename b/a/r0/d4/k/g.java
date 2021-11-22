@@ -1,7 +1,7 @@
 package b.a.r0.d4.k;
 
-import com.baidu.tbadk.album.MediaFileInfo;
+import android.content.Intent;
 /* loaded from: classes4.dex */
 public interface g {
-    void a(int i2, MediaFileInfo mediaFileInfo);
+    void onSetResult(Intent intent);
 }

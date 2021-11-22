@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import b.a.r0.h1.l.a;
-import b.a.r0.x0.n0;
+import b.a.r0.x0.o0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,15 +26,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
-public class VideoTabFragment extends BaseFragment implements n0 {
+public class VideoTabFragment extends BaseFragment implements o0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f49907e;
+    public a f50819e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f49908f;
+    public boolean f50820f;
 
     public VideoTabFragment() {
         Interceptable interceptable = $ic;
@@ -49,10 +49,10 @@ public class VideoTabFragment extends BaseFragment implements n0 {
                 return;
             }
         }
-        this.f49908f = false;
+        this.f50820f = false;
     }
 
-    @Override // b.a.r0.x0.n0
+    @Override // b.a.r0.x0.o0
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -91,7 +91,7 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            a aVar = this.f49907e;
+            a aVar = this.f50819e;
             if (aVar != null) {
                 aVar.g();
             }
@@ -104,10 +104,10 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(bundle);
-            if (this.f49907e == null) {
-                this.f49907e = new a(getPageContext(), getUniqueId());
+            if (this.f50819e == null) {
+                this.f50819e = new a(getPageContext(), getUniqueId());
             }
-            this.f49907e.k();
+            this.f50819e.k();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_END_STAMP_KEY);
         }
     }
@@ -119,12 +119,12 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_VIEW_START_STAMP_KEY);
-            a aVar = this.f49907e;
+            a aVar = this.f50819e;
             if (aVar != null && aVar.j() != null) {
-                if (this.f49907e.j().getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.f49907e.j().getParent()).removeView(this.f49907e.j());
+                if (this.f50819e.j().getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.f50819e.j().getParent()).removeView(this.f50819e.j());
                 }
-                return this.f49907e.j();
+                return this.f50819e.j();
             }
             View onCreateView = super.onCreateView(layoutInflater, viewGroup, bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_VIEW_END_STAMP_KEY);
@@ -138,7 +138,7 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            a aVar = this.f49907e;
+            a aVar = this.f50819e;
             if (aVar != null) {
                 aVar.m();
             }
@@ -151,21 +151,21 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onLazyLoad();
-            a aVar = this.f49907e;
+            a aVar = this.f50819e;
             if (aVar != null) {
                 aVar.l();
             }
         }
     }
 
-    @Override // b.a.r0.x0.n0
+    @Override // b.a.r0.x0.o0
     public void onPageOutEnd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
-    @Override // b.a.r0.x0.n0
+    @Override // b.a.r0.x0.o0
     public void onPageStartIn() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -177,7 +177,7 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            a aVar = this.f49907e;
+            a aVar = this.f50819e;
             if (aVar != null) {
                 aVar.n();
             }
@@ -190,24 +190,24 @@ public class VideoTabFragment extends BaseFragment implements n0 {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
-                if (!this.f49908f) {
-                    this.f49908f = true;
+                if (!this.f50820f) {
+                    this.f50820f = true;
                     TiebaStatic.log(new StatisticItem("c13579"));
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            a aVar = this.f49907e;
+            a aVar = this.f50819e;
             if (aVar != null) {
                 aVar.p(isPrimary());
             }
         }
     }
 
-    @Override // b.a.r0.x0.n0
+    @Override // b.a.r0.x0.o0
     public void refreshPage() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (aVar = this.f49907e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (aVar = this.f50819e) == null) {
             return;
         }
         aVar.o();

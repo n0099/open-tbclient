@@ -1,6 +1,5 @@
 package kotlin.internal;
 
-import androidx.exifinterface.media.ExifInterface;
 import androidx.transition.Transition;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
@@ -11,7 +10,7 @@ import kotlin.SinceKotlin;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a'\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0001\u001a\u00020\u00002\u0006\u0010\u0002\u001a\u00020\u00002\u0006\u0010\u0003\u001a\u00020\u0000H\u0001¢\u0006\u0004\b\u0005\u0010\u0006\u001a$\u0010\n\u001a\u00028\u0000\"\n\b\u0000\u0010\b\u0018\u0001*\u00020\u00072\u0006\u0010\t\u001a\u00020\u0007H\u0083\b¢\u0006\u0004\b\n\u0010\u000b\u001a\u000f\u0010\f\u001a\u00020\u0000H\u0002¢\u0006\u0004\b\f\u0010\r\"\u0016\u0010\u000f\u001a\u00020\u000e8\u0000@\u0001X\u0081\u0004¢\u0006\u0006\n\u0004\b\u000f\u0010\u0010¨\u0006\u0011"}, d2 = {"", "major", "minor", SchemeDescPatchListener.PATCH, "", "apiVersionIsAtLeast", "(III)Z", "", ExifInterface.GPS_DIRECTION_TRUE, Transition.MATCH_INSTANCE_STR, "castToBaseType", "(Ljava/lang/Object;)Ljava/lang/Object;", "getJavaVersion", "()I", "Lkotlin/internal/PlatformImplementations;", "IMPLEMENTATIONS", "Lkotlin/internal/PlatformImplementations;", "kotlin-stdlib"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a'\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0001\u001a\u00020\u00002\u0006\u0010\u0002\u001a\u00020\u00002\u0006\u0010\u0003\u001a\u00020\u0000H\u0001¢\u0006\u0004\b\u0005\u0010\u0006\u001a$\u0010\n\u001a\u00028\u0000\"\n\b\u0000\u0010\b\u0018\u0001*\u00020\u00072\u0006\u0010\t\u001a\u00020\u0007H\u0083\b¢\u0006\u0004\b\n\u0010\u000b\u001a\u000f\u0010\f\u001a\u00020\u0000H\u0002¢\u0006\u0004\b\f\u0010\r\"\u0016\u0010\u000f\u001a\u00020\u000e8\u0000@\u0001X\u0081\u0004¢\u0006\u0006\n\u0004\b\u000f\u0010\u0010¨\u0006\u0011"}, d2 = {"", "major", "minor", SchemeDescPatchListener.PATCH, "", "apiVersionIsAtLeast", "(III)Z", "", "T", Transition.MATCH_INSTANCE_STR, "castToBaseType", "(Ljava/lang/Object;)Ljava/lang/Object;", "getJavaVersion", "()I", "Lkotlin/internal/PlatformImplementations;", "IMPLEMENTATIONS", "Lkotlin/internal/PlatformImplementations;", "kotlin-stdlib"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class PlatformImplementationsKt {
     @JvmField
@@ -108,11 +107,11 @@ public final class PlatformImplementationsKt {
     @InlineOnly
     public static final /* synthetic */ <T> T castToBaseType(Object obj) {
         try {
-            Intrinsics.reifiedOperationMarker(1, ExifInterface.GPS_DIRECTION_TRUE);
+            Intrinsics.reifiedOperationMarker(1, "T");
             return obj;
         } catch (ClassCastException e2) {
             ClassLoader classLoader = obj.getClass().getClassLoader();
-            Intrinsics.reifiedOperationMarker(4, ExifInterface.GPS_DIRECTION_TRUE);
+            Intrinsics.reifiedOperationMarker(4, "T");
             ClassLoader classLoader2 = Object.class.getClassLoader();
             Throwable initCause = new ClassCastException("Instance classloader: " + classLoader + ", base type classloader: " + classLoader2).initCause(e2);
             Intrinsics.checkNotNullExpressionValue(initCause, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)");

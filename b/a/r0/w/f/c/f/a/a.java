@@ -18,36 +18,36 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.r0.w.f.c.f.a.b f24621a;
+    public b.a.r0.w.f.c.f.a.b f26138a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f24622b;
+    public c f26139b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f24623c;
+    public g f26140c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f24624d;
+    public f f26141d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f24625e;
+    public d f26142e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f24626f;
+    public e f26143f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f24627g;
+    public List<b.a.e.m.e.a> f26144g;
 
     /* renamed from: b.a.r0.w.f.c.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1202a implements i {
+    public class C1270a implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f24628a;
+        public final /* synthetic */ TbPageContext f26145a;
 
-        public C1202a(a aVar, TbPageContext tbPageContext) {
+        public C1270a(a aVar, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +62,7 @@ public class a {
                     return;
                 }
             }
-            this.f24628a = tbPageContext;
+            this.f26145a = tbPageContext;
         }
 
         @Override // b.a.r0.w.f.c.f.d.i
@@ -71,17 +71,17 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || eVar == null || eVar.getThreadData() == null) {
                 return;
             }
-            if (eVar.getThreadData().l1() != null && eVar.getThreadData().l1().mYyExtData != null) {
-                AlaInfoData l1 = eVar.getThreadData().l1();
-                TbPageContext tbPageContext = this.f24628a;
-                YyExtData yyExtData = l1.mYyExtData;
+            if (eVar.getThreadData().m1() != null && eVar.getThreadData().m1().mYyExtData != null) {
+                AlaInfoData m1 = eVar.getThreadData().m1();
+                TbPageContext tbPageContext = this.f26145a;
+                YyExtData yyExtData = m1.mYyExtData;
                 String str = yyExtData.mSid;
                 String str2 = yyExtData.mSsid;
                 String str3 = yyExtData.mTemplateId;
-                YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + l1.roomId, l1.mYyExtData.streamInfo, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_CARD);
+                YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + m1.roomId, m1.mYyExtData.streamInfo, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_CARD);
                 return;
             }
-            b.a.r0.w.f.c.c.i(this.f24628a.getPageActivity(), eVar.getThreadData());
+            b.a.r0.w.f.c.c.i(this.f26145a.getPageActivity(), eVar.getThreadData());
         }
     }
 
@@ -91,7 +91,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f24629a;
+        public final /* synthetic */ TbPageContext f26146a;
 
         public b(a aVar, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -108,22 +108,22 @@ public class a {
                     return;
                 }
             }
-            this.f24629a = tbPageContext;
+            this.f26146a = tbPageContext;
         }
 
         @Override // b.a.r0.w.f.c.f.d.i
         public void a(b.a.r0.w.f.a.e eVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || eVar == null || eVar.getThreadData() == null || eVar.getThreadData().l1() == null || eVar.getThreadData().l1().mYyExtData == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || eVar == null || eVar.getThreadData() == null || eVar.getThreadData().m1() == null || eVar.getThreadData().m1().mYyExtData == null) {
                 return;
             }
-            AlaInfoData l1 = eVar.getThreadData().l1();
-            TbPageContext tbPageContext = this.f24629a;
-            YyExtData yyExtData = l1.mYyExtData;
+            AlaInfoData m1 = eVar.getThreadData().m1();
+            TbPageContext tbPageContext = this.f26146a;
+            YyExtData yyExtData = m1.mYyExtData;
             String str = yyExtData.mSid;
             String str2 = yyExtData.mSsid;
             String str3 = yyExtData.mTemplateId;
-            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + l1.roomId, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_HEAD);
+            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + m1.roomId, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_HEAD);
         }
     }
 
@@ -142,26 +142,26 @@ public class a {
                 return;
             }
         }
-        this.f24627g = new LinkedList();
-        this.f24621a = new b.a.r0.w.f.c.f.a.b(tbPageContext);
-        this.f24622b = new c(tbPageContext);
-        this.f24623c = new g(tbPageContext);
-        this.f24624d = new f(tbPageContext);
-        this.f24625e = new d(tbPageContext);
-        this.f24626f = new e(tbPageContext);
-        this.f24622b.i0(new C1202a(this, tbPageContext));
-        this.f24624d.i0(new b(this, tbPageContext));
-        this.f24627g.add(this.f24621a);
-        this.f24627g.add(this.f24622b);
-        this.f24627g.add(this.f24623c);
-        this.f24627g.add(this.f24624d);
-        this.f24627g.add(this.f24625e);
-        this.f24627g.add(this.f24626f);
+        this.f26144g = new LinkedList();
+        this.f26138a = new b.a.r0.w.f.c.f.a.b(tbPageContext);
+        this.f26139b = new c(tbPageContext);
+        this.f26140c = new g(tbPageContext);
+        this.f26141d = new f(tbPageContext);
+        this.f26142e = new d(tbPageContext);
+        this.f26143f = new e(tbPageContext);
+        this.f26139b.i0(new C1270a(this, tbPageContext));
+        this.f26141d.i0(new b(this, tbPageContext));
+        this.f26144g.add(this.f26138a);
+        this.f26144g.add(this.f26139b);
+        this.f26144g.add(this.f26140c);
+        this.f26144g.add(this.f26141d);
+        this.f26144g.add(this.f26142e);
+        this.f26144g.add(this.f26143f);
     }
 
-    public List<b.a.e.l.e.a> a() {
+    public List<b.a.e.m.e.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24627g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26144g : (List) invokeV.objValue;
     }
 }

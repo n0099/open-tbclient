@@ -3,8 +3,8 @@ package b.a.r0.g.b;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import b.a.r0.a3.u;
 import b.a.r0.g.e.f;
-import b.a.r0.z2.u;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -41,8 +41,8 @@ public class a extends f {
         this.m = uVar;
     }
 
-    @Override // b.a.r0.g.e.f, b.a.e.l.e.a
-    public View J(int i2, View view, ViewGroup viewGroup, Object obj) {
+    @Override // b.a.r0.g.e.f, b.a.e.m.e.a
+    public View L(int i2, View view, ViewGroup viewGroup, Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), view, viewGroup, obj})) == null) {
@@ -59,7 +59,7 @@ public class a extends f {
         return (View) invokeCommon.objValue;
     }
 
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public TypeAdapter.ViewHolder U(ViewGroup viewGroup, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class a extends f {
         return (TypeAdapter.ViewHolder) invokeLL.objValue;
     }
 
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public void a0(int i2, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), viewGroup, viewHolder, obj}) == null) && (obj instanceof b)) {

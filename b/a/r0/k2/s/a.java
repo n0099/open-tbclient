@@ -15,31 +15,31 @@ public class a implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18828e;
+    public int f20365e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f18829f;
+    public long f20366f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f18830g;
+    public long f20367g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f18831h;
+    public b f20368h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f18832i;
+    public long f20369i;
     public Handler j;
 
     /* renamed from: b.a.r0.k2.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class HandlerC0949a extends Handler {
+    public class HandlerC1018a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f18833a;
+        public final /* synthetic */ a f20370a;
 
-        public HandlerC0949a(a aVar) {
+        public HandlerC1018a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,7 +54,7 @@ public class a implements View.OnTouchListener {
                     return;
                 }
             }
-            this.f18833a = aVar;
+            this.f20370a = aVar;
         }
 
         @Override // android.os.Handler
@@ -63,16 +63,16 @@ public class a implements View.OnTouchListener {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 if (i2 == 2) {
-                    this.f18833a.f18828e = 0;
-                    this.f18833a.f18829f = 0L;
-                    this.f18833a.f18830g = 0L;
-                } else if (i2 == 1 && this.f18833a.f18828e == 1) {
-                    if (this.f18833a.f18831h != null) {
-                        this.f18833a.f18831h.a();
+                    this.f20370a.f20365e = 0;
+                    this.f20370a.f20366f = 0L;
+                    this.f20370a.f20367g = 0L;
+                } else if (i2 == 1 && this.f20370a.f20365e == 1) {
+                    if (this.f20370a.f20368h != null) {
+                        this.f20370a.f20368h.a();
                     }
-                    this.f18833a.f18828e = 0;
-                    this.f18833a.f18829f = 0L;
-                    this.f18833a.f18830g = 0L;
+                    this.f20370a.f20365e = 0;
+                    this.f20370a.f20366f = 0L;
+                    this.f20370a.f20367g = 0L;
                 }
             }
         }
@@ -100,12 +100,12 @@ public class a implements View.OnTouchListener {
                 return;
             }
         }
-        this.f18828e = 0;
-        this.f18829f = 0L;
-        this.f18830g = 0L;
-        this.f18832i = 500L;
-        this.j = new HandlerC0949a(this);
-        this.f18831h = bVar;
+        this.f20365e = 0;
+        this.f20366f = 0L;
+        this.f20367g = 0L;
+        this.f20369i = 500L;
+        this.j = new HandlerC1018a(this);
+        this.f20368h = bVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -114,19 +114,19 @@ public class a implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                if (this.f18831h == null) {
+                if (this.f20368h == null) {
                     return false;
                 }
-                int i2 = this.f18828e + 1;
-                this.f18828e = i2;
+                int i2 = this.f20365e + 1;
+                this.f20365e = i2;
                 if (i2 == 1) {
-                    this.f18829f = System.currentTimeMillis();
-                    this.j.sendEmptyMessageDelayed(1, this.f18832i);
+                    this.f20366f = System.currentTimeMillis();
+                    this.j.sendEmptyMessageDelayed(1, this.f20369i);
                 } else if (i2 == 2) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    this.f18830g = currentTimeMillis;
-                    if (currentTimeMillis - this.f18829f < this.f18832i) {
-                        this.f18831h.b();
+                    this.f20367g = currentTimeMillis;
+                    if (currentTimeMillis - this.f20366f < this.f20369i) {
+                        this.f20368h.b();
                     }
                     this.j.sendEmptyMessage(2);
                 }

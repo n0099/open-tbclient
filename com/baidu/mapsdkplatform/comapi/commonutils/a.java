@@ -24,7 +24,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f40027a;
+    public static final boolean f40859a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class a {
                 return;
             }
         }
-        f40027a = Build.VERSION.SDK_INT >= 8;
+        f40859a = Build.VERSION.SDK_INT >= 8;
     }
 
     public a() {
@@ -208,7 +208,7 @@ public class a {
             ZipFile zipFile2 = null;
             try {
                 try {
-                    zipFile = new ZipFile(f40027a ? context.getPackageCodePath() : "");
+                    zipFile = new ZipFile(f40859a ? context.getPackageCodePath() : "");
                 } catch (IOException unused) {
                 }
                 try {

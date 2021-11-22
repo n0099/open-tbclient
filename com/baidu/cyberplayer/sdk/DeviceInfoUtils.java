@@ -8,7 +8,6 @@ import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.statistic.DeviceInfoUtil;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,10 +26,10 @@ public class DeviceInfoUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36997a;
+    public static String f37827a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36998b;
+    public static String f37828b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -99,7 +98,7 @@ public class DeviceInfoUtils {
             if (registerReceiver != null) {
                 strArr[0] = String.valueOf(registerReceiver.getIntExtra("health", 1));
                 strArr[1] = String.valueOf(registerReceiver.getIntExtra("status", 1));
-                strArr[2] = String.valueOf(registerReceiver.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 0));
+                strArr[2] = String.valueOf(registerReceiver.getIntExtra("level", 0));
                 strArr[3] = String.valueOf(registerReceiver.getIntExtra("scale", 0));
                 strArr[4] = String.valueOf(registerReceiver.getIntExtra("voltage", 0));
                 strArr[5] = String.valueOf(registerReceiver.getIntExtra("temperature", 0));
@@ -117,7 +116,7 @@ public class DeviceInfoUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             Intent registerReceiver = CyberPlayerManager.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             if (registerReceiver != null) {
-                return String.valueOf(registerReceiver.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 0));
+                return String.valueOf(registerReceiver.getIntExtra("level", 0));
             }
             return null;
         }
@@ -308,7 +307,7 @@ public class DeviceInfoUtils {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
-            String str2 = f36997a;
+            String str2 = f37827a;
             if (str2 != null) {
                 return str2;
             }
@@ -325,7 +324,7 @@ public class DeviceInfoUtils {
                 str = null;
             }
             if (str != null) {
-                f36997a = str;
+                f37827a = str;
             }
             return str;
         }
@@ -387,7 +386,7 @@ public class DeviceInfoUtils {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            String str2 = f36998b;
+            String str2 = f37828b;
             if (str2 != null) {
                 return str2;
             }
@@ -404,7 +403,7 @@ public class DeviceInfoUtils {
                 str = null;
             }
             if (str != null) {
-                f36998b = str;
+                f37828b = str;
             }
             return str;
         }

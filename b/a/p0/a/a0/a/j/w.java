@@ -13,10 +13,10 @@ public class w extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f3889a;
+    public float f3983a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f3890b;
+    public float f3984b;
 
     public w() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class w extends a {
             if (bVar.a() == 0) {
                 bVar.b(canvas.save());
             }
-            canvas.scale(this.f3889a, this.f3890b);
+            canvas.scale(this.f3983a, this.f3984b);
         }
     }
 
@@ -49,7 +49,7 @@ public class w extends a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 1) {
             return;
         }
-        this.f3889a = (float) jSONArray.optDouble(0);
-        this.f3890b = (float) jSONArray.optDouble(1);
+        this.f3983a = (float) jSONArray.optDouble(0);
+        this.f3984b = (float) jSONArray.optDouble(1);
     }
 }

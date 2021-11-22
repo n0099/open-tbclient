@@ -11,31 +11,31 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f11991a = 1;
+    public static int f12870a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f11992b = 2;
+    public static int f12871b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f11993c = 3;
+    public static int f12872c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f11994d = 1;
+    public static int f12873d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f11995e = 2;
+    public static int f12874e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f11996f = 3;
+    public static int f12875f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f11997g = 4;
+    public static int f12876g = 4;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f11998h = 5;
+    public static int f12877h = 5;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f11999i = 6;
+    public static int f12878i = 6;
     public static int j = 7;
     public static int k = 8;
     public static int l = 9;
@@ -62,12 +62,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, Integer.valueOf(i4)}) == null) {
             c cVar = new c();
-            cVar.f12000a = i2;
-            cVar.f12001b = i3;
-            cVar.f12002c = str;
-            cVar.f12003d = str2;
-            cVar.f12004e = str3;
-            cVar.f12005f = i4;
+            cVar.f12879a = i2;
+            cVar.f12880b = i3;
+            cVar.f12881c = str;
+            cVar.f12882d = str2;
+            cVar.f12883e = str3;
+            cVar.f12884f = i4;
             m.a(cVar);
         }
     }

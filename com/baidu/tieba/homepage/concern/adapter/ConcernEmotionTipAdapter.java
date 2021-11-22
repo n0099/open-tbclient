@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import b.a.e.l.e.a;
+import b.a.e.m.e.a;
 import b.a.r0.h1.c.f.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -30,7 +30,7 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f49404a;
+        public int f50315a;
         public ViewGroup concernEmotionTipLayout;
         public ImageView emotionPic;
         public TextView tipText;
@@ -53,7 +53,7 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
                     return;
                 }
             }
-            this.f49404a = 3;
+            this.f50315a = 3;
             this.concernEmotionTipLayout = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
             this.emotionPic = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
             this.tipText = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
@@ -62,11 +62,11 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
         public void onChangeSkinType(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                if (this.f49404a != i2) {
+                if (this.f50315a != i2) {
                     SkinManager.setViewTextColor(this.tipText, R.color.CAM_X0107);
                 }
                 SkinManager.setImageResource(this.emotionPic, i3);
-                this.f49404a = i2;
+                this.f50315a = i2;
             }
         }
     }
@@ -93,7 +93,7 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public ConcernEmotionTipViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -102,24 +102,24 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b bVar, ConcernEmotionTipViewHolder concernEmotionTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, concernEmotionTipViewHolder})) == null) {
-            String str = bVar.f17027f;
+            String str = bVar.f18495f;
             if (str != null) {
                 concernEmotionTipViewHolder.tipText.setText(str);
             }
             if (bVar.getType() == b.j) {
-                if (bVar.f17026e == 2) {
+                if (bVar.f18494e == 2) {
                     concernEmotionTipViewHolder.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_person_no_data_title));
                 } else {
                     concernEmotionTipViewHolder.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_no_data_title));
                 }
             }
-            int i3 = bVar.f17026e;
+            int i3 = bVar.f18494e;
             if (i3 == 2) {
                 concernEmotionTipViewHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
             } else if (i3 == 3) {

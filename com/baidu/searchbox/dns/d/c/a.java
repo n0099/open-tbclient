@@ -7,7 +7,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.searchbox.dns.util.DnsUtil;
-import com.baidu.searchbox.privateapi.PrivateApiUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +49,7 @@ public abstract class a<T> {
         this.al = w();
     }
 
-    private T Q() {
+    private T O() {
         InterceptResult invokeV;
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
@@ -94,7 +93,7 @@ public abstract class a<T> {
         return (T) invokeV.objValue;
     }
 
-    public String P() {
+    public String N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -105,7 +104,7 @@ public abstract class a<T> {
             } else {
                 stringBuffer.append("1.0");
             }
-            if (PrivateApiUtils.SDK_VERSION_NAME.equals(Build.VERSION.CODENAME)) {
+            if ("REL".equals(Build.VERSION.CODENAME)) {
                 String str2 = Build.MODEL;
                 if (str2.length() > 0) {
                     stringBuffer.append("; ");
@@ -128,7 +127,7 @@ public abstract class a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, httpURLConnection) == null) {
             httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-            httpURLConnection.setRequestProperty("User-Agent", P());
+            httpURLConnection.setRequestProperty("User-Agent", N());
         }
     }
 
@@ -295,13 +294,13 @@ public abstract class a<T> {
             while (this.aj <= this.al) {
                 try {
                     try {
-                        return Q();
+                        return O();
                     } catch (com.baidu.searchbox.dns.d.c.a.a e2) {
                         a(e2);
                     }
                 } catch (com.baidu.searchbox.dns.d.c.a.b e3) {
-                    if (e3.R() == 10001) {
-                        c(e3.S());
+                    if (e3.P() == 10001) {
+                        c(e3.Q());
                         return null;
                     }
                     a(e3);
@@ -320,8 +319,8 @@ public abstract class a<T> {
             this.aj = i2;
             if (i2 <= this.al) {
                 SystemClock.sleep(5000L);
-            } else if (aVar.R() == 10001) {
-                throw new com.baidu.searchbox.dns.d.c.a.b(aVar.R(), aVar.S(), " retry count reach fail ");
+            } else if (aVar.P() == 10001) {
+                throw new com.baidu.searchbox.dns.d.c.a.b(aVar.P(), aVar.Q(), " retry count reach fail ");
             } else {
                 throw new com.baidu.searchbox.dns.d.c.a.b(" retry count reach fail ");
             }

@@ -12,8 +12,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.e.l.e.b;
+import b.a.e.f.p.l;
+import b.a.e.m.e.b;
 import b.a.q0.s.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -40,16 +40,16 @@ public class PbListView extends b {
     public boolean F;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f45369f;
+    public final int f46219f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f45370g;
+    public final int f46220g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f45371h;
+    public final int f46221h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f45372i;
+    public Context f46222i;
     public TextView j;
     public ProgressBar k;
     public View.OnClickListener l;
@@ -159,10 +159,10 @@ public class PbListView extends b {
                 return;
             }
         }
-        this.f45369f = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
-        this.f45370g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds256);
-        this.f45371h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-        this.f45372i = null;
+        this.f46219f = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
+        this.f46220g = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds256);
+        this.f46221h = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        this.f46222i = null;
         this.j = null;
         this.k = null;
         this.l = null;
@@ -184,7 +184,7 @@ public class PbListView extends b {
         this.D = -1;
         this.E = 0;
         this.F = false;
-        this.f45372i = context;
+        this.f46222i = context;
     }
 
     public void A(int i2) {
@@ -204,7 +204,7 @@ public class PbListView extends b {
     public void C(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            D(str, this.f45371h);
+            D(str, this.f46221h);
         }
     }
 
@@ -247,7 +247,7 @@ public class PbListView extends b {
     public void G(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.j.setTextSize(0, l.g(this.f45372i, i2));
+            this.j.setTextSize(0, l.g(this.f46222i, i2));
         }
     }
 
@@ -275,11 +275,11 @@ public class PbListView extends b {
             this.o.setVisibility(0);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
             layoutParams.topMargin = i3;
-            layoutParams.bottomMargin = this.f45369f;
+            layoutParams.bottomMargin = this.f46219f;
             this.o.setLayoutParams(layoutParams);
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.t.getLayoutParams();
             layoutParams2.height = -2;
-            layoutParams2.bottomMargin = this.f45370g;
+            layoutParams2.bottomMargin = this.f46220g;
             this.t.setLayoutParams(layoutParams2);
             d(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -336,7 +336,7 @@ public class PbListView extends b {
                 return;
             }
             this.j.setVisibility(0);
-            this.j.setText(this.f45372i.getText(R.string.loading));
+            this.j.setText(this.f46222i.getText(R.string.loading));
         }
     }
 
@@ -368,17 +368,17 @@ public class PbListView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             this.k.setVisibility(0);
-            this.j.setText(this.f45372i.getText(R.string.loading));
+            this.j.setText(this.f46222i.getText(R.string.loading));
             d(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // b.a.e.l.e.b
+    @Override // b.a.e.m.e.b
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            View inflate = LayoutInflater.from(this.f45372i).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f46222i).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
             this.m = inflate;
             this.t = (LinearLayout) inflate.findViewById(R.id.pb_more_view);
             this.u = (RelativeLayout) this.m.findViewById(R.id.pb_check_more);
@@ -404,7 +404,7 @@ public class PbListView extends b {
         return (View) invokeV.objValue;
     }
 
-    @Override // b.a.e.l.e.b
+    @Override // b.a.e.m.e.b
     public void c() {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -427,15 +427,15 @@ public class PbListView extends b {
             }
             String charSequence = this.j.getText().toString();
             boolean z = false;
-            if (charSequence.equals(this.f45372i.getText(R.string.pb_load_more))) {
+            if (charSequence.equals(this.f46222i.getText(R.string.pb_load_more))) {
                 color = SkinManager.getColor(i2, R.color.CAM_X0109);
-            } else if (charSequence.equals(this.f45372i.getText(R.string.loading))) {
+            } else if (charSequence.equals(this.f46222i.getText(R.string.loading))) {
                 color = SkinManager.getColor(i2, R.color.CAM_X0109);
-            } else if (!charSequence.equals(this.f45372i.getText(R.string.list_no_more)) && !charSequence.equals(this.f45372i.getText(R.string.list_has_no_more)) && !charSequence.equals(this.f45372i.getText(R.string.sub_pb_list_no_more))) {
-                if (charSequence.equals(this.f45372i.getText(R.string.list_no_more_new))) {
+            } else if (!charSequence.equals(this.f46222i.getText(R.string.list_no_more)) && !charSequence.equals(this.f46222i.getText(R.string.list_has_no_more)) && !charSequence.equals(this.f46222i.getText(R.string.sub_pb_list_no_more))) {
+                if (charSequence.equals(this.f46222i.getText(R.string.list_no_more_new))) {
                     color = SkinManager.getColor(i2, R.color.CAM_X0110);
                 } else {
-                    color = (charSequence.equals(this.f45372i.getText(R.string.list_click_load_more)) || charSequence.equals(this.f45372i.getText(R.string.really_great))) ? SkinManager.getColor(i2, R.color.CAM_X0109) : 0;
+                    color = (charSequence.equals(this.f46222i.getText(R.string.list_click_load_more)) || charSequence.equals(this.f46222i.getText(R.string.really_great))) ? SkinManager.getColor(i2, R.color.CAM_X0109) : 0;
                 }
             } else {
                 color = SkinManager.getColor(i2, R.color.CAM_X0109);
@@ -471,7 +471,7 @@ public class PbListView extends b {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            int dimension = (int) this.f45372i.getResources().getDimension(R.dimen.tbds156);
+            int dimension = (int) this.f46222i.getResources().getDimension(R.dimen.tbds156);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
             layoutParams.topMargin = dimension;
             this.o.setLayoutParams(layoutParams);
@@ -496,7 +496,7 @@ public class PbListView extends b {
                     this.j.setText(this.s);
                 }
             } else {
-                this.j.setText(this.f45372i.getText(R.string.pb_load_more));
+                this.j.setText(this.f46222i.getText(R.string.pb_load_more));
             }
             d(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -505,7 +505,7 @@ public class PbListView extends b {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            C(this.f45372i.getResources().getString(R.string.list_no_more));
+            C(this.f46222i.getResources().getString(R.string.list_no_more));
             f();
         }
     }
@@ -536,7 +536,7 @@ public class PbListView extends b {
             this.o.setVisibility(8);
             j();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.t.getLayoutParams();
-            layoutParams.height = this.f45371h;
+            layoutParams.height = this.f46221h;
             layoutParams.bottomMargin = 0;
             this.t.setLayoutParams(layoutParams);
             d(TbadkCoreApplication.getInst().getSkinType());
@@ -631,7 +631,7 @@ public class PbListView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.z.getLayoutParams();
-            layoutParams.height = l.g(this.f45372i, R.dimen.ds1);
+            layoutParams.height = l.g(this.f46222i, R.dimen.ds1);
             this.z.setLayoutParams(layoutParams);
         }
     }

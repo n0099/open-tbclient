@@ -1,6 +1,5 @@
 package com.alibaba.fastjson.serializer;
 
-import androidx.constraintlayout.motion.widget.Key;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
@@ -143,13 +142,13 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
                     if (jSONLexer.token() == 2) {
                         int intValue = jSONLexer.intValue();
                         jSONLexer.nextToken();
-                        if (stringVal.equalsIgnoreCase(r.f40168a)) {
+                        if (stringVal.equalsIgnoreCase(r.f41000a)) {
                             i2 = intValue;
                         } else if (stringVal.equalsIgnoreCase("g")) {
                             i3 = intValue;
                         } else if (stringVal.equalsIgnoreCase("b")) {
                             i4 = intValue;
-                        } else if (!stringVal.equalsIgnoreCase(Key.ALPHA)) {
+                        } else if (!stringVal.equalsIgnoreCase("alpha")) {
                             throw new JSONException("syntax error, " + stringVal);
                         } else {
                             i5 = intValue;
@@ -341,11 +340,11 @@ public class AwtCodec implements ObjectSerializer, ObjectDeserializer {
                 serializeWriter.writeFieldValue(',', "height", rectangle.height);
             } else if (obj instanceof Color) {
                 Color color = (Color) obj;
-                serializeWriter.writeFieldValue(writeClassName(serializeWriter, Color.class, ExtendedMessageFormat.START_FE), r.f40168a, color.getRed());
+                serializeWriter.writeFieldValue(writeClassName(serializeWriter, Color.class, ExtendedMessageFormat.START_FE), r.f41000a, color.getRed());
                 serializeWriter.writeFieldValue(',', "g", color.getGreen());
                 serializeWriter.writeFieldValue(',', "b", color.getBlue());
                 if (color.getAlpha() > 0) {
-                    serializeWriter.writeFieldValue(',', Key.ALPHA, color.getAlpha());
+                    serializeWriter.writeFieldValue(',', "alpha", color.getAlpha());
                 }
             } else {
                 throw new JSONException("not support awt class : " + obj.getClass().getName());

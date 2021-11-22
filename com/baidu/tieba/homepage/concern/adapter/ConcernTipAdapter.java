@@ -5,8 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.e.p.l;
-import b.a.e.l.e.a;
+import b.a.e.f.p.l;
+import b.a.e.m.e.a;
 import b.a.r0.h1.c.f.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -32,7 +32,7 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f49419a;
+        public int f50330a;
         public TextView tip;
         public View topDivider;
 
@@ -54,14 +54,14 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
                     return;
                 }
             }
-            this.f49419a = 3;
+            this.f50330a = 3;
             this.tip = (TextView) view.findViewById(R.id.concern_tip_txt);
             this.topDivider = view.findViewById(R.id.concern_tip_top_line);
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f49419a == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f50330a == i2) {
                 return;
             }
             SkinManager.setBackgroundColor(getView(), R.color.CAM_X0205);
@@ -94,7 +94,7 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public ConcernTipViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -113,18 +113,18 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b bVar, ConcernTipViewHolder concernTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, concernTipViewHolder})) == null) {
-            concernTipViewHolder.tip.setText(bVar.f17027f);
+            concernTipViewHolder.tip.setText(bVar.f18495f);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.tip.getLayoutParams();
-            if (bVar.f17028g) {
+            if (bVar.f18496g) {
                 layoutParams.height = n;
                 concernTipViewHolder.topDivider.setVisibility(0);
-            } else if (bVar.f17029h) {
+            } else if (bVar.f18497h) {
                 layoutParams.height = m;
             }
             concernTipViewHolder.tip.setLayoutParams(layoutParams);

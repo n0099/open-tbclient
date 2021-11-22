@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
-import com.vivo.push.PushClientConstants;
 import com.xiaomi.push.bq;
 import com.xiaomi.push.l;
 import org.json.JSONException;
@@ -72,7 +71,7 @@ public class a {
                 jSONObject.put("clientInterfaceId", this.clientInterfaceId);
                 jSONObject.put("os", this.os);
                 jSONObject.put("miuiVersion", this.miuiVersion);
-                jSONObject.put(PushClientConstants.TAG_PKG_NAME, this.pkgName);
+                jSONObject.put("pkgName", this.pkgName);
                 jSONObject.put(CommandMessage.SDK_VERSION, this.sdkVersion);
                 return jSONObject;
             } catch (JSONException e2) {

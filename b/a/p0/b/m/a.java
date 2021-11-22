@@ -1,7 +1,7 @@
 package b.a.p0.b.m;
 
 import android.text.TextUtils;
-import b.a.p0.a.v2.w;
+import b.a.p0.a.z2.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
@@ -21,14 +21,14 @@ public class a extends ActivityDelegation {
 
     /* renamed from: b.a.p0.b.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0485a implements b.a.p0.a.m.a {
+    public class C0510a implements b.a.p0.a.m.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f9362e;
+        public final /* synthetic */ a f9945e;
 
-        public C0485a(a aVar) {
+        public C0510a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +43,7 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f9362e = aVar;
+            this.f9945e = aVar;
         }
 
         @Override // b.a.p0.a.m.a
@@ -51,11 +51,11 @@ public class a extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    this.f9362e.j();
+                    this.f9945e.j();
                     return;
                 }
-                this.f9362e.mResult.putString("errorMsg", "login failed");
-                this.f9362e.finish();
+                this.f9945e.mResult.putString("errorMsg", "login failed");
+                this.f9945e.finish();
             }
         }
     }
@@ -66,7 +66,7 @@ public class a extends ActivityDelegation {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f9363a;
+        public final /* synthetic */ a f9946a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f9363a = aVar;
+            this.f9946a = aVar;
         }
 
         @Override // b.a.p0.b.m.a.d
@@ -91,10 +91,10 @@ public class a extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 if (TextUtils.isEmpty(str)) {
-                    this.f9363a.mResult.putString("errorMsg", "addressId == null");
-                    this.f9363a.finish();
+                    this.f9946a.mResult.putString("errorMsg", "addressId == null");
+                    this.f9946a.finish();
                 }
-                this.f9363a.k(str);
+                this.f9946a.k(str);
             }
         }
 
@@ -102,8 +102,8 @@ public class a extends ActivityDelegation {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f9363a.mResult.putString("errorMsg", "choose addressId failed");
-                this.f9363a.finish();
+                this.f9946a.mResult.putString("errorMsg", "choose addressId failed");
+                this.f9946a.finish();
             }
         }
     }
@@ -114,7 +114,7 @@ public class a extends ActivityDelegation {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f9364a;
+        public final /* synthetic */ a f9947a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f9364a = aVar;
+            this.f9947a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -142,12 +142,12 @@ public class a extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
                 if (jSONObject != null && jSONObject.optInt("errno", -1) == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                    this.f9364a.mResult.putString("address_info", optJSONObject.toString());
-                    this.f9364a.finish();
+                    this.f9947a.mResult.putString("address_info", optJSONObject.toString());
+                    this.f9947a.finish();
                     return;
                 }
-                this.f9364a.mResult.putString("errorMsg", "GetAddressInfoResponse == null");
-                this.f9364a.finish();
+                this.f9947a.mResult.putString("errorMsg", "GetAddressInfoResponse == null");
+                this.f9947a.finish();
             }
         }
 
@@ -170,8 +170,8 @@ public class a extends ActivityDelegation {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                this.f9364a.mResult.putString("errorMsg", exc.getMessage());
-                this.f9364a.finish();
+                this.f9947a.mResult.putString("errorMsg", exc.getMessage());
+                this.f9947a.finish();
             }
         }
     }
@@ -213,7 +213,7 @@ public class a extends ActivityDelegation {
     public final void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            b.a.p0.m.e.a.g().getRequest().url(b.a.p0.a.d0.c.v(i())).addUrlParam(AddressField.KEY_ADDR_ID, str).cookieManager(b.a.p0.a.c1.a.p().a()).build().executeAsync(new c(this));
+            b.a.p0.p.e.a.g().getRequest().url(b.a.p0.a.d0.c.v(i())).addUrlParam(AddressField.KEY_ADDR_ID, str).cookieManager(b.a.p0.a.c1.a.q().a()).build().executeAsync(new c(this));
         }
     }
 
@@ -222,8 +222,8 @@ public class a extends ActivityDelegation {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!b.a.p0.b.l.a.F(getAgent())) {
-                b.a.p0.b.l.a.M(getAgent(), null, new C0485a(this));
+            if (!b.a.p0.b.l.a.E(getAgent())) {
+                b.a.p0.b.l.a.L(getAgent(), null, new C0510a(this));
                 return false;
             }
             j();

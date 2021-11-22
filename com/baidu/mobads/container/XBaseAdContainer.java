@@ -54,7 +54,6 @@ import com.baidu.mobads.container.util.animation.TransitionController;
 import com.baidu.mobads.container.widget.DisplayInfoView;
 import com.baidu.mobads.sdk.api.IOAdEvent;
 import com.baidu.mobads.sdk.api.IOAdEventListener;
-import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -619,7 +618,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && XAdSDKRemoteVersion.DEBUG.booleanValue() && this.mActivity != null) {
             TextView textView = new TextView(this.mActivity);
-            textView.setTextColor(BaseAnimatedElement.DEBUG_PAINT_COLOR);
+            textView.setTextColor(-16776961);
             textView.setTextSize(15.0f);
             textView.setText("P : " + AppConfigImp.getInstance().getProxyVersion() + "\nR : 9.042");
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);

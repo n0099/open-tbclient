@@ -8,11 +8,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import androidx.annotation.NonNull;
 import b.a.e.a.h;
-import b.a.e.e.l.c;
-import b.a.e.e.l.d;
-import b.a.e.e.p.j;
-import b.a.e.e.p.k;
-import b.a.e.l.d.a;
+import b.a.e.f.l.c;
+import b.a.e.f.l.d;
+import b.a.e.f.p.j;
+import b.a.e.f.p.k;
+import b.a.e.m.d.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
@@ -171,7 +171,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
             if (k.isEmpty(str)) {
                 return 0;
             }
-            if ("night".equals(str) && (nightResouceId = SkinManager.getNightResouceId(TbadkCoreApplication.getInst().getResources(), i2)) > 0) {
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str) && (nightResouceId = SkinManager.getNightResouceId(TbadkCoreApplication.getInst().getResources(), i2)) > 0) {
                 i2 = nightResouceId;
             }
             return (!SkinManager.SKIN_TYPE_STR_DARK.equals(str) || (darkResourceId = SkinManager.getDarkResourceId(TbadkCoreApplication.getInst().getResources(), i2)) <= 0) ? i2 : darkResourceId;
@@ -187,7 +187,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
             if (k.isEmpty(str)) {
                 return 0;
             }
-            if (!"default".equals(str) && "night".equals(str)) {
+            if (!"default".equals(str) && SkinManager.SKIN_TYPE_STR_NIGHT.equals(str)) {
                 i2 = 1;
             }
             if (SkinManager.SKIN_TYPE_STR_DARK.equals(str)) {
@@ -372,7 +372,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
                     this.val$startLoad = currentTimeMillis;
                 }
 
-                @Override // b.a.e.e.l.c
+                @Override // b.a.e.f.l.c
                 public void onCancelled(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -383,7 +383,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
                     }
                 }
 
-                @Override // b.a.e.e.l.c
+                @Override // b.a.e.f.l.c
                 public void onProgressUpdate(Object... objArr) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, objArr) == null) {
@@ -392,7 +392,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // b.a.e.e.l.c
+                @Override // b.a.e.f.l.c
                 public void onLoaded(a aVar, String str, int i2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str, i2) == null) {

@@ -1,7 +1,7 @@
 package b.a.r0.w.f.c.f.c;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.d2;
 import b.a.r0.w.f.c.e.k;
 import b.a.r0.w.f.c.f.b.c;
@@ -29,23 +29,23 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f24642f = 604800000;
+    public static long f26159f = 604800000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f24643a;
+    public TbPageContext f26160a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<n> f24644b;
+    public List<n> f26161b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<n> f24645c;
+    public List<n> f26162c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<n> f24646d;
+    public List<n> f26163d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<n> f24647e;
+    public List<n> f26164e;
 
     static {
         InterceptResult invokeClinit;
@@ -77,29 +77,29 @@ public class b {
                 return;
             }
         }
-        this.f24643a = tbPageContext;
-        this.f24644b = new ArrayList();
-        this.f24645c = new ArrayList();
-        this.f24646d = new ArrayList();
-        this.f24647e = new ArrayList();
+        this.f26160a = tbPageContext;
+        this.f26161b = new ArrayList();
+        this.f26162c = new ArrayList();
+        this.f26163d = new ArrayList();
+        this.f26164e = new ArrayList();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            List<n> list = this.f24645c;
+            List<n> list = this.f26162c;
             if (list != null) {
                 list.clear();
             }
-            List<n> list2 = this.f24646d;
+            List<n> list2 = this.f26163d;
             if (list2 != null) {
                 list2.clear();
             }
-            List<n> list3 = this.f24647e;
+            List<n> list3 = this.f26164e;
             if (list3 != null) {
                 list3.clear();
             }
-            List<n> list4 = this.f24644b;
+            List<n> list4 = this.f26161b;
             if (list4 != null) {
                 list4.clear();
             }
@@ -112,16 +112,16 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaLiveTabMyConcernResponse)) == null) {
             ArrayList arrayList = new ArrayList();
             if (alaLiveTabMyConcernResponse != null && alaLiveTabMyConcernResponse.followStatus != 1) {
-                if (!ListUtils.isEmpty(this.f24646d) && k(alaLiveTabMyConcernResponse)) {
+                if (!ListUtils.isEmpty(this.f26163d) && k(alaLiveTabMyConcernResponse)) {
                     arrayList.add(new b.a.r0.w.f.c.f.b.a());
                 }
-                if (!ListUtils.isEmpty(this.f24646d)) {
+                if (!ListUtils.isEmpty(this.f26163d)) {
                     g gVar = new g();
-                    gVar.f24835f = this.f24643a.getResources().getString(R.string.live_sub_tab_offline_title, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
+                    gVar.f26352f = this.f26160a.getResources().getString(R.string.live_sub_tab_offline_title, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
                     arrayList.add(gVar);
                 }
-                if (!ListUtils.isEmpty(this.f24646d)) {
-                    for (n nVar : this.f24646d) {
+                if (!ListUtils.isEmpty(this.f26163d)) {
+                    for (n nVar : this.f26163d) {
                         arrayList.add(nVar);
                     }
                 }
@@ -141,14 +141,14 @@ public class b {
             }
             if (alaLiveTabMyConcernResponse.followStatus != 1) {
                 g gVar = new g();
-                gVar.f24835f = this.f24643a.getResources().getString(R.string.live_sub_tab_online_title, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
+                gVar.f26352f = this.f26160a.getResources().getString(R.string.live_sub_tab_online_title, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
                 arrayList.add(gVar);
             }
-            if (!ListUtils.isEmpty(this.f24645c)) {
+            if (!ListUtils.isEmpty(this.f26162c)) {
                 arrayList.addAll(f());
             } else if (z) {
                 e eVar = new e();
-                eVar.f24828e = alaLiveTabMyConcernResponse.followStatus;
+                eVar.f26345e = alaLiveTabMyConcernResponse.followStatus;
                 arrayList.add(eVar);
             }
             return arrayList;
@@ -161,11 +161,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.f24647e)) {
+            if (!ListUtils.isEmpty(this.f26164e)) {
                 g gVar = new g();
-                gVar.f24835f = this.f24643a.getResources().getString(R.string.live_tab_recommend_title_txt);
+                gVar.f26352f = this.f26160a.getResources().getString(R.string.live_tab_recommend_title_txt);
                 arrayList.add(gVar);
-                arrayList.addAll(g(this.f24647e));
+                arrayList.addAll(g(this.f26164e));
             }
             return arrayList;
         }
@@ -178,18 +178,18 @@ public class b {
             return;
         }
         if (z) {
-            this.f24644b.clear();
+            this.f26161b.clear();
         }
         if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.followList)) {
-            this.f24645c.addAll(alaLiveTabMyConcernResponse.followList);
+            this.f26162c.addAll(alaLiveTabMyConcernResponse.followList);
         }
         if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.followCloseList)) {
-            this.f24646d.addAll(alaLiveTabMyConcernResponse.followCloseList);
+            this.f26163d.addAll(alaLiveTabMyConcernResponse.followCloseList);
         }
         if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.recommendList)) {
-            this.f24647e.addAll(alaLiveTabMyConcernResponse.recommendList);
+            this.f26164e.addAll(alaLiveTabMyConcernResponse.recommendList);
         }
-        this.f24644b = i(alaLiveTabMyConcernResponse, z);
+        this.f26161b = i(alaLiveTabMyConcernResponse, z);
     }
 
     public final List<n> f() {
@@ -197,19 +197,19 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.f24645c)) {
-                int size = this.f24645c.size();
+            if (!ListUtils.isEmpty(this.f26162c)) {
+                int size = this.f26162c.size();
                 for (int i2 = 0; i2 < size; i2 += 2) {
                     k kVar = new k();
                     b.a.r0.w.f.a.e eVar = new b.a.r0.w.f.a.e();
-                    eVar.f24510h = (d2) this.f24645c.get(i2);
+                    eVar.f26027h = (d2) this.f26162c.get(i2);
                     eVar.k = true;
-                    kVar.f24618e = eVar;
+                    kVar.f26135e = eVar;
                     int i3 = i2 + 1;
                     if (i3 < size) {
                         b.a.r0.w.f.a.e eVar2 = new b.a.r0.w.f.a.e();
-                        eVar2.f24510h = (d2) this.f24645c.get(i3);
-                        kVar.f24619f = eVar2;
+                        eVar2.f26027h = (d2) this.f26162c.get(i3);
+                        kVar.f26136f = eVar2;
                         eVar2.l = true;
                     } else {
                         eVar.k = false;
@@ -217,7 +217,7 @@ public class b {
                     }
                     int i4 = size % 2;
                     if ((i4 == 0 && i2 == size - 2) || (i4 != 0 && i2 == size - 1)) {
-                        kVar.f24620g = true;
+                        kVar.f26137g = true;
                     }
                     arrayList.add(kVar);
                 }
@@ -237,19 +237,19 @@ public class b {
                 for (int i2 = 0; i2 < size; i2 += 3) {
                     c cVar = new c();
                     b.a.r0.w.f.a.e eVar = new b.a.r0.w.f.a.e();
-                    eVar.f24510h = (d2) list.get(i2);
-                    cVar.f24639e = eVar;
+                    eVar.f26027h = (d2) list.get(i2);
+                    cVar.f26156e = eVar;
                     int i3 = i2 + 1;
                     if (i3 < size) {
                         b.a.r0.w.f.a.e eVar2 = new b.a.r0.w.f.a.e();
-                        eVar2.f24510h = (d2) list.get(i3);
-                        cVar.f24640f = eVar2;
+                        eVar2.f26027h = (d2) list.get(i3);
+                        cVar.f26157f = eVar2;
                     }
                     int i4 = i2 + 2;
                     if (i4 < size) {
                         b.a.r0.w.f.a.e eVar3 = new b.a.r0.w.f.a.e();
-                        eVar3.f24510h = (d2) list.get(i4);
-                        cVar.f24641g = eVar3;
+                        eVar3.f26027h = (d2) list.get(i4);
+                        cVar.f26158g = eVar3;
                     }
                     arrayList.add(cVar);
                 }
@@ -262,7 +262,7 @@ public class b {
     public List<n> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f24644b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26161b : (List) invokeV.objValue;
     }
 
     public final List<n> i(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse, boolean z) {
@@ -289,13 +289,13 @@ public class b {
 
     public void j(Class<? extends BaseCardInfo> cls) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, cls) == null) || ListUtils.isEmpty(this.f24644b)) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, cls) == null) || ListUtils.isEmpty(this.f26161b)) {
             return;
         }
-        for (int size = this.f24644b.size() - 1; size >= 0; size--) {
-            n nVar = (n) ListUtils.getItem(this.f24644b, size);
+        for (int size = this.f26161b.size() - 1; size >= 0; size--) {
+            n nVar = (n) ListUtils.getItem(this.f26161b, size);
             if (nVar != null && nVar.getClass().equals(cls)) {
-                this.f24644b.remove(size);
+                this.f26161b.remove(size);
             }
         }
     }
@@ -307,7 +307,7 @@ public class b {
             if (alaLiveTabMyConcernResponse == null) {
                 return false;
             }
-            return (alaLiveTabMyConcernResponse.followStatus == 1 || a.a(this.f24643a) || !(((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) > f24642f ? 1 : ((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) == f24642f ? 0 : -1)) > 0)) ? false : true;
+            return (alaLiveTabMyConcernResponse.followStatus == 1 || a.a(this.f26160a) || !(((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) > f26159f ? 1 : ((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) == f26159f ? 0 : -1)) > 0)) ? false : true;
         }
         return invokeL.booleanValue;
     }

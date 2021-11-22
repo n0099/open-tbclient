@@ -17,7 +17,7 @@ public class d implements b.a.q0.t.a.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f17985a;
+    public static d f19440a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public d() {
@@ -40,10 +40,10 @@ public class d implements b.a.q0.t.a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (d.class) {
-                if (f17985a == null) {
-                    f17985a = new d();
+                if (f19440a == null) {
+                    f19440a = new d();
                 }
-                dVar = f17985a;
+                dVar = f19440a;
             }
             return dVar;
         }

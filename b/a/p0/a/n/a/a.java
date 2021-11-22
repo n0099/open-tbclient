@@ -2,12 +2,13 @@ package b.a.p0.a.n.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import b.a.p0.a.a2.e;
-import b.a.p0.a.c2.f.a0;
-import b.a.p0.a.e2.c.d;
-import b.a.p0.a.e2.c.i;
-import b.a.p0.a.e2.c.j.b;
-import b.a.p0.a.j2.k;
+import b.a.p0.a.d2.e;
+import b.a.p0.a.f2.f.z;
+import b.a.p0.a.h2.c.d;
+import b.a.p0.a.h2.c.i;
+import b.a.p0.a.h2.c.j.b;
+import b.a.p0.a.n2.n;
+import b.a.p0.a.z2.g1.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -21,37 +22,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a extends a0 {
+public class a extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6723c;
+    public String f7051c;
 
     /* renamed from: b.a.p0.a.n.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0297a implements b.a.p0.a.v2.e1.b<i<b.e>> {
+    public class C0309a implements c<i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f6724e;
+        public final /* synthetic */ e f7052e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f6725f;
+        public final /* synthetic */ Context f7053f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f6726g;
+        public final /* synthetic */ boolean f7054g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f6727h;
+        public final /* synthetic */ String f7055h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6728i;
+        public final /* synthetic */ CallbackHandler f7056i;
         public final /* synthetic */ UnitedSchemeEntity j;
         public final /* synthetic */ a k;
 
-        public C0297a(a aVar, e eVar, Context context, boolean z, String str, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+        public C0309a(a aVar, e eVar, Context context, boolean z, String str, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,32 +68,32 @@ public class a extends a0 {
                 }
             }
             this.k = aVar;
-            this.f6724e = eVar;
-            this.f6725f = context;
-            this.f6726g = z;
-            this.f6727h = str;
-            this.f6728i = callbackHandler;
+            this.f7052e = eVar;
+            this.f7053f = context;
+            this.f7054g = z;
+            this.f7055h = str;
+            this.f7056i = callbackHandler;
             this.j = unitedSchemeEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v2.e1.b
+        @Override // b.a.p0.a.z2.g1.c
         /* renamed from: a */
         public void onCallback(i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                boolean e2 = this.f6724e.j().e(this.f6725f);
+                boolean e2 = this.f7052e.M().e(this.f7053f);
                 if (!d.h(iVar)) {
-                    if (!e2 && !this.f6726g) {
-                        k.M(com.baidu.pass.biometrics.face.liveness.b.a.g0, 4, this.f6727h);
+                    if (!e2 && !this.f7054g) {
+                        n.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 4, this.f7055h);
                     }
-                    d.p(iVar, this.f6728i, this.k.f6723c);
+                    d.q(iVar, this.f7056i, this.k.f7051c);
                     return;
                 }
-                if (e2 && !this.f6726g) {
-                    k.M("success", 4, this.f6727h);
+                if (e2 && !this.f7054g) {
+                    n.S("success", 4, this.f7055h);
                 }
-                this.k.l(this.f6725f, this.j, this.f6728i, this.f6724e, this.f6727h);
+                this.k.l(this.f7053f, this.j, this.f7056i, this.f7052e, this.f7055h);
             }
         }
     }
@@ -103,13 +104,13 @@ public class a extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6729a;
+        public final /* synthetic */ CallbackHandler f7057a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6730b;
+        public final /* synthetic */ UnitedSchemeEntity f7058b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f6731c;
+        public final /* synthetic */ a f7059c;
 
         public b(a aVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
@@ -126,9 +127,9 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f6731c = aVar;
-            this.f6729a = callbackHandler;
-            this.f6730b = unitedSchemeEntity;
+            this.f7059c = aVar;
+            this.f7057a = callbackHandler;
+            this.f7058b = unitedSchemeEntity;
         }
 
         @Override // b.a.p0.a.n.a.b
@@ -136,9 +137,9 @@ public class a extends a0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 1) {
-                    UnitedSchemeUtility.safeCallback(this.f6729a, this.f6730b, UnitedSchemeUtility.wrapCallbackParams(1002, "user cancel this operation").toString(), this.f6731c.f6723c);
+                    UnitedSchemeUtility.safeCallback(this.f7057a, this.f7058b, UnitedSchemeUtility.wrapCallbackParams(1002, "user cancel this operation").toString(), this.f7059c.f7051c);
                 } else {
-                    UnitedSchemeUtility.safeCallback(this.f6729a, this.f6730b, UnitedSchemeUtility.wrapCallbackParams(1003, "close failed").toString(), this.f6731c.f6723c);
+                    UnitedSchemeUtility.safeCallback(this.f7057a, this.f7058b, UnitedSchemeUtility.wrapCallbackParams(1003, "close failed").toString(), this.f7059c.f7051c);
                 }
             }
         }
@@ -147,13 +148,13 @@ public class a extends a0 {
         public void b(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-                UnitedSchemeUtility.safeCallback(this.f6729a, this.f6730b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), this.f6731c.f6723c);
+                UnitedSchemeUtility.safeCallback(this.f7057a, this.f7058b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), this.f7059c.f7051c);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(b.a.p0.a.c2.e eVar) {
+    public a(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swanAPI/chooseAddress");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -173,34 +174,34 @@ public class a extends a0 {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
+    @Override // b.a.p0.a.f2.f.z
     public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (eVar == null) {
-                b.a.p0.a.e0.d.g("ChooseAddress", "swanApp is null");
+                b.a.p0.a.e0.d.i("ChooseAddress", "swanApp is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
                 return false;
-            } else if (eVar.c0()) {
-                boolean z = a0.f4160b;
+            } else if (eVar.m0()) {
+                boolean z = z.f5228b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {
                 JSONObject m = m(unitedSchemeEntity.getParam("params"));
                 String optString = m.optString("cb");
-                this.f6723c = optString;
+                this.f7051c = optString;
                 if (TextUtils.isEmpty(optString)) {
-                    b.a.p0.a.e0.d.g("ChooseAddress", "cb is empty");
+                    b.a.p0.a.e0.d.i("ChooseAddress", "cb is empty");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
                 String optString2 = m.optString("invokeFrom");
-                boolean e2 = eVar.j().e(context);
+                boolean e2 = eVar.M().e(context);
                 if (!e2) {
-                    k.M("show", 4, optString2);
+                    n.S("show", 4, optString2);
                 }
-                eVar.S().h(context, "mapp_choose_address", d.i(m), new C0297a(this, eVar, context, e2, optString2, callbackHandler, unitedSchemeEntity));
+                eVar.d0().h(context, "mapp_choose_address", d.j(m), new C0309a(this, eVar, context, e2, optString2, callbackHandler, unitedSchemeEntity));
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
@@ -211,7 +212,7 @@ public class a extends a0 {
     public final void l(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, eVar, str) == null) {
-            b.a.p0.a.c1.a.c0().a(context, eVar.f3961f, eVar.k(), new b(this, callbackHandler, unitedSchemeEntity));
+            b.a.p0.a.c1.a.j0().a(context, eVar.f4474f, eVar.N(), new b(this, callbackHandler, unitedSchemeEntity));
         }
     }
 
@@ -225,7 +226,7 @@ public class a extends a0 {
             try {
                 return new JSONObject(str);
             } catch (JSONException unused) {
-                boolean z = a0.f4160b;
+                boolean z = z.f5228b;
                 return new JSONObject();
             }
         }

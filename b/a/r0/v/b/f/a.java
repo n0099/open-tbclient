@@ -24,31 +24,31 @@ public class a extends ActivityDelegation implements b.a.p0.a.m.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f24171e;
+    public BdUniqueId f25634e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.r0.v.b.f.d.a f24172f;
+    public b.a.r0.v.b.f.d.a f25635f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Activity f24173g;
+    public Activity f25636g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, String> f24174h;
+    public Map<String, String> f25637h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f24175i;
+    public CustomMessageListener f25638i;
 
     /* renamed from: b.a.r0.v.b.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1179a extends CustomMessageListener {
+    public class C1245a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f24176a;
+        public final /* synthetic */ a f25639a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1179a(a aVar, int i2) {
+        public C1245a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -65,7 +65,7 @@ public class a extends ActivityDelegation implements b.a.p0.a.m.a {
                     return;
                 }
             }
-            this.f24176a = aVar;
+            this.f25639a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,13 +78,13 @@ public class a extends ActivityDelegation implements b.a.p0.a.m.a {
             Object data = customResponsedMessage.getData();
             if (data instanceof e) {
                 e eVar = (e) data;
-                if (getTag() == eVar.f12796a || eVar.f12802g) {
-                    this.f24176a.mResult.putInt("result_code", eVar.f12797b);
-                    this.f24176a.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, eVar.f12798c);
-                    if (this.f24176a.f24172f != null) {
-                        this.f24176a.f24172f.a(this.f24176a.mResult);
+                if (getTag() == eVar.f13546a || eVar.f13552g) {
+                    this.f25639a.mResult.putInt("result_code", eVar.f13547b);
+                    this.f25639a.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, eVar.f13548c);
+                    if (this.f25639a.f25635f != null) {
+                        this.f25639a.f25635f.a(this.f25639a.mResult);
                     }
-                    this.f24176a.finish();
+                    this.f25639a.finish();
                 }
             }
         }
@@ -103,21 +103,21 @@ public class a extends ActivityDelegation implements b.a.p0.a.m.a {
                 return;
             }
         }
-        this.f24171e = BdUniqueId.gen();
-        this.f24175i = new C1179a(this, 2921393);
+        this.f25634e = BdUniqueId.gen();
+        this.f25638i = new C1245a(this, 2921393);
     }
 
     public void b(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.f24173g = activity;
+            this.f25636g = activity;
         }
     }
 
     public void c(b.a.r0.v.b.f.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f24172f = aVar;
+            this.f25635f = aVar;
         }
     }
 
@@ -125,8 +125,8 @@ public class a extends ActivityDelegation implements b.a.p0.a.m.a {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f24172f = null;
-            MessageManager.getInstance().unRegisterListener(this.f24175i);
+            this.f25635f = null;
+            MessageManager.getInstance().unRegisterListener(this.f25638i);
             super.finish();
         }
     }
@@ -136,28 +136,28 @@ public class a extends ActivityDelegation implements b.a.p0.a.m.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.f24175i.setTag(this.f24171e);
-            MessageManager.getInstance().registerListener(this.f24175i);
+            this.f25638i.setTag(this.f25634e);
+            MessageManager.getInstance().registerListener(this.f25638i);
             int i2 = this.mParams.getInt("type");
             String string = this.mParams.getString("orderInfo");
             e eVar = new e();
-            eVar.f12796a = this.f24171e;
-            eVar.f12797b = i2;
-            eVar.f12798c = string;
-            eVar.f12800e = (Map) this.mParams.getSerializable("params");
-            eVar.f12801f = this.f24174h;
+            eVar.f13546a = this.f25634e;
+            eVar.f13547b = i2;
+            eVar.f13548c = string;
+            eVar.f13550e = (Map) this.mParams.getSerializable("params");
+            eVar.f13551f = this.f25637h;
             if (getAgent() != null) {
-                eVar.f12799d = getAgent();
+                eVar.f13549d = getAgent();
             } else {
-                Activity activity = this.f24173g;
+                Activity activity = this.f25636g;
                 if (activity != null) {
-                    eVar.f12799d = activity;
+                    eVar.f13549d = activity;
                 } else {
-                    eVar.f12799d = TbadkCoreApplication.getInst().getCurrentActivity();
+                    eVar.f13549d = TbadkCoreApplication.getInst().getCurrentActivity();
                 }
             }
             CustomMessage customMessage = new CustomMessage(2921393, eVar);
-            customMessage.setTag(this.f24171e);
+            customMessage.setTag(this.f25634e);
             boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
             this.mResult.putInt("result_code", sendMessage ? 0 : 1);
             Bundle bundle = this.mResult;

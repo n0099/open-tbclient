@@ -1,6 +1,6 @@
 package b.a.r0.h1.g.g;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.r0.h1.g.b;
 import b.a.r0.h1.g.c;
 import com.baidu.adp.BdUniqueId;
@@ -17,10 +17,10 @@ public class a implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f17267a;
+    public c f18735a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.r0.h1.g.a f17268b;
+    public b.a.r0.h1.g.a f18736b;
 
     public a(c cVar) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class a implements b {
                 return;
             }
         }
-        this.f17267a = cVar;
-        this.f17268b = new b.a.r0.h1.g.f.a(this);
+        this.f18735a = cVar;
+        this.f18736b = new b.a.r0.h1.g.f.a(this);
     }
 
     @Override // b.a.r0.h1.g.b
@@ -46,7 +46,7 @@ public class a implements b {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
-            b.a.r0.h1.g.a aVar = this.f17268b;
+            b.a.r0.h1.g.a aVar = this.f18736b;
             if (aVar != null) {
                 return aVar.a(bdUniqueId, str, str2, str3);
             }
@@ -61,7 +61,7 @@ public class a implements b {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, aVar)) == null) {
-            if (aVar == null || (cVar = this.f17267a) == null) {
+            if (aVar == null || (cVar = this.f18735a) == null) {
                 return false;
             }
             cVar.setData(aVar.getDataList());
@@ -75,7 +75,7 @@ public class a implements b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            c cVar = this.f17267a;
+            c cVar = this.f18735a;
             if (cVar != null) {
                 cVar.b(i2);
                 return true;
@@ -89,7 +89,7 @@ public class a implements b {
     public void setData(List<n> list) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (cVar = this.f17267a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (cVar = this.f18735a) == null) {
             return;
         }
         cVar.setData(list);

@@ -1,7 +1,6 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.CoordUtil;
@@ -54,7 +53,7 @@ public abstract class Overlay {
             bundle2.putFloat("red", ((i2 >> 16) & 255) / 255.0f);
             bundle2.putFloat("green", ((i2 >> 8) & 255) / 255.0f);
             bundle2.putFloat("blue", (i2 & 255) / 255.0f);
-            bundle2.putFloat(Key.ALPHA, (i2 >>> 24) / 255.0f);
+            bundle2.putFloat("alpha", (i2 >>> 24) / 255.0f);
             bundle.putBundle("color", bundle2);
         }
     }

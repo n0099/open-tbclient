@@ -27,16 +27,16 @@ public class e extends a implements NetModel.k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final DownloadManagerNetModel f18309f;
+    public final DownloadManagerNetModel f19643f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.r0.j0.e.a f18310g;
+    public b.a.r0.j0.e.a f19644g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.r0.j0.e.b f18311h;
+    public b.a.r0.j0.e.b f19645h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<String> f18312i;
+    public List<String> f19646i;
     public d j;
     public final List<b.a.r0.j0.b.b> k;
     public int l;
@@ -60,15 +60,15 @@ public class e extends a implements NetModel.k {
                 return;
             }
         }
-        this.f18311h = new b.a.r0.j0.e.b();
-        this.f18312i = new ArrayList();
+        this.f19645h = new b.a.r0.j0.e.b();
+        this.f19646i = new ArrayList();
         this.k = new ArrayList();
         this.l = 0;
-        this.f18310g = new b.a.r0.j0.e.a(1, i2);
-        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), this.f18310g);
-        this.f18309f = downloadManagerNetModel;
+        this.f19644g = new b.a.r0.j0.e.a(1, i2);
+        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), this.f19644g);
+        this.f19643f = downloadManagerNetModel;
         downloadManagerNetModel.Y(this);
-        this.f18309f.setUniqueId(baseFragment.getUniqueId());
+        this.f19643f.setUniqueId(baseFragment.getUniqueId());
     }
 
     @Override // b.a.r0.j0.d.a
@@ -76,8 +76,8 @@ public class e extends a implements NetModel.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             e();
-            this.f18310g.c();
-            this.f18309f.loadData();
+            this.f19644g.c();
+            this.f19643f.loadData();
         }
     }
 
@@ -86,10 +86,10 @@ public class e extends a implements NetModel.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             e();
-            this.f18311h.f18319e.clear();
-            this.f18312i.clear();
-            this.f18310g.b();
-            this.f18309f.loadData();
+            this.f19645h.f19653e.clear();
+            this.f19646i.clear();
+            this.f19644g.b();
+            this.f19643f.loadData();
         }
     }
 
@@ -125,9 +125,9 @@ public class e extends a implements NetModel.k {
                 this.k.addAll(list);
             } else {
                 for (b.a.r0.j0.b.b bVar : list) {
-                    Integer num = a2.get(bVar.f18296e.pkgName);
+                    Integer num = a2.get(bVar.f19630e.pkgName);
                     if (num != null) {
-                        if (num.intValue() < bVar.f18296e.apkDetail.version_code.intValue()) {
+                        if (num.intValue() < bVar.f19630e.apkDetail.version_code.intValue()) {
                             List<b.a.r0.j0.b.b> list2 = this.k;
                             int i2 = this.l;
                             this.l = i2 + 1;
@@ -135,23 +135,23 @@ public class e extends a implements NetModel.k {
                         } else {
                             this.k.add(bVar);
                         }
-                        this.f18312i.add(bVar.f18296e.pkgName);
+                        this.f19646i.add(bVar.f19630e.pkgName);
                     }
                 }
             }
-            if (ListUtils.getCount(this.k) < 15 && this.f18311h.f18321g.intValue() != 0) {
-                this.f18310g.c();
-                this.f18309f.loadData();
+            if (ListUtils.getCount(this.k) < 15 && this.f19645h.f19655g.intValue() != 0) {
+                this.f19644g.c();
+                this.f19643f.loadData();
                 return;
             }
-            this.f18311h.f18319e.addAll(this.k);
-            if (ListUtils.getCount(this.f18311h.f18319e) <= 4) {
-                this.j.b(this.f18311h.f18319e, h(), this.f18311h.f18321g.intValue());
+            this.f19645h.f19653e.addAll(this.k);
+            if (ListUtils.getCount(this.f19645h.f19653e) <= 4) {
+                this.j.b(this.f19645h.f19653e, h(), this.f19645h.f19655g.intValue());
                 return;
             }
             d dVar = this.j;
-            b.a.r0.j0.e.b bVar2 = this.f18311h;
-            dVar.b(bVar2.f18319e, null, bVar2.f18321g.intValue());
+            b.a.r0.j0.e.b bVar2 = this.f19645h;
+            dVar.b(bVar2.f19653e, null, bVar2.f19655g.intValue());
         }
     }
 
@@ -160,8 +160,8 @@ public class e extends a implements NetModel.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (b.a.r0.j0.b.b bVar : this.f18311h.f18320f) {
-                if (!this.f18312i.contains(bVar.f18296e.pkgName)) {
+            for (b.a.r0.j0.b.b bVar : this.f19645h.f19654f) {
+                if (!this.f19646i.contains(bVar.f19630e.pkgName)) {
                     arrayList.add(bVar);
                 }
             }
@@ -177,10 +177,10 @@ public class e extends a implements NetModel.k {
             if (bVar == null) {
                 return false;
             }
-            b.a.r0.j0.e.b bVar2 = this.f18311h;
-            bVar2.f18321g = bVar.f18321g;
-            bVar2.f18320f = bVar.f18320f;
-            g(bVar.f18319e);
+            b.a.r0.j0.e.b bVar2 = this.f19645h;
+            bVar2.f19655g = bVar.f19655g;
+            bVar2.f19654f = bVar.f19654f;
+            g(bVar.f19653e);
             return true;
         }
         return invokeL.booleanValue;

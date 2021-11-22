@@ -12,7 +12,7 @@ import io.reactivex.SingleSource;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class SingleDelay<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public final class SingleDelay<T> extends Single<T> {
     public final long time;
     public final TimeUnit unit;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public final class Delay implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public final class SingleDelay<T> extends Single<T> {
         public final SequentialDisposable sd;
         public final /* synthetic */ SingleDelay this$0;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public final class OnError implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final Throwable f72544e;
+            public final Throwable f73463e;
             public final /* synthetic */ Delay this$1;
 
             public OnError(Delay delay, Throwable th) {
@@ -55,19 +55,19 @@ public final class SingleDelay<T> extends Single<T> {
                     }
                 }
                 this.this$1 = delay;
-                this.f72544e = th;
+                this.f73463e = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$1.s.onError(this.f72544e);
+                    this.this$1.s.onError(this.f73463e);
                 }
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public final class OnSuccess implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

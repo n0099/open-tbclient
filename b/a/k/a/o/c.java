@@ -14,7 +14,7 @@ public abstract class c extends BdRunnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<BdRunnable> f3133g;
+    public List<BdRunnable> f3226g;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -29,12 +29,12 @@ public abstract class c extends BdRunnable {
                 return;
             }
         }
-        this.f3133g = new ArrayList();
+        this.f3226g = new ArrayList();
     }
 
     public List<BdRunnable> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3133g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3226g : (List) invokeV.objValue;
     }
 }

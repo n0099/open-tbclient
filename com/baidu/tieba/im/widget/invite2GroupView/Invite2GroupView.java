@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.q0.d1.q;
+import b.a.q0.c1.q;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,19 +32,19 @@ public final class Invite2GroupView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f50608e;
+    public TextView f51520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f50609f;
+    public TbImageView f51521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f50610g;
+    public TextView f51522g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f50611h;
+    public TextView f51523h;
 
     /* renamed from: i  reason: collision with root package name */
-    public InviteMsgData f50612i;
+    public InviteMsgData f51524i;
 
     /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
@@ -52,7 +52,7 @@ public final class Invite2GroupView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Invite2GroupView f50613e;
+        public final /* synthetic */ Invite2GroupView f51525e;
 
         public a(Invite2GroupView invite2GroupView) {
             Interceptable interceptable = $ic;
@@ -69,15 +69,15 @@ public final class Invite2GroupView extends LinearLayout {
                     return;
                 }
             }
-            this.f50613e = invite2GroupView;
+            this.f51525e = invite2GroupView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                Context context = this.f50613e.f50611h.getContext();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2008014, new ApplyJoinGroupActivityConfig(context, "" + this.f50613e.f50612i.getGroupId(), this.f50613e.f50612i.getFromUid(), this.f50613e.f50612i.getText())));
+                Context context = this.f51525e.f51523h.getContext();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2008014, new ApplyJoinGroupActivityConfig(context, "" + this.f51525e.f51524i.getGroupId(), this.f51525e.f51524i.getFromUid(), this.f51525e.f51524i.getText())));
             }
         }
     }
@@ -88,10 +88,10 @@ public final class Invite2GroupView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f50614e;
+        public final /* synthetic */ TbPageContext f51526e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Invite2GroupView f50615f;
+        public final /* synthetic */ Invite2GroupView f51527f;
 
         public b(Invite2GroupView invite2GroupView, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -108,19 +108,19 @@ public final class Invite2GroupView extends LinearLayout {
                     return;
                 }
             }
-            this.f50615f = invite2GroupView;
-            this.f50614e = tbPageContext;
+            this.f51527f = invite2GroupView;
+            this.f51526e = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                GroupInfoActivityConfig groupInfoActivityConfig = new GroupInfoActivityConfig(this.f50615f.getContext(), this.f50615f.f50612i.getGroupId(), 7, this.f50615f.f50612i.getText(), this.f50615f.f50612i.getFromUid());
-                if (this.f50614e.getOrignalPage() instanceof BaseActivity) {
-                    this.f50614e.sendMessage(new CustomMessage(2008011, groupInfoActivityConfig));
-                } else if (this.f50614e.getOrignalPage() instanceof BaseFragmentActivity) {
-                    this.f50614e.sendMessage(new CustomMessage(2008011, groupInfoActivityConfig));
+                GroupInfoActivityConfig groupInfoActivityConfig = new GroupInfoActivityConfig(this.f51527f.getContext(), this.f51527f.f51524i.getGroupId(), 7, this.f51527f.f51524i.getText(), this.f51527f.f51524i.getFromUid());
+                if (this.f51526e.getOrignalPage() instanceof BaseActivity) {
+                    this.f51526e.sendMessage(new CustomMessage(2008011, groupInfoActivityConfig));
+                } else if (this.f51526e.getOrignalPage() instanceof BaseFragmentActivity) {
+                    this.f51526e.sendMessage(new CustomMessage(2008011, groupInfoActivityConfig));
                 }
             }
         }
@@ -132,7 +132,7 @@ public final class Invite2GroupView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Invite2GroupView f50616e;
+        public final /* synthetic */ Invite2GroupView f51528e;
 
         public c(Invite2GroupView invite2GroupView) {
             Interceptable interceptable = $ic;
@@ -149,14 +149,14 @@ public final class Invite2GroupView extends LinearLayout {
                     return;
                 }
             }
-            this.f50616e = invite2GroupView;
+            this.f51528e = invite2GroupView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f50616e.getContext() instanceof Activity)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig((Activity) this.f50616e.getContext(), this.f50616e.f50612i.getGroupId(), this.f50616e.f50612i.getGroupName(), this.f50616e.f50612i.getGroupOwnerId(), "invite add group")));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f51528e.getContext() instanceof Activity)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig((Activity) this.f51528e.getContext(), this.f51528e.f51524i.getGroupId(), this.f51528e.f51524i.getGroupName(), this.f51528e.f51524i.getGroupOwnerId(), "invite add group")));
             }
         }
     }
@@ -167,10 +167,10 @@ public final class Invite2GroupView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f50617a;
+        public final /* synthetic */ TbPageContext f51529a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Invite2GroupView f50618b;
+        public final /* synthetic */ Invite2GroupView f51530b;
 
         /* loaded from: classes9.dex */
         public class a implements View.OnClickListener {
@@ -178,7 +178,7 @@ public final class Invite2GroupView extends LinearLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f50619e;
+            public final /* synthetic */ d f51531e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -195,14 +195,14 @@ public final class Invite2GroupView extends LinearLayout {
                         return;
                     }
                 }
-                this.f50619e = dVar;
+                this.f51531e = dVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f50619e.f50618b.getContext() instanceof Activity)) {
-                    this.f50619e.f50617a.showToast(R.string.has_recent_join);
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f51531e.f51530b.getContext() instanceof Activity)) {
+                    this.f51531e.f51529a.showToast(R.string.has_recent_join);
                 }
             }
         }
@@ -222,12 +222,12 @@ public final class Invite2GroupView extends LinearLayout {
                     return;
                 }
             }
-            this.f50618b = invite2GroupView;
-            this.f50617a = tbPageContext;
+            this.f51530b = invite2GroupView;
+            this.f51529a = tbPageContext;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.q
+        @Override // b.a.q0.c1.q
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -238,8 +238,8 @@ public final class Invite2GroupView extends LinearLayout {
                 if (bool.booleanValue()) {
                     return;
                 }
-                this.f50618b.f50611h.setTextColor(this.f50618b.getContext().getResources().getColor(R.color.common_color_10228));
-                this.f50618b.f50611h.setOnClickListener(new a(this));
+                this.f51530b.f51523h.setTextColor(this.f51530b.getContext().getResources().getColor(R.color.common_color_10228));
+                this.f51530b.f51523h.setOnClickListener(new a(this));
             }
         }
     }
@@ -271,43 +271,43 @@ public final class Invite2GroupView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.invite_to_group_view, this);
             setOrientation(1);
-            this.f50608e = (TextView) findViewById(R.id.chat_title);
-            this.f50609f = (TbImageView) findViewById(R.id.chat_group_img);
-            this.f50610g = (TextView) findViewById(R.id.chat_group_desc);
-            this.f50611h = (TextView) findViewById(R.id.invite_btn);
-            this.f50609f.setIsRound(false);
+            this.f51520e = (TextView) findViewById(R.id.chat_title);
+            this.f51521f = (TbImageView) findViewById(R.id.chat_group_img);
+            this.f51522g = (TextView) findViewById(R.id.chat_group_desc);
+            this.f51523h = (TextView) findViewById(R.id.invite_btn);
+            this.f51521f.setIsRound(false);
         }
     }
 
     public final void d(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            this.f50611h.setEnabled(true);
-            this.f50611h.setTag(String.valueOf(this.f50612i.getGroupId()));
-            this.f50611h.setText(R.string.i_want_attent);
-            this.f50611h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0201));
-            this.f50611h.setOnClickListener(new a(this));
-            this.f50608e.setText(this.f50612i.getTitle());
-            this.f50609f.setTag(this.f50612i.getPortrait());
-            this.f50609f.startLoad(this.f50612i.getPortrait(), 10, false);
-            this.f50610g.setText(this.f50612i.getNotice());
+            this.f51523h.setEnabled(true);
+            this.f51523h.setTag(String.valueOf(this.f51524i.getGroupId()));
+            this.f51523h.setText(R.string.i_want_attent);
+            this.f51523h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0201));
+            this.f51523h.setOnClickListener(new a(this));
+            this.f51520e.setText(this.f51524i.getTitle());
+            this.f51521f.setTag(this.f51524i.getPortrait());
+            this.f51521f.startLoad(this.f51524i.getPortrait(), 10, false);
+            this.f51522g.setText(this.f51524i.getNotice());
             setOnClickListener(new b(this, tbPageContext));
-            if (b.a.r0.l1.k.b.o().i(String.valueOf(this.f50612i.getGroupId()), 1) != null) {
-                if (String.valueOf(this.f50612i.getGroupId()).equals(this.f50611h.getTag())) {
-                    this.f50611h.setText(R.string.i_want_talk);
-                    this.f50611h.setOnClickListener(new c(this));
+            if (b.a.r0.l1.k.b.o().i(String.valueOf(this.f51524i.getGroupId()), 1) != null) {
+                if (String.valueOf(this.f51524i.getGroupId()).equals(this.f51523h.getTag())) {
+                    this.f51523h.setText(R.string.i_want_talk);
+                    this.f51523h.setOnClickListener(new c(this));
                     return;
                 }
                 return;
             }
-            b.a.r0.l1.t.b.k().m(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f50612i.getGroupId()), 60000L, new d(this, tbPageContext));
+            b.a.r0.l1.t.b.k().m(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f51524i.getGroupId()), 60000L, new d(this, tbPageContext));
         }
     }
 
     public void setData(TbPageContext<?> tbPageContext, InviteMsgData inviteMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, tbPageContext, inviteMsgData) == null) {
-            this.f50612i = inviteMsgData;
+            this.f51524i = inviteMsgData;
             d(tbPageContext);
         }
     }

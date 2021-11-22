@@ -1,6 +1,7 @@
 package com.baidu.apollon.restnet.rest;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -28,16 +29,16 @@ public final class a implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f36175a;
+    public static final a f37004a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f36176b;
+    public static final Pattern f37005b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f36177c = 2;
+    public static final int f37006c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f36178d = 7;
+    public static final int f37007d = 7;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,8 +54,8 @@ public final class a implements HostnameVerifier {
                 return;
             }
         }
-        f36175a = new a();
-        f36176b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f37004a = new a();
+        f37005b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
     public a() {
@@ -133,7 +134,7 @@ public final class a implements HostnameVerifier {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f36176b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f37005b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static List<String> a(X509Certificate x509Certificate) {
@@ -187,7 +188,7 @@ public final class a implements HostnameVerifier {
                     str2 = str2 + '.';
                 }
                 String lowerCase = str2.toLowerCase(Locale.US);
-                if (!lowerCase.contains("*")) {
+                if (!lowerCase.contains(ProxyConfig.MATCH_ALL_SCHEMES)) {
                     return str.equals(lowerCase);
                 }
                 if (!lowerCase.startsWith(CertificatePinner.Pin.WILDCARD) || lowerCase.indexOf(42, 1) != -1 || str.length() < lowerCase.length() || CertificatePinner.Pin.WILDCARD.equals(lowerCase)) {

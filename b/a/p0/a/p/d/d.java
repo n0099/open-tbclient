@@ -1,7 +1,7 @@
 package b.a.p0.a.p.d;
 
 import androidx.annotation.NonNull;
-import b.a.p0.n.i.a;
+import b.a.p0.q.j.a;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import okhttp3.Callback;
 import org.json.JSONObject;
@@ -17,5 +17,5 @@ public interface d {
 
     boolean h();
 
-    boolean i(@NonNull b.a.p0.a.a2.e eVar, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, b.a.p0.a.v2.e1.b<String> bVar);
+    boolean i(@NonNull b.a.p0.a.d2.e eVar, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, b.a.p0.a.z2.g1.c<String> cVar);
 }

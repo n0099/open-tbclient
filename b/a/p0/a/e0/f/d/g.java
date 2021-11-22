@@ -32,7 +32,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4632a;
+    public static final boolean f4602a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +48,7 @@ public class g {
                 return;
             }
         }
-        f4632a = k.f6397a;
+        f4602a = k.f6863a;
     }
 
     public static String d(JsObject jsObject) {
@@ -71,7 +71,7 @@ public class g {
             try {
                 WebSocketManager.INSTANCE.close(B, q, B2);
             } catch (Exception e2) {
-                if (f4632a) {
+                if (f4602a) {
                     e2.printStackTrace();
                 }
             }
@@ -108,7 +108,7 @@ public class g {
             try {
                 jSONObject.put(RemoteViewBuilder.ProgressRemoteViewImpl.KEY_TASKID, connect.getTaskId());
             } catch (JSONException e2) {
-                if (f4632a) {
+                if (f4602a) {
                     e2.printStackTrace();
                 }
             }
@@ -132,13 +132,13 @@ public class g {
                 try {
                     jSONObject.put("errMsg", String.valueOf(obj));
                 } catch (Exception e2) {
-                    if (f4632a) {
+                    if (f4602a) {
                         e2.printStackTrace();
                     }
                 }
             }
             String jSONObject2 = jSONObject.toString();
-            if (f4632a) {
+            if (f4602a) {
                 String str = "getOnErrorParam - " + jSONObject2;
             }
             return jSONObject2;
@@ -163,12 +163,12 @@ public class g {
                     jSONObject.put("data", Base64.encodeToString(bArr, 2));
                 }
             } catch (Exception e2) {
-                if (f4632a) {
+                if (f4602a) {
                     e2.printStackTrace();
                 }
             }
             String jSONObject2 = jSONObject.toString();
-            if (f4632a) {
+            if (f4602a) {
                 String str = "getOnMessageParam - " + jSONObject2;
             }
             return jSONObject2;
@@ -188,12 +188,12 @@ public class g {
                     jSONObject2.put("data", jSONObject);
                 }
             } catch (JSONException e2) {
-                if (f4632a) {
+                if (f4602a) {
                     e2.printStackTrace();
                 }
             }
             String jSONObject3 = jSONObject2.toString();
-            if (f4632a) {
+            if (f4602a) {
                 String str2 = "getResultMsg - " + jSONObject3;
             }
             return jSONObject3;
@@ -254,7 +254,7 @@ public class g {
             try {
                 WebSocketManager.INSTANCE.send(B, B2);
             } catch (Exception e2) {
-                if (f4632a) {
+                if (f4602a) {
                     e2.printStackTrace();
                 }
             }
@@ -269,16 +269,16 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JsFunction f4633e;
+        public final /* synthetic */ JsFunction f4603e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JsFunction f4634f;
+        public final /* synthetic */ JsFunction f4604f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JsFunction f4635g;
+        public final /* synthetic */ JsFunction f4605g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JsFunction f4636h;
+        public final /* synthetic */ JsFunction f4606h;
 
         public a(JsFunction jsFunction, JsFunction jsFunction2, JsFunction jsFunction3, JsFunction jsFunction4) {
             Interceptable interceptable = $ic;
@@ -295,10 +295,10 @@ public class g {
                     return;
                 }
             }
-            this.f4633e = jsFunction;
-            this.f4634f = jsFunction2;
-            this.f4635g = jsFunction3;
-            this.f4636h = jsFunction4;
+            this.f4603e = jsFunction;
+            this.f4604f = jsFunction2;
+            this.f4605g = jsFunction3;
+            this.f4606h = jsFunction4;
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
@@ -306,10 +306,10 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 String jSONObject2 = jSONObject == null ? "" : jSONObject.toString();
-                if (g.f4632a) {
+                if (g.f4602a) {
                     String str = "onClose - " + jSONObject2;
                 }
-                JsFunction jsFunction = this.f4635g;
+                JsFunction jsFunction = this.f4605g;
                 if (jsFunction != null) {
                     jsFunction.call(jSONObject2);
                 }
@@ -321,11 +321,11 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) {
                 String jSONObject2 = jSONObject == null ? "" : jSONObject.toString();
-                if (g.f4632a) {
+                if (g.f4602a) {
                     String str = "onError throwable - " + th;
                     String str2 = "onError jsonObject - " + jSONObject2;
                 }
-                JsFunction jsFunction = this.f4636h;
+                JsFunction jsFunction = this.f4606h;
                 if (jsFunction != null) {
                     jsFunction.call(g.g(th));
                 }
@@ -336,7 +336,7 @@ public class g {
         public void onMessage(String str) {
             JsFunction jsFunction;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (jsFunction = this.f4634f) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (jsFunction = this.f4604f) == null) {
                 return;
             }
             jsFunction.call(g.h(str));
@@ -346,7 +346,7 @@ public class g {
         public void onOpen(Map<String, String> map) {
             JsFunction jsFunction;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, map) == null) || (jsFunction = this.f4633e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, map) == null) || (jsFunction = this.f4603e) == null) {
                 return;
             }
             jsFunction.call();
@@ -356,7 +356,7 @@ public class g {
         public void onMessage(ByteBuffer byteBuffer) {
             JsFunction jsFunction;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) || (jsFunction = this.f4634f) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) || (jsFunction = this.f4604f) == null) {
                 return;
             }
             jsFunction.call(g.h(byteBuffer));

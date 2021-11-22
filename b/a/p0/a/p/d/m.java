@@ -9,21 +9,17 @@ public interface m {
 
     boolean C();
 
-    boolean D();
+    JSONObject D();
 
-    JSONObject E();
+    boolean E();
 
-    boolean F();
+    void F();
 
-    boolean G();
+    long G();
 
-    void H();
+    boolean H();
 
     long I();
-
-    boolean J();
-
-    long K();
 
     JSONObject getRawSwitch();
 
@@ -41,29 +37,29 @@ public interface m {
 
     boolean m();
 
-    boolean n();
+    long n();
 
-    long o();
+    boolean o();
 
-    boolean p();
+    String p();
 
-    String q();
+    boolean q();
 
-    boolean r();
+    int r();
 
-    int s();
+    boolean s();
 
     boolean t();
 
-    int u();
+    boolean u();
 
-    boolean v();
+    int v();
 
     boolean w();
 
-    int x();
+    boolean x();
 
     boolean y();
 
-    boolean z();
+    int z();
 }

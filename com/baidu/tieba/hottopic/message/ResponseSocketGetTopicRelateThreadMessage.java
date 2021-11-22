@@ -76,6 +76,6 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
         this.page = dataRes.page;
         d dVar = new d();
         this.hotThreadItemListData = dVar;
-        dVar.U4(getTopicRelateThreadResIdl.data);
+        dVar.W4(getTopicRelateThreadResIdl.data);
     }
 }

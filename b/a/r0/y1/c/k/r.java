@@ -15,25 +15,25 @@ public class r {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f27481a;
+    public long f28984a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27482b;
+    public String f28985b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27483c;
+    public String f28986c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27484d;
+    public String f28987d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27485e;
+    public int f28988e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27486f;
+    public int f28989f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27487g;
+    public int f28990g;
 
     public r() {
         Interceptable interceptable = $ic;
@@ -52,62 +52,62 @@ public class r {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27486f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28989f : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27483c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28986c : (String) invokeV.objValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27481a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28984a : invokeV.longValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27484d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28987d : (String) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27485e == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28988e == 1 : invokeV.booleanValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27485e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28988e : invokeV.intValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27482b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28985b : (String) invokeV.objValue;
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27487g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28990g : invokeV.intValue;
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f27485e = i2;
+            this.f28988e = i2;
         }
     }
 
     public void i(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.f27481a = j;
+            this.f28984a = j;
         }
     }
 
@@ -126,12 +126,12 @@ public class r {
                 return;
             }
         }
-        this.f27481a = vipTaskItem.task_id.intValue();
-        this.f27482b = vipTaskItem.title;
-        this.f27483c = vipTaskItem.desc;
-        this.f27484d = vipTaskItem.img_url;
+        this.f28984a = vipTaskItem.task_id.intValue();
+        this.f28985b = vipTaskItem.title;
+        this.f28986c = vipTaskItem.desc;
+        this.f28987d = vipTaskItem.img_url;
         String str = vipTaskItem.link;
-        this.f27485e = vipTaskItem.is_finish.intValue();
+        this.f28988e = vipTaskItem.is_finish.intValue();
     }
 
     public r(PointTaskInfo pointTaskInfo) {
@@ -152,11 +152,11 @@ public class r {
         if (pointTaskInfo == null) {
             return;
         }
-        this.f27481a = pointTaskInfo.task_id.longValue();
-        this.f27482b = pointTaskInfo.task_name;
-        this.f27483c = pointTaskInfo.task_intro;
-        this.f27485e = pointTaskInfo.is_finish.intValue();
-        this.f27486f = pointTaskInfo.points_add.intValue();
-        this.f27487g = pointTaskInfo.type.intValue();
+        this.f28984a = pointTaskInfo.task_id.longValue();
+        this.f28985b = pointTaskInfo.task_name;
+        this.f28986c = pointTaskInfo.task_intro;
+        this.f28988e = pointTaskInfo.is_finish.intValue();
+        this.f28989f = pointTaskInfo.points_add.intValue();
+        this.f28990g = pointTaskInfo.type.intValue();
     }
 }

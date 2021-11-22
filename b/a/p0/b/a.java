@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @Service
 /* loaded from: classes.dex */
-public class a implements b.a.p0.e.i.c {
+public class a implements b.a.p0.g.i.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,38 +31,35 @@ public class a implements b.a.p0.e.i.c {
         }
     }
 
-    @Override // b.a.p0.e.i.d
-    @Nullable
-    public Map<String, Object> a(@NonNull b.a.p0.a.u.c.b bVar) {
-        InterceptResult invokeL;
+    @Override // b.a.p0.g.i.d
+    public void a(b.a.p0.a.f2.e eVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(bVar) : (Map) invokeL.objValue;
-    }
-
-    @Override // b.a.p0.e.i.d
-    public void b(b.a.p0.a.c2.e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
             eVar.b(new b.a.p0.b.p.a.c(eVar));
             eVar.b(new b.a.p0.b.p.a.g(eVar));
-            eVar.b(new b.a.p0.b.p.i.a.c(eVar));
-            eVar.b(new b.a.p0.b.p.i.a.b(eVar));
-            eVar.b(new b.a.p0.b.p.c.b(eVar));
-            eVar.b(new b.a.p0.a.q.a(eVar));
-            eVar.b(new b.a.p0.b.p.f.c(eVar));
+            eVar.b(new b.a.p0.b.p.f.a.c(eVar));
+            eVar.b(new b.a.p0.b.p.f.a.b(eVar));
+            eVar.b(new b.a.p0.b.p.c.c(eVar));
             eVar.b(new b.a.p0.b.p.a.h(eVar));
             eVar.b(new b.a.p0.b.p.a.e(eVar));
-            eVar.b(new b.a.p0.b.p.e.a(eVar));
-            eVar.b(new b.a.p0.b.p.f.a(eVar));
-            eVar.b(new b.a.p0.b.p.b.a(eVar));
+            eVar.b(new b.a.p0.b.p.c.a(eVar));
             eVar.b(new b.a.p0.b.p.a.d(eVar));
             eVar.b(new b.a.p0.b.p.a.b(eVar));
             eVar.b(new b.a.p0.b.p.a.a(eVar));
             eVar.b(new b.a.p0.b.p.a.f(eVar));
+            eVar.b(new b.a.p0.b.p.g.a(eVar));
         }
     }
 
-    @Override // b.a.p0.e.i.d
+    @Override // b.a.p0.g.i.d
+    @Nullable
+    public Map<String, Object> b(@NonNull b.a.p0.a.u.c.b bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(bVar) : (Map) invokeL.objValue;
+    }
+
+    @Override // b.a.p0.g.i.d
     @Nullable
     public Map<String, Object> c(@NonNull b.a.p0.a.u.c.b bVar) {
         InterceptResult invokeL;

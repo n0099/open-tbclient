@@ -18,16 +18,16 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Field> f61231a;
+    public static Map<String, Field> f62130a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, Method> f61232b;
+    public static Map<String, Method> f62131b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, Constructor> f61233c;
+    public static Map<String, Constructor> f62132c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<String, Class> f61234d;
+    public static Map<String, Class> f62133d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,10 +43,10 @@ public final class a {
                 return;
             }
         }
-        f61231a = new HashMap();
-        f61232b = new HashMap();
-        f61233c = new HashMap();
-        f61234d = new HashMap();
+        f62130a = new HashMap();
+        f62131b = new HashMap();
+        f62132c = new HashMap();
+        f62133d = new HashMap();
         try {
             FieldUtils.writeField(b.class, "classLoader", (Object) null);
             ZeusLogger.w(ZeusLogger.TAG_INIT, "HackHelper HackHelperImpl use BootClassLoader");
@@ -61,8 +61,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, clsArr)) == null) {
             String b2 = b(cls, str, clsArr);
-            synchronized (f61232b) {
-                method = f61232b.get(b2);
+            synchronized (f62131b) {
+                method = f62131b.get(b2);
             }
             if (method != null) {
                 if (!method.isAccessible()) {
@@ -73,8 +73,8 @@ public final class a {
             try {
                 Method a2 = b.a(cls, str, clsArr);
                 if (a2 != null) {
-                    synchronized (f61232b) {
-                        f61232b.put(b2, a2);
+                    synchronized (f62131b) {
+                        f62131b.put(b2, a2);
                     }
                 }
                 return a2;
@@ -113,8 +113,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) == null) {
             String b2 = b(cls, "clinit", clsArr);
-            synchronized (f61233c) {
-                constructor = f61233c.get(b2);
+            synchronized (f62132c) {
+                constructor = f62132c.get(b2);
             }
             if (constructor != null) {
                 if (!constructor.isAccessible()) {
@@ -125,8 +125,8 @@ public final class a {
             try {
                 Constructor a2 = b.a(cls, clsArr);
                 if (a2 != null) {
-                    synchronized (f61233c) {
-                        f61233c.put(b2, a2);
+                    synchronized (f62132c) {
+                        f62132c.put(b2, a2);
                     }
                 }
                 return a2;
@@ -144,8 +144,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, str)) == null) {
             String str2 = cls.getName() + "#" + str;
-            synchronized (f61231a) {
-                field = f61231a.get(str2);
+            synchronized (f62130a) {
+                field = f62130a.get(str2);
             }
             if (field != null) {
                 if (!field.isAccessible()) {
@@ -156,8 +156,8 @@ public final class a {
             try {
                 Field a2 = b.a(cls, str);
                 if (a2 != null) {
-                    synchronized (f61231a) {
-                        f61231a.put(str2, a2);
+                    synchronized (f62130a) {
+                        f62130a.put(str2, a2);
                     }
                 }
                 return a2;

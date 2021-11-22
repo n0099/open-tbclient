@@ -18,7 +18,7 @@ public class b implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DownloadInfo f68541a;
+    public DownloadInfo f69461a;
 
     public b(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
@@ -35,18 +35,18 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f68541a = downloadInfo;
+        this.f69461a = downloadInfo;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         com.ss.android.downloadad.api.a.b a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f68541a == null || (a2 = f.a().a(this.f68541a)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f69461a == null || (a2 = f.a().a(this.f69461a)) == null) {
             return;
         }
         com.ss.android.downloadlib.d.a.a().a("cleanspace_task", a2);
-        long longValue = Double.valueOf((com.ss.android.downloadlib.g.e.a(this.f68541a.getId()) + 1.0d) * this.f68541a.getTotalBytes()).longValue() - this.f68541a.getCurBytes();
+        long longValue = Double.valueOf((com.ss.android.downloadlib.g.e.a(this.f69461a.getId()) + 1.0d) * this.f69461a.getTotalBytes()).longValue() - this.f69461a.getCurBytes();
         long a3 = l.a(0L);
         if (j.l() != null) {
             j.l().e();
@@ -67,7 +67,7 @@ public class b implements Runnable {
                 e2.printStackTrace();
             }
             com.ss.android.downloadlib.d.a.a().a("cleanspace_download_after_quite_clean", jSONObject, a2);
-            Downloader.getInstance(j.getContext()).restart(this.f68541a.getId());
+            Downloader.getInstance(j.getContext()).restart(this.f69461a.getId());
         } else if (j.l() != null) {
             a2.d(false);
             d.a().a(a2.a(), new e(this, a2) { // from class: com.ss.android.downloadlib.addownload.c.b.1
@@ -75,10 +75,10 @@ public class b implements Runnable {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.downloadad.api.a.b f68542a;
+                public final /* synthetic */ com.ss.android.downloadad.api.a.b f69462a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f68543b;
+                public final /* synthetic */ b f69463b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -95,11 +95,11 @@ public class b implements Runnable {
                             return;
                         }
                     }
-                    this.f68543b = this;
-                    this.f68542a = a2;
+                    this.f69463b = this;
+                    this.f69462a = a2;
                 }
             });
-            if (j.l().a(this.f68541a.getId(), this.f68541a.getUrl(), true, longValue)) {
+            if (j.l().a(this.f69461a.getId(), this.f69461a.getUrl(), true, longValue)) {
                 a2.e(true);
             }
         } else {

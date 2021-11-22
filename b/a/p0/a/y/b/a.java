@@ -24,18 +24,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f8953c;
+    public static final boolean f9299c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, Object> f8954a;
+    public Map<String, Object> f9300a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Integer> f8955b;
+    public Map<String, Integer> f9301b;
 
     /* renamed from: b.a.p0.a.y.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0453a {
+    public static class C0468a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -180,7 +180,7 @@ public class a {
                 return;
             }
         }
-        f8953c = k.f6397a;
+        f9299c = k.f6863a;
     }
 
     public a() {
@@ -202,7 +202,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jsObject)) == null) {
             if (jsObject == null) {
-                boolean z = f8953c;
+                boolean z = f9299c;
                 return null;
             }
             a aVar = new a();
@@ -254,8 +254,8 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsObjectArr)) == null) {
-            b d2 = C0453a.d(f().get(str));
-            return d2 != null ? d2.f8957b.toObjectArray(d2.f8956a) : jsObjectArr;
+            b d2 = C0468a.d(f().get(str));
+            return d2 != null ? d2.f9303b.toObjectArray(d2.f9302a) : jsObjectArr;
         }
         return (JsObject[]) invokeLL.objValue;
     }
@@ -270,7 +270,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            String i2 = C0453a.i(f().get(str));
+            String i2 = C0468a.i(f().get(str));
             return i2 != null ? i2 : str2;
         }
         return (String) invokeLL.objValue;
@@ -286,8 +286,8 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, strArr)) == null) {
-            b d2 = C0453a.d(f().get(str));
-            return d2 != null ? d2.f8957b.toStringArray(d2.f8956a) : strArr;
+            b d2 = C0468a.d(f().get(str));
+            return d2 != null ? d2.f9303b.toStringArray(d2.f9302a) : strArr;
         }
         return (String[]) invokeLL.objValue;
     }
@@ -316,11 +316,11 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            Double b2 = C0453a.b(f().get(str));
+            Double b2 = C0468a.b(f().get(str));
             if (b2 != null) {
                 return b2.doubleValue();
             }
-            throw C0453a.j(this, str, 5);
+            throw C0468a.j(this, str, 5);
         }
         return invokeL.doubleValue;
     }
@@ -329,11 +329,11 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            Integer c2 = C0453a.c(f().get(str));
+            Integer c2 = C0468a.c(f().get(str));
             if (c2 != null) {
                 return c2.intValue();
             }
-            throw C0453a.j(this, str, 2);
+            throw C0468a.j(this, str, 2);
         }
         return invokeL.intValue;
     }
@@ -342,11 +342,11 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            b d2 = C0453a.d(f().get(str));
+            b d2 = C0468a.d(f().get(str));
             if (d2 != null) {
-                return d2.f8957b.toObjectArray(d2.f8956a);
+                return d2.f9303b.toObjectArray(d2.f9302a);
             }
-            throw C0453a.j(this, str, 6);
+            throw C0468a.j(this, str, 6);
         }
         return (JsObject[]) invokeL.objValue;
     }
@@ -355,10 +355,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f8954a == null) {
-                this.f8954a = new TreeMap();
+            if (this.f9300a == null) {
+                this.f9300a = new TreeMap();
             }
-            return this.f8954a;
+            return this.f9300a;
         }
         return (Map) invokeV.objValue;
     }
@@ -367,11 +367,11 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            String i2 = C0453a.i(f().get(str));
+            String i2 = C0468a.i(f().get(str));
             if (i2 != null) {
                 return i2;
             }
-            throw C0453a.j(this, str, 7);
+            throw C0468a.j(this, str, 7);
         }
         return (String) invokeL.objValue;
     }
@@ -393,11 +393,11 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            b d2 = C0453a.d(f().get(str));
+            b d2 = C0468a.d(f().get(str));
             if (d2 != null) {
-                return d2.f8957b.toStringArray(d2.f8956a);
+                return d2.f9303b.toStringArray(d2.f9302a);
             }
-            throw C0453a.j(this, str, 6);
+            throw C0468a.j(this, str, 6);
         }
         return (String[]) invokeL.objValue;
     }
@@ -406,10 +406,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.f8955b == null) {
-                this.f8955b = new TreeMap();
+            if (this.f9301b == null) {
+                this.f9301b = new TreeMap();
             }
-            return this.f8955b;
+            return this.f9301b;
         }
         return (Map) invokeV.objValue;
     }
@@ -436,7 +436,7 @@ public class a {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048595, this, str, z)) == null) {
-            Boolean a2 = C0453a.a(f().get(str));
+            Boolean a2 = C0468a.a(f().get(str));
             return a2 != null ? a2.booleanValue() : z;
         }
         return invokeLZ.booleanValue;
@@ -446,7 +446,7 @@ public class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{str, Double.valueOf(d2)})) == null) {
-            Double b2 = C0453a.b(f().get(str));
+            Double b2 = C0468a.b(f().get(str));
             return b2 != null ? b2.doubleValue() : d2;
         }
         return invokeCommon.doubleValue;
@@ -462,8 +462,8 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, str, dArr)) == null) {
-            b d2 = C0453a.d(f().get(str));
-            return d2 != null ? d2.f8957b.toDoubleArray(d2.f8956a) : dArr;
+            b d2 = C0468a.d(f().get(str));
+            return d2 != null ? d2.f9303b.toDoubleArray(d2.f9302a) : dArr;
         }
         return (double[]) invokeLL.objValue;
     }
@@ -478,7 +478,7 @@ public class a {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048600, this, str, i2)) == null) {
-            Integer c2 = C0453a.c(f().get(str));
+            Integer c2 = C0468a.c(f().get(str));
             return c2 != null ? c2.intValue() : i2;
         }
         return invokeLI.intValue;
@@ -494,7 +494,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, str, jsArrayBuffer)) == null) {
-            JsArrayBuffer e2 = C0453a.e(f().get(str));
+            JsArrayBuffer e2 = C0468a.e(f().get(str));
             return e2 != null ? e2 : jsArrayBuffer;
         }
         return (JsArrayBuffer) invokeLL.objValue;
@@ -516,7 +516,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, str, jsFunction)) == null) {
-            JsFunction f2 = C0453a.f(f().get(str));
+            JsFunction f2 = C0468a.f(f().get(str));
             return f2 != null ? f2 : jsFunction;
         }
         return (JsFunction) invokeLL.objValue;
@@ -532,7 +532,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048607, this, str, aVar)) == null) {
-            a g2 = C0453a.g(f().get(str));
+            a g2 = C0468a.g(f().get(str));
             return g2 != null ? g2 : aVar;
         }
         return (a) invokeLL.objValue;
@@ -542,7 +542,7 @@ public class a {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048608, this, str, j)) == null) {
-            Long h2 = C0453a.h(f().get(str));
+            Long h2 = C0468a.h(f().get(str));
             return h2 != null ? h2.longValue() : j;
         }
         return invokeLJ.longValue;

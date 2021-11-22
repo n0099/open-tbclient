@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import b.a.q0.h0.b;
 import b.a.q0.h0.c;
-import b.a.r0.x0.i0;
+import b.a.r0.x0.j0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
@@ -22,7 +22,7 @@ public class a extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AlaPersonCenterFragment f25132a;
+    public AlaPersonCenterFragment f26649a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -37,21 +37,21 @@ public class a extends b {
                 return;
             }
         }
-        this.f25132a = new AlaPersonCenterFragment();
-        getFragmentTabStructure().f12612a = this.f25132a;
+        this.f26649a = new AlaPersonCenterFragment();
+        getFragmentTabStructure().f13359a = this.f26649a;
     }
 
-    public void a(i0 i0Var) {
+    public void a(j0 j0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, i0Var) == null) && i0Var != null && i0Var.h(5)) {
-            i0Var.a(this);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, j0Var) == null) && j0Var != null && j0Var.h(5)) {
+            j0Var.a(this);
         }
     }
 
     public void b(String str) {
         AlaPersonCenterFragment alaPersonCenterFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (alaPersonCenterFragment = this.f25132a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (alaPersonCenterFragment = this.f26649a) == null) {
             return;
         }
         alaPersonCenterFragment.setForumGameLabel(str);
@@ -60,7 +60,7 @@ public class a extends b {
     public void c(String str) {
         AlaPersonCenterFragment alaPersonCenterFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (alaPersonCenterFragment = this.f25132a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (alaPersonCenterFragment = this.f26649a) == null) {
             return;
         }
         alaPersonCenterFragment.setForumId(str);
@@ -72,9 +72,9 @@ public class a extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             c cVar = new c();
-            cVar.f12616e = 5;
-            cVar.f12613b = R.string.ala_live;
-            cVar.f12620i = c.k;
+            cVar.f13363e = 5;
+            cVar.f13360b = R.string.ala_live;
+            cVar.f13367i = c.k;
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -83,7 +83,7 @@ public class a extends b {
     public void d(String str) {
         AlaPersonCenterFragment alaPersonCenterFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (alaPersonCenterFragment = this.f25132a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (alaPersonCenterFragment = this.f26649a) == null) {
             return;
         }
         alaPersonCenterFragment.setForumName(str);
@@ -92,7 +92,7 @@ public class a extends b {
     public void e(String str) {
         AlaPersonCenterFragment alaPersonCenterFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (alaPersonCenterFragment = this.f25132a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (alaPersonCenterFragment = this.f26649a) == null) {
             return;
         }
         alaPersonCenterFragment.setForumType(str);

@@ -23,7 +23,7 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implemen
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final j<? super d<T>> f72643i;
+    public final j<? super d<T>> f73562i;
     public final int j;
     public final int k;
     public final AtomicInteger l;
@@ -126,7 +126,7 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implemen
             if (atomicInteger.getAndIncrement() != 0) {
                 return;
             }
-            j<? super d<T>> jVar = this.f72643i;
+            j<? super d<T>> jVar = this.f73562i;
             Queue<h.t.d<T, T>> queue = this.p;
             int i3 = 1;
             do {
@@ -195,7 +195,7 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implemen
         if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
             int i2 = this.s;
             ArrayDeque<h.t.d<T, T>> arrayDeque = this.m;
-            if (i2 == 0 && !this.f72643i.isUnsubscribed()) {
+            if (i2 == 0 && !this.f73562i.isUnsubscribed()) {
                 this.l.getAndIncrement();
                 UnicastSubject F = UnicastSubject.F(16, this);
                 arrayDeque.offer(F);

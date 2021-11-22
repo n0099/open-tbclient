@@ -3,8 +3,8 @@ package com.baidu.adp.gif;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.h;
-import b.a.e.e.p.i;
+import b.a.e.f.p.h;
+import b.a.e.f.p.i;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,23 +19,23 @@ public class NSGif implements b.a.e.d.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34376e;
+    public static final String f35208e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f34377f;
+    public static boolean f35209f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f34378a;
+    public int f35210a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f34379b;
+    public final int f35211b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f34380c;
+    public final int f35212c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f34381d;
+    public final int f35213d;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -43,10 +43,10 @@ public class NSGif implements b.a.e.d.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f34382e;
+        public final /* synthetic */ int f35214e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NSGif f34383f;
+        public final /* synthetic */ NSGif f35215f;
 
         public a(NSGif nSGif, int i2) {
             Interceptable interceptable = $ic;
@@ -63,15 +63,15 @@ public class NSGif implements b.a.e.d.b {
                     return;
                 }
             }
-            this.f34383f = nSGif;
-            this.f34382e = i2;
+            this.f35215f = nSGif;
+            this.f35214e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NSGif.nativeDestroy(this.f34382e);
+                NSGif.nativeDestroy(this.f35214e);
             }
         }
     }
@@ -95,11 +95,11 @@ public class NSGif implements b.a.e.d.b {
             }
         }
 
-        @Override // b.a.e.e.p.i
+        @Override // b.a.e.f.p.i
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                NSGif.f34377f = z;
+                NSGif.f35209f = z;
             }
         }
     }
@@ -117,8 +117,8 @@ public class NSGif implements b.a.e.d.b {
                 return;
             }
         }
-        f34376e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
-        f34377f = h.f().k("nsgif_jni", 2, new b());
+        f35208e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
+        f35209f = h.f().k("nsgif_jni", 2, new b());
     }
 
     public NSGif(int i2) {
@@ -136,17 +136,17 @@ public class NSGif implements b.a.e.d.b {
                 return;
             }
         }
-        this.f34378a = i2;
-        this.f34379b = nativeGetWidth(i2);
-        this.f34380c = nativeGetHeight(i2);
-        this.f34381d = nativeGetFrameCount(i2);
+        this.f35210a = i2;
+        this.f35211b = nativeGetWidth(i2);
+        this.f35212c = nativeGetHeight(i2);
+        this.f35213d = nativeGetFrameCount(i2);
     }
 
     public static NSGif e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int nativeCreate = nativeCreate(f34376e, str);
+            int nativeCreate = nativeCreate(f35208e, str);
             if (nativeCreate != 0) {
                 return new NSGif(nativeCreate);
             }
@@ -159,7 +159,7 @@ public class NSGif implements b.a.e.d.b {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3)) == null) {
-            int nativeCreate = nativeCreate(f34376e, bArr, i2, i3);
+            int nativeCreate = nativeCreate(f35208e, bArr, i2, i3);
             if (nativeCreate != 0) {
                 return new NSGif(nativeCreate);
             }
@@ -196,7 +196,7 @@ public class NSGif implements b.a.e.d.b {
             if (bitmap == null) {
                 return false;
             }
-            return nativeWriteTo(this.f34378a, bitmap);
+            return nativeWriteTo(this.f35210a, bitmap);
         }
         return invokeLL.booleanValue;
     }
@@ -206,7 +206,7 @@ public class NSGif implements b.a.e.d.b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            int nativeGetFrameDelay = nativeGetFrameDelay(this.f34378a, i2);
+            int nativeGetFrameDelay = nativeGetFrameDelay(this.f35210a, i2);
             if (nativeGetFrameDelay <= 0) {
                 return 100;
             }
@@ -219,18 +219,18 @@ public class NSGif implements b.a.e.d.b {
     public boolean c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? nativeDecodeFrame(this.f34378a, i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? nativeDecodeFrame(this.f35210a, i2) : invokeI.booleanValue;
     }
 
     @Override // b.a.e.d.b
     public void close() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (i2 = this.f34378a) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (i2 = this.f35210a) == 0) {
             return;
         }
-        this.f34378a = 0;
-        b.a.e.e.m.h.a().c(new a(this, i2));
+        this.f35210a = 0;
+        b.a.e.f.m.h.a().c(new a(this, i2));
     }
 
     public void finalize() throws Throwable {
@@ -248,20 +248,20 @@ public class NSGif implements b.a.e.d.b {
     public int getFrameCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34381d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35213d : invokeV.intValue;
     }
 
     @Override // b.a.e.d.b
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34380c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35212c : invokeV.intValue;
     }
 
     @Override // b.a.e.d.b
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f34379b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f35211b : invokeV.intValue;
     }
 }

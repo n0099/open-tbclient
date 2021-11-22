@@ -31,12 +31,12 @@ public class k extends ActivityDelegation implements b.a.p0.a.m.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.mParams.getBoolean("key_login_force", false) && a.F(getAgent())) {
+            if (!this.mParams.getBoolean("key_login_force", false) && a.E(getAgent())) {
                 this.mResult.putInt("result_code", 0);
                 finish();
                 return true;
             }
-            a.M(getAgent(), this.mParams.getBundle("key_login_params"), this);
+            a.L(getAgent(), this.mParams.getBundle("key_login_params"), this);
             return false;
         }
         return invokeV.booleanValue;

@@ -22,8 +22,8 @@ public class ae extends d {
                 return;
             }
         }
-        this.f40111c = 4;
-        this.f40110b = "mappoi";
-        this.f40112d = 50;
+        this.f40943c = 4;
+        this.f40942b = "mappoi";
+        this.f40944d = 50;
     }
 }

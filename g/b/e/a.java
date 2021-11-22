@@ -50,7 +50,7 @@ public abstract class a extends g.b.a implements Runnable, WebSocket {
 
     /* renamed from: g.b.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class C2044a {
+    public static /* synthetic */ class C2080a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -61,7 +61,7 @@ public abstract class a extends g.b.a implements Runnable, WebSocket {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f71751e;
+        public final /* synthetic */ a f72670e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public abstract class a extends g.b.a implements Runnable, WebSocket {
                     return;
                 }
             }
-            this.f71751e = aVar;
+            this.f72670e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -94,27 +94,27 @@ public abstract class a extends g.b.a implements Runnable, WebSocket {
                                 if (Thread.interrupted()) {
                                     break;
                                 }
-                                ByteBuffer take = this.f71751e.engine.f71746e.take();
-                                this.f71751e.ostream.write(take.array(), 0, take.limit());
-                                this.f71751e.ostream.flush();
+                                ByteBuffer take = this.f72670e.engine.f72665e.take();
+                                this.f72670e.ostream.write(take.array(), 0, take.limit());
+                                this.f72670e.ostream.flush();
                             } catch (IOException e2) {
-                                this.f71751e.handleIOException(e2);
+                                this.f72670e.handleIOException(e2);
                             }
                         } finally {
-                            this.f71751e.closeSocket();
-                            this.f71751e.writeThread = null;
+                            this.f72670e.closeSocket();
+                            this.f72670e.writeThread = null;
                         }
                     } catch (InterruptedException unused) {
-                        for (ByteBuffer byteBuffer : this.f71751e.engine.f71746e) {
-                            this.f71751e.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
-                            this.f71751e.ostream.flush();
+                        for (ByteBuffer byteBuffer : this.f72670e.engine.f72665e) {
+                            this.f72670e.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
+                            this.f72670e.ostream.flush();
                         }
                     }
                 }
             }
         }
 
-        public /* synthetic */ b(a aVar, C2044a c2044a) {
+        public /* synthetic */ b(a aVar, C2080a c2080a) {
             this(aVar);
         }
     }

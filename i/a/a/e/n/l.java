@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.model.ThemeColorConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final l f72365a;
+    public static final l f73284a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public final class l {
                 return;
             }
         }
-        f72365a = new l();
+        f73284a = new l();
     }
 
     public l() {

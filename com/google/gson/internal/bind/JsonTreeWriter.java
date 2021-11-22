@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class JsonTreeWriter extends JsonWriter {
     public static /* synthetic */ Interceptable $ic;
     public static final JsonPrimitive SENTINEL_CLOSED;

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.n;
-import b.a.e.l.e.w;
+import b.a.e.m.e.n;
+import b.a.e.m.e.w;
 import b.a.r0.v1.h.e.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class e extends b.a.e.l.e.a<b.a.r0.v1.h.e.e, SearchSuggestRankingViewHolder> {
+public class e extends b.a.e.m.e.a<b.a.r0.v1.h.e.e, SearchSuggestRankingViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context m;
@@ -37,10 +37,10 @@ public class e extends b.a.e.l.e.a<b.a.r0.v1.h.e.e, SearchSuggestRankingViewHold
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f24372e;
+        public final /* synthetic */ Context f25835e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f24373f;
+        public final /* synthetic */ e f25836f;
 
         public a(e eVar, Context context) {
             Interceptable interceptable = $ic;
@@ -57,11 +57,11 @@ public class e extends b.a.e.l.e.a<b.a.r0.v1.h.e.e, SearchSuggestRankingViewHold
                     return;
                 }
             }
-            this.f24373f = eVar;
-            this.f24372e = context;
+            this.f25836f = eVar;
+            this.f25835e = context;
         }
 
-        @Override // b.a.e.l.e.w
+        @Override // b.a.e.m.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             b.a.r0.v1.h.e.e eVar;
             e.a d2;
@@ -72,8 +72,8 @@ public class e extends b.a.e.l.e.a<b.a.r0.v1.h.e.e, SearchSuggestRankingViewHold
                 hashMap.put("sort_type", d2.c() + "");
                 hashMap.put("rank_type", d2.b() + "");
                 hashMap.put("rank_code", d2.a() + "");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new b.a.r0.l3.j0.n(this.f24372e, "ItemRecommendList", hashMap)));
-                this.f24373f.i0(eVar);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new b.a.r0.m3.j0.n(this.f25835e, "ItemRecommendList", hashMap)));
+                this.f25836f.i0(eVar);
             }
         }
     }
@@ -98,12 +98,12 @@ public class e extends b.a.e.l.e.a<b.a.r0.v1.h.e.e, SearchSuggestRankingViewHold
             }
         }
         this.m = context;
-        this.f2422h = bdUniqueId;
+        this.f2424h = bdUniqueId;
         c0(new a(this, context));
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.v1.h.e.e eVar, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
         k0(i2, view, viewGroup, eVar, searchSuggestRankingViewHolder);
         return view;
@@ -127,7 +127,7 @@ public class e extends b.a.e.l.e.a<b.a.r0.v1.h.e.e, SearchSuggestRankingViewHold
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: j0 */
     public SearchSuggestRankingViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class m extends b.a.p0.a.k2.f.a {
+public class m extends b.a.p0.a.o2.f.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,15 +26,15 @@ public class m extends b.a.p0.a.k2.f.a {
         }
     }
 
-    @Override // b.a.p0.a.k2.f.a
+    @Override // b.a.p0.a.o2.f.a
     @NonNull
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? n.n() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? n.p() : (String) invokeV.objValue;
     }
 
-    @Override // b.a.p0.a.k2.f.e
+    @Override // b.a.p0.a.o2.f.e
     public long getMaxSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

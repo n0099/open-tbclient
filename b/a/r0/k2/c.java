@@ -13,17 +13,17 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f18641a;
+    public static String f20177a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(f18641a)) {
-                f18641a = b.a.q0.s.e0.b.j().p("nick_name_activity_link", "");
+            if (TextUtils.isEmpty(f20177a)) {
+                f20177a = b.a.q0.s.e0.b.j().p("nick_name_activity_link", "");
             }
-            return f18641a;
+            return f20177a;
         }
         return (String) invokeV.objValue;
     }

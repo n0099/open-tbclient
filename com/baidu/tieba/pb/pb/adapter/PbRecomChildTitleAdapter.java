@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import b.a.q0.s.u.c;
-import b.a.r0.b0.f0.e;
+import b.a.r0.b0.g0.e;
 import b.a.r0.k2.f;
 import b.a.r0.k2.i;
 import b.a.r0.k2.j;
@@ -34,10 +34,10 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f52128a;
+        public int f53041a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f52129b;
+        public TextView f53042b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
@@ -57,14 +57,14 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
                     return;
                 }
             }
-            this.f52128a = 3;
+            this.f53041a = 3;
             initView(view);
         }
 
         public void bindDataToView(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                this.f52129b.setText(eVar.f14788e);
+                this.f53042b.setText(eVar.f16275e);
             }
         }
 
@@ -72,7 +72,7 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
                 TextView textView = (TextView) view.findViewById(i.tv_title);
-                this.f52129b = textView;
+                this.f53042b = textView;
                 c.d(textView).A(l.F_X02);
             }
         }
@@ -80,12 +80,12 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
         public void onChangeSkin() {
             int skinType;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f52128a == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f53041a == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
                 return;
             }
             SkinManager.setBackgroundColor(getView(), f.CAM_X0202);
-            SkinManager.setViewTextColor(this.f52129b, f.CAM_X0105);
-            this.f52128a = skinType;
+            SkinManager.setViewTextColor(this.f53042b, f.CAM_X0105);
+            this.f53041a = skinType;
         }
     }
 
@@ -110,7 +110,7 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
         }
     }
 
-    @Override // b.a.r0.k2.u.f.n, b.a.e.l.e.a
+    @Override // b.a.r0.k2.u.f.n, b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         k0(i2, view, viewGroup, (e) obj, (ViewHolder) viewHolder);
         return view;
@@ -123,13 +123,13 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: j0 */
     public ViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.f2419e).inflate(j.pb_reclist_title, viewGroup, false));
+            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.f2421e).inflate(j.pb_reclist_title, viewGroup, false));
             this.s = viewHolder;
             return viewHolder;
         }

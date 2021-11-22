@@ -23,19 +23,19 @@ public class f implements b.a.r0.p2.d.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.r0.t2.n.a f22038a;
+    public b.a.r0.u2.n.a f23537a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f22039b;
+    public TbPageContext f23538b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f22040c;
+    public BdUniqueId f23539c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f22041d;
+    public HttpMessageListener f23540d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22042e;
+    public int f23541e;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -43,7 +43,7 @@ public class f implements b.a.r0.p2.d.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f22043a;
+        public final /* synthetic */ f f23542a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(f fVar, int i2) {
@@ -63,26 +63,26 @@ public class f implements b.a.r0.p2.d.c {
                     return;
                 }
             }
-            this.f22043a = fVar;
+            this.f23542a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage().getTag() == this.f22043a.f22040c) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage().getTag() == this.f23542a.f23539c) {
                 if (!httpResponsedMessage.isSuccess() || httpResponsedMessage.getError() != 0) {
-                    if (this.f22043a.f22039b == null || StringUtils.isNull(httpResponsedMessage.getErrorString())) {
+                    if (this.f23542a.f23538b == null || StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                         return;
                     }
-                    this.f22043a.f22039b.showToast(httpResponsedMessage.getErrorString());
+                    this.f23542a.f23538b.showToast(httpResponsedMessage.getErrorString());
                     return;
                 }
-                if (this.f22043a.f22039b != null) {
-                    this.f22043a.f22039b.showToast(R.string.privacy_setting_toast);
+                if (this.f23542a.f23538b != null) {
+                    this.f23542a.f23538b.showToast(R.string.privacy_setting_toast);
                 }
-                this.f22043a.f22042e = 1;
-                this.f22043a.f22038a.e();
+                this.f23542a.f23541e = 1;
+                this.f23542a.f23537a.e();
             }
         }
     }
@@ -93,7 +93,7 @@ public class f implements b.a.r0.p2.d.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f22044a;
+        public final /* synthetic */ f f23543a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(f fVar, int i2) {
@@ -113,7 +113,7 @@ public class f implements b.a.r0.p2.d.c {
                     return;
                 }
             }
-            this.f22044a = fVar;
+            this.f23543a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -121,18 +121,18 @@ public class f implements b.a.r0.p2.d.c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             int intValue;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921065 || customResponsedMessage.getData() == null || this.f22044a.f22042e == (intValue = ((Integer) customResponsedMessage.getData()).intValue())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921065 || customResponsedMessage.getData() == null || this.f23543a.f23541e == (intValue = ((Integer) customResponsedMessage.getData()).intValue())) {
                 return;
             }
-            this.f22044a.f22042e = intValue;
+            this.f23543a.f23541e = intValue;
             if (intValue != 1) {
                 return;
             }
-            this.f22044a.f22038a.e();
+            this.f23543a.f23537a.e();
         }
     }
 
-    public f(TbPageContext tbPageContext, b.a.r0.t2.n.a aVar, BdUniqueId bdUniqueId) {
+    public f(TbPageContext tbPageContext, b.a.r0.u2.n.a aVar, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,15 +147,15 @@ public class f implements b.a.r0.p2.d.c {
                 return;
             }
         }
-        this.f22042e = 0;
-        this.f22039b = tbPageContext;
-        this.f22038a = aVar;
-        this.f22040c = bdUniqueId;
-        this.f22041d = new a(this, CmdConfigHttp.SET_PRIVATE_CMD);
+        this.f23541e = 0;
+        this.f23538b = tbPageContext;
+        this.f23537a = aVar;
+        this.f23539c = bdUniqueId;
+        this.f23540d = new a(this, CmdConfigHttp.SET_PRIVATE_CMD);
         b bVar = new b(this, 2921065);
-        this.f22041d.setTag(this.f22040c);
-        bVar.setTag(this.f22040c);
-        MessageManager.getInstance().registerListener(this.f22041d);
+        this.f23540d.setTag(this.f23539c);
+        bVar.setTag(this.f23539c);
+        MessageManager.getInstance().registerListener(this.f23540d);
         MessageManager.getInstance().registerListener(bVar);
     }
 
@@ -163,8 +163,8 @@ public class f implements b.a.r0.p2.d.c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!b.a.e.e.p.j.z()) {
-                TbPageContext tbPageContext = this.f22039b;
+            if (!b.a.e.f.p.j.z()) {
+                TbPageContext tbPageContext = this.f23538b;
                 if (tbPageContext != null) {
                     tbPageContext.showToast(R.string.neterror);
                     return;
@@ -174,7 +174,7 @@ public class f implements b.a.r0.p2.d.c {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
             httpMessage.addParam("opt", "post");
             httpMessage.addParam("val", String.valueOf(1));
-            httpMessage.setTag(this.f22040c);
+            httpMessage.setTag(this.f23539c);
             MessageManager.getInstance().sendMessage(httpMessage);
             TiebaStatic.log(new StatisticItem("c12515").param("obj_locate", 1));
         }

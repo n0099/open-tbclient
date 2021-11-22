@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public final class g implements b.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
+public final class g implements b.p.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f71573a;
+    public Context f72493a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.r.a.a.a.a.a f71574b;
+    public b.p.a.a.a.a.a f72494b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f71575c;
+    public String f72495c;
 
-    public g(Context context, b.r.a.a.a.a.a aVar) {
+    public g(Context context, b.p.a.a.a.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,35 +38,35 @@ public final class g implements b.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
                 return;
             }
         }
-        this.f71573a = context;
-        this.f71574b = aVar;
+        this.f72493a = context;
+        this.f72494b = aVar;
     }
 
-    @Override // b.r.a.a.a.b.b
-    public final void a(b.r.a.a.a.a.a aVar) {
-        b.r.a.a.a.b.k.a aVar2;
+    @Override // b.p.a.a.a.b.b
+    public final void a(b.p.a.a.a.a.a aVar) {
+        b.p.a.a.a.b.k.a aVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar2 = b.r.a.a.a.b.k.c.f33662a;
-            aVar2.c(this.f71573a, this);
+            aVar2 = b.p.a.a.a.b.k.c.f34496a;
+            aVar2.c(this.f72493a, this);
         }
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f71574b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f72494b == null) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            this.f71574b.a(false, null);
+            this.f72494b.a(false, null);
             return;
         }
-        this.f71575c = str;
-        this.f71574b.a(true, this);
+        this.f72495c = str;
+        this.f72494b.a(true, this);
     }
 
-    @Override // b.r.a.a.a.b.b
+    @Override // b.p.a.a.a.b.b
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,40 +86,40 @@ public final class g implements b.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
         return (IBinder) invokeV.objValue;
     }
 
-    @Override // b.r.a.a.a.b.b
+    @Override // b.p.a.a.a.b.b
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f71575c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72495c : (String) invokeV.objValue;
     }
 
-    @Override // b.r.a.a.a.b.b
+    @Override // b.p.a.a.a.b.b
     public final boolean c() {
         InterceptResult invokeV;
-        b.r.a.a.a.b.k.a aVar;
+        b.p.a.a.a.b.k.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            aVar = b.r.a.a.a.b.k.c.f33662a;
+            aVar = b.p.a.a.a.b.k.c.f34496a;
             return aVar.e();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // b.r.a.a.a.b.b
+    @Override // b.p.a.a.a.b.b
     public final void d() {
-        b.r.a.a.a.b.k.a aVar;
+        b.p.a.a.a.b.k.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            aVar = b.r.a.a.a.b.k.c.f33662a;
-            aVar.b(this.f71573a);
+            aVar = b.p.a.a.a.b.k.c.f34496a;
+            aVar.b(this.f72493a);
         }
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        b.r.a.a.a.a.a aVar;
+        b.p.a.a.a.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f71574b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f72494b) == null) {
             return;
         }
         aVar.a(false, this);

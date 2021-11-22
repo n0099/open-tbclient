@@ -40,7 +40,7 @@ public final class c extends b.a.p0.a.c0.a.d.b {
         this.A = null;
     }
 
-    @Override // b.a.p0.a.c0.a.d.b, b.a.p0.a.c0.b.b, b.a.p0.a.l1.a
+    @Override // b.a.p0.a.c0.a.d.b, b.a.p0.a.c0.b.b, b.a.p0.a.m1.a
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
@@ -53,11 +53,11 @@ public final class c extends b.a.p0.a.c0.a.d.b {
         this.A = jSONObject.optString("action");
     }
 
-    @Override // b.a.p0.a.c0.b.b, b.a.p0.a.l1.a
+    @Override // b.a.p0.a.c0.b.b, b.a.p0.a.m1.a
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f4057g) || TextUtils.isEmpty(this.f4056f)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f4197g) || TextUtils.isEmpty(this.f4196f)) ? false : true : invokeV.booleanValue;
     }
 
     public boolean k() {

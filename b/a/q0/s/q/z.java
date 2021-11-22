@@ -13,10 +13,10 @@ public class z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13498a;
+    public String f14280a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13499b;
+    public int f14281b;
 
     public z() {
         Interceptable interceptable = $ic;
@@ -35,13 +35,13 @@ public class z {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13498a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14280a : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13499b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14281b : invokeV.intValue;
     }
 
     public void c(ForumBookInfo forumBookInfo) {
@@ -49,8 +49,8 @@ public class z {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumBookInfo) == null) || forumBookInfo == null) {
             return;
         }
-        this.f13498a = forumBookInfo.book_id;
-        this.f13499b = forumBookInfo.book_type.intValue();
+        this.f14280a = forumBookInfo.book_id;
+        this.f14281b = forumBookInfo.book_type.intValue();
         String str = forumBookInfo.book_title;
         String str2 = forumBookInfo.book_cover;
         String str3 = forumBookInfo.author;

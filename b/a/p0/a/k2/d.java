@@ -1,58 +1,36 @@
 package b.a.p0.a.k2;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import b.a.p0.a.a2.e;
-import b.a.p0.a.k;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.so.SoLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class d {
+public final class d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6433a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1327395849, "Lb/a/p0/a/k2/d;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1327395849, "Lb/a/p0/a/k2/d;");
-                return;
-            }
-        }
-        f6433a = k.f6397a;
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b.a.p0.a.c1.a.e0().c() : (String) invokeV.objValue;
     }
 
-    public static boolean a() {
+    public static boolean b() {
         InterceptResult invokeV;
-        String V;
-        String queryParameter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            e P = e.P();
-            if (P == null || (V = P.K().V()) == null || (queryParameter = Uri.parse(V).getQueryParameter("params")) == null) {
-                return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SoLoader.load(AppRuntime.getAppContext(), "audioengine") : invokeV.booleanValue;
+    }
+
+    public static f c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!b.a.p0.a.c1.a.w0().d()) {
+                return b.a.p0.a.h0.s.a.c(false);
             }
-            try {
-            } catch (JSONException e2) {
-                if (f6433a) {
-                    e2.printStackTrace();
-                }
-            }
-            return TextUtils.equals(new JSONObject(queryParameter).optString("forcePath"), "homepage");
+            return SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
         }
-        return invokeV.booleanValue;
+        return (f) invokeV.objValue;
     }
 }

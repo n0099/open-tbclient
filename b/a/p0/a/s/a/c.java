@@ -2,6 +2,7 @@ package b.a.p0.a.s.a;
 
 import android.os.Bundle;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,10 +33,10 @@ public class c extends ProviderDelegation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             boolean z = bundle == null ? false : bundle.getBoolean("status");
-            b.a.p0.a.m.c e2 = f.f7771d.e();
-            if (e2 != null) {
-                e2.a(z);
-                return null;
+            for (b.a.p0.a.m.c cVar : SwanAppAllianceLoginHelper.f44256d.e()) {
+                if (cVar != null) {
+                    cVar.a(z);
+                }
             }
             return null;
         }

@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
-import b.a.e.l.d.a;
+import b.a.e.m.d.a;
 import b.a.q0.c0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, b.a.e.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, b.a.e.f.l.e
     public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) && (obj instanceof a)) {
@@ -44,14 +44,14 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
                 aVar.A(i2);
                 aVar.z(i3);
                 c.k().f(str, aVar);
-                b.a.e.e.l.a.l(true, System.currentTimeMillis() - currentTimeMillis);
+                b.a.e.f.l.a.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, b.a.e.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, b.a.e.f.l.e
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
             long currentTimeMillis = System.currentTimeMillis();
             a o = c.k().o(str);
             if (z) {
-                b.a.e.e.l.a.i(o != null, System.currentTimeMillis() - currentTimeMillis);
+                b.a.e.f.l.a.i(o != null, System.currentTimeMillis() - currentTimeMillis);
             }
             return o;
         }

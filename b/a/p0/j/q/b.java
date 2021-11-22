@@ -1,7 +1,8 @@
 package b.a.p0.j.q;
 
-import android.graphics.Color;
-import com.baidu.mapapi.map.BaiduMap;
+import android.content.Context;
+import b.a.p0.a.k;
+import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,10 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayDeque;
 /* loaded from: classes4.dex */
-public class b extends a {
+public class b {
     public static /* synthetic */ Interceptable $ic;
-    public static final int k;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static volatile b f11432a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,33 +32,44 @@ public class b extends a {
                 return;
             }
         }
-        k = Color.parseColor("#26c56c");
+        boolean z = k.f6863a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(BaiduMap baiduMap) {
-        super(baiduMap);
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baiduMap};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((BaiduMap) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        new ArrayDeque();
     }
 
-    @Override // b.a.p0.j.q.a
-    public int f() {
+    public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? k : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f11432a == null) {
+                synchronized (b.class) {
+                    if (f11432a == null) {
+                        f11432a = new b();
+                    }
+                }
+            }
+            return f11432a;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public DuMixGameSurfaceView a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new DuMixGameSurfaceView(context) : (DuMixGameSurfaceView) invokeL.objValue;
     }
 }

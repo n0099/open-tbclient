@@ -25,13 +25,13 @@ public class u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public v f11843a;
+    public v f12594a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f11844b;
+    public long f12595b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f11845c;
+    public CustomMessageListener f12596c;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -39,7 +39,7 @@ public class u {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ u f11846a;
+        public final /* synthetic */ u f12597a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(u uVar, int i2) {
@@ -59,7 +59,7 @@ public class u {
                     return;
                 }
             }
-            this.f11846a = uVar;
+            this.f12597a = uVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public class u {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f11846a.g();
+            this.f12597a.g();
         }
     }
 
@@ -86,11 +86,11 @@ public class u {
                 return;
             }
         }
-        this.f11845c = new a(this, 2001371);
-        this.f11843a = new v();
-        MessageManager.getInstance().registerListener(this.f11845c);
+        this.f12596c = new a(this, 2001371);
+        this.f12594a = new v();
+        MessageManager.getInstance().registerListener(this.f12596c);
         g();
-        this.f11844b = b.a.q0.s.e0.b.j().l("key_redpacket_pop_last_time", 0L);
+        this.f12595b = b.a.q0.s.e0.b.j().l("key_redpacket_pop_last_time", 0L);
     }
 
     public void b() {
@@ -103,7 +103,7 @@ public class u {
     public final boolean c(z zVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zVar)) == null) ? zVar != null && this.f11844b >= zVar.b() && this.f11844b <= zVar.a() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zVar)) == null) ? zVar != null && this.f12595b >= zVar.b() && this.f12595b <= zVar.a() : invokeL.booleanValue;
     }
 
     public final boolean d() {
@@ -111,7 +111,7 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Date date = new Date();
-            return date.getTime() >= this.f11843a.b() && date.getTime() <= this.f11843a.a();
+            return date.getTime() >= this.f12594a.b() && date.getTime() <= this.f12594a.a();
         }
         return invokeV.booleanValue;
     }
@@ -120,11 +120,11 @@ public class u {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ListUtils.isEmpty(this.f11843a.c())) {
+            if (ListUtils.isEmpty(this.f12594a.c())) {
                 return false;
             }
             Date date = new Date();
-            Iterator<z> it = this.f11843a.c().iterator();
+            Iterator<z> it = this.f12594a.c().iterator();
             while (it.hasNext()) {
                 z next = it.next();
                 if (date.getTime() >= next.b() && date.getTime() <= next.a() && !c(next)) {
@@ -138,13 +138,13 @@ public class u {
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || b.a.e.e.p.k.isEmpty(this.f11843a.d())) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || b.a.e.f.p.k.isEmpty(this.f12594a.d())) {
             return;
         }
-        this.f11844b = System.currentTimeMillis();
-        b.a.q0.s.e0.b.j().w("key_redpacket_pop_last_time", this.f11844b);
+        this.f12595b = System.currentTimeMillis();
+        b.a.q0.s.e0.b.j().w("key_redpacket_pop_last_time", this.f12595b);
         TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RED_PACKET_POP_WINDOW_SHOW));
-        String str = this.f11843a.d() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
+        String str = this.f12594a.d() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(currentActivity, "", str, true)));
@@ -154,7 +154,7 @@ public class u {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f11843a.e(b.a.q0.s.e0.b.j().p("key_redpacket_pop", ""));
+            this.f12594a.e(b.a.q0.s.e0.b.j().p("key_redpacket_pop", ""));
         }
     }
 }

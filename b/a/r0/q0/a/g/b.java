@@ -17,28 +17,28 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f22511a;
+    public int f24032a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f22512b;
+    public int f24033b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MultiMediaData f22513c;
+    public MultiMediaData f24034c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f22514d;
+    public float f24035d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f22515e;
+    public boolean f24036e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22516f;
+    public String f24037f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f22517g;
+    public boolean f24038g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Buffer f22518h;
+    public Buffer f24039h;
 
     /* loaded from: classes5.dex */
     public static class a {
@@ -46,31 +46,31 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f22519a;
+        public int f24040a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f22520b;
+        public int f24041b;
 
         /* renamed from: c  reason: collision with root package name */
-        public MultiMediaData f22521c;
+        public MultiMediaData f24042c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<LocalAlbumInfo> f22522d;
+        public List<LocalAlbumInfo> f24043d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f22523e;
+        public float f24044e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f22524f;
+        public String f24045f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f22525g;
+        public boolean f24046g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f22526h;
+        public boolean f24047h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f22527i;
+        public String f24048i;
         public boolean j;
         public Buffer k;
         public long l;
@@ -88,11 +88,11 @@ public class b {
                     return;
                 }
             }
-            this.f22519a = RecordConstants.VIDEO_CONSTANT_WIDTH;
-            this.f22520b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
-            this.f22523e = 0.0f;
-            this.f22525g = false;
-            this.f22526h = false;
+            this.f24040a = RecordConstants.VIDEO_CONSTANT_WIDTH;
+            this.f24041b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+            this.f24044e = 0.0f;
+            this.f24046g = false;
+            this.f24047h = false;
             this.j = false;
         }
 
@@ -116,7 +116,7 @@ public class b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.f22520b = i2;
+                this.f24041b = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -136,7 +136,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, multiMediaData)) == null) {
-                this.f22521c = multiMediaData;
+                this.f24042c = multiMediaData;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -146,7 +146,7 @@ public class b {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f2)) == null) {
-                this.f22523e = f2;
+                this.f24044e = f2;
                 return this;
             }
             return (a) invokeF.objValue;
@@ -156,7 +156,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f22527i = str;
+                this.f24048i = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -166,7 +166,7 @@ public class b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-                this.f22519a = i2;
+                this.f24040a = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -188,17 +188,17 @@ public class b {
                 return;
             }
         }
-        this.f22511a = aVar.f22519a;
-        this.f22512b = aVar.f22520b;
-        this.f22514d = aVar.f22523e;
-        String unused = aVar.f22524f;
-        this.f22513c = aVar.f22521c;
-        List unused2 = aVar.f22522d;
-        this.f22515e = aVar.f22525g;
-        boolean unused3 = aVar.f22526h;
-        this.f22516f = aVar.f22527i;
-        this.f22517g = aVar.j;
-        this.f22518h = aVar.k;
+        this.f24032a = aVar.f24040a;
+        this.f24033b = aVar.f24041b;
+        this.f24035d = aVar.f24044e;
+        String unused = aVar.f24045f;
+        this.f24034c = aVar.f24042c;
+        List unused2 = aVar.f24043d;
+        this.f24036e = aVar.f24046g;
+        boolean unused3 = aVar.f24047h;
+        this.f24037f = aVar.f24048i;
+        this.f24038g = aVar.j;
+        this.f24039h = aVar.k;
         long unused4 = aVar.l;
     }
 }

@@ -13,7 +13,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.e;
+import b.a.e.m.e.e;
 import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
 /* loaded from: classes6.dex */
-public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
+public class BdListView extends ListView implements b.a.e.m.e.p<BdListView> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte KEYBOARD_STATE_HIDE = -2;
     public static final byte KEYBOARD_STATE_INIT = -1;
@@ -46,19 +46,19 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
     public t J;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.e.l.e.e f34561e;
+    public b.a.e.m.e.e f35393e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdapterView.OnItemClickListener f34562f;
+    public AdapterView.OnItemClickListener f35394f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdapterView.OnItemLongClickListener f34563g;
+    public AdapterView.OnItemLongClickListener f35395g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdapterView.OnItemSelectedListener f34564h;
+    public AdapterView.OnItemSelectedListener f35396h;
 
     /* renamed from: i  reason: collision with root package name */
-    public m f34565i;
+    public m f35397i;
     public l j;
     public AbsListView.OnScrollListener k;
     public o l;
@@ -68,13 +68,13 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
     public int p;
     public p q;
     public q r;
-    public b.a.e.l.e.b s;
-    public b.a.e.l.e.b t;
+    public b.a.e.m.e.b s;
+    public b.a.e.m.e.b t;
     public View u;
     public int v;
     public b.a.e.a.i w;
     public Runnable x;
-    public final b.a.e.l.e.q y;
+    public final b.a.e.m.e.q y;
     public Runnable z;
 
     /* loaded from: classes6.dex */
@@ -83,7 +83,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdListView f34566e;
+        public final /* synthetic */ BdListView f35398e;
 
         public a(BdListView bdListView) {
             Interceptable interceptable = $ic;
@@ -100,14 +100,14 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                     return;
                 }
             }
-            this.f34566e = bdListView;
+            this.f35398e = bdListView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdListView bdListView = this.f34566e;
+                BdListView bdListView = this.f35398e;
                 bdListView.setSelection(bdListView.getCount() - 1);
             }
         }
@@ -119,7 +119,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdListView f34567e;
+        public final /* synthetic */ BdListView f35399e;
 
         public b(BdListView bdListView) {
             Interceptable interceptable = $ic;
@@ -136,16 +136,16 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                     return;
                 }
             }
-            this.f34567e = bdListView;
+            this.f35399e = bdListView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f34567e.J == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35399e.J == null) {
                 return;
             }
-            this.f34567e.J.c();
+            this.f35399e.J.c();
         }
     }
 
@@ -155,7 +155,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdListView f34568e;
+        public final /* synthetic */ BdListView f35400e;
 
         public c(BdListView bdListView) {
             Interceptable interceptable = $ic;
@@ -172,43 +172,43 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                     return;
                 }
             }
-            this.f34568e = bdListView;
+            this.f35400e = bdListView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f34568e.l == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35400e.l == null) {
                 return;
             }
-            int firstVisiblePosition = this.f34568e.getFirstVisiblePosition();
-            int lastVisiblePosition = this.f34568e.getLastVisiblePosition();
+            int firstVisiblePosition = this.f35400e.getFirstVisiblePosition();
+            int lastVisiblePosition = this.f35400e.getLastVisiblePosition();
             int i2 = 0;
             int i3 = -1;
-            if (this.f34568e.f34561e == null || this.f34568e.f34561e.getWrappedAdapter() == null || this.f34568e.f34561e.m() <= 0) {
+            if (this.f35400e.f35393e == null || this.f35400e.f35393e.getWrappedAdapter() == null || this.f35400e.f35393e.m() <= 0) {
                 i2 = -1;
             } else {
-                int l = firstVisiblePosition - this.f34568e.f34561e.l();
+                int l = firstVisiblePosition - this.f35400e.f35393e.l();
                 i3 = l < 0 ? 0 : l;
-                int l2 = lastVisiblePosition - this.f34568e.f34561e.l();
-                if (l2 >= this.f34568e.f34561e.m()) {
-                    l2 = this.f34568e.f34561e.m() - 1;
+                int l2 = lastVisiblePosition - this.f35400e.f35393e.l();
+                if (l2 >= this.f35400e.f35393e.m()) {
+                    l2 = this.f35400e.f35393e.m() - 1;
                 }
                 if (l2 >= 0) {
                     i2 = l2;
                 }
             }
-            this.f34568e.l.onScrollStop(i3, i2);
+            this.f35400e.l.onScrollStop(i3, i2);
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d implements b.a.e.l.e.q {
+    public class d implements b.a.e.m.e.q {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdListView f34569a;
+        public final /* synthetic */ BdListView f35401a;
 
         public d(BdListView bdListView) {
             Interceptable interceptable = $ic;
@@ -225,37 +225,37 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                     return;
                 }
             }
-            this.f34569a = bdListView;
+            this.f35401a = bdListView;
         }
 
-        @Override // b.a.e.l.e.q
+        @Override // b.a.e.m.e.q
         public void cancelRefresh() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdListView bdListView = this.f34569a;
+                BdListView bdListView = this.f35401a;
                 bdListView.removeCallbacks(bdListView.z);
             }
         }
 
-        @Override // b.a.e.l.e.q
-        public b.a.e.l.e.o getAdapter() {
+        @Override // b.a.e.m.e.q
+        public b.a.e.m.e.o getAdapter() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34569a.getAdapter2() : (b.a.e.l.e.o) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35401a.getAdapter2() : (b.a.e.m.e.o) invokeV.objValue;
         }
 
-        @Override // b.a.e.l.e.q
+        @Override // b.a.e.m.e.q
         public int getFirstVisiblePosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34569a.getFirstVisiblePosition() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35401a.getFirstVisiblePosition() : invokeV.intValue;
         }
 
-        @Override // b.a.e.l.e.q
+        @Override // b.a.e.m.e.q
         public int getLastVisiblePosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34569a.getLastVisiblePosition() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35401a.getLastVisiblePosition() : invokeV.intValue;
         }
     }
 
@@ -265,7 +265,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdListView f34570e;
+        public final /* synthetic */ BdListView f35402e;
 
         public e(BdListView bdListView) {
             Interceptable interceptable = $ic;
@@ -282,7 +282,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                     return;
                 }
             }
-            this.f34570e = bdListView;
+            this.f35402e = bdListView;
         }
 
         public final void a(View view) {
@@ -290,8 +290,8 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
                 return;
             }
-            if (view instanceof b.a.e.f.a.h) {
-                ((b.a.e.f.a.h) view).refresh();
+            if (view instanceof b.a.e.g.a.h) {
+                ((b.a.e.g.a.h) view).refresh();
             }
             if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;
@@ -307,17 +307,17 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
             b.a.e.a.i c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                int childCount = this.f34570e.getChildCount();
+                int childCount = this.f35402e.getChildCount();
                 for (int i2 = 0; i2 < childCount; i2++) {
-                    a(this.f34570e.getChildAt(i2));
+                    a(this.f35402e.getChildAt(i2));
                 }
-                if (this.f34570e.w != null) {
-                    c2 = this.f34570e.w;
+                if (this.f35402e.w != null) {
+                    c2 = this.f35402e.w;
                 } else {
-                    c2 = b.a.e.a.j.c(this.f34570e.getContext());
+                    c2 = b.a.e.a.j.c(this.f35402e.getContext());
                 }
                 if (c2 != null) {
-                    c2.onPreLoad(this.f34570e.y);
+                    c2.onPreLoad(this.f35402e.y);
                 }
             }
         }
@@ -329,7 +329,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdListView f34571e;
+        public final /* synthetic */ BdListView f35403e;
 
         public f(BdListView bdListView) {
             Interceptable interceptable = $ic;
@@ -346,7 +346,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                     return;
                 }
             }
-            this.f34571e = bdListView;
+            this.f35403e = bdListView;
         }
 
         @Override // java.lang.Runnable
@@ -354,13 +354,13 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
             b.a.e.a.i c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f34571e.w != null) {
-                    c2 = this.f34571e.w;
+                if (this.f35403e.w != null) {
+                    c2 = this.f35403e.w;
                 } else {
-                    c2 = b.a.e.a.j.c(this.f34571e.getContext());
+                    c2 = b.a.e.a.j.c(this.f35403e.getContext());
                 }
                 if (c2 != null) {
-                    c2.onPreLoad(this.f34571e.y);
+                    c2.onPreLoad(this.f35403e.y);
                 }
             }
         }
@@ -372,7 +372,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdListView f34572a;
+        public final /* synthetic */ BdListView f35404a;
 
         public g(BdListView bdListView) {
             Interceptable interceptable = $ic;
@@ -389,16 +389,16 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                     return;
                 }
             }
-            this.f34572a = bdListView;
+            this.f35404a = bdListView;
         }
 
-        @Override // b.a.e.l.e.e.b
+        @Override // b.a.e.m.e.e.b
         public void onPreLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdListView bdListView = this.f34572a;
+                BdListView bdListView = this.f35404a;
                 bdListView.removeCallbacks(bdListView.A);
-                BdListView bdListView2 = this.f34572a;
+                BdListView bdListView2 = this.f35404a;
                 bdListView2.postDelayed(bdListView2.A, 100L);
             }
         }
@@ -410,7 +410,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdListView f34573e;
+        public final /* synthetic */ BdListView f35405e;
 
         public h(BdListView bdListView) {
             Interceptable interceptable = $ic;
@@ -427,38 +427,38 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                     return;
                 }
             }
-            this.f34573e = bdListView;
+            this.f35405e = bdListView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                int l = this.f34573e.f34561e.l();
+                int l = this.f35405e.f35393e.l();
                 if (i2 < l) {
-                    if (this.f34573e.s == null || view != this.f34573e.s.b()) {
-                        if (this.f34573e.f34565i != null) {
-                            this.f34573e.f34565i.onClick(view);
+                    if (this.f35405e.s == null || view != this.f35405e.s.b()) {
+                        if (this.f35405e.f35397i != null) {
+                            this.f35405e.f35397i.onClick(view);
                             return;
                         }
                         return;
                     }
-                    this.f34573e.s.c();
+                    this.f35405e.s.c();
                     return;
                 }
                 int i3 = i2 - l;
-                ListAdapter wrappedAdapter = this.f34573e.f34561e.getWrappedAdapter();
+                ListAdapter wrappedAdapter = this.f35405e.f35393e.getWrappedAdapter();
                 if (wrappedAdapter == null || i3 >= wrappedAdapter.getCount()) {
-                    if (this.f34573e.t == null || view != this.f34573e.t.b()) {
-                        if (this.f34573e.j != null) {
-                            this.f34573e.j.onClick(view);
+                    if (this.f35405e.t == null || view != this.f35405e.t.b()) {
+                        if (this.f35405e.j != null) {
+                            this.f35405e.j.onClick(view);
                             return;
                         }
                         return;
                     }
-                    this.f34573e.t.c();
-                } else if (this.f34573e.f34562f != null) {
-                    this.f34573e.f34562f.onItemClick(adapterView, view, i3, j);
+                    this.f35405e.t.c();
+                } else if (this.f35405e.f35394f != null) {
+                    this.f35405e.f35394f.onItemClick(adapterView, view, i3, j);
                 }
             }
         }
@@ -470,7 +470,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdListView f34574e;
+        public final /* synthetic */ BdListView f35406e;
 
         public i(BdListView bdListView) {
             Interceptable interceptable = $ic;
@@ -487,22 +487,22 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                     return;
                 }
             }
-            this.f34574e = bdListView;
+            this.f35406e = bdListView;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i2, i3, i4) == null) {
-                this.f34574e.v = i2;
-                if (this.f34574e.k != null) {
-                    this.f34574e.k.onScroll(absListView, i2, i3, i4);
+                this.f35406e.v = i2;
+                if (this.f35406e.k != null) {
+                    this.f35406e.k.onScroll(absListView, i2, i3, i4);
                 }
-                if (this.f34574e.l == null || this.f34574e.n <= 0) {
+                if (this.f35406e.l == null || this.f35406e.n <= 0) {
                     return;
                 }
-                this.f34574e.getHandler().removeCallbacks(this.f34574e.x);
-                this.f34574e.getHandler().postDelayed(this.f34574e.x, this.f34574e.n);
+                this.f35406e.getHandler().removeCallbacks(this.f35406e.x);
+                this.f35406e.getHandler().postDelayed(this.f35406e.x, this.f35406e.n);
             }
         }
 
@@ -511,43 +511,43 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
             b.a.e.a.i c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) {
-                if (this.f34574e.w != null) {
-                    c2 = this.f34574e.w;
+                if (this.f35406e.w != null) {
+                    c2 = this.f35406e.w;
                 } else {
-                    c2 = b.a.e.a.j.c(this.f34574e.getContext());
+                    c2 = b.a.e.a.j.c(this.f35406e.getContext());
                 }
                 if (c2 != null) {
                     if (i2 == 2) {
-                        BdListView bdListView = this.f34574e;
+                        BdListView bdListView = this.f35406e;
                         bdListView.removeCallbacks(bdListView.z);
                         c2.setIsScroll(true);
                     } else if (c2.isScroll()) {
                         c2.setIsScroll(false);
-                        BdListView bdListView2 = this.f34574e;
+                        BdListView bdListView2 = this.f35406e;
                         bdListView2.removeCallbacks(bdListView2.z);
-                        BdListView bdListView3 = this.f34574e;
+                        BdListView bdListView3 = this.f35406e;
                         bdListView3.postDelayed(bdListView3.z, 100L);
                     } else if (i2 == 0) {
-                        BdListView bdListView4 = this.f34574e;
+                        BdListView bdListView4 = this.f35406e;
                         bdListView4.removeCallbacks(bdListView4.A);
-                        BdListView bdListView5 = this.f34574e;
+                        BdListView bdListView5 = this.f35406e;
                         bdListView5.postDelayed(bdListView5.A, 100L);
                     }
                 }
-                if (this.f34574e.k != null) {
-                    this.f34574e.k.onScrollStateChanged(absListView, i2);
+                if (this.f35406e.k != null) {
+                    this.f35406e.k.onScrollStateChanged(absListView, i2);
                 }
                 if (i2 == 0) {
-                    if (this.f34574e.q != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                        this.f34574e.q.onScrollToBottom();
+                    if (this.f35406e.q != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
+                        this.f35406e.q.onScrollToBottom();
                     }
-                    if (this.f34574e.r != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                        this.f34574e.r.onScrollToBottom(this.f34574e);
+                    if (this.f35406e.r != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
+                        this.f35406e.r.onScrollToBottom(this.f35406e);
                     }
-                    if (this.f34574e.o == null || absListView.getFirstVisiblePosition() > this.f34574e.p) {
+                    if (this.f35406e.o == null || absListView.getFirstVisiblePosition() > this.f35406e.p) {
                         return;
                     }
-                    this.f34574e.o.onScrollToTop();
+                    this.f35406e.o.onScrollToTop();
                 }
             }
         }
@@ -559,7 +559,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdListView f34575e;
+        public final /* synthetic */ BdListView f35407e;
 
         public j(BdListView bdListView) {
             Interceptable interceptable = $ic;
@@ -576,7 +576,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                     return;
                 }
             }
-            this.f34575e = bdListView;
+            this.f35407e = bdListView;
         }
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -584,17 +584,17 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-                int l = this.f34575e.f34561e.l();
+                int l = this.f35407e.f35393e.l();
                 if (i2 < l) {
                     return true;
                 }
                 int i3 = i2 - l;
-                ListAdapter wrappedAdapter = this.f34575e.f34561e.getWrappedAdapter();
+                ListAdapter wrappedAdapter = this.f35407e.f35393e.getWrappedAdapter();
                 if (wrappedAdapter == null || i3 >= wrappedAdapter.getCount()) {
                     return true;
                 }
-                if (this.f34575e.f34563g != null) {
-                    return this.f34575e.f34563g.onItemLongClick(adapterView, view, i3, j);
+                if (this.f35407e.f35395g != null) {
+                    return this.f35407e.f35395g.onItemLongClick(adapterView, view, i3, j);
                 }
                 return false;
             }
@@ -608,7 +608,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdListView f34576e;
+        public final /* synthetic */ BdListView f35408e;
 
         public k(BdListView bdListView) {
             Interceptable interceptable = $ic;
@@ -625,31 +625,31 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                     return;
                 }
             }
-            this.f34576e = bdListView;
+            this.f35408e = bdListView;
         }
 
         @Override // android.widget.AdapterView.OnItemSelectedListener
         public void onItemSelected(AdapterView<?> adapterView, View view, int i2, long j) {
             int l;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || i2 < (l = this.f34576e.f34561e.l())) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || i2 < (l = this.f35408e.f35393e.l())) {
                 return;
             }
             int i3 = i2 - l;
-            ListAdapter wrappedAdapter = this.f34576e.f34561e.getWrappedAdapter();
-            if (wrappedAdapter == null || i3 >= wrappedAdapter.getCount() || this.f34576e.f34564h == null) {
+            ListAdapter wrappedAdapter = this.f35408e.f35393e.getWrappedAdapter();
+            if (wrappedAdapter == null || i3 >= wrappedAdapter.getCount() || this.f35408e.f35396h == null) {
                 return;
             }
-            this.f34576e.f34564h.onItemSelected(adapterView, view, i3, j);
+            this.f35408e.f35396h.onItemSelected(adapterView, view, i3, j);
         }
 
         @Override // android.widget.AdapterView.OnItemSelectedListener
         public void onNothingSelected(AdapterView<?> adapterView) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adapterView) == null) || this.f34576e.f34564h == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adapterView) == null) || this.f35408e.f35396h == null) {
                 return;
             }
-            this.f34576e.f34564h.onNothingSelected(adapterView);
+            this.f35408e.f35396h.onNothingSelected(adapterView);
         }
     }
 
@@ -700,40 +700,40 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public b.a.e.l.e.c f34577a;
+        public b.a.e.m.e.c f35409a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f34578b;
+        public boolean f35410b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f34579c;
+        public int f35411c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f34580d;
+        public int f35412d;
 
         /* renamed from: e  reason: collision with root package name */
-        public BdListView f34581e;
+        public BdListView f35413e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Boolean f34582f;
+        public Boolean f35414f;
 
         /* renamed from: g  reason: collision with root package name */
-        public r f34583g;
+        public r f35415g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f34584h;
+        public int f35416h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f34585i;
+        public int f35417i;
         public int j;
 
         /* loaded from: classes6.dex */
-        public class a implements b.a.e.l.f.a {
+        public class a implements b.a.e.m.f.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ t f34586a;
+            public final /* synthetic */ t f35418a;
 
             public a(t tVar) {
                 Interceptable interceptable = $ic;
@@ -750,14 +750,14 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                         return;
                     }
                 }
-                this.f34586a = tVar;
+                this.f35418a = tVar;
             }
 
-            @Override // b.a.e.l.f.a
+            @Override // b.a.e.m.f.a
             public void onOver() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f34586a.d();
+                    this.f35418a.d();
                 }
             }
         }
@@ -777,7 +777,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
             }
         }
 
-        public t(BdListView bdListView, b.a.e.l.e.c cVar) {
+        public t(BdListView bdListView, b.a.e.m.e.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -792,25 +792,25 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                     return;
                 }
             }
-            this.f34577a = null;
-            this.f34578b = false;
-            this.f34579c = 0;
-            this.f34580d = 3;
-            this.f34581e = null;
-            this.f34582f = Boolean.FALSE;
-            this.f34583g = null;
+            this.f35409a = null;
+            this.f35410b = false;
+            this.f35411c = 0;
+            this.f35412d = 3;
+            this.f35413e = null;
+            this.f35414f = Boolean.FALSE;
+            this.f35415g = null;
             this.j = 800;
             if (cVar == null) {
                 throw new InvalidParameterException("PullRefresh view is null");
             }
             if (bdListView != null) {
-                this.f34577a = cVar;
-                this.f34581e = bdListView;
+                this.f35409a = cVar;
+                this.f35413e = bdListView;
                 View view = cVar.getView();
-                view.setPadding(0, -this.f34577a.k(), 0, 0);
+                view.setPadding(0, -this.f35409a.k(), 0, 0);
                 view.invalidate();
-                this.f34581e.addPullRefreshView(view);
-                this.f34584h = ((int) (bdListView.getResources().getDisplayMetrics().density * 86.0f)) * 2;
+                this.f35413e.addPullRefreshView(view);
+                this.f35416h = ((int) (bdListView.getResources().getDisplayMetrics().density * 86.0f)) * 2;
                 return;
             }
             throw new InvalidParameterException("PullRefresh listView is null");
@@ -830,48 +830,48 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         }
 
         public final void c() {
-            b.a.e.l.e.c e2;
+            b.a.e.m.e.c e2;
             View view;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (e2 = e()) == null || (view = e2.getView()) == null) {
                 return;
             }
-            b.a.e.l.e.f fVar = new b.a.e.l.e.f(view.getContext(), 0, -e2.k(), this.j);
+            b.a.e.m.e.f fVar = new b.a.e.m.e.f(view.getContext(), 0, -e2.k(), this.j);
             fVar.d(new a(this));
-            fVar.e(e2.f2429i);
+            fVar.e(e2.f2431i);
             fVar.f(view);
         }
 
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f34580d = 3;
-                b.a.e.l.e.c cVar = this.f34577a;
+                this.f35412d = 3;
+                b.a.e.m.e.c cVar = this.f35409a;
                 cVar.x(0, -cVar.k(), 0, 0);
-                this.f34577a.j(true);
-                r rVar = this.f34583g;
+                this.f35409a.j(true);
+                r rVar = this.f35415g;
                 if (rVar != null) {
                     rVar.onScrollToPull(false);
                 }
             }
         }
 
-        public b.a.e.l.e.c e() {
+        public b.a.e.m.e.c e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34577a : (b.a.e.l.e.c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35409a : (b.a.e.m.e.c) invokeV.objValue;
         }
 
         public void f(MotionEvent motionEvent, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048579, this, motionEvent, i2) == null) && motionEvent.getAction() == 0 && e().l()) {
-                this.f34578b = false;
-                this.f34582f = Boolean.FALSE;
-                if (i2 != 0 || 0 != 0 || this.f34581e.getChildAt(0) == null || this.f34581e.getChildAt(0).getTop() < 0) {
+                this.f35410b = false;
+                this.f35414f = Boolean.FALSE;
+                if (i2 != 0 || 0 != 0 || this.f35413e.getChildAt(0) == null || this.f35413e.getChildAt(0).getTop() < 0) {
                     return;
                 }
-                this.f34578b = true;
-                this.f34579c = (int) motionEvent.getY();
+                this.f35410b = true;
+                this.f35411c = (int) motionEvent.getY();
             }
         }
 
@@ -883,104 +883,104 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                 if (action != 1) {
                     if (action == 2) {
                         int y = (int) motionEvent.getY();
-                        if (!this.f34578b && i2 == 0 && this.f34581e.getChildAt(0) != null && this.f34581e.getChildAt(0).getTop() >= 0) {
-                            this.f34578b = true;
-                            this.f34579c = y;
+                        if (!this.f35410b && i2 == 0 && this.f35413e.getChildAt(0) != null && this.f35413e.getChildAt(0).getTop() >= 0) {
+                            this.f35410b = true;
+                            this.f35411c = y;
                         }
-                        int i3 = this.f34580d;
-                        if (i3 != 2 && this.f34578b) {
+                        int i3 = this.f35412d;
+                        if (i3 != 2 && this.f35410b) {
                             if (i3 == 0) {
-                                this.f34581e.setSelection(0);
-                                if (((int) ((y - this.f34579c) / k)) < b.a.e.e.p.l.g(this.f34577a.getContext(), R.dimen.adp_list_view_pull_maxoffset) && y - this.f34579c > 0) {
-                                    this.f34580d = 1;
-                                    this.f34577a.r(this.f34582f.booleanValue());
-                                    this.f34582f = Boolean.FALSE;
-                                    r rVar2 = this.f34583g;
+                                this.f35413e.setSelection(0);
+                                if (((int) ((y - this.f35411c) / k)) < b.a.e.f.p.l.g(this.f35409a.getContext(), R.dimen.adp_list_view_pull_maxoffset) && y - this.f35411c > 0) {
+                                    this.f35412d = 1;
+                                    this.f35409a.r(this.f35414f.booleanValue());
+                                    this.f35414f = Boolean.FALSE;
+                                    r rVar2 = this.f35415g;
                                     if (rVar2 != null) {
                                         rVar2.onScrollToPull(true);
                                     }
-                                } else if (y - this.f34579c <= 0) {
-                                    this.f34580d = 3;
-                                    b.a.e.l.e.c cVar = this.f34577a;
+                                } else if (y - this.f35411c <= 0) {
+                                    this.f35412d = 3;
+                                    b.a.e.m.e.c cVar = this.f35409a;
                                     cVar.x(0, -cVar.k(), 0, 0);
-                                    this.f34577a.j(false);
-                                    r rVar3 = this.f34583g;
+                                    this.f35409a.j(false);
+                                    r rVar3 = this.f35415g;
                                     if (rVar3 != null) {
                                         rVar3.onScrollToPull(true);
                                     }
                                 }
                             } else if (i3 == 1) {
-                                this.f34581e.setSelection(0);
-                                if (((int) ((y - this.f34579c) / k)) >= b.a.e.e.p.l.g(this.f34577a.getContext(), R.dimen.adp_list_view_pull_maxoffset)) {
-                                    this.f34580d = 0;
-                                    this.f34582f = Boolean.TRUE;
-                                    this.f34577a.t();
-                                    r rVar4 = this.f34583g;
+                                this.f35413e.setSelection(0);
+                                if (((int) ((y - this.f35411c) / k)) >= b.a.e.f.p.l.g(this.f35409a.getContext(), R.dimen.adp_list_view_pull_maxoffset)) {
+                                    this.f35412d = 0;
+                                    this.f35414f = Boolean.TRUE;
+                                    this.f35409a.t();
+                                    r rVar4 = this.f35415g;
                                     if (rVar4 != null) {
                                         rVar4.onScrollToPull(true);
                                     }
-                                } else if (y - this.f34579c <= 0) {
-                                    this.f34580d = 3;
-                                    b.a.e.l.e.c cVar2 = this.f34577a;
+                                } else if (y - this.f35411c <= 0) {
+                                    this.f35412d = 3;
+                                    b.a.e.m.e.c cVar2 = this.f35409a;
                                     cVar2.x(0, -cVar2.k(), 0, 0);
-                                    this.f34577a.j(false);
-                                    r rVar5 = this.f34583g;
+                                    this.f35409a.j(false);
+                                    r rVar5 = this.f35415g;
                                     if (rVar5 != null) {
                                         rVar5.onScrollToPull(true);
                                     }
                                 }
                             } else if (i3 == 3) {
-                                if (y - this.f34579c > 0) {
-                                    this.f34580d = 1;
-                                    this.f34577a.r(this.f34582f.booleanValue());
-                                    this.f34582f = Boolean.FALSE;
-                                    r rVar6 = this.f34583g;
+                                if (y - this.f35411c > 0) {
+                                    this.f35412d = 1;
+                                    this.f35409a.r(this.f35414f.booleanValue());
+                                    this.f35414f = Boolean.FALSE;
+                                    r rVar6 = this.f35415g;
                                     if (rVar6 != null) {
                                         rVar6.onScrollToPull(true);
                                     }
                                 } else {
-                                    r rVar7 = this.f34583g;
+                                    r rVar7 = this.f35415g;
                                     if (rVar7 != null) {
                                         rVar7.onScrollToPull(false);
                                     }
                                 }
                             }
-                            int i4 = this.f34580d;
+                            int i4 = this.f35412d;
                             if (i4 == 1 || i4 == 0) {
-                                b.a.e.l.e.c cVar3 = this.f34577a;
-                                cVar3.x(0, ((int) ((y - this.f34579c) / k)) - cVar3.k(), 0, 0);
-                                b.a.e.l.e.c cVar4 = this.f34577a;
-                                if (cVar4 != null && y >= this.f34585i) {
-                                    float f2 = ((y - this.f34579c) / k) / this.f34584h;
+                                b.a.e.m.e.c cVar3 = this.f35409a;
+                                cVar3.x(0, ((int) ((y - this.f35411c) / k)) - cVar3.k(), 0, 0);
+                                b.a.e.m.e.c cVar4 = this.f35409a;
+                                if (cVar4 != null && y >= this.f35417i) {
+                                    float f2 = ((y - this.f35411c) / k) / this.f35416h;
                                     cVar4.onPullPercentChange(f2, f2);
                                 }
                             }
                         }
-                        this.f34585i = y;
+                        this.f35417i = y;
                         return;
                     } else if (action != 3) {
                         return;
                     }
                 }
-                int i5 = this.f34580d;
+                int i5 = this.f35412d;
                 if (i5 != 2) {
                     if (i5 == 1) {
-                        this.f34580d = 3;
-                        b.a.e.l.e.c cVar5 = this.f34577a;
+                        this.f35412d = 3;
+                        b.a.e.m.e.c cVar5 = this.f35409a;
                         cVar5.x(0, -cVar5.k(), 0, 0);
-                        this.f34577a.j(false);
-                        r rVar8 = this.f34583g;
+                        this.f35409a.j(false);
+                        r rVar8 = this.f35415g;
                         if (rVar8 != null) {
                             rVar8.onScrollToPull(true);
                         }
                     } else if (i5 != 0) {
-                        if (i5 != 3 || (rVar = this.f34583g) == null) {
+                        if (i5 != 3 || (rVar = this.f35415g) == null) {
                             return;
                         }
                         rVar.onScrollToPull(false);
                     } else {
                         j(false);
-                        r rVar9 = this.f34583g;
+                        r rVar9 = this.f35415g;
                         if (rVar9 != null) {
                             rVar9.onScrollToPull(true);
                         }
@@ -992,17 +992,17 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         public void h(r rVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, rVar) == null) {
-                this.f34583g = rVar;
+                this.f35415g = rVar;
             }
         }
 
         public void j(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-                this.f34580d = 2;
-                this.f34577a.x(0, 0, 0, 0);
-                this.f34577a.s();
-                this.f34577a.p(z);
+                this.f35412d = 2;
+                this.f35409a.x(0, 0, 0, 0);
+                this.f35409a.s();
+                this.f35409a.p(z);
             }
         }
     }
@@ -1025,11 +1025,11 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                 return;
             }
         }
-        this.f34561e = null;
-        this.f34562f = null;
-        this.f34563g = null;
-        this.f34564h = null;
-        this.f34565i = null;
+        this.f35393e = null;
+        this.f35394f = null;
+        this.f35395g = null;
+        this.f35396h = null;
+        this.f35397i = null;
         this.j = null;
         this.k = null;
         this.l = null;
@@ -1064,7 +1064,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             if (this.s != null) {
-                return this.f34561e.l() - 1;
+                return this.f35393e.l() - 1;
             }
             return -1;
         }
@@ -1081,7 +1081,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
     public void addFooterView(View view, Object obj, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, obj, z) == null) {
-            this.f34561e.d(view, obj, z, -1);
+            this.f35393e.d(view, obj, z, -1);
         }
     }
 
@@ -1089,14 +1089,14 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
     public void addHeaderView(View view, Object obj, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048580, this, view, obj, z) == null) {
-            this.f34561e.f(view, obj, z, getHeaderIndex());
+            this.f35393e.f(view, obj, z, getHeaderIndex());
         }
     }
 
     public void addPullRefreshView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
-            this.f34561e.f(view, null, false, 0);
+            this.f35393e.f(view, null, false, 0);
         }
     }
 
@@ -1107,7 +1107,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
             return;
         }
         if (tVar.e() != null) {
-            this.J.f34577a.o();
+            this.J.f35409a.o();
         }
         this.J.c();
     }
@@ -1117,9 +1117,9 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
             t tVar = this.J;
             if (tVar != null && tVar.e() != null) {
-                this.J.f34577a.o();
+                this.J.f35409a.o();
             }
-            b.a.e.e.m.e.a().postDelayed(new b(this), j2);
+            b.a.e.f.m.e.a().postDelayed(new b(this), j2);
         }
     }
 
@@ -1143,7 +1143,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         }
     }
 
-    @Override // b.a.e.l.e.p
+    @Override // b.a.e.m.e.p
     public int getContentViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1156,46 +1156,46 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         return invokeV.intValue;
     }
 
-    @Override // android.widget.ListView, b.a.e.l.e.p
+    @Override // android.widget.ListView, b.a.e.m.e.p
     public int getFooterViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f34561e.i() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f35393e.i() : invokeV.intValue;
     }
 
-    @Override // android.widget.ListView, b.a.e.l.e.p
+    @Override // android.widget.ListView, b.a.e.m.e.p
     public int getHeaderViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f34561e.k() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f35393e.k() : invokeV.intValue;
     }
 
-    public b.a.e.l.e.o getListAdapter() {
+    public b.a.e.m.e.o getListAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? getAdapter2() : (b.a.e.l.e.o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? getAdapter2() : (b.a.e.m.e.o) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.p
+    @Override // b.a.e.m.e.p
     public BdListView getListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this : (BdListView) invokeV.objValue;
     }
 
-    public b.a.e.l.e.q getPreLoadHandle() {
+    public b.a.e.m.e.q getPreLoadHandle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.y : (b.a.e.l.e.q) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.y : (b.a.e.m.e.q) invokeV.objValue;
     }
 
     public ListAdapter getWrappedAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            b.a.e.l.e.e eVar = this.f34561e;
-            if (eVar instanceof b.a.e.l.e.e) {
+            b.a.e.m.e.e eVar = this.f35393e;
+            if (eVar instanceof b.a.e.m.e.e) {
                 return eVar.getWrappedAdapter();
             }
             return null;
@@ -1208,7 +1208,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             t tVar = this.J;
-            return tVar == null || tVar.f34580d == 3;
+            return tVar == null || tVar.f35412d == 3;
         }
         return invokeV.booleanValue;
     }
@@ -1350,14 +1350,14 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
     public boolean removeFooterView(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, view)) == null) ? this.f34561e.n(view) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, view)) == null) ? this.f35393e.n(view) : invokeL.booleanValue;
     }
 
-    @Override // android.widget.ListView, b.a.e.l.e.p
+    @Override // android.widget.ListView, b.a.e.m.e.p
     public boolean removeHeaderView(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, view)) == null) ? this.f34561e.o(view) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, view)) == null) ? this.f35393e.o(view) : invokeL.booleanValue;
     }
 
     public void setExOnSrollToBottomListener(q qVar) {
@@ -1381,16 +1381,16 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         }
     }
 
-    public void setNextPage(b.a.e.l.e.b bVar) {
+    public void setNextPage(b.a.e.m.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, bVar) == null) {
-            b.a.e.l.e.b bVar2 = this.t;
+            b.a.e.m.e.b bVar2 = this.t;
             if (bVar2 != null) {
                 removeFooterView(bVar2.b());
                 this.t = null;
             }
             if (bVar != null) {
-                this.f34561e.d(bVar.b(), null, true, 0);
+                this.f35393e.d(bVar.b(), null, true, 0);
                 this.t = bVar;
             }
         }
@@ -1418,7 +1418,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
     public void setOnHeaderClickListener(m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, mVar) == null) {
-            this.f34565i = mVar;
+            this.f35397i = mVar;
         }
     }
 
@@ -1426,7 +1426,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, onItemClickListener) == null) {
-            this.f34562f = onItemClickListener;
+            this.f35394f = onItemClickListener;
         }
     }
 
@@ -1438,7 +1438,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                 super.setOnItemLongClickListener(null);
                 return;
             }
-            this.f34563g = onItemLongClickListener;
+            this.f35395g = onItemLongClickListener;
             super.setOnItemLongClickListener(new j(this));
         }
     }
@@ -1451,7 +1451,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                 super.setOnItemSelectedListener(null);
                 return;
             }
-            this.f34564h = onItemSelectedListener;
+            this.f35396h = onItemSelectedListener;
             super.setOnItemSelectedListener(new k(this));
         }
     }
@@ -1500,10 +1500,10 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         }
     }
 
-    public void setPrePage(b.a.e.l.e.b bVar) {
+    public void setPrePage(b.a.e.m.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048625, this, bVar) == null) {
-            b.a.e.l.e.b bVar2 = this.s;
+            b.a.e.m.e.b bVar2 = this.s;
             if (bVar2 != null) {
                 removeHeaderView(bVar2.b());
                 this.s = null;
@@ -1515,7 +1515,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         }
     }
 
-    public void setPullRefresh(b.a.e.l.e.c cVar) {
+    public void setPullRefresh(b.a.e.m.e.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048626, this, cVar) == null) {
             t tVar = this.J;
@@ -1566,8 +1566,8 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
             setFadingEdgeLength(0);
-            b.a.e.l.e.e eVar = new b.a.e.l.e.e(getContext());
-            this.f34561e = eVar;
+            b.a.e.m.e.e eVar = new b.a.e.m.e.e(getContext());
+            this.f35393e = eVar;
             eVar.q(new g(this));
             super.setOnItemClickListener(new h(this));
             super.setOnScrollListener(new i(this));
@@ -1578,7 +1578,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
     public void addFooterView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f34561e.c(view);
+            this.f35393e.c(view);
         }
     }
 
@@ -1586,7 +1586,7 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
     public void addHeaderView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            this.f34561e.e(view, getHeaderIndex());
+            this.f35393e.e(view, getHeaderIndex());
         }
     }
 
@@ -1596,8 +1596,8 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, listAdapter) == null) {
             super.setAdapter((ListAdapter) null);
-            this.f34561e.p(listAdapter);
-            super.setAdapter((ListAdapter) this.f34561e);
+            this.f35393e.p(listAdapter);
+            super.setAdapter((ListAdapter) this.f35393e);
         }
     }
 
@@ -1616,18 +1616,18 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
     public void addHeaderView(View view, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, view, i2) == null) {
-            this.f34561e.e(view, i2);
+            this.f35393e.e(view, i2);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'b.a.e.l.e.e' to match base method */
+    /* JADX DEBUG: Return type fixed from 'b.a.e.m.e.e' to match base method */
     @Override // android.widget.ListView, android.widget.AdapterView
     /* renamed from: getAdapter */
     public ListAdapter getAdapter2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f34561e : (b.a.e.l.e.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f35393e : (b.a.e.m.e.e) invokeV.objValue;
     }
 
     public void setNoData(View view) {
@@ -1664,11 +1664,11 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                 return;
             }
         }
-        this.f34561e = null;
-        this.f34562f = null;
-        this.f34563g = null;
-        this.f34564h = null;
-        this.f34565i = null;
+        this.f35393e = null;
+        this.f35394f = null;
+        this.f35395g = null;
+        this.f35396h = null;
+        this.f35397i = null;
         this.j = null;
         this.k = null;
         this.l = null;
@@ -1717,11 +1717,11 @@ public class BdListView extends ListView implements b.a.e.l.e.p<BdListView> {
                 return;
             }
         }
-        this.f34561e = null;
-        this.f34562f = null;
-        this.f34563g = null;
-        this.f34564h = null;
-        this.f34565i = null;
+        this.f35393e = null;
+        this.f35394f = null;
+        this.f35395g = null;
+        this.f35396h = null;
+        this.f35397i = null;
         this.j = null;
         this.k = null;
         this.l = null;

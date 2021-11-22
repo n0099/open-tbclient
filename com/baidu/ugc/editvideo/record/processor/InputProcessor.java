@@ -9,6 +9,7 @@ import b.a.x0.t.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.utils.ThreadPool;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,7 +84,7 @@ public class InputProcessor extends BaseEffectProcessor {
         GLES20.glViewport(0, 0, this.mPreviewWidth, this.mPreviewHeight);
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         fullFrameRect.drawFrame(i2, GlUtil.IDENTITY_MATRIX);
-        ThreadPool.b().e(new Runnable(this, str + "-test-" + this.mTestSavePicCount + "—" + System.currentTimeMillis() + ".png", MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.2
+        ThreadPool.b().e(new Runnable(this, str + "-test-" + this.mTestSavePicCount + "—" + System.currentTimeMillis() + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ InputProcessor this$0;

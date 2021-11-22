@@ -33,7 +33,7 @@ public class da {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f70779a = "/MiPushLog";
+    public static String f71699a = "/MiPushLog";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -50,13 +50,13 @@ public class da {
     public boolean f220a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f70780b;
+    public int f71700b;
 
     /* renamed from: b  reason: collision with other field name */
     public String f221b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f70781c;
+    public String f71701c;
 
     static {
         InterceptResult invokeClinit;
@@ -87,7 +87,7 @@ public class da {
             }
         }
         this.f218a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        this.f70780b = 2097152;
+        this.f71700b = 2097152;
         this.f219a = new ArrayList<>();
     }
 
@@ -109,7 +109,7 @@ public class da {
                     int start = matcher.start();
                     String substring = str.substring(start, this.f221b.length() + start);
                     if (this.f220a) {
-                        if (substring.compareTo(this.f70781c) > 0) {
+                        if (substring.compareTo(this.f71701c) > 0) {
                             read = start;
                             z = true;
                             break;
@@ -128,7 +128,7 @@ public class da {
                     int i4 = read - i3;
                     this.f217a += i4;
                     bufferedWriter.write(cArr, i3, i4);
-                    if (z || this.f217a > this.f70780b) {
+                    if (z || this.f217a > this.f71700b) {
                         return;
                     }
                 }
@@ -236,7 +236,7 @@ public class da {
                 this.f221b = this.f218a.format(date);
                 format = this.f218a.format(date2);
             }
-            this.f70781c = format;
+            this.f71701c = format;
             return this;
         }
         return (da) invokeLL.objValue;
@@ -256,7 +256,7 @@ public class da {
                 m242a(new File(file2, "xmsf.log.1"));
                 file3 = new File(file2, "xmsf.log");
             } else {
-                file2 = new File(context.getExternalFilesDir(null) + f70779a);
+                file2 = new File(context.getExternalFilesDir(null) + f71699a);
                 m242a(new File(file2, "log0.txt"));
                 file3 = new File(file2, "log1.txt");
             }
@@ -292,6 +292,6 @@ public class da {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 == 0) {
             return;
         }
-        this.f70780b = i2;
+        this.f71700b = i2;
     }
 }

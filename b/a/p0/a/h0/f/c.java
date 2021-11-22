@@ -1,7 +1,7 @@
 package b.a.p0.a.h0.f;
 /* loaded from: classes.dex */
 public interface c {
-    boolean o();
+    boolean p();
 
-    boolean u(boolean z);
+    boolean v(boolean z);
 }

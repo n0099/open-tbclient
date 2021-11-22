@@ -20,7 +20,7 @@ import com.baidu.ubc.IRemoteUBCService;
 import java.util.Map;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class UBC {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_KEY_DURATION = "duration";

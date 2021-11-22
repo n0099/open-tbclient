@@ -1,188 +1,187 @@
 package b.a.p0.a.u.e.j;
 
 import android.text.TextUtils;
-import android.util.Log;
-import b.a.p0.a.k;
-import b.a.p0.a.v2.d0;
-import b.a.p0.a.v2.o0;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import b.a.p0.a.h0.g.g;
+import b.a.p0.a.u1.h;
+import b.a.p0.a.u1.i;
+import b.a.p0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
+import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
+import java.util.UUID;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b {
+public class b extends b.a.p0.a.u.e.j.a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final String f8222f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final MediaType f8223g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f8224a;
+    /* loaded from: classes.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f8225b;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f8740e;
 
-    /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f8226c;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ b.a.p0.a.h0.g.d f8741f;
 
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f8227d;
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ g f8742g;
 
-    /* renamed from: e  reason: collision with root package name */
-    public String f8228e;
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ g.b f8743h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-229957608, "Lb/a/p0/a/u/e/j/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        /* renamed from: i  reason: collision with root package name */
+        public final /* synthetic */ b f8744i;
+
+        public a(b bVar, int i2, b.a.p0.a.h0.g.d dVar, g gVar, g.b bVar2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, Integer.valueOf(i2), dVar, gVar, bVar2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-229957608, "Lb/a/p0/a/u/e/j/b;");
-                return;
+            this.f8744i = bVar;
+            this.f8740e = i2;
+            this.f8741f = dVar;
+            this.f8742g = gVar;
+            this.f8743h = bVar2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.f8740e > 1 && !this.f8741f.G0) {
+                    b.a.p0.a.z2.g.b(this.f8742g, this.f8744i.getContext(), 1);
+                }
+                this.f8743h.a();
             }
         }
-        boolean z = k.f6397a;
-        f8222f = String.format("%s/ma/call", b.a.p0.a.d0.a.d());
-        f8223g = b.a.p0.a.n1.f.f6891a;
     }
 
-    public b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(@NonNull b.a.p0.a.u.c.b bVar) {
+        super(bVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((b.a.p0.a.u.c.b) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f8224a = f8222f + "?";
-        this.f8225b = new HashMap();
-        this.f8226c = new HashMap();
-        this.f8227d = false;
-        this.f8228e = "";
-        d();
-        e();
     }
 
-    public final void a() {
-        b.a.p0.a.a2.e P;
-        PMSAppInfo e0;
+    public static void y() {
+        b.a.p0.a.d2.e a0;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (P = b.a.p0.a.a2.e.P()) == null || (e0 = P.K().e0()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (a0 = b.a.p0.a.d2.e.a0()) == null) {
             return;
         }
-        this.f8226c.put(IAdRequestParam.APV, String.valueOf(e0.versionCode));
+        a0.B().H(a0.getAppId());
     }
 
-    public final void b() {
-        b.a.p0.a.a2.e P;
+    public b.a.p0.a.u.h.b A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (P = b.a.p0.a.a2.e.P()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            q("#hideModalPage", false);
+            y();
+            return z(1, "hideModalPage", 10);
         }
-        int l = P.l();
-        String i2 = b.a.p0.a.m2.b.i(b.a.p0.a.g1.f.T().L(), l);
-        if (l == 0) {
-            this.f8226c.put("swan_ver", i2);
-        } else if (l == 1) {
-            this.f8226c.put("game_ver", i2);
-        }
+        return (b.a.p0.a.u.h.b) invokeV.objValue;
     }
 
-    public void c(ResponseCallback<JSONObject> responseCallback) {
+    public b.a.p0.a.u.h.b B(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback) == null) {
-            if (!this.f8227d) {
-                responseCallback.onFail(new InvalidParameterException("no service has been set"));
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#navigateBack params=" + str, false);
+            y();
+            Pair<b.a.p0.a.u.h.b, JSONObject> s = s(str);
+            b.a.p0.a.u.h.b bVar = (b.a.p0.a.u.h.b) s.first;
+            return !bVar.isSuccess() ? bVar : z(((JSONObject) s.second).optInt("delta", 1), "navigateBack", 1);
+        }
+        return (b.a.p0.a.u.h.b) invokeL.objValue;
+    }
+
+    @Override // b.a.p0.a.u.c.d
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "NavigateBackApi" : (String) invokeV.objValue;
+    }
+
+    public final b.a.p0.a.u.h.b z(int i2, String str, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)})) == null) {
+            String uuid = UUID.randomUUID().toString();
+            i.b(uuid);
+            g V = b.a.p0.a.g1.f.U().V();
+            if (V == null) {
+                b.a.p0.a.e0.d.c("NavigateBackApi", "manager is null");
+                return new b.a.p0.a.u.h.b(1001, "manager is null");
             }
-            String b2 = o0.b(this.f8224a, this.f8226c);
-            this.f8224a = b2;
-            this.f8224a = b.a.p0.a.d0.c.b(b2);
-            b.a.p0.m.d.a aVar = new b.a.p0.m.d.a(this.f8224a, RequestBody.create(f8223g, this.f8228e), responseCallback);
-            aVar.f11035c = this.f8225b;
-            aVar.f11039g = true;
-            b.a.p0.a.e0.d.g("CallServiceRequest", "Start request cloud ability: " + this.f8226c.get("service"));
-            b.a.p0.m.e.a.g().e(aVar);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (b.a.p0.d.c.getContext() == null) {
-                b.a.p0.a.e0.d.b("CallServiceRequest", Log.getStackTraceString(new AssertionError("Assertion failed: SwanConfigRuntime.getContext() == null")));
-                return;
+            int k = V.k();
+            if (k == 1) {
+                b.a.p0.a.e0.d.c("NavigateBackApi", "navigateBack api can only work when slave's count greater than 1");
+                return new b.a.p0.a.u.h.b(1001, "navigateBack api can only work when slave's count greater than 1");
             }
-            this.f8226c.put("host_os", b.a.p0.t.a.f());
-            this.f8226c.put("host_os_ver", b.a.p0.t.a.g());
-            this.f8226c.put("host_app", b.a.p0.d.c.getContext().c());
-            this.f8226c.put("host_app_ver", b.a.p0.d.c.getContext().i());
-            this.f8226c.put("sdk_ver", b.a.p0.d.c.getContext().b());
-            this.f8226c.put("ua", b.a.p0.t.i.b(b.a.p0.d.c.getContext().i()));
-            this.f8226c.put("ut", b.a.p0.a.d0.c.f());
-            this.f8226c.put("network", b.a.p0.t.a.e());
-            this.f8226c.put("bundle_Id", b.a.p0.a.a2.d.g().getAppId());
-            this.f8226c.put("cuid", b.a.p0.d.c.getContext().h());
-            this.f8226c.put("uuid", b.a.p0.d.c.getContext().e());
-            Map<String, String> map = this.f8226c;
-            map.put("sid", b.a.p0.a.c1.a.Z().k() + "");
-            this.f8226c.put("source", "swan_sdk");
-            this.f8226c.put("timestamp", String.valueOf(System.currentTimeMillis()));
-            b();
-            a();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f8225b.put("mnpunion", String.valueOf(b.a.p0.a.s.a.f.f7771d.f() ? 2 : 0));
-            this.f8225b.put("Referer", d0.b());
-        }
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            if (jSONObject == null) {
-                this.f8228e = "";
+            if (i2 >= k) {
+                i2 = k - 1;
+            }
+            b.a.p0.a.m1.b f2 = b.a.p0.a.n2.i.f(uuid, i2);
+            b.a.p0.a.h0.g.d m = V.m();
+            if (m == null) {
+                b.a.p0.a.e0.d.c("NavigateBackApi", "slave container is null");
+                return new b.a.p0.a.u.h.b(1001, "slave container is null");
+            } else if (TextUtils.equals("hideModalPage", str) && !m.G0) {
+                b.a.p0.a.e0.d.c("NavigateBackApi", "hideModalPage api can only work after showModalPage");
+                return new b.a.p0.a.u.h.b(1001, "hideModalPage api can only work after showModalPage");
             } else {
-                this.f8228e = jSONObject.toString();
+                i.c(i3, uuid);
+                g.b i4 = V.i(str);
+                i4.n(g.f5480i, g.f5479h);
+                i4.h(i2);
+                q0.a0(new a(this, k, m, V, i4));
+                b.a.p0.a.h0.g.f o = V.o();
+                b.a.p0.a.m1.b j3 = o == null ? null : o.j3();
+                h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, uuid).F(new UbcFlowEvent("na_push_page_end"));
+                i.a(uuid, j3);
+                if (!(V.m() instanceof b.a.p0.a.h0.g.f)) {
+                    b.a.p0.a.e0.d.c("NavigateBackApi", "top fragment error");
+                    b.a.p0.a.n2.i.i(f2);
+                    return new b.a.p0.a.u.h.b(1001, "top fragment error");
+                }
+                b.a.p0.a.h0.g.f fVar = (b.a.p0.a.h0.g.f) V.m();
+                return new b.a.p0.a.u.h.b(0, b.a.p0.a.f2.f.o0.a.c(fVar != null ? fVar.q3() : ""));
             }
         }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.f8226c.put("service", str);
-        this.f8227d = true;
+        return (b.a.p0.a.u.h.b) invokeCommon.objValue;
     }
 }

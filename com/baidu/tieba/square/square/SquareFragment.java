@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import b.a.q0.s.g0.f;
-import b.a.r0.i3.j.h;
+import b.a.r0.j3.j.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
@@ -33,19 +33,19 @@ public class SquareFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f54124e;
+    public h f55044e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SquareModel f54125f;
+    public SquareModel f55045f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f54126g;
+    public boolean f55046g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f54127h;
+    public boolean f55047h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f54128i;
+    public long f55048i;
     public TbPageContext<?> j;
     public View k;
     public final SquareModel.a l;
@@ -59,7 +59,7 @@ public class SquareFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SquareFragment f54129a;
+        public final /* synthetic */ SquareFragment f55049a;
 
         public a(SquareFragment squareFragment) {
             Interceptable interceptable = $ic;
@@ -76,54 +76,54 @@ public class SquareFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f54129a = squareFragment;
+            this.f55049a = squareFragment;
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, b.a.r0.i3.j.f fVar) {
+        public void a(boolean z, String str, b.a.r0.j3.j.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, fVar}) == null) {
-                this.f54129a.f54124e.f(true, "");
-                SquareFragment squareFragment = this.f54129a;
-                squareFragment.hideLoadingView(squareFragment.f54124e.g());
+                this.f55049a.f55044e.f(true, "");
+                SquareFragment squareFragment = this.f55049a;
+                squareFragment.hideLoadingView(squareFragment.f55044e.g());
                 if (z && fVar != null && !fVar.g()) {
-                    this.f54129a.f54124e.j(this.f54129a.f54125f.F());
-                    this.f54129a.f54126g = true;
-                    this.f54129a.f54124e.h();
-                    this.f54129a.q();
+                    this.f55049a.f55044e.j(this.f55049a.f55045f.F());
+                    this.f55049a.f55046g = true;
+                    this.f55049a.f55044e.h();
+                    this.f55049a.q();
                 }
-                if (this.f54129a.f54127h) {
-                    this.f54129a.f54127h = false;
-                    this.f54129a.r(true);
-                    if (!this.f54129a.f54126g) {
-                        this.f54129a.f54124e.h();
-                        SquareFragment squareFragment2 = this.f54129a;
-                        squareFragment2.showLoadingView(squareFragment2.f54124e.g());
+                if (this.f55049a.f55047h) {
+                    this.f55049a.f55047h = false;
+                    this.f55049a.r(true);
+                    if (!this.f55049a.f55046g) {
+                        this.f55049a.f55044e.h();
+                        SquareFragment squareFragment2 = this.f55049a;
+                        squareFragment2.showLoadingView(squareFragment2.f55044e.g());
                     }
                 } else {
-                    if (this.f54129a.f54128i > -1) {
+                    if (this.f55049a.f55048i > -1) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        TiebaStatic.page(TiebaStatic.OpKey.OP_SQUARE_ENTER, currentTimeMillis - this.f54129a.f54128i, this.f54129a.f54125f.H() - this.f54129a.f54128i, this.f54129a.f54125f.J(), this.f54129a.f54125f.I(), currentTimeMillis - this.f54129a.f54125f.G());
-                        this.f54129a.f54128i = -1L;
+                        TiebaStatic.page(TiebaStatic.OpKey.OP_SQUARE_ENTER, currentTimeMillis - this.f55049a.f55048i, this.f55049a.f55045f.H() - this.f55049a.f55048i, this.f55049a.f55045f.J(), this.f55049a.f55045f.I(), currentTimeMillis - this.f55049a.f55045f.G());
+                        this.f55049a.f55048i = -1L;
                     }
-                    if (!this.f54129a.f54126g) {
+                    if (!this.f55049a.f55046g) {
                         if (j.z()) {
-                            this.f54129a.f54124e.m(R.string.no_data_text);
+                            this.f55049a.f55044e.m(R.string.no_data_text);
                         } else {
-                            this.f54129a.f54124e.m(R.string.game_index_no_network_text);
+                            this.f55049a.f55044e.m(R.string.game_index_no_network_text);
                         }
                     }
                 }
                 if (!j.z()) {
-                    this.f54129a.f54124e.e();
-                    if (this.f54129a.f54126g) {
+                    this.f55049a.f55044e.e();
+                    if (this.f55049a.f55046g) {
                         return;
                     }
-                    this.f54129a.o();
+                    this.f55049a.o();
                     return;
                 }
-                this.f54129a.j.showToast(str);
-                this.f54129a.f54124e.i();
+                this.f55049a.j.showToast(str);
+                this.f55049a.f55044e.i();
             }
         }
     }
@@ -134,7 +134,7 @@ public class SquareFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareFragment f54130e;
+        public final /* synthetic */ SquareFragment f55050e;
 
         public b(SquareFragment squareFragment) {
             Interceptable interceptable = $ic;
@@ -151,14 +151,14 @@ public class SquareFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f54130e = squareFragment;
+            this.f55050e = squareFragment;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.f54130e.r(true);
+                this.f55050e.r(true);
             }
         }
     }
@@ -216,7 +216,7 @@ public class SquareFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SquareFragment f54131e;
+        public final /* synthetic */ SquareFragment f55051e;
 
         public d(SquareFragment squareFragment) {
             Interceptable interceptable = $ic;
@@ -233,14 +233,14 @@ public class SquareFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f54131e = squareFragment;
+            this.f55051e = squareFragment;
         }
 
         @Override // b.a.q0.s.g0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f54131e.r(true);
+                this.f55051e.r(true);
             }
         }
     }
@@ -273,11 +273,11 @@ public class SquareFragment extends BaseFragment {
                 return;
             }
         }
-        this.f54124e = null;
-        this.f54125f = null;
-        this.f54126g = false;
-        this.f54127h = false;
-        this.f54128i = -1L;
+        this.f55044e = null;
+        this.f55045f = null;
+        this.f55046g = false;
+        this.f55047h = false;
+        this.f55048i = -1L;
         this.l = new a(this);
         this.m = new b(this);
         this.n = new c(this);
@@ -306,9 +306,9 @@ public class SquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SquareModel squareModel = new SquareModel(this.j);
-            this.f54125f = squareModel;
+            this.f55045f = squareModel;
             squareModel.N(this.l);
-            this.f54127h = true;
+            this.f55047h = true;
         }
     }
 
@@ -316,7 +316,7 @@ public class SquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             h hVar = new h(this.j, getUniqueId(), this.k, this.n);
-            this.f54124e = hVar;
+            this.f55044e = hVar;
             hVar.l(this.o);
         }
     }
@@ -324,7 +324,7 @@ public class SquareFragment extends BaseFragment {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f54124e.c(this.m);
+            this.f55044e.c(this.m);
         }
     }
 
@@ -334,7 +334,7 @@ public class SquareFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onActivityCreated(bundle);
             this.j = getPageContext();
-            this.f54128i = System.currentTimeMillis();
+            this.f55048i = System.currentTimeMillis();
             initUI();
             initData();
         }
@@ -345,7 +345,7 @@ public class SquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             super.onChangeSkinType(i2);
-            h hVar = this.f54124e;
+            h hVar = this.f55044e;
             if (hVar != null) {
                 hVar.onChangeSkinType(i2);
             }
@@ -378,7 +378,7 @@ public class SquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPrimary();
-            r(this.f54127h);
+            r(this.f55047h);
         }
     }
 
@@ -397,32 +397,32 @@ public class SquareFragment extends BaseFragment {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f54125f.cancelLoadData();
+            this.f55045f.cancelLoadData();
         }
     }
 
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f54124e.k(this.m);
+            this.f55044e.k(this.m);
         }
     }
 
     public final void r(boolean z) {
         SquareModel squareModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (squareModel = this.f54125f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (squareModel = this.f55045f) == null) {
             return;
         }
         boolean z2 = false;
-        boolean z3 = squareModel.F() == null || this.f54125f.F().g();
+        boolean z3 = squareModel.F() == null || this.f55045f.F().g();
         boolean z4 = z;
         if (!j.z()) {
-            this.f54127h = false;
+            this.f55047h = false;
             z4 = false;
             z3 = true;
         }
-        if (this.f54127h) {
+        if (this.f55047h) {
             z3 = true;
         } else {
             z2 = z4;
@@ -430,9 +430,9 @@ public class SquareFragment extends BaseFragment {
         if (z3 || z2) {
             p();
             if (z2) {
-                this.f54125f.M();
+                this.f55045f.M();
             } else {
-                this.f54125f.L();
+                this.f55045f.L();
             }
         }
     }

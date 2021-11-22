@@ -72,8 +72,8 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
             this.this$0 = iMQueryGroupRequest;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:43:0x0187  */
-        /* JADX WARN: Removed duplicated region for block: B:52:0x01f6  */
+        /* JADX WARN: Removed duplicated region for block: B:43:0x0188  */
+        /* JADX WARN: Removed duplicated region for block: B:52:0x01f8  */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.

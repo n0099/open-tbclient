@@ -17,16 +17,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d2 f24797a;
+    public d2 f26314a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f24798b;
+    public boolean f26315b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f24799c;
+    public long f26316c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<a> f24800d;
+    public List<a> f26317d;
 
     /* loaded from: classes5.dex */
     public static class a {
@@ -34,10 +34,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f24801a;
+        public int f26318a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f24802b;
+        public String f26319b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -58,8 +58,8 @@ public class b {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f24801a = jSONObject.optInt("tag_type");
-            this.f24802b = jSONObject.optString("tag_word");
+            this.f26318a = jSONObject.optInt("tag_type");
+            this.f26319b = jSONObject.optString("tag_word");
         }
     }
 
@@ -82,26 +82,26 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f24798b = jSONObject.optInt(TiebaStatic.Params.IS_FOLLOW) == 1;
-        this.f24799c = jSONObject.optLong("last_watch_time");
+        this.f26315b = jSONObject.optInt(TiebaStatic.Params.IS_FOLLOW) == 1;
+        this.f26316c = jSONObject.optLong("last_watch_time");
         JSONObject optJSONObject = jSONObject.optJSONObject("thread_info");
         if (optJSONObject != null) {
             d2 d2Var = new d2();
-            this.f24797a = d2Var;
-            d2Var.X2(optJSONObject);
+            this.f26314a = d2Var;
+            d2Var.Z2(optJSONObject);
         }
         JSONArray optJSONArray = jSONObject.optJSONArray(CommandMessage.TYPE_TAGS);
         if (optJSONArray == null) {
             return;
         }
         int length = optJSONArray.length();
-        this.f24800d = new ArrayList(length);
+        this.f26317d = new ArrayList(length);
         for (int i2 = 0; i2 < length; i2++) {
             JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
             if (optJSONObject2 != null) {
                 a aVar = new a();
                 aVar.a(optJSONObject2);
-                this.f24800d.add(aVar);
+                this.f26317d.add(aVar);
             }
         }
     }

@@ -2,7 +2,7 @@ package b.a.r0.o0;
 
 import android.view.View;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.u;
+import b.a.r0.b0.v;
 import com.baidu.tbadk.core.util.FeedTabCardStatisticHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
@@ -20,7 +20,7 @@ public class a {
             return;
         }
         d2 threadData = aVar.getThreadData();
-        if (threadData.E2()) {
+        if (threadData.G2()) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
             return;
         }
@@ -53,10 +53,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65537, null, aVar, str) == null) || aVar == null || aVar.getThreadData() == null) {
             return;
         }
-        if (aVar.getThreadData().E2()) {
-            u.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(aVar.getThreadData(), str));
+        if (aVar.getThreadData().G2()) {
+            v.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(aVar.getThreadData(), str));
         } else {
-            u.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(aVar.getThreadData(), str));
+            v.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(aVar.getThreadData(), str));
         }
     }
 }

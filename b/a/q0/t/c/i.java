@@ -11,10 +11,10 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13795a;
+    public int f14563a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13796b;
+    public int f14564b;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class i {
             return;
         }
         try {
-            this.f13795a = jSONObject.optInt("logined");
-            this.f13796b = jSONObject.optInt("unlogin");
+            this.f14563a = jSONObject.optInt("logined");
+            this.f14564b = jSONObject.optInt("unlogin");
         } catch (Exception e2) {
             e2.printStackTrace();
         }

@@ -1,6 +1,5 @@
 package b.a.n0.l;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -73,7 +72,7 @@ public class i {
                 a2[i2] = a2[i3];
                 a2[i3] = b2;
                 bArr3[i4] = (byte) (a2[((a2[i2] & 255) + (a2[i3] & 255)) & 255] ^ bArr[i4]);
-                bArr3[i4] = (byte) (bArr3[i4] ^ ExifInterface.START_CODE);
+                bArr3[i4] = (byte) (bArr3[i4] ^ 42);
             }
             return bArr3;
         }

@@ -17,14 +17,14 @@ public final class UbcSessionUploader {
     public static final int PLAY_SESSION_STAGE_TYPE_UBC_VOD = -1001;
 
     /* renamed from: a  reason: collision with root package name */
-    public static UbcSessionUploader f37233a;
+    public static UbcSessionUploader f38063a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f37234b;
+    public Object f38064b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f37235c;
+    public Method f38065c;
 
     public UbcSessionUploader() {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public final class UbcSessionUploader {
                 return;
             }
         }
-        this.f37234b = null;
-        this.f37235c = null;
+        this.f38064b = null;
+        this.f38065c = null;
         a();
     }
 
@@ -53,8 +53,8 @@ public final class UbcSessionUploader {
                 Field declaredField = cls.getDeclaredField("SERVICE_REFERENCE");
                 if (declaredField != null) {
                     declaredField.setAccessible(true);
-                    this.f37234b = cls2.getDeclaredMethod("getService", Class.forName("com.baidu.pyramid.runtime.service.ServiceReference")).invoke(null, declaredField.get(null));
-                    this.f37235c = cls.getDeclaredMethod("onEvent", String.class, String.class);
+                    this.f38064b = cls2.getDeclaredMethod("getService", Class.forName("com.baidu.pyramid.runtime.service.ServiceReference")).invoke(null, declaredField.get(null));
+                    this.f38065c = cls.getDeclaredMethod("onEvent", String.class, String.class);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -69,10 +69,10 @@ public final class UbcSessionUploader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (UbcSessionUploader.class) {
-                if (f37233a == null) {
-                    f37233a = new UbcSessionUploader();
+                if (f38063a == null) {
+                    f38063a = new UbcSessionUploader();
                 }
-                ubcSessionUploader = f37233a;
+                ubcSessionUploader = f38063a;
             }
             return ubcSessionUploader;
         }
@@ -82,11 +82,11 @@ public final class UbcSessionUploader {
     @Keep
     public void upload(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i2) == null) || !com.baidu.cyberplayer.sdk.c.a().d() || this.f37235c == null || this.f37234b == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i2) == null) || !com.baidu.cyberplayer.sdk.c.a().d() || this.f38065c == null || this.f38064b == null) {
             return;
         }
         try {
-            this.f37235c.invoke(this.f37234b, i2 == -1001 ? "2360" : "2368", str);
+            this.f38065c.invoke(this.f38064b, i2 == -1001 ? "2360" : "2368", str);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

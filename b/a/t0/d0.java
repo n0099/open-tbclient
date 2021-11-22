@@ -19,14 +19,14 @@ public class d0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f28757b;
+    public static final boolean f29626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile d0 f28758c;
+    public static volatile d0 f29627c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f28759a;
+    public boolean f29628a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class d0 {
                 return;
             }
         }
-        f28757b = b0.m();
+        f29626b = b0.m();
     }
 
     public d0() {
@@ -57,28 +57,28 @@ public class d0 {
                 return;
             }
         }
-        this.f28759a = b.a.h0.b.a.a.g();
+        this.f29628a = b.a.h0.b.a.a.g();
     }
 
     public static d0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f28758c == null) {
+            if (f29627c == null) {
                 synchronized (d0.class) {
-                    if (f28758c == null) {
-                        f28758c = new d0();
+                    if (f29627c == null) {
+                        f29627c = new d0();
                     }
                 }
             }
-            return f28758c;
+            return f29627c;
         }
         return (d0) invokeV.objValue;
     }
 
     public void b(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) || !this.f28759a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i2 == 0) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) || !this.f29628a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i2 == 0) {
             return;
         }
         try {
@@ -96,7 +96,7 @@ public class d0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) {
             UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            if (f28757b) {
+            if (f29626b) {
                 String str3 = "Quality event: type=" + str + ", value=" + str2 + ",ext=" + (jSONObject != null ? jSONObject.toString() : "");
             }
             try {
@@ -119,7 +119,7 @@ public class d0 {
 
     public void d(String str, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) || !this.f28759a || TextUtils.isEmpty(str) || i2 == 0) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) || !this.f29628a || TextUtils.isEmpty(str) || i2 == 0) {
             return;
         }
         try {
@@ -134,7 +134,7 @@ public class d0 {
 
     public void e(String str, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIII(1048579, this, str, i2, i3, i4) == null) && this.f28759a && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeLIII(1048579, this, str, i2, i3, i4) == null) && this.f29628a && !TextUtils.isEmpty(str)) {
             if (i2 == 0 && i3 == 0 && i4 == 0) {
                 return;
             }
@@ -159,7 +159,7 @@ public class d0 {
 
     public void f(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.f28759a && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.f29628a && !TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
@@ -172,7 +172,7 @@ public class d0 {
 
     public void g(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) || !this.f28759a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) || !this.f29628a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return;
         }
         try {
@@ -188,7 +188,7 @@ public class d0 {
 
     public void h(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.f28759a && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.f29628a && !TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("exception", str);
@@ -201,7 +201,7 @@ public class d0 {
 
     public void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && this.f28759a) {
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && this.f29628a) {
             if (TextUtils.isEmpty(str2) && TextUtils.isEmpty(str)) {
                 return;
             }
@@ -222,7 +222,7 @@ public class d0 {
 
     public void j(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && this.f28759a && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && this.f29628a && !TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("exception", str);
@@ -235,7 +235,7 @@ public class d0 {
 
     public void k(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i2) == null) && this.f28759a) {
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i2) == null) && this.f29628a) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("errno", i2);
@@ -248,7 +248,7 @@ public class d0 {
 
     public void l(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) || !this.f28759a || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) || !this.f29628a || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str)) {
             return;
         }
         try {

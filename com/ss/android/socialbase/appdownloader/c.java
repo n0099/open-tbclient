@@ -46,10 +46,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f68923a;
+    public static int f69843a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f68924b;
+    public static NotificationChannel f69844b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -188,19 +188,19 @@ public class c {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Context f68928a;
+                        public final /* synthetic */ Context f69848a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ int f68929b;
+                        public final /* synthetic */ int f69849b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ boolean f68930c;
+                        public final /* synthetic */ boolean f69850c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ DownloadInfo f68931d;
+                        public final /* synthetic */ DownloadInfo f69851d;
 
                         /* renamed from: e  reason: collision with root package name */
-                        public final /* synthetic */ File f68932e;
+                        public final /* synthetic */ File f69852e;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -217,22 +217,22 @@ public class c {
                                     return;
                                 }
                             }
-                            this.f68928a = context;
-                            this.f68929b = i2;
-                            this.f68930c = z;
-                            this.f68931d = downloadInfo;
-                            this.f68932e = file;
+                            this.f69848a = context;
+                            this.f69849b = i2;
+                            this.f69850c = z;
+                            this.f69851d = downloadInfo;
+                            this.f69852e = file;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                int a2 = c.a(this.f68928a, this.f68929b, this.f68930c, this.f68931d, this.f68932e);
+                                int a2 = c.a(this.f69848a, this.f69849b, this.f69850c, this.f69851d, this.f69852e);
                                 if (a2 == 1 && d.j().o() != null) {
-                                    d.j().o().a(this.f68931d, null);
+                                    d.j().o().a(this.f69851d, null);
                                 }
-                                c.b(this.f68931d, this.f68930c, a2);
+                                c.b(this.f69851d, this.f69850c, a2);
                             }
                         }
                     });
@@ -302,19 +302,19 @@ public class c {
                 return d(context, i2, z);
             }
             DownloadInfo downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2);
-            f68923a = 1;
+            f69843a = 1;
             g2.a(downloadInfo, new com.ss.android.socialbase.appdownloader.c.i(context, i2, z) { // from class: com.ss.android.socialbase.appdownloader.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f68925a;
+                public final /* synthetic */ Context f69845a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f68926b;
+                public final /* synthetic */ int f69846b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f68927c;
+                public final /* synthetic */ boolean f69847c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -331,20 +331,20 @@ public class c {
                             return;
                         }
                     }
-                    this.f68925a = context;
-                    this.f68926b = i2;
-                    this.f68927c = z;
+                    this.f69845a = context;
+                    this.f69846b = i2;
+                    this.f69847c = z;
                 }
 
                 @Override // com.ss.android.socialbase.appdownloader.c.i
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int unused = c.f68923a = c.d(this.f68925a, this.f68926b, this.f68927c);
+                        int unused = c.f69843a = c.d(this.f69845a, this.f69846b, this.f69847c);
                     }
                 }
             });
-            return f68923a;
+            return f69843a;
         }
         return invokeCommon.intValue;
     }
@@ -501,12 +501,12 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, context)) == null) {
             try {
-                if (f68924b == null) {
+                if (f69844b == null) {
                     NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                    f68924b = notificationChannel;
+                    f69844b = notificationChannel;
                     notificationChannel.setSound(null, null);
-                    f68924b.setShowBadge(false);
-                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f68924b);
+                    f69844b.setShowBadge(false);
+                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f69844b);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();

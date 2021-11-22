@@ -37,9 +37,9 @@ public class e extends com.baidu.platform.base.e {
         if (!poiDetailSearchOption.isSearchByUids()) {
             poiDetailSearchOption.poiUids(poiDetailSearchOption.getUid());
         }
-        this.f42041a.a("uids", poiDetailSearchOption.getUids());
-        this.f42041a.a("output", "json");
-        this.f42041a.a("scope", "2");
+        this.f42889a.a("uids", poiDetailSearchOption.getUids());
+        this.f42889a.a("output", "json");
+        this.f42889a.a("scope", "2");
     }
 
     @Override // com.baidu.platform.base.e

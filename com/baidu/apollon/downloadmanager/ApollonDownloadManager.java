@@ -30,29 +30,29 @@ public final class ApollonDownloadManager {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35912a = "WalletDownloadManager";
+    public static final String f36741a = "WalletDownloadManager";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35913b = "content://downloads/my_downloads/";
+    public static final String f36742b = "content://downloads/my_downloads/";
 
     /* renamed from: c  reason: collision with root package name */
-    public static ApollonDownloadManager f35914c;
+    public static ApollonDownloadManager f36743c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final DownloadManager f35915d;
+    public final DownloadManager f36744d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HashMap<Long, a> f35916e;
+    public final HashMap<Long, a> f36745e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f35917f;
+    public final String f36746f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f35918g;
+    public Context f36747g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SparseArray<DownloadManager.Request> f35919h;
+    public SparseArray<DownloadManager.Request> f36748h;
 
     /* renamed from: com.baidu.apollon.downloadmanager.ApollonDownloadManager$1  reason: invalid class name */
     /* loaded from: classes6.dex */
@@ -72,25 +72,25 @@ public final class ApollonDownloadManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ApollonDownloadManager f35920a;
+        public final /* synthetic */ ApollonDownloadManager f36749a;
 
         /* renamed from: b  reason: collision with root package name */
-        public DownloadItemInfo f35921b;
+        public DownloadItemInfo f36750b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final HashSet<DownloadListener> f35922c;
+        public final HashSet<DownloadListener> f36751c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f35923d;
+        public long f36752d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f35924e;
+        public long f36753e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f35925f;
+        public int f36754f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Context f35926g;
+        public Context f36755g;
 
         public /* synthetic */ a(ApollonDownloadManager apollonDownloadManager, Context context, long j, AnonymousClass1 anonymousClass1) {
             this(apollonDownloadManager, context, j);
@@ -101,30 +101,30 @@ public final class ApollonDownloadManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                 super.onChange(z);
-                if (this.f35920a.a(this.f35921b)) {
+                if (this.f36749a.a(this.f36750b)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    if ((this.f35925f == this.f35921b.getDownloadState() && this.f35923d == this.f35921b.getCurrentBytes()) || this.f35924e == currentTimeMillis) {
+                    if ((this.f36754f == this.f36750b.getDownloadState() && this.f36752d == this.f36750b.getCurrentBytes()) || this.f36753e == currentTimeMillis) {
                         return;
                     }
-                    if (2 == this.f35921b.getDownloadState()) {
-                        DownloadItemInfo downloadItemInfo = this.f35921b;
-                        downloadItemInfo.setSpeed(((downloadItemInfo.getCurrentBytes() - this.f35923d) * 1000) / (currentTimeMillis - this.f35924e));
+                    if (2 == this.f36750b.getDownloadState()) {
+                        DownloadItemInfo downloadItemInfo = this.f36750b;
+                        downloadItemInfo.setSpeed(((downloadItemInfo.getCurrentBytes() - this.f36752d) * 1000) / (currentTimeMillis - this.f36753e));
                     } else {
-                        this.f35921b.setSpeed(0L);
+                        this.f36750b.setSpeed(0L);
                     }
-                    this.f35923d = this.f35921b.getCurrentBytes();
-                    this.f35925f = this.f35921b.getDownloadState();
-                    this.f35924e = currentTimeMillis;
+                    this.f36752d = this.f36750b.getCurrentBytes();
+                    this.f36754f = this.f36750b.getDownloadState();
+                    this.f36753e = currentTimeMillis;
                     synchronized (this) {
-                        int size = this.f35922c.size();
+                        int size = this.f36751c.size();
                         DownloadListener[] downloadListenerArr = new DownloadListener[size];
-                        this.f35922c.toArray(downloadListenerArr);
+                        this.f36751c.toArray(downloadListenerArr);
                         for (int i2 = 0; i2 < size; i2++) {
-                            downloadListenerArr[i2].onChanged(this.f35921b);
+                            downloadListenerArr[i2].onChanged(this.f36750b);
                         }
                     }
-                    if ((this.f35921b.getDownloadState() & 24) != 0) {
-                        this.f35920a.unregisterObserver(this.f35926g, this.f35921b.getDownloadId());
+                    if ((this.f36750b.getDownloadState() & 24) != 0) {
+                        this.f36749a.unregisterObserver(this.f36755g, this.f36750b.getDownloadId());
                     }
                 }
             }
@@ -148,13 +148,13 @@ public final class ApollonDownloadManager {
                     return;
                 }
             }
-            this.f35920a = apollonDownloadManager;
-            this.f35922c = new HashSet<>();
-            this.f35923d = 0L;
-            this.f35924e = 0L;
-            this.f35925f = 1;
-            this.f35921b = new DownloadItemInfo(j);
-            this.f35926g = DxmApplicationContextImpl.getApplicationContext(context);
+            this.f36749a = apollonDownloadManager;
+            this.f36751c = new HashSet<>();
+            this.f36752d = 0L;
+            this.f36753e = 0L;
+            this.f36754f = 1;
+            this.f36750b = new DownloadItemInfo(j);
+            this.f36755g = DxmApplicationContextImpl.getApplicationContext(context);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -164,7 +164,7 @@ public final class ApollonDownloadManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, downloadListener)) == null) {
                 synchronized (this) {
-                    remove = this.f35922c.remove(downloadListener);
+                    remove = this.f36751c.remove(downloadListener);
                 }
                 return remove;
             }
@@ -176,7 +176,7 @@ public final class ApollonDownloadManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
                 synchronized (this) {
-                    this.f35922c.clear();
+                    this.f36751c.clear();
                 }
             }
         }
@@ -184,7 +184,7 @@ public final class ApollonDownloadManager {
         public void a(DownloadItemInfo downloadItemInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, downloadItemInfo) == null) {
-                this.f35921b = downloadItemInfo;
+                this.f36750b = downloadItemInfo;
             }
         }
 
@@ -195,7 +195,7 @@ public final class ApollonDownloadManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, downloadListener)) == null) {
                 synchronized (this) {
-                    add = this.f35922c.add(downloadListener);
+                    add = this.f36751c.add(downloadListener);
                 }
                 return add;
             }
@@ -205,7 +205,7 @@ public final class ApollonDownloadManager {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35922c.isEmpty() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36751c.isEmpty() : invokeV.booleanValue;
         }
     }
 
@@ -224,22 +224,22 @@ public final class ApollonDownloadManager {
                 return;
             }
         }
-        this.f35916e = new HashMap<>();
-        this.f35918g = null;
-        this.f35919h = new SparseArray<>();
-        this.f35918g = context;
-        this.f35915d = (DownloadManager) context.getSystemService("download");
-        this.f35917f = Environment.getExternalStorageDirectory() + File.separator + Environment.DIRECTORY_DOWNLOADS + File.separator;
+        this.f36745e = new HashMap<>();
+        this.f36747g = null;
+        this.f36748h = new SparseArray<>();
+        this.f36747g = context;
+        this.f36744d = (DownloadManager) context.getSystemService("download");
+        this.f36746f = Environment.getExternalStorageDirectory() + File.separator + Environment.DIRECTORY_DOWNLOADS + File.separator;
     }
 
     public static ApollonDownloadManager getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            if (f35914c == null) {
-                f35914c = new ApollonDownloadManager(context);
+            if (f36743c == null) {
+                f36743c = new ApollonDownloadManager(context);
             }
-            return f35914c;
+            return f36743c;
         }
         return (ApollonDownloadManager) invokeL.objValue;
     }
@@ -247,7 +247,7 @@ public final class ApollonDownloadManager {
     public void cancelDownload(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.f35915d.remove(j);
+            this.f36744d.remove(j);
         }
     }
 
@@ -262,7 +262,7 @@ public final class ApollonDownloadManager {
             if ((str3.startsWith("http://") || str3.startsWith("https://")) && (a2 = a(str2)) != null) {
                 DownloadManager.Request a3 = a(str, a2, str3, z, z2, z3, str4);
                 int hashCode = a3.hashCode();
-                this.f35919h.put(hashCode, a3);
+                this.f36748h.put(hashCode, a3);
                 return hashCode;
             }
             return -1;
@@ -279,7 +279,7 @@ public final class ApollonDownloadManager {
                 return -1L;
             }
             if (str2.startsWith("http://") || str2.startsWith("https://")) {
-                return this.f35915d.enqueue(a(Environment.DIRECTORY_DOWNLOADS, str, str2, z, z2, z3, ".apk"));
+                return this.f36744d.enqueue(a(Environment.DIRECTORY_DOWNLOADS, str, str2, z, z2, z3, ".apk"));
             }
             return -1L;
         }
@@ -305,10 +305,10 @@ public final class ApollonDownloadManager {
         if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Long.valueOf(j), downloadListener}) == null) || downloadListener == null || -1 == j) {
             return;
         }
-        a aVar = this.f35916e.get(Long.valueOf(j));
+        a aVar = this.f36745e.get(Long.valueOf(j));
         if (aVar == null) {
             aVar = new a(this, context, j, null);
-            this.f35916e.put(Long.valueOf(j), aVar);
+            this.f36745e.put(Long.valueOf(j), aVar);
             context.getContentResolver().registerContentObserver(Uri.parse("content://downloads/my_downloads/" + j), true, aVar);
         }
         aVar.a(downloadListener);
@@ -317,13 +317,13 @@ public final class ApollonDownloadManager {
     public void unregisterObserver(Context context, long j, DownloadListener downloadListener) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, Long.valueOf(j), downloadListener}) == null) || j == -1 || (aVar = this.f35916e.get(Long.valueOf(j))) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, Long.valueOf(j), downloadListener}) == null) || j == -1 || (aVar = this.f36745e.get(Long.valueOf(j))) == null) {
             return;
         }
         aVar.b(downloadListener);
         if (aVar.a()) {
             context.getContentResolver().unregisterContentObserver(aVar);
-            this.f35916e.remove(Uri.parse("content://downloads/my_downloads/" + j));
+            this.f36745e.remove(Uri.parse("content://downloads/my_downloads/" + j));
         }
     }
 
@@ -331,11 +331,11 @@ public final class ApollonDownloadManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            String str2 = str.startsWith(this.f35917f) ? null : this.f35917f;
+            String str2 = str.startsWith(this.f36746f) ? null : this.f36746f;
             File parentFile = new File(str2, str).getParentFile();
             parentFile.mkdirs();
             if (parentFile.isDirectory()) {
-                return str2 == null ? str.substring(this.f35917f.length()) : str;
+                return str2 == null ? str.substring(this.f36746f.length()) : str;
             }
             return null;
         }
@@ -351,7 +351,7 @@ public final class ApollonDownloadManager {
                 return -1L;
             }
             if (str3.startsWith("http://") || str3.startsWith("https://")) {
-                return this.f35915d.enqueue(a(str, str2, str3, z, z2, z3, str4));
+                return this.f36744d.enqueue(a(str, str2, str3, z, z2, z3, str4));
             }
             return -1L;
         }
@@ -363,18 +363,18 @@ public final class ApollonDownloadManager {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || -1 == i2) {
             return;
         }
-        DownloadManager.Request request = this.f35919h.get(i2, null);
+        DownloadManager.Request request = this.f36748h.get(i2, null);
         if (request != null) {
-            this.f35919h.delete(i2);
+            this.f36748h.delete(i2);
         }
-        ContentResolver contentResolver = this.f35918g.getContentResolver();
-        a remove = this.f35916e.remove(Long.valueOf(i2));
+        ContentResolver contentResolver = this.f36747g.getContentResolver();
+        a remove = this.f36745e.remove(Long.valueOf(i2));
         if (remove == null) {
             return;
         }
         contentResolver.unregisterContentObserver(remove);
-        long enqueue = this.f35915d.enqueue(request);
-        this.f35916e.put(Long.valueOf(enqueue), remove);
+        long enqueue = this.f36744d.enqueue(request);
+        this.f36745e.put(Long.valueOf(enqueue), remove);
         remove.a(new DownloadItemInfo(enqueue));
         contentResolver.registerContentObserver(Uri.parse("content://downloads/my_downloads/" + enqueue), true, remove);
     }
@@ -382,12 +382,12 @@ public final class ApollonDownloadManager {
     public void unregisterObserver(Context context, long j) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048583, this, context, j) == null) || j == -1 || (aVar = this.f35916e.get(Long.valueOf(j))) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048583, this, context, j) == null) || j == -1 || (aVar = this.f36745e.get(Long.valueOf(j))) == null) {
             return;
         }
         aVar.b();
         context.getContentResolver().unregisterContentObserver(aVar);
-        this.f35916e.remove(Uri.parse("content://downloads/my_downloads/" + j));
+        this.f36745e.remove(Uri.parse("content://downloads/my_downloads/" + j));
     }
 
     private DownloadManager.Request a(String str, String str2, String str3, boolean z, boolean z2, boolean z3, String str4) {
@@ -410,7 +410,7 @@ public final class ApollonDownloadManager {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x007c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x007d, code lost:
         if (0 == 0) goto L20;
      */
     /*
@@ -425,7 +425,7 @@ public final class ApollonDownloadManager {
             }
             Cursor cursor = null;
             try {
-                cursor = this.f35915d.query(new DownloadManager.Query().setFilterById(downloadItemInfo.getDownloadId()));
+                cursor = this.f36744d.query(new DownloadManager.Query().setFilterById(downloadItemInfo.getDownloadId()));
             } catch (Exception unused) {
             } catch (Throwable th) {
                 if (0 != 0) {

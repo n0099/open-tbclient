@@ -18,13 +18,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f29971a;
+    public static final AtomicBoolean f30840a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<Integer, Boolean> f29972b;
+    public static HashMap<Integer, Boolean> f30841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<Integer, Long> f29973c;
+    public static HashMap<Integer, Long> f30842c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,17 +40,17 @@ public class a {
                 return;
             }
         }
-        f29971a = new AtomicBoolean(false);
-        f29972b = new HashMap<>();
-        f29973c = new HashMap<>();
+        f30840a = new AtomicBoolean(false);
+        f30841b = new HashMap<>();
+        f30842c = new HashMap<>();
     }
 
     public static long a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            if (f29973c.containsKey(Integer.valueOf(i2))) {
-                return f29973c.get(Integer.valueOf(i2)).longValue();
+            if (f30842c.containsKey(Integer.valueOf(i2))) {
+                return f30842c.get(Integer.valueOf(i2)).longValue();
             }
             return Long.MAX_VALUE;
         }
@@ -67,21 +67,21 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             synchronized (a.class) {
-                if (!f29971a.get()) {
+                if (!f30840a.get()) {
                     SharedPreferences b2 = b(context);
-                    Iterator<Integer> it = b.f29974a.iterator();
+                    Iterator<Integer> it = b.f30843a.iterator();
                     while (it.hasNext()) {
                         int intValue = it.next().intValue();
-                        HashMap<Integer, Long> hashMap = f29973c;
+                        HashMap<Integer, Long> hashMap = f30842c;
                         Integer valueOf = Integer.valueOf(intValue);
                         hashMap.put(valueOf, Long.valueOf(b2.getLong("cache_" + intValue, 10080L)));
-                        HashMap<Integer, Boolean> hashMap2 = f29972b;
+                        HashMap<Integer, Boolean> hashMap2 = f30841b;
                         Integer valueOf2 = Integer.valueOf(intValue);
                         hashMap2.put(valueOf2, Boolean.valueOf(b2.getBoolean("close_" + intValue, false)));
                     }
-                    f29973c.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Long.MAX_VALUE);
-                    f29972b.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Boolean.TRUE);
-                    f29971a.set(true);
+                    f30842c.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Long.MAX_VALUE);
+                    f30841b.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Boolean.TRUE);
+                    f30840a.set(true);
                 }
             }
         }
@@ -91,8 +91,8 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
-            if (f29972b.containsKey(Integer.valueOf(i2))) {
-                return f29972b.get(Integer.valueOf(i2)).booleanValue();
+            if (f30841b.containsKey(Integer.valueOf(i2))) {
+                return f30841b.get(Integer.valueOf(i2)).booleanValue();
             }
             return true;
         }

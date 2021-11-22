@@ -14,7 +14,7 @@ public class d implements a {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.p0.a.l0.a f5149a;
+    public b.a.p0.a.l0.a f5295a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -31,12 +31,12 @@ public class d implements a {
     }
 
     public final void a() {
-        b.a.p0.a.h0.l.a O;
+        b.a.p0.a.h0.l.a W;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b.a.p0.a.l0.a aVar = this.f5149a;
-            if ((aVar == null || aVar.isDestroyed()) && (O = g.M().O()) != null && (O.f() instanceof b.a.p0.a.l0.a)) {
-                this.f5149a = (b.a.p0.a.l0.a) O.f();
+            b.a.p0.a.l0.a aVar = this.f5295a;
+            if ((aVar == null || aVar.isDestroyed()) && (W = g.U().W()) != null && (W.g() instanceof b.a.p0.a.l0.a)) {
+                this.f5295a = (b.a.p0.a.l0.a) W.g();
             }
         }
     }
@@ -46,9 +46,9 @@ public class d implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a();
-            b.a.p0.a.l0.a aVar = this.f5149a;
+            b.a.p0.a.l0.a aVar = this.f5295a;
             if (aVar != null) {
-                aVar.onPause();
+                aVar.suspendTimer();
             }
         }
     }
@@ -58,9 +58,9 @@ public class d implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             a();
-            b.a.p0.a.l0.a aVar = this.f5149a;
+            b.a.p0.a.l0.a aVar = this.f5295a;
             if (aVar != null) {
-                aVar.onResume();
+                aVar.continueTimer();
             }
         }
     }

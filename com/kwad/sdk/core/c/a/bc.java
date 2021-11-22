@@ -34,9 +34,9 @@ public class bc implements com.kwad.sdk.core.d<l.b> {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        bVar.f65364a = jSONObject.optDouble("progress");
-        bVar.f65365b = jSONObject.optInt("status");
-        bVar.f65366c = jSONObject.optLong("totalBytes");
+        bVar.f66277a = jSONObject.optDouble("progress");
+        bVar.f66278b = jSONObject.optInt("status");
+        bVar.f66279c = jSONObject.optLong("totalBytes");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,9 +48,9 @@ public class bc implements com.kwad.sdk.core.d<l.b> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "progress", bVar.f65364a);
-            com.kwad.sdk.utils.q.a(jSONObject, "status", bVar.f65365b);
-            com.kwad.sdk.utils.q.a(jSONObject, "totalBytes", bVar.f65366c);
+            com.kwad.sdk.utils.q.a(jSONObject, "progress", bVar.f66277a);
+            com.kwad.sdk.utils.q.a(jSONObject, "status", bVar.f66278b);
+            com.kwad.sdk.utils.q.a(jSONObject, "totalBytes", bVar.f66279c);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

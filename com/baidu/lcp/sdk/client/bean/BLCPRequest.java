@@ -13,19 +13,19 @@ public class BLCPRequest {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f38603a;
+    public long f39435a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f38604b;
+    public long f39436b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f38605c;
+    public byte[] f39437c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f38606d;
+    public long f39438d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SendTimeoutSecond f38607e;
+    public SendTimeoutSecond f39439e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
@@ -104,10 +104,10 @@ public class BLCPRequest {
                 return;
             }
         }
-        this.f38603a = -1L;
-        this.f38604b = -1L;
-        this.f38605c = new byte[0];
-        this.f38606d = -1L;
-        this.f38607e = SendTimeoutSecond.TIMEOUT_120s;
+        this.f39435a = -1L;
+        this.f39436b = -1L;
+        this.f39437c = new byte[0];
+        this.f39438d = -1L;
+        this.f39439e = SendTimeoutSecond.TIMEOUT_120s;
     }
 }

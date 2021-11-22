@@ -1,14 +1,11 @@
 package b.a.p0.a.p.c;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class f implements b.a.p0.a.p.d.k {
+public class f implements b.a.p0.a.p.d.l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +23,10 @@ public class f implements b.a.p0.a.p.d.k {
         }
     }
 
-    @Override // b.a.p0.a.p.d.k
-    public String a(@NonNull String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    @Override // b.a.p0.a.p.d.l
+    public void a(String str, b.a.p0.a.y1.c.f.c cVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jSONObject)) == null) ? str : (String) invokeLL.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
+        }
     }
 }

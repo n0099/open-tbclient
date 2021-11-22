@@ -23,10 +23,10 @@ public final class n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f12872a;
+    public long f13622a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12873b;
+    public long f13623b;
 
     public n() {
         Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public final class n {
                 return;
             }
         }
-        this.f12872a = -1L;
-        this.f12873b = -1L;
+        this.f13622a = -1L;
+        this.f13623b = -1L;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f12872a = SystemClock.elapsedRealtime();
+            this.f13622a = SystemClock.elapsedRealtime();
             Process.getElapsedCpuTime();
         }
     }
@@ -102,7 +102,7 @@ public final class n {
                 th = th2;
             }
             if (j2 <= 0) {
-                this.f12873b = this.f12872a - j2;
+                this.f13623b = this.f13622a - j2;
             }
         }
     }
@@ -111,10 +111,10 @@ public final class n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f12873b == -1) {
+            if (this.f13623b == -1) {
                 b();
             }
-            return this.f12873b;
+            return this.f13623b;
         }
         return invokeV.longValue;
     }

@@ -1,8 +1,7 @@
 package b.a.p0.a.e0.f.c;
 
 import android.os.Environment;
-import b.a.p0.a.a1.e;
-import b.a.p0.t.d;
+import b.a.p0.a.a1.d;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,22 +13,22 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static e.g a(b.a.p0.a.f1.e.b bVar) {
+    public static d.g a(b.a.p0.a.f1.e.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bVar)) == null) {
             File file = new File(Environment.getExternalStorageDirectory() + "/" + b.d());
-            e.K(file, b(), bVar);
-            d.i(file);
-            e.g gVar = new e.g();
+            d.M(file, b(), bVar);
+            b.a.p0.w.d.j(file);
+            d.g gVar = new d.g();
             File file2 = new File(b(), "app.json");
-            SwanAppConfigData c2 = SwanAppConfigData.c(d.D(file2), b());
-            gVar.f3903a = b().getPath() + File.separator;
-            gVar.f3904b = c2;
-            b.a.p0.a.e0.d.h("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.f3903a);
+            SwanAppConfigData c2 = SwanAppConfigData.c(b.a.p0.w.d.E(file2), b());
+            gVar.f3996a = b().getPath() + File.separator;
+            gVar.f3997b = c2;
+            b.a.p0.a.e0.d.k("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.f3996a);
             return gVar;
         }
-        return (e.g) invokeL.objValue;
+        return (d.g) invokeL.objValue;
     }
 
     public static File b() {

@@ -146,6 +146,8 @@ public interface IResourceTask extends INoProGuard {
 
     OutputType getOutputType();
 
+    String getPMSPackageName();
+
     int getPriority();
 
     String getTaskName();
@@ -153,6 +155,8 @@ public interface IResourceTask extends INoProGuard {
     String getTaskUrl();
 
     void onResourceReady(String str, ResultType resultType);
+
+    boolean shouldBeUnZip();
 
     boolean shouldForceLoadFromFile();
 }

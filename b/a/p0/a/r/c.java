@@ -2,7 +2,7 @@ package b.a.p0.a.r;
 
 import android.content.Context;
 import android.text.TextUtils;
-import b.a.p0.a.c2.f.a0;
+import b.a.p0.a.f2.f.z;
 import b.a.p0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.callback.ResponseCallback;
@@ -21,11 +21,11 @@ import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class c extends a0 {
+public abstract class c extends z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7437c;
+    public static final boolean f7951c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -34,13 +34,13 @@ public abstract class c extends a0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7438a;
+        public final /* synthetic */ CallbackHandler f7952a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f7439b;
+        public final /* synthetic */ String f7953b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f7440c;
+        public final /* synthetic */ c f7954c;
 
         public a(c cVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -57,16 +57,16 @@ public abstract class c extends a0 {
                     return;
                 }
             }
-            this.f7440c = cVar;
-            this.f7438a = callbackHandler;
-            this.f7439b = str;
+            this.f7954c = cVar;
+            this.f7952a = callbackHandler;
+            this.f7953b = str;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f7438a.handleSchemeDispatchCallback(this.f7439b, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
+                this.f7952a.handleSchemeDispatchCallback(this.f7953b, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
             }
         }
 
@@ -82,7 +82,7 @@ public abstract class c extends a0 {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f7440c.j(response, this.f7438a, this.f7439b);
+                this.f7954c.j(response, this.f7952a, this.f7953b);
                 return response;
             }
             return invokeLI.objValue;
@@ -102,11 +102,11 @@ public abstract class c extends a0 {
                 return;
             }
         }
-        f7437c = k.f6397a;
+        f7951c = k.f6863a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(b.a.p0.a.c2.e eVar, String str) {
+    public c(b.a.p0.a.f2.e eVar, String str) {
         super(eVar, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -126,15 +126,15 @@ public abstract class c extends a0 {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (eVar == null) {
                 return l(unitedSchemeEntity, 1001, "swanApp is null");
             }
-            JSONObject a2 = a0.a(unitedSchemeEntity, "params");
+            JSONObject a2 = z.a(unitedSchemeEntity, "params");
             if (a2 == null) {
                 return l(unitedSchemeEntity, 202, "illegal params");
             }
@@ -146,7 +146,7 @@ public abstract class c extends a0 {
             if (TextUtils.isEmpty(optString)) {
                 return l(unitedSchemeEntity, 202, "illegal cb");
             }
-            if (f7437c) {
+            if (f7951c) {
                 String str = "schema params : " + a2.toString();
                 String str2 = "schema cb : " + optString;
             }

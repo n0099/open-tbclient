@@ -972,7 +972,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
             } else {
                 if (str.startsWith(V7_DEEPLINK_PREFIX) && params != null) {
                     String optString7 = params.optString("appUrl");
-                    String optString8 = params.optString(INPUT_PARAM_WEB_URL);
+                    String optString8 = params.optString("webUrl");
                     if (!TextUtils.isEmpty(optString7)) {
                         jSONObject = openApp("", optString7);
                         if (params.optBoolean(INPUT_PARAM_DIRECT_LAUNCH, false)) {

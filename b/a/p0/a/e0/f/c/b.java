@@ -1,7 +1,7 @@
 package b.a.p0.a.e0.f.c;
 
 import android.os.Bundle;
-import b.a.p0.a.v2.v;
+import b.a.p0.a.z2.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +16,7 @@ public class b implements b.a.p0.a.e0.f.a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4568a = "";
+    public static String f4538a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,14 +51,14 @@ public class b implements b.a.p0.a.e0.f.a {
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f4568a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f4538a : (String) invokeV.objValue;
     }
 
     @Override // b.a.p0.a.e0.f.a
     public void a(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            f4568a = v.i(bundle, "adb_debug_path");
+            f4538a = v.i(bundle, "adb_debug_path");
             b.a.p0.a.e0.f.b.i(v.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
             b.a.p0.a.e0.f.b.j(v.i(bundle, "slavePreload"));
         }
@@ -68,7 +68,7 @@ public class b implements b.a.p0.a.e0.f.a {
     public void b(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            bundle.putString("adb_debug_path", f4568a);
+            bundle.putString("adb_debug_path", f4538a);
             bundle.putString("slavePreload", b.a.p0.a.e0.f.b.c());
             bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, b.a.p0.a.e0.f.b.a());
         }

@@ -4,9 +4,10 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.t.d;
+import b.a.p0.w.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.swan.apps.database.SwanAppDbControl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -32,7 +33,7 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f8934a;
+        public static final c f9278a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,7 +49,7 @@ public class c {
                     return;
                 }
             }
-            f8934a = new c(null);
+            f9278a = new c(null);
         }
     }
 
@@ -59,7 +60,7 @@ public class c {
     public static c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f8934a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f9278a : (c) invokeV.objValue;
     }
 
     public final boolean a(File file, File file2) {
@@ -68,7 +69,7 @@ public class c {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
             if (file != null && file.exists() && file2 != null) {
                 if (!file2.exists()) {
-                    d.k(file2);
+                    d.l(file2);
                 }
                 String[] list = file.list();
                 if (list != null && list.length != 0) {
@@ -79,7 +80,7 @@ public class c {
                                 boolean isFile = file3.isFile();
                                 File file4 = new File(file2, str);
                                 if (file4.exists()) {
-                                    d.i(file4);
+                                    d.j(file4);
                                 }
                                 if (isFile) {
                                     d.h(file4);
@@ -104,23 +105,23 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
             if (file.exists() && file.isDirectory()) {
                 File file2 = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-                File file3 = new File(b.a.p0.a.k2.h.c.A());
+                File file3 = new File(b.a.p0.a.o2.h.c.e());
                 File[] listFiles = file.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
-                    d.k(file2);
-                    d.k(file3);
+                    d.l(file2);
+                    d.l(file3);
                     File file4 = null;
                     for (File file5 : listFiles) {
                         String name = file5.getName();
                         if (!TextUtils.isEmpty(name)) {
                             if (name.endsWith(ActivityChooserModel.HISTORY_FILE_EXTENSION)) {
                                 file4 = new File(file2, name);
-                            } else if (name.endsWith(".kv")) {
+                            } else if (name.endsWith(SwanKV.PREFS_SUFFIX)) {
                                 file4 = new File(file3, name);
                             }
                             if (file4 != null) {
                                 if (file4.exists()) {
-                                    d.K(file4);
+                                    d.L(file4);
                                 }
                                 if (file5.isFile()) {
                                     d.h(file4);
@@ -155,7 +156,7 @@ public class c {
             if (file == null || !file.exists()) {
                 return false;
             }
-            return a(new File(file, b.a.p0.a.x0.a.d.a.f8942h), b.a.p0.a.x0.a.d.a.f8935a);
+            return a(new File(file, b.a.p0.a.x0.a.d.a.f9286h), b.a.p0.a.x0.a.d.a.f9279a);
         }
         return invokeLL.booleanValue;
     }
@@ -169,8 +170,8 @@ public class c {
             }
             boolean a2 = a(new File(file, b.a.p0.a.x0.a.d.a.k), new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "databases"));
             SwanAppDbControl.f(AppRuntime.getAppContext()).p();
-            b.a.p0.n.g.e.a.a().e();
-            b.a.p0.a.c1.a.Z().H();
+            b.a.p0.q.g.e.a.a().e();
+            b.a.p0.a.c1.a.g0().F();
             return a2;
         }
         return invokeLL.booleanValue;
@@ -183,7 +184,7 @@ public class c {
             if (file == null || !file.exists()) {
                 return false;
             }
-            return a(new File(file, b.a.p0.a.x0.a.d.a.f8943i), AppRuntime.getAppContext().getFilesDir());
+            return a(new File(file, b.a.p0.a.x0.a.d.a.f9287i), AppRuntime.getAppContext().getFilesDir());
         }
         return invokeLL.booleanValue;
     }
@@ -217,23 +218,23 @@ public class c {
                     b.a.p0.a.x0.a.a.n().p("installSwanApp clone_zipFiles file not exists");
                     return false;
                 }
-                File a3 = b.a.p0.a.x0.a.b.a(d.F(file), a2);
+                File a3 = b.a.p0.a.x0.a.b.a(d.G(file), a2);
                 if (a3 != null && a3.exists()) {
-                    File file2 = new File(b.a.p0.a.x0.a.d.a.f8938d);
+                    File file2 = new File(b.a.p0.a.x0.a.d.a.f9282d);
                     if (file2.exists()) {
-                        d.K(file2);
+                        d.L(file2);
                     }
-                    if (!d.k(file2)) {
+                    if (!d.l(file2)) {
                         b.a.p0.a.x0.a.a.n().p("installSwanApp root cache dir create fail");
                         return false;
                     }
-                    boolean z = d.V(a3.getAbsolutePath(), b.a.p0.a.x0.a.d.a.f8938d) == null;
+                    boolean z = d.W(a3.getAbsolutePath(), b.a.p0.a.x0.a.d.a.f9282d) == null;
                     if (z) {
-                        d.i(file);
-                        d.i(a3);
+                        d.j(file);
+                        d.j(a3);
                     }
                     b.a.p0.a.x0.a.a.n().p("unzip file status = " + z);
-                    File file3 = new File(b.a.p0.a.x0.a.d.a.f8938d);
+                    File file3 = new File(b.a.p0.a.x0.a.d.a.f9282d);
                     String[] list = file3.list();
                     if (list != null && list.length != 0) {
                         int length = list.length;
@@ -245,15 +246,15 @@ public class c {
                                 break;
                             }
                             String str4 = list[i2];
-                            if (!TextUtils.isEmpty(str4) && str4.startsWith(b.a.p0.a.x0.a.d.a.f8939e)) {
-                                str2 = str4.substring(b.a.p0.a.x0.a.d.a.f8939e.length());
+                            if (!TextUtils.isEmpty(str4) && str4.startsWith(b.a.p0.a.x0.a.d.a.f9283e)) {
+                                str2 = str4.substring(b.a.p0.a.x0.a.d.a.f9283e.length());
                                 str3 = str4;
                                 break;
                             }
                             i2++;
                         }
                         if (TextUtils.equals(str, str2) && !TextUtils.isEmpty(str3)) {
-                            File file4 = new File(b.a.p0.a.x0.a.d.a.f8938d, str3);
+                            File file4 = new File(b.a.p0.a.x0.a.d.a.f9282d, str3);
                             boolean j = j(str, file4);
                             boolean e2 = e(str, file4);
                             boolean h2 = h(str, file4);
@@ -261,7 +262,7 @@ public class c {
                             boolean d2 = d(str);
                             boolean g2 = g(str, file4);
                             b.a.p0.a.x0.a.a.n().p("installSwanPkg = " + j + " ; installCore = " + e2 + " ; installSp = " + h2 + " ; installDb = " + f2 + " ; installAbTest = " + d2 + " ; installDynamicLib = " + g2);
-                            return d.i(file3);
+                            return d.j(file3);
                         }
                         b.a.p0.a.x0.a.a.n().p("installSwanApp install appKey not match zip file appKey");
                         return false;
@@ -283,7 +284,7 @@ public class c {
             if (file == null || !file.exists()) {
                 return false;
             }
-            return a(new File(file, b.a.p0.a.x0.a.d.a.f8941g), b.a.p0.a.x0.a.d.a.f8935a);
+            return a(new File(file, b.a.p0.a.x0.a.d.a.f9285g), b.a.p0.a.x0.a.d.a.f9279a);
         }
         return invokeLL.booleanValue;
     }

@@ -79,7 +79,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
                 return;
             }
         }
-        DEBUG = k.f6397a;
+        DEBUG = k.f6863a;
         CREATOR = new a();
     }
 
@@ -88,7 +88,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
     }
 
     @Nullable
-    public static QuickLoginInfo parseQuickLoginInfo(b.a.p0.b.p.g.a aVar) {
+    public static QuickLoginInfo parseQuickLoginInfo(b.a.p0.b.p.d.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar)) == null) {

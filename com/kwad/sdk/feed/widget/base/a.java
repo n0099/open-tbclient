@@ -29,25 +29,25 @@ public abstract class a extends KSFrameLayout implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f65716a;
+    public e f66629a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f65717b;
+    public AdTemplate f66630b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f65718c;
+    public AdInfo f66631c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC1925a f65719d;
+    public InterfaceC1965a f66632d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f65720e;
+    public Context f66633e;
 
     /* renamed from: com.kwad.sdk.feed.widget.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC1925a {
+    public interface InterfaceC1965a {
         void a();
 
         void b();
@@ -116,7 +116,7 @@ public abstract class a extends KSFrameLayout implements d {
                 return;
             }
         }
-        this.f65720e = context;
+        this.f66633e = context;
         d();
     }
 
@@ -128,12 +128,12 @@ public abstract class a extends KSFrameLayout implements d {
                 b2 = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
                 viewGroup.addView(b2);
             }
-            b2.setViewCallback(new a.InterfaceC1909a(this) { // from class: com.kwad.sdk.feed.widget.base.a.1
+            b2.setViewCallback(new a.InterfaceC1949a(this) { // from class: com.kwad.sdk.feed.widget.base.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f65721a;
+                public final /* synthetic */ a f66634a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -150,32 +150,32 @@ public abstract class a extends KSFrameLayout implements d {
                             return;
                         }
                     }
-                    this.f65721a = this;
+                    this.f66634a = this;
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1909a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1949a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     }
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1909a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1949a
                 public void a(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                        this.f65721a.j();
+                        this.f66634a.j();
                     }
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1909a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1949a
                 public void a(boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                     }
                 }
 
-                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1909a
+                @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1949a
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
@@ -204,10 +204,10 @@ public abstract class a extends KSFrameLayout implements d {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            FrameLayout.inflate(this.f65720e, getLayoutId(), this);
+            FrameLayout.inflate(this.f66633e, getLayoutId(), this);
             setRatio(getHWRatio());
             c();
-            this.f65716a = new e(this, 70);
+            this.f66629a = new e(this, 70);
             a((ViewGroup) this);
         }
     }
@@ -217,16 +217,16 @@ public abstract class a extends KSFrameLayout implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.a();
-            this.f65716a.a(this);
-            this.f65716a.a();
+            this.f66629a.a(this);
+            this.f66629a.a();
         }
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            this.f65717b = adTemplate;
-            this.f65718c = c.i(adTemplate);
+            this.f66630b = adTemplate;
+            this.f66631c = c.i(adTemplate);
         }
     }
 
@@ -235,8 +235,8 @@ public abstract class a extends KSFrameLayout implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.b();
-            this.f65716a.b(this);
-            this.f65716a.b();
+            this.f66629a.b(this);
+            this.f66629a.b();
         }
     }
 
@@ -267,51 +267,51 @@ public abstract class a extends KSFrameLayout implements d {
     public abstract int getLayoutId();
 
     public void j() {
-        InterfaceC1925a interfaceC1925a;
+        InterfaceC1965a interfaceC1965a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (!this.f65717b.mPvReported && (interfaceC1925a = this.f65719d) != null) {
-                interfaceC1925a.b();
+            if (!this.f66630b.mPvReported && (interfaceC1965a = this.f66632d) != null) {
+                interfaceC1965a.b();
             }
-            com.kwad.sdk.core.report.a.a(this.f65717b, (JSONObject) null);
+            com.kwad.sdk.core.report.a.a(this.f66630b, (JSONObject) null);
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            com.kwad.sdk.core.report.a.a(this.f65717b, getTouchCoords());
-            InterfaceC1925a interfaceC1925a = this.f65719d;
-            if (interfaceC1925a != null) {
-                interfaceC1925a.a();
+            com.kwad.sdk.core.report.a.a(this.f66630b, getTouchCoords());
+            InterfaceC1965a interfaceC1965a = this.f66632d;
+            if (interfaceC1965a != null) {
+                interfaceC1965a.a();
             }
         }
     }
 
     public void l() {
-        InterfaceC1925a interfaceC1925a;
+        InterfaceC1965a interfaceC1965a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (interfaceC1925a = this.f65719d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (interfaceC1965a = this.f66632d) == null) {
             return;
         }
-        interfaceC1925a.a();
+        interfaceC1965a.a();
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            com.kwad.sdk.core.report.a.a(this.f65717b);
-            InterfaceC1925a interfaceC1925a = this.f65719d;
-            if (interfaceC1925a != null) {
-                interfaceC1925a.c();
+            com.kwad.sdk.core.report.a.a(this.f66630b);
+            InterfaceC1965a interfaceC1965a = this.f66632d;
+            if (interfaceC1965a != null) {
+                interfaceC1965a.c();
             }
         }
     }
 
-    public void setAdClickListener(InterfaceC1925a interfaceC1925a) {
+    public void setAdClickListener(InterfaceC1965a interfaceC1965a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, interfaceC1925a) == null) {
-            this.f65719d = interfaceC1925a;
+        if (interceptable == null || interceptable.invokeL(1048588, this, interfaceC1965a) == null) {
+            this.f66632d = interfaceC1965a;
         }
     }
 

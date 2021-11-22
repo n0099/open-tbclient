@@ -11,10 +11,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2779a;
+    public static final boolean f2872a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f2780b;
+    public static String f2873b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,18 +30,18 @@ public class a {
                 return;
             }
         }
-        f2779a = b.a.f0.a.b.a.f2781a.get().s();
-        f2780b = "https://afd.baidu.com/afd/entry";
+        f2872a = b.a.f0.a.b.a.f2874a.get().s();
+        f2873b = "https://afd.baidu.com/afd/entry";
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!f2779a || TextUtils.isEmpty(b.a.f0.a.b.a.f2781a.get().c())) {
-                return TextUtils.isEmpty(f2780b) ? "https://afd.baidu.com/afd/entry" : f2780b;
+            if (!f2872a || TextUtils.isEmpty(b.a.f0.a.b.a.f2874a.get().c())) {
+                return TextUtils.isEmpty(f2873b) ? "https://afd.baidu.com/afd/entry" : f2873b;
             }
-            return b.a.f0.a.b.a.f2781a.get().c();
+            return b.a.f0.a.b.a.f2874a.get().c();
         }
         return (String) invokeV.objValue;
     }

@@ -6,11 +6,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Process;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.h0.p.a;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -40,13 +41,13 @@ public final class SwanLauncher {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f43675a;
+    public static final boolean f44441a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final f f43676b;
+    public static final f f44442b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final f f43677c;
+    public static final f f44443c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -79,21 +80,21 @@ public final class SwanLauncher {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.v1.c.f.c f43678e;
+        public final /* synthetic */ b.a.p0.a.y1.c.f.c f44444e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bundle f43679f;
+        public final /* synthetic */ Bundle f44445f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f43680g;
+        public final /* synthetic */ int f44446g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f43681h;
+        public final /* synthetic */ String f44447h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ SwanLauncher f43682i;
+        public final /* synthetic */ SwanLauncher f44448i;
 
-        public a(SwanLauncher swanLauncher, b.a.p0.a.v1.c.f.c cVar, Bundle bundle, int i2, String str) {
+        public a(SwanLauncher swanLauncher, b.a.p0.a.y1.c.f.c cVar, Bundle bundle, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,19 +109,19 @@ public final class SwanLauncher {
                     return;
                 }
             }
-            this.f43682i = swanLauncher;
-            this.f43678e = cVar;
-            this.f43679f = bundle;
-            this.f43680g = i2;
-            this.f43681h = str;
+            this.f44448i = swanLauncher;
+            this.f44444e = cVar;
+            this.f44445f = bundle;
+            this.f44446g = i2;
+            this.f44447h = str;
         }
 
         @Override // h.c
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43682i.o(this.f43678e, this.f43679f, this.f43680g);
-                b.a.p0.a.a2.d.g().q("event_launch_swan");
+                this.f44448i.o(this.f44444e, this.f44445f, this.f44446g);
+                b.a.p0.a.d2.d.J().q("event_launch_swan");
             }
         }
 
@@ -131,8 +132,8 @@ public final class SwanLauncher {
                 if (q0.G() && (th instanceof T7CheckException)) {
                     return;
                 }
-                b.a.p0.a.a2.d.g().q("event_launch_swan");
-                this.f43682i.k(th, this.f43680g, this.f43681h, this.f43679f);
+                b.a.p0.a.d2.d.J().q("event_launch_swan");
+                this.f44448i.k(th, this.f44446g, this.f44447h, this.f44445f);
             }
         }
 
@@ -150,9 +151,9 @@ public final class SwanLauncher {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.v1.c.f.c f43683e;
+        public final /* synthetic */ b.a.p0.a.y1.c.f.c f44449e;
 
-        public b(SwanLauncher swanLauncher, b.a.p0.a.v1.c.f.c cVar) {
+        public b(SwanLauncher swanLauncher, b.a.p0.a.y1.c.f.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,30 +168,30 @@ public final class SwanLauncher {
                     return;
                 }
             }
-            this.f43683e = cVar;
+            this.f44449e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43683e.Z();
+                this.f44449e.k0();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c implements b.a.p0.a.v1.c.f.a {
+    public class c implements b.a.p0.a.y1.c.f.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.v1.c.f.c f43684a;
+        public final /* synthetic */ b.a.p0.a.y1.c.f.c f44450a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f43685b;
+        public final /* synthetic */ String f44451b;
 
-        public c(SwanLauncher swanLauncher, b.a.p0.a.v1.c.f.c cVar, String str) {
+        public c(SwanLauncher swanLauncher, b.a.p0.a.y1.c.f.c cVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -205,29 +206,29 @@ public final class SwanLauncher {
                     return;
                 }
             }
-            this.f43684a = cVar;
-            this.f43685b = str;
+            this.f44450a = cVar;
+            this.f44451b = str;
         }
 
-        @Override // b.a.p0.a.v1.c.f.a
-        public void a(String str, b.a.p0.a.v1.c.f.c cVar) {
+        @Override // b.a.p0.a.y1.c.f.a
+        public void a(String str, b.a.p0.a.y1.c.f.c cVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) && cVar == this.f43684a) {
-                if ("event_puppet_fmp_launch_finish".equals(str) && cVar.C() && TextUtils.equals(this.f43685b, cVar.getAppId())) {
-                    b.a.p0.a.v1.c.f.e.k().h(this);
-                    b.a.p0.a.f1.b.l(this.f43685b);
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) && cVar == this.f44450a) {
+                if ("event_puppet_fmp_launch_finish".equals(str) && cVar.D() && TextUtils.equals(this.f44451b, cVar.getAppId())) {
+                    b.a.p0.a.y1.c.f.e.k().h(this);
+                    b.a.p0.a.f1.b.l(this.f44451b);
                 } else if ("event_puppet_unload_app".equals(str) || "event_puppet_offline".equals(str)) {
-                    b.a.p0.a.v1.c.f.e.k().h(this);
-                    b.a.p0.a.f1.b.k(this.f43685b);
+                    b.a.p0.a.y1.c.f.e.k().h(this);
+                    b.a.p0.a.f1.b.k(this.f44451b);
                 }
             }
         }
 
-        @Override // b.a.p0.a.v1.c.f.a
+        @Override // b.a.p0.a.y1.c.f.a
         public void timeout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                b.a.p0.a.f1.b.k(this.f43685b);
+                b.a.p0.a.f1.b.k(this.f44451b);
             }
         }
     }
@@ -238,14 +239,14 @@ public final class SwanLauncher {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.v2.e1.b f43686e;
+        public final /* synthetic */ b.a.p0.a.z2.g1.c f44452e;
 
-        public d(SwanLauncher swanLauncher, b.a.p0.a.v2.e1.b bVar) {
+        public d(SwanLauncher swanLauncher, b.a.p0.a.z2.g1.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {swanLauncher, bVar};
+                Object[] objArr = {swanLauncher, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -255,17 +256,17 @@ public final class SwanLauncher {
                     return;
                 }
             }
-            this.f43686e = bVar;
+            this.f44452e = cVar;
         }
 
         @Override // h.c
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.p0.a.e0.d.h("SwanLauncher", "init onCompleted");
-                b.a.p0.a.v2.e1.b bVar = this.f43686e;
-                if (bVar != null) {
-                    bVar.onCallback(null);
+                SwanLauncher.p("SwanLauncher", "#initEnv 初始化环境完成");
+                b.a.p0.a.z2.g1.c cVar = this.f44452e;
+                if (cVar != null) {
+                    cVar.onCallback(null);
                 }
             }
         }
@@ -274,10 +275,10 @@ public final class SwanLauncher {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                b.a.p0.a.e0.d.i("SwanLauncher", "initEnv onError: ", th);
-                b.a.p0.a.v2.e1.b bVar = this.f43686e;
-                if (bVar != null) {
-                    bVar.onCallback(new Exception("initEnv failed", th));
+                SwanLauncher.p("SwanLauncher", "#initEnv 初始化环境失败 " + Log.getStackTraceString(th));
+                b.a.p0.a.z2.g1.c cVar = this.f44452e;
+                if (cVar != null) {
+                    cVar.onCallback(new Exception("initEnv failed", th));
                 }
             }
         }
@@ -285,7 +286,7 @@ public final class SwanLauncher {
         @Override // h.c
         public void onSubscribe(k kVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kVar) == null) && SwanLauncher.f43675a) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kVar) == null) && SwanLauncher.f44441a) {
                 String str = "init onSubscribe: " + kVar;
             }
         }
@@ -297,13 +298,13 @@ public final class SwanLauncher {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f43687a;
+        public int f44453a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f43688b;
+        public int f44454b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Bundle f43689c;
+        public Bundle f44455c;
 
         /* loaded from: classes8.dex */
         public static class a {
@@ -311,7 +312,7 @@ public final class SwanLauncher {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public e f43690a;
+            public e f44456a;
 
             public a() {
                 Interceptable interceptable = $ic;
@@ -326,20 +327,20 @@ public final class SwanLauncher {
                         return;
                     }
                 }
-                this.f43690a = new e(null);
+                this.f44456a = new e(null);
             }
 
             public e a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43690a : (e) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44456a : (e) invokeV.objValue;
             }
 
             public a b(int i2) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                    this.f43690a.f43687a = i2;
+                    this.f44456a.f44453a = i2;
                     return this;
                 }
                 return (a) invokeI.objValue;
@@ -349,7 +350,7 @@ public final class SwanLauncher {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
-                    this.f43690a.f43689c = bundle;
+                    this.f44456a.f44455c = bundle;
                     return this;
                 }
                 return (a) invokeL.objValue;
@@ -359,7 +360,7 @@ public final class SwanLauncher {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                    this.f43690a.f43688b = i2;
+                    this.f44456a.f44454b = i2;
                     return this;
                 }
                 return (a) invokeI.objValue;
@@ -383,8 +384,8 @@ public final class SwanLauncher {
                     return;
                 }
             }
-            this.f43687a = -1;
-            this.f43688b = -1;
+            this.f44453a = -1;
+            this.f44454b = -1;
         }
     }
 
@@ -393,7 +394,7 @@ public final class SwanLauncher {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final SwanLauncher f43692a;
+        public static final SwanLauncher f44458a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -409,7 +410,7 @@ public final class SwanLauncher {
                     return;
                 }
             }
-            f43692a = new SwanLauncher(null);
+            f44458a = new SwanLauncher(null);
         }
     }
 
@@ -419,18 +420,18 @@ public final class SwanLauncher {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f43693f;
+        public final int f44459f;
 
         /* loaded from: classes8.dex */
-        public class a implements b.a.p0.a.v2.e1.b<Exception> {
+        public class a implements b.a.p0.a.z2.g1.c<Exception> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h.c f43694e;
+            public final /* synthetic */ h.c f44460e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ h f43695f;
+            public final /* synthetic */ h f44461f;
 
             public a(h hVar, h.c cVar) {
                 Interceptable interceptable = $ic;
@@ -447,23 +448,23 @@ public final class SwanLauncher {
                         return;
                     }
                 }
-                this.f43695f = hVar;
-                this.f43694e = cVar;
+                this.f44461f = hVar;
+                this.f44460e = cVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.a.p0.a.v2.e1.b
+            @Override // b.a.p0.a.z2.g1.c
             /* renamed from: a */
             public void onCallback(Exception exc) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
                     if (exc == null) {
-                        this.f43695f.b();
-                        this.f43694e.onCompleted();
+                        this.f44461f.b();
+                        this.f44460e.onCompleted();
                         return;
                     }
-                    h.c cVar = this.f43694e;
-                    cVar.onError(new Exception("SwanJsUpdater fail frame type = " + this.f43695f.f43693f, exc));
+                    h.c cVar = this.f44460e;
+                    cVar.onError(new Exception("SwanJsUpdater fail frame type = " + this.f44461f.f44459f, exc));
                 }
             }
         }
@@ -486,7 +487,7 @@ public final class SwanLauncher {
                     return;
                 }
             }
-            this.f43693f = i2;
+            this.f44459f = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -497,7 +498,7 @@ public final class SwanLauncher {
                 if (a()) {
                     cVar.onCompleted();
                 } else {
-                    b.a.p0.a.p0.e.a.d().c(new a(this, cVar), this.f43693f);
+                    b.a.p0.a.p0.e.a.d().c(new a(this, cVar), this.f44459f);
                 }
             }
         }
@@ -506,10 +507,13 @@ public final class SwanLauncher {
     /* loaded from: classes8.dex */
     public static final class i extends f {
         public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: g  reason: collision with root package name */
+        public static boolean f44462g;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final e f43696f;
+        public final e f44463f;
 
         /* loaded from: classes8.dex */
         public class a implements b.a.p0.a.h0.s.c {
@@ -517,13 +521,13 @@ public final class SwanLauncher {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b.a.p0.a.h0.s.e f43697a;
+            public final /* synthetic */ b.a.p0.a.h0.s.e f44464a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ h.c f43698b;
+            public final /* synthetic */ h.c f44465b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ i f43699c;
+            public final /* synthetic */ i f44466c;
 
             public a(i iVar, b.a.p0.a.h0.s.e eVar, h.c cVar) {
                 Interceptable interceptable = $ic;
@@ -540,16 +544,16 @@ public final class SwanLauncher {
                         return;
                     }
                 }
-                this.f43699c = iVar;
-                this.f43697a = eVar;
-                this.f43698b = cVar;
+                this.f44466c = iVar;
+                this.f44464a = eVar;
+                this.f44465b = cVar;
             }
 
             @Override // b.a.p0.a.h0.s.c
             public void onFail() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f43697a.f5770b) {
-                    this.f43698b.onError(new T7CheckException(null));
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f44464a.f6099b) {
+                    this.f44465b.onError(new T7CheckException(null));
                 }
             }
 
@@ -557,12 +561,27 @@ public final class SwanLauncher {
             public void onSuccess() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f43699c.f();
-                    if (this.f43697a.f5770b) {
-                        this.f43699c.b();
-                        this.f43698b.onCompleted();
+                    this.f44466c.f();
+                    if (this.f44464a.f6099b) {
+                        this.f44466c.b();
+                        this.f44465b.onCompleted();
                     }
                 }
+            }
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-636362664, "Lcom/baidu/swan/apps/env/launch/SwanLauncher$i;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-636362664, "Lcom/baidu/swan/apps/env/launch/SwanLauncher$i;");
             }
         }
 
@@ -574,35 +593,43 @@ public final class SwanLauncher {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.f43696f = eVar;
+            this.f44463f = eVar;
         }
 
         @Override // com.baidu.swan.apps.env.launch.SwanLauncher.f
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.a() || b.a.p0.a.c1.a.n0().c() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f44462g || b.a.p0.a.c1.a.w0().c() : invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.swan.apps.env.launch.SwanLauncher.f
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                f44462g = true;
+            }
         }
 
         public final b.a.p0.a.h0.s.e d(e eVar, boolean z) {
             InterceptResult invokeLZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, eVar, z)) == null) {
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, eVar, z)) == null) {
                 b.a.p0.a.h0.s.e eVar2 = new b.a.p0.a.h0.s.e();
-                eVar2.f5769a = "by_click";
-                int i2 = this.f43696f.f43687a;
-                eVar2.f5770b = z;
-                Bundle bundle = eVar.f43689c;
+                eVar2.f6098a = "by_click";
+                int i2 = this.f44463f.f44453a;
+                eVar2.f6099b = z;
+                Bundle bundle = eVar.f44455c;
                 if (bundle != null) {
                     bundle.getString("mFrom", "unknown");
                 }
@@ -613,8 +640,8 @@ public final class SwanLauncher {
 
         public final void e(h.c cVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-                Bundle bundle = this.f43696f.f43689c;
+            if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+                Bundle bundle = this.f44463f.f44455c;
                 if (bundle == null) {
                     cVar.onError(new T7CheckException(null));
                     return;
@@ -630,7 +657,7 @@ public final class SwanLauncher {
                     return;
                 }
                 boolean z = true;
-                if (!"1".equals(build.getQueryParameter("dependOnT7")) && this.f43696f.f43687a != 1 && !b.a.p0.a.c1.a.w().g()) {
+                if (!"1".equals(build.getQueryParameter("dependOnT7")) && this.f44463f.f44453a != 1 && !b.a.p0.a.c1.a.A().a()) {
                     z = false;
                 }
                 if (!z) {
@@ -638,49 +665,49 @@ public final class SwanLauncher {
                     cVar.onCompleted();
                 }
                 g();
-                b.a.p0.a.h0.s.e d2 = d(this.f43696f, z);
-                b.a.p0.a.c1.a.n0().b(d2, new a(this, d2, cVar));
+                b.a.p0.a.h0.s.e d2 = d(this.f44463f, z);
+                b.a.p0.a.c1.a.w0().b(d2, new a(this, d2, cVar));
             }
         }
 
         public final void f() {
             Bundle bundle;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bundle = this.f43696f.f43689c) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bundle = this.f44463f.f44455c) == null) {
                 return;
             }
             bundle.putLong("t7_loading_end", System.currentTimeMillis());
-            b.a.p0.a.e0.d.h("SwanLauncher", "swanSailor loadingEnd");
+            b.a.p0.a.e0.d.k("SwanLauncher", "swanSailor loadingEnd");
         }
 
         public final void g() {
             Bundle bundle;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bundle = this.f43696f.f43689c) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bundle = this.f44463f.f44455c) == null) {
                 return;
             }
             bundle.putLong("t7_loading_start", System.currentTimeMillis());
-            b.a.p0.a.e0.d.h("SwanLauncher", "swanSailor loadingStart");
+            b.a.p0.a.e0.d.k("SwanLauncher", "swanSailor loadingStart");
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.env.launch.SwanLauncher.f, h.b.f, h.n.b
         public void call(h.c cVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-                b.a.p0.a.c1.a.C().c();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+                b.a.p0.a.c1.a.G().c();
                 if (a()) {
                     cVar.onCompleted();
-                } else if (b.a.p0.a.c1.a.n0().c()) {
+                } else if (b.a.p0.a.c1.a.w0().c()) {
                     b();
                     cVar.onCompleted();
                 } else {
-                    e eVar = this.f43696f;
-                    if (eVar.f43688b != 1) {
+                    e eVar = this.f44463f;
+                    if (eVar.f44454b != 1) {
                         cVar.onError(new T7CheckException(null));
                         return;
                     }
-                    if (eVar.f43687a == 0 && !BdZeusUtil.isZeusSupported()) {
+                    if (eVar.f44453a == 0 && !BdZeusUtil.isZeusSupported()) {
                         b();
                         cVar.onCompleted();
                     }
@@ -703,9 +730,9 @@ public final class SwanLauncher {
                 return;
             }
         }
-        f43675a = b.a.p0.a.k.f6397a;
-        f43676b = new h(0);
-        f43677c = new h(1);
+        f44441a = b.a.p0.a.k.f6863a;
+        f44442b = new h(0);
+        f44443c = new h(1);
     }
 
     public /* synthetic */ SwanLauncher(a aVar) {
@@ -742,27 +769,34 @@ public final class SwanLauncher {
     public static SwanLauncher j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? g.f43692a : (SwanLauncher) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? g.f44458a : (SwanLauncher) invokeV.objValue;
     }
 
-    public final void d(String str, b.a.p0.a.v1.c.f.c cVar) {
+    public static void p(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
+            b.a.p0.a.e0.d.j(str, "SwanLaunch", str2, false);
+        }
+    }
+
+    public final void d(String str, b.a.p0.a.y1.c.f.c cVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        b.a.p0.a.v1.c.f.e.k().c(new c(this, cVar, str), TimeUnit.SECONDS.toMillis(10L));
+        b.a.p0.a.y1.c.f.e.k().c(new c(this, cVar, str), TimeUnit.SECONDS.toMillis(10L));
     }
 
     public final void e(@NonNull h.c cVar, f... fVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, fVarArr) == null) {
-            if (f43675a) {
+            if (f44441a) {
                 String str = "checkEnv: checkers=" + fVarArr;
             }
             if (fVarArr != null && fVarArr.length >= 1) {
                 ArrayList arrayList = null;
                 for (f fVar : fVarArr) {
-                    if (f43675a) {
+                    if (f44441a) {
                         String str2 = "checkEnv: checker=" + fVar;
                     }
                     if (fVar != null && !fVar.a()) {
@@ -772,7 +806,7 @@ public final class SwanLauncher {
                         arrayList.add(h.b.b(fVar));
                     }
                 }
-                if (f43675a) {
+                if (f44441a) {
                     String str3 = "checkEnv: list=" + arrayList;
                 }
                 if (arrayList != null && !arrayList.isEmpty()) {
@@ -802,22 +836,22 @@ public final class SwanLauncher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048579, this, th, i2, str, bundle) == null) {
             boolean z = th instanceof T7CheckException;
-            b.a.p0.a.e0.d.h("SwanLauncher", "isT7Error = " + z);
-            b.a.p0.a.q2.a aVar = new b.a.p0.a.q2.a();
-            aVar.j(z ? 15L : 9L);
-            aVar.h(z ? 42L : 25L);
-            aVar.c(z ? "Sailor安装失败" : "Swan core 更新出错");
-            b.a.p0.a.f1.d.a.e(AppRuntime.getAppContext(), aVar, i2, str, bundle);
+            p("SwanLauncher", "#handleError 进入错误页 isT7Error=" + z);
+            b.a.p0.a.u2.a aVar = new b.a.p0.a.u2.a();
+            aVar.k(z ? 15L : 9L);
+            aVar.i(z ? 42L : 25L);
+            aVar.d(z ? "Sailor安装失败" : "Swan core 更新出错");
+            b.a.p0.a.f1.d.a.f(AppRuntime.getAppContext(), aVar, i2, str, bundle);
         }
     }
 
-    public void l(b.a.p0.a.v2.e1.b<Exception> bVar) {
+    public void l(b.a.p0.a.z2.g1.c<Exception> cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
             e.a aVar = new e.a();
             aVar.b(-1);
             aVar.d(0);
-            e(new d(this, bVar), new i(aVar.a()), f43676b, f43677c);
+            e(new d(this, cVar), new i(aVar.a()), f44442b, f44443c);
         }
     }
 
@@ -827,8 +861,8 @@ public final class SwanLauncher {
             return;
         }
         bundle.putLong("launch_time", System.currentTimeMillis());
-        bundle.putLong("box_cold_launch", b.a.p0.a.c1.a.n().B());
-        bundle.putInt("host_launch_type", b.a.p0.a.t2.a.c());
+        bundle.putLong("box_cold_launch", b.a.p0.a.c1.a.o().E());
+        bundle.putInt("host_launch_type", b.a.p0.a.x2.a.c());
         String string = bundle.getString("mAppId");
         if (TextUtils.isEmpty(string)) {
             return;
@@ -837,13 +871,13 @@ public final class SwanLauncher {
             f(bundle);
             return;
         }
-        b.a.p0.a.r1.r.b.b().d(string);
+        b.a.p0.a.u1.r.b.b().d(string);
         int i2 = i(bundle);
         if (i2 < 0) {
             i2 = 0;
         }
-        b.a.p0.a.v1.c.f.c r = b.a.p0.a.v1.c.f.e.k().r(string);
-        r.I(string);
+        b.a.p0.a.y1.c.f.c r = b.a.p0.a.y1.c.f.e.k().r(string);
+        r.T(string);
         String string2 = bundle.getString("mPage");
         if (b.a.p0.a.n0.i.b.b(string, string2)) {
             bundle.putLong("launch_interval", b.a.p0.a.n0.i.b.a());
@@ -853,17 +887,12 @@ public final class SwanLauncher {
         }
         b.a.p0.a.n0.i.b.e(string, string2);
         b.a.p0.a.n0.i.b.c();
-        if (f43675a) {
-            String str = "app is cold boot = " + r.F();
-        }
-        b.a.p0.a.e0.d.g("SwanLauncher", "launch appId: " + string);
+        b.a.p0.a.e0.d.i("SwanLauncher", "launch appId: " + string);
         bundle.putBoolean("console_switch", b.a.p0.a.e0.b.b(b.a.p0.a.v.a.a(string)));
-        g(bundle);
+        String g2 = g(bundle);
         bundle.putLong("launch_time_on_main", System.currentTimeMillis());
         bundle.putInt("main_pid", Process.myPid());
-        if (f43675a) {
-            String str2 = "onReady processId: " + r.f8519f + " ,client:" + r.toString();
-        }
+        p("SwanLauncher", "启动小程序 appId=" + string + " launchId=" + g2 + " isColdBoot=" + r.Q() + " processId=" + r.f9497f + " client=" + r.toString());
         e.a aVar = new e.a();
         aVar.b(i2);
         aVar.d(1);
@@ -872,19 +901,19 @@ public final class SwanLauncher {
         a aVar2 = new a(this, r, bundle, i2, string);
         f[] fVarArr = new f[2];
         fVarArr[0] = iVar;
-        fVarArr[1] = 1 == i2 ? f43677c : f43676b;
+        fVarArr[1] = 1 == i2 ? f44443c : f44442b;
         e(aVar2, fVarArr);
         b.a.p0.a.n0.i.a.c(i2);
     }
 
     public void n(b.a.p0.a.f1.e.e eVar, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, eVar, bundle) == null) || eVar == null || TextUtils.isEmpty(eVar.G())) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, eVar, bundle) == null) || eVar == null || TextUtils.isEmpty(eVar.H())) {
             return;
         }
         Bundle bundle2 = new Bundle();
-        bundle2.putString("mAppId", eVar.G());
-        bundle2.putAll(eVar.C());
+        bundle2.putString("mAppId", eVar.H());
+        bundle2.putAll(eVar.D());
         if (bundle != null) {
             bundle2.putAll(bundle);
         }
@@ -892,25 +921,22 @@ public final class SwanLauncher {
     }
 
     @UiThread
-    public final void o(b.a.p0.a.v1.c.f.c cVar, Bundle bundle, int i2) {
+    public final void o(b.a.p0.a.y1.c.f.c cVar, Bundle bundle, int i2) {
         JSONObject jSONObject;
         JSONObject jSONObject2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048583, this, cVar, bundle, i2) == null) {
-            if (b.a.p0.a.m2.b.j()) {
-                b.a.p0.a.m2.d.a.e();
+            if (b.a.p0.a.q2.b.j()) {
+                b.a.p0.a.q2.d.a.e();
             }
-            SwanCoreVersion e2 = b.a.p0.a.m2.b.e(i2);
+            SwanCoreVersion e2 = b.a.p0.a.q2.b.e(i2);
             bundle.putParcelable("swanCoreVersion", e2);
             ExtensionCore c2 = b.a.p0.a.p0.b.c(i2);
             bundle.putParcelable("extensionCore", c2);
-            if (f43675a) {
-                String str = "onUpdateFinished() SwanCoreVersion: " + e2;
-                String str2 = "onUpdateFinished() ExtensionCoreVersion: " + c2;
-            }
-            Bundle H = b.a.p0.a.u1.a.a.H(b.a.p0.a.f1.e.c.b1(bundle));
-            if (H != null) {
-                bundle.putAll(H);
+            p("SwanLauncher", "#launchSwanActivity swanCoreVersion=" + e2 + " ExtensionCore=" + c2);
+            Bundle I = b.a.p0.a.x1.a.a.I(b.a.p0.a.f1.e.c.f1(bundle));
+            if (I != null) {
+                bundle.putAll(I);
             }
             Bundle bundle2 = bundle.getBundle("mExtraData");
             if (bundle2 == null) {
@@ -921,71 +947,69 @@ public final class SwanLauncher {
             bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
             String string = bundle2.getString(UBCCloudControlProcessor.UBC_KEY);
             if (TextUtils.isEmpty(string)) {
-                jSONObject2 = b.a.p0.t.c.b(bundle.getString("mFrom"), null);
+                jSONObject2 = b.a.p0.w.c.b(bundle.getString("mFrom"), null);
             } else {
                 try {
                     jSONObject = new JSONObject(string);
                 } catch (JSONException e3) {
                     jSONObject = new JSONObject();
-                    if (f43675a) {
+                    if (f44441a) {
                         e3.printStackTrace();
                     }
                 }
                 jSONObject2 = jSONObject;
             }
             bundle2.putString(UBCCloudControlProcessor.UBC_KEY, jSONObject2.toString());
-            b.a.p0.a.v1.c.f.b.j(bundle);
+            b.a.p0.a.y1.c.f.b.j(bundle);
             Context appContext = AppRuntime.getAppContext();
-            int p = p(cVar, bundle);
-            Intent intent = new Intent(appContext, cVar.k().activity);
+            int q = q(cVar, bundle);
+            Intent intent = new Intent(appContext, cVar.N().activity);
             intent.addFlags(268435456);
             intent.putExtras(bundle);
             intent.putExtra("start_activity_time", System.currentTimeMillis());
-            intent.putExtra("preAppReadyState", p);
+            intent.putExtra("preAppReadyState", q);
             try {
                 appContext.startActivity(intent);
             } catch (Exception e4) {
-                if (f43675a) {
-                    e4.printStackTrace();
-                }
+                p("SwanLauncher", "#launchSwanActivity startActivity error " + Log.getStackTraceString(e4));
             }
             if (i2 == 0) {
-                b.a.p0.a.c1.a.W().a(bundle.getString("mAppId"), cVar);
+                b.a.p0.a.c1.a.d0().a(bundle.getString("mAppId"), cVar);
                 d(bundle.getString("mAppId"), cVar);
             }
-            b.a.p0.a.a2.d.i().post(new b(this, cVar));
+            b.a.p0.a.d2.d.L().post(new b(this, cVar));
         }
     }
 
-    public final int p(@NonNull b.a.p0.a.v1.c.f.c cVar, @NonNull Bundle bundle) {
+    public final int q(@NonNull b.a.p0.a.y1.c.f.c cVar, @NonNull Bundle bundle) {
         InterceptResult invokeLL;
         int i2;
         boolean e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar, bundle)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            PMSAppInfo s = b.a.p0.n.g.a.h().s(cVar.f8520g);
-            if (s != null && !s.isMaxAgeExpires()) {
-                if (a.C0241a.b()) {
-                    e2 = b.a.p0.a.f1.h.a.b(s, bundle);
+            PMSAppInfo u = b.a.p0.q.g.a.i().u(cVar.f9498g);
+            if (u != null && !u.isMaxAgeExpires()) {
+                if (a.C0253a.b()) {
+                    e2 = b.a.p0.a.f1.h.a.b(u, bundle);
                 } else {
-                    e2 = b.a.p0.a.f1.h.a.e(s);
+                    e2 = b.a.p0.a.f1.h.a.e(u);
                 }
                 if (e2) {
-                    bundle.putParcelable("pms_db_info_onload", s);
+                    bundle.putParcelable("pms_db_info_onload", u);
                     b.a.p0.a.h0.p.a.b(cVar, bundle);
                     i2 = 5;
                 } else {
                     i2 = 4;
                 }
-            } else if (s == null) {
+            } else if (u == null) {
                 i2 = 2;
             } else {
-                i2 = s.isMaxAgeExpires() ? 3 : 0;
+                i2 = u.isMaxAgeExpires() ? 3 : 0;
             }
-            if (f43675a) {
+            if (f44441a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
-                String str = "sendAppLaunch cost " + (currentTimeMillis2 - currentTimeMillis) + "ms, is cold boot = " + cVar.F();
+                String str = "sendAppLaunch cost " + (currentTimeMillis2 - currentTimeMillis) + "ms, is cold boot = " + cVar.Q();
             }
             return i2;
         }
@@ -998,7 +1022,7 @@ public final class SwanLauncher {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f43691e;
+        public boolean f44457e;
 
         public f() {
             Interceptable interceptable = $ic;
@@ -1013,19 +1037,19 @@ public final class SwanLauncher {
                     return;
                 }
             }
-            this.f43691e = false;
+            this.f44457e = false;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43691e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44457e : invokeV.booleanValue;
         }
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f43691e = true;
+                this.f44457e = true;
             }
         }
 
@@ -1037,7 +1061,7 @@ public final class SwanLauncher {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return super.toString() + " checked=" + this.f43691e;
+                return super.toString() + " checked=" + this.f44457e;
             }
             return (String) invokeV.objValue;
         }

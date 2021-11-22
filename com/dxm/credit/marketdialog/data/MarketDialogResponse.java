@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.core.utils.LogUtil;
-import com.ss.android.download.api.constant.BaseConstants;
 import java.io.Serializable;
 /* loaded from: classes11.dex */
 public class MarketDialogResponse implements IBeanResponse, NoProguard, Serializable {
@@ -251,8 +250,8 @@ public class MarketDialogResponse implements IBeanResponse, NoProguard, Serializ
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, context, marketDialogResponse) == null) || marketDialogResponse == null) {
             return;
         }
-        LogUtil.d(BaseConstants.SCHEME_MARKET, "setNetResponse o = " + marketDialogResponse);
-        LogUtil.d(BaseConstants.SCHEME_MARKET, "setNetResponse old md5 = " + this.polling_md5 + " ; new md5 = " + marketDialogResponse.polling_md5);
+        LogUtil.d("market", "setNetResponse o = " + marketDialogResponse);
+        LogUtil.d("market", "setNetResponse old md5 = " + this.polling_md5 + " ; new md5 = " + marketDialogResponse.polling_md5);
         if (!TextUtils.isEmpty(marketDialogResponse.polling_md5) && !TextUtils.equals(marketDialogResponse.polling_md5, this.polling_md5)) {
             this.polling_md5 = marketDialogResponse.polling_md5;
             this.polling = marketDialogResponse.polling;

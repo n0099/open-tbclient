@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -136,8 +137,8 @@ public class i {
             }
             if (str == null || str2 != null) {
                 if (str != null || str2 == null) {
-                    String[] split = str.split("\\.");
-                    String[] split2 = str2.split("\\.");
+                    String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                    String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                     int i2 = 0;
                     while (i2 < split.length && i2 < split2.length) {
                         try {

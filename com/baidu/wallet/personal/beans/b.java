@@ -19,13 +19,13 @@ public class b extends BaseBean<CouponDetailResponse> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f60627a;
+    public int f61549a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60628b;
+    public String f61550b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60629c;
+    public String f61551c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -50,21 +50,21 @@ public class b extends BaseBean<CouponDetailResponse> {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f60627a = i2;
+            this.f61549a = i2;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f60628b = str;
+            this.f61550b = str;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f60629c = str;
+            this.f61551c = str;
         }
     }
 
@@ -82,9 +82,9 @@ public class b extends BaseBean<CouponDetailResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("card_type", "" + this.f60627a));
-            arrayList.add(new RestNameValuePair("coupon_num", this.f60628b));
-            arrayList.add(new RestNameValuePair("template_num", this.f60629c));
+            arrayList.add(new RestNameValuePair("card_type", "" + this.f61549a));
+            arrayList.add(new RestNameValuePair("coupon_num", this.f61550b));
+            arrayList.add(new RestNameValuePair("template_num", this.f61551c));
             arrayList.add(new RestNameValuePair("is_new_type", "1"));
             return arrayList;
         }

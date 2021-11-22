@@ -30,7 +30,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static c f20122a;
+    public static c f21644a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -53,10 +53,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (c.class) {
-                if (f20122a == null) {
-                    f20122a = new c();
+                if (f21644a == null) {
+                    f21644a = new c();
                 }
-                cVar = f20122a;
+                cVar = f21644a;
             }
             return cVar;
         }
@@ -97,7 +97,7 @@ public class c {
                 }
             }
         } finally {
-            b.a.e.e.p.m.a(cursor);
+            b.a.e.f.p.m.a(cursor);
         }
     }
 
@@ -187,24 +187,24 @@ public class c {
                                 cursor = cursor2;
                                 e.printStackTrace();
                                 TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getAllByMsgType" + i2, new Object[0]);
-                                b.a.e.e.p.m.a(cursor);
+                                b.a.e.f.p.m.a(cursor);
                                 return linkedHashMap;
                             } catch (Exception e4) {
                                 e = e4;
                                 cursor = cursor2;
                                 e.printStackTrace();
                                 TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getAllByMsgType" + i2, new Object[0]);
-                                b.a.e.e.p.m.a(cursor);
+                                b.a.e.f.p.m.a(cursor);
                                 return linkedHashMap;
                             } catch (Throwable th) {
                                 th = th;
                                 cursor = cursor2;
-                                b.a.e.e.p.m.a(cursor);
+                                b.a.e.f.p.m.a(cursor);
                                 throw th;
                             }
                         }
                     }
-                    b.a.e.e.p.m.a(cursor2);
+                    b.a.e.f.p.m.a(cursor2);
                 } catch (Throwable th2) {
                     th = th2;
                 }
@@ -244,7 +244,7 @@ public class c {
                 try {
                 } catch (Throwable th) {
                     th = th;
-                    b.a.e.e.p.m.a(cursor2);
+                    b.a.e.f.p.m.a(cursor2);
                     throw th;
                 }
             } catch (SQLiteException e3) {
@@ -256,7 +256,7 @@ public class c {
             } catch (Throwable th2) {
                 th = th2;
                 cursor2 = null;
-                b.a.e.e.p.m.a(cursor2);
+                b.a.e.f.p.m.a(cursor2);
                 throw th;
             }
             if (!TextUtils.isEmpty(str3) && !"0".equals(str3)) {
@@ -285,18 +285,18 @@ public class c {
                             e.printStackTrace();
                             TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getAll", new Object[0]);
                             a(str);
-                            b.a.e.e.p.m.a(cursor);
+                            b.a.e.f.p.m.a(cursor);
                             return linkedList;
                         } catch (Exception e6) {
                             e = e6;
                             e.printStackTrace();
                             TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getAll", new Object[0]);
-                            b.a.e.e.p.m.a(cursor);
+                            b.a.e.f.p.m.a(cursor);
                             return linkedList;
                         }
                     }
                 }
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
                 return linkedList;
             }
             if (TextUtils.isEmpty(str2)) {
@@ -307,7 +307,7 @@ public class c {
             cursor = e2;
             if (cursor != null) {
             }
-            b.a.e.e.p.m.a(cursor);
+            b.a.e.f.p.m.a(cursor);
             return linkedList;
         }
         return (LinkedList) invokeLLLI.objValue;
@@ -335,11 +335,11 @@ public class c {
                             j = e3.getLong(0);
                             e2 = h.d().e("select count(*) from " + str2, null);
                             if (((e2 == null && e2.moveToNext()) ? e2.getInt(0) : 0) == 1 || j % 100 == 0) {
-                                b.a.e.e.p.m.a(e2);
+                                b.a.e.f.p.m.a(e2);
                                 return j;
                             }
                             long a2 = b.a.r0.l1.w.b.a(j);
-                            b.a.e.e.p.m.a(e2);
+                            b.a.e.f.p.m.a(e2);
                             return a2;
                         }
                     } catch (SQLiteException e4) {
@@ -348,19 +348,19 @@ public class c {
                         TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getMaxLastMid", new Object[0]);
                         e.printStackTrace();
                         a(str);
-                        b.a.e.e.p.m.a(cursor);
+                        b.a.e.f.p.m.a(cursor);
                         return 0L;
                     } catch (Exception e5) {
                         e = e5;
                         cursor = e3;
                         TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getMaxLastMid", new Object[0]);
                         e.printStackTrace();
-                        b.a.e.e.p.m.a(cursor);
+                        b.a.e.f.p.m.a(cursor);
                         return 0L;
                     } catch (Throwable th) {
                         th = th;
                         cursor = e3;
-                        b.a.e.e.p.m.a(cursor);
+                        b.a.e.f.p.m.a(cursor);
                         throw th;
                     }
                 }
@@ -368,7 +368,7 @@ public class c {
                 e2 = h.d().e("select count(*) from " + str2, null);
                 if (((e2 == null && e2.moveToNext()) ? e2.getInt(0) : 0) == 1) {
                 }
-                b.a.e.e.p.m.a(e2);
+                b.a.e.f.p.m.a(e2);
                 return j;
             } catch (Throwable th2) {
                 th = th2;
@@ -408,7 +408,7 @@ public class c {
                             commonMsgPojo.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
                             commonMsgPojo.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
                             commonMsgPojo.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
-                            b.a.e.e.p.m.a(cursor);
+                            b.a.e.f.p.m.a(cursor);
                             return commonMsgPojo;
                         }
                     } catch (SQLiteException e2) {
@@ -416,19 +416,19 @@ public class c {
                         e.printStackTrace();
                         TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getNewestMsgContext", new Object[0]);
                         a(str);
-                        b.a.e.e.p.m.a(cursor);
+                        b.a.e.f.p.m.a(cursor);
                         return null;
                     } catch (Exception e3) {
                         e = e3;
                         e.printStackTrace();
                         TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.getNewestMsgContext", new Object[0]);
-                        b.a.e.e.p.m.a(cursor);
+                        b.a.e.f.p.m.a(cursor);
                         return null;
                     }
                 } catch (Throwable th) {
                     th = th;
                     cursor2 = str2;
-                    b.a.e.e.p.m.a(cursor2);
+                    b.a.e.f.p.m.a(cursor2);
                     throw th;
                 }
             } catch (SQLiteException e4) {
@@ -439,10 +439,10 @@ public class c {
                 cursor = null;
             } catch (Throwable th2) {
                 th = th2;
-                b.a.e.e.p.m.a(cursor2);
+                b.a.e.f.p.m.a(cursor2);
                 throw th;
             }
-            b.a.e.e.p.m.a(cursor);
+            b.a.e.f.p.m.a(cursor);
             return null;
         }
         return (CommonMsgPojo) invokeL.objValue;
@@ -473,7 +473,7 @@ public class c {
                 }
                 return 0;
             } finally {
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
             }
         }
         return invokeL.intValue;
@@ -566,22 +566,22 @@ public class c {
                                                 try {
                                                     e.printStackTrace();
                                                     TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.insertOrUpdate", new Object[0]);
-                                                    b.a.e.e.p.m.a(null);
-                                                    b.a.e.e.p.m.c(sQLiteStatement);
+                                                    b.a.e.f.p.m.a(null);
+                                                    b.a.e.f.p.m.c(sQLiteStatement);
                                                     return false;
                                                 } catch (Throwable th) {
                                                     th = th;
                                                     cursor = null;
-                                                    b.a.e.e.p.m.a(cursor);
-                                                    b.a.e.e.p.m.c(sQLiteStatement);
+                                                    b.a.e.f.p.m.a(cursor);
+                                                    b.a.e.f.p.m.c(sQLiteStatement);
                                                     throw th;
                                                 }
                                             } catch (Throwable th2) {
                                                 th = th2;
                                                 sQLiteStatement = sQLiteStatement3;
                                                 cursor = null;
-                                                b.a.e.e.p.m.a(cursor);
-                                                b.a.e.e.p.m.c(sQLiteStatement);
+                                                b.a.e.f.p.m.a(cursor);
+                                                b.a.e.f.p.m.c(sQLiteStatement);
                                                 throw th;
                                             }
                                         } else {
@@ -599,15 +599,15 @@ public class c {
                                         sQLiteStatement = sQLiteStatement2;
                                         e.printStackTrace();
                                         TiebaStatic.printDBExceptionLog(e, "GroupMsgDao.insertOrUpdate", new Object[0]);
-                                        b.a.e.e.p.m.a(null);
-                                        b.a.e.e.p.m.c(sQLiteStatement);
+                                        b.a.e.f.p.m.a(null);
+                                        b.a.e.f.p.m.c(sQLiteStatement);
                                         return false;
                                     } catch (Throwable th3) {
                                         th = th3;
                                         sQLiteStatement = sQLiteStatement2;
                                         cursor = null;
-                                        b.a.e.e.p.m.a(cursor);
-                                        b.a.e.e.p.m.c(sQLiteStatement);
+                                        b.a.e.f.p.m.a(cursor);
+                                        b.a.e.f.p.m.c(sQLiteStatement);
                                         throw th;
                                     }
                                 }
@@ -654,8 +654,8 @@ public class c {
                     sQLiteStatement2 = sQLiteStatement;
                     it = it2;
                 }
-                b.a.e.e.p.m.a(null);
-                b.a.e.e.p.m.c(sQLiteStatement);
+                b.a.e.f.p.m.a(null);
+                b.a.e.f.p.m.c(sQLiteStatement);
                 return true;
             } catch (Exception e6) {
                 e = e6;
@@ -669,8 +669,8 @@ public class c {
             th = th7;
             cursor = null;
             sQLiteStatement = null;
-            b.a.e.e.p.m.a(cursor);
-            b.a.e.e.p.m.c(sQLiteStatement);
+            b.a.e.f.p.m.a(cursor);
+            b.a.e.f.p.m.c(sQLiteStatement);
             throw th;
         }
     }
@@ -718,23 +718,23 @@ public class c {
             }
             try {
                 String string = e2.moveToNext() ? e2.getString(e2.getColumnIndex("mid")) : null;
-                b.a.e.e.p.m.a(e2);
+                b.a.e.f.p.m.a(e2);
                 if (string != null) {
                     h.d().delete(str2, "mid<?", new String[]{string});
                 }
-                b.a.e.e.p.m.a(e2);
+                b.a.e.f.p.m.a(e2);
                 return true;
             } catch (Exception e4) {
                 e = e4;
                 cursor = e2;
                 e.printStackTrace();
                 TiebaStatic.printDBExceptionLog(e, "shrink", new Object[0]);
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
                 return false;
             } catch (Throwable th2) {
                 th = th2;
                 cursor = e2;
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
                 throw th;
             }
         }

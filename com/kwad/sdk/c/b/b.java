@@ -13,16 +13,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64115a;
+    public String f65028a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f64116b;
+    public long f65029b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f64117c;
+    public long f65030c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f64118d;
+    public long f65031d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PageMonitorInfo{pageName='" + this.f64115a + ExtendedMessageFormat.QUOTE + ", pageLaunchTime=" + this.f64116b + ", pageCreateTime=" + this.f64117c + ", pageResumeTime=" + this.f64118d + ExtendedMessageFormat.END_FE;
+            return "PageMonitorInfo{pageName='" + this.f65028a + ExtendedMessageFormat.QUOTE + ", pageLaunchTime=" + this.f65029b + ", pageCreateTime=" + this.f65030c + ", pageResumeTime=" + this.f65031d + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

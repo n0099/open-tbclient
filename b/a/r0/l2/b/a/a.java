@@ -19,31 +19,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f20456a;
+    public int f21978a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f20457b;
+    public int f21979b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f20458c;
+    public int f21980c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20459d;
+    public int f21981d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20460e;
+    public int f21982e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20461f;
+    public int f21983f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20462g;
+    public int f21984g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20463h;
+    public int f21985h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f20464i;
+    public boolean f21986i;
     public OutputStream j;
     public Bitmap k;
     public byte[] l;
@@ -71,12 +71,12 @@ public class a {
                 return;
             }
         }
-        this.f20458c = 0;
-        this.f20459d = 0;
-        this.f20460e = -1;
-        this.f20462g = -1;
-        this.f20463h = 0;
-        this.f20464i = false;
+        this.f21980c = 0;
+        this.f21981d = 0;
+        this.f21982e = -1;
+        this.f21984g = -1;
+        this.f21985h = 0;
+        this.f21986i = false;
         this.p = new boolean[256];
         this.q = 7;
         this.r = -1;
@@ -90,7 +90,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            if (bitmap == null || !this.f20464i) {
+            if (bitmap == null || !this.f21986i) {
                 return false;
             }
             try {
@@ -103,7 +103,7 @@ public class a {
                 if (this.t) {
                     l();
                     n();
-                    if (this.f20462g >= 0) {
+                    if (this.f21984g >= 0) {
                         m();
                     }
                 }
@@ -159,9 +159,9 @@ public class a {
             this.l = null;
             this.n = 8;
             this.q = 7;
-            int i9 = this.f20460e;
+            int i9 = this.f21982e;
             if (i9 != -1) {
-                this.f20461f = c(i9);
+                this.f21983f = c(i9);
             }
         }
     }
@@ -206,8 +206,8 @@ public class a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f20464i) {
-                this.f20464i = false;
+            if (this.f21986i) {
+                this.f21986i = false;
                 try {
                     this.j.write(59);
                     this.j.flush();
@@ -218,7 +218,7 @@ public class a {
                 } catch (IOException unused) {
                     z = false;
                 }
-                this.f20461f = 0;
+                this.f21983f = 0;
                 this.j = null;
                 this.k = null;
                 this.l = null;
@@ -251,8 +251,8 @@ public class a {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             int width = this.k.getWidth();
             int height = this.k.getHeight();
-            if (width != this.f20456a || height != this.f20457b) {
-                Bitmap createBitmap = Bitmap.createBitmap(this.f20456a, this.f20457b, Bitmap.Config.RGB_565);
+            if (width != this.f21978a || height != this.f21979b) {
+                Bitmap createBitmap = Bitmap.createBitmap(this.f21978a, this.f21979b, Bitmap.Config.RGB_565);
                 new Canvas(createBitmap).drawBitmap(this.k, 0.0f, 0.0f, new Paint());
                 this.k = createBitmap;
             }
@@ -275,19 +275,19 @@ public class a {
         if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || i2 < 0) {
             return;
         }
-        this.f20462g = i2;
+        this.f21984g = i2;
     }
 
     public void h(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-            this.f20456a = i2;
-            this.f20457b = i3;
+            this.f21978a = i2;
+            this.f21979b = i3;
             if (i2 < 1) {
-                this.f20456a = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+                this.f21978a = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
             }
-            if (this.f20457b < 1) {
-                this.f20457b = 240;
+            if (this.f21979b < 1) {
+                this.f21979b = 240;
             }
             this.u = true;
         }
@@ -308,7 +308,7 @@ public class a {
                 z = true;
             } catch (IOException unused) {
             }
-            this.f20464i = z;
+            this.f21986i = z;
             return z;
         }
         return invokeL.booleanValue;
@@ -322,7 +322,7 @@ public class a {
             this.j.write(33);
             this.j.write(249);
             this.j.write(4);
-            if (this.f20460e == -1) {
+            if (this.f21982e == -1) {
                 i2 = 0;
                 i3 = 0;
             } else {
@@ -334,8 +334,8 @@ public class a {
                 i3 = i4 & 7;
             }
             this.j.write(i2 | (i3 << 2) | 0 | 0);
-            p(this.f20463h);
-            this.j.write(this.f20461f);
+            p(this.f21985h);
+            this.j.write(this.f21983f);
             this.j.write(0);
         }
     }
@@ -344,10 +344,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.j.write(44);
-            p(this.f20458c);
-            p(this.f20459d);
-            p(this.f20456a);
-            p(this.f20457b);
+            p(this.f21980c);
+            p(this.f21981d);
+            p(this.f21978a);
+            p(this.f21979b);
             if (this.t) {
                 this.j.write(0);
             } else {
@@ -359,8 +359,8 @@ public class a {
     public void l() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            p(this.f20456a);
-            p(this.f20457b);
+            p(this.f21978a);
+            p(this.f21979b);
             this.j.write(this.q | 240);
             this.j.write(0);
             this.j.write(0);
@@ -376,7 +376,7 @@ public class a {
             q("NETSCAPE2.0");
             this.j.write(3);
             this.j.write(1);
-            p(this.f20462g);
+            p(this.f21984g);
             this.j.write(0);
         }
     }
@@ -397,7 +397,7 @@ public class a {
     public void o() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            new b(this.f20456a, this.f20457b, this.m, this.n).f(this.j);
+            new b(this.f21978a, this.f21979b, this.m, this.n).f(this.j);
         }
     }
 

@@ -18,14 +18,14 @@ public class o {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static o f22878c;
+    public static o f24399c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedHashMap<String, Integer> f22879a;
+    public LinkedHashMap<String, Integer> f24400a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f22880b;
+    public CustomMessageListener f24401b;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -33,7 +33,7 @@ public class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ o f22881a;
+        public final /* synthetic */ o f24402a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(o oVar, int i2) {
@@ -53,7 +53,7 @@ public class o {
                     return;
                 }
             }
-            this.f22881a = oVar;
+            this.f24402a = oVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,7 +63,7 @@ public class o {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f22881a.f22879a.clear();
+            this.f24402a.f24400a.clear();
         }
     }
 
@@ -95,23 +95,23 @@ public class o {
                 return;
             }
         }
-        this.f22879a = new LinkedHashMap<>(150, 0.75f, true);
-        this.f22880b = new a(this, 2005016);
-        MessageManager.getInstance().registerListener(this.f22880b);
+        this.f24400a = new LinkedHashMap<>(150, 0.75f, true);
+        this.f24401b = new a(this, 2005016);
+        MessageManager.getInstance().registerListener(this.f24401b);
     }
 
     public static o d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f22878c == null) {
+            if (f24399c == null) {
                 synchronized (o.class) {
-                    if (f22878c == null) {
-                        f22878c = new o();
+                    if (f24399c == null) {
+                        f24399c = new o();
                     }
                 }
             }
-            return f22878c;
+            return f24399c;
         }
         return (o) invokeV.objValue;
     }
@@ -119,7 +119,7 @@ public class o {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f22879a.clear();
+            this.f24400a.clear();
         }
     }
 
@@ -127,7 +127,7 @@ public class o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Integer num = this.f22879a.get(str);
+            Integer num = this.f24400a.get(str);
             if (num != null) {
                 return num.intValue();
             }
@@ -141,16 +141,16 @@ public class o {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f22879a.remove(str);
+        this.f24400a.remove(str);
     }
 
     public void update(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
-            if (i2 == 0 && this.f22879a.containsKey(str)) {
+            if (i2 == 0 && this.f24400a.containsKey(str)) {
                 return;
             }
-            this.f22879a.put(str, Integer.valueOf(i2));
+            this.f24400a.put(str, Integer.valueOf(i2));
         }
     }
 }

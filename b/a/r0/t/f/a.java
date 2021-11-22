@@ -18,10 +18,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<e> f23583a;
+    public List<e> f25100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<e> f23584b;
+    public List<e> f25101b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -41,10 +41,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f23583a == null) {
-                this.f23583a = new ArrayList();
+            if (this.f25100a == null) {
+                this.f25100a = new ArrayList();
             }
-            return this.f23583a;
+            return this.f25100a;
         }
         return (List) invokeV.objValue;
     }
@@ -79,7 +79,7 @@ public class a {
             if (dataRes == null || dataRes.robots_list == null) {
                 z = false;
             } else {
-                this.f23584b = new ArrayList();
+                this.f25101b = new ArrayList();
                 z = false;
                 for (robotsList robotslist : dataRes.robots_list) {
                     if (TextUtils.isEmpty(robotslist.key)) {
@@ -87,12 +87,12 @@ public class a {
                     } else {
                         e eVar = new e();
                         eVar.d(robotslist);
-                        this.f23584b.add(eVar);
+                        this.f25101b.add(eVar);
                     }
                 }
             }
             if (dataRes != null && dataRes.address_list != null) {
-                this.f23583a = new ArrayList();
+                this.f25100a = new ArrayList();
                 for (listData listdata : dataRes.address_list) {
                     if (TextUtils.isEmpty(listdata.key)) {
                         z = true;
@@ -101,14 +101,14 @@ public class a {
                         eVar2.c(listdata);
                         if (eVar2.a() != null) {
                             for (b.a.q0.t.f.a aVar : eVar2.a()) {
-                                if (b(this.f23584b, aVar)) {
+                                if (b(this.f25101b, aVar)) {
                                     aVar.r(1);
                                 } else {
                                     aVar.r(0);
                                 }
                             }
                         }
-                        this.f23583a.add(eVar2);
+                        this.f25100a.add(eVar2);
                     }
                 }
             }

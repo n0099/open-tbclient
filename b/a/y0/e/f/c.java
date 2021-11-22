@@ -23,7 +23,7 @@ public interface c {
 
     String getVAID();
 
-    boolean h();
+    void h(boolean z);
 
-    void i(boolean z);
+    boolean isSupport();
 }

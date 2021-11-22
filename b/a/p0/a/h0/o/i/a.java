@@ -1,12 +1,13 @@
 package b.a.p0.a.h0.o.i;
 
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import b.a.p0.a.a2.e;
-import b.a.p0.a.a2.n.g;
-import b.a.p0.a.c2.f.p0.j;
+import b.a.p0.a.d2.e;
+import b.a.p0.a.d2.n.g;
+import b.a.p0.a.f2.f.o0.j;
 import b.a.p0.a.k;
 import b.a.p0.a.p.e.b;
-import b.a.p0.a.v2.o0;
+import b.a.p0.a.z2.o0;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,44 +22,46 @@ import java.util.TreeMap;
 /* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean j;
+    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5696a;
+    public String f5990a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5697b;
+    public String f5991b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5698c;
+    public String f5992c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5699d;
+    public String f5993d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f5700e;
+    public boolean f5994e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f5701f;
+    public String f5995f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f5702g;
+    public String f5996g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f5703h;
+    public String f5997h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f5704i;
+    public String f5998i;
+    public String j;
+    public String k;
 
     /* renamed from: b.a.p0.a.h0.o.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0240a extends PrefetchEvent.c {
+    public static class C0251a extends PrefetchEvent.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0240a(@Nullable Map<String, String> map, String str) {
+        public C0251a(@Nullable Map<String, String> map, String str) {
             super(map, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -92,7 +95,7 @@ public class a {
                 return;
             }
         }
-        j = k.f6397a;
+        l = k.f6863a;
     }
 
     public a() {
@@ -109,24 +112,29 @@ public class a {
         }
     }
 
-    public static a a(b bVar, PrefetchEvent prefetchEvent, e eVar) {
+    public static a a(b<?> bVar, PrefetchEvent prefetchEvent, e eVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, bVar, prefetchEvent, eVar)) == null) {
-            long currentTimeMillis = j ? System.currentTimeMillis() : 0L;
+            long currentTimeMillis = l ? System.currentTimeMillis() : 0L;
             a aVar = new a();
-            aVar.f5703h = bVar.b();
-            aVar.f5696a = prefetchEvent.appPath;
-            aVar.f5697b = prefetchEvent.pageUrl;
-            aVar.f5701f = prefetchEvent.rootPath;
-            SwanAppConfigData E = eVar.E();
-            aVar.f5698c = prefetchEvent.pageType;
-            String c2 = b.a.p0.a.a2.n.b.c(prefetchEvent.appPath, o0.f(j.b(prefetchEvent.pageUrl)));
-            aVar.f5702g = c2;
-            aVar.f5699d = g.b(c2, E.f44232e).f4010g;
-            aVar.f5700e = prefetchEvent.isT7Available;
-            aVar.f5704i = prefetchEvent.sConsole;
-            if (j) {
+            aVar.f5997h = bVar.c();
+            aVar.f5990a = prefetchEvent.appPath;
+            aVar.f5991b = prefetchEvent.pageUrl;
+            aVar.f5995f = prefetchEvent.rootPath;
+            SwanAppConfigData P = eVar.P();
+            aVar.f5992c = prefetchEvent.pageType;
+            String c2 = b.a.p0.a.d2.n.b.c(prefetchEvent.appPath, o0.f(j.b(prefetchEvent.pageUrl)));
+            aVar.f5996g = c2;
+            g b2 = g.b(c2, P.f45030e);
+            aVar.k = b2.r;
+            aVar.f5993d = b2.f4523g;
+            aVar.f5994e = prefetchEvent.isT7Available;
+            aVar.f5998i = prefetchEvent.sConsole;
+            if (!TextUtils.isEmpty(prefetchEvent.userActionApis)) {
+                aVar.j = prefetchEvent.userActionApis;
+            }
+            if (l) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str = "build slave preload event cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
             }
@@ -135,29 +143,30 @@ public class a {
         return (a) invokeLLL.objValue;
     }
 
-    public C0240a b() {
+    public C0251a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long currentTimeMillis = j ? System.currentTimeMillis() : 0L;
+            long currentTimeMillis = l ? System.currentTimeMillis() : 0L;
             TreeMap treeMap = new TreeMap();
-            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.f5703h);
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.f5696a);
-            treeMap.put("pagePath", this.f5697b);
-            treeMap.put("pageType", this.f5698c);
-            treeMap.put("onReachBottomDistance", this.f5699d);
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(this.f5700e));
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, this.f5704i);
-            treeMap.put("root", this.f5701f);
-            b.a.p0.a.t1.g.b.a(treeMap, "slave preload ready event");
-            j.a(this.f5697b, treeMap);
-            treeMap.put("pageConfig", this.f5702g);
-            if (j) {
+            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.f5997h);
+            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.f5990a);
+            treeMap.put("pagePath", this.f5991b);
+            treeMap.put("pageType", this.f5992c);
+            treeMap.put("onReachBottomDistance", this.f5993d);
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(this.f5994e));
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, this.f5998i);
+            treeMap.put("root", this.f5995f);
+            treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, this.j);
+            b.a.p0.a.w1.h.b.a(treeMap, "slave preload ready event");
+            j.a(this.f5991b, treeMap);
+            treeMap.put("pageConfig", this.f5996g);
+            if (l) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str = "build slave preload msg cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
             }
-            return new C0240a(treeMap, "preload");
+            return new C0251a(treeMap, "preload");
         }
-        return (C0240a) invokeV.objValue;
+        return (C0251a) invokeV.objValue;
     }
 }

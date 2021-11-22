@@ -2,9 +2,9 @@ package b.a.r0.h1.h.k;
 
 import android.util.LongSparseArray;
 import android.util.SparseArray;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.e0.p;
+import b.a.r0.b0.f0.q;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +18,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(DataRes.Builder builder, List<n> list) {
-        b.a.r0.b0.e0.b bVar;
+        b.a.r0.b0.f0.b bVar;
         d2 threadData;
         ThreadPersonalized threadPersonalized;
         Interceptable interceptable = $ic;
@@ -34,15 +34,15 @@ public class c {
         int count = ListUtils.getCount(list);
         for (int i2 = 0; i2 < count; i2++) {
             n nVar = (n) ListUtils.getItem(list, i2);
-            if ((nVar instanceof b.a.r0.b0.e0.b) && (threadData = (bVar = (b.a.r0.b0.e0.b) nVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(b.a.e.e.m.b.g(threadData.s1(), 0L))) != null) {
+            if ((nVar instanceof b.a.r0.b0.f0.b) && (threadData = (bVar = (b.a.r0.b0.f0.b) nVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(b.a.e.f.m.b.g(threadData.t1(), 0L))) != null) {
                 bVar.L(threadPersonalized.source);
                 bVar.O(threadPersonalized.weight);
                 bVar.H(threadPersonalized.abtest_tag);
                 threadData.Z0 = threadPersonalized.abtest_tag;
                 threadData.X0 = threadPersonalized.source;
                 threadData.Y0 = threadPersonalized.weight;
-                if (threadData.q1() != null) {
-                    bVar.J(threadData.q1().is_vertical);
+                if (threadData.r1() != null) {
+                    bVar.J(threadData.r1().is_vertical);
                 }
                 List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                 if (list2 != null) {
@@ -67,19 +67,19 @@ public class c {
         int i2 = 0;
         while (i2 < count) {
             n nVar = (n) ListUtils.getItem(list, i2);
-            boolean z = nVar instanceof p;
+            boolean z = nVar instanceof q;
             if (z) {
-                ((p) nVar).b(true);
+                ((q) nVar).b(true);
             }
             i2++;
             n nVar2 = (n) ListUtils.getItem(list, i2);
-            if (z && (nVar2 instanceof p)) {
-                p pVar = (p) nVar;
-                p pVar2 = (p) nVar2;
-                if (pVar.j()) {
-                    pVar2.b(false);
-                    if (pVar2 instanceof b.a.r0.h1.h.l.b) {
-                        pVar.r(false);
+            if (z && (nVar2 instanceof q)) {
+                q qVar = (q) nVar;
+                q qVar2 = (q) nVar2;
+                if (qVar.j()) {
+                    qVar2.b(false);
+                    if (qVar2 instanceof b.a.r0.h1.h.l.b) {
+                        qVar.r(false);
                     }
                 }
             }

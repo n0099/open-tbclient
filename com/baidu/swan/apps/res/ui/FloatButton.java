@@ -12,7 +12,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import b.a.p0.a.f;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.n0;
+import b.a.p0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
@@ -29,7 +29,7 @@ public class FloatButton extends FullScreenFloatView {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f43983f;
+    public static final boolean f44781f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public class FloatButton extends FullScreenFloatView {
                 return;
             }
         }
-        f43983f = k.f6397a;
+        f44781f = k.f6863a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -74,7 +74,7 @@ public class FloatButton extends FullScreenFloatView {
         if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.mFloatImgView == null) {
             return;
         }
-        if (f43983f) {
+        if (f44781f) {
             String str = "move--> x = " + f2 + ", y = " + f3;
         }
         int i2 = this.mFloatViewWidth;
@@ -95,7 +95,7 @@ public class FloatButton extends FullScreenFloatView {
         if (i5 <= i7) {
             i7 = i5;
         }
-        if (f43983f) {
+        if (f44781f) {
             String str2 = "move--> left = 0, top = 288, mStatusBarHeight = " + this.mStatusBarHeight;
         }
         this.mFloatImgView.setX(i6);
@@ -133,7 +133,7 @@ public class FloatButton extends FullScreenFloatView {
                 } else if (this.mIsTouchDrag && (cVar = this.mDragImageListener) != null) {
                     cVar.a();
                 }
-                if (f43983f) {
+                if (f44781f) {
                     r0 = "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.mIsClickDrag;
                 }
                 if (this.mIsAutoAttachEnable && !this.mIsClickDrag && x >= 0.0f) {
@@ -165,7 +165,7 @@ public class FloatButton extends FullScreenFloatView {
     public void setFloatButtonDefaultPosition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            findViewById(f.float_imgview).setBottom(n0.L(191.0f));
+            findViewById(f.float_imgview).setBottom(n0.P(191.0f));
         }
     }
 
@@ -186,8 +186,8 @@ public class FloatButton extends FullScreenFloatView {
             View findViewById = findViewById(f.float_imgview);
             String optString = jSONObject != null ? jSONObject.optString("backgroundColor", "#4E4E4E") : "#4E4E4E";
             if (findViewById instanceof Button) {
-                ((GradientDrawable) findViewById.getBackground()).setColor(SwanAppConfigData.s(optString));
-                ((Button) findViewById).setTextColor(SwanAppConfigData.s("#FFFFFF"));
+                ((GradientDrawable) findViewById.getBackground()).setColor(SwanAppConfigData.t(optString));
+                ((Button) findViewById).setTextColor(SwanAppConfigData.t("#FFFFFF"));
                 findViewById.setAlpha((float) 0.8999999761581421d);
             }
         }

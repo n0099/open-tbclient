@@ -12,19 +12,19 @@ public final class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f29105a = true;
+    public static boolean f29974a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f29106b = 30000;
+    public static long f29975b = 30000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f29107c;
+    public static long f29976c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f29108d;
+    public static long f29977d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f29109e;
+    public static boolean f29978e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,58 +45,58 @@ public final class f {
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f29106b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f29975b : invokeV.longValue;
     }
 
     public static void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
-            f29106b = j;
+            f29975b = j;
         }
     }
 
     public static long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f29107c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f29976c : invokeV.longValue;
     }
 
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f29105a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f29974a : invokeV.booleanValue;
     }
 
     public static long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f29108d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f29977d : invokeV.longValue;
     }
 
     public static void f(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, null, j) == null) {
-            f29107c = j;
+            f29976c = j;
         }
     }
 
     public static void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            f29109e = z;
+            f29978e = z;
         }
     }
 
     public static void h(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {
-            f29108d = j;
+            f29977d = j;
         }
     }
 
     public static boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f29109e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f29978e : invokeV.booleanValue;
     }
 }

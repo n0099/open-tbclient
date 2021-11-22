@@ -21,7 +21,7 @@ public final class a {
             try {
                 sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS swanapp_subscribe_msg(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,templateId varchar(50) NOT NULL,title varchar(100) NOT NULL,tips TEXT,result TINYINT default 0);");
             } catch (Exception e2) {
-                d.c("SwanAppSubscribeMsg", "createTable", e2);
+                d.d("SwanAppSubscribeMsg", "createTable", e2);
             }
         }
     }
@@ -30,8 +30,8 @@ public final class a {
     public static void b(@Nullable String... strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, strArr) == null) {
-            Application b2 = b.a.p0.a.c1.a.b();
-            if (b2 != null && strArr != null) {
+            Application c2 = b.a.p0.a.c1.a.c();
+            if (c2 != null && strArr != null) {
                 StringBuilder sb = new StringBuilder();
                 int length = strArr.length;
                 for (int i2 = 0; i2 < length; i2++) {
@@ -43,11 +43,11 @@ public final class a {
                         }
                     }
                 }
-                int delete = b2.getContentResolver().delete(SwanAppSubscribeMsgProvider.CONTENT_URI, "appKey in (?)", new String[]{sb.toString()});
-                d.g("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + delete + ", appKey=" + sb.toString());
+                int delete = c2.getContentResolver().delete(SwanAppSubscribeMsgProvider.CONTENT_URI, "appKey in (?)", new String[]{sb.toString()});
+                d.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + delete + ", appKey=" + sb.toString());
                 return;
             }
-            d.l("SwanAppSubscribeMsg", "deleteAllByAppKey fail");
+            d.o("SwanAppSubscribeMsg", "deleteAllByAppKey fail");
         }
     }
 }

@@ -16,31 +16,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f22630a;
+    public final String f24151a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f22631b;
+    public final String f24152b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f22632c;
+    public final int f24153c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f22633d;
+    public final String f24154d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f22634e;
+    public final String f24155e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f22635f;
+    public final int f24156f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f22636g;
+    public final String f24157g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f22637h;
+    public final String f24158h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f22638i;
+    public final String f24159i;
     public boolean j;
     public boolean k;
 
@@ -61,15 +61,15 @@ public class a {
         }
         this.j = false;
         this.k = false;
-        this.f22630a = jSONObject.optString("bIcon");
-        this.f22631b = jSONObject.optString("bIconN");
-        this.f22632c = jSONObject.optInt("bIconType");
-        this.f22633d = jSONObject.optString("bSelIcon");
-        this.f22634e = jSONObject.optString("bSelIconN");
-        this.f22635f = jSONObject.optInt("bSelIconType");
-        this.f22636g = jSONObject.optString("clickAction");
-        this.f22637h = jSONObject.optString("preAction");
-        this.f22638i = jSONObject.optString("statKey");
+        this.f24151a = jSONObject.optString("bIcon");
+        this.f24152b = jSONObject.optString("bIconN");
+        this.f24153c = jSONObject.optInt("bIconType");
+        this.f24154d = jSONObject.optString("bSelIcon");
+        this.f24155e = jSONObject.optString("bSelIconN");
+        this.f24156f = jSONObject.optInt("bSelIconType");
+        this.f24157g = jSONObject.optString("clickAction");
+        this.f24158h = jSONObject.optString("preAction");
+        this.f24159i = jSONObject.optString("statKey");
     }
 
     public static int g(int i2) {
@@ -87,7 +87,7 @@ public class a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22636g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24157g : (String) invokeV.objValue;
     }
 
     public boolean c() {
@@ -99,20 +99,20 @@ public class a {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j ? this.f22633d : this.f22630a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j ? this.f24154d : this.f24151a : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j ? this.f22634e : this.f22631b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j ? this.f24155e : this.f24152b : (String) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return g(this.j ? this.f22635f : this.f22632c);
+            return g(this.j ? this.f24156f : this.f24153c);
         }
         return invokeV.intValue;
     }
@@ -120,13 +120,13 @@ public class a {
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22637h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f24158h : (String) invokeV.objValue;
     }
 
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22638i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f24159i : (String) invokeV.objValue;
     }
 
     public boolean j() {
@@ -138,7 +138,7 @@ public class a {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (TextUtils.isEmpty(this.f22630a) && TextUtils.isEmpty(this.f22631b) && TextUtils.isEmpty(this.f22633d) && TextUtils.isEmpty(this.f22634e) && TextUtils.isEmpty(this.f22636g) && TextUtils.isEmpty(this.f22637h) && TextUtils.isEmpty(this.f22638i) && this.f22632c == 0 && this.f22635f == 0) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (TextUtils.isEmpty(this.f24151a) && TextUtils.isEmpty(this.f24152b) && TextUtils.isEmpty(this.f24154d) && TextUtils.isEmpty(this.f24155e) && TextUtils.isEmpty(this.f24157g) && TextUtils.isEmpty(this.f24158h) && TextUtils.isEmpty(this.f24159i) && this.f24153c == 0 && this.f24156f == 0) ? false : true : invokeV.booleanValue;
     }
 
     public void l(boolean z) {

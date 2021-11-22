@@ -2,7 +2,7 @@ package com.baidu.tieba.pbextra.adapter;
 
 import android.view.View;
 import android.widget.ImageView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;

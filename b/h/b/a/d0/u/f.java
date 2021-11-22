@@ -1,0 +1,578 @@
+package b.h.b.a.d0.u;
+
+import androidx.core.view.InputDeviceCompat;
+import b.h.b.a.d0.b;
+import b.h.b.a.d0.n;
+import b.h.b.a.d0.o;
+import b.h.b.a.d0.p;
+import b.h.b.a.d0.u.g;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.Format;
+import com.google.android.exoplayer2.upstream.Loader;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.LinkedList;
+/* loaded from: classes6.dex */
+public class f<T extends g> implements o, p, Loader.a<c>, Loader.d {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final int f32884e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final int[] f32885f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final boolean[] f32886g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final T f32887h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final p.a<f<T>> f32888i;
+    public final b.a j;
+    public final int k;
+    public final Loader l;
+    public final e m;
+    public final LinkedList<b.h.b.a.d0.u.a> n;
+    public final n o;
+    public final n[] p;
+    public final b q;
+    public Format r;
+    public long s;
+    public long t;
+    public boolean u;
+
+    /* loaded from: classes6.dex */
+    public final class a implements o {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final f<T> f32889e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final n f32890f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final int f32891g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ f f32892h;
+
+        public a(f fVar, f<T> fVar2, n nVar, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fVar, fVar2, nVar, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f32892h = fVar;
+            this.f32889e = fVar2;
+            this.f32890f = nVar;
+            this.f32891g = i2;
+        }
+
+        @Override // b.h.b.a.d0.o
+        public void a() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                b.h.b.a.i0.a.f(this.f32892h.f32886g[this.f32891g]);
+                this.f32892h.f32886g[this.f32891g] = false;
+            }
+        }
+
+        @Override // b.h.b.a.d0.o
+        public int f(b.h.b.a.l lVar, b.h.b.a.y.e eVar, boolean z) {
+            InterceptResult invokeLLZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, lVar, eVar, z)) == null) {
+                if (this.f32892h.x()) {
+                    return -3;
+                }
+                n nVar = this.f32890f;
+                f fVar = this.f32892h;
+                return nVar.w(lVar, eVar, z, fVar.u, fVar.t);
+            }
+            return invokeLLZ.intValue;
+        }
+
+        @Override // b.h.b.a.d0.o
+        public boolean isReady() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                f fVar = this.f32892h;
+                return fVar.u || (!fVar.x() && this.f32890f.s());
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // b.h.b.a.d0.o
+        public int j(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+                if (this.f32892h.u && j > this.f32890f.o()) {
+                    return this.f32890f.g();
+                }
+                int f2 = this.f32890f.f(j, true, true);
+                if (f2 == -1) {
+                    return 0;
+                }
+                return f2;
+            }
+            return invokeJ.intValue;
+        }
+    }
+
+    public f(int i2, int[] iArr, T t, p.a<f<T>> aVar, b.h.b.a.h0.b bVar, long j, int i3, b.a aVar2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), iArr, t, aVar, bVar, Long.valueOf(j), Integer.valueOf(i3), aVar2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f32884e = i2;
+        this.f32885f = iArr;
+        this.f32887h = t;
+        this.f32888i = aVar;
+        this.j = aVar2;
+        this.k = i3;
+        this.l = new Loader("Loader:ChunkSampleStream");
+        this.m = new e();
+        LinkedList<b.h.b.a.d0.u.a> linkedList = new LinkedList<>();
+        this.n = linkedList;
+        Collections.unmodifiableList(linkedList);
+        int i6 = 0;
+        int length = iArr == null ? 0 : iArr.length;
+        this.p = new n[length];
+        this.f32886g = new boolean[length];
+        int i7 = length + 1;
+        int[] iArr2 = new int[i7];
+        n[] nVarArr = new n[i7];
+        n nVar = new n(bVar);
+        this.o = nVar;
+        iArr2[0] = i2;
+        nVarArr[0] = nVar;
+        while (i6 < length) {
+            n nVar2 = new n(bVar);
+            this.p[i6] = nVar2;
+            int i8 = i6 + 1;
+            nVarArr[i8] = nVar2;
+            iArr2[i8] = iArr[i6];
+            i6 = i8;
+        }
+        this.q = new b(iArr2, nVarArr);
+        this.s = j;
+        this.t = j;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.upstream.Loader.a
+    /* renamed from: A */
+    public int n(c cVar, long j, long j2, IOException iOException) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{cVar, Long.valueOf(j), Long.valueOf(j2), iOException})) == null) {
+            long c2 = cVar.c();
+            boolean w = w(cVar);
+            boolean z2 = (c2 != 0 && w && v()) ? false : true;
+            if (this.f32887h.d(cVar, z2, iOException) && z2) {
+                if (w) {
+                    b.h.b.a.d0.u.a removeLast = this.n.removeLast();
+                    b.h.b.a.i0.a.f(removeLast == cVar);
+                    this.o.m(removeLast.g(0));
+                    int i2 = 0;
+                    while (true) {
+                        n[] nVarArr = this.p;
+                        if (i2 >= nVarArr.length) {
+                            break;
+                        }
+                        n nVar = nVarArr[i2];
+                        i2++;
+                        nVar.m(removeLast.g(i2));
+                    }
+                    if (this.n.isEmpty()) {
+                        this.s = this.t;
+                    }
+                }
+                z = true;
+            } else {
+                z = false;
+            }
+            this.j.j(cVar.f32864a, cVar.f32865b, this.f32884e, cVar.f32866c, cVar.f32867d, cVar.f32868e, cVar.f32869f, cVar.f32870g, j, j2, c2, iOException, z);
+            if (z) {
+                this.f32888i.j(this);
+                return 2;
+            }
+            return 0;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.l.j(this)) {
+            return;
+        }
+        this.o.k();
+        for (n nVar : this.p) {
+            nVar.k();
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0027  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0046  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void C(long j) {
+        boolean z;
+        n[] nVarArr;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) != null) {
+            return;
+        }
+        this.t = j;
+        if (!x()) {
+            if (this.o.f(j, true, j < d()) != -1) {
+                z = true;
+                if (!z) {
+                    s(this.o.p());
+                    this.o.l();
+                    for (n nVar : this.p) {
+                        nVar.C();
+                        nVar.j(j, true, false);
+                    }
+                    return;
+                }
+                this.s = j;
+                this.u = false;
+                this.n.clear();
+                if (this.l.g()) {
+                    this.l.f();
+                    return;
+                }
+                this.o.A();
+                for (n nVar2 : this.p) {
+                    nVar2.A();
+                }
+                return;
+            }
+        }
+        z = false;
+        if (!z) {
+        }
+    }
+
+    public f<T>.a D(long j, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+            for (int i3 = 0; i3 < this.p.length; i3++) {
+                if (this.f32885f[i3] == i2) {
+                    b.h.b.a.i0.a.f(!this.f32886g[i3]);
+                    this.f32886g[i3] = true;
+                    this.p[i3].C();
+                    this.p[i3].f(j, true, true);
+                    return new a(this, this, this.p[i3], i3);
+                }
+            }
+            throw new IllegalStateException();
+        }
+        return (a) invokeCommon.objValue;
+    }
+
+    @Override // b.h.b.a.d0.o
+    public void a() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.l.a();
+            if (this.l.g()) {
+                return;
+            }
+            this.f32887h.a();
+        }
+    }
+
+    @Override // b.h.b.a.d0.p
+    public boolean b(long j) {
+        InterceptResult invokeJ;
+        b.h.b.a.d0.u.a last;
+        long j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            if (this.u || this.l.g()) {
+                return false;
+            }
+            if (x()) {
+                last = null;
+                j2 = this.s;
+            } else {
+                last = this.n.getLast();
+                j2 = last.f32870g;
+            }
+            this.f32887h.f(last, j, j2, this.m);
+            e eVar = this.m;
+            boolean z = eVar.f32883b;
+            c cVar = eVar.f32882a;
+            eVar.a();
+            if (z) {
+                this.s = -9223372036854775807L;
+                this.u = true;
+                return true;
+            } else if (cVar == null) {
+                return false;
+            } else {
+                if (w(cVar)) {
+                    this.s = -9223372036854775807L;
+                    b.h.b.a.d0.u.a aVar = (b.h.b.a.d0.u.a) cVar;
+                    aVar.i(this.q);
+                    this.n.add(aVar);
+                }
+                this.j.l(cVar.f32864a, cVar.f32865b, this.f32884e, cVar.f32866c, cVar.f32867d, cVar.f32868e, cVar.f32869f, cVar.f32870g, this.l.k(cVar, this, this.k));
+                return true;
+            }
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @Override // b.h.b.a.d0.p
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.u) {
+                return Long.MIN_VALUE;
+            }
+            if (x()) {
+                return this.s;
+            }
+            long j = this.t;
+            b.h.b.a.d0.u.a last = this.n.getLast();
+            if (!last.f()) {
+                if (this.n.size() > 1) {
+                    LinkedList<b.h.b.a.d0.u.a> linkedList = this.n;
+                    last = linkedList.get(linkedList.size() - 2);
+                } else {
+                    last = null;
+                }
+            }
+            if (last != null) {
+                j = Math.max(j, last.f32870g);
+            }
+            return Math.max(j, this.o.o());
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // b.h.b.a.d0.p
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (x()) {
+                return this.s;
+            }
+            if (this.u) {
+                return Long.MIN_VALUE;
+            }
+            return this.n.getLast().f32870g;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // b.h.b.a.d0.o
+    public int f(b.h.b.a.l lVar, b.h.b.a.y.e eVar, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, lVar, eVar, z)) == null) {
+            if (x()) {
+                return -3;
+            }
+            s(this.o.p());
+            int w = this.o.w(lVar, eVar, z, this.u, this.t);
+            if (w == -4) {
+                this.o.l();
+            }
+            return w;
+        }
+        return invokeLLZ.intValue;
+    }
+
+    @Override // com.google.android.exoplayer2.upstream.Loader.d
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.o.A();
+            for (n nVar : this.p) {
+                nVar.A();
+            }
+        }
+    }
+
+    @Override // b.h.b.a.d0.o
+    public boolean isReady() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.u || (!x() && this.o.s()) : invokeV.booleanValue;
+    }
+
+    @Override // b.h.b.a.d0.o
+    public int j(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            int i2 = 0;
+            if (x()) {
+                return 0;
+            }
+            if (this.u && j > this.o.o()) {
+                i2 = this.o.g();
+            } else {
+                int f2 = this.o.f(j, true, true);
+                if (f2 != -1) {
+                    i2 = f2;
+                }
+            }
+            if (i2 > 0) {
+                this.o.l();
+            }
+            return i2;
+        }
+        return invokeJ.intValue;
+    }
+
+    public final void s(int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || this.n.isEmpty()) {
+            return;
+        }
+        while (this.n.size() > 1 && this.n.get(1).g(0) <= i2) {
+            this.n.removeFirst();
+        }
+        b.h.b.a.d0.u.a first = this.n.getFirst();
+        Format format = first.f32866c;
+        if (!format.equals(this.r)) {
+            this.j.e(this.f32884e, format, first.f32867d, first.f32868e, first.f32869f);
+        }
+        this.r = format;
+    }
+
+    public void t(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeJ(1048592, this, j) != null) {
+            return;
+        }
+        int i2 = 0;
+        while (true) {
+            n[] nVarArr = this.p;
+            if (i2 >= nVarArr.length) {
+                return;
+            }
+            nVarArr[i2].j(j, true, this.f32886g[i2]);
+            i2++;
+        }
+    }
+
+    public T u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f32887h : (T) invokeV.objValue;
+    }
+
+    public final boolean v() {
+        InterceptResult invokeV;
+        int p;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            b.h.b.a.d0.u.a last = this.n.getLast();
+            if (this.o.p() > last.g(0)) {
+                return true;
+            }
+            int i2 = 0;
+            do {
+                n[] nVarArr = this.p;
+                if (i2 >= nVarArr.length) {
+                    return false;
+                }
+                p = nVarArr[i2].p();
+                i2++;
+            } while (p <= last.g(i2));
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean w(c cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, cVar)) == null) ? cVar instanceof b.h.b.a.d0.u.a : invokeL.booleanValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.s != -9223372036854775807L : invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.upstream.Loader.a
+    /* renamed from: y */
+    public void l(c cVar, long j, long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{cVar, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            this.j.f(cVar.f32864a, cVar.f32865b, this.f32884e, cVar.f32866c, cVar.f32867d, cVar.f32868e, cVar.f32869f, cVar.f32870g, j, j2, cVar.c());
+            if (z) {
+                return;
+            }
+            this.o.A();
+            for (n nVar : this.p) {
+                nVar.A();
+            }
+            this.f32888i.j(this);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.exoplayer2.upstream.Loader.a
+    /* renamed from: z */
+    public void m(c cVar, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{cVar, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.f32887h.c(cVar);
+            this.j.h(cVar.f32864a, cVar.f32865b, this.f32884e, cVar.f32866c, cVar.f32867d, cVar.f32868e, cVar.f32869f, cVar.f32870g, j, j2, cVar.c());
+            this.f32888i.j(this);
+        }
+    }
+}

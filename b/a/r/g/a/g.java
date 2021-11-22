@@ -1,176 +1,170 @@
 package b.a.r.g.a;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.dxmpay.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.codec.digest4util.XXHash32;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g {
+public class g implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int[] f14507a;
+    public i f15287a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f14508b;
+    public l f15288b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f14509c;
+    public h f15289c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14510d;
+    public JSONObject f15290d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14511e;
+    public Context f15291e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public g() {
-        this(0);
+    public g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.f15287a = new f();
+        this.f15288b = new p();
+        this.f15289c = new e();
+        if (this.f15290d == null) {
+            c(context);
+        }
     }
 
-    public g(int i2) {
+    @Override // b.a.r.g.a.c
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.f15290d == null) {
+                c(this.f15291e);
             }
+            return this.f15290d;
         }
-        this.f14507a = new int[4];
-        this.f14508b = new byte[16];
-        this.f14509c = i2;
-        f();
+        return (JSONObject) invokeV.objValue;
     }
 
-    public static int a(byte[] bArr, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i2)) == null) ? (int) (d(bArr, i2, 4) & 4294967295L) : invokeLI.intValue;
-    }
-
-    public static long d(byte[] bArr, int i2, int i3) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i2, i3)) == null) {
-            if (i3 <= 8) {
-                long j = 0;
-                for (int i4 = 0; i4 < i3; i4++) {
-                    j |= (bArr[i2 + i4] & 255) << (i4 * 8);
-                }
-                return j;
-            }
-            throw new IllegalArgumentException("can't read more than eight bytes into a long value");
-        }
-        return invokeLII.longValue;
-    }
-
-    public void b(byte[] bArr, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048576, this, bArr, i2, i3) == null) || i3 <= 0) {
-            return;
-        }
-        this.f14510d += i3;
-        int i4 = i2 + i3;
-        int i5 = this.f14511e;
-        if (i5 + i3 < 16) {
-            System.arraycopy(bArr, i2, this.f14508b, i5, i3);
-            this.f14511e += i3;
-            return;
-        }
-        if (i5 > 0) {
-            int i6 = 16 - i5;
-            System.arraycopy(bArr, i2, this.f14508b, i5, i6);
-            e(this.f14508b, 0);
-            i2 += i6;
-        }
-        int i7 = i4 - 16;
-        while (i2 <= i7) {
-            e(bArr, i2);
-            i2 += 16;
-        }
-        if (i2 < i4) {
-            int i8 = i4 - i2;
-            this.f14511e = i8;
-            System.arraycopy(bArr, i2, this.f14508b, 0, i8);
-        }
-    }
-
-    public long c() {
+    public final JSONObject b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = 0;
-            int rotateLeft = (this.f14510d > 16 ? Integer.rotateLeft(this.f14507a[0], 1) + Integer.rotateLeft(this.f14507a[1], 7) + Integer.rotateLeft(this.f14507a[2], 12) + Integer.rotateLeft(this.f14507a[3], 18) : this.f14507a[2] + XXHash32.PRIME5) + this.f14510d;
-            int i3 = this.f14511e - 4;
-            while (i2 <= i3) {
-                rotateLeft = Integer.rotateLeft(rotateLeft + (a(this.f14508b, i2) * XXHash32.PRIME3), 17) * XXHash32.PRIME4;
-                i2 += 4;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ver", 2);
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-            while (i2 < this.f14511e) {
-                rotateLeft = Integer.rotateLeft(rotateLeft + ((this.f14508b[i2] & 255) * XXHash32.PRIME5), 11) * XXHash32.PRIME1;
-                i2++;
+            try {
+                jSONObject.put("aid", this.f15287a.d(this.f15291e));
+            } catch (Exception e3) {
+                e3.printStackTrace();
             }
-            int i4 = (rotateLeft ^ (rotateLeft >>> 15)) * XXHash32.PRIME2;
-            int i5 = (i4 ^ (i4 >>> 13)) * XXHash32.PRIME3;
-            return (i5 ^ (i5 >>> 16)) & 4294967295L;
+            try {
+                jSONObject.put("uid", this.f15289c.a(this.f15291e));
+            } catch (Exception e4) {
+                e4.printStackTrace();
+            }
+            try {
+                jSONObject.put("adrid", this.f15288b.b(this.f15291e));
+            } catch (Exception e5) {
+                e5.printStackTrace();
+            }
+            try {
+                jSONObject.put("network", this.f15288b.a(this.f15291e));
+            } catch (Exception e6) {
+                e6.printStackTrace();
+            }
+            try {
+                jSONObject.put("pkg", this.f15288b.d(this.f15291e));
+            } catch (Exception e7) {
+                e7.printStackTrace();
+            }
+            try {
+                jSONObject.put("ctime", this.f15288b.a());
+            } catch (Exception e8) {
+                e8.printStackTrace();
+            }
+            try {
+                jSONObject.put("ua", this.f15288b.c(this.f15291e));
+            } catch (Exception e9) {
+                e9.printStackTrace();
+            }
+            try {
+                jSONObject.put("ut", this.f15288b.b());
+            } catch (Exception e10) {
+                e10.printStackTrace();
+            }
+            try {
+                jSONObject.put("iid", this.f15287a.b(this.f15291e));
+            } catch (Exception e11) {
+                e11.printStackTrace();
+            }
+            try {
+                jSONObject.put(Config.SID, this.f15287a.c(this.f15291e));
+            } catch (Exception e12) {
+                e12.printStackTrace();
+            }
+            try {
+                jSONObject.put("oid", this.f15287a.f(this.f15291e));
+            } catch (Exception e13) {
+                e13.printStackTrace();
+            }
+            try {
+                jSONObject.put(Config.GAID, this.f15287a.a(this.f15291e));
+            } catch (Exception e14) {
+                e14.printStackTrace();
+            }
+            try {
+                jSONObject.put("cver", this.f15287a.a());
+            } catch (Exception e15) {
+                e15.printStackTrace();
+            }
+            try {
+                jSONObject.put("sappinfos", this.f15287a.g(this.f15291e).toString());
+            } catch (Exception e16) {
+                e16.printStackTrace();
+            }
+            try {
+                jSONObject.put("cstoreext", this.f15287a.e(this.f15291e).toString());
+            } catch (Exception e17) {
+                e17.printStackTrace();
+            }
+            return jSONObject;
         }
-        return invokeV.longValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public final void e(byte[] bArr, int i2) {
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bArr, i2) == null) {
-            int[] iArr = this.f14507a;
-            int i3 = iArr[0];
-            int i4 = iArr[1];
-            int i5 = iArr[2];
-            int i6 = iArr[3];
-            int rotateLeft = Integer.rotateLeft(i3 + (a(bArr, i2) * XXHash32.PRIME2), 13) * XXHash32.PRIME1;
-            int rotateLeft2 = Integer.rotateLeft(i4 + (a(bArr, i2 + 4) * XXHash32.PRIME2), 13) * XXHash32.PRIME1;
-            int rotateLeft3 = Integer.rotateLeft(i5 + (a(bArr, i2 + 8) * XXHash32.PRIME2), 13) * XXHash32.PRIME1;
-            int rotateLeft4 = Integer.rotateLeft(i6 + (a(bArr, i2 + 12) * XXHash32.PRIME2), 13) * XXHash32.PRIME1;
-            int[] iArr2 = this.f14507a;
-            iArr2[0] = rotateLeft;
-            iArr2[1] = rotateLeft2;
-            iArr2[2] = rotateLeft3;
-            iArr2[3] = rotateLeft4;
-            this.f14511e = 0;
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int[] iArr = this.f14507a;
-            int i2 = this.f14509c;
-            iArr[0] = i2 + XXHash32.PRIME1 + XXHash32.PRIME2;
-            iArr[1] = XXHash32.PRIME2 + i2;
-            iArr[2] = i2;
-            iArr[3] = i2 - XXHash32.PRIME1;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            if (context == null) {
+                throw new NullPointerException("ctx should not be null");
+            }
+            if (this.f15291e == null) {
+                this.f15291e = context.getApplicationContext();
+            }
+            this.f15290d = b();
         }
     }
 }

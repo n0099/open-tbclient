@@ -15,16 +15,17 @@ import b.a.e.a.b;
 import b.a.e.a.f;
 import b.a.e.a.g;
 import b.a.e.a.i;
-import b.a.e.e.l.d;
-import b.a.e.e.p.l;
-import b.a.e.f.a.h;
-import b.a.e.l.e.q;
+import b.a.e.f.l.d;
+import b.a.e.f.p.l;
+import b.a.e.g.a.h;
+import b.a.e.m.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +47,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseFragmentActivity f34363e;
+        public final /* synthetic */ BdBaseFragmentActivity f35195e;
 
         public a(BdBaseFragmentActivity bdBaseFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -63,14 +64,14 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
                     return;
                 }
             }
-            this.f34363e = bdBaseFragmentActivity;
+            this.f35195e = bdBaseFragmentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseFragmentActivity bdBaseFragmentActivity = this.f34363e;
+                BdBaseFragmentActivity bdBaseFragmentActivity = this.f35195e;
                 bdBaseFragmentActivity.onPreLoad(bdBaseFragmentActivity.onGetPreLoadListView());
             }
         }
@@ -177,6 +178,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
                 this.mId = BdUniqueId.gen();
             }
             b.g().o(getPageContext().getPageActivity());
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 

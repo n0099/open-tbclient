@@ -21,6 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.filter.FilterValue;
+import com.baidu.wallet.base.iddetect.IdCardActivity;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -153,7 +155,7 @@ public class a extends com.baidu.platform.base.d {
                     } else if (optInt2 != 2 || (optJSONArray = optJSONObject2.optJSONArray("routes")) == null || optJSONArray.length() <= 0) {
                         return false;
                     } else {
-                        RouteNode a2 = a(optJSONObject2, "origin", "originPt");
+                        RouteNode a2 = a(optJSONObject2, FilterValue.DEFAULT_FILTER_VALUE, "originPt");
                         RouteNode a3 = a(optJSONObject2, "destination", "destinationPt");
                         ArrayList arrayList = new ArrayList();
                         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
@@ -192,7 +194,7 @@ public class a extends com.baidu.platform.base.d {
                 return null;
             }
             SuggestAddrInfo suggestAddrInfo = new SuggestAddrInfo();
-            JSONObject optJSONObject = jSONObject.optJSONObject("origin");
+            JSONObject optJSONObject = jSONObject.optJSONObject(FilterValue.DEFAULT_FILTER_VALUE);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("destination");
             if (optJSONObject != null) {
                 int optInt = optJSONObject.optInt("listType");
@@ -299,7 +301,7 @@ public class a extends com.baidu.platform.base.d {
                 JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
                 if (jSONObject2 != null) {
                     CityInfo cityInfo = new CityInfo();
-                    cityInfo.num = jSONObject2.optInt("number");
+                    cityInfo.num = jSONObject2.optInt(IdCardActivity.KEY_NUMBER);
                     cityInfo.city = jSONObject2.optString("name");
                     arrayList.add(cityInfo);
                 }

@@ -34,21 +34,21 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f14656a;
+    public TbPageContext f15488a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14657b;
+    public String f15489b;
 
     /* renamed from: b.a.r0.a0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC0744a implements View.OnClickListener {
+    public class View$OnClickListenerC0784a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageView f14658e;
+        public final /* synthetic */ ImageView f15490e;
 
-        public View$OnClickListenerC0744a(a aVar, ImageView imageView) {
+        public View$OnClickListenerC0784a(a aVar, ImageView imageView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +63,7 @@ public class a {
                     return;
                 }
             }
-            this.f14658e = imageView;
+            this.f15490e = imageView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -72,7 +72,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 view.setTag(Boolean.valueOf(!((Boolean) view.getTag()).booleanValue()));
-                ImageView imageView = this.f14658e;
+                ImageView imageView = this.f15490e;
                 if (((Boolean) view.getTag()).booleanValue()) {
                     maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
                 } else {
@@ -89,10 +89,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImageView f14659e;
+        public final /* synthetic */ ImageView f15491e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f14660f;
+        public final /* synthetic */ a f15492f;
 
         public b(a aVar, ImageView imageView) {
             Interceptable interceptable = $ic;
@@ -109,16 +109,16 @@ public class a {
                     return;
                 }
             }
-            this.f14660f = aVar;
-            this.f14659e = imageView;
+            this.f15492f = aVar;
+            this.f15491e = imageView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.q0.s.e0.b.j().t("key_call_fans_no_tip_again", !((Boolean) this.f14659e.getTag()).booleanValue());
-                this.f14660f.c();
+                b.a.q0.s.e0.b.j().t("key_call_fans_no_tip_again", !((Boolean) this.f15491e.getTag()).booleanValue());
+                this.f15492f.c();
             }
         }
     }
@@ -138,7 +138,7 @@ public class a {
                 return;
             }
         }
-        this.f14656a = tbPageContext;
+        this.f15488a = tbPageContext;
         e();
     }
 
@@ -146,15 +146,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!TbSingleton.getInstance().mCanCallFans) {
-                this.f14656a.showToast(R.string.have_used_call_fans_this_week);
+                this.f15488a.showToast(R.string.have_used_call_fans_this_week);
             } else if (b.a.q0.s.e0.b.j().g("key_call_fans_no_tip_again", false)) {
                 c();
             } else {
-                TbPageContext tbPageContext = this.f14656a;
+                TbPageContext tbPageContext = this.f15488a;
                 if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
                     return;
                 }
-                Activity pageActivity = this.f14656a.getPageActivity();
+                Activity pageActivity = this.f15488a.getPageActivity();
                 LinearLayout linearLayout = new LinearLayout(pageActivity);
                 linearLayout.setOrientation(0);
                 linearLayout.setGravity(16);
@@ -171,7 +171,7 @@ public class a {
                 d2.A(R.string.F_X01);
                 linearLayout.addView(textView);
                 imageView.setTag(Boolean.FALSE);
-                imageView.setOnClickListener(new View$OnClickListenerC0744a(this, imageView));
+                imageView.setOnClickListener(new View$OnClickListenerC0784a(this, imageView));
                 l lVar = new l(pageActivity);
                 lVar.q(R.string.confirm_to_call_fans);
                 lVar.j(R.string.call_fans_intro);
@@ -189,10 +189,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CALL_FANS);
-            httpMessage.addParam("thread_id", this.f14657b);
+            httpMessage.addParam("thread_id", this.f15489b);
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.f14656a.showToast(R.string.your_thread_is_recommended_to_fans);
-            TbSingleton.getInstance().mCallFansTid = this.f14657b;
+            this.f15488a.showToast(R.string.your_thread_is_recommended_to_fans);
+            TbSingleton.getInstance().mCallFansTid = this.f15489b;
             TbSingleton.getInstance().mCanCallFans = false;
         }
     }
@@ -218,7 +218,7 @@ public class a {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f14657b = str;
+            this.f15489b = str;
         }
     }
 }

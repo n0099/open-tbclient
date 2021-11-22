@@ -11,10 +11,10 @@ public class CrossPushMessage extends PublicMsg {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f35744a;
+    public String f36573a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35745b;
+    public String f36574b;
 
     public CrossPushMessage() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class CrossPushMessage extends PublicMsg {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.toString() + " mDestPkg = " + this.f35744a + "\r\n mDestIcon = " + this.f35745b;
+            return super.toString() + " mDestPkg = " + this.f36573a + "\r\n mDestIcon = " + this.f36574b;
         }
         return (String) invokeV.objValue;
     }

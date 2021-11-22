@@ -1,13 +1,13 @@
 package b.a.r0.h1.h.j;
 
-import b.a.r0.b0.e0.o;
+import b.a.r0.b0.f0.p;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personalized.Resource;
 /* loaded from: classes4.dex */
-public class c extends o {
+public class c extends p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,11 +30,11 @@ public class c extends o {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, resource) == null) || resource == null) {
             return;
         }
-        this.f14779e = resource.res_id.longValue();
-        this.f14780f = resource.user_name;
-        this.f14781g = resource.user_image;
-        this.f14782h = resource.user_link;
-        this.f14783i = resource.res_title;
+        this.f16266e = resource.res_id.longValue();
+        this.f16267f = resource.user_name;
+        this.f16268g = resource.user_image;
+        this.f16269h = resource.user_link;
+        this.f16270i = resource.res_title;
         this.j = resource.res_image;
         this.k = resource.res_link;
         this.l = resource.position.longValue();

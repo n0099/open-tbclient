@@ -3,8 +3,8 @@ package com.baidu.tbadk.img;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.l.d;
-import b.a.e.e.p.k;
+import b.a.e.f.l.d;
+import b.a.e.f.p.k;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -503,7 +503,7 @@ public class ImageFileInfo extends MediaFileInfo {
                             if (next != null) {
                                 sb.append(':');
                                 sb.append(next.actionName);
-                                sb.append(a.f34124h);
+                                sb.append(a.f34958h);
                                 sb.append(next.actionParam);
                             }
                         }
@@ -515,7 +515,7 @@ public class ImageFileInfo extends MediaFileInfo {
                             if (next2 != null) {
                                 sb.append(':');
                                 sb.append(next2.actionName);
-                                sb.append(a.f34124h);
+                                sb.append(a.f34958h);
                                 sb.append(next2.actionParam);
                             }
                         }
@@ -533,7 +533,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         ImageOperation imageOperation = this.pageActionsList.get(i2);
                         sb2.append(':');
                         sb2.append(imageOperation.actionName);
-                        sb2.append(a.f34124h);
+                        sb2.append(a.f34958h);
                         sb2.append(imageOperation.actionParam);
                     }
                 }

@@ -1,6 +1,6 @@
 package b.a.r0.m2.h;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,11 +15,11 @@ public class c implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f21192f;
+    public static final BdUniqueId f22347f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21193e;
+    public int f22348e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class c implements n {
                 return;
             }
         }
-        f21192f = BdUniqueId.gen();
+        f22347f = BdUniqueId.gen();
     }
 
     public c() {
@@ -50,19 +50,19 @@ public class c implements n {
                 return;
             }
         }
-        this.f21193e = 0;
+        this.f22348e = 0;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21193e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22348e : invokeV.intValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f21192f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f22347f : (BdUniqueId) invokeV.objValue;
     }
 }

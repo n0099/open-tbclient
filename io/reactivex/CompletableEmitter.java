@@ -5,7 +5,7 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Cancellable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface CompletableEmitter {
     boolean isDisposed();
 

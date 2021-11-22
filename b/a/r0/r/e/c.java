@@ -3,7 +3,7 @@ package b.a.r0.r.e;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import b.a.r0.z2.z;
+import b.a.r0.a3.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -39,7 +39,7 @@ public class c {
         if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, str2) == null) {
             boolean p = z.p(i2);
             boolean z = i2 == 1000;
-            b.a.r0.z2.l0.c cVar = new b.a.r0.z2.l0.c();
+            b.a.r0.a3.l0.c cVar = new b.a.r0.a3.l0.c();
             if (p) {
                 cVar.c(z ? "APP" : "URL");
                 if (!z) {
@@ -58,7 +58,7 @@ public class c {
             if (!TextUtils.isEmpty(str2)) {
                 cVar.v(str2);
             }
-            b.a.r0.z2.l0.e.b().d(cVar);
+            b.a.r0.a3.l0.e.b().d(cVar);
         }
     }
 
@@ -72,7 +72,7 @@ public class c {
     public void c(String str, int i2, @Nullable String str2, String str3, String str4, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i2), str2, str3, str4, Long.valueOf(j)}) == null) {
-            b.a.r0.z2.l0.c cVar = new b.a.r0.z2.l0.c();
+            b.a.r0.a3.l0.c cVar = new b.a.r0.a3.l0.c();
             cVar.i(i2);
             if (TextUtils.isEmpty(str)) {
                 str = "DOWNLOAD_PAGE";
@@ -95,7 +95,7 @@ public class c {
                 cVar.s(jSONObject.toString());
             } catch (JSONException unused) {
             }
-            b.a.r0.z2.l0.e.b().d(cVar);
+            b.a.r0.a3.l0.e.b().d(cVar);
         }
     }
 }

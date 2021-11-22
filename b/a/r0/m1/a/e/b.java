@@ -25,25 +25,25 @@ public class b extends d<StrangerListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdListView f20991a;
+    public BdListView f22146a;
 
     /* renamed from: b  reason: collision with root package name */
-    public StrangerListAdapter f20992b;
+    public StrangerListAdapter f22147b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f20993c;
+    public NavigationBar f22148c;
 
     /* renamed from: d  reason: collision with root package name */
-    public StrangerListActivity f20994d;
+    public StrangerListActivity f22149d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f20995e;
+    public ViewGroup f22150e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoNetworkView f20996f;
+    public NoNetworkView f22151f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f20997g;
+    public ImageView f22152g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(StrangerListActivity strangerListActivity) {
@@ -64,7 +64,7 @@ public class b extends d<StrangerListActivity> {
             }
         }
         strangerListActivity.setContentView(R.layout.officialbar_msg_activity);
-        this.f20994d = strangerListActivity;
+        this.f22149d = strangerListActivity;
         e(strangerListActivity);
         f(strangerListActivity);
     }
@@ -72,28 +72,28 @@ public class b extends d<StrangerListActivity> {
     public StrangerListAdapter c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20992b : (StrangerListAdapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22147b : (StrangerListAdapter) invokeV.objValue;
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20997g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22152g : (View) invokeV.objValue;
     }
 
     public final void e(StrangerListActivity strangerListActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strangerListActivity) == null) {
             NavigationBar navigationBar = (NavigationBar) strangerListActivity.findViewById(R.id.view_navigation_bar);
-            this.f20993c = navigationBar;
+            this.f22148c = navigationBar;
             navigationBar.setCenterTextTitle(strangerListActivity.getPageContext().getString(R.string.stranger_list_activity_title));
-            this.f20993c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f20993c.showBottomLine();
-            this.f20997g = (ImageView) this.f20993c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.stranger_delete, this.f20994d);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f20997g, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.f22148c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.f22148c.showBottomLine();
+            this.f22152g = (ImageView) this.f22148c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.stranger_delete, this.f22149d);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22152g, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             ViewGroup viewGroup = (ViewGroup) strangerListActivity.findViewById(R.id.root_view);
-            this.f20995e = viewGroup;
-            this.f20996f = (NoNetworkView) viewGroup.findViewById(R.id.no_network_view);
+            this.f22150e = viewGroup;
+            this.f22151f = (NoNetworkView) viewGroup.findViewById(R.id.no_network_view);
         }
     }
 
@@ -101,24 +101,24 @@ public class b extends d<StrangerListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, strangerListActivity) == null) {
             BdListView bdListView = (BdListView) strangerListActivity.findViewById(R.id.msg_list);
-            this.f20991a = bdListView;
+            this.f22146a = bdListView;
             bdListView.setOnItemClickListener(strangerListActivity);
-            this.f20991a.setOnItemLongClickListener(strangerListActivity);
+            this.f22146a.setOnItemLongClickListener(strangerListActivity);
             StrangerListAdapter strangerListAdapter = new StrangerListAdapter(strangerListActivity);
-            this.f20992b = strangerListAdapter;
-            this.f20991a.setAdapter((ListAdapter) strangerListAdapter);
+            this.f22147b = strangerListAdapter;
+            this.f22146a.setAdapter((ListAdapter) strangerListAdapter);
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f20994d.getLayoutMode().k(i2 == 1);
-            this.f20994d.getLayoutMode().j(this.f20995e);
-            this.f20993c.onChangeSkinType(this.f20994d.getPageContext(), i2);
-            this.f20996f.onChangeSkinType(this.f20994d.getPageContext(), i2);
-            this.f20992b.notifyDataSetChanged();
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f20997g, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.f22149d.getLayoutMode().k(i2 == 1);
+            this.f22149d.getLayoutMode().j(this.f22150e);
+            this.f22148c.onChangeSkinType(this.f22149d.getPageContext(), i2);
+            this.f22151f.onChangeSkinType(this.f22149d.getPageContext(), i2);
+            this.f22147b.notifyDataSetChanged();
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22152g, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 }

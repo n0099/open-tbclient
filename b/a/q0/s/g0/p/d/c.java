@@ -26,17 +26,17 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f13020d;
+    public static c f13800d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, DownloadData> f13021a;
+    public final HashMap<String, DownloadData> f13801a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, DownloadData> f13022b;
+    public final HashMap<String, DownloadData> f13802b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashMap<String, String> f13023c;
+    public final HashMap<String, String> f13803c;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -44,7 +44,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f13024a;
+        public final /* synthetic */ c f13804a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2) {
@@ -64,7 +64,7 @@ public class c {
                     return;
                 }
             }
-            this.f13024a = cVar;
+            this.f13804a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,16 +81,16 @@ public class c {
                         String str = ((ItemDownloadExtraData) downloadData.getExtra()).pkgName;
                         int status = downloadData.getStatus();
                         if (status == 0) {
-                            if (this.f13024a.f13021a.containsKey(str)) {
-                                this.f13024a.f13022b.put(str, this.f13024a.f13021a.get(str));
-                                this.f13024a.f13021a.remove(str);
+                            if (this.f13804a.f13801a.containsKey(str)) {
+                                this.f13804a.f13802b.put(str, this.f13804a.f13801a.get(str));
+                                this.f13804a.f13801a.remove(str);
                                 b.a.q0.s.g0.p.d.b.a(downloadData, 700);
                                 return;
                             }
                             return;
                         } else if (status != 2) {
-                            if (status == 4 && this.f13024a.f13021a.containsKey(str)) {
-                                this.f13024a.f13021a.remove(str);
+                            if (status == 4 && this.f13804a.f13801a.containsKey(str)) {
+                                this.f13804a.f13801a.remove(str);
                                 b.a.q0.s.g0.p.d.b.a(downloadData, 400);
                                 return;
                             }
@@ -111,7 +111,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f13025a;
+        public final /* synthetic */ c f13805a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(c cVar, int i2) {
@@ -131,7 +131,7 @@ public class c {
                     return;
                 }
             }
-            this.f13025a = cVar;
+            this.f13805a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -144,12 +144,12 @@ public class c {
                     Intent intent = (Intent) data;
                     String g2 = b.a.q0.e0.a.g(intent);
                     if (PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction()) || "android.intent.action.PACKAGE_REPLACED".equals(intent.getAction())) {
-                        if (this.f13025a.f13022b.containsKey(g2)) {
-                            b.a.q0.s.g0.p.d.b.a((DownloadData) this.f13025a.f13022b.get(g2), 900);
-                            this.f13025a.f13022b.remove(g2);
+                        if (this.f13805a.f13802b.containsKey(g2)) {
+                            b.a.q0.s.g0.p.d.b.a((DownloadData) this.f13805a.f13802b.get(g2), 900);
+                            this.f13805a.f13802b.remove(g2);
                         }
                     } else if (PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
-                        this.f13025a.l(g2);
+                        this.f13805a.l(g2);
                     }
                 }
             }
@@ -169,9 +169,9 @@ public class c {
                 return;
             }
         }
-        this.f13021a = new HashMap<>();
-        this.f13022b = new HashMap<>();
-        this.f13023c = new HashMap<>();
+        this.f13801a = new HashMap<>();
+        this.f13802b = new HashMap<>();
+        this.f13803c = new HashMap<>();
         h();
         i();
     }
@@ -180,10 +180,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f13020d == null) {
-                f13020d = new c();
+            if (f13800d == null) {
+                f13800d = new c();
             }
-            return f13020d;
+            return f13800d;
         }
         return (c) invokeV.objValue;
     }
@@ -191,14 +191,14 @@ public class c {
     public void d(DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.f13021a.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
+            this.f13801a.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
         }
     }
 
     public void e(DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.f13022b.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
+            this.f13802b.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
         }
     }
 
@@ -206,11 +206,11 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.f13023c.containsKey(str)) {
-                return this.f13023c.get(str);
+            if (this.f13803c.containsKey(str)) {
+                return this.f13803c.get(str);
             }
             String string = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).getString(str, "");
-            this.f13023c.put(str, string);
+            this.f13803c.put(str, string);
             return string;
         }
         return (String) invokeL.objValue;
@@ -237,21 +237,21 @@ public class c {
     public void j(DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.f13021a.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
+            this.f13801a.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
         }
     }
 
     public void k(DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            this.f13022b.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
+            this.f13802b.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
         }
     }
 
     public final void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f13023c.remove(str);
+            this.f13803c.remove(str);
             SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
             edit.remove(str);
             edit.commit();
@@ -260,10 +260,10 @@ public class c {
 
     public void m(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || StringHelper.equals(this.f13023c.get(str), str2)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || StringHelper.equals(this.f13803c.get(str), str2)) {
             return;
         }
-        this.f13023c.put(str, str2);
+        this.f13803c.put(str, str2);
         SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
         edit.putString(str, str2);
         edit.commit();

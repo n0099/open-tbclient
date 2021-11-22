@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.XBaseAdContainer;
 import com.baidu.mobads.container.adrequest.IXAdInstanceInfo;
@@ -349,20 +348,20 @@ public class BDSplashIconView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setViewVisible(4);
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mIconPic, Key.SCALE_X, 0.1f, 1.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mIconPic, "scaleX", 0.1f, 1.0f);
             ofFloat.setDuration(400L);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.mIconPic, Key.SCALE_Y, 0.1f, 1.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.mIconPic, "scaleY", 0.1f, 1.0f);
             ofFloat2.setDuration(400L);
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.mIconPic, Key.ROTATION, 0.0f, -15.0f, 5.0f, 0.0f);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.mIconPic, "rotation", 0.0f, -15.0f, 5.0f, 0.0f);
             ofFloat3.setDuration(600L);
-            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.mCloseView, Key.ALPHA, 0.0f, 0.8f);
+            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.mCloseView, "alpha", 0.0f, 0.8f);
             ofFloat4.setDuration(300L);
             AnimatorSet animatorSet = new AnimatorSet();
             this.animatorSet = animatorSet;
             animatorSet.play(ofFloat).with(ofFloat2).with(ofFloat4).before(ofFloat3);
             TextView textView = this.mDownLoadDesc;
             if (textView != null) {
-                ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(textView, Key.ALPHA, 0.0f, 0.7f);
+                ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(textView, "alpha", 0.0f, 0.7f);
                 ofFloat5.setDuration(600L);
                 this.animatorSet.play(ofFloat).with(ofFloat5);
             }

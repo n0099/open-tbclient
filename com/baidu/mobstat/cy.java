@@ -15,10 +15,10 @@ public class cy implements cu {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f41268a;
+    public byte[] f42100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TreeMap<String, String> f41269b;
+    public TreeMap<String, String> f42101b;
 
     public cy() {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public class cy implements cu {
                 return;
             }
         }
-        this.f41269b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        this.f42101b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     }
 
     @Override // com.baidu.mobstat.cu
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.f41269b.put(str, str2);
+            this.f42101b.put(str, str2);
         }
     }
 
@@ -48,14 +48,14 @@ public class cy implements cu {
     public Iterator<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableSet(this.f41269b.keySet()).iterator() : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableSet(this.f42101b.keySet()).iterator() : (Iterator) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.cx
     public byte[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41268a : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42100a : (byte[]) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.cx
@@ -63,7 +63,7 @@ public class cy implements cu {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            String str2 = this.f41269b.get(str);
+            String str2 = this.f42101b.get(str);
             return str2 == null ? "" : str2;
         }
         return (String) invokeL.objValue;
@@ -73,6 +73,6 @@ public class cy implements cu {
     public boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f41269b.containsKey(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f42101b.containsKey(str) : invokeL.booleanValue;
     }
 }

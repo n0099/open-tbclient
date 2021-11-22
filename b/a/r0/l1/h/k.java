@@ -276,7 +276,7 @@ public class k {
                         e3.printStackTrace();
                     }
                     if (userData != null) {
-                        if (b.a.e.e.p.k.isEmpty(userData.getUserId())) {
+                        if (b.a.e.f.p.k.isEmpty(userData.getUserId())) {
                             OldUserData oldUserData = new OldUserData();
                             try {
                                 oldUserData = (OldUserData) OrmObject.objectWithJsonStr(j5.getUser_info(), OldUserData.class);

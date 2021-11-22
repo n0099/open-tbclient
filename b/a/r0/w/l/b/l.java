@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class l extends b.a.e.l.e.a<o, CardViewHolder<b.a.r0.w.l.h.a>> {
+public class l extends b.a.e.m.e.a<o, CardViewHolder<b.a.r0.w.l.h.a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
@@ -32,10 +32,10 @@ public class l extends b.a.e.l.e.a<o, CardViewHolder<b.a.r0.w.l.h.a>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f25156e;
+        public final /* synthetic */ o f26673e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ l f25157f;
+        public final /* synthetic */ l f26674f;
 
         public a(l lVar, o oVar) {
             Interceptable interceptable = $ic;
@@ -52,22 +52,22 @@ public class l extends b.a.e.l.e.a<o, CardViewHolder<b.a.r0.w.l.h.a>> {
                     return;
                 }
             }
-            this.f25157f = lVar;
-            this.f25156e = oVar;
+            this.f26674f = lVar;
+            this.f26673e = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f25157f.i0(this.f25156e);
+                this.f26674f.i0(this.f26673e);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(TbPageContext tbPageContext, b.a.r0.w.l.e.a aVar) {
-        super(tbPageContext.getPageActivity(), o.f25191f);
+        super(tbPageContext.getPageActivity(), o.f26708f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,19 +95,19 @@ public class l extends b.a.e.l.e.a<o, CardViewHolder<b.a.r0.w.l.h.a>> {
             return;
         }
         aVar.u(0);
-        aVar.v(this.f2419e.getResources().getString(R.string.ala_person_live_real_authen));
+        aVar.v(this.f2421e.getResources().getString(R.string.ala_person_live_real_authen));
         int i2 = g2.b().certify_status;
         if (i2 == 0) {
-            aVar.s(this.f2419e.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
+            aVar.s(this.f2421e.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
             aVar.t(0);
         } else if (1 == i2) {
-            aVar.s(this.f2419e.getResources().getString(R.string.ala_person_live_real_authen_in_review));
+            aVar.s(this.f2421e.getResources().getString(R.string.ala_person_live_real_authen_in_review));
             aVar.t(4);
         } else if (2 == i2) {
-            aVar.s(this.f2419e.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
+            aVar.s(this.f2421e.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
             aVar.t(4);
         } else if (3 == i2) {
-            aVar.s(this.f2419e.getResources().getString(R.string.ala_person_live_real_authen_denied));
+            aVar.s(this.f2421e.getResources().getString(R.string.ala_person_live_real_authen_denied));
             aVar.t(0);
         }
         aVar.k(this.m, TbadkCoreApplication.getInst().getSkinType());
@@ -120,7 +120,7 @@ public class l extends b.a.e.l.e.a<o, CardViewHolder<b.a.r0.w.l.h.a>> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, oVar) == null) || oVar == null || oVar.g() == null || oVar.g().b() == null || 1 == (i2 = (b2 = oVar.g().b()).certify_status) || 2 == i2) {
             return;
         }
-        Context context = this.f2419e;
+        Context context = this.f2421e;
         String str = b2.user_id;
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterRealAuthenConfig(context, str, b2.certify_status + "")));
         b.a.r0.w.l.e.a aVar = this.n;
@@ -130,7 +130,7 @@ public class l extends b.a.e.l.e.a<o, CardViewHolder<b.a.r0.w.l.h.a>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: j0 */
     public CardViewHolder<b.a.r0.w.l.h.a> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -139,7 +139,7 @@ public class l extends b.a.e.l.e.a<o, CardViewHolder<b.a.r0.w.l.h.a>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: k0 */
     public View Z(int i2, View view, ViewGroup viewGroup, o oVar, CardViewHolder<b.a.r0.w.l.h.a> cardViewHolder) {
         InterceptResult invokeCommon;

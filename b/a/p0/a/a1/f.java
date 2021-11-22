@@ -1,16 +1,13 @@
 package b.a.p0.a.a1;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.a1.e;
-import b.a.p0.a.a1.g;
-import b.a.p0.a.a1.h.a;
-import b.a.p0.a.f1.g.b;
+import b.a.p0.a.d2.i;
+import b.a.p0.a.d2.m;
+import b.a.p0.a.f1.e.f.c;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.q;
-import b.a.p0.n.f.h;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,32 +15,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.channels.Channels;
 import java.nio.channels.Pipe;
+import java.nio.channels.ReadableByteChannel;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes.dex */
-public class f extends g.f {
+public class f extends m {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final b.a.p0.n.h.e f3905h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final b.a.p0.n.f.d f3906i;
-    public b.a.p0.a.n2.g.b j;
+    public static final boolean f4001i;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final Map<String, AbstractC0112f> f4002f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final b.a.p0.a.f1.e.f.c f4003g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final b.a.p0.a.f1.e.f.c f4004h;
 
     /* loaded from: classes.dex */
-    public class a implements Runnable {
+    public class a implements b.a.p0.a.z2.g1.c<AbstractC0112f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f3907e;
+        public final /* synthetic */ f f4005e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -60,15 +60,260 @@ public class f extends g.f {
                     return;
                 }
             }
-            this.f3907e = fVar;
+            this.f4005e = fVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // b.a.p0.a.z2.g1.c
+        /* renamed from: a */
+        public void onCallback(AbstractC0112f abstractC0112f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3907e.j();
+            if (interceptable == null || interceptable.invokeL(1048576, this, abstractC0112f) == null) {
+                abstractC0112f.g(this.f4005e);
+                this.f4005e.f4002f.put(abstractC0112f.f4010e, abstractC0112f);
             }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class b implements b.a.p0.a.z2.g1.c<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ b.a.p0.a.z2.e1.a f4006e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ f f4007f;
+
+        public b(f fVar, b.a.p0.a.z2.e1.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fVar, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4007f = fVar;
+            this.f4006e = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // b.a.p0.a.z2.g1.c
+        /* renamed from: a */
+        public void onCallback(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if ("on_progress".equals(str)) {
+                    this.f4007f.A((i.a) new i.a("installer_on_progress").v(" event_params_installer_progress", this.f4006e.j()));
+                } else if ("pump_finish".equals(str)) {
+                    this.f4007f.q("installer_on_pump_finish");
+                } else if (ConstantHelper.LOG_FINISH.equals(str)) {
+                    this.f4007f.q("installer_on_finish");
+                } else if ("start".equals(str)) {
+                    this.f4007f.q("installer_on_start");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c implements b.a.p0.a.z2.g1.c<AbstractC0112f> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ b.a.p0.a.z2.e1.a f4008e;
+
+        public c(f fVar, b.a.p0.a.z2.e1.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fVar, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4008e = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // b.a.p0.a.z2.g1.c
+        /* renamed from: a */
+        public void onCallback(AbstractC0112f abstractC0112f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, abstractC0112f) == null) {
+                this.f4008e.d(abstractC0112f);
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class d implements b.a.p0.a.z2.g1.c<AbstractC0112f> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // b.a.p0.a.z2.g1.c
+        /* renamed from: a */
+        public void onCallback(AbstractC0112f abstractC0112f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, abstractC0112f) == null) {
+                abstractC0112f.e();
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class e implements b.a.p0.a.z2.g1.c<AbstractC0112f> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ boolean[] f4009e;
+
+        public e(f fVar, boolean[] zArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fVar, zArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4009e = zArr;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // b.a.p0.a.z2.g1.c
+        /* renamed from: a */
+        public void onCallback(AbstractC0112f abstractC0112f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, abstractC0112f) == null) {
+                boolean[] zArr = this.f4009e;
+                zArr[0] = abstractC0112f.c() & zArr[0];
+            }
+        }
+    }
+
+    /* renamed from: b.a.p0.a.a1.f$f  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public static abstract class AbstractC0112f implements b.a.p0.a.z2.g1.c<Pipe.SourceChannel> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final String f4010e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final Bundle f4011f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public f f4012g;
+
+        public AbstractC0112f(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4011f = new Bundle();
+            this.f4010e = str;
+        }
+
+        public Bundle b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4011f : (Bundle) invokeV.objValue;
+        }
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b().getBoolean("flag_is_ok") : invokeV.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // b.a.p0.a.z2.g1.c
+        /* renamed from: d */
+        public void onCallback(Pipe.SourceChannel sourceChannel) {
+            f fVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sourceChannel) == null) && (fVar = this.f4012g) != null && f(sourceChannel, fVar.f4003g.D())) {
+                h();
+            }
+        }
+
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        public abstract boolean f(Pipe.SourceChannel sourceChannel, Bundle bundle);
+
+        public final void g(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
+                this.f4012g = fVar;
+            }
+        }
+
+        public final void h() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.f4011f.putBoolean("flag_is_ok", true);
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f4010e : (String) invokeV.objValue;
         }
     }
 
@@ -85,286 +330,101 @@ public class f extends g.f {
                 return;
             }
         }
-        k = k.f6397a;
+        f4001i = k.f6863a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(b.a.p0.n.h.e eVar, b.a.p0.n.f.d dVar) {
-        super("extract");
+    public f() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eVar, dVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f3905h = eVar;
-        this.f3906i = dVar;
+        this.f4002f = new HashMap();
+        this.f4003g = new c.a();
+        this.f4004h = new c.a();
     }
 
-    @Override // b.a.p0.a.a1.g.f
-    public void e() {
+    public f I(AbstractC0112f... abstractC0112fArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.e();
-            if (b().getBoolean("result_output_dir_allow_rollback", false)) {
-                String string = b().getString("result_output_dir");
-                b.a.p0.a.e0.d.h("SwanExtractor", "#onInstallFaild del: " + string);
-                b.a.p0.t.d.L(string);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, abstractC0112fArr)) == null) {
+            b.a.p0.a.z2.g1.b.d(new a(this), abstractC0112fArr);
+            return this;
+        }
+        return (f) invokeL.objValue;
+    }
+
+    public f J(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            this.f4003g.update(bundle);
+            return this;
+        }
+        return (f) invokeL.objValue;
+    }
+
+    public final void K(b.a.p0.a.z2.g1.c<AbstractC0112f> cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            b.a.p0.a.z2.g1.b.c(cVar, this.f4002f.values());
         }
     }
 
-    @Override // b.a.p0.a.a1.g.f
-    public boolean f(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        InterceptResult invokeLL;
-        b.a.p0.a.f1.g.a aVar;
+    public synchronized f L(ReadableByteChannel readableByteChannel) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sourceChannel, bundle)) == null) {
-            String string = bundle.getString("launch_id");
-            if (k) {
-                aVar = b.a.p0.a.f1.g.a.d(string);
-                b.C0183b e2 = aVar.e();
-                e2.b("SwanExtractor");
-                e2.d(1);
-            } else {
-                aVar = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, readableByteChannel)) == null) {
+            synchronized (this) {
+                long currentTimeMillis = System.currentTimeMillis();
+                this.f4004h.b();
+                b.a.p0.a.z2.e1.a aVar = new b.a.p0.a.z2.e1.a();
+                aVar.o(32768);
+                aVar.q(30L, TimeUnit.SECONDS);
+                aVar.g(this.f4003g.D());
+                aVar.p(new b(this, aVar));
+                K(new c(this, aVar));
+                N("connect: " + readableByteChannel + " at: " + currentTimeMillis);
+                aVar.h(readableByteChannel);
+                boolean M = M();
+                if (f4001i) {
+                    N("allOk: " + M + " cost: " + (System.currentTimeMillis() - currentTimeMillis));
+                }
+                if (!M) {
+                    K(new d(this));
+                }
             }
-            boolean k2 = k(Channels.newInputStream(sourceChannel), string);
-            if (aVar != null && k) {
-                aVar.g("SwanExtractor", "done: " + k2);
-            }
-            return k2;
+            return this;
         }
-        return invokeLL.booleanValue;
+        return (f) invokeL.objValue;
     }
 
-    public final void j() {
-        b.a.p0.n.h.e eVar;
+    public boolean M() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (eVar = this.f3905h) == null || eVar.f11077h != 0 || e.w()) {
-            return;
-        }
-        e.e(this.f3905h.f11076g + File.separator + this.f3905h.f11078i);
-    }
-
-    public final boolean k(InputStream inputStream, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, inputStream, str)) == null) {
-            if (inputStream == null) {
-                return false;
-            }
-            b.a.p0.a.q2.a q = q(new BufferedInputStream(inputStream), str);
-            if (q == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.f4002f.isEmpty() || this.f4004h.e("flag_is_ok", false)) {
                 return true;
             }
-            b.a.p0.a.e0.d.h("SwanExtractor", "#extract error=" + q);
-            if (k) {
-                b.a.p0.a.f1.g.a d2 = b.a.p0.a.f1.g.a.d(str);
-                d2.g("SwanExtractor", "onProcess installe error=" + q);
-            }
-            b().putLong("result_error_code", q.a());
-            return false;
+            boolean[] zArr = {true};
+            K(new e(this, zArr));
+            this.f4004h.t("flag_is_ok", zArr[0]);
+            return zArr[0];
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final void l(boolean z) {
+    public final void N(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            if (z) {
-                p("670", "package_end_decrypt");
-                p("770", "na_package_end_decrypt");
-                return;
-            }
-            p("670", "package_end_unzip");
-            p("770", "na_package_end_unzip");
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && f4001i) {
+            b.a.p0.a.f1.g.a.d(this.f4003g.o("launch_id", "")).f(str).b("SwanInstaller");
         }
-    }
-
-    public final void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            if (z) {
-                p("670", "package_start_decrypt");
-                p("770", "na_package_start_decrypt");
-                return;
-            }
-            p("670", "package_start_unzip");
-            p("770", "na_package_start_unzip");
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || b.a.p0.a.n2.g.a.c() <= 0) {
-            return;
-        }
-        boolean z = k;
-        if (this.j == null) {
-            b.a.p0.a.n2.g.b bVar = new b.a.p0.a.n2.g.b(str);
-            this.j = bVar;
-            bVar.startWatching();
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || b.a.p0.a.n2.g.a.c() <= 0) {
-            return;
-        }
-        boolean z = k;
-        b.a.p0.a.n2.g.b bVar = this.j;
-        if (bVar == null) {
-            return;
-        }
-        bVar.stopWatching();
-        this.j = null;
-    }
-
-    public final void p(String str, String str2) {
-        b.a.p0.n.f.d dVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || (dVar = this.f3906i) == null) {
-            return;
-        }
-        dVar.n(str, str2);
-    }
-
-    public final b.a.p0.a.q2.a q(@NonNull BufferedInputStream bufferedInputStream, String str) {
-        InterceptResult invokeLL;
-        File i2;
-        a.C0110a c0110a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, bufferedInputStream, str)) == null) {
-            b.a.p0.a.f1.g.a d2 = b.a.p0.a.f1.g.a.d(str);
-            b.a.p0.n.h.e eVar = this.f3905h;
-            if (eVar == null) {
-                b.a.p0.a.q2.a aVar = new b.a.p0.a.q2.a();
-                aVar.j(11L);
-                aVar.h(2320L);
-                aVar.e("pkg info is empty");
-                b.a.p0.a.q2.e.a().f(aVar);
-                return aVar;
-            }
-            int i3 = eVar.f11077h;
-            boolean z = true;
-            if (i3 == 1) {
-                b.a.p0.a.p.b.a.e g2 = b.a.p0.a.c1.b.g();
-                b.a.p0.n.h.e eVar2 = this.f3905h;
-                i2 = g2.a(eVar2.f11076g, String.valueOf(eVar2.f11078i));
-            } else if (i3 == 0) {
-                i2 = e.C0109e.i(eVar.f11076g, String.valueOf(eVar.f11078i));
-            } else {
-                b.a.p0.a.q2.a aVar2 = new b.a.p0.a.q2.a();
-                aVar2.j(11L);
-                aVar2.h(2320L);
-                aVar2.e("pkh category illegal");
-                b.a.p0.a.q2.e.a().f(aVar2);
-                return aVar2;
-            }
-            if (i2 == null) {
-                b.a.p0.a.q2.a aVar3 = new b.a.p0.a.q2.a();
-                aVar3.j(11L);
-                aVar3.h(2320L);
-                aVar3.e("获取解压目录失败");
-                b.a.p0.a.q2.e.a().f(aVar3);
-                return aVar3;
-            } else if (i2.isFile() && !i2.delete()) {
-                if (k) {
-                    d2.g("SwanExtractor", "解压失败：解压目录被文件占用，且无法删除");
-                }
-                b.a.p0.a.q2.a aVar4 = new b.a.p0.a.q2.a();
-                aVar4.j(11L);
-                aVar4.h(2320L);
-                aVar4.e("解压失败：解压目录被文件占用，且无法删除");
-                b.a.p0.a.q2.e.a().f(aVar4);
-                return aVar4;
-            } else {
-                if (!i2.exists()) {
-                    b().putBoolean("result_output_dir_allow_rollback", true);
-                    if (!i2.mkdirs()) {
-                        if (k) {
-                            d2.g("SwanExtractor", "解压失败：解压文件夹创建失败");
-                        }
-                        q.j(new a(this), "doFallbackIfNeeded");
-                        b.a.p0.a.q2.a aVar5 = new b.a.p0.a.q2.a();
-                        aVar5.j(11L);
-                        aVar5.h(2320L);
-                        aVar5.e("解压失败：解压文件夹创建失败");
-                        b.a.p0.a.q2.e.a().f(aVar5);
-                        return aVar5;
-                    }
-                }
-                n(i2.getPath());
-                if (k) {
-                    d2.g("SwanExtractor", "开始执行解压操作, folder:" + i2.getPath());
-                }
-                b().putString("result_output_dir", i2.toString());
-                long currentTimeMillis = System.currentTimeMillis();
-                try {
-                    a.b h2 = b.a.p0.a.a1.h.a.h(bufferedInputStream);
-                    int i4 = h2 == null ? -1 : h2.f3927b;
-                    boolean z2 = i4 != -1;
-                    m(z2);
-                    if (z2) {
-                        c0110a = b.a.p0.a.a1.h.a.c(bufferedInputStream, i2, i4);
-                        if (c0110a == null || !c0110a.f3924a) {
-                            z = false;
-                        }
-                    } else {
-                        z = b.a.p0.t.g.d(bufferedInputStream, i2.getPath());
-                        c0110a = null;
-                        i4 = 0;
-                    }
-                    l(z2);
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    if (k) {
-                        b.a.p0.a.a1.h.a.g((int) (currentTimeMillis2 - currentTimeMillis));
-                    }
-                    if (this.f3906i != null) {
-                        Bundle bundle = new Bundle();
-                        bundle.putInt("download_package_type_id", i4);
-                        h.a(this.f3906i, bundle, "event_download_package_type");
-                    }
-                    o();
-                    if (z) {
-                        return null;
-                    }
-                    b.a.p0.a.q2.a aVar6 = new b.a.p0.a.q2.a();
-                    aVar6.j(11L);
-                    if (z2) {
-                        aVar6.h(2330L);
-                        aVar6.e("decrypt failed:" + c0110a.f3925b);
-                    } else {
-                        aVar6.h(2320L);
-                        aVar6.e("unzip failed");
-                    }
-                    b.a.p0.a.q2.e.a().f(aVar6);
-                    return aVar6;
-                } catch (IOException e2) {
-                    if (k) {
-                        d2.g("SwanExtractor", "obtainEncryptedBundle Exception: " + e2.toString());
-                        e2.printStackTrace();
-                    }
-                    b.a.p0.a.q2.a aVar7 = new b.a.p0.a.q2.a();
-                    aVar7.j(11L);
-                    aVar7.h(2320L);
-                    aVar7.e("obtainEncryptedBundle Exception: " + e2.toString());
-                    b.a.p0.a.q2.e.a().f(aVar7);
-                    return aVar7;
-                }
-            }
-        }
-        return (b.a.p0.a.q2.a) invokeLL.objValue;
     }
 }

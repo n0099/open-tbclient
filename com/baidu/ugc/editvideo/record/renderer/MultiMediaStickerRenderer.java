@@ -165,14 +165,14 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
                             aVar.a(this.mFullScreen2D, this.mFullScreenEXT);
                         } else {
                             aVar.b(this.mFullScreen2D);
-                            GLES20.glBindFramebuffer(36160, aVar.f57075a[0]);
+                            GLES20.glBindFramebuffer(36160, aVar.f57997a[0]);
                             GLViewPortLocation gLViewPortLocation2 = this.mGLViewPortLocation;
                             GLES20.glViewport(0, 0, gLViewPortLocation2.width, gLViewPortLocation2.height);
                             GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
                             GLES20.glClear(16640);
                             aVar.a(this.mFullScreen2D, this.mFullScreenEXT);
                             GLES20.glBindFramebuffer(36160, 0);
-                            int h2 = eVar.h(mediaSegment, aVar.f57076b[0], null);
+                            int h2 = eVar.h(mediaSegment, aVar.f57998b[0], null);
                             GLES20.glViewport(i4, i6, i7, i8);
                             this.mFullScreen2D.drawFrame(h2, fArr);
                         }

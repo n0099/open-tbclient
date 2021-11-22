@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.e0.f.f.d;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.v;
+import b.a.p0.a.z2.v;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,19 +18,19 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4563a;
+    public static final boolean f4533a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4564b;
+    public static String f4534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f4565c;
+    public static String f4535c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f4566d;
+    public static a f4536d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f4567e;
+    public static int f4537e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,24 +46,24 @@ public class b {
                 return;
             }
         }
-        f4563a = k.f6397a;
-        f4564b = "";
-        f4565c = "";
-        f4567e = 0;
+        f4533a = k.f6863a;
+        f4534b = "";
+        f4535c = "";
+        f4537e = 0;
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f4564b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f4534b : (String) invokeV.objValue;
     }
 
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f4566d != null) {
-                return f4566d.c() + File.separator + f4564b;
+            if (f4536d != null) {
+                return f4536d.c() + File.separator + f4534b;
             }
             return "";
         }
@@ -73,15 +73,15 @@ public class b {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f4565c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f4535c : (String) invokeV.objValue;
     }
 
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f4566d != null) {
-                return f4566d.c() + File.separator + f4565c;
+            if (f4536d != null) {
+                return f4536d.c() + File.separator + f4535c;
             }
             return "";
         }
@@ -91,19 +91,19 @@ public class b {
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f4567e == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f4537e == 2 : invokeV.booleanValue;
     }
 
     public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f4567e == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f4537e == 1 : invokeV.booleanValue;
     }
 
     public static void g(Bundle bundle) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, bundle) == null) || (aVar = f4566d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, bundle) == null) || (aVar = f4536d) == null) {
             return;
         }
         aVar.b(bundle);
@@ -115,32 +115,32 @@ public class b {
             String i2 = v.i(bundle, "extraWSUrl");
             String i3 = v.i(bundle, "adb_debug_path");
             if (!TextUtils.isEmpty(i2)) {
-                f4566d = new d();
-                f4567e = 1;
+                f4536d = new d();
+                f4537e = 1;
             } else if (!TextUtils.isEmpty(i3)) {
-                f4566d = new b.a.p0.a.e0.f.c.b();
-                f4567e = 2;
+                f4536d = new b.a.p0.a.e0.f.c.b();
+                f4537e = 2;
             } else {
-                boolean z = f4563a;
-                f4567e = 0;
-                f4566d = null;
+                boolean z = f4533a;
+                f4537e = 0;
+                f4536d = null;
                 return;
             }
-            f4566d.a(bundle);
+            f4536d.a(bundle);
         }
     }
 
     public static void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            f4564b = str;
+            f4534b = str;
         }
     }
 
     public static void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            f4565c = str;
+            f4535c = str;
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.lego.activity;
 
-import b.a.q0.s.q.d2;
 import b.a.r0.q1.l;
 import b.a.r0.q1.m.c;
 import b.a.r0.q1.m.e;
@@ -70,7 +69,7 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        b.f22768a.set(new l());
+        b.f24289a.set(new l());
         TbConfig.setLegoLibVersion("3.0.0");
         b.a.r0.q1.o.b.h().g(d.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
@@ -81,9 +80,8 @@ public class LegoListActivityStatic {
         b.a.r0.q1.m.b.a().b(new e());
         b.a.r0.q1.m.a.a().b(new c());
         b.a.r0.q1.m.a.a().b(new b.a.r0.q1.m.d());
-        b.a.q0.c.c.f11967a.set(b.a.r0.q1.m.b.a());
-        b.a.q0.c.b.f11965a.set(b.a.r0.q1.m.a.a());
-        d2.O3.set(true);
+        b.a.q0.c.c.f12721a.set(b.a.r0.q1.m.b.a());
+        b.a.q0.c.b.f12719a.set(b.a.r0.q1.m.a.a());
     }
 
     public LegoListActivityStatic() {

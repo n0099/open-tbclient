@@ -1,14 +1,21 @@
 package b.a.p0.a.d1.b;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import b.a.p0.a.e0.d;
 import b.a.p0.a.h0.u.g;
 import b.a.p0.a.k;
-import b.a.p0.a.k2.g.h;
-import b.a.p0.a.s.a.f;
-import b.a.p0.n.j.i.n;
+import b.a.p0.a.l;
+import b.a.p0.a.o2.g.h;
+import b.a.p0.a.u.e.i.e;
+import b.a.p0.a.u.f.b.g.c;
+import b.a.p0.q.k.i.q;
+import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,6 +23,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.tencent.connect.common.Constants;
+import java.util.Collection;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -23,7 +32,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4525a;
+    public static final boolean f4454a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,10 +48,11 @@ public class b {
                 return;
             }
         }
-        f4525a = k.f6397a;
+        f4454a = k.f6863a;
     }
 
     @NonNull
+    @SuppressLint({"BDThrowableCheck"})
     public static String a(b.a.p0.a.h0.f.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -51,8 +61,9 @@ public class b {
             if (aVar != null) {
                 try {
                     jSONObject.put("containerId", aVar.getContainerId());
+                    jSONObject.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, BdZeusUtil.isWebkitLoaded());
                 } catch (JSONException e2) {
-                    if (!f4525a) {
+                    if (!f4454a) {
                         e2.printStackTrace();
                     } else {
                         throw new RuntimeException(e2);
@@ -60,29 +71,36 @@ public class b {
                 }
             }
             jSONObject.put("scheme", SchemeConfig.getSchemeHead());
-            String b2 = b(g.M().L());
-            d.h("SwanAppNativeSwanUtils", "getEnvVariables extensionAvailable:" + b.a.p0.a.p0.h.c.a.r(b2));
+            String b2 = b(g.U().T());
+            d.k("SwanAppNativeSwanUtils", "getEnvVariables extensionAvailable:" + b.a.p0.a.p0.h.c.a.r(b2));
             jSONObject.put("sdkExtension", b2);
             jSONObject.put("gameSdkExtension", b(b.a.p0.a.c1.b.i().t()));
-            jSONObject.put("isDebugSdk", f4525a);
+            jSONObject.put("isDebugSdk", f4454a);
+            if ((aVar instanceof NgWebView) && ((NgWebView) aVar).isSwanWebMode()) {
+                jSONObject.put("ctsEnabled", h.a().getInt("aiapps_web_mode_cts_use_key", 0));
+            }
             String string = h.a().getString("ctsUrl", "");
-            if (!TextUtils.isEmpty(string) && b.a.p0.a.u1.a.a.s()) {
+            if (!TextUtils.isEmpty(string) && b.a.p0.a.x1.a.a.s()) {
                 jSONObject.put("ctsJsAddress", new JSONObject(string));
             }
-            String i2 = b.a.p0.a.c1.a.n().i();
+            String i2 = b.a.p0.a.c1.a.o().i();
             if (!TextUtils.isEmpty(i2)) {
                 jSONObject.put("hostName", i2);
             }
             jSONObject.put(Constants.PARAM_PLATFORM, "android");
-            JSONObject a2 = b.a.p0.a.m2.c.a.a();
+            JSONObject a2 = b.a.p0.a.q2.c.a.a();
             a2.put("swanswitch_common_sys_info_binding", true);
             a2.put("swanswitch_ab_sync_auth", true);
             jSONObject.put("abTestSwitch", a2);
             jSONObject.put("userDataPath", b.a.p0.a.r0.a.USER_DATA_PATH);
-            jSONObject.put("preloadId", g.M().R());
-            jSONObject.put("isBaiduSeries", f.f7771d.h());
-            jSONObject.put("ttsExtractJSUrl", n.b().a());
-            jSONObject.put("coreJSPath", g.M().T());
+            jSONObject.put("preloadId", g.U().a0());
+            jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.f44256d.h());
+            jSONObject.put("ttsExtractJSUrl", q.b().a());
+            jSONObject.put("coreJSPath", g.U().c0());
+            if (e.d()) {
+                jSONObject.put("pendingList", new JSONArray((Collection) c.d()));
+            }
+            jSONObject.put("swanNativeVersion", l.a());
             String jSONObject2 = jSONObject.toString();
             return TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2;
         }

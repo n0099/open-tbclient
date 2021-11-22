@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs.loadmore;
 
 import android.text.TextUtils;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.d2;
 import b.a.q0.s.q.p0;
-import b.a.r0.z2.l0.b;
+import b.a.r0.a3.l0.b;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
@@ -117,9 +117,9 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             ThreadInfo threadInfo = list2.get(i4);
                             d2 d2Var = new d2();
                             SpecHotTopicHelper.setSpecTopicIcon(j, d2Var);
-                            d2Var.E4(this.userMap);
-                            d2Var.Y2(threadInfo);
-                            d2Var.c3();
+                            d2Var.G4(this.userMap);
+                            d2Var.a3(threadInfo);
+                            d2Var.e3();
                             d2Var.K1 = z;
                             if (!TextUtils.isEmpty(d2Var.y0())) {
                                 p0 p0Var = new p0();

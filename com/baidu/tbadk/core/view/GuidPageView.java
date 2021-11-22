@@ -22,7 +22,7 @@ public class GuidPageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuidPageView f45248e;
+        public final /* synthetic */ GuidPageView f46098e;
 
         public a(GuidPageView guidPageView) {
             Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class GuidPageView extends ImageView {
                     return;
                 }
             }
-            this.f45248e = guidPageView;
+            this.f46098e = guidPageView;
         }
 
         @Override // android.view.View.OnClickListener

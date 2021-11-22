@@ -5,11 +5,13 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.k;
+import b.a.p0.a.e0.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.core.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,21 +21,129 @@ import java.nio.charset.StandardCharsets;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b implements a {
+public class b implements b.a.p0.a.u.h.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8426b;
+    public int f8958b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8427c;
+    public String f8959c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f8428d;
+    public JSONObject f8960d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f8429e;
+    public boolean f8961e;
+
+    /* loaded from: classes.dex */
+    public static class a extends b {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: g  reason: collision with root package name */
+        public static final b f8962g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public static final b f8963h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public static final b f8964i;
+        public static final b j;
+        public static final b k;
+        public static final b l;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: f  reason: collision with root package name */
+        public volatile String f8965f;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-144319085, "Lb/a/p0/a/u/h/b$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-144319085, "Lb/a/p0/a/u/h/b$a;");
+                    return;
+                }
+            }
+            f8962g = new a(0);
+            f8963h = new a(202, "json str is empty");
+            f8964i = new a(202, "json str parse fail");
+            j = new a(1001, "json put data fail");
+            k = new a(1001, "swan app is null");
+            l = new a(1001, "swan activity is null");
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // b.a.p0.a.u.h.b, b.a.p0.a.u.h.a
+        @NonNull
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.f8965f == null) {
+                    synchronized (this) {
+                        if (this.f8965f == null) {
+                            this.f8965f = super.a();
+                        }
+                    }
+                }
+                return this.f8965f;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // b.a.p0.a.u.h.b
+        public void g(@NonNull String str, @NonNull Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i2, @NonNull String str) {
+            super(i2, str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), str};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
 
     public b() {
         Interceptable interceptable = $ic;
@@ -48,7 +158,7 @@ public class b implements a {
                 return;
             }
         }
-        this.f8429e = false;
+        this.f8961e = false;
     }
 
     public static String b(int i2) {
@@ -87,6 +197,42 @@ public class b implements a {
         return (String) invokeI.objValue;
     }
 
+    public static b c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a.j : (b) invokeV.objValue;
+    }
+
+    public static b d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? a.f8963h : (b) invokeV.objValue;
+    }
+
+    public static b e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? a.f8964i : (b) invokeV.objValue;
+    }
+
+    public static b f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? a.f8962g : (b) invokeV.objValue;
+    }
+
+    public static b i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? a.l : (b) invokeV.objValue;
+    }
+
+    public static b j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? a.k : (b) invokeV.objValue;
+    }
+
     @Override // b.a.p0.a.u.h.a
     @NonNull
     public String a() {
@@ -95,53 +241,48 @@ public class b implements a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("status", String.valueOf(this.f8426b));
-                if (TextUtils.isEmpty(this.f8427c)) {
-                    this.f8427c = b(this.f8426b);
+                jSONObject.put("status", String.valueOf(this.f8958b));
+                if (TextUtils.isEmpty(this.f8959c)) {
+                    this.f8959c = b(this.f8958b);
                 }
-                jSONObject.put("message", this.f8427c);
-                if (this.f8428d != null) {
-                    jSONObject.put("data", this.f8429e ? Uri.encode(this.f8428d.toString(), StandardCharsets.UTF_8.name()) : this.f8428d);
+                jSONObject.put("message", this.f8959c);
+                if (this.f8960d != null) {
+                    jSONObject.put("data", this.f8961e ? Uri.encode(this.f8960d.toString(), StandardCharsets.UTF_8.name()) : this.f8960d);
                 }
             } catch (JSONException e2) {
-                if (k.f6397a) {
-                    e2.printStackTrace();
-                }
+                d.p("SwanApiResult", "API", "#toJsonString json put data fail", e2, false);
             }
             return jSONObject.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public void c(@NonNull String str, @NonNull Object obj) {
+    public void g(@NonNull String str, @NonNull Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            if (this.f8428d == null) {
-                this.f8428d = new JSONObject();
+            if (this.f8960d == null) {
+                this.f8960d = new JSONObject();
             }
             try {
-                this.f8428d.put(str, obj);
+                this.f8960d.put(str, obj);
             } catch (JSONException e2) {
-                e2.printStackTrace();
+                d.p("SwanApiResult", "API", "#putData json put data fail", e2, false);
             }
         }
     }
 
-    public boolean d(@NonNull String str, @Nullable Object obj) {
+    public boolean h(@NonNull String str, @Nullable Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) {
-            if (this.f8428d == null) {
-                this.f8428d = new JSONObject();
+            if (this.f8960d == null) {
+                this.f8960d = new JSONObject();
             }
             try {
-                this.f8428d.put(str, obj);
+                this.f8960d.put(str, obj);
                 return true;
             } catch (JSONException e2) {
-                if (k.f6397a) {
-                    e2.printStackTrace();
-                    return false;
-                }
+                d.p("SwanApiResult", "API", "#safePutData json put data fail", e2, false);
                 return false;
             }
         }
@@ -152,7 +293,7 @@ public class b implements a {
     public boolean isSuccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8426b == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8958b == 0 : invokeV.booleanValue;
     }
 
     public String toString() {
@@ -176,8 +317,8 @@ public class b implements a {
                 return;
             }
         }
-        this.f8429e = false;
-        this.f8426b = i2;
+        this.f8961e = false;
+        this.f8958b = i2;
     }
 
     public b(int i2, @NonNull String str) {
@@ -195,9 +336,9 @@ public class b implements a {
                 return;
             }
         }
-        this.f8429e = false;
-        this.f8426b = i2;
-        this.f8427c = str;
+        this.f8961e = false;
+        this.f8958b = i2;
+        this.f8959c = str;
     }
 
     public b(int i2, @NonNull JSONObject jSONObject) {
@@ -215,9 +356,9 @@ public class b implements a {
                 return;
             }
         }
-        this.f8429e = false;
-        this.f8426b = i2;
-        this.f8428d = jSONObject;
+        this.f8961e = false;
+        this.f8958b = i2;
+        this.f8960d = jSONObject;
     }
 
     public b(int i2, @NonNull JSONObject jSONObject, boolean z) {
@@ -235,10 +376,10 @@ public class b implements a {
                 return;
             }
         }
-        this.f8429e = false;
-        this.f8426b = i2;
-        this.f8428d = jSONObject;
-        this.f8429e = z;
+        this.f8961e = false;
+        this.f8958b = i2;
+        this.f8960d = jSONObject;
+        this.f8961e = z;
     }
 
     public b(int i2, @NonNull String str, @NonNull JSONObject jSONObject) {
@@ -256,9 +397,9 @@ public class b implements a {
                 return;
             }
         }
-        this.f8429e = false;
-        this.f8426b = i2;
-        this.f8427c = str;
-        this.f8428d = jSONObject;
+        this.f8961e = false;
+        this.f8958b = i2;
+        this.f8959c = str;
+        this.f8960d = jSONObject;
     }
 }

@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -34,7 +34,7 @@ public class c extends TBSpecificationButtonConfig {
                 return;
             }
         }
-        this.f45529b = R.color.CAM_X0302;
+        this.f46379b = R.color.CAM_X0302;
         this.u = false;
     }
 
@@ -48,7 +48,7 @@ public class c extends TBSpecificationButtonConfig {
     public void p(@ColorRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f45529b = i2;
+            this.f46379b = i2;
             this.u = false;
             this.q = true;
             TBSpecificationButtonConfig.a aVar = this.t;
@@ -61,7 +61,7 @@ public class c extends TBSpecificationButtonConfig {
     public void q(@ColorInt int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f45529b = i2;
+            this.f46379b = i2;
             this.u = false;
             this.q = false;
             TBSpecificationButtonConfig.a aVar = this.t;
@@ -74,8 +74,8 @@ public class c extends TBSpecificationButtonConfig {
     public void r(@ColorRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f45529b = i2;
-            this.f45530c = R.color.CAM_X0902;
+            this.f46379b = i2;
+            this.f46380c = R.color.CAM_X0902;
             this.u = true;
             this.q = true;
             TBSpecificationButtonConfig.a aVar = this.t;
@@ -88,7 +88,7 @@ public class c extends TBSpecificationButtonConfig {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f45529b = R.color.CAM_X0101;
+            this.f46379b = R.color.CAM_X0101;
             this.u = false;
             this.q = true;
             TBSpecificationButtonConfig.a aVar = this.t;
@@ -104,9 +104,9 @@ public class c extends TBSpecificationButtonConfig {
         if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f2)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             if (this.u) {
-                gradientDrawable.setStroke(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), SkinManager.getColor(this.r, this.f45530c));
+                gradientDrawable.setStroke(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), SkinManager.getColor(this.r, this.f46380c));
             } else {
-                gradientDrawable.setStroke(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), b.a.r0.l3.c.a(this.q ? SkinManager.getColor(this.r, this.f45529b) : this.f45529b, b.a.q0.s.u.a.a(R.string.A_X07)));
+                gradientDrawable.setStroke(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), b.a.r0.m3.c.a(this.q ? SkinManager.getColor(this.r, this.f46379b) : this.f46379b, b.a.q0.s.u.a.a(R.string.A_X07)));
             }
             gradientDrawable.setShape(0);
             gradientDrawable.setCornerRadius(f2);

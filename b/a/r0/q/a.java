@@ -27,20 +27,20 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity f22467e;
+    public BaseActivity f23988e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f22468f;
+    public boolean f23989f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<AccountData> f22469g;
+    public List<AccountData> f23990g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f22470h;
+    public View.OnClickListener f23991h;
 
     /* renamed from: b.a.r0.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class C1097a {
+    public static /* synthetic */ class C1164a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -51,16 +51,16 @@ public class a extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f22471a;
+        public TextView f23992a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f22472b;
+        public TextView f23993b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f22473c;
+        public ImageView f23994c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f22474d;
+        public TextView f23995d;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(a aVar, C1097a c1097a) {
+        public /* synthetic */ b(a aVar, C1164a c1164a) {
             this(aVar);
         }
     }
@@ -98,29 +98,29 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f22467e = baseActivity;
-        this.f22469g = null;
-        this.f22468f = false;
-        this.f22470h = onClickListener;
+        this.f23988e = baseActivity;
+        this.f23990g = null;
+        this.f23989f = false;
+        this.f23991h = onClickListener;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22468f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23989f : invokeV.booleanValue;
     }
 
     public void b(List<AccountData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f22469g = list;
+            this.f23990g = list;
         }
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f22468f = z;
+            this.f23989f = z;
         }
     }
 
@@ -129,7 +129,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<AccountData> list = this.f22469g;
+            List<AccountData> list = this.f23990g;
             return (list != null ? list.size() : 0) + 1;
         }
         return invokeV.intValue;
@@ -140,11 +140,11 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            List<AccountData> list = this.f22469g;
+            List<AccountData> list = this.f23990g;
             if (list == null || i2 < 0 || i2 >= list.size()) {
                 return null;
             }
-            return this.f22469g.get(i2);
+            return this.f23990g.get(i2);
         }
         return invokeI.objValue;
     }
@@ -181,7 +181,7 @@ public class a extends BaseAdapter {
      */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00e9, code lost:
         r6.k(r0);
-        r5.f22467e.getLayoutMode().j(r7);
+        r5.f23988e.getLayoutMode().j(r7);
      */
     /* JADX WARN: Code restructure failed: missing block: B:33:0x00f5, code lost:
         return r7;
@@ -202,18 +202,18 @@ public class a extends BaseAdapter {
             try {
                 if (view == null) {
                     if (getItemViewType(i2) == 0) {
-                        view = LayoutInflater.from(this.f22467e.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
+                        view = LayoutInflater.from(this.f23988e.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
                         bVar = new b(this, null);
-                        bVar.f22471a = (TextView) view.findViewById(R.id.account);
-                        bVar.f22473c = (ImageView) view.findViewById(R.id.active);
+                        bVar.f23992a = (TextView) view.findViewById(R.id.account);
+                        bVar.f23994c = (ImageView) view.findViewById(R.id.active);
                         TextView textView = (TextView) view.findViewById(R.id.delete);
-                        bVar.f22474d = textView;
-                        textView.setOnClickListener(this.f22470h);
+                        bVar.f23995d = textView;
+                        textView.setOnClickListener(this.f23991h);
                         view.setTag(bVar);
                     } else {
-                        view = LayoutInflater.from(this.f22467e.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
+                        view = LayoutInflater.from(this.f23988e.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
                         bVar = new b(this, null);
-                        bVar.f22472b = (TextView) view.findViewById(R.id.add_text);
+                        bVar.f23993b = (TextView) view.findViewById(R.id.add_text);
                         view.setTag(bVar);
                     }
                 } else {
@@ -221,27 +221,27 @@ public class a extends BaseAdapter {
                 }
                 if (getItemViewType(i2) == 0) {
                     AccountData accountData = (AccountData) getItem(i2);
-                    bVar.f22473c.setVisibility(8);
-                    bVar.f22474d.setVisibility(8);
-                    bVar.f22474d.setTag(accountData);
+                    bVar.f23994c.setVisibility(8);
+                    bVar.f23995d.setVisibility(8);
+                    bVar.f23995d.setTag(accountData);
                     if (accountData != null) {
-                        bVar.f22471a.setText(accountData.getAccountNameShow());
+                        bVar.f23992a.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            bVar.f22473c.setVisibility(0);
+                            bVar.f23994c.setVisibility(0);
                         }
-                        if (this.f22468f) {
-                            bVar.f22474d.setVisibility(0);
+                        if (this.f23989f) {
+                            bVar.f23995d.setVisibility(0);
                         }
                     }
                 }
-                layoutMode = this.f22467e.getLayoutMode();
+                layoutMode = this.f23988e.getLayoutMode();
             } catch (Exception e2) {
                 BdLog.detailException(e2);
-                layoutMode = this.f22467e.getLayoutMode();
+                layoutMode = this.f23988e.getLayoutMode();
             }
         } catch (Throwable th) {
-            this.f22467e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.f22467e.getLayoutMode().j(view);
+            this.f23988e.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.f23988e.getLayoutMode().j(view);
             throw th;
         }
     }

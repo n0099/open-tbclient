@@ -23,19 +23,19 @@ public class ForumEmotionEmptyView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f48118e;
+    public TbPageContext f48982e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoDataView f48119f;
+    public NoDataView f48983f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f48120g;
+    public LinearLayout f48984g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f48121h;
+    public TextView f48985h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewGroup f48122i;
+    public ViewGroup f48986i;
     public TextView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -56,7 +56,7 @@ public class ForumEmotionEmptyView extends RelativeLayout {
                 return;
             }
         }
-        this.f48118e = tbPageContext;
+        this.f48982e = tbPageContext;
         a();
     }
 
@@ -64,12 +64,12 @@ public class ForumEmotionEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.forum_emotion_empty_layout, this);
-            this.f48121h = (TextView) findViewById(R.id.forum_emotion_filter);
-            this.f48122i = (ViewGroup) findViewById(R.id.forum_emotion_filter_dropdown);
+            this.f48985h = (TextView) findViewById(R.id.forum_emotion_filter);
+            this.f48986i = (ViewGroup) findViewById(R.id.forum_emotion_filter_dropdown);
             this.j = (TextView) findViewById(R.id.forum_emotion_board_title);
-            this.f48120g = (LinearLayout) findViewById(R.id.forum_emotion_no_data_container);
-            NoDataView b2 = NoDataViewFactory.b(this.f48118e.getPageActivity(), this.f48120g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.invite_friend_no_data_now), null, true);
-            this.f48119f = b2;
+            this.f48984g = (LinearLayout) findViewById(R.id.forum_emotion_no_data_container);
+            NoDataView b2 = NoDataViewFactory.b(this.f48982e.getPageActivity(), this.f48984g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.invite_friend_no_data_now), null, true);
+            this.f48983f = b2;
             b2.setVisibility(0);
         }
     }
@@ -77,28 +77,28 @@ public class ForumEmotionEmptyView extends RelativeLayout {
     public ViewGroup getFilterDropDownView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48122i : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48986i : (ViewGroup) invokeV.objValue;
     }
 
     public TextView getFilterView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48121h : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48985h : (TextView) invokeV.objValue;
     }
 
     public void onChangeSkin(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            NoDataView noDataView = this.f48119f;
+            NoDataView noDataView = this.f48983f;
             if (noDataView != null) {
-                noDataView.onChangeSkinType(this.f48118e, i2);
+                noDataView.onChangeSkinType(this.f48982e, i2);
             }
-            SkinManager.setViewTextColor(this.f48122i.getChildAt(0), R.color.CAM_X0107);
-            SkinManager.setBackgroundColor(this.f48122i.getChildAt(0), R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f48122i.getChildAt(1), R.color.CAM_X0107);
-            SkinManager.setBackgroundColor(this.f48122i.getChildAt(1), R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f48986i.getChildAt(0), R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.f48986i.getChildAt(0), R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f48986i.getChildAt(1), R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.f48986i.getChildAt(1), R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f48121h, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f48985h, R.color.CAM_X0107);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
         }
     }

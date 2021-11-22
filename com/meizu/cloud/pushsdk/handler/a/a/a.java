@@ -31,7 +31,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(g gVar, c cVar) {
         String message;
-        b.l.a.a.a.c();
+        b.j.a.a.a.c();
         String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdktmp/" + gVar.d().b().a() + "_" + gVar.d().b().d() + ".zip";
         File file = null;
         try {
@@ -41,7 +41,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
             file = file2;
         } catch (Exception e2) {
             message = e2.getMessage();
-            b.l.a.a.a.b("AbstractMessageHandler", "zip error message " + message);
+            b.j.a.a.a.b("AbstractMessageHandler", "zip error message " + message);
         }
         if (file != null && file.length() / 1024 > gVar.a()) {
             message = "the upload file exceeds the max size";
@@ -50,19 +50,19 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
         }
         com.meizu.cloud.pushsdk.b.a.c<String> a2 = com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(gVar.d().b().a(), gVar.d().b().d(), message, file);
         if (a2 == null || !a2.b()) {
-            b.l.a.a.a.d("AbstractMessageHandler", "upload error code " + a2.c() + a2.a());
+            b.j.a.a.a.d("AbstractMessageHandler", "upload error code " + a2.c() + a2.a());
             return;
         }
         if (file != null) {
             file.delete();
         }
-        b.l.a.a.a.b("AbstractMessageHandler", "upload success " + a2.a());
+        b.j.a.a.a.b("AbstractMessageHandler", "upload success " + a2.a());
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
         int i2;
-        b.l.a.a.a.d("AbstractMessageHandler", "start LogUploadMessageHandler match");
+        b.j.a.a.a.d("AbstractMessageHandler", "start LogUploadMessageHandler match");
         String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
             com.meizu.cloud.pushsdk.handler.a.b.b a2 = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);

@@ -30,19 +30,19 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<RecommendDetailActivity> f50538e;
+    public TbPageContext<RecommendDetailActivity> f51450e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f50539f;
+    public d f51451f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f50540g;
+    public boolean f51452g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f50541h;
+    public boolean f51453h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f50542i;
+    public long f51454i;
     public b.a.e.c.g.a j;
     public CustomMessageListener k;
 
@@ -52,7 +52,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RecommendDetailModel f50543a;
+        public final /* synthetic */ RecommendDetailModel f51455a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(RecommendDetailModel recommendDetailModel, int i2, int i3) {
@@ -73,38 +73,38 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     return;
                 }
             }
-            this.f50543a = recommendDetailModel;
+            this.f51455a = recommendDetailModel;
         }
 
         @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f50543a.f50541h = true;
-                if (this.f50543a.f50538e == null || this.f50543a.f50539f == null) {
+                this.f51455a.f51453h = true;
+                if (this.f51455a.f51450e == null || this.f51455a.f51451f == null) {
                     return;
                 }
                 if (responsedMessage == null) {
-                    this.f50543a.f50539f.onFailed(this.f50543a.f50538e.getString(R.string.neterror));
+                    this.f51455a.f51451f.onFailed(this.f51455a.f51450e.getString(R.string.neterror));
                 } else if (responsedMessage.getError() != 0) {
                     if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                        this.f50543a.f50539f.onFailed(this.f50543a.f50538e.getString(R.string.neterror));
+                        this.f51455a.f51451f.onFailed(this.f51455a.f51450e.getString(R.string.neterror));
                     } else {
-                        this.f50543a.f50539f.onFailed(responsedMessage.getErrorString());
+                        this.f51455a.f51451f.onFailed(responsedMessage.getErrorString());
                     }
                 } else {
                     if (responsedMessage instanceof RecommendDetailHttpResponseMessage) {
                         RecommendDetailHttpResponseMessage recommendDetailHttpResponseMessage = (RecommendDetailHttpResponseMessage) responsedMessage;
                         if (recommendDetailHttpResponseMessage.getDetailInfo() != null) {
-                            this.f50543a.f50540g = true;
-                            this.f50543a.f50539f.onSuccess(recommendDetailHttpResponseMessage.getDetailInfo(), true);
+                            this.f51455a.f51452g = true;
+                            this.f51455a.f51451f.onSuccess(recommendDetailHttpResponseMessage.getDetailInfo(), true);
                         }
                     }
                     if (responsedMessage instanceof RecommendDetailSocketResponseMessage) {
                         RecommendDetailSocketResponseMessage recommendDetailSocketResponseMessage = (RecommendDetailSocketResponseMessage) responsedMessage;
                         if (recommendDetailSocketResponseMessage.getDetailInfo() != null) {
-                            this.f50543a.f50540g = true;
-                            this.f50543a.f50539f.onSuccess(recommendDetailSocketResponseMessage.getDetailInfo(), true);
+                            this.f51455a.f51452g = true;
+                            this.f51455a.f51451f.onSuccess(recommendDetailSocketResponseMessage.getDetailInfo(), true);
                         }
                     }
                 }
@@ -118,7 +118,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RecommendDetailModel f50544a;
+        public final /* synthetic */ RecommendDetailModel f51456a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(RecommendDetailModel recommendDetailModel, int i2) {
@@ -138,7 +138,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     return;
                 }
             }
-            this.f50544a = recommendDetailModel;
+            this.f51456a = recommendDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -150,24 +150,24 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                 Message<?> orginalMessage = responseUpdateMaskInfoMessage.getOrginalMessage();
                 if (orginalMessage instanceof RequestUpdateMaskInfoMessage) {
                     RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
-                    if (requestUpdateMaskInfoMessage.getMaskType() != 6 || this.f50544a.f50538e == null || this.f50544a.f50539f == null) {
+                    if (requestUpdateMaskInfoMessage.getMaskType() != 6 || this.f51456a.f51450e == null || this.f51456a.f51451f == null) {
                         return;
                     }
                     if (responseUpdateMaskInfoMessage.getError() != 0) {
                         if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                            this.f50544a.f50538e.showToast(R.string.neterror);
+                            this.f51456a.f51450e.showToast(R.string.neterror);
                         } else {
-                            this.f50544a.f50538e.showToast(responseUpdateMaskInfoMessage.getErrorString());
+                            this.f51456a.f51450e.showToast(responseUpdateMaskInfoMessage.getErrorString());
                         }
                         if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                            this.f50544a.f50539f.onAcceptMsg(false);
+                            this.f51456a.f51451f.onAcceptMsg(false);
                         } else {
-                            this.f50544a.f50539f.onUnAcceptMsg(false);
+                            this.f51456a.f51451f.onUnAcceptMsg(false);
                         }
                     } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                        this.f50544a.f50539f.onAcceptMsg(true);
+                        this.f51456a.f51451f.onAcceptMsg(true);
                     } else {
-                        this.f50544a.f50539f.onUnAcceptMsg(true);
+                        this.f51456a.f51451f.onUnAcceptMsg(true);
                     }
                 }
             }
@@ -180,7 +180,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ RecommendDetailModel f50545a;
+        public final /* synthetic */ RecommendDetailModel f51457a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(RecommendDetailModel recommendDetailModel, int i2) {
@@ -200,7 +200,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     return;
                 }
             }
-            this.f50545a = recommendDetailModel;
+            this.f51457a = recommendDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -209,15 +209,15 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof UserInfoBigVip)) {
-                    this.f50545a.F();
+                    this.f51457a.F();
                     return;
                 }
                 UserInfoBigVip userInfoBigVip = (UserInfoBigVip) customResponsedMessage.getData();
-                if (this.f50545a.f50539f != null && userInfoBigVip != null) {
-                    this.f50545a.f50540g = true;
-                    this.f50545a.f50539f.onSuccess(userInfoBigVip, false);
+                if (this.f51457a.f51451f != null && userInfoBigVip != null) {
+                    this.f51457a.f51452g = true;
+                    this.f51457a.f51451f.onSuccess(userInfoBigVip, false);
                 }
-                this.f50545a.F();
+                this.f51457a.F();
             }
         }
     }
@@ -251,12 +251,12 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                 return;
             }
         }
-        this.f50540g = false;
-        this.f50541h = false;
+        this.f51452g = false;
+        this.f51453h = false;
         this.j = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, 303025);
         this.k = new c(this, 2001306);
-        this.f50538e = tbPageContext;
-        this.f50539f = dVar;
+        this.f51450e = tbPageContext;
+        this.f51451f = dVar;
         MessageManager.getInstance().registerListener(this.j);
         MessageManager.getInstance().registerListener(this.k);
         D();
@@ -265,13 +265,13 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50540g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51452g : invokeV.booleanValue;
     }
 
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50541h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51453h : invokeV.booleanValue;
     }
 
     public final void D() {
@@ -284,7 +284,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     public void E(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f50542i = j;
+            this.f51454i = j;
             sendMessage(new CustomMessage(2001306, Long.valueOf(j)));
         }
     }
@@ -293,7 +293,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             RecommendDetailRequestMessage recommendDetailRequestMessage = new RecommendDetailRequestMessage();
-            recommendDetailRequestMessage.setUserId(this.f50542i);
+            recommendDetailRequestMessage.setUserId(this.f51454i);
             sendMessage(recommendDetailRequestMessage);
         }
     }
@@ -308,7 +308,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                 requestUpdateMaskInfoMessage.setIsMask(1);
             }
             requestUpdateMaskInfoMessage.setMaskType(6);
-            requestUpdateMaskInfoMessage.setG_id(this.f50542i);
+            requestUpdateMaskInfoMessage.setG_id(this.f51454i);
             requestUpdateMaskInfoMessage.setCallFrom(2);
             sendMessage(requestUpdateMaskInfoMessage);
         }

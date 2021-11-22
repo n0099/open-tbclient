@@ -7,12 +7,10 @@ public interface CloseableReferenceLeakTracker {
 
     /* loaded from: classes11.dex */
     public interface Listener {
-        void onCloseableReferenceLeak(SharedReference<Object> sharedReference, @Nullable Throwable th);
+        void onCloseableReferenceLeak(SharedReference<Object> sharedReference);
     }
-
-    boolean isSet();
 
     void setListener(@Nullable Listener listener);
 
-    void trackCloseableReferenceLeak(SharedReference<Object> sharedReference, @Nullable Throwable th);
+    void trackCloseableReferenceLeak(SharedReference<Object> sharedReference);
 }

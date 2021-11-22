@@ -11,13 +11,13 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentTransaction;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.u.c;
-import b.a.r0.b4.d;
-import b.a.r0.b4.e;
-import b.a.r0.b4.f;
-import b.a.r0.b4.g;
-import b.a.r0.b4.i;
+import b.a.r0.c4.d;
+import b.a.r0.c4.e;
+import b.a.r0.c4.f;
+import b.a.r0.c4.g;
+import b.a.r0.c4.i;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -75,7 +75,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FrsVideoTabPlayActivity f54880a;
+        public final /* synthetic */ FrsVideoTabPlayActivity f55800a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(FrsVideoTabPlayActivity frsVideoTabPlayActivity, int i2) {
@@ -95,7 +95,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f54880a = frsVideoTabPlayActivity;
+            this.f55800a = frsVideoTabPlayActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -103,14 +103,14 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             BdUniqueId tag;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || (tag = customResponsedMessage.getOrginalMessage().getTag()) == null || this.f54880a.getUniqueId().getId() != tag.getId() || !(customResponsedMessage.getData() instanceof Float)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getOrginalMessage() == null || (tag = customResponsedMessage.getOrginalMessage().getTag()) == null || this.f55800a.getUniqueId().getId() != tag.getId() || !(customResponsedMessage.getData() instanceof Float)) {
                 return;
             }
             float floatValue = ((Float) customResponsedMessage.getData()).floatValue();
             if (floatValue < 0.0f || floatValue > 1.0f) {
                 return;
             }
-            this.f54880a.mNavigationBar.setAlpha(floatValue);
+            this.f55800a.mNavigationBar.setAlpha(floatValue);
         }
     }
 
@@ -120,7 +120,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsVideoTabPlayActivity f54881e;
+        public final /* synthetic */ FrsVideoTabPlayActivity f55801e;
 
         public b(FrsVideoTabPlayActivity frsVideoTabPlayActivity) {
             Interceptable interceptable = $ic;
@@ -137,14 +137,14 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f54881e = frsVideoTabPlayActivity;
+            this.f55801e = frsVideoTabPlayActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f54881e.finish();
+                this.f55801e.finish();
             }
         }
     }
@@ -290,10 +290,10 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                 navigationBar.setBackgroundResource(e.transparent_bg);
                 c d2 = c.d(this.mTitleView);
                 d2.A(i.F_X01);
-                d2.v(b.a.r0.b4.c.CAM_X0101);
+                d2.v(b.a.r0.c4.c.CAM_X0101);
                 d2.z(d.T_X05);
                 if (this.mNavigationBar.getBackImageView() != null) {
-                    WebPManager.setPureDrawable(this.mNavigationBar.getBackImageView(), e.icon_pure_topbar_return40, b.a.r0.b4.c.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+                    WebPManager.setPureDrawable(this.mNavigationBar.getBackImageView(), e.icon_pure_topbar_return40, b.a.r0.c4.c.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
                 }
             }
             if (UtilHelper.isFlyMeOs()) {
@@ -417,7 +417,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                 videoVerticalPageFragment.setPrimary(false);
                 this.mFragment.setUserVisibleHint(false);
             }
-            b.a.q0.a.d.y().E();
+            b.a.q0.a.d.y().F();
         }
     }
 
@@ -430,7 +430,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(true);
                 this.mFragment.setUserVisibleHint(true);
-                b.a.q0.a.d.y().P(b.a.q0.a.c.Z, this.mFragment.getMissionTid());
+                b.a.q0.a.d.y().Q(b.a.q0.a.c.a0, this.mFragment.getMissionTid());
             }
         }
     }

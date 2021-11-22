@@ -4,17 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class o1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f26025a;
+    public String f27596a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<n1> f26026b;
+    public int f27597b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f27598c;
 
     public o1() {
         Interceptable interceptable = $ic;

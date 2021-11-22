@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import b.a.q0.a.e;
-import b.a.q0.d1.r0;
+import b.a.q0.c1.q0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -40,11 +40,11 @@ public class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile y f11857b;
+    public static volatile y f12608b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CardDialog f11858a;
+    public CardDialog f12609a;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -52,13 +52,13 @@ public class y {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserData f11859e;
+        public final /* synthetic */ UserData f12610e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f11860f;
+        public final /* synthetic */ TbPageContext f12611f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ y f11861g;
+        public final /* synthetic */ y f12612g;
 
         public a(y yVar, UserData userData, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -75,28 +75,28 @@ public class y {
                     return;
                 }
             }
-            this.f11861g = yVar;
-            this.f11859e = userData;
-            this.f11860f = tbPageContext;
+            this.f12612g = yVar;
+            this.f12610e = userData;
+            this.f12611f = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f11861g.f11858a != null) {
-                    this.f11861g.f11858a.dismissDialog();
+                if (this.f12612g.f12609a != null) {
+                    this.f12612g.f12609a.dismissDialog();
                 }
-                if (TextUtils.isEmpty(this.f11859e.getName_show()) || TextUtils.isEmpty(this.f11859e.getUserId())) {
+                if (TextUtils.isEmpty(this.f12610e.getName_show()) || TextUtils.isEmpty(this.f12610e.getUserId())) {
                     return;
                 }
-                String name_show = this.f11859e.getName_show();
-                String userId = this.f11859e.getUserId();
+                String name_show = this.f12610e.getName_show();
+                String userId = this.f12610e.getUserId();
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TIEBA_UID_SHARE_DIALOG_CLICK);
                 statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.addParam("obj_param1", userId);
                 TiebaStatic.log(statisticItem);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f11860f.getPageActivity(), userId, name_show)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f12611f.getPageActivity(), userId, name_show)));
             }
         }
     }
@@ -114,7 +114,7 @@ public class y {
                 return;
             }
         }
-        this.f11858a = null;
+        this.f12609a = null;
     }
 
     public static TbPageContext c(Activity activity) {
@@ -136,14 +136,14 @@ public class y {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f11857b == null) {
+            if (f12608b == null) {
                 synchronized (y.class) {
-                    if (f11857b == null) {
-                        f11857b = new y();
+                    if (f12608b == null) {
+                        f12608b = new y();
                     }
                 }
             }
-            return f11857b;
+            return f12608b;
         }
         return (y) invokeV.objValue;
     }
@@ -151,8 +151,8 @@ public class y {
     public void b() {
         CardDialog cardDialog;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cardDialog = this.f11858a) != null && cardDialog.isShowing()) {
-            this.f11858a.dismissDialog();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cardDialog = this.f12609a) != null && cardDialog.isShowing()) {
+            this.f12609a.dismissDialog();
         }
     }
 
@@ -203,7 +203,7 @@ public class y {
             if (userData.isNewGod()) {
                 TextView textView4 = new TextView(pageActivity);
                 textView4.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
-                textView4.setText(userData.getNewGodData().getFieldName() + r0.a(userData.getNewGodData()));
+                textView4.setText(userData.getNewGodData().getFieldName() + q0.a(userData.getNewGodData()));
                 textView4.setTextSize(0, (float) UtilHelper.getDimenPixelSize(R.dimen.T_X09));
                 linearLayout.addView(textView4);
                 textView4.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
@@ -263,9 +263,9 @@ public class y {
         tBSpecificationBtn.setConfig(bVar);
         tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.browse_user_detail));
         tBSpecificationBtn.setOnClickListener(new a(this, userData, c2));
-        this.f11858a = new CardDialog(c2);
-        this.f11858a.setContentBackground(WebPManager.getMaskDrawable(R.drawable.mask_popup_background, false));
-        this.f11858a.setRealView(viewGroup);
-        this.f11858a.showDialog();
+        this.f12609a = new CardDialog(c2);
+        this.f12609a.setContentBackground(WebPManager.getMaskDrawable(R.drawable.mask_popup_background, false));
+        this.f12609a.setRealView(viewGroup);
+        this.f12609a.showDialog();
     }
 }

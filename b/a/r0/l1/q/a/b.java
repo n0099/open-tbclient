@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -29,31 +29,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RecommendDetailActivity f20326a;
+    public RecommendDetailActivity f21848a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f20327b;
+    public View f21849b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f20328c;
+    public NavigationBar f21850c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoNetworkView f20329d;
+    public NoNetworkView f21851d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HeadImageView f20330e;
+    public HeadImageView f21852e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20331f;
+    public TextView f21853f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20332g;
+    public TextView f21854g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20333h;
+    public TextView f21855h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f20334i;
+    public LinearLayout f21856i;
     public SettingTextSwitchView j;
     public NoDataView k;
     public LinearLayout l;
@@ -74,14 +74,14 @@ public class b {
                 return;
             }
         }
-        this.f20326a = recommendDetailActivity;
+        this.f21848a = recommendDetailActivity;
         c();
     }
 
     public void a() {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (linearLayout = this.f20334i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (linearLayout = this.f21856i) == null) {
             return;
         }
         linearLayout.setVisibility(8);
@@ -101,50 +101,50 @@ public class b {
     public final void c() {
         RecommendDetailActivity recommendDetailActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (recommendDetailActivity = this.f20326a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (recommendDetailActivity = this.f21848a) == null) {
             return;
         }
         recommendDetailActivity.setContentView(R.layout.recommend_detail_activity);
-        this.f20327b = this.f20326a.findViewById(R.id.root_view);
-        NavigationBar navigationBar = (NavigationBar) this.f20326a.findViewById(R.id.view_navigation_bar);
-        this.f20328c = navigationBar;
+        this.f21849b = this.f21848a.findViewById(R.id.root_view);
+        NavigationBar navigationBar = (NavigationBar) this.f21848a.findViewById(R.id.view_navigation_bar);
+        this.f21850c = navigationBar;
         navigationBar.showBottomLine();
-        this.f20328c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        e(this.f20326a.getResources().getString(R.string.recommend_detail_activity_title));
-        this.f20329d = (NoNetworkView) this.f20326a.findViewById(R.id.view_no_network);
-        this.l = (LinearLayout) this.f20326a.findViewById(R.id.content_view);
-        HeadImageView headImageView = (HeadImageView) this.f20326a.findViewById(R.id.user_image);
-        this.f20330e = headImageView;
+        this.f21850c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        e(this.f21848a.getResources().getString(R.string.recommend_detail_activity_title));
+        this.f21851d = (NoNetworkView) this.f21848a.findViewById(R.id.view_no_network);
+        this.l = (LinearLayout) this.f21848a.findViewById(R.id.content_view);
+        HeadImageView headImageView = (HeadImageView) this.f21848a.findViewById(R.id.user_image);
+        this.f21852e = headImageView;
         headImageView.setIsRound(true);
-        this.f20331f = (TextView) this.f20326a.findViewById(R.id.user_name);
-        this.f20332g = (TextView) this.f20326a.findViewById(R.id.user_type);
-        this.f20333h = (TextView) this.f20326a.findViewById(R.id.intro_content);
-        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) this.f20326a.findViewById(R.id.switch_view);
+        this.f21853f = (TextView) this.f21848a.findViewById(R.id.user_name);
+        this.f21854g = (TextView) this.f21848a.findViewById(R.id.user_type);
+        this.f21855h = (TextView) this.f21848a.findViewById(R.id.intro_content);
+        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) this.f21848a.findViewById(R.id.switch_view);
         this.j = settingTextSwitchView;
-        settingTextSwitchView.setSwitchStateChangeListener(this.f20326a);
+        settingTextSwitchView.setSwitchStateChangeListener(this.f21848a);
         this.j.setVisibility(8);
         this.l.setVisibility(8);
-        this.f20334i = (LinearLayout) this.f20326a.findViewById(R.id.switch_ll);
-        this.m = this.f20326a.findViewById(R.id.divider_1);
+        this.f21856i = (LinearLayout) this.f21848a.findViewById(R.id.switch_ll);
+        this.m = this.f21848a.findViewById(R.id.divider_1);
     }
 
     public void d(int i2) {
         RecommendDetailActivity recommendDetailActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (recommendDetailActivity = this.f20326a) == null || recommendDetailActivity.getPageContext() == null || this.f20326a.getPageContext().getLayoutMode() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (recommendDetailActivity = this.f21848a) == null || recommendDetailActivity.getPageContext() == null || this.f21848a.getPageContext().getLayoutMode() == null) {
             return;
         }
-        NavigationBar navigationBar = this.f20328c;
+        NavigationBar navigationBar = this.f21850c;
         if (navigationBar != null) {
-            navigationBar.onChangeSkinType(this.f20326a.getPageContext(), i2);
+            navigationBar.onChangeSkinType(this.f21848a.getPageContext(), i2);
         }
-        NoNetworkView noNetworkView = this.f20329d;
+        NoNetworkView noNetworkView = this.f21851d;
         if (noNetworkView != null) {
-            noNetworkView.onChangeSkinType(this.f20326a.getPageContext(), i2);
+            noNetworkView.onChangeSkinType(this.f21848a.getPageContext(), i2);
         }
         NoDataView noDataView = this.k;
         if (noDataView != null) {
-            noDataView.onChangeSkinType(this.f20326a.getPageContext(), i2);
+            noDataView.onChangeSkinType(this.f21848a.getPageContext(), i2);
         }
         SettingTextSwitchView settingTextSwitchView = this.j;
         if (settingTextSwitchView != null) {
@@ -154,14 +154,14 @@ public class b {
         if (view != null) {
             SkinManager.setBackgroundColor(view, R.color.CAM_X0205);
         }
-        this.f20326a.getPageContext().getLayoutMode().k(i2 == 1);
-        this.f20326a.getPageContext().getLayoutMode().j(this.f20327b);
+        this.f21848a.getPageContext().getLayoutMode().k(i2 == 1);
+        this.f21848a.getPageContext().getLayoutMode().j(this.f21849b);
     }
 
     public void e(String str) {
         NavigationBar navigationBar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (navigationBar = this.f20328c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (navigationBar = this.f21850c) == null) {
             return;
         }
         navigationBar.setCenterTextTitle(str);
@@ -181,7 +181,7 @@ public class b {
     public void g() {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (linearLayout = this.f20334i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (linearLayout = this.f21856i) == null) {
             return;
         }
         linearLayout.setVisibility(0);
@@ -191,10 +191,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             if (this.k == null) {
-                this.k = NoDataViewFactory.a(this.f20326a.getPageContext().getPageActivity(), this.f20327b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320)), NoDataViewFactory.e.a(i2), null);
+                this.k = NoDataViewFactory.a(this.f21848a.getPageContext().getPageActivity(), this.f21849b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320)), NoDataViewFactory.e.a(i2), null);
             }
             this.k.setTextOption(NoDataViewFactory.e.a(i2));
-            this.k.onChangeSkinType(this.f20326a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.k.onChangeSkinType(this.f21848a.getPageContext(), TbadkApplication.getInst().getSkinType());
             this.l.setVisibility(8);
             this.k.setVisibility(0);
         }
@@ -202,13 +202,13 @@ public class b {
 
     public void i(UserInfoBigVip userInfoBigVip, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, userInfoBigVip, z) == null) || userInfoBigVip == null || this.f20326a == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, userInfoBigVip, z) == null) || userInfoBigVip == null || this.f21848a == null) {
             return;
         }
-        this.f20330e.startLoad(userInfoBigVip.portraith, 12, false);
-        this.f20331f.setText(UtilHelper.getFixedText(userInfoBigVip.user_name, 7));
-        this.f20332g.setText(userInfoBigVip.user_type);
-        this.f20333h.setText(userInfoBigVip.user_detail);
+        this.f21852e.startLoad(userInfoBigVip.portraith, 12, false);
+        this.f21853f.setText(UtilHelper.getFixedText(userInfoBigVip.user_name, 7));
+        this.f21854g.setText(userInfoBigVip.user_type);
+        this.f21855h.setText(userInfoBigVip.user_detail);
         if (z) {
             if (userInfoBigVip.message_accept.intValue() == 1) {
                 f(true);

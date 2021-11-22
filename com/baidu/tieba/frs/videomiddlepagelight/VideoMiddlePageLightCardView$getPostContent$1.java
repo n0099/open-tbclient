@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.videomiddlepagelight;
 
-import b.a.q0.f1.n.e;
+import b.a.q0.e1.n.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AbstractData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;

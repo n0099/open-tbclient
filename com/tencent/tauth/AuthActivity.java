@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +27,7 @@ public class AuthActivity extends Activity {
     public static final String ACTION_SHARE_PRIZE = "sharePrize";
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f70179a;
+    public static int f71099a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -162,10 +163,10 @@ public class AuthActivity extends Activity {
                         }
                     } else {
                         if (string.equals("shareToQzone") && i.a((Context) this, "com.tencent.mobileqq") != null && i.c(this, "5.2.0") < 0) {
-                            int i2 = f70179a + 1;
-                            f70179a = i2;
+                            int i2 = f71099a + 1;
+                            f71099a = i2;
                             if (i2 == 2) {
-                                f70179a = 0;
+                                f71099a = 0;
                                 finish();
                                 return;
                             }
@@ -193,6 +194,7 @@ public class AuthActivity extends Activity {
             if (getIntent() == null) {
                 SLog.w("openSDK_LOG.AuthActivity", "-->onCreate, getIntent() return null");
                 finish();
+                LogUtil.logActivity(this, "onCreate");
                 return;
             }
             Uri uri = null;
@@ -208,6 +210,7 @@ public class AuthActivity extends Activity {
                 e3.printStackTrace();
                 finish();
             }
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

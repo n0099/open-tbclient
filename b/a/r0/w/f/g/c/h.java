@@ -13,19 +13,19 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f24836a;
+    public a f26353a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SpecialLiveTabInfo> f24837b;
+    public List<SpecialLiveTabInfo> f26354b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f24838c;
+    public boolean f26355c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AlaUserInfoData f24839d;
+    public AlaUserInfoData f26356d;
 
     /* renamed from: e  reason: collision with root package name */
-    public i f24840e;
+    public i f26357e;
 
     public h() {
         Interceptable interceptable = $ic;

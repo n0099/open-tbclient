@@ -14,7 +14,7 @@ public class q {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f63997a = "kssdk_api_pref";
+    public static String f64910a = "kssdk_api_pref";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class q {
     public static void a(Context context, String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
-            context.getSharedPreferences(f63997a, 0).edit().putLong(str, j).commit();
+            context.getSharedPreferences(f64910a, 0).edit().putLong(str, j).commit();
         }
     }
 
@@ -50,7 +50,7 @@ public class q {
     public static void a(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, context, str, str2) == null) {
-            context.getSharedPreferences(f63997a, 0).edit().putString(str, str2).commit();
+            context.getSharedPreferences(f64910a, 0).edit().putString(str, str2).commit();
         }
     }
 
@@ -63,12 +63,12 @@ public class q {
     public static long b(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? context.getSharedPreferences(f63997a, 0).getLong(str, j) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? context.getSharedPreferences(f64910a, 0).getLong(str, j) : invokeCommon.longValue;
     }
 
     public static String b(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, str2)) == null) ? context.getSharedPreferences(f63997a, 0).getString(str, str2) : (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, str2)) == null) ? context.getSharedPreferences(f64910a, 0).getString(str, str2) : (String) invokeLLL.objValue;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.lego.card.model;
 
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

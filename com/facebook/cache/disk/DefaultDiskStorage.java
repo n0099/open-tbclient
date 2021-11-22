@@ -4,6 +4,7 @@ import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -504,7 +505,7 @@ public class DefaultDiskStorage implements DiskStorage {
             EntryImpl entryImpl = (EntryImpl) entry;
             byte[] read = entryImpl.getResource().read();
             String typeOfBytes = typeOfBytes(read);
-            return new DiskStorage.DiskDumpInfoEntry(entryImpl.getId(), entryImpl.getResource().getFile().getPath(), typeOfBytes, (float) entryImpl.getSize(), (!typeOfBytes.equals(SessionMonitorEngine.PUBLIC_DATA_UNDIFNED) || read.length < 4) ? "" : String.format(null, "0x%02X 0x%02X 0x%02X 0x%02X", Byte.valueOf(read[0]), Byte.valueOf(read[1]), Byte.valueOf(read[2]), Byte.valueOf(read[3])));
+            return new DiskStorage.DiskDumpInfoEntry(entryImpl.getResource().getFile().getPath(), typeOfBytes, (float) entryImpl.getSize(), (!typeOfBytes.equals(SessionMonitorEngine.PUBLIC_DATA_UNDIFNED) || read.length < 4) ? "" : String.format(null, "0x%02X 0x%02X 0x%02X 0x%02X", Byte.valueOf(read[0]), Byte.valueOf(read[1]), Byte.valueOf(read[2]), Byte.valueOf(read[3])));
         }
         return (DiskStorage.DiskDumpInfoEntry) invokeL.objValue;
     }
@@ -657,7 +658,7 @@ public class DefaultDiskStorage implements DiskStorage {
     private String typeOfBytes(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, this, bArr)) == null) ? bArr.length >= 2 ? (bArr[0] == -1 && bArr[1] == -40) ? "jpg" : (bArr[0] == -119 && bArr[1] == 80) ? "png" : (bArr[0] == 82 && bArr[1] == 73) ? "webp" : (bArr[0] == 71 && bArr[1] == 73) ? "gif" : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65557, this, bArr)) == null) ? bArr.length >= 2 ? (bArr[0] == -1 && bArr[1] == -40) ? "jpg" : (bArr[0] == -119 && bArr[1] == 80) ? "png" : (bArr[0] == 82 && bArr[1] == 73) ? OvalActionButton.WEBP : (bArr[0] == 71 && bArr[1] == 73) ? "gif" : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : (String) invokeL.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage

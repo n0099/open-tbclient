@@ -30,16 +30,16 @@ public class IPCServiceManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile IPCServiceManagerAidl f42187a;
+    public static volatile IPCServiceManagerAidl f43133a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f42188b;
+    public static final b f43134b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static IPCServiceManagerAidlImpl f42189c;
+    public static IPCServiceManagerAidlImpl f43135c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ContentProviderClient f42190d;
+    public static ContentProviderClient f43136d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -94,7 +94,7 @@ public class IPCServiceManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f42191h;
+        public final /* synthetic */ String f43137h;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -111,14 +111,14 @@ public class IPCServiceManager {
                     return;
                 }
             }
-            this.f42191h = str;
+            this.f43137h = str;
         }
 
         @Override // b.a.h0.b.a.f
         public IBinder c() throws RemoteException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? IPCServiceManager.g().getService(this.f42191h) : (IBinder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? IPCServiceManager.g().getService(this.f43137h) : (IBinder) invokeV.objValue;
         }
     }
 
@@ -127,7 +127,7 @@ public class IPCServiceManager {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final Uri f42192h;
+        public static final Uri f43138h;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -143,7 +143,7 @@ public class IPCServiceManager {
                     return;
                 }
             }
-            f42192h = Uri.parse("content://" + ServerProvider.getCoreProviderAuthority() + "/ipc_manager/method/get_service_handler");
+            f43138h = Uri.parse("content://" + ServerProvider.getCoreProviderAuthority() + "/ipc_manager/method/get_service_handler");
         }
 
         public b() {
@@ -241,7 +241,7 @@ public class IPCServiceManager {
                         bundle = h(acquireUnstableContentProviderClient, jSONObject);
                     }
                     if (bundle != null) {
-                        IPCServiceManager.f42190d = acquireUnstableContentProviderClient;
+                        IPCServiceManager.f43136d = acquireUnstableContentProviderClient;
                         break;
                     }
                     try {
@@ -280,7 +280,7 @@ public class IPCServiceManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, contentProviderClient, jSONObject)) == null) {
                 try {
-                    return contentProviderClient.query(f42192h, null, null, null, null).getExtras();
+                    return contentProviderClient.query(f43138h, null, null, null, null).getExtras();
                 } catch (Exception e2) {
                     try {
                         jSONObject.put("useProviderClientQuery", g.a(e2));
@@ -299,9 +299,9 @@ public class IPCServiceManager {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, contentResolver, jSONObject)) == null) {
                 Bundle bundle = null;
                 for (int i2 = 0; i2 < 2; i2++) {
-                    bundle = d(contentResolver, f42192h, jSONObject);
+                    bundle = d(contentResolver, f43138h, jSONObject);
                     if (bundle == null) {
-                        bundle = e(contentResolver, f42192h, jSONObject);
+                        bundle = e(contentResolver, f43138h, jSONObject);
                     }
                     if (bundle != null) {
                         break;
@@ -334,7 +334,7 @@ public class IPCServiceManager {
                 return;
             }
         }
-        f42188b = new b(null);
+        f43134b = new b(null);
     }
 
     public static void c(String str, IBinder iBinder, boolean z) {
@@ -368,10 +368,10 @@ public class IPCServiceManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (f42189c == null) {
-                f42189c = new IPCServiceManagerAidlImpl(null);
+            if (f43135c == null) {
+                f43135c = new IPCServiceManagerAidlImpl(null);
             }
-            return f42189c;
+            return f43135c;
         }
         return (IPCServiceManagerAidlImpl) invokeV.objValue;
     }
@@ -398,12 +398,12 @@ public class IPCServiceManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            IPCServiceManagerAidl iPCServiceManagerAidl = f42187a;
+            IPCServiceManagerAidl iPCServiceManagerAidl = f43133a;
             if (iPCServiceManagerAidl != null) {
                 return iPCServiceManagerAidl;
             }
-            IPCServiceManagerAidl asInterface = IPCServiceManagerAidl.Stub.asInterface(f42188b);
-            f42187a = asInterface;
+            IPCServiceManagerAidl asInterface = IPCServiceManagerAidl.Stub.asInterface(f43134b);
+            f43133a = asInterface;
             return asInterface;
         }
         return (IPCServiceManagerAidl) invokeV.objValue;

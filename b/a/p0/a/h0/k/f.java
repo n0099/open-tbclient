@@ -1,6 +1,6 @@
 package b.a.p0.a.h0.k;
 
-import b.a.p0.a.l0.j;
+import b.a.p0.a.l0.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,22 +13,22 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f5412a;
+    public c f5693a;
 
     /* loaded from: classes.dex */
-    public class a implements j {
+    public class a implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ j f5413a;
+        public final /* synthetic */ k f5694a;
 
-        public a(f fVar, j jVar) {
+        public a(f fVar, k kVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fVar, jVar};
+                Object[] objArr = {fVar, kVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -38,17 +38,17 @@ public class f {
                     return;
                 }
             }
-            this.f5413a = jVar;
+            this.f5694a = kVar;
         }
 
-        @Override // b.a.p0.a.l0.j
+        @Override // b.a.p0.a.l0.k
         public void a(b.a.p0.a.l0.a aVar) {
-            j jVar;
+            k kVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (jVar = this.f5413a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (kVar = this.f5694a) == null) {
                 return;
             }
-            jVar.a(aVar);
+            kVar.a(aVar);
         }
     }
 
@@ -65,14 +65,14 @@ public class f {
                 return;
             }
         }
-        this.f5412a = new c(b.a.p0.a.e0.f.d.b.d().getPath(), b.a.p0.a.e0.f.d.b.f4584b);
+        this.f5693a = new c(b.a.p0.a.e0.f.d.b.d().getPath(), b.a.p0.a.e0.f.d.b.f4554b);
     }
 
     public b.a.p0.a.l0.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c cVar = this.f5412a;
+            c cVar = this.f5693a;
             if (cVar != null) {
                 return cVar.d();
             }
@@ -84,19 +84,19 @@ public class f {
     public void b() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f5412a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f5693a) == null) {
             return;
         }
         cVar.e();
-        this.f5412a = null;
+        this.f5693a = null;
     }
 
-    public void c(j jVar) {
+    public void c(k kVar) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) || (cVar = this.f5412a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kVar) == null) || (cVar = this.f5693a) == null) {
             return;
         }
-        cVar.f(new a(this, jVar));
+        cVar.f(new a(this, kVar));
     }
 }

@@ -259,7 +259,7 @@ public final class BitmapUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             try {
-                int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+                int attributeInt = new ExifInterface(str).getAttributeInt("Orientation", 1);
                 if (attributeInt != 3) {
                     if (attributeInt != 6) {
                         return attributeInt != 8 ? 0 : 270;
@@ -400,9 +400,9 @@ public final class BitmapUtils {
                         i9 = 16;
                     }
                     float f2 = (i9 - 16) * 1.164f;
-                    float f3 = i12 + a.f34123g;
+                    float f3 = i12 + a.f34957g;
                     int round = Math.round((1.596f * f3) + f2);
-                    float f4 = i11 + a.f34123g;
+                    float f4 = i11 + a.f34957g;
                     int round2 = Math.round((f2 - (f3 * 0.813f)) - (0.391f * f4));
                     int round3 = Math.round(f2 + (f4 * 2.018f));
                     if (round < 0) {

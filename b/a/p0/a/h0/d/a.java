@@ -3,6 +3,7 @@ package b.a.p0.a.h0.d;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.k;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,25 +18,25 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5168a;
+    public static final boolean f5349a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.p0.a.h0.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0193a {
+    public static class C0200a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f5169a;
+        public int f5350a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f5170b;
+        public int f5351b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f5171c;
+        public long f5352c;
 
-        public C0193a() {
+        public C0200a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,7 +56,10 @@ public final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f5172a;
+        public static final boolean f5353a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public static int f5354b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -71,48 +75,88 @@ public final class a {
                     return;
                 }
             }
-            f5172a = k.f6397a;
+            f5353a = k.f6863a;
+            f5354b = -1;
         }
 
-        public static C0193a a() {
+        public static boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                C0193a c0193a = new C0193a();
-                c0193a.f5169a = c();
-                c0193a.f5170b = d();
-                c0193a.f5171c = b();
-                if (f5172a) {
-                    String str = "getCodeCacheConfig() maxCount: " + c0193a.f5169a + " ,sizeLimit: " + c0193a.f5170b + " ,diskSizeThreshold: " + c0193a.f5171c;
-                }
-                return c0193a;
-            }
-            return (C0193a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (h() & 255) == 1 : invokeV.booleanValue;
         }
 
-        public static long b() {
+        public static int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                return 31457280L;
+                int h2 = h();
+                return h2 == 0 ? h2 : (h2 >> 16) & 255;
             }
-            return invokeV.longValue;
+            return invokeV.intValue;
         }
 
         public static int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                int h2 = h();
+                return h2 == 0 ? h2 : (h2 >> 8) & 255;
+            }
+            return invokeV.intValue;
+        }
+
+        public static C0200a d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+                C0200a c0200a = new C0200a();
+                c0200a.f5350a = f();
+                c0200a.f5351b = g();
+                c0200a.f5352c = e();
+                if (f5353a) {
+                    String str = "getCodeCacheConfig() maxCount: " + c0200a.f5350a + " ,sizeLimit: " + c0200a.f5351b + " ,diskSizeThreshold: " + c0200a.f5352c;
+                }
+                return c0200a;
+            }
+            return (C0200a) invokeV.objValue;
+        }
+
+        public static long e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+                return 31457280L;
+            }
+            return invokeV.longValue;
+        }
+
+        public static int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
                 return 20;
             }
             return invokeV.intValue;
         }
 
-        public static int d() {
+        public static int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
                 return 102400;
+            }
+            return invokeV.intValue;
+        }
+
+        public static int h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+                if (f5354b == -1) {
+                    b.a.p0.a.c1.a.g0().getSwitch("swan_custom_code_cache", 0);
+                    f5354b = 0;
+                }
+                return f5354b;
             }
             return invokeV.intValue;
         }
@@ -131,7 +175,7 @@ public final class a {
                 return;
             }
         }
-        f5168a = k.f6397a;
+        f5349a = k.f6863a;
     }
 
     @NonNull
@@ -148,12 +192,12 @@ public final class a {
                 codeCacheSetting.maxCount = 20;
                 codeCacheSetting.sizeLimit = 102400;
             } else {
-                C0193a a2 = b.a();
-                codeCacheSetting.maxCount = a2.f5169a;
-                codeCacheSetting.sizeLimit = a2.f5170b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = a2.f5171c;
+                C0200a d2 = b.d();
+                codeCacheSetting.maxCount = d2.f5350a;
+                codeCacheSetting.sizeLimit = d2.f5351b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = d2.f5352c;
             }
-            if (f5168a) {
+            if (f5349a) {
                 String str3 = "buildCacheSetting cacheType: " + str;
                 String str4 = "buildCacheSetting maxCount: " + codeCacheSetting.maxCount;
                 String str5 = "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit;

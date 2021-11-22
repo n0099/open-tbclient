@@ -1,10 +1,10 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
+import b.a.r0.a3.l0.b;
 import b.a.r0.k2.r.d;
 import b.a.r0.k2.r.f;
 import b.a.r0.k2.u.f.j;
-import b.a.r0.z2.l0.b;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -113,12 +113,12 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 this.mAppealInfo = dVar;
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
-                    dVar.f18751a = appealInfo.source;
-                    dVar.f18753c = appealInfo.appeal_url;
+                    dVar.f20287a = appealInfo.source;
+                    dVar.f20289c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
-                    this.mAppealInfo.f18752b = simpleForum.name;
+                    this.mAppealInfo.f20288b = simpleForum.name;
                     return;
                 }
                 return;

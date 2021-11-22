@@ -1,18 +1,16 @@
 package b.a.p0.a.p.c;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.p.d.k1;
+import b.a.p0.a.p.d.h1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
-public class m0 implements k1 {
+public class m0 implements h1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,79 +28,48 @@ public class m0 implements k1 {
         }
     }
 
-    @Override // b.a.p0.a.p.d.k1
-    public void a(@NonNull Object obj, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, obj, str, str2) == null) {
-        }
-    }
-
-    @Override // b.a.p0.a.p.d.k1
-    public void b(@NonNull Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-        }
-    }
-
-    @Override // b.a.p0.a.p.d.k1
-    public Object beginFlow(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // b.a.p0.a.p.d.k1
-    public void c(@NonNull Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-        }
-    }
-
-    @Override // b.a.p0.a.p.d.k1
-    public void d(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, map) == null) {
-        }
-    }
-
-    @Override // b.a.p0.a.p.d.k1
-    public boolean e() {
+    @Override // b.a.p0.a.p.d.h1
+    public ExecutorService d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-        return invokeV.booleanValue;
+        return (ExecutorService) invokeV.objValue;
     }
 
-    @Override // b.a.p0.a.p.d.k1
-    public void f(String str, JSONObject jSONObject) {
+    @Override // b.a.p0.a.p.d.h1
+    public void e(String str, int i2, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, jSONObject) == null) {
-        }
-    }
-
-    @Override // b.a.p0.a.p.d.k1
-    public void g(@NonNull Object obj, String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{obj, str, str2, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, jSONArray) == null) {
         }
     }
 
-    @Override // b.a.p0.a.p.d.k1
-    public void h(@NonNull Object obj, String str) {
+    @Override // b.a.p0.a.p.d.h1
+    public void f(String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, str) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
         }
     }
 
-    @Override // b.a.p0.a.p.d.k1
-    public void i(String str, String str2) {
+    @Override // b.a.p0.a.p.d.h1
+    public void g(String str, String str2, int i2, String str3, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i2), str3, Integer.valueOf(i3)}) == null) {
+        }
+    }
+
+    @Override // b.a.p0.a.p.d.h1
+    public void i(String str, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i2, str2) == null) {
+        }
+    }
+
+    @Override // b.a.p0.a.p.d.h1
+    public void o(String str, String str2, int i2, String str3, long j, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i2), str3, Long.valueOf(j), Integer.valueOf(i3)}) == null) {
         }
     }
 }

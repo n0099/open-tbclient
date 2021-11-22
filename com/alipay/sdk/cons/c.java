@@ -9,31 +9,31 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f34081a = "status";
+    public static final String f34915a = "status";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34082b = "msg";
+    public static final String f34916b = "msg";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34083c = "form";
+    public static final String f34917c = "form";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34084d = "onload";
+    public static final String f34918d = "onload";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34085e = "name";
+    public static final String f34919e = "name";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34086f = "host";
+    public static final String f34920f = "host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34087g = "params";
+    public static final String f34921g = "params";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34088h = "enctype";
+    public static final String f34922h = "enctype";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34089i = "request_param";
+    public static final String f34923i = "request_param";
     public static final String j = "validate";
     public static final String k = "formSubmit";
     public static final String l = "namespace";

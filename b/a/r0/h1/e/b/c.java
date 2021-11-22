@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import b.a.q0.s.g0.f;
 import b.a.q0.s.q.x0;
 import b.a.r0.h1.e.b.a;
@@ -38,31 +38,31 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f17119a;
+    public TbPageContext f18587a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.r0.h1.e.f.b f17120b;
+    public b.a.r0.h1.e.f.b f18588b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.r0.h1.e.d.b f17121c;
+    public b.a.r0.h1.e.d.b f18589c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f17122d;
+    public int f18590d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.h1.e.b.a f17123e;
+    public b.a.r0.h1.e.b.a f18591e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.r0.h1.e.b.b f17124f;
+    public b.a.r0.h1.e.b.b f18592f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdUniqueId f17125g;
+    public BdUniqueId f18593g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f17126h;
+    public CustomMessageListener f18594h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NEGFeedBackView.b f17127i;
+    public NEGFeedBackView.b f18595i;
     public final View.OnClickListener j;
     public f.g k;
     public BdListView.p l;
@@ -77,7 +77,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f17128a;
+        public final /* synthetic */ c f18596a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2) {
@@ -97,7 +97,7 @@ public class c {
                     return;
                 }
             }
-            this.f17128a = cVar;
+            this.f18596a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -105,9 +105,9 @@ public class c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f17128a.p(customResponsedMessage);
-                if (this.f17128a.f17120b != null) {
-                    this.f17128a.f17120b.L();
+                this.f18596a.p(customResponsedMessage);
+                if (this.f18596a.f18588b != null) {
+                    this.f18596a.f18588b.L();
                 }
             }
         }
@@ -119,7 +119,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f17129a;
+        public final /* synthetic */ c f18597a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class c {
                     return;
                 }
             }
-            this.f17129a = cVar;
+            this.f18597a = cVar;
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
@@ -170,8 +170,8 @@ public class c {
             } else if (i4 == 49) {
                 i2 = 3;
             }
-            if (this.f17129a.f17120b != null) {
-                this.f17129a.f17120b.N();
+            if (this.f18597a.f18588b != null) {
+                this.f18597a.f18588b.N();
             }
             TiebaStatic.log(new StatisticItem("c13500").param("tid", x0Var.f()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", x0Var.c()).param("obj_param1", x0Var.k).param("obj_source", x0Var.l).param("obj_id", x0Var.m).param("obj_type", sb.toString()).param("obj_name", str).param(TiebaStatic.Params.OBJ_PARAM2, i2));
         }
@@ -183,20 +183,20 @@ public class c {
                 return;
             }
             TiebaStatic.log(new StatisticItem("c13500").param("obj_locate", "1").param("fid", x0Var.c()).param("tid", x0Var.f()).param("uid", TbadkCoreApplication.getCurrentAccount()));
-            TiebaStatic.log(new StatisticItem("c13499").param("fid", x0Var.c()).param("tid", x0Var.f()).param("obj_type", this.f17129a.f17122d).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new StatisticItem("c13499").param("fid", x0Var.c()).param("tid", x0Var.f()).param("obj_type", this.f18597a.f18590d).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
     /* renamed from: b.a.r0.h1.e.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC0879c implements View.OnClickListener {
+    public class View$OnClickListenerC0947c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17130e;
+        public final /* synthetic */ c f18598e;
 
-        public View$OnClickListenerC0879c(c cVar) {
+        public View$OnClickListenerC0947c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -211,26 +211,26 @@ public class c {
                     return;
                 }
             }
-            this.f17130e = cVar;
+            this.f18598e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17130e.f17120b.E()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f18598e.f18588b.E()) {
                 return;
             }
-            this.f17130e.f17120b.Q(true);
-            if (this.f17130e.f17124f.i()) {
-                this.f17130e.f17124f.e();
-                this.f17130e.f17120b.c0();
-                SkinManager.setBackgroundResource(this.f17130e.f17120b.x(), R.color.CAM_X0207);
+            this.f18598e.f18588b.Q(true);
+            if (this.f18598e.f18592f.i()) {
+                this.f18598e.f18592f.e();
+                this.f18598e.f18588b.c0();
+                SkinManager.setBackgroundResource(this.f18598e.f18588b.x(), R.color.CAM_X0207);
                 return;
             }
-            this.f17130e.f17124f.n(this.f17130e.f17120b.x());
-            this.f17130e.f17120b.d0();
-            SkinManager.setBackgroundResource(this.f17130e.f17120b.x(), R.color.CAM_X0201);
-            if (this.f17130e.f17121c == null || ListUtils.isEmpty(this.f17130e.f17121c.m())) {
+            this.f18598e.f18592f.n(this.f18598e.f18588b.x());
+            this.f18598e.f18588b.d0();
+            SkinManager.setBackgroundResource(this.f18598e.f18588b.x(), R.color.CAM_X0201);
+            if (this.f18598e.f18589c == null || ListUtils.isEmpty(this.f18598e.f18589c.m())) {
                 return;
             }
             TiebaStatic.log("c13490");
@@ -243,7 +243,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17131e;
+        public final /* synthetic */ c f18599e;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -260,7 +260,7 @@ public class c {
                     return;
                 }
             }
-            this.f17131e = cVar;
+            this.f18599e = cVar;
         }
 
         @Override // b.a.q0.s.g0.f.g
@@ -268,13 +268,13 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (j.z()) {
-                    this.f17131e.f17121c.q(this.f17131e.f17122d);
-                    this.f17131e.u();
-                    this.f17131e.f17120b.X(false);
+                    this.f18599e.f18589c.q(this.f18599e.f18590d);
+                    this.f18599e.u();
+                    this.f18599e.f18588b.X(false);
                     return;
                 }
-                this.f17131e.f17120b.n0(null);
-                this.f17131e.f17119a.showToast(R.string.im_error_default);
+                this.f18599e.f18588b.n0(null);
+                this.f18599e.f18587a.showToast(R.string.im_error_default);
             }
         }
     }
@@ -285,7 +285,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17132e;
+        public final /* synthetic */ c f18600e;
 
         public e(c cVar) {
             Interceptable interceptable = $ic;
@@ -302,16 +302,16 @@ public class c {
                     return;
                 }
             }
-            this.f17132e = cVar;
+            this.f18600e = cVar;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f17132e.f17120b.f0();
-                this.f17132e.f17121c.r(this.f17132e.f17122d);
-                this.f17132e.u();
+                this.f18600e.f18588b.f0();
+                this.f18600e.f18589c.r(this.f18600e.f18590d);
+                this.f18600e.u();
             }
         }
     }
@@ -322,7 +322,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f17133a;
+        public final /* synthetic */ c f18601a;
 
         /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
@@ -330,7 +330,7 @@ public class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ f f17134e;
+            public final /* synthetic */ f f18602e;
 
             public a(f fVar) {
                 Interceptable interceptable = $ic;
@@ -347,14 +347,14 @@ public class c {
                         return;
                     }
                 }
-                this.f17134e = fVar;
+                this.f18602e = fVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f17134e.f17133a.t();
+                    this.f18602e.f18601a.t();
                 }
             }
         }
@@ -374,35 +374,35 @@ public class c {
                     return;
                 }
             }
-            this.f17133a = cVar;
+            this.f18601a = cVar;
         }
 
         @Override // b.a.r0.h1.e.d.b.e
         public void a(int i2, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                this.f17133a.f17120b.A();
-                this.f17133a.f17120b.B();
+                this.f18601a.f18588b.A();
+                this.f18601a.f18588b.B();
                 if (z || z2) {
-                    this.f17133a.f17120b.n0(null);
+                    this.f18601a.f18588b.n0(null);
                 } else {
-                    this.f17133a.f17120b.n0(this.f17133a.q(i2));
+                    this.f18601a.f18588b.n0(this.f18601a.q(i2));
                 }
-                if (this.f17133a.o()) {
+                if (this.f18601a.o()) {
                     return;
                 }
-                if (!ListUtils.isEmpty(this.f17133a.f17121c.m()) && !StringUtils.isNull(b.a.q0.s.e0.b.j().p("key_game_video_tab_has_choosed_sub_class_name", ""))) {
-                    this.f17133a.f17120b.R(this.f17133a.f17124f.i());
-                    this.f17133a.f17120b.e0();
-                    this.f17133a.f17124f.l(this.f17133a.f17121c.m());
+                if (!ListUtils.isEmpty(this.f18601a.f18589c.m()) && !StringUtils.isNull(b.a.q0.s.e0.b.j().p("key_game_video_tab_has_choosed_sub_class_name", ""))) {
+                    this.f18601a.f18588b.R(this.f18601a.f18592f.i());
+                    this.f18601a.f18588b.e0();
+                    this.f18601a.f18592f.l(this.f18601a.f18589c.m());
                 }
                 if (i2 != 0) {
-                    this.f17133a.f17120b.S(this.f17133a.f17121c.l());
-                    this.f17133a.f17120b.b0(this.f17133a.n);
-                } else if (ListUtils.isEmpty(this.f17133a.f17120b.w())) {
-                    this.f17133a.f17120b.i0();
+                    this.f18601a.f18588b.S(this.f18601a.f18589c.l());
+                    this.f18601a.f18588b.b0(this.f18601a.n);
+                } else if (ListUtils.isEmpty(this.f18601a.f18588b.w())) {
+                    this.f18601a.f18588b.i0();
                 } else if (z) {
-                    this.f17133a.f17120b.j0();
+                    this.f18601a.f18588b.j0();
                 }
             }
         }
@@ -411,20 +411,20 @@ public class c {
         public void b(int i2, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
-                this.f17133a.f17120b.n0(null);
-                this.f17133a.f17120b.A();
-                this.f17133a.f17120b.B();
-                if (ListUtils.isEmpty(this.f17133a.f17120b.w())) {
-                    this.f17133a.f17120b.h0(new a(this));
+                this.f18601a.f18588b.n0(null);
+                this.f18601a.f18588b.A();
+                this.f18601a.f18588b.B();
+                if (ListUtils.isEmpty(this.f18601a.f18588b.w())) {
+                    this.f18601a.f18588b.h0(new a(this));
                     return;
                 }
                 if (z) {
-                    this.f17133a.f17120b.b0(this.f17133a.n);
+                    this.f18601a.f18588b.b0(this.f18601a.n);
                 }
                 if (StringUtils.isNull(str)) {
-                    this.f17133a.f17119a.showToast(R.string.game_video_recommend_load_more_fail);
+                    this.f18601a.f18587a.showToast(R.string.game_video_recommend_load_more_fail);
                 } else {
-                    this.f17133a.f17119a.showToast(str);
+                    this.f18601a.f18587a.showToast(str);
                 }
             }
         }
@@ -436,7 +436,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17135e;
+        public final /* synthetic */ c f18603e;
 
         public g(c cVar) {
             Interceptable interceptable = $ic;
@@ -453,17 +453,17 @@ public class c {
                     return;
                 }
             }
-            this.f17135e = cVar;
+            this.f18603e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17135e.f17120b == null || this.f17135e.f17121c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f18603e.f18588b == null || this.f18603e.f18589c == null) {
                 return;
             }
-            this.f17135e.f17120b.f0();
-            this.f17135e.f17121c.r(this.f17135e.f17122d);
+            this.f18603e.f18588b.f0();
+            this.f18603e.f18589c.r(this.f18603e.f18590d);
         }
     }
 
@@ -473,7 +473,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f17136a;
+        public final /* synthetic */ c f18604a;
 
         public h(c cVar) {
             Interceptable interceptable = $ic;
@@ -490,7 +490,7 @@ public class c {
                     return;
                 }
             }
-            this.f17136a = cVar;
+            this.f18604a = cVar;
         }
 
         @Override // b.a.r0.h1.e.b.b.f
@@ -499,30 +499,30 @@ public class c {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
                 return;
             }
-            this.f17136a.f17122d = aVar.f17138a;
-            this.f17136a.m(aVar.f17138a);
-            if (this.f17136a.f17120b != null) {
-                this.f17136a.f17120b.U(aVar.f17138a);
-                this.f17136a.f17120b.R(false);
-                this.f17136a.f17120b.T(aVar.f17139b);
+            this.f18604a.f18590d = aVar.f18606a;
+            this.f18604a.m(aVar.f18606a);
+            if (this.f18604a.f18588b != null) {
+                this.f18604a.f18588b.U(aVar.f18606a);
+                this.f18604a.f18588b.R(false);
+                this.f18604a.f18588b.T(aVar.f18607b);
             }
         }
 
         @Override // b.a.r0.h1.e.b.b.f
         public void b() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f17136a.f17120b == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f18604a.f18588b == null) {
                 return;
             }
-            this.f17136a.f17120b.R(false);
-            this.f17136a.f17120b.H(false);
+            this.f18604a.f18588b.R(false);
+            this.f18604a.f18588b.H(false);
         }
 
         @Override // b.a.r0.h1.e.b.b.f
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f17136a.f17120b.H(true);
+                this.f18604a.f18588b.H(true);
             }
         }
     }
@@ -533,7 +533,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f17137a;
+        public final /* synthetic */ c f18605a;
 
         public i(c cVar) {
             Interceptable interceptable = $ic;
@@ -550,7 +550,7 @@ public class c {
                     return;
                 }
             }
-            this.f17137a = cVar;
+            this.f18605a = cVar;
         }
 
         @Override // b.a.r0.h1.e.b.a.b
@@ -559,12 +559,12 @@ public class c {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
                 return;
             }
-            this.f17137a.f17122d = aVar.f17138a;
-            this.f17137a.m(aVar.f17138a);
-            if (this.f17137a.f17120b != null) {
-                this.f17137a.f17120b.U(aVar.f17138a);
-                this.f17137a.f17120b.R(false);
-                this.f17137a.f17120b.T(aVar.f17139b);
+            this.f18605a.f18590d = aVar.f18606a;
+            this.f18605a.m(aVar.f18606a);
+            if (this.f18605a.f18588b != null) {
+                this.f18605a.f18588b.U(aVar.f18606a);
+                this.f18605a.f18588b.R(false);
+                this.f18605a.f18588b.T(aVar.f18607b);
             }
         }
     }
@@ -584,39 +584,39 @@ public class c {
                 return;
             }
         }
-        this.f17126h = new a(this, 2016488);
-        this.f17127i = new b(this);
-        this.j = new View$OnClickListenerC0879c(this);
+        this.f18594h = new a(this, 2016488);
+        this.f18595i = new b(this);
+        this.j = new View$OnClickListenerC0947c(this);
         this.k = new d(this);
         this.l = new e(this);
         this.m = new f(this);
         this.n = new g(this);
         this.o = new h(this);
         this.p = new i(this);
-        this.f17119a = tbPageContext;
-        this.f17125g = bdUniqueId;
-        this.f17120b = new b.a.r0.h1.e.f.b(tbPageContext, bdUniqueId, this.f17127i);
-        this.f17121c = new b.a.r0.h1.e.d.b(this.f17119a, this.m);
-        b.a.r0.h1.e.b.b bVar = new b.a.r0.h1.e.b.b(tbPageContext, this.f17125g);
-        this.f17124f = bVar;
+        this.f18587a = tbPageContext;
+        this.f18593g = bdUniqueId;
+        this.f18588b = new b.a.r0.h1.e.f.b(tbPageContext, bdUniqueId, this.f18595i);
+        this.f18589c = new b.a.r0.h1.e.d.b(this.f18587a, this.m);
+        b.a.r0.h1.e.b.b bVar = new b.a.r0.h1.e.b.b(tbPageContext, this.f18593g);
+        this.f18592f = bVar;
         bVar.m(this.o);
-        b.a.r0.h1.e.b.a aVar = new b.a.r0.h1.e.b.a(tbPageContext, this.f17125g);
-        this.f17123e = aVar;
+        b.a.r0.h1.e.b.a aVar = new b.a.r0.h1.e.b.a(tbPageContext, this.f18593g);
+        this.f18591e = aVar;
         aVar.i(this.p);
-        this.f17120b.W(this.j);
+        this.f18588b.W(this.j);
         int k = b.a.q0.s.e0.b.j().k("key_game_video_tab_has_choosed_sub_class_id", 0);
-        this.f17122d = k;
-        this.f17120b.U(k);
+        this.f18590d = k;
+        this.f18588b.U(k);
     }
 
     public final void m(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            b.a.r0.h1.e.b.b bVar = this.f17124f;
+            b.a.r0.h1.e.b.b bVar = this.f18592f;
             if (bVar != null) {
                 bVar.p(i2);
             }
-            b.a.r0.h1.e.d.b bVar2 = this.f17121c;
+            b.a.r0.h1.e.d.b bVar2 = this.f18589c;
             if (bVar2 != null) {
                 bVar2.x();
             }
@@ -627,22 +627,22 @@ public class c {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b.a.r0.h1.e.f.b bVar = this.f17120b;
+            b.a.r0.h1.e.f.b bVar = this.f18588b;
             if (bVar != null) {
                 bVar.r();
             }
-            b.a.r0.h1.e.b.b bVar2 = this.f17124f;
+            b.a.r0.h1.e.b.b bVar2 = this.f18592f;
             if (bVar2 != null) {
                 bVar2.j();
             }
-            b.a.r0.h1.e.b.a aVar = this.f17123e;
+            b.a.r0.h1.e.b.a aVar = this.f18591e;
             if (aVar != null) {
                 aVar.f();
             }
-            if (this.f17124f.i()) {
-                SkinManager.setBackgroundResource(this.f17120b.x(), R.color.CAM_X0201);
+            if (this.f18592f.i()) {
+                SkinManager.setBackgroundResource(this.f18588b.x(), R.color.CAM_X0201);
             } else {
-                SkinManager.setBackgroundResource(this.f17120b.x(), R.color.CAM_X0207);
+                SkinManager.setBackgroundResource(this.f18588b.x(), R.color.CAM_X0207);
             }
         }
     }
@@ -652,13 +652,13 @@ public class c {
         b.a.r0.h1.e.b.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b.a.r0.h1.e.d.b bVar = this.f17121c;
+            b.a.r0.h1.e.d.b bVar = this.f18589c;
             if (bVar == null || ListUtils.isEmpty(bVar.m())) {
                 return false;
             }
-            if ((this.f17121c.o() || this.f17122d == 0) && (aVar = this.f17123e) != null) {
-                aVar.h(this.f17121c.m());
-                this.f17123e.c((ViewGroup) this.f17120b.y());
+            if ((this.f18589c.o() || this.f18590d == 0) && (aVar = this.f18591e) != null) {
+                aVar.h(this.f18589c.m());
+                this.f18591e.c((ViewGroup) this.f18588b.y());
                 b.a.q0.s.e0.b.j().C("key_game_video_tab_has_choosed_sub_class_id");
                 b.a.q0.s.e0.b.j().C("key_game_video_tab_has_choosed_sub_class_name");
                 return true;
@@ -671,13 +671,13 @@ public class c {
     public final void p(CustomResponsedMessage<?> customResponsedMessage) {
         b.a.r0.h1.e.d.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || (bVar = this.f17121c) == null || ListUtils.isEmpty(bVar.l())) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || (bVar = this.f18589c) == null || ListUtils.isEmpty(bVar.l())) {
             return;
         }
         String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
-        this.f17121c.w(optString);
-        this.f17121c.v(optString);
-        b.a.r0.h1.e.f.b bVar2 = this.f17120b;
+        this.f18589c.w(optString);
+        this.f18589c.v(optString);
+        b.a.r0.h1.e.f.b bVar2 = this.f18588b;
         if (bVar2 != null) {
             bVar2.P(optString);
         }
@@ -689,9 +689,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             if (i2 <= 0) {
-                string = this.f17119a.getResources().getString(R.string.game_video_no_more);
+                string = this.f18587a.getResources().getString(R.string.game_video_no_more);
             } else {
-                string = this.f17119a.getResources().getString(R.string.game_video_recommend_count, Integer.valueOf(i2));
+                string = this.f18587a.getResources().getString(R.string.game_video_recommend_count, Integer.valueOf(i2));
             }
             return new f.i(string, 1000);
         }
@@ -702,7 +702,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            b.a.r0.h1.e.f.b bVar = this.f17120b;
+            b.a.r0.h1.e.f.b bVar = this.f18588b;
             if (bVar != null) {
                 return bVar.y();
             }
@@ -714,25 +714,25 @@ public class c {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f17121c.u();
-            this.f17120b.C();
-            this.f17120b.V(this.k);
-            this.f17120b.Y(this.l);
-            MessageManager.getInstance().registerListener(this.f17126h);
+            this.f18589c.u();
+            this.f18588b.C();
+            this.f18588b.V(this.k);
+            this.f18588b.Y(this.l);
+            MessageManager.getInstance().registerListener(this.f18594h);
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            b.a.r0.h1.e.f.b bVar = this.f17120b;
+            b.a.r0.h1.e.f.b bVar = this.f18588b;
             if (bVar != null) {
                 bVar.s();
-                this.f17120b.g0();
+                this.f18588b.g0();
             }
-            b.a.r0.h1.e.d.b bVar2 = this.f17121c;
+            b.a.r0.h1.e.d.b bVar2 = this.f18589c;
             if (bVar2 != null) {
-                bVar2.q(this.f17122d);
+                bVar2.q(this.f18590d);
             }
         }
     }
@@ -740,74 +740,74 @@ public class c {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            TiebaStatic.log(new StatisticItem("c13493").param("obj_type", this.f17122d));
+            TiebaStatic.log(new StatisticItem("c13493").param("obj_type", this.f18590d));
         }
     }
 
     public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            b.a.r0.h1.e.f.b bVar = this.f17120b;
+            b.a.r0.h1.e.f.b bVar = this.f18588b;
             if (bVar != null) {
                 bVar.V(null);
-                this.f17120b.Y(null);
-                this.f17120b.I();
+                this.f18588b.Y(null);
+                this.f18588b.I();
             }
-            b.a.r0.h1.e.b.b bVar2 = this.f17124f;
+            b.a.r0.h1.e.b.b bVar2 = this.f18592f;
             if (bVar2 != null) {
                 bVar2.k();
             }
-            b.a.r0.h1.e.b.a aVar = this.f17123e;
+            b.a.r0.h1.e.b.a aVar = this.f18591e;
             if (aVar != null) {
                 aVar.g();
             }
-            b.a.r0.h1.e.d.b bVar3 = this.f17121c;
+            b.a.r0.h1.e.d.b bVar3 = this.f18589c;
             if (bVar3 != null) {
                 bVar3.t();
             }
-            MessageManager.getInstance().unRegisterListener(this.f17126h);
+            MessageManager.getInstance().unRegisterListener(this.f18594h);
         }
     }
 
     public void w() {
         b.a.r0.h1.e.f.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (bVar = this.f17120b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (bVar = this.f18588b) == null) {
             return;
         }
         bVar.J();
-        this.f17120b.K();
-        this.f17120b.Z(true);
+        this.f18588b.K();
+        this.f18588b.Z(true);
     }
 
     public void x() {
         b.a.r0.h1.e.f.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (bVar = this.f17120b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (bVar = this.f18588b) == null) {
             return;
         }
         bVar.G();
-        this.f17120b.l0();
-        this.f17120b.X(false);
-        this.f17120b.m0();
+        this.f18588b.l0();
+        this.f18588b.X(false);
+        this.f18588b.m0();
     }
 
     public void y(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             if (z) {
-                TiebaStatic.log(new StatisticItem("c13486").param("obj_type", this.f17122d));
-                if (this.f17124f.i()) {
+                TiebaStatic.log(new StatisticItem("c13486").param("obj_type", this.f18590d));
+                if (this.f18592f.i()) {
                     return;
                 }
-                this.f17120b.a0();
+                this.f18588b.a0();
                 return;
             }
-            b.a.r0.h1.e.b.b bVar = this.f17124f;
+            b.a.r0.h1.e.b.b bVar = this.f18592f;
             if (bVar != null) {
                 bVar.f();
             }
-            this.f17120b.K();
+            this.f18588b.K();
         }
     }
 }

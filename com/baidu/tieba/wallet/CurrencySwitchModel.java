@@ -1,7 +1,7 @@
 package com.baidu.tieba.wallet;
 
 import b.a.e.a.f;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;

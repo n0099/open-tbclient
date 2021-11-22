@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.e0.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;

@@ -12,7 +12,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final DecimalFormat f29923a;
+    public static final DecimalFormat f30792a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,14 +28,14 @@ public class e {
                 return;
             }
         }
-        f29923a = new DecimalFormat("0.00");
+        f30792a = new DecimalFormat("0.00");
     }
 
     public static String a(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return f29923a.format(((float) j) / 1048576.0f) + "M/" + f29923a.format(((float) j2) / 1048576.0f) + "M";
+            return f30792a.format(((float) j) / 1048576.0f) + "M/" + f30792a.format(((float) j2) / 1048576.0f) + "M";
         }
         return (String) invokeCommon.objValue;
     }

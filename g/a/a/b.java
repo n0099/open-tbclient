@@ -15,16 +15,16 @@ public class b extends InputStream {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f71703e;
+    public byte[] f72622e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f71704f;
+    public int f72623f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f71705g;
+    public int f72624g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final j f71706h;
+    public final j f72625h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b(InputStream inputStream) throws IOException {
@@ -51,7 +51,7 @@ public class b extends InputStream {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j.a(this.f71706h);
+            j.a(this.f72625h);
         }
     }
 
@@ -60,18 +60,18 @@ public class b extends InputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f71705g >= this.f71704f) {
-                byte[] bArr = this.f71703e;
+            if (this.f72624g >= this.f72623f) {
+                byte[] bArr = this.f72622e;
                 int read = read(bArr, 0, bArr.length);
-                this.f71704f = read;
-                this.f71705g = 0;
+                this.f72623f = read;
+                this.f72624g = 0;
                 if (read == -1) {
                     return -1;
                 }
             }
-            byte[] bArr2 = this.f71703e;
-            int i2 = this.f71705g;
-            this.f71705g = i2 + 1;
+            byte[] bArr2 = this.f72622e;
+            int i2 = this.f72624g;
+            this.f72624g = i2 + 1;
             return bArr2[i2] & 255;
         }
         return invokeV.intValue;
@@ -93,17 +93,17 @@ public class b extends InputStream {
             }
         }
         j jVar = new j();
-        this.f71706h = jVar;
+        this.f72625h = jVar;
         if (i2 <= 0) {
             throw new IllegalArgumentException("Bad buffer size:" + i2);
         } else if (inputStream != null) {
-            this.f71703e = new byte[i2];
-            this.f71704f = 0;
-            this.f71705g = 0;
+            this.f72622e = new byte[i2];
+            this.f72623f = 0;
+            this.f72624g = 0;
             try {
                 j.c(jVar, inputStream);
                 if (bArr != null) {
-                    d.s(this.f71706h, bArr);
+                    d.s(this.f72625h, bArr);
                 }
             } catch (BrotliRuntimeException e2) {
                 throw new IOException("Brotli decoder initialization failed", e2);
@@ -127,11 +127,11 @@ public class b extends InputStream {
                 } else if (i3 == 0) {
                     return 0;
                 } else {
-                    int max = Math.max(this.f71704f - this.f71705g, 0);
+                    int max = Math.max(this.f72623f - this.f72624g, 0);
                     if (max != 0) {
                         max = Math.min(max, i3);
-                        System.arraycopy(this.f71703e, this.f71705g, bArr, i2, max);
-                        this.f71705g += max;
+                        System.arraycopy(this.f72622e, this.f72624g, bArr, i2, max);
+                        this.f72624g += max;
                         i2 += max;
                         i3 -= max;
                         if (i3 == 0) {
@@ -139,15 +139,15 @@ public class b extends InputStream {
                         }
                     }
                     try {
-                        this.f71706h.Z = bArr;
-                        this.f71706h.U = i2;
-                        this.f71706h.V = i3;
-                        this.f71706h.W = 0;
-                        d.i(this.f71706h);
-                        if (this.f71706h.W == 0) {
+                        this.f72625h.Z = bArr;
+                        this.f72625h.U = i2;
+                        this.f72625h.V = i3;
+                        this.f72625h.W = 0;
+                        d.i(this.f72625h);
+                        if (this.f72625h.W == 0) {
                             return -1;
                         }
-                        return this.f71706h.W + max;
+                        return this.f72625h.W + max;
                     } catch (BrotliRuntimeException e2) {
                         throw new IOException("Brotli stream decoding failed", e2);
                     }

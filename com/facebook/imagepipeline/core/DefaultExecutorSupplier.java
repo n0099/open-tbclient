@@ -74,11 +74,4 @@ public class DefaultExecutorSupplier implements ExecutorSupplier {
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIoBoundExecutor : (Executor) invokeV.objValue;
     }
-
-    @Override // com.facebook.imagepipeline.core.ExecutorSupplier
-    public Executor forThumbnailProducer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIoBoundExecutor : (Executor) invokeV.objValue;
-    }
 }

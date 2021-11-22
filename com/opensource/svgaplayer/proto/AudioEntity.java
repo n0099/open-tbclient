@@ -1,8 +1,8 @@
 package com.opensource.svgaplayer.proto;
 
-import b.o.a.c;
-import b.o.a.d;
-import b.o.a.h.a;
+import b.m.a.c;
+import b.m.a.d;
+import b.m.a.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;

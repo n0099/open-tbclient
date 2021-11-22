@@ -22,28 +22,28 @@ public class b extends b.a.e.a.c<ValidateActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f20434b;
+    public View f21956b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HeadImageView f20435c;
+    public HeadImageView f21957c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f20436d;
+    public TextView f21958d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f20437e;
+    public TextView f21959e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20438f;
+    public TextView f21960f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20439g;
+    public TextView f21961g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ValidateActivity f20440h;
+    public ValidateActivity f21962h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ValidateItemData f20441i;
+    public ValidateItemData f21963i;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -51,7 +51,7 @@ public class b extends b.a.e.a.c<ValidateActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f20442e;
+        public final /* synthetic */ b f21964e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -68,28 +68,28 @@ public class b extends b.a.e.a.c<ValidateActivity> {
                     return;
                 }
             }
-            this.f20442e = bVar;
+            this.f21964e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20442e.f20440h.onItemViewClick(this.f20442e.f20439g, 100, 0, 0L, this.f20442e.f20441i);
+                this.f21964e.f21962h.onItemViewClick(this.f21964e.f21961g, 100, 0, 0L, this.f21964e.f21963i);
             }
         }
     }
 
     /* renamed from: b.a.r0.l1.x.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1016b implements View.OnClickListener {
+    public class View$OnClickListenerC1084b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f20443e;
+        public final /* synthetic */ b f21965e;
 
-        public View$OnClickListenerC1016b(b bVar) {
+        public View$OnClickListenerC1084b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,14 +104,14 @@ public class b extends b.a.e.a.c<ValidateActivity> {
                     return;
                 }
             }
-            this.f20443e = bVar;
+            this.f21965e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f20443e.f20440h.onItemViewClick(this.f20443e.f20435c, 101, 0, 0L, this.f20443e.f20441i);
+                this.f21965e.f21962h.onItemViewClick(this.f21965e.f21957c, 101, 0, 0L, this.f21965e.f21963i);
             }
         }
     }
@@ -122,7 +122,7 @@ public class b extends b.a.e.a.c<ValidateActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f20444e;
+        public final /* synthetic */ b f21966e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -139,7 +139,7 @@ public class b extends b.a.e.a.c<ValidateActivity> {
                     return;
                 }
             }
-            this.f20444e = bVar;
+            this.f21966e = bVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -147,7 +147,7 @@ public class b extends b.a.e.a.c<ValidateActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                this.f20444e.f20440h.onItemViewLongClick(this.f20444e.f20434b, 200, 0, 0L, this.f20444e.f20441i);
+                this.f21966e.f21962h.onItemViewLongClick(this.f21966e.f21956b, 200, 0, 0L, this.f21966e.f21963i);
                 return true;
             }
             return invokeL.booleanValue;
@@ -173,26 +173,26 @@ public class b extends b.a.e.a.c<ValidateActivity> {
                 return;
             }
         }
-        this.f20440h = validateActivity;
+        this.f21962h = validateActivity;
         j();
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View findViewById = this.f1463a.findViewById(R.id.root_view);
-            this.f20434b = findViewById;
+            View findViewById = this.f1459a.findViewById(R.id.root_view);
+            this.f21956b = findViewById;
             HeadImageView headImageView = (HeadImageView) findViewById.findViewById(R.id.iv_head);
-            this.f20435c = headImageView;
+            this.f21957c = headImageView;
             headImageView.setIsRound(false);
-            this.f20436d = (TextView) this.f20434b.findViewById(R.id.tv_user_name);
-            this.f20437e = (TextView) this.f20434b.findViewById(R.id.tv_group_name);
-            this.f20438f = (TextView) this.f20434b.findViewById(R.id.tv_apply_reason);
-            TextView textView = (TextView) this.f20434b.findViewById(R.id.btn_pass);
-            this.f20439g = textView;
+            this.f21958d = (TextView) this.f21956b.findViewById(R.id.tv_user_name);
+            this.f21959e = (TextView) this.f21956b.findViewById(R.id.tv_group_name);
+            this.f21960f = (TextView) this.f21956b.findViewById(R.id.tv_apply_reason);
+            TextView textView = (TextView) this.f21956b.findViewById(R.id.btn_pass);
+            this.f21961g = textView;
             textView.setOnClickListener(new a(this));
-            this.f20435c.setOnClickListener(new View$OnClickListenerC1016b(this));
-            this.f20434b.setOnLongClickListener(new c(this));
+            this.f21957c.setOnClickListener(new View$OnClickListenerC1084b(this));
+            this.f21956b.setOnLongClickListener(new c(this));
         }
     }
 
@@ -207,43 +207,43 @@ public class b extends b.a.e.a.c<ValidateActivity> {
     public void l(ValidateItemData validateItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, validateItemData) == null) {
-            this.f20441i = validateItemData;
+            this.f21963i = validateItemData;
         }
     }
 
     public void refresh() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f20441i == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f21963i == null) {
             return;
         }
-        this.f20440h.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        this.f20440h.getLayoutMode().j(this.f20434b);
-        String portrait = this.f20441i.getPortrait();
-        this.f20435c.setTag(portrait);
-        this.f20435c.startLoad(portrait, 12, false);
-        if (!TextUtils.isEmpty(this.f20441i.getUserName())) {
-            this.f20436d.setText(this.f20441i.getUserName());
+        this.f21962h.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
+        this.f21962h.getLayoutMode().j(this.f21956b);
+        String portrait = this.f21963i.getPortrait();
+        this.f21957c.setTag(portrait);
+        this.f21957c.startLoad(portrait, 12, false);
+        if (!TextUtils.isEmpty(this.f21963i.getUserName())) {
+            this.f21958d.setText(this.f21963i.getUserName());
         }
-        if (!TextUtils.isEmpty(this.f20441i.getGroupName())) {
-            TextView textView = this.f20437e;
-            textView.setText(this.f20440h.getPageContext().getString(R.string.validate_im_apply_prefix) + this.f20441i.getGroupName());
+        if (!TextUtils.isEmpty(this.f21963i.getGroupName())) {
+            TextView textView = this.f21959e;
+            textView.setText(this.f21962h.getPageContext().getString(R.string.validate_im_apply_prefix) + this.f21963i.getGroupName());
         }
-        if (!TextUtils.isEmpty(this.f20441i.getApplyReason())) {
-            TextView textView2 = this.f20438f;
-            textView2.setText(this.f20440h.getPageContext().getString(R.string.validate_im_reason_prefix) + this.f20441i.getApplyReason());
+        if (!TextUtils.isEmpty(this.f21963i.getApplyReason())) {
+            TextView textView2 = this.f21960f;
+            textView2.setText(this.f21962h.getPageContext().getString(R.string.validate_im_reason_prefix) + this.f21963i.getApplyReason());
         }
-        if (this.f20441i.isPass()) {
-            this.f20439g.setEnabled(false);
-            this.f20439g.setText(this.f20440h.getPageContext().getString(R.string.passed));
-            SkinManager.setViewTextColor(this.f20439g, R.color.CAM_X0109);
-            this.f20439g.setBackgroundDrawable(null);
+        if (this.f21963i.isPass()) {
+            this.f21961g.setEnabled(false);
+            this.f21961g.setText(this.f21962h.getPageContext().getString(R.string.passed));
+            SkinManager.setViewTextColor(this.f21961g, R.color.CAM_X0109);
+            this.f21961g.setBackgroundDrawable(null);
         } else {
-            this.f20439g.setEnabled(true);
-            this.f20439g.setText(this.f20440h.getPageContext().getString(R.string.pass));
+            this.f21961g.setEnabled(true);
+            this.f21961g.setText(this.f21962h.getPageContext().getString(R.string.pass));
         }
-        if (this.f20441i.isShown()) {
+        if (this.f21963i.isShown()) {
             return;
         }
-        SkinManager.setBackgroundResource(this.f20434b, R.color.common_color_10178);
+        SkinManager.setBackgroundResource(this.f21956b, R.color.common_color_10178);
     }
 }

@@ -28,7 +28,7 @@ import com.google.android.material.R;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ITEMS_MEASURED = 15;

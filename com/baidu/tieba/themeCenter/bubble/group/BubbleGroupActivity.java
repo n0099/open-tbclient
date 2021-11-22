@@ -2,9 +2,9 @@ package com.baidu.tieba.themeCenter.bubble.group;
 
 import android.os.Bundle;
 import b.a.q0.o0.d;
-import b.a.r0.r3.f.b.b;
-import b.a.r0.r3.f.b.c;
-import b.a.r0.r3.h.e;
+import b.a.r0.s3.f.b.b;
+import b.a.r0.s3.f.b.c;
+import b.a.r0.s3.h.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel;
@@ -19,7 +19,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupModel.c mCallback;
-    public b.a.r0.r3.f.a.a mItemController;
+    public b.a.r0.s3.f.a.a mItemController;
     public BubbleGroupModel mModel;
     public c mView;
 
@@ -29,7 +29,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BubbleGroupActivity f54559a;
+        public final /* synthetic */ BubbleGroupActivity f55479a;
 
         public a(BubbleGroupActivity bubbleGroupActivity) {
             Interceptable interceptable = $ic;
@@ -46,22 +46,22 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
                     return;
                 }
             }
-            this.f54559a = bubbleGroupActivity;
+            this.f55479a = bubbleGroupActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.c
         public void a(int i2, String str, e eVar, List<b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, eVar, list}) == null) {
-                BubbleGroupActivity bubbleGroupActivity = this.f54559a;
+                BubbleGroupActivity bubbleGroupActivity = this.f55479a;
                 bubbleGroupActivity.hideLoadingView(bubbleGroupActivity.mView.d());
-                this.f54559a.mView.i();
+                this.f55479a.mView.i();
                 if (i2 == 0) {
-                    this.f54559a.mView.k(eVar, list, this.f54559a.mModel.D());
+                    this.f55479a.mView.k(eVar, list, this.f55479a.mModel.D());
                     return;
                 }
-                this.f54559a.showToast(str);
-                this.f54559a.mView.j();
+                this.f55479a.showToast(str);
+                this.f55479a.mView.j();
             }
         }
     }
@@ -96,7 +96,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f12779a = true;
+                pageStayDurationItem.f13529a = true;
             }
             return pageStayDurationItem;
         }
@@ -123,7 +123,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
             BubbleGroupModel bubbleGroupModel = new BubbleGroupModel(this);
             this.mModel = bubbleGroupModel;
             bubbleGroupModel.G(this.mCallback);
-            b.a.r0.r3.f.a.a aVar = new b.a.r0.r3.f.a.a(getPageContext());
+            b.a.r0.s3.f.a.a aVar = new b.a.r0.s3.f.a.a(getPageContext());
             this.mItemController = aVar;
             c cVar = new c(this, aVar);
             this.mView = cVar;

@@ -2,7 +2,7 @@ package b.a.q0.p0;
 
 import android.content.Context;
 import android.os.Build;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -25,7 +25,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f12795a;
+    public static d f13545a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -63,10 +63,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (d.class) {
-                if (f12795a == null) {
-                    f12795a = new d();
+                if (f13545a == null) {
+                    f13545a = new d();
                 }
-                dVar = f12795a;
+                dVar = f13545a;
             }
             return dVar;
         }

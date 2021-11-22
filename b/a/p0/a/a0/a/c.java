@@ -2,7 +2,7 @@ package b.a.p0.a.a0.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import b.a.p0.a.v2.q;
+import b.a.p0.a.z2.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -25,13 +25,13 @@ public class c extends b.a.p0.a.a0.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.a0.b.c f3785e;
+        public final /* synthetic */ b.a.p0.a.a0.b.c f3879e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CanvasView f3786f;
+        public final /* synthetic */ CanvasView f3880f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f3787g;
+        public final /* synthetic */ CallbackHandler f3881g;
 
         public a(c cVar, b.a.p0.a.a0.b.c cVar2, CanvasView canvasView, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -48,27 +48,27 @@ public class c extends b.a.p0.a.a0.a.a {
                     return;
                 }
             }
-            this.f3785e = cVar2;
-            this.f3786f = canvasView;
-            this.f3787g = callbackHandler;
+            this.f3879e = cVar2;
+            this.f3880f = canvasView;
+            this.f3881g = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject j = this.f3785e.j(this.f3786f);
-                String str = this.f3785e.f4059i;
+                JSONObject j = this.f3879e.j(this.f3880f);
+                String str = this.f3879e.f4199i;
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                this.f3787g.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(j, 0).toString());
+                this.f3881g.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(j, 0).toString());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(b.a.p0.a.c2.e eVar) {
+    public c(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swanAPI/canvas/getImageData");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -80,7 +80,7 @@ public class c extends b.a.p0.a.a0.a.a {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((b.a.p0.a.c2.e) objArr2[0], (String) objArr2[1]);
+                super((b.a.p0.a.f2.e) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -88,33 +88,33 @@ public class c extends b.a.p0.a.a0.a.a {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         b.a.p0.a.h0.g.f H;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             b.a.p0.a.a0.b.c m = m(unitedSchemeEntity);
             if (m == null) {
-                b.a.p0.a.e0.d.b("SwanAppCanvas", "CanvasGetImageData action parse model is null");
+                b.a.p0.a.e0.d.c("SwanAppCanvas", "CanvasGetImageData action parse model is null");
                 unitedSchemeEntity.result = l(201);
                 return false;
             }
-            if (TextUtils.isEmpty(m.f4057g) && (H = b.a.p0.a.g1.f.T().H()) != null) {
-                m.f4057g = H.a3();
+            if (TextUtils.isEmpty(m.f4197g) && (H = b.a.p0.a.g1.f.U().H()) != null) {
+                m.f4197g = H.q3();
             }
-            if (!TextUtils.isEmpty(m.f4057g) && !TextUtils.isEmpty(m.f4056f)) {
+            if (!TextUtils.isEmpty(m.f4197g) && !TextUtils.isEmpty(m.f4196f)) {
                 CanvasView a2 = b.a.p0.a.c0.c.d.b.a.a(m);
                 if (a2 == null) {
-                    b.a.p0.a.e0.d.b("SwanAppCanvas", "CanvasGetImageData canvas view is null");
+                    b.a.p0.a.e0.d.c("SwanAppCanvas", "CanvasGetImageData canvas view is null");
                     unitedSchemeEntity.result = l(201);
                     return false;
                 }
-                q.j(new a(this, m, a2, callbackHandler), "CanvasGetImageDataAction");
+                q.k(new a(this, m, a2, callbackHandler), "CanvasGetImageDataAction");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
-            b.a.p0.a.e0.d.b("SwanAppCanvas", "CanvasGetImageData slave id = " + m.f4057g + " ; canvas id = " + m.f4056f);
+            b.a.p0.a.e0.d.c("SwanAppCanvas", "CanvasGetImageData slave id = " + m.f4197g + " ; canvas id = " + m.f4196f);
             unitedSchemeEntity.result = l(201);
             return false;
         }

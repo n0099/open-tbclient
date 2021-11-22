@@ -12,12 +12,12 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static b.a.q0.z0.a a(int i2, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+    public static b.a.q0.y0.a a(int i2, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i2, cls)) == null) {
             try {
-                b.a.q0.z0.a aVar = new b.a.q0.z0.a(i2, cls.newInstance());
+                b.a.q0.y0.a aVar = new b.a.q0.y0.a(i2, cls.newInstance());
                 MessageManager.getInstance().registerTask(aVar);
                 return aVar;
             } catch (IllegalAccessException e2) {
@@ -28,20 +28,20 @@ public class c {
                 return null;
             }
         }
-        return (b.a.q0.z0.a) invokeIL.objValue;
+        return (b.a.q0.y0.a) invokeIL.objValue;
     }
 
-    public static b.a.q0.z0.b b(int i2, Class<? extends SocketResponsedMessage> cls, boolean z) {
+    public static b.a.q0.y0.b b(int i2, Class<? extends SocketResponsedMessage> cls, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), cls, Boolean.valueOf(z)})) == null) {
-            b.a.q0.z0.b bVar = new b.a.q0.z0.b(i2);
+            b.a.q0.y0.b bVar = new b.a.q0.y0.b(i2);
             bVar.setResponsedClass(cls);
             bVar.h(z);
             bVar.setParallel(TiebaIMConfig.getParallel());
             MessageManager.getInstance().registerTask(bVar);
             return bVar;
         }
-        return (b.a.q0.z0.b) invokeCommon.objValue;
+        return (b.a.q0.y0.b) invokeCommon.objValue;
     }
 }

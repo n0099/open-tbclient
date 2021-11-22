@@ -2,7 +2,7 @@ package b.a.q0.s.h0.c;
 
 import android.media.MediaPlayer;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.q.h;
+import b.a.e.f.q.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,20 +17,20 @@ public class e extends MediaPlayer implements c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Object f13124d;
+    public static Object f13904d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static e f13125e;
+    public static e f13905e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13126a;
+    public boolean f13906a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13127b;
+    public boolean f13907b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13128c;
+    public int f13908c;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class e extends MediaPlayer implements c {
                 return;
             }
         }
-        f13124d = new Object();
+        f13904d = new Object();
     }
 
     public e() {
@@ -61,23 +61,23 @@ public class e extends MediaPlayer implements c {
                 return;
             }
         }
-        this.f13126a = false;
-        this.f13127b = true;
-        this.f13128c = -1;
+        this.f13906a = false;
+        this.f13907b = true;
+        this.f13908c = -1;
     }
 
     public static e i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f13125e == null) {
-                synchronized (f13124d) {
-                    if (f13125e == null) {
-                        f13125e = new e();
+            if (f13905e == null) {
+                synchronized (f13904d) {
+                    if (f13905e == null) {
+                        f13905e = new e();
                     }
                 }
             }
-            return f13125e;
+            return f13905e;
         }
         return (e) invokeV.objValue;
     }
@@ -85,12 +85,12 @@ public class e extends MediaPlayer implements c {
     @Override // b.a.q0.s.h0.c.c
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13127b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13907b) {
             return;
         }
         stop();
-        this.f13127b = true;
-        this.f13126a = false;
+        this.f13907b = true;
+        this.f13906a = false;
     }
 
     @Override // b.a.q0.s.h0.c.c
@@ -98,35 +98,35 @@ public class e extends MediaPlayer implements c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f13128c = -1;
-            if (!this.f13126a) {
-                this.f13127b = true;
+            this.f13908c = -1;
+            if (!this.f13906a) {
+                this.f13907b = true;
                 reset();
                 try {
                     setDataSource(str);
-                    j(h.f2076b);
+                    j(h.f2079b);
                     try {
                         prepare();
                     } catch (IOException e2) {
                         e2.printStackTrace();
-                        this.f13128c = 2;
+                        this.f13908c = 2;
                         return false;
                     } catch (IllegalStateException unused) {
-                        this.f13128c = 1;
+                        this.f13908c = 1;
                         return false;
                     }
                 } catch (IOException unused2) {
-                    this.f13128c = 2;
+                    this.f13908c = 2;
                     return false;
                 } catch (IllegalArgumentException unused3) {
-                    this.f13128c = 0;
+                    this.f13908c = 0;
                     return false;
                 } catch (IllegalStateException unused4) {
-                    this.f13128c = 1;
+                    this.f13908c = 1;
                     return false;
                 }
             }
-            this.f13126a = true;
+            this.f13906a = true;
             return true;
         }
         return invokeL.booleanValue;
@@ -136,14 +136,14 @@ public class e extends MediaPlayer implements c {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13128c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13908c : invokeV.intValue;
     }
 
     @Override // b.a.q0.s.h0.c.c
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13126a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13906a : invokeV.booleanValue;
     }
 
     @Override // b.a.q0.s.h0.c.c
@@ -159,9 +159,9 @@ public class e extends MediaPlayer implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             reset();
-            this.f13126a = false;
-            this.f13127b = true;
-            this.f13128c = -1;
+            this.f13906a = false;
+            this.f13907b = true;
+            this.f13908c = -1;
         }
     }
 
@@ -177,7 +177,7 @@ public class e extends MediaPlayer implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             start();
-            this.f13127b = false;
+            this.f13907b = false;
         }
     }
 

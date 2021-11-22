@@ -69,11 +69,11 @@ public class e extends b<b.a.r0.h0.b> {
     public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f14736e != i2) {
+            if (this.f16223e != i2) {
                 SkinManager.setBackgroundResource(i(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.v, R.color.CAM_X0204);
                 SkinManager.setViewTextColor(this.q, R.color.CAM_X0101, 1);
-                b.a.r0.l3.p0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                b.a.r0.m3.p0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                 if (readThreadHistory != null && readThreadHistory.d(this.w.getThreadData().f0())) {
                     SkinManager.setViewTextColor(this.r, R.color.CAM_X0108);
                 } else {
@@ -82,7 +82,7 @@ public class e extends b<b.a.r0.h0.b> {
                 SkinManager.setViewTextColor(this.t, R.color.CAM_X0109, 1);
                 SkinManager.setViewTextColor(this.u, R.color.CAM_X0109, 1);
             }
-            this.f14736e = i2;
+            this.f16223e = i2;
         }
     }
 
@@ -100,7 +100,7 @@ public class e extends b<b.a.r0.h0.b> {
             this.u = (TextView) view.findViewById(R.id.card_frs_game_publish_time);
             this.v = view.findViewById(R.id.card_frs_game_bottom_divider);
             this.o.setDefaultBgResource(R.drawable.icon_morenpic);
-            int dimensionPixelSize = this.f14738g.getResources().getDimensionPixelSize(R.dimen.tbds326);
+            int dimensionPixelSize = this.f16225g.getResources().getDimensionPixelSize(R.dimen.tbds326);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.n.getLayoutParams();
             layoutParams.width = dimensionPixelSize;
             layoutParams.height = (dimensionPixelSize * 9) / 16;
@@ -110,7 +110,7 @@ public class e extends b<b.a.r0.h0.b> {
             this.s.setIsRound(true);
             this.s.setDrawBorder(true);
             this.s.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.s.setBorderWidth(this.f14738g.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.s.setBorderWidth(this.f16225g.getResources().getDimensionPixelSize(R.dimen.tbds1));
             i().setOnClickListener(this);
         }
     }
@@ -134,12 +134,12 @@ public class e extends b<b.a.r0.h0.b> {
         }
         this.w = bVar;
         String str = null;
-        if (bVar.getThreadData().E2()) {
+        if (bVar.getThreadData().G2()) {
             this.p.setVisibility(0);
             this.q.setVisibility(0);
-            if (bVar.getThreadData().q1() != null) {
-                this.q.setText(StringHelper.stringForVideoTime(bVar.getThreadData().q1().video_duration.intValue() * 1000));
-                str = bVar.getThreadData().q1().thumbnail_url;
+            if (bVar.getThreadData().r1() != null) {
+                this.q.setText(StringHelper.stringForVideoTime(bVar.getThreadData().r1().video_duration.intValue() * 1000));
+                str = bVar.getThreadData().r1().thumbnail_url;
             }
         } else {
             this.p.setVisibility(8);
@@ -150,7 +150,7 @@ public class e extends b<b.a.r0.h0.b> {
         }
         this.o.startLoad(str, 10, false);
         this.r.setText(bVar.getThreadData().getTitle());
-        b.a.r0.l3.p0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+        b.a.r0.m3.p0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
         if (readThreadHistory != null && readThreadHistory.d(bVar.getThreadData().f0())) {
             SkinManager.setViewTextColor(this.r, R.color.CAM_X0108);
         } else {
@@ -160,7 +160,7 @@ public class e extends b<b.a.r0.h0.b> {
         this.u.setText(StringHelper.getFormatTimeShort(bVar.getThreadData().I()));
         if ("news".equals(bVar.getThreadData().b0())) {
             this.s.setVisibility(8);
-            this.t.setText(this.f14737f.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(bVar.getThreadData().C1())));
+            this.t.setText(this.f16224f.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(bVar.getThreadData().D1())));
             return;
         }
         this.s.setVisibility(0);

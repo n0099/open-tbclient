@@ -17,7 +17,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.PeerConnectionClient;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -138,7 +137,7 @@ public class MediaCodecVideoEncoder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f72578e;
+        public Exception f73497e;
         public final /* synthetic */ MediaCodecVideoEncoder this$0;
 
         public C1CaughtException(MediaCodecVideoEncoder mediaCodecVideoEncoder) {
@@ -1452,7 +1451,7 @@ public class MediaCodecVideoEncoder {
                                 createVideoFormat.setInteger("i-frame-interval", i8);
                                 if (z3) {
                                     createVideoFormat.setInteger("profile", 8);
-                                    createVideoFormat.setInteger(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 256);
+                                    createVideoFormat.setInteger("level", 256);
                                 }
                                 Logging.d(TAG, "  Format: " + createVideoFormat);
                                 MediaCodec createByCodecName = createByCodecName(encoderProperties.codecName);
@@ -1554,7 +1553,7 @@ public class MediaCodecVideoEncoder {
                                 this.this$0.mediaCodec.release();
                             } catch (Exception e3) {
                                 Logging.e(MediaCodecVideoEncoder.TAG, "Media encoder release failed", e3);
-                                this.val$caughtException.f72578e = e3;
+                                this.val$caughtException.f73497e = e3;
                             }
                             Logging.d(MediaCodecVideoEncoder.TAG, "Java releaseEncoder on release thread done");
                             this.val$releaseDone.countDown();
@@ -1591,11 +1590,11 @@ public class MediaCodecVideoEncoder {
                     errorCallback.onMediaCodecVideoEncoderCriticalError(codecErrors);
                 }
                 throw new RuntimeException("Media encoder release timeout.");
-            } else if (c1CaughtException.f72578e == null) {
+            } else if (c1CaughtException.f73497e == null) {
                 Logging.d(TAG, "Java releaseEncoder done");
             } else {
-                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f72578e);
-                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f72578e.getStackTrace(), runtimeException.getStackTrace()));
+                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f73497e);
+                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f73497e.getStackTrace(), runtimeException.getStackTrace()));
                 throw runtimeException;
             }
         }

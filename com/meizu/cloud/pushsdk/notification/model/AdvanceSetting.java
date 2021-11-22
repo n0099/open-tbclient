@@ -56,7 +56,7 @@ public class AdvanceSetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                b.l.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                b.j.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -79,8 +79,8 @@ public class AdvanceSetting implements Parcelable {
                 if (!jSONObject.isNull(CLEAR_NOTIFICATION)) {
                     advanceSetting.setClearNotification(jSONObject.getInt(CLEAR_NOTIFICATION) != 0);
                 }
-                if (!jSONObject.isNull("hn")) {
-                    if (jSONObject.getInt("hn") == 0) {
+                if (!jSONObject.isNull(HEAD_UP_NOTIFICATION)) {
+                    if (jSONObject.getInt(HEAD_UP_NOTIFICATION) == 0) {
                         z = false;
                     }
                     advanceSetting.setHeadUpNotification(z);
@@ -91,7 +91,7 @@ public class AdvanceSetting implements Parcelable {
             return advanceSetting;
         }
         str = "no such tag advance_setting";
-        b.l.a.a.a.b(TAG, str);
+        b.j.a.a.a.b(TAG, str);
         return advanceSetting;
     }
 

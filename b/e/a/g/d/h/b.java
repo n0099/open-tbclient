@@ -1,0 +1,367 @@
+package b.e.a.g.d.h;
+
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import b.e.a.g.a;
+import b.e.a.g.d.e;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.apollon.ApollonConstants;
+import com.dxmpay.apollon.restnet.RestDebugConfig;
+import com.dxmpay.apollon.restnet.RestMultipartEntity;
+import com.dxmpay.apollon.restnet.rest.httpurlconnection.RestUrlConnectionRequest;
+import com.dxmpay.apollon.utils.LogUtil;
+import java.io.BufferedInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+/* loaded from: classes6.dex */
+public class b implements b.e.a.g.d.c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f31573a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f31574b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public RestUrlConnectionRequest f31575c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public URLConnection f31576d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f31577e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f31578f;
+
+    /* loaded from: classes6.dex */
+    public class a implements HostnameVerifier {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // javax.net.ssl.HostnameVerifier
+        public boolean verify(String str, SSLSession sSLSession) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public b(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f31578f = false;
+        this.f31573a = context.getApplicationContext();
+        this.f31574b = str;
+        this.f31578f = z;
+    }
+
+    @Override // b.e.a.g.d.c
+    public e a(b.e.a.g.d.d dVar) throws MalformedURLException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException, IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
+            this.f31575c = (RestUrlConnectionRequest) dVar;
+            String b2 = dVar.b();
+            if (this.f31575c.k()) {
+                b2 = d(b2);
+            }
+            URL url = new URL(b2);
+            this.f31576d = url.openConnection();
+            if ("https".equalsIgnoreCase(url.getProtocol())) {
+                if (RestDebugConfig.getInstance().isQAEnv()) {
+                    SSLContext sSLContext = SSLContext.getInstance("TLS");
+                    sSLContext.init(null, new TrustManager[]{new b.e.a.g.d.h.a()}, null);
+                    ((HttpsURLConnection) this.f31576d).setSSLSocketFactory(sSLContext.getSocketFactory());
+                    ((HttpsURLConnection) this.f31576d).setHostnameVerifier(new a(this));
+                } else {
+                    f((HttpsURLConnection) this.f31576d);
+                    i((HttpsURLConnection) this.f31576d);
+                }
+            }
+            LogUtil.v(ApollonConstants.APOLLON_REST_TAG, "con url: " + url + ", host: " + this.f31576d.getURL().getHost());
+            if (this.f31575c.j()) {
+                return b(url);
+            }
+            if (this.f31575c.k()) {
+                return g(url);
+            }
+            return null;
+        }
+        return (e) invokeL.objValue;
+    }
+
+    public final e b(URL url) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, url)) == null) {
+            e(this.f31576d);
+            h(this.f31576d);
+            return c(url, this.f31576d, "POST");
+        }
+        return (e) invokeL.objValue;
+    }
+
+    public final e c(URL url, URLConnection uRLConnection, String str) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, url, uRLConnection, str)) == null) {
+            HttpURLConnection httpURLConnection = (HttpURLConnection) uRLConnection;
+            return new d(new BufferedInputStream(uRLConnection.getInputStream()), httpURLConnection.getResponseCode(), httpURLConnection.getResponseMessage(), httpURLConnection.getHeaderFields());
+        }
+        return (e) invokeLLL.objValue;
+    }
+
+    public final String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            RestUrlConnectionRequest restUrlConnectionRequest = this.f31575c;
+            if (restUrlConnectionRequest != null) {
+                String processedParams = restUrlConnectionRequest.getProcessedParams();
+                if (TextUtils.isEmpty(processedParams)) {
+                    return str;
+                }
+                if (str.contains("?")) {
+                    return str + "&" + processedParams;
+                }
+                return str + "?" + processedParams;
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void e(URLConnection uRLConnection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, uRLConnection) == null) {
+            if (this.f31577e) {
+                uRLConnection.setConnectTimeout(this.f31575c.i() > 0 ? this.f31575c.i() : 30000);
+                uRLConnection.setReadTimeout(this.f31575c.i() > 0 ? this.f31575c.i() : 30000);
+            } else {
+                uRLConnection.setConnectTimeout(this.f31575c.i() > 0 ? this.f31575c.i() : 30000);
+                uRLConnection.setReadTimeout(this.f31575c.i() > 0 ? this.f31575c.i() : 30000);
+            }
+            if (Integer.parseInt(Build.VERSION.SDK) < 8) {
+                System.setProperty("http.keepAlive", "false");
+            } else {
+                System.setProperty("http.keepAlive", "true");
+                System.setProperty("http.maxConnections ", String.valueOf(10));
+                System.setProperty("sun.net.http.errorstream.enableBuffering", "true");
+            }
+            if (j()) {
+                uRLConnection.setRequestProperty("User-Agent", "");
+                uRLConnection.setRequestProperty("Accept-Encoding", "");
+                return;
+            }
+            uRLConnection.setRequestProperty("User-Agent", this.f31574b);
+            for (Map.Entry<String, List<String>> entry : this.f31575c.a().entrySet()) {
+                uRLConnection.setRequestProperty(entry.getKey(), (String) Collections.unmodifiableList(entry.getValue()).get(0));
+            }
+            if (this.f31578f) {
+                k();
+            }
+        }
+    }
+
+    public final void f(HttpsURLConnection httpsURLConnection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, httpsURLConnection) == null) {
+            try {
+                b.e.a.b.b bVar = new b.e.a.b.b(b.e.a.b.a.a().b(httpsURLConnection.getURL().getHost()));
+                SSLContext sSLContext = SSLContext.getInstance("TLS");
+                sSLContext.init(null, new TrustManager[]{bVar}, null);
+                httpsURLConnection.setSSLSocketFactory(sSLContext.getSocketFactory());
+            } catch (KeyManagementException unused) {
+                throw new IllegalStateException("Should never happen");
+            } catch (NoSuchAlgorithmException unused2) {
+                throw new IllegalStateException("Should never happen");
+            }
+        }
+    }
+
+    public final e g(URL url) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, url)) == null) {
+            e(this.f31576d);
+            return c(url, this.f31576d, "GET");
+        }
+        return (e) invokeL.objValue;
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:29:0x0061 -> B:40:0x0070). Please submit an issue!!! */
+    public final void h(URLConnection uRLConnection) {
+        RestUrlConnectionRequest restUrlConnectionRequest;
+        DataOutputStream dataOutputStream;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uRLConnection) == null) || (restUrlConnectionRequest = this.f31575c) == null) {
+            return;
+        }
+        String processedParams = restUrlConnectionRequest.getProcessedParams();
+        RestMultipartEntity g2 = this.f31575c.g();
+        uRLConnection.setDoOutput(true);
+        uRLConnection.setDoInput(true);
+        if (g2 != null) {
+            uRLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + g2.a());
+        }
+        DataOutputStream dataOutputStream2 = null;
+        try {
+            try {
+                try {
+                    dataOutputStream = new DataOutputStream(uRLConnection.getOutputStream());
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (IOException e2) {
+                e = e2;
+            }
+        } catch (IOException e3) {
+            e3.printStackTrace();
+        }
+        try {
+            dataOutputStream.writeBytes(processedParams);
+            if (g2 != null) {
+                g2.b(dataOutputStream);
+            }
+            dataOutputStream.flush();
+            dataOutputStream.close();
+        } catch (IOException e4) {
+            e = e4;
+            dataOutputStream2 = dataOutputStream;
+            e.printStackTrace();
+            if (dataOutputStream2 != null) {
+                dataOutputStream2.close();
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            dataOutputStream2 = dataOutputStream;
+            if (dataOutputStream2 != null) {
+                try {
+                    dataOutputStream2.close();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
+                }
+            }
+            throw th;
+        }
+    }
+
+    public final void i(HttpsURLConnection httpsURLConnection) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, httpsURLConnection) == null) || httpsURLConnection == null) {
+            return;
+        }
+        httpsURLConnection.setHostnameVerifier(b.e.a.g.d.a.f31561a);
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.f31575c != null) {
+                a.InterfaceC1505a a2 = b.e.a.g.a.a();
+                String f2 = this.f31575c.f();
+                return (TextUtils.isEmpty(f2) || a2 == null || !a2.a(f2)) ? false : true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            try {
+                Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.f31573a.getDir("appcache", 0), "http"), 10485760L);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            try {
+                Class.forName("android.net.http.HttpResponseCache").getMethod(IntentConfig.CLOSE, new Class[0]).invoke(null, new Object[0]);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    @Override // b.e.a.g.d.c
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            URLConnection uRLConnection = this.f31576d;
+            if (uRLConnection != null) {
+                if (uRLConnection instanceof HttpsURLConnection) {
+                    ((HttpsURLConnection) uRLConnection).disconnect();
+                } else if (uRLConnection instanceof HttpURLConnection) {
+                    ((HttpURLConnection) uRLConnection).disconnect();
+                }
+                this.f31576d = null;
+            }
+            if (this.f31578f) {
+                l();
+            }
+        }
+    }
+}

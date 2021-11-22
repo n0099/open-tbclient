@@ -45,16 +45,16 @@ public class ForwardingImageOriginListener implements ImageOriginListener {
     }
 
     @Override // com.facebook.drawee.backends.pipeline.info.ImageOriginListener
-    public synchronized void onImageLoaded(String str, int i2, boolean z, String str2) {
+    public synchronized void onImageLoaded(String str, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             synchronized (this) {
                 int size = this.mImageOriginListeners.size();
                 for (int i3 = 0; i3 < size; i3++) {
                     ImageOriginListener imageOriginListener = this.mImageOriginListeners.get(i3);
                     if (imageOriginListener != null) {
                         try {
-                            imageOriginListener.onImageLoaded(str, i2, z, str2);
+                            imageOriginListener.onImageLoaded(str, i2, z);
                         } catch (Exception e2) {
                             FLog.e(TAG, "InternalListener exception in onImageLoaded", e2);
                         }

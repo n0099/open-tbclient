@@ -1,6 +1,6 @@
 package b.a.r0.w0.b;
 
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -22,16 +22,16 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f25315a;
+    public TbPageContext f26832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BdUniqueId f25316b;
+    public final BdUniqueId f26833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f25317c;
+    public b f26834c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a.e.c.g.a f25318d;
+    public b.a.e.c.g.a f26835d;
 
     /* loaded from: classes5.dex */
     public class a extends b.a.e.c.g.a {
@@ -39,7 +39,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f25319a;
+        public final /* synthetic */ d f26836a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2, int i3) {
@@ -60,16 +60,16 @@ public class d {
                     return;
                 }
             }
-            this.f25319a = dVar;
+            this.f26836a = dVar;
         }
 
         @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.f25319a.f25316b) {
-                    if (this.f25319a.f25317c != null) {
-                        this.f25319a.f25317c.a(false, null);
+                if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.f26836a.f26833b) {
+                    if (this.f26836a.f26834c != null) {
+                        this.f26836a.f26834c.a(false, null);
                         return;
                     }
                     return;
@@ -78,8 +78,8 @@ public class d {
                 if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                     searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
                 }
-                if (this.f25319a.f25317c != null) {
-                    this.f25319a.f25317c.a(searchData != null, searchData);
+                if (this.f26836a.f26834c != null) {
+                    this.f26836a.f26834c.a(searchData != null, searchData);
                 }
             }
         }
@@ -106,17 +106,17 @@ public class d {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466);
-        this.f25318d = aVar;
-        this.f25315a = tbPageContext;
-        this.f25316b = bdUniqueId;
+        this.f26835d = aVar;
+        this.f26832a = tbPageContext;
+        this.f26833b = bdUniqueId;
         aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f25318d);
+        MessageManager.getInstance().registerListener(this.f26835d);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f25316b);
+            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f26833b);
         }
     }
 
@@ -126,13 +126,13 @@ public class d {
             return;
         }
         if (!l.D()) {
-            this.f25315a.showToast(R.string.neterror);
+            this.f26832a.showToast(R.string.neterror);
             return;
         }
         c();
-        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f25316b);
+        MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_SEARCH_POST_FORUM, this.f26833b);
         SearchPostForumRequestMessage searchPostForumRequestMessage = new SearchPostForumRequestMessage();
-        searchPostForumRequestMessage.setTag(this.f25316b);
+        searchPostForumRequestMessage.setTag(this.f26833b);
         searchPostForumRequestMessage.set_word(str);
         MessageManager.getInstance().sendMessage(searchPostForumRequestMessage);
     }
@@ -140,7 +140,7 @@ public class d {
     public void e(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f25317c = bVar;
+            this.f26834c = bVar;
         }
     }
 }

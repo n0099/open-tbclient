@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.e.l.e.n;
-import b.a.e.l.e.w;
+import b.a.e.f.p.l;
+import b.a.e.m.e.n;
+import b.a.e.m.e.w;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class e extends b.a.e.l.e.a<b.a.r0.g2.c.d, InterestedForumStyleAForumViewHolder> {
+public class e extends b.a.e.m.e.a<b.a.r0.g2.c.d, InterestedForumStyleAForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b.a.r0.g2.f.c m;
@@ -37,7 +37,7 @@ public class e extends b.a.e.l.e.a<b.a.r0.g2.c.d, InterestedForumStyleAForumView
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f16736e;
+        public final /* synthetic */ e f18250e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public class e extends b.a.e.l.e.a<b.a.r0.g2.c.d, InterestedForumStyleAForumView
                     return;
                 }
             }
-            this.f16736e = eVar;
+            this.f18250e = eVar;
         }
 
-        @Override // b.a.e.l.e.w
+        @Override // b.a.e.m.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) && (nVar instanceof b.a.r0.g2.c.d)) {
@@ -65,13 +65,13 @@ public class e extends b.a.e.l.e.a<b.a.r0.g2.c.d, InterestedForumStyleAForumView
                 dVar.u(!dVar.l());
                 InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder = (InterestedForumStyleAForumViewHolder) view.getTag();
                 if (interestedForumStyleAForumViewHolder != null) {
-                    this.f16736e.p0(interestedForumStyleAForumViewHolder.mInterestedForumSelect, dVar.l());
+                    this.f18250e.p0(interestedForumStyleAForumViewHolder.mInterestedForumSelect, dVar.l());
                 }
-                if (this.f16736e.m != null) {
-                    this.f16736e.m.a();
+                if (this.f18250e.m != null) {
+                    this.f18250e.m.a();
                 }
                 if (dVar.l()) {
-                    this.f16736e.j0(dVar);
+                    this.f18250e.j0(dVar);
                 }
             }
         }
@@ -96,13 +96,13 @@ public class e extends b.a.e.l.e.a<b.a.r0.g2.c.d, InterestedForumStyleAForumView
                 return;
             }
         }
-        this.f2419e = context;
-        this.f2422h = bdUniqueId;
+        this.f2421e = context;
+        this.f2424h = bdUniqueId;
         c0(new a(this));
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.g2.c.d dVar, InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder) {
         l0(i2, view, viewGroup, dVar, interestedForumStyleAForumViewHolder);
         return view;
@@ -120,7 +120,7 @@ public class e extends b.a.e.l.e.a<b.a.r0.g2.c.d, InterestedForumStyleAForumView
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: k0 */
     public InterestedForumStyleAForumViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -128,9 +128,9 @@ public class e extends b.a.e.l.e.a<b.a.r0.g2.c.d, InterestedForumStyleAForumView
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             if (b.a.q0.b.d.z()) {
-                inflate = LayoutInflater.from(this.f2419e).inflate(R.layout.item_interested_forum_style_a_forum, viewGroup, false);
+                inflate = LayoutInflater.from(this.f2421e).inflate(R.layout.item_interested_forum_style_a_forum, viewGroup, false);
             } else {
-                inflate = b.a.q0.b.d.B() ? LayoutInflater.from(this.f2419e).inflate(R.layout.item_interested_forum_style_b_forum, viewGroup, false) : null;
+                inflate = b.a.q0.b.d.B() ? LayoutInflater.from(this.f2421e).inflate(R.layout.item_interested_forum_style_b_forum, viewGroup, false) : null;
             }
             return new InterestedForumStyleAForumViewHolder(inflate);
         }
@@ -161,14 +161,14 @@ public class e extends b.a.e.l.e.a<b.a.r0.g2.c.d, InterestedForumStyleAForumView
             interestedForumStyleAForumViewHolder.mInterestedForumIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
             interestedForumStyleAForumViewHolder.mInterestedForumIcon.setPlaceHolder(1);
             interestedForumStyleAForumViewHolder.mInterestedForumIcon.startLoad(dVar.a(), 10, false);
-            interestedForumStyleAForumViewHolder.mInterestedForumTitle.setText(dVar.g() + this.f2419e.getString(R.string.forum));
+            interestedForumStyleAForumViewHolder.mInterestedForumTitle.setText(dVar.g() + this.f2421e.getString(R.string.forum));
             if (!StringUtils.isNull(dVar.i())) {
-                interestedForumStyleAForumViewHolder.mInterestedForumIntroduce.setText(this.f2419e.getString(R.string.interested_forum_introduce, dVar.i()));
+                interestedForumStyleAForumViewHolder.mInterestedForumIntroduce.setText(this.f2421e.getString(R.string.interested_forum_introduce, dVar.i()));
             } else {
-                interestedForumStyleAForumViewHolder.mInterestedForumIntroduce.setText(this.f2419e.getString(R.string.interested_forum_no_introduce_content));
+                interestedForumStyleAForumViewHolder.mInterestedForumIntroduce.setText(this.f2421e.getString(R.string.interested_forum_no_introduce_content));
             }
-            interestedForumStyleAForumViewHolder.mInterestedForumAttentionContent.setText(String.format(this.f2419e.getString(R.string.concern), StringHelper.numberUniformFormatExtraWithRoundInt(dVar.h())));
-            interestedForumStyleAForumViewHolder.mInterestedForumPbContent.setText(String.format(this.f2419e.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(dVar.k())));
+            interestedForumStyleAForumViewHolder.mInterestedForumAttentionContent.setText(String.format(this.f2421e.getString(R.string.concern), StringHelper.numberUniformFormatExtraWithRoundInt(dVar.h())));
+            interestedForumStyleAForumViewHolder.mInterestedForumPbContent.setText(String.format(this.f2421e.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(dVar.k())));
             p0(interestedForumStyleAForumViewHolder.mInterestedForumSelect, dVar.l());
         }
     }

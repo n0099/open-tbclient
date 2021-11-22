@@ -71,8 +71,8 @@ public class b extends b.a.r0.b0.b<b.a.r0.w.f.h.b.b> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.m.n(bVar.f24892e);
-        this.n.n(bVar.f24893f);
+        this.m.n(bVar.f26409e);
+        this.n.n(bVar.f26410f);
     }
 
     @Override // android.view.View.OnClickListener
@@ -87,8 +87,8 @@ public class b extends b.a.r0.b0.b<b.a.r0.w.f.h.b.b> {
         if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{bVar, Integer.valueOf(i2), Long.valueOf(j), str}) == null) || bVar == null) {
             return;
         }
-        this.m.o(bVar.f24892e, i2, j, str);
-        this.n.o(bVar.f24893f, i2, j, str);
+        this.m.o(bVar.f26409e, i2, j, str);
+        this.n.o(bVar.f26410f, i2, j, str);
     }
 
     public void q(f fVar) {

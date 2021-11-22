@@ -14,15 +14,15 @@ import java.util.List;
 import tbclient.GetVipInfo.VipBannerItem;
 import tbclient.GetVipInfo.VipBannerList;
 /* loaded from: classes6.dex */
-public class a implements b.a.e.l.e.n {
+public class a implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f27399f;
+    public static final BdUniqueId f28902f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<b> f27400e;
+    public List<b> f28903e;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class a implements b.a.e.l.e.n {
                 return;
             }
         }
-        f27399f = BdUniqueId.gen();
+        f28902f = BdUniqueId.gen();
     }
 
     public a(VipBannerList vipBannerList) {
@@ -59,22 +59,22 @@ public class a implements b.a.e.l.e.n {
             return;
         }
         String str = vipBannerList.card_id;
-        this.f27400e = new ArrayList();
+        this.f28903e = new ArrayList();
         for (VipBannerItem vipBannerItem : vipBannerList.item) {
-            this.f27400e.add(new b(vipBannerItem));
+            this.f28903e.add(new b(vipBannerItem));
         }
     }
 
     public List<b> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27400e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28903e : (List) invokeV.objValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f27399f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f28902f : (BdUniqueId) invokeV.objValue;
     }
 }

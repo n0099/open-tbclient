@@ -17,18 +17,18 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @SuppressLint({"HandlerLeak"})
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f56677a;
+    public static a f57599a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap f56678b;
+    public static HashMap f57600b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ExecutorService f56679c;
+    public static ExecutorService f57601c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -44,8 +44,8 @@ public final class a {
                 return;
             }
         }
-        if (f56678b == null) {
-            f56678b = new HashMap();
+        if (f57600b == null) {
+            f57600b = new HashMap();
         }
     }
 
@@ -142,13 +142,13 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f56677a == null) {
-                    f56677a = new a();
-                    if (f56679c == null) {
-                        f56679c = Executors.newFixedThreadPool(1);
+                if (f57599a == null) {
+                    f57599a = new a();
+                    if (f57601c == null) {
+                        f57601c = Executors.newFixedThreadPool(1);
                     }
                 }
-                aVar = f56677a;
+                aVar = f57599a;
             }
             return aVar;
         }
@@ -162,7 +162,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, nVar, str)) == null) {
             String c2 = k.c(str);
-            if (!f56678b.containsKey(c2) || (bitmap2 = (Bitmap) ((SoftReference) f56678b.get(c2)).get()) == null) {
+            if (!f57600b.containsKey(c2) || (bitmap2 = (Bitmap) ((SoftReference) f57600b.get(c2)).get()) == null) {
                 try {
                     bitmap = f.a(c2);
                 } catch (OutOfMemoryError unused) {
@@ -170,10 +170,10 @@ public final class a {
                     bitmap = null;
                 }
                 if (bitmap != null) {
-                    f56678b.put(c2, new SoftReference(bitmap));
+                    f57600b.put(c2, new SoftReference(bitmap));
                     return bitmap;
                 }
-                f56679c.execute(new b(this, str, c2, nVar));
+                f57601c.execute(new b(this, str, c2, nVar));
                 return null;
             }
             return bitmap2;

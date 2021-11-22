@@ -8,21 +8,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43230e;
+        public final /* synthetic */ String f44176e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f43231f;
+        public final /* synthetic */ Context f44177f;
 
         public a(h hVar, String str, Context context) {
             Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class h extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f43230e = str;
-            this.f43231f = context;
+            this.f44176e = str;
+            this.f44177f = context;
         }
 
         @Override // java.lang.Runnable
@@ -48,10 +48,10 @@ public class h extends BroadcastReceiver {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if ("sso_action_t_m".equals(this.f43230e)) {
-                        c.m(this.f43231f);
-                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.f43230e) && c.k(this.f43231f) != 0 && b.a.n0.b.c.b(this.f43231f).f()) {
-                        b.a.n0.e.c.j().g(this.f43231f.getApplicationContext(), false);
+                    if ("sso_action_t_m".equals(this.f44176e)) {
+                        c.m(this.f44177f);
+                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.f44176e) && c.k(this.f44177f) != 0 && b.a.n0.b.c.b(this.f44177f).f()) {
+                        b.a.n0.e.c.j().g(this.f44177f.getApplicationContext(), false);
                     }
                 } catch (Throwable th) {
                     c.d(th);

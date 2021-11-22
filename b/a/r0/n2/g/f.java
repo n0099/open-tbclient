@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.n2.e.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -45,10 +45,10 @@ public class f extends b.a.r0.b0.b<b.a.r0.n2.e.g> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g.a f21495e;
+        public final /* synthetic */ g.a f22991e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f21496f;
+        public final /* synthetic */ f f22992f;
 
         public a(f fVar, g.a aVar) {
             Interceptable interceptable = $ic;
@@ -65,15 +65,15 @@ public class f extends b.a.r0.b0.b<b.a.r0.n2.e.g> {
                     return;
                 }
             }
-            this.f21496f = fVar;
-            this.f21495e = aVar;
+            this.f22992f = fVar;
+            this.f22991e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f21496f.q(this.f21495e);
+                this.f22992f.q(this.f22991e);
             }
         }
     }
@@ -121,7 +121,7 @@ public class f extends b.a.r0.b0.b<b.a.r0.n2.e.g> {
             for (int i3 = 0; i3 < this.p.getChildCount(); i3++) {
                 SkinManager.setViewTextColor((TextView) this.p.getChildAt(i3).findViewById(R.id.create_center_item_text), R.color.CAM_X0105);
             }
-            TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(l.g(this.f14738g, R.dimen.tbds21)).setBgColor(R.color.CAM_X0201).setShadowColor(R.color.CAM_X0806).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.g(this.f14738g, R.dimen.tbds16)).setOffsetX(0).setOffsetY(l.g(this.f14738g, R.dimen.tbds5)).into(this.m);
+            TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(l.g(this.f16225g, R.dimen.tbds21)).setBgColor(R.color.CAM_X0201).setShadowColor(R.color.CAM_X0806).setShadowSide(ShadowDrawable.ALL).setShadowRadius(l.g(this.f16225g, R.dimen.tbds16)).setOffsetX(0).setOffsetY(l.g(this.f16225g, R.dimen.tbds5)).into(this.m);
         }
     }
 
@@ -147,14 +147,14 @@ public class f extends b.a.r0.b0.b<b.a.r0.n2.e.g> {
             TbImageView tbImageView = new TbImageView(context);
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             tbImageView.setId(R.id.create_center_item_img);
-            tbImageView.setImageResource(aVar.f21453b);
+            tbImageView.setImageResource(aVar.f22949b);
             int g2 = l.g(context, R.dimen.tbds126);
             linearLayout.addView(tbImageView, new LinearLayout.LayoutParams(g2, g2));
             TextView textView = new TextView(context);
             textView.setId(R.id.create_center_item_text);
-            textView.setText(aVar.f21454c);
+            textView.setText(aVar.f22950c);
             textView.setIncludeFontPadding(false);
-            textView.setTextSize(0, l.g(this.f14738g, R.dimen.tbfontsize32));
+            textView.setTextSize(0, l.g(this.f16225g, R.dimen.tbfontsize32));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.topMargin = l.g(context, R.dimen.tbds32);
             linearLayout.addView(textView, layoutParams);
@@ -167,13 +167,13 @@ public class f extends b.a.r0.b0.b<b.a.r0.n2.e.g> {
     public final void q(g.a aVar) {
         b.a.r0.n2.e.g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null || (gVar = this.q) == null || gVar.f21451f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null || (gVar = this.q) == null || gVar.f22947f == null) {
             return;
         }
-        int i2 = aVar.f21452a;
+        int i2 = aVar.f22948a;
         if (i2 == 1) {
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 8));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.f14737f.getPageActivity(), this.q.f21451f.getUserId(), this.q.f21451f.getSex(), this.q.f21451f.getPortrait())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.f16224f.getPageActivity(), this.q.f22947f.getUserId(), this.q.f22947f.getSex(), this.q.f22947f.getPortrait())));
             TiebaStatic.log("c13843");
         } else if (i2 == 2) {
             t(R.string.god_authentication, TbConfig.URL_GOD_AUTH);
@@ -195,15 +195,15 @@ public class f extends b.a.r0.b0.b<b.a.r0.n2.e.g> {
     /* renamed from: s */
     public void j(b.a.r0.n2.e.g gVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, gVar) == null) || gVar == null || ListUtils.isEmpty(gVar.f21450e)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, gVar) == null) || gVar == null || ListUtils.isEmpty(gVar.f22946e)) {
             return;
         }
         if (gVar != this.q) {
             this.p.removeAllViews();
-            int k = (l.k(this.f14738g) - (l.g(this.f14738g, R.dimen.tbds44) * 2)) / gVar.f21450e.size();
-            for (g.a aVar : gVar.f21450e) {
+            int k = (l.k(this.f16225g) - (l.g(this.f16225g, R.dimen.tbds44) * 2)) / gVar.f22946e.size();
+            for (g.a aVar : gVar.f22946e) {
                 if (aVar != null) {
-                    this.p.addView(p(this.f14738g, aVar), new LinearLayout.LayoutParams(k, -2));
+                    this.p.addView(p(this.f16225g, aVar), new LinearLayout.LayoutParams(k, -2));
                 }
             }
             this.q = gVar;
@@ -214,7 +214,7 @@ public class f extends b.a.r0.b0.b<b.a.r0.n2.e.g> {
     public final void t(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i2, str) == null) {
-            this.f14737f.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f14737f.getPageActivity(), this.f14737f.getString(i2), str, true)));
+            this.f16224f.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f16224f.getPageActivity(), this.f16224f.getString(i2), str, true)));
         }
     }
 }

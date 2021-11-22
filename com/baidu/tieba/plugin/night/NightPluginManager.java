@@ -31,10 +31,10 @@ public class NightPluginManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f53327a;
+        public final /* synthetic */ int f54244a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NightPluginManager f53328b;
+        public final /* synthetic */ NightPluginManager f54245b;
 
         public a(NightPluginManager nightPluginManager, int i2) {
             Interceptable interceptable = $ic;
@@ -51,8 +51,8 @@ public class NightPluginManager {
                     return;
                 }
             }
-            this.f53328b = nightPluginManager;
-            this.f53327a = i2;
+            this.f54245b = nightPluginManager;
+            this.f54244a = i2;
         }
 
         @Override // com.baidu.nps.main.invoke.IInvokeCallback
@@ -60,11 +60,11 @@ public class NightPluginManager {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, str, obj) == null) && i2 == 14) {
                 try {
-                    if (this.f53328b.mINightPlugin == null) {
-                        this.f53328b.mINightPlugin = (INightPlugin) ((Class) obj).newInstance();
+                    if (this.f54245b.mINightPlugin == null) {
+                        this.f54245b.mINightPlugin = (INightPlugin) ((Class) obj).newInstance();
                     }
-                    SkinManager.setPackageName(this.f53328b.mINightPlugin.getNightPluginPackageName());
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921608, Integer.valueOf(this.f53327a)));
+                    SkinManager.setPackageName(this.f54245b.mINightPlugin.getNightPluginPackageName());
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921608, Integer.valueOf(this.f54244a)));
                 } catch (IllegalAccessException e2) {
                     e2.printStackTrace();
                 } catch (InstantiationException e3) {
@@ -80,7 +80,7 @@ public class NightPluginManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IInvokeCallback f53329a;
+        public final /* synthetic */ IInvokeCallback f54246a;
 
         public b(NightPluginManager nightPluginManager, IInvokeCallback iInvokeCallback) {
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class NightPluginManager {
                     return;
                 }
             }
-            this.f53329a = iInvokeCallback;
+            this.f54246a = iInvokeCallback;
         }
 
         @Override // com.baidu.nps.main.install.IInstallCallback
@@ -111,7 +111,7 @@ public class NightPluginManager {
         public void onResult(int i2, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) && i2 == 13) {
-                NPSManager.getInstance().loadClazz(NightPluginManager.PLUGIN_PKG_NAME, NightPluginManager.PLUGIN_IMPL_CLASS, INightPlugin.class, this.f53329a);
+                NPSManager.getInstance().loadClazz(NightPluginManager.PLUGIN_PKG_NAME, NightPluginManager.PLUGIN_IMPL_CLASS, INightPlugin.class, this.f54246a);
             }
         }
     }
@@ -121,7 +121,7 @@ public class NightPluginManager {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final NightPluginManager f53330a;
+        public static final NightPluginManager f54247a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -137,7 +137,7 @@ public class NightPluginManager {
                     return;
                 }
             }
-            f53330a = new NightPluginManager(null);
+            f54247a = new NightPluginManager(null);
         }
     }
 
@@ -148,7 +148,7 @@ public class NightPluginManager {
     public static NightPluginManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.f53330a : (NightPluginManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.f54247a : (NightPluginManager) invokeV.objValue;
     }
 
     private void invokePlugin(IInvokeCallback iInvokeCallback) {

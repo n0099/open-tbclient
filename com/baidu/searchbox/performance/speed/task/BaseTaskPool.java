@@ -36,7 +36,10 @@ public abstract class BaseTaskPool {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 != 4) {
-                            return null;
+                            if (i2 != 5) {
+                                return null;
+                            }
+                            return onSecondaryPageEnter(z);
                         }
                         return onPrivacyPolicyGranted(z);
                     }
@@ -52,6 +55,8 @@ public abstract class BaseTaskPool {
     public abstract List<LaunchTask> onAppCreate(boolean z);
 
     public abstract List<LaunchTask> onPrivacyPolicyGranted(boolean z);
+
+    public abstract List<LaunchTask> onSecondaryPageEnter(boolean z);
 
     public abstract List<LaunchTask> onUiReady(boolean z);
 }

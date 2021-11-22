@@ -14,8 +14,8 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.a.d;
 import b.a.e.a.f;
-import b.a.e.e.p.j;
-import b.a.e.e.p.l;
+import b.a.e.f.p.j;
+import b.a.e.f.p.l;
 import b.a.q0.g0.h;
 import b.a.q0.s.g0.f;
 import b.a.q0.s.g0.g;
@@ -55,31 +55,31 @@ public class c extends d<MyGiftListActivity> {
     public View.OnClickListener D;
 
     /* renamed from: a  reason: collision with root package name */
-    public MyGiftListActivity f14965a;
+    public MyGiftListActivity f16457a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f14966b;
+    public NavigationBar f16458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NoNetworkView f14967c;
+    public NoNetworkView f16459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public h f14968d;
+    public h f16460d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f14969e;
+    public BdListView f16461e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f14970f;
+    public View f16462f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f14971g;
+    public View f16463g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f14972h;
+    public View f16464h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f14973i;
+    public View f16465i;
     public View j;
     public g k;
     public BdListView.p l;
@@ -104,7 +104,7 @@ public class c extends d<MyGiftListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f14974e;
+        public final /* synthetic */ c f16466e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -121,15 +121,15 @@ public class c extends d<MyGiftListActivity> {
                     return;
                 }
             }
-            this.f14974e = cVar;
+            this.f16466e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f14974e.m();
-                this.f14974e.u();
+                this.f16466e.m();
+                this.f16466e.u();
             }
         }
     }
@@ -140,7 +140,7 @@ public class c extends d<MyGiftListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f14975e;
+        public final /* synthetic */ c f16467e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -157,36 +157,36 @@ public class c extends d<MyGiftListActivity> {
                     return;
                 }
             }
-            this.f14975e = cVar;
+            this.f16467e = cVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            a.C0753a item;
+            a.C0818a item;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (item = this.f14975e.v.getItem(i2)) == null || item.f14936a <= 0 || StringUtils.isNull(item.f14937b)) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (item = this.f16467e.v.getItem(i2)) == null || item.f16428a <= 0 || StringUtils.isNull(item.f16429b)) {
                 return;
             }
-            if (this.f14975e.w) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.f14975e.f14965a.getPageContext().getPageActivity(), item.f14936a, item.f14937b, item.k, GiftTabActivityConfig.FROM_PERSON_CENTER)));
+            if (this.f16467e.w) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.f16467e.f16457a.getPageContext().getPageActivity(), item.f16428a, item.f16429b, item.k, GiftTabActivityConfig.FROM_PERSON_CENTER)));
             } else if (!j.z()) {
-                this.f14975e.f14965a.showToast(R.string.neterror);
+                this.f16467e.f16457a.showToast(R.string.neterror);
             } else {
-                this.f14975e.f14965a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf(item.f14936a), item.f14937b)));
+                this.f16467e.f16457a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf(item.f16428a), item.f16429b)));
             }
         }
     }
 
     /* renamed from: b.a.r0.b1.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC0755c implements View.OnClickListener {
+    public class View$OnClickListenerC0820c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f14976e;
+        public final /* synthetic */ c f16468e;
 
-        public View$OnClickListenerC0755c(c cVar) {
+        public View$OnClickListenerC0820c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -201,7 +201,7 @@ public class c extends d<MyGiftListActivity> {
                     return;
                 }
             }
-            this.f14976e = cVar;
+            this.f16468e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -210,15 +210,15 @@ public class c extends d<MyGiftListActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
                 return;
             }
-            if (view != this.f14976e.o) {
-                if (view != this.f14976e.s || StringUtils.isNull(this.f14976e.x)) {
+            if (view != this.f16468e.o) {
+                if (view != this.f16468e.s || StringUtils.isNull(this.f16468e.x)) {
                     return;
                 }
-                UrlManager.getInstance().dealOneLink(this.f14976e.f14965a.getPageContext(), new String[]{this.f14976e.x});
+                UrlManager.getInstance().dealOneLink(this.f16468e.f16457a.getPageContext(), new String[]{this.f16468e.x});
             } else if (l.D()) {
-                CurrencyJumpHelper.buyGiftGotoBuyTBeanPage(this.f14976e.f14965a.getPageContext().getPageActivity());
+                CurrencyJumpHelper.buyGiftGotoBuyTBeanPage(this.f16468e.f16457a.getPageContext().getPageActivity());
             } else {
-                UtilHelper.showToast(this.f14976e.f14965a.getPageContext().getPageActivity(), this.f14976e.f14965a.getResources().getString(R.string.neterror));
+                UtilHelper.showToast(this.f16468e.f16457a.getPageContext().getPageActivity(), this.f16468e.f16457a.getResources().getString(R.string.neterror));
             }
         }
     }
@@ -243,8 +243,8 @@ public class c extends d<MyGiftListActivity> {
         }
         this.k = null;
         this.C = new b(this);
-        this.D = new View$OnClickListenerC0755c(this);
-        this.f14965a = myGiftListActivity;
+        this.D = new View$OnClickListenerC0820c(this);
+        this.f16457a = myGiftListActivity;
         this.w = z;
         this.l = pVar;
         o();
@@ -259,7 +259,7 @@ public class c extends d<MyGiftListActivity> {
     public void i(NoNetworkView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f14967c.addNetworkChangeListener(bVar);
+            this.f16459c.addNetworkChangeListener(bVar);
         }
     }
 
@@ -281,12 +281,12 @@ public class c extends d<MyGiftListActivity> {
             } else {
                 drawable.setAlpha(255);
             }
-            b.a.q0.f1.d dVar = new b.a.q0.f1.d(drawable);
+            b.a.q0.e1.d dVar = new b.a.q0.e1.d(drawable);
             dVar.c(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
             UtilHelper.setSpan(spannableString, str2, "[icon]", dVar);
-            AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(l.g(this.f14965a.getPageContext().getPageActivity(), R.dimen.fontsize22));
-            UtilHelper.setSpan(spannableString, str2, this.f14965a.getResources().getString(R.string.unit_wan), absoluteSizeSpan);
-            UtilHelper.setSpan(spannableString, str2, this.f14965a.getResources().getString(R.string.unit_yi), absoluteSizeSpan);
+            AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(l.g(this.f16457a.getPageContext().getPageActivity(), R.dimen.fontsize22));
+            UtilHelper.setSpan(spannableString, str2, this.f16457a.getResources().getString(R.string.unit_wan), absoluteSizeSpan);
+            UtilHelper.setSpan(spannableString, str2, this.f16457a.getResources().getString(R.string.unit_yi), absoluteSizeSpan);
             return spannableString;
         }
         return (SpannableString) invokeCommon.objValue;
@@ -295,7 +295,7 @@ public class c extends d<MyGiftListActivity> {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f14969e.completePullRefreshPostDelayed(0L);
+            this.f16461e.completePullRefreshPostDelayed(0L);
         }
     }
 
@@ -308,58 +308,58 @@ public class c extends d<MyGiftListActivity> {
     public void m() {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (hVar = this.f14968d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (hVar = this.f16460d) == null) {
             return;
         }
-        hVar.dettachView(this.f14970f);
-        this.f14968d = null;
-        this.f14969e.setVisibility(0);
+        hVar.dettachView(this.f16462f);
+        this.f16460d = null;
+        this.f16461e.setVisibility(0);
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.y = (LinearLayout) this.f14965a.findViewById(R.id.gift_relation_ll);
-            this.A = (TextView) this.f14965a.findViewById(R.id.gift_relation_text);
-            this.y.setOnClickListener(this.f14965a.getSendGiftClickListener());
-            this.z = this.f14965a.findViewById(R.id.gift_send_gift_top_line);
-            this.B = (ImageView) this.f14965a.findViewById(R.id.gift_send_gift_icon);
+            this.y = (LinearLayout) this.f16457a.findViewById(R.id.gift_relation_ll);
+            this.A = (TextView) this.f16457a.findViewById(R.id.gift_relation_text);
+            this.y.setOnClickListener(this.f16457a.getSendGiftClickListener());
+            this.z = this.f16457a.findViewById(R.id.gift_send_gift_top_line);
+            this.B = (ImageView) this.f16457a.findViewById(R.id.gift_send_gift_icon);
         }
     }
 
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f14965a.setContentView(R.layout.my_gift_list_activity);
-            View findViewById = this.f14965a.findViewById(R.id.root);
-            this.f14970f = findViewById;
-            this.f14969e = (BdListView) findViewById.findViewById(R.id.list_view);
-            NavigationBar navigationBar = (NavigationBar) this.f14970f.findViewById(R.id.navigation_bar);
-            this.f14966b = navigationBar;
-            MyGiftListActivity myGiftListActivity = this.f14965a;
+            this.f16457a.setContentView(R.layout.my_gift_list_activity);
+            View findViewById = this.f16457a.findViewById(R.id.root);
+            this.f16462f = findViewById;
+            this.f16461e = (BdListView) findViewById.findViewById(R.id.list_view);
+            NavigationBar navigationBar = (NavigationBar) this.f16462f.findViewById(R.id.navigation_bar);
+            this.f16458b = navigationBar;
+            MyGiftListActivity myGiftListActivity = this.f16457a;
             if (myGiftListActivity.userType == 1) {
                 navigationBar.setCenterTextTitle(myGiftListActivity.getPageContext().getString(R.string.forum_gift_list));
             } else {
-                String format = String.format(this.f14965a.getPageContext().getString(R.string.he_gift_title), myGiftListActivity.getUserSex());
+                String format = String.format(this.f16457a.getPageContext().getString(R.string.he_gift_title), myGiftListActivity.getUserSex());
                 if (this.w) {
-                    this.f14966b.setCenterTextTitle(this.f14965a.getPageContext().getString(R.string.my_gift_list));
+                    this.f16458b.setCenterTextTitle(this.f16457a.getPageContext().getString(R.string.my_gift_list));
                 } else {
-                    this.f14966b.setTitleText(format);
+                    this.f16458b.setTitleText(format);
                 }
             }
-            this.f14966b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f14967c = (NoNetworkView) this.f14970f.findViewById(R.id.no_networkview);
-            View inflate = LayoutInflater.from(this.f14965a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_rank_head, (ViewGroup) null, false);
-            this.f14972h = inflate;
+            this.f16458b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.f16459c = (NoNetworkView) this.f16462f.findViewById(R.id.no_networkview);
+            View inflate = LayoutInflater.from(this.f16457a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_rank_head, (ViewGroup) null, false);
+            this.f16464h = inflate;
             inflate.setVisibility(8);
-            View inflate2 = LayoutInflater.from(this.f14965a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_head, (ViewGroup) null, false);
-            this.f14971g = inflate2;
+            View inflate2 = LayoutInflater.from(this.f16457a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_head, (ViewGroup) null, false);
+            this.f16463g = inflate2;
             inflate2.setVisibility(8);
-            this.u = (LinearLayout) this.f14971g.findViewById(R.id.view_link_info);
-            this.m = (TextView) this.f14971g.findViewById(R.id.textview_gift_number);
-            this.n = (TextView) this.f14971g.findViewById(R.id.textview_tdou_number);
-            this.p = (TextView) this.f14971g.findViewById(R.id.textview_tdou_number_title);
-            this.o = (TextView) this.f14971g.findViewById(R.id.view_get_tdou);
+            this.u = (LinearLayout) this.f16463g.findViewById(R.id.view_link_info);
+            this.m = (TextView) this.f16463g.findViewById(R.id.textview_gift_number);
+            this.n = (TextView) this.f16463g.findViewById(R.id.textview_tdou_number);
+            this.p = (TextView) this.f16463g.findViewById(R.id.textview_tdou_number_title);
+            this.o = (TextView) this.f16463g.findViewById(R.id.view_get_tdou);
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 this.p.setText(R.string.my_ybean);
                 this.o.setText(R.string.get_ybean);
@@ -367,49 +367,49 @@ public class c extends d<MyGiftListActivity> {
                 this.p.setText(R.string.my_tdou);
                 this.o.setText(R.string.get_tdou);
             }
-            this.q = (TextView) this.f14971g.findViewById(R.id.textview_blue_number);
-            this.r = (TextView) this.f14971g.findViewById(R.id.tv_blue_name);
-            this.t = (TextView) this.f14971g.findViewById(R.id.textview_gift_name);
-            TextView textView = (TextView) this.f14971g.findViewById(R.id.view_get_blue);
+            this.q = (TextView) this.f16463g.findViewById(R.id.textview_blue_number);
+            this.r = (TextView) this.f16463g.findViewById(R.id.tv_blue_name);
+            this.t = (TextView) this.f16463g.findViewById(R.id.textview_gift_name);
+            TextView textView = (TextView) this.f16463g.findViewById(R.id.view_get_blue);
             this.s = textView;
             textView.setOnClickListener(this.D);
             this.o.setOnClickListener(this.D);
-            View inflate3 = LayoutInflater.from(this.f14965a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_footer, (ViewGroup) null, false);
-            this.f14973i = inflate3;
+            View inflate3 = LayoutInflater.from(this.f16457a.getPageContext().getPageActivity()).inflate(R.layout.my_gift_list_footer, (ViewGroup) null, false);
+            this.f16465i = inflate3;
             this.j = inflate3.findViewById(R.id.gift_footer_lay);
             if (this.w) {
-                this.f14969e.addHeaderView(this.f14971g);
+                this.f16461e.addHeaderView(this.f16463g);
             } else {
-                if (this.f14965a.userType == 1) {
-                    this.f14972h.setVisibility(0);
-                    this.f14969e.addHeaderView(this.f14972h);
+                if (this.f16457a.userType == 1) {
+                    this.f16464h.setVisibility(0);
+                    this.f16461e.addHeaderView(this.f16464h);
                 }
                 if (TbadkApplication.getInst().isGiftSwitchOn()) {
-                    this.f14973i.setPadding(0, 0, 0, l.g(this.f14965a.getPageContext().getPageActivity(), R.dimen.ds156));
+                    this.f16465i.setPadding(0, 0, 0, l.g(this.f16457a.getPageContext().getPageActivity(), R.dimen.ds156));
                 }
             }
-            this.f14969e.addFooterView(this.f14973i);
-            b.a.r0.b1.c.b bVar = new b.a.r0.b1.c.b(this.f14965a, this.w);
+            this.f16461e.addFooterView(this.f16465i);
+            b.a.r0.b1.c.b bVar = new b.a.r0.b1.c.b(this.f16457a, this.w);
             this.v = bVar;
-            this.f14969e.setAdapter((ListAdapter) bVar);
-            g gVar = new g(this.f14965a.getPageContext());
+            this.f16461e.setAdapter((ListAdapter) bVar);
+            g gVar = new g(this.f16457a.getPageContext());
             this.k = gVar;
-            this.f14969e.setPullRefresh(gVar);
-            this.f14969e.setOnSrollToBottomListener(this.l);
-            this.f14969e.setOnItemClickListener(this.C);
+            this.f16461e.setPullRefresh(gVar);
+            this.f16461e.setOnSrollToBottomListener(this.l);
+            this.f16461e.setOnItemClickListener(this.C);
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f14965a.getLayoutMode().k(i2 == 1);
-            this.f14965a.getLayoutMode().j(this.f14970f);
-            this.f14965a.getLayoutMode().j(this.f14971g);
-            this.f14965a.getLayoutMode().j(this.f14972h);
-            this.f14965a.getLayoutMode().j(this.f14973i);
-            this.f14966b.onChangeSkinType(getPageContext(), i2);
-            this.f14967c.onChangeSkinType(this.f14965a.getPageContext(), i2);
+            this.f16457a.getLayoutMode().k(i2 == 1);
+            this.f16457a.getLayoutMode().j(this.f16462f);
+            this.f16457a.getLayoutMode().j(this.f16463g);
+            this.f16457a.getLayoutMode().j(this.f16464h);
+            this.f16457a.getLayoutMode().j(this.f16465i);
+            this.f16458b.onChangeSkinType(getPageContext(), i2);
+            this.f16459c.onChangeSkinType(this.f16457a.getPageContext(), i2);
             this.k.C(i2);
             b.a.r0.b1.c.b bVar = this.v;
             if (bVar != null) {
@@ -427,7 +427,7 @@ public class c extends d<MyGiftListActivity> {
             b.a.q0.s.u.c.d(this.s).v(R.color.CAM_X0101);
             b.a.q0.s.u.c.d(this.o).v(R.color.CAM_X0101);
             b.a.q0.s.u.c.d(this.n).v(R.color.CAM_X0101);
-            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f14971g);
+            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f16463g);
             d2.e(R.string.A_X02);
             d2.f(R.color.CAM_X0310);
         }
@@ -438,20 +438,20 @@ public class c extends d<MyGiftListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             if (aVar != null && this.w) {
-                this.f14971g.setVisibility(0);
-                String str = aVar.d().f14949b;
-                String str2 = aVar.d().f14948a;
-                this.x = aVar.f14934g.f13381b;
+                this.f16463g.setVisibility(0);
+                String str = aVar.d().f16441b;
+                String str2 = aVar.d().f16440a;
+                this.x = aVar.f16426g.f14161b;
                 this.m.setText(j(R.drawable.icon_gift_my_gift, StringHelper.formatOverBaiwanNum(aVar.b()), 0));
-                if (CurrencySwitchUtil.isYyIsConvert(aVar.f14935h)) {
-                    formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(aVar.f14935h, aVar.e());
+                if (CurrencySwitchUtil.isYyIsConvert(aVar.f16427h)) {
+                    formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(aVar.f16427h, aVar.e());
                 } else {
                     formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(aVar.e());
                 }
-                this.q.setText(j(R.drawable.icon_gift_bluedrill, StringHelper.formatOverBaiwanNum(aVar.f14933f), 2));
-                this.s.setText(aVar.f14934g.f13380a);
-                this.n.setText(j(CurrencySwitchUtil.getGiftMoneyIconResId(aVar.f14935h), formatOverBaiwanNum, 1));
-                if (CurrencySwitchUtil.isYyIsConvert(aVar.f14935h)) {
+                this.q.setText(j(R.drawable.icon_gift_bluedrill, StringHelper.formatOverBaiwanNum(aVar.f16425f), 2));
+                this.s.setText(aVar.f16426g.f14160a);
+                this.n.setText(j(CurrencySwitchUtil.getGiftMoneyIconResId(aVar.f16427h), formatOverBaiwanNum, 1));
+                if (CurrencySwitchUtil.isYyIsConvert(aVar.f16427h)) {
                     this.p.setText(R.string.my_ybean);
                     this.o.setText(R.string.get_ybean);
                     return;
@@ -460,7 +460,7 @@ public class c extends d<MyGiftListActivity> {
                 this.o.setText(R.string.get_tdou);
                 return;
             }
-            this.f14971g.setVisibility(8);
+            this.f16463g.setVisibility(8);
         }
     }
 
@@ -469,16 +469,16 @@ public class c extends d<MyGiftListActivity> {
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
             if (aVar != null && aVar.a() != null && aVar.a().size() > 0) {
                 if (aVar.c() != null) {
-                    if (aVar.c().f14946b == 1) {
-                        this.f14973i.setVisibility(0);
+                    if (aVar.c().f16438b == 1) {
+                        this.f16465i.setVisibility(0);
                     } else {
-                        this.f14973i.setVisibility(8);
+                        this.f16465i.setVisibility(8);
                     }
                 }
-                this.v.e(aVar.a(), aVar.f14935h);
+                this.v.e(aVar.a(), aVar.f16427h);
                 return;
             }
-            this.f14973i.setVisibility(8);
+            this.f16465i.setVisibility(8);
             this.y.setVisibility(8);
             this.v.e(null, -1);
         }
@@ -511,22 +511,22 @@ public class c extends d<MyGiftListActivity> {
     public void t(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048588, this, str, z) == null) {
-            if (this.f14968d == null) {
-                this.f14968d = new h(this.mContext.getContext(), new a(this));
+            if (this.f16460d == null) {
+                this.f16460d = new h(this.mContext.getContext(), new a(this));
             }
-            this.f14968d.j(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds280));
-            this.f14968d.attachView(this.f14970f, z);
-            this.f14968d.o();
+            this.f16460d.j(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds280));
+            this.f16460d.attachView(this.f16462f, z);
+            this.f16460d.o();
             this.y.setVisibility(8);
-            this.f14969e.setVisibility(8);
+            this.f16461e.setVisibility(8);
         }
     }
 
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f14969e.setVisibility(0);
-            this.f14969e.startPullRefresh();
+            this.f16461e.setVisibility(0);
+            this.f16461e.startPullRefresh();
         }
     }
 }

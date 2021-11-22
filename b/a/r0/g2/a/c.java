@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.g2.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -35,16 +35,16 @@ public class c extends b.a.r0.g2.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.g2.c.b f16720e;
+        public final /* synthetic */ b.a.r0.g2.c.b f18234e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f16721f;
+        public final /* synthetic */ b f18235f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f16722g;
+        public final /* synthetic */ int f18236g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c f16723h;
+        public final /* synthetic */ c f18237h;
 
         public a(c cVar, b.a.r0.g2.c.b bVar, b bVar2, int i2) {
             Interceptable interceptable = $ic;
@@ -61,32 +61,32 @@ public class c extends b.a.r0.g2.a.a {
                     return;
                 }
             }
-            this.f16723h = cVar;
-            this.f16720e = bVar;
-            this.f16721f = bVar2;
-            this.f16722g = i2;
+            this.f18237h = cVar;
+            this.f18234e = bVar;
+            this.f18235f = bVar2;
+            this.f18236g = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.r0.g2.c.b bVar = this.f16720e;
+                b.a.r0.g2.c.b bVar = this.f18234e;
                 bVar.l(!bVar.g());
-                c cVar = this.f16723h;
-                b bVar2 = this.f16721f;
-                cVar.f(bVar2.f16727d, bVar2.f16728e, this.f16720e);
-                this.f16723h.d(this.f16720e);
-                c cVar2 = this.f16723h;
-                a.InterfaceC0863a interfaceC0863a = cVar2.f16712h;
-                if (interfaceC0863a != null) {
-                    interfaceC0863a.onSelectCountChanged(cVar2.f16709e);
+                c cVar = this.f18237h;
+                b bVar2 = this.f18235f;
+                cVar.f(bVar2.f18241d, bVar2.f18242e, this.f18234e);
+                this.f18237h.d(this.f18234e);
+                c cVar2 = this.f18237h;
+                a.InterfaceC0930a interfaceC0930a = cVar2.f18226h;
+                if (interfaceC0930a != null) {
+                    interfaceC0930a.onSelectCountChanged(cVar2.f18223e);
                 }
-                if (this.f16720e.g()) {
+                if (this.f18234e.g()) {
                     StatisticItem statisticItem = new StatisticItem("c13682");
                     statisticItem.param("obj_type", 2);
                     statisticItem.param("obj_locate", 1);
-                    statisticItem.param("obj_source", this.f16722g);
+                    statisticItem.param("obj_source", this.f18236g);
                     TiebaStatic.log(statisticItem);
                 }
             }
@@ -99,19 +99,19 @@ public class c extends b.a.r0.g2.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f16724a;
+        public LinearLayout f18238a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f16725b;
+        public HeadImageView f18239b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f16726c;
+        public TextView f18240c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ImageView f16727d;
+        public ImageView f18241d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f16728e;
+        public View f18242e;
 
         public b(View view) {
             Interceptable interceptable = $ic;
@@ -128,29 +128,29 @@ public class c extends b.a.r0.g2.a.a {
                     return;
                 }
             }
-            this.f16724a = (LinearLayout) view.findViewById(R.id.interest_selection_rootview);
-            this.f16725b = (HeadImageView) view.findViewById(R.id.interest_icon);
-            this.f16726c = (TextView) view.findViewById(R.id.interest_text);
-            this.f16727d = (ImageView) view.findViewById(R.id.select_status_view);
-            this.f16728e = view.findViewById(R.id.interest_icon_cover);
+            this.f18238a = (LinearLayout) view.findViewById(R.id.interest_selection_rootview);
+            this.f18239b = (HeadImageView) view.findViewById(R.id.interest_icon);
+            this.f18240c = (TextView) view.findViewById(R.id.interest_text);
+            this.f18241d = (ImageView) view.findViewById(R.id.select_status_view);
+            this.f18242e = view.findViewById(R.id.interest_icon_cover);
             int k = l.k(TbadkCoreApplication.getInst()) / 5;
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(k, k);
-            this.f16725b.setLayoutParams(layoutParams);
-            this.f16728e.setLayoutParams(layoutParams);
+            this.f18239b.setLayoutParams(layoutParams);
+            this.f18242e.setLayoutParams(layoutParams);
         }
 
         public void a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-                b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f16726c);
+                b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f18240c);
                 d2.v(R.color.CAM_X0105);
                 d2.z(R.dimen.T_X06);
-                this.f16725b.setConrers(15);
-                this.f16725b.setIsRound(true);
-                this.f16725b.setDrawBorder(true);
-                this.f16725b.setPlaceHolder(3);
-                this.f16725b.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-                this.f16725b.setBorderWidth(l.g(context, R.dimen.L_X02));
+                this.f18239b.setConrers(15);
+                this.f18239b.setIsRound(true);
+                this.f18239b.setDrawBorder(true);
+                this.f18239b.setPlaceHolder(3);
+                this.f18239b.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+                this.f18239b.setBorderWidth(l.g(context, R.dimen.L_X02));
             }
         }
     }
@@ -196,20 +196,20 @@ public class c extends b.a.r0.g2.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f16710f).inflate(R.layout.list_item_interest_selection_style_a, viewGroup, false);
+                view = LayoutInflater.from(this.f18224f).inflate(R.layout.list_item_interest_selection_style_a, viewGroup, false);
                 bVar = new b(view);
                 view.setTag(bVar);
             } else {
                 bVar = (b) view.getTag();
             }
-            bVar.a(this.f16710f);
-            b.a.r0.g2.c.b bVar2 = this.f16711g.get(i2);
+            bVar.a(this.f18224f);
+            b.a.r0.g2.c.b bVar2 = this.f18225g.get(i2);
             if (bVar2 == null) {
                 return view;
             }
-            bVar.f16725b.startLoad(bVar2.c(), 25, false);
-            bVar.f16726c.setText(bVar2.b());
-            f(bVar.f16727d, bVar.f16728e, bVar2);
+            bVar.f18239b.startLoad(bVar2.c(), 25, false);
+            bVar.f18240c.setText(bVar2.b());
+            f(bVar.f18241d, bVar.f18242e, bVar2);
             view.setOnClickListener(new a(this, bVar2, bVar, i2));
             return view;
         }

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import b.a.p0.a.c1.d.i;
+import b.a.p0.a.c1.d.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -28,15 +28,15 @@ import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class d implements i {
+public class d implements j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public i.a f24205a;
+    public j.a f25668a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f24206b;
+    public CustomMessageListener f25669b;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -44,7 +44,7 @@ public class d implements i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f24207a;
+        public final /* synthetic */ d f25670a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(d dVar, int i2) {
@@ -64,18 +64,18 @@ public class d implements i {
                     return;
                 }
             }
-            this.f24207a = dVar;
+            this.f25670a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f24207a.f24205a != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f25670a.f25668a != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    this.f24207a.f24205a.b();
+                    this.f25670a.f25668a.b();
                 } else {
-                    this.f24207a.f24205a.a();
+                    this.f25670a.f25668a.a();
                 }
             }
         }
@@ -87,9 +87,9 @@ public class d implements i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i.a f24208a;
+        public final /* synthetic */ j.a f25671a;
 
-        public b(d dVar, i.a aVar) {
+        public b(d dVar, j.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +104,7 @@ public class d implements i {
                     return;
                 }
             }
-            this.f24208a = aVar;
+            this.f25671a = aVar;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
@@ -112,9 +112,9 @@ public class d implements i {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
                 if (delegateResult.mResult.getBoolean("share_result")) {
-                    this.f24208a.b();
+                    this.f25671a.b();
                 } else {
-                    this.f24208a.a();
+                    this.f25671a.a();
                 }
             }
         }
@@ -133,16 +133,16 @@ public class d implements i {
                 return;
             }
         }
-        this.f24206b = new a(this, 2921366);
+        this.f25669b = new a(this, 2921366);
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.f24206b);
+        MessageManager.getInstance().registerListener(this.f25669b);
     }
 
-    @Override // b.a.p0.a.c1.d.i
-    public void a(Context context, JSONObject jSONObject, i.a aVar) {
+    @Override // b.a.p0.a.c1.d.j
+    public void a(Context context, JSONObject jSONObject, j.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048576, this, context, jSONObject, aVar) == null) && (context instanceof Activity)) {
-            this.f24205a = aVar;
+            this.f25668a = aVar;
             Bundle bundle = new Bundle();
             try {
                 String optString = jSONObject.optString("shareUrl");
@@ -167,7 +167,7 @@ public class d implements i {
         }
     }
 
-    @Override // b.a.p0.a.c1.d.i
+    @Override // b.a.p0.a.c1.d.j
     public void b(Context context, String str, Uri uri) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, uri) == null) {

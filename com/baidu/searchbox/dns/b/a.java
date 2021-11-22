@@ -13,12 +13,12 @@ public class a {
 
     public static List<String> g(String str) {
         InterceptResult invokeL;
-        Map<String, com.baidu.searchbox.dns.d.a.a> B;
+        Map<String, com.baidu.searchbox.dns.d.a.a> A;
         com.baidu.searchbox.dns.d.a.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             com.baidu.searchbox.dns.d.a.b x = new c(false, str, 2).x();
-            if (x == null || x.B() == null || (B = x.B()) == null || B.isEmpty() || (aVar = B.get(str)) == null) {
+            if (x == null || x.A() == null || (A = x.A()) == null || A.isEmpty() || (aVar = A.get(str)) == null) {
                 return null;
             }
             com.baidu.searchbox.dns.a.a.e().a(str, aVar);

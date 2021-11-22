@@ -4,7 +4,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import b.a.r0.x0.h1;
+import b.a.r0.x0.i1;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
@@ -50,7 +50,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             str = "basketball".equals(stringExtra2) ? "bkb" : "";
         }
         try {
-            str2 = URLEncoder.encode(context.getString(h1.sport_ai_app_name), "UTF-8");
+            str2 = URLEncoder.encode(context.getString(i1.sport_ai_app_name), "UTF-8");
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
         }
@@ -59,7 +59,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             Intent intent2 = new Intent(context, DealIntentService.class);
             intent2.putExtra(DealIntentService.KEY_CLASS, 37);
             intent2.putExtra(IntentConfig.KEY_AI_APP_SCHEMA, str3);
-            NotificationHelper.showNotification(context, 2001, stringExtra3 + context.getString(h1.match_is_to_begin), "", "", PendingIntent.getService(context, 2001, intent2, 134217728), false);
+            NotificationHelper.showNotification(context, 2001, stringExtra3 + context.getString(i1.match_is_to_begin), "", "", PendingIntent.getService(context, 2001, intent2, 134217728), false);
         } catch (Exception e3) {
             e3.printStackTrace();
         }

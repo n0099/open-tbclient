@@ -1,8 +1,8 @@
 package com.baidu.tieba.model;
 
 import b.a.e.a.f;
-import b.a.e.e.m.b;
-import b.a.r0.l3.f0.a;
+import b.a.e.f.m.b;
+import b.a.r0.m3.f0.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;

@@ -31,12 +31,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class s extends b.a.e.l.e.a<b.a.r0.h1.c.f.a, ThreadCardViewHolder<b.a.r0.h1.c.f.a>> implements b.a.r0.p.f {
+public class s extends b.a.e.m.e.a<b.a.r0.h1.c.f.a, ThreadCardViewHolder<b.a.r0.h1.c.f.a>> implements b.a.r0.p.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId m;
     public TbPageContext<?> n;
-    public b.a.e.l.e.s o;
+    public b.a.e.m.e.s o;
     public String p;
     public NEGFeedBackView.b q;
 
@@ -46,7 +46,7 @@ public class s extends b.a.e.l.e.a<b.a.r0.h1.c.f.a, ThreadCardViewHolder<b.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ s f17007a;
+        public final /* synthetic */ s f18474a;
 
         public a(s sVar) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class s extends b.a.e.l.e.a<b.a.r0.h1.c.f.a, ThreadCardViewHolder<b.a.r0.
                     return;
                 }
             }
-            this.f17007a = sVar;
+            this.f18474a = sVar;
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
@@ -79,11 +79,11 @@ public class s extends b.a.e.l.e.a<b.a.r0.h1.c.f.a, ThreadCardViewHolder<b.a.r0.
             if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, str, x0Var) == null) || arrayList == null || x0Var == null) {
                 return;
             }
-            CustomMessage customMessage = new CustomMessage(2921425, this.f17007a.n.getUniqueId());
+            CustomMessage customMessage = new CustomMessage(2921425, this.f18474a.n.getUniqueId());
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921425);
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-            new b(this.f17007a, null).execute(new Integer[0]);
+            new b(this.f18474a, null).execute(new Integer[0]);
             TiebaStatic.log(new StatisticItem("c13572"));
         }
 
@@ -101,7 +101,7 @@ public class s extends b.a.e.l.e.a<b.a.r0.h1.c.f.a, ThreadCardViewHolder<b.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f17008a;
+        public NetWork f18475a;
 
         public b(s sVar) {
             Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class s extends b.a.e.l.e.a<b.a.r0.h1.c.f.a, ThreadCardViewHolder<b.a.r0.
                     return;
                 }
             }
-            this.f17008a = null;
+            this.f18475a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -126,10 +126,10 @@ public class s extends b.a.e.l.e.a<b.a.r0.h1.c.f.a, ThreadCardViewHolder<b.a.r0.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.cancel(true);
-                NetWork netWork = this.f17008a;
+                NetWork netWork = this.f18475a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
-                    this.f17008a = null;
+                    this.f18475a = null;
                 }
             }
         }
@@ -142,12 +142,12 @@ public class s extends b.a.e.l.e.a<b.a.r0.h1.c.f.a, ThreadCardViewHolder<b.a.r0.
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr)) == null) {
                 try {
                     NetWork netWork = new NetWork();
-                    this.f17008a = netWork;
+                    this.f18475a = netWork;
                     netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
-                    this.f17008a.addPostData("dislike_from", "concernpage");
-                    this.f17008a.addPostData("dislike_type", "1");
-                    this.f17008a.getNetContext().getRequest().mIsNeedTbs = true;
-                    return this.f17008a.postNetData();
+                    this.f18475a.addPostData("dislike_from", "concernpage");
+                    this.f18475a.addPostData("dislike_type", "1");
+                    this.f18475a.getNetContext().getRequest().mIsNeedTbs = true;
+                    return this.f18475a.postNetData();
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                     return null;
@@ -202,7 +202,7 @@ public class s extends b.a.e.l.e.a<b.a.r0.h1.c.f.a, ThreadCardViewHolder<b.a.r0.
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public ThreadCardViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -221,7 +221,7 @@ public class s extends b.a.e.l.e.a<b.a.r0.h1.c.f.a, ThreadCardViewHolder<b.a.r0.
             b0 showNEGFeedBackView = threadCardViewHolder.showNEGFeedBackView(false);
             showNEGFeedBackView.t(this.q);
             showNEGFeedBackView.r(false);
-            showNEGFeedBackView.s(this.f2419e.getString(R.string.concern_recommend_dialog_title));
+            showNEGFeedBackView.s(this.f2421e.getString(R.string.concern_recommend_dialog_title));
             showNEGFeedBackView.v(true);
             showNEGFeedBackView.k = true;
             return threadCardViewHolder;
@@ -230,7 +230,7 @@ public class s extends b.a.e.l.e.a<b.a.r0.h1.c.f.a, ThreadCardViewHolder<b.a.r0.
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.h1.c.f.a aVar, ThreadCardViewHolder<b.a.r0.h1.c.f.a> threadCardViewHolder) {
         InterceptResult invokeCommon;
@@ -241,7 +241,7 @@ public class s extends b.a.e.l.e.a<b.a.r0.h1.c.f.a, ThreadCardViewHolder<b.a.r0.
             }
             StatisticItem statisticItem = new StatisticItem("c13565");
             statisticItem.param("obj_source", aVar.k() ? 1 : 2);
-            b.a.r0.b0.u.b().a(statisticItem);
+            b.a.r0.b0.v.b().a(statisticItem);
             threadCardViewHolder.getCardView().p(i2);
             if (threadCardViewHolder.getCardView() instanceof b.a.r0.p.e) {
                 threadCardViewHolder.getCardView().setPage(this.p);
@@ -253,7 +253,7 @@ public class s extends b.a.e.l.e.a<b.a.r0.h1.c.f.a, ThreadCardViewHolder<b.a.r0.
         return (View) invokeCommon.objValue;
     }
 
-    public void j0(b.a.e.l.e.s sVar) {
+    public void j0(b.a.e.m.e.s sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, sVar) == null) {
             this.o = sVar;

@@ -19,19 +19,19 @@ public class b implements Closeable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final InputStream f64388a;
+    public final InputStream f65301a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Charset f64389b;
+    public final Charset f65302b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f64390c;
+    public byte[] f65303c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f64391d;
+    public int f65304d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f64392e;
+    public int f65305e;
 
     public b(InputStream inputStream, int i2, Charset charset) {
         Interceptable interceptable = $ic;
@@ -54,12 +54,12 @@ public class b implements Closeable {
         if (i2 < 0) {
             throw new IllegalArgumentException("capacity <= 0");
         }
-        if (!charset.equals(c.f64394a)) {
+        if (!charset.equals(c.f65307a)) {
             throw new IllegalArgumentException("Unsupported encoding");
         }
-        this.f64388a = inputStream;
-        this.f64389b = charset;
-        this.f64390c = new byte[i2];
+        this.f65301a = inputStream;
+        this.f65302b = charset;
+        this.f65303c = new byte[i2];
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -86,14 +86,14 @@ public class b implements Closeable {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            InputStream inputStream = this.f64388a;
-            byte[] bArr = this.f64390c;
+            InputStream inputStream = this.f65301a;
+            byte[] bArr = this.f65303c;
             int read = inputStream.read(bArr, 0, bArr.length);
             if (read == -1) {
                 throw new EOFException();
             }
-            this.f64391d = 0;
-            this.f64392e = read;
+            this.f65304d = 0;
+            this.f65305e = read;
         }
     }
 
@@ -103,33 +103,33 @@ public class b implements Closeable {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this.f64388a) {
-                if (this.f64390c != null) {
-                    if (this.f64391d >= this.f64392e) {
+            synchronized (this.f65301a) {
+                if (this.f65303c != null) {
+                    if (this.f65304d >= this.f65305e) {
                         c();
                     }
-                    for (int i4 = this.f64391d; i4 != this.f64392e; i4++) {
-                        if (this.f64390c[i4] == 10) {
-                            if (i4 != this.f64391d) {
+                    for (int i4 = this.f65304d; i4 != this.f65305e; i4++) {
+                        if (this.f65303c[i4] == 10) {
+                            if (i4 != this.f65304d) {
                                 i3 = i4 - 1;
-                                if (this.f64390c[i3] == 13) {
-                                    String str = new String(this.f64390c, this.f64391d, i3 - this.f64391d, this.f64389b.name());
-                                    this.f64391d = i4 + 1;
+                                if (this.f65303c[i3] == 13) {
+                                    String str = new String(this.f65303c, this.f65304d, i3 - this.f65304d, this.f65302b.name());
+                                    this.f65304d = i4 + 1;
                                     return str;
                                 }
                             }
                             i3 = i4;
-                            String str2 = new String(this.f64390c, this.f64391d, i3 - this.f64391d, this.f64389b.name());
-                            this.f64391d = i4 + 1;
+                            String str2 = new String(this.f65303c, this.f65304d, i3 - this.f65304d, this.f65302b.name());
+                            this.f65304d = i4 + 1;
                             return str2;
                         }
                     }
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(this, (this.f64392e - this.f64391d) + 80) { // from class: com.kwad.sdk.core.diskcache.a.b.1
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(this, (this.f65305e - this.f65304d) + 80) { // from class: com.kwad.sdk.core.diskcache.a.b.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ b f64393a;
+                        public final /* synthetic */ b f65306a;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -149,7 +149,7 @@ public class b implements Closeable {
                                     return;
                                 }
                             }
-                            this.f64393a = this;
+                            this.f65306a = this;
                         }
 
                         @Override // java.io.ByteArrayOutputStream
@@ -159,7 +159,7 @@ public class b implements Closeable {
                             if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) {
                                 int i5 = ((ByteArrayOutputStream) this).count;
                                 try {
-                                    return new String(((ByteArrayOutputStream) this).buf, 0, (i5 <= 0 || ((ByteArrayOutputStream) this).buf[i5 + (-1)] != 13) ? ((ByteArrayOutputStream) this).count : i5 - 1, this.f64393a.f64389b.name());
+                                    return new String(((ByteArrayOutputStream) this).buf, 0, (i5 <= 0 || ((ByteArrayOutputStream) this).buf[i5 + (-1)] != 13) ? ((ByteArrayOutputStream) this).count : i5 - 1, this.f65306a.f65302b.name());
                                 } catch (UnsupportedEncodingException e2) {
                                     throw new AssertionError(e2);
                                 }
@@ -168,21 +168,21 @@ public class b implements Closeable {
                         }
                     };
                     loop1: while (true) {
-                        byteArrayOutputStream.write(this.f64390c, this.f64391d, this.f64392e - this.f64391d);
-                        this.f64392e = -1;
+                        byteArrayOutputStream.write(this.f65303c, this.f65304d, this.f65305e - this.f65304d);
+                        this.f65305e = -1;
                         c();
-                        i2 = this.f64391d;
-                        while (i2 != this.f64392e) {
-                            if (this.f64390c[i2] == 10) {
+                        i2 = this.f65304d;
+                        while (i2 != this.f65305e) {
+                            if (this.f65303c[i2] == 10) {
                                 break loop1;
                             }
                             i2++;
                         }
                     }
-                    if (i2 != this.f64391d) {
-                        byteArrayOutputStream.write(this.f64390c, this.f64391d, i2 - this.f64391d);
+                    if (i2 != this.f65304d) {
+                        byteArrayOutputStream.write(this.f65303c, this.f65304d, i2 - this.f65304d);
                     }
-                    this.f64391d = i2 + 1;
+                    this.f65304d = i2 + 1;
                     return byteArrayOutputStream.toString();
                 }
                 throw new IOException("LineReader is closed");
@@ -194,17 +194,17 @@ public class b implements Closeable {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64392e == -1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65305e == -1 : invokeV.booleanValue;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this.f64388a) {
-                if (this.f64390c != null) {
-                    this.f64390c = null;
-                    this.f64388a.close();
+            synchronized (this.f65301a) {
+                if (this.f65303c != null) {
+                    this.f65303c = null;
+                    this.f65301a.close();
                 }
             }
         }

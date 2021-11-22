@@ -6,11 +6,15 @@ import java.lang.reflect.InvocationHandler;
 public interface WebViewProviderFactoryBoundaryInterface {
     InvocationHandler createWebView(WebView webView);
 
+    InvocationHandler getProxyController();
+
     InvocationHandler getServiceWorkerController();
 
     InvocationHandler getStatics();
 
     String[] getSupportedFeatures();
+
+    InvocationHandler getTracingController();
 
     InvocationHandler getWebkitToCompatConverter();
 }

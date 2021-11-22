@@ -6,6 +6,7 @@ import android.os.IInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.heytap.openid.IOpenID;
 /* loaded from: classes2.dex */
 public abstract class b extends Binder implements a {
     public static /* synthetic */ Interceptable $ic;
@@ -18,7 +19,7 @@ public abstract class b extends Binder implements a {
             if (iBinder == null) {
                 return null;
             }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
+            IInterface queryLocalInterface = iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
             return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new c(iBinder) : (a) queryLocalInterface;
         }
         return (a) invokeL.objValue;

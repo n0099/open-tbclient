@@ -8,14 +8,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.u.c;
 import b.a.r0.k2.f;
 import b.a.r0.k2.h;
 import b.a.r0.k2.i;
 import b.a.r0.k2.j;
 import b.a.r0.k2.k;
-import b.a.r0.k2.u.f.a1.g;
+import b.a.r0.k2.u.f.b1.g;
 import b.a.r0.k2.u.f.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -43,7 +43,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TBLottieAnimationView f52207a;
+    public TBLottieAnimationView f53120a;
     public LinearLayout mAllContent;
     public View mBottomAgreeContainer;
     public AgreeView mBottomAgreeView;
@@ -112,7 +112,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommenFloorItemViewHolder f52208e;
+        public final /* synthetic */ PbCommenFloorItemViewHolder f53121e;
 
         public a(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
             Interceptable interceptable = $ic;
@@ -129,14 +129,14 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f52208e = pbCommenFloorItemViewHolder;
+            this.f53121e = pbCommenFloorItemViewHolder;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52208e.f52207a.playAnimation();
+                this.f53121e.f53120a.playAnimation();
             }
         }
     }
@@ -203,10 +203,10 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.mFeedBackImg = (ImageView) view.findViewById(i.pb_floor_feedback);
         this.pageFrom = i2;
         b.a.q0.s.q.f fVar = new b.a.q0.s.q.f();
-        fVar.f13300b = 5;
-        fVar.f13306h = 8;
-        fVar.f13305g = 2;
-        fVar.f13304f = i2;
+        fVar.f14080b = 5;
+        fVar.f14086h = 8;
+        fVar.f14085g = 2;
+        fVar.f14084f = i2;
         this.mPbFloorPraiseView.setStatisticData(fVar);
         this.mHeadPhotoView = (HeadImageView) view.findViewById(i.normal_user_photo);
         HeadPendantView headPendantView = (HeadPendantView) view.findViewById(i.pendant_user_photo);
@@ -233,7 +233,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.mPointRightPostTime = (TextView) view.findViewById(i.point_between_time_and_locate);
         this.mImagesView.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(b.a.r0.k2.g.ds16));
         this.mImagesView.setSingleImageRatio(0.75d);
-        this.mImagesView.setImageProcessor(new b.a.q0.f1.j.f(3));
+        this.mImagesView.setImageProcessor(new b.a.q0.e1.j.f(3));
         d dVar = new d(this.mRichTextView.getLayoutStrategy());
         dVar.j(l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds18));
         dVar.o(TbConfig.getPostLineSpace(), 1.0f);
@@ -261,7 +261,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         } else {
             this.mPbFloorComplaint.setVisibility(8);
         }
-        this.f52207a = (TBLottieAnimationView) view.findViewById(i.user_living_lottie);
+        this.f53120a = (TBLottieAnimationView) view.findViewById(i.user_living_lottie);
         this.mPbRightTopLayout = (ViewGroup) view.findViewById(i.pb_floor_right_top_layout);
         this.mPbRightTopAgreeView = (AgreeView) view.findViewById(i.pb_floor_right_top_agree_view);
         this.mPbRightTopMoreView = (ImageView) view.findViewById(i.pb_floor_right_top_feedback);
@@ -277,7 +277,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.uegFrameLayout = frameLayout;
         g gVar = new g(tbPageContext, frameLayout);
         this.pbHeadUegController = gVar;
-        gVar.f19023f = 3;
+        gVar.f20602f = 3;
         this.mMaskView = (MaskView) view.findViewById(i.mask_view_op);
     }
 
@@ -304,7 +304,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public void handleUserAlaLiveSkinType(int i2) {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (tBLottieAnimationView = this.f52207a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (tBLottieAnimationView = this.f53120a) == null) {
             return;
         }
         SkinManager.setLottieAnimation(tBLottieAnimationView, k.card_live_header_bg);
@@ -314,18 +314,18 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                this.f52207a.setVisibility(0);
-                if (this.f52207a.isAnimating()) {
+                this.f53120a.setVisibility(0);
+                if (this.f53120a.isAnimating()) {
                     return;
                 }
-                this.f52207a.setSpeed(0.8f);
-                this.f52207a.setRepeatCount(-1);
-                this.f52207a.post(new a(this));
+                this.f53120a.setSpeed(0.8f);
+                this.f53120a.setRepeatCount(-1);
+                this.f53120a.post(new a(this));
                 return;
             }
-            this.f52207a.setVisibility(8);
-            if (this.f52207a.isAnimating()) {
-                this.f52207a.cancelAnimation();
+            this.f53120a.setVisibility(8);
+            if (this.f53120a.isAnimating()) {
+                this.f53120a.cancelAnimation();
             }
         }
     }
@@ -334,10 +334,10 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && z) {
             b.a.q0.s.q.f fVar = new b.a.q0.s.q.f();
-            fVar.f13300b = 12;
-            fVar.f13306h = 9;
-            fVar.f13305g = 3;
-            fVar.f13304f = this.pageFrom;
+            fVar.f14080b = 12;
+            fVar.f14086h = 9;
+            fVar.f14085g = 3;
+            fVar.f14084f = this.pageFrom;
             this.mPbFloorPraiseView.setStatisticData(fVar);
         }
     }

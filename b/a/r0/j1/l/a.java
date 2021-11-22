@@ -11,25 +11,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Hottopic.CommonInteraction;
 /* loaded from: classes4.dex */
-public class a implements b.a.e.l.e.n {
+public class a implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f18423e;
+    public long f19757e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18424f;
+    public int f19758f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f18425g;
+    public long f19759g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f18426h;
+    public long f19760h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f18427i;
+    public int f19761i;
 
     static {
         InterceptResult invokeClinit;
@@ -68,15 +68,15 @@ public class a implements b.a.e.l.e.n {
         }
         String str = commonInteraction.module_name;
         String str2 = commonInteraction.ques_desc;
-        this.f18423e = commonInteraction.total_num.longValue();
-        this.f18424f = commonInteraction.has_clicked.intValue();
+        this.f19757e = commonInteraction.total_num.longValue();
+        this.f19758f = commonInteraction.has_clicked.intValue();
         String str3 = commonInteraction.before_click_pic;
         String str4 = commonInteraction.after_click_pic;
-        this.f18425g = commonInteraction.pk_id.longValue();
-        this.f18426h = commonInteraction.user_pk_id.longValue();
+        this.f19759g = commonInteraction.pk_id.longValue();
+        this.f19760h = commonInteraction.user_pk_id.longValue();
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -19,19 +19,19 @@ public class RoundProgressBar extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54799e;
+    public int f55719e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54800f;
+    public int f55720f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f54801g;
+    public int f55721g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f54802h;
+    public int f55722h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f54803i;
+    public float f55723i;
     public Paint j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -58,8 +58,8 @@ public class RoundProgressBar extends View {
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f54802h = 4;
-            this.f54799e = Color.rgb(255, 255, 255);
+            this.f55722h = 4;
+            this.f55719e = Color.rgb(255, 255, 255);
         }
     }
 
@@ -69,24 +69,24 @@ public class RoundProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f54800f = getWidth();
+            this.f55720f = getWidth();
             int height = getHeight();
-            this.f54801g = height;
-            if (this.f54800f > height) {
-                this.f54800f = height;
+            this.f55721g = height;
+            if (this.f55720f > height) {
+                this.f55720f = height;
             }
             this.j.setAntiAlias(true);
             this.j.setStyle(Paint.Style.STROKE);
-            this.j.setStrokeWidth(this.f54802h);
-            this.j.setColor(this.f54799e);
-            canvas.drawArc(new RectF(5.0f, 5.0f, this.f54800f - 5, this.f54801g - 5), 270.0f, (this.f54803i * 360.0f) / 100.0f, false, this.j);
+            this.j.setStrokeWidth(this.f55722h);
+            this.j.setColor(this.f55719e);
+            canvas.drawArc(new RectF(5.0f, 5.0f, this.f55720f - 5, this.f55721g - 5), 270.0f, (this.f55723i * 360.0f) / 100.0f, false, this.j);
         }
     }
 
     public void updateProgress(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f54803i = f2;
+            this.f55723i = f2;
             invalidate();
         }
     }

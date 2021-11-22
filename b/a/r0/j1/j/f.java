@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.c0;
+import b.a.r0.b0.d0;
 import b.a.r0.b0.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -27,23 +27,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
+public class f extends b.a.e.m.e.a<b.a.r0.b0.f0.k, d> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<HotTopicActivity> m;
     public boolean n;
     public BdUniqueId o;
-    public b.a.e.e.k.b<ConstrainImageLayout> p;
-    public b.a.e.e.k.b<TbImageView> q;
-    public c0<b.a.r0.b0.e0.k> r;
+    public b.a.e.f.k.b<ConstrainImageLayout> p;
+    public b.a.e.f.k.b<TbImageView> q;
+    public d0<b.a.r0.b0.f0.k> r;
 
     /* loaded from: classes4.dex */
-    public class a implements b.a.e.e.k.c<ConstrainImageLayout> {
+    public class a implements b.a.e.f.k.c<ConstrainImageLayout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f18349a;
+        public final /* synthetic */ f f19683a;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -60,12 +60,12 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
                     return;
                 }
             }
-            this.f18349a = fVar;
+            this.f19683a = fVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ ConstrainImageLayout a(ConstrainImageLayout constrainImageLayout) {
             ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
             e(constrainImageLayout2);
@@ -74,7 +74,7 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ ConstrainImageLayout c(ConstrainImageLayout constrainImageLayout) {
             ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
             h(constrainImageLayout2);
@@ -88,7 +88,7 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: f */
         public void b(ConstrainImageLayout constrainImageLayout) {
             Interceptable interceptable = $ic;
@@ -98,12 +98,12 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: g */
         public ConstrainImageLayout d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f18349a.m.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ConstrainImageLayout(this.f19683a.m.getPageActivity()) : (ConstrainImageLayout) invokeV.objValue;
         }
 
         public ConstrainImageLayout h(ConstrainImageLayout constrainImageLayout) {
@@ -114,12 +114,12 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements b.a.e.e.k.c<TbImageView> {
+    public class b implements b.a.e.f.k.c<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f18350a;
+        public final /* synthetic */ f f19684a;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -136,12 +136,12 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
                     return;
                 }
             }
-            this.f18350a = fVar;
+            this.f19684a = fVar;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             e(tbImageView2);
@@ -150,7 +150,7 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             h(tbImageView2);
@@ -164,7 +164,7 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -175,13 +175,13 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.k.c
+        @Override // b.a.e.f.k.c
         /* renamed from: g */
         public TbImageView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TbImageView tbImageView = new TbImageView(this.f18350a.m.getPageActivity());
+                TbImageView tbImageView = new TbImageView(this.f19684a.m.getPageActivity());
                 tbImageView.setDrawBorder(true);
                 tbImageView.setBorderColor(SkinManager.getColor(b.a.r0.j1.b.common_color_10043));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(b.a.r0.j1.c.ds1));
@@ -203,12 +203,12 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
     }
 
     /* loaded from: classes4.dex */
-    public class c extends c0<b.a.r0.b0.e0.k> {
+    public class c extends d0<b.a.r0.b0.f0.k> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ f f18351b;
+        public final /* synthetic */ f f19685b;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -225,32 +225,32 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
                     return;
                 }
             }
-            this.f18351b = fVar;
+            this.f19685b = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.r0.b0.c0
+        @Override // b.a.r0.b0.d0
         /* renamed from: d */
-        public void a(View view, b.a.r0.b0.e0.k kVar) {
+        public void a(View view, b.a.r0.b0.f0.k kVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, kVar) == null) || kVar == null || kVar.getThreadData() == null || StringUtils.isNull(kVar.getThreadData().s1()) || StringUtils.isNull(kVar.C())) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, kVar) == null) || kVar == null || kVar.getThreadData() == null || StringUtils.isNull(kVar.getThreadData().t1()) || StringUtils.isNull(kVar.C())) {
                 return;
             }
-            String topicName = ((HotTopicActivity) this.f18351b.m.getOrignalPage()).getTopicName();
-            String hotTopicId = ((HotTopicActivity) this.f18351b.m.getOrignalPage()).getHotTopicId();
+            String topicName = ((HotTopicActivity) this.f19685b.m.getOrignalPage()).getTopicName();
+            String hotTopicId = ((HotTopicActivity) this.f19685b.m.getOrignalPage()).getHotTopicId();
             d2 threadData = kVar.getThreadData();
-            threadData.o4(5);
+            threadData.q4(5);
             if ("c10814".equals(kVar.C())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
                 TiebaStatic.log(new StatisticItem("c10814").param("tid", threadData.f0()).param("obj_name", topicName).param("topic_id", hotTopicId));
             } else if ("c10816".equals(kVar.C())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                TiebaStatic.log(new StatisticItem("c10816").param("post_id", threadData.s1()).param("obj_name", topicName).param("topic_id", hotTopicId));
+                TiebaStatic.log(new StatisticItem("c10816").param("post_id", threadData.t1()).param("obj_name", topicName).param("topic_id", hotTopicId));
             }
-            if (this.f18351b.m == null || !(this.f18351b.m.getOrignalPage() instanceof b.a.r0.j1.k.a)) {
+            if (this.f19685b.m == null || !(this.f19685b.m.getOrignalPage() instanceof b.a.r0.j1.k.a)) {
                 return;
             }
-            ((HotTopicActivity) this.f18351b.m.getOrignalPage()).businessStatisticForTopicClick(kVar);
+            ((HotTopicActivity) this.f19685b.m.getOrignalPage()).businessStatisticForTopicClick(kVar);
         }
     }
 
@@ -260,7 +260,7 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public n f18352a;
+        public n f19686a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(f fVar, n nVar) {
@@ -280,7 +280,7 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
                     return;
                 }
             }
-            this.f18352a = nVar;
+            this.f19686a = nVar;
         }
     }
 
@@ -304,24 +304,24 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
             }
         }
         this.n = false;
-        this.p = new b.a.e.e.k.b<>(new a(this), 6, 0);
-        this.q = new b.a.e.e.k.b<>(new b(this), 12, 0);
+        this.p = new b.a.e.f.k.b<>(new a(this), 6, 0);
+        this.q = new b.a.e.f.k.b<>(new b(this), 12, 0);
         this.r = new c(this);
         this.m = tbPageContext;
         this.o = tbPageContext.getUniqueId();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public d T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             n nVar = new n(this.m);
-            nVar.J(this.o);
-            nVar.K(this.q);
-            nVar.M(this.p);
+            nVar.L(this.o);
+            nVar.M(this.q);
+            nVar.N(this.p);
             nVar.Q(false);
             nVar.O(this.n);
             nVar.l = 0;
@@ -335,15 +335,15 @@ public class f extends b.a.e.l.e.a<b.a.r0.b0.e0.k, d> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.b0.e0.k kVar, d dVar) {
+    public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.b0.f0.k kVar, d dVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, kVar, dVar})) == null) {
-            dVar.f18352a.j(kVar);
-            dVar.f18352a.l(this.r);
-            dVar.f18352a.S(!(z(i2 + 1) instanceof b.a.r0.j1.l.n));
+            dVar.f19686a.j(kVar);
+            dVar.f19686a.l(this.r);
+            dVar.f19686a.S(!(z(i2 + 1) instanceof b.a.r0.j1.l.n));
             TbPageContext<HotTopicActivity> tbPageContext = this.m;
             if (tbPageContext != null && (tbPageContext.getOrignalPage() instanceof b.a.r0.j1.k.a)) {
                 this.m.getOrignalPage().businessStatisticForTopic(kVar);

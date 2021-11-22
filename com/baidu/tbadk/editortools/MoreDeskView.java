@@ -35,7 +35,7 @@ public class MoreDeskView extends CommonTabHost {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MoreDeskView f45850a;
+        public final /* synthetic */ MoreDeskView f46700a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MoreDeskView moreDeskView, int i2) {
@@ -55,7 +55,7 @@ public class MoreDeskView extends CommonTabHost {
                     return;
                 }
             }
-            this.f45850a = moreDeskView;
+            this.f46700a = moreDeskView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,7 +65,7 @@ public class MoreDeskView extends CommonTabHost {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
                 return;
             }
-            this.f45850a.o();
+            this.f46700a.o();
         }
     }
 
@@ -75,7 +75,7 @@ public class MoreDeskView extends CommonTabHost {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MoreDeskView f45851a;
+        public final /* synthetic */ MoreDeskView f46701a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(MoreDeskView moreDeskView, int i2) {
@@ -95,7 +95,7 @@ public class MoreDeskView extends CommonTabHost {
                     return;
                 }
             }
-            this.f45851a = moreDeskView;
+            this.f46701a = moreDeskView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -103,7 +103,7 @@ public class MoreDeskView extends CommonTabHost {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                this.f45851a.o();
+                this.f46701a.o();
             }
         }
     }
@@ -191,20 +191,20 @@ public class MoreDeskView extends CommonTabHost {
     public final void n(b.a.q0.x.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            Integer valueOf = Integer.valueOf(this.r.get(aVar.f14196b));
+            Integer valueOf = Integer.valueOf(this.r.get(aVar.f14963b));
             int intValue = valueOf != null ? valueOf.intValue() : 0;
-            Object obj = aVar.f14197c;
+            Object obj = aVar.f14964c;
             if (obj != null) {
                 if (obj instanceof String) {
                     String str = (String) obj;
                     if (!TextUtils.isEmpty(str)) {
-                        intValue = TextUtils.isEmpty(str.trim()) ? 1 : b.a.e.e.m.b.e(str, 1);
+                        intValue = TextUtils.isEmpty(str.trim()) ? 1 : b.a.e.f.m.b.e(str, 1);
                     }
                 }
-                this.r.put(aVar.f14196b, intValue >= 0 ? intValue : 0);
+                this.r.put(aVar.f14963b, intValue >= 0 ? intValue : 0);
             }
             intValue = 0;
-            this.r.put(aVar.f14196b, intValue >= 0 ? intValue : 0);
+            this.r.put(aVar.f14963b, intValue >= 0 ? intValue : 0);
         }
     }
 
@@ -239,7 +239,7 @@ public class MoreDeskView extends CommonTabHost {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             super.onAction(aVar);
-            if (aVar == null || aVar.f14195a != 2 || aVar.f14196b == 5) {
+            if (aVar == null || aVar.f14962a != 2 || aVar.f14963b == 5) {
                 return;
             }
             n(aVar);

@@ -106,10 +106,10 @@ public final class SoLoader {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0089 A[Catch: IOException -> 0x008d, TRY_ENTER, TRY_LEAVE, TryCatch #3 {IOException -> 0x008d, blocks: (B:39:0x0089, B:58:0x00b0), top: B:81:0x001c }] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x00c1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x007f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x00b7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x008a A[Catch: IOException -> 0x008e, TRY_ENTER, TRY_LEAVE, TryCatch #4 {IOException -> 0x008e, blocks: (B:39:0x008a, B:58:0x00b1), top: B:83:0x001c }] */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x00c2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:93:0x00b8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -10,6 +10,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.android.internal.http.multipart.Part;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sofire.utility.l;
@@ -24,12 +25,12 @@ import java.io.FileReader;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f43174a = "";
+    public static String f44120a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -73,22 +74,22 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
             synchronized (e.class) {
                 try {
-                    if (!TextUtils.isEmpty(f43174a)) {
-                        return f43174a;
+                    if (!TextUtils.isEmpty(f44120a)) {
+                        return f44120a;
                     }
                     com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                     String l = a2.l();
                     if (!TextUtils.isEmpty(l)) {
                         String e2 = c.e(l);
                         if (!TextUtils.isEmpty(e2)) {
-                            f43174a = e2;
+                            f44120a = e2;
                             return e2;
                         }
                     }
                     String k = a2.k();
                     if (!TextUtils.isEmpty(k)) {
                         a2.c(new String(Base64.encode(h.a("30212102dicudiab".getBytes(), k.getBytes("UTF-8"), true), 10), "UTF-8"));
-                        f43174a = k;
+                        f44120a = k;
                         return k;
                     }
                     String g2 = g(context);
@@ -102,10 +103,10 @@ public final class e {
                     if (TextUtils.isEmpty(k2)) {
                         a2.b(str);
                         a2.c(str2);
-                        f43174a = str;
+                        f44120a = str;
                         return str;
                     }
-                    f43174a = k2;
+                    f44120a = k2;
                     return k2;
                 } catch (Throwable unused) {
                     c.a();
@@ -122,7 +123,7 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                String string = a2.f43072c.getString("sgud", "");
+                String string = a2.f44018c.getString("sgud", "");
                 if (TextUtils.isEmpty(string)) {
                     if (Build.VERSION.SDK_INT > 25) {
                         return "";
@@ -140,8 +141,8 @@ public final class e {
                     if (TextUtils.isEmpty(a3)) {
                         return "";
                     }
-                    a2.f43073d.putString("sgud", a3);
-                    a2.f43073d.commit();
+                    a2.f44019d.putString("sgud", a3);
+                    a2.f44019d.commit();
                     return a3;
                 }
                 return string;
@@ -243,9 +244,9 @@ public final class e {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 defaultDisplay.getMetrics(displayMetrics);
                 if (displayMetrics.widthPixels < displayMetrics.heightPixels) {
-                    return displayMetrics.widthPixels + "*" + displayMetrics.heightPixels;
+                    return displayMetrics.widthPixels + ProxyConfig.MATCH_ALL_SCHEMES + displayMetrics.heightPixels;
                 }
-                return displayMetrics.heightPixels + "*" + displayMetrics.widthPixels;
+                return displayMetrics.heightPixels + ProxyConfig.MATCH_ALL_SCHEMES + displayMetrics.widthPixels;
             } catch (Exception unused) {
                 c.a();
                 return "";

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a extends b.a.e.l.e.a<b.a.r0.m2.d, PersonCenterIntervalHolder> {
+public class a extends b.a.e.m.e.a<b.a.r0.m2.d, PersonCenterIntervalHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,19 +42,19 @@ public class a extends b.a.e.l.e.a<b.a.r0.m2.d, PersonCenterIntervalHolder> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.m2.d dVar, PersonCenterIntervalHolder personCenterIntervalHolder) {
         h0(i2, view, viewGroup, dVar, personCenterIntervalHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public PersonCenterIntervalHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonCenterIntervalHolder(LayoutInflater.from(this.f2419e).inflate(R.layout.item_person_center_list_interval, viewGroup, false)) : (PersonCenterIntervalHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonCenterIntervalHolder(LayoutInflater.from(this.f2421e).inflate(R.layout.item_person_center_list_interval, viewGroup, false)) : (PersonCenterIntervalHolder) invokeL.objValue;
     }
 
     public View h0(int i2, View view, ViewGroup viewGroup, b.a.r0.m2.d dVar, PersonCenterIntervalHolder personCenterIntervalHolder) {
@@ -65,14 +65,14 @@ public class a extends b.a.e.l.e.a<b.a.r0.m2.d, PersonCenterIntervalHolder> {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
                 if (personCenterIntervalHolder.skinType != skinType) {
                     personCenterIntervalHolder.skinType = skinType;
-                    SkinManager.setBackgroundResource(personCenterIntervalHolder.intervalView, dVar.f21164g);
+                    SkinManager.setBackgroundResource(personCenterIntervalHolder.intervalView, dVar.f22319g);
                 }
                 ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.intervalView.getLayoutParams();
-                int i3 = dVar.f21162e;
+                int i3 = dVar.f22317e;
                 if (i3 > 0) {
                     layoutParams.height = i3;
                 }
-                int i4 = dVar.f21163f;
+                int i4 = dVar.f22318f;
                 if (i4 > 0) {
                     layoutParams.width = i4;
                 }

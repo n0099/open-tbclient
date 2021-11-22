@@ -14,12 +14,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
-import b.a.e.e.p.l;
+import b.a.e.f.p.j;
+import b.a.e.f.p.l;
 import b.a.q0.s.k;
 import b.a.q0.s.q.d2;
 import b.a.q0.s.q.f;
-import b.a.r0.b0.a0;
+import b.a.r0.b0.b0;
 import b.a.r0.b0.m;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -60,7 +60,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.AppPosInfo;
 /* loaded from: classes5.dex */
-public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
+public class e extends b.a.r0.b0.a<d2> implements b0, b.a.r0.p.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSourceShareAndPraiseLayout A;
@@ -98,7 +98,7 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f25130e;
+        public final /* synthetic */ e f26647e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -115,14 +115,14 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
                     return;
                 }
             }
-            this.f25130e = eVar;
+            this.f26647e = eVar;
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewAttachedToWindow(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f25130e.J.playAnimation();
+                this.f26647e.J.playAnimation();
             }
         }
 
@@ -130,7 +130,7 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
         public void onViewDetachedFromWindow(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                this.f25130e.J.cancelAnimation();
+                this.f26647e.J.cancelAnimation();
             }
         }
     }
@@ -141,7 +141,7 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f25131e;
+        public final /* synthetic */ e f26648e;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -158,16 +158,16 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
                     return;
                 }
             }
-            this.f25131e = eVar;
+            this.f26648e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25131e.f() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26648e.f() == null) {
                 return;
             }
-            this.f25131e.f().a(view, this.f25131e.o);
+            this.f26648e.f().a(view, this.f26648e.o);
         }
     }
 
@@ -242,8 +242,8 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
         this.p.getCommentContainer().setOnClickListener(this);
         this.p.hideDisagree();
         f fVar = new f();
-        fVar.f13300b = 2;
-        fVar.f13306h = 2;
+        fVar.f14080b = 2;
+        fVar.f14086h = 2;
         this.p.setAgreeStatisticData(fVar);
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = (ThreadCommentAndPraiseInfoLayout) i4.findViewById(R.id.card_bottom_op_weight_layout);
         this.q = threadCommentAndPraiseInfoLayout2;
@@ -277,8 +277,8 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
     public final void Q(d2 d2Var, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, d2Var, str) == null) {
-            TiebaStatic.log(new StatisticItem("c12126").param("tid", d2Var.f0()).param("obj_locate", this.U ? 2 : 1).param("obj_id", d2Var.l1().live_id).param("obj_type", 2));
-            if (d2Var.l1() != null && d2Var.l1().user_info != null && d2Var.l1().user_info.is_official == 2) {
+            TiebaStatic.log(new StatisticItem("c12126").param("tid", d2Var.f0()).param("obj_locate", this.U ? 2 : 1).param("obj_id", d2Var.m1().live_id).param("obj_type", 2));
+            if (d2Var.m1() != null && d2Var.m1().user_info != null && d2Var.m1().user_info.is_official == 2) {
                 TiebaStatic.log(new StatisticItem("c12801").param("tid", d2Var.f0()));
             }
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -297,8 +297,8 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var) == null) || d2Var == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c12125").param("tid", d2Var.f0()).param("obj_locate", this.U ? 2 : 1).param("obj_id", d2Var.l1().live_id).param("obj_type", 2));
-        if (d2Var.l1() == null || d2Var.l1().user_info == null || d2Var.l1().user_info.is_official != 2) {
+        TiebaStatic.log(new StatisticItem("c12125").param("tid", d2Var.f0()).param("obj_locate", this.U ? 2 : 1).param("obj_id", d2Var.m1().live_id).param("obj_type", 2));
+        if (d2Var.m1() == null || d2Var.m1().user_info == null || d2Var.m1().user_info.is_official != 2) {
             return;
         }
         TiebaStatic.log(new StatisticItem("c12800").param("tid", d2Var.f0()));
@@ -320,9 +320,9 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
         T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (k.c().g() && (t = this.o) != 0 && ((d2) t).getThreadData() != null && ((d2) this.o).getThreadData().l1() != null) {
+            if (k.c().g() && (t = this.o) != 0 && ((d2) t).getThreadData() != null && ((d2) this.o).getThreadData().m1() != null) {
                 this.I.setPlaceHolder(3);
-                this.I.startLoad(((d2) this.o).getThreadData().l1().cover, 10, false);
+                this.I.startLoad(((d2) this.o).getThreadData().m1().cover, 10, false);
                 this.H.setVisibility(0);
                 return;
             }
@@ -332,7 +332,7 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
 
     public void V(Context context, d2 d2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, context, d2Var) == null) || context == null || d2Var == null || d2Var.l1() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, context, d2Var) == null) || context == null || d2Var == null || d2Var.m1() == null) {
             return;
         }
         if (!j.z()) {
@@ -350,12 +350,12 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
             str = AlaLiveRoomActivityConfig.FRS_LIVE_FROM_PREFIX_HOT + d2Var.T();
         }
         Q(d2Var, str);
-        AlaInfoData l1 = d2Var.l1();
-        if (l1.isLegalYYLiveData()) {
+        AlaInfoData m1 = d2Var.m1();
+        if (m1.isLegalYYLiveData()) {
             TbPageContext<?> tbPageContext = this.m;
-            YyExtData yyExtData = l1.mYyExtData;
-            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + l1.roomId, l1.mYyExtData.streamInfo, YYLiveUtil.SOURCE_FRS_LIVE_CARD_TAB);
-            X(((d2) this.o).s1(), String.valueOf(((d2) this.o).T()), String.valueOf(l1.roomId), String.valueOf(l1.live_id), l1.mYyExtData.mSid);
+            YyExtData yyExtData = m1.mYyExtData;
+            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + m1.roomId, m1.mYyExtData.streamInfo, YYLiveUtil.SOURCE_FRS_LIVE_CARD_TAB);
+            X(((d2) this.o).t1(), String.valueOf(((d2) this.o).T()), String.valueOf(m1.roomId), String.valueOf(m1.live_id), m1.mYyExtData.mSid);
         }
     }
 
@@ -411,17 +411,17 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
                     this.Y = k;
                 }
                 SparseArray<String> sparseArray = null;
-                if (((d2) this.o).l1() != null && ((d2) this.o).l1().user_info != null && ((d2) this.o).l1().user_info.is_official == 2) {
+                if (((d2) this.o).m1() != null && ((d2) this.o).m1().user_info != null && ((d2) this.o).m1().user_info.is_official == 2) {
                     this.X = true;
-                    sparseArray = ((d2) this.o).l1().dislikeInfo;
+                    sparseArray = ((d2) this.o).m1().dislikeInfo;
                     this.G.setVisibility(0);
                     int[] p = l.p(getContext());
                     ViewGroup.LayoutParams layoutParams2 = this.G.getLayoutParams();
                     layoutParams2.width = p[0];
                     layoutParams2.height = (p[0] * 156) / 1080;
                     this.G.setLayoutParams(layoutParams2);
-                    if (!TextUtils.isEmpty(((d2) this.o).l1().liveStagePicUrl)) {
-                        this.G.startLoad(((d2) this.o).l1().liveStagePicUrl, 10, false);
+                    if (!TextUtils.isEmpty(((d2) this.o).m1().liveStagePicUrl)) {
+                        this.G.startLoad(((d2) this.o).m1().liveStagePicUrl, 10, false);
                     }
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.z.getLayoutParams();
                     marginLayoutParams.topMargin = this.m.getResources().getDimensionPixelSize(R.dimen.tbds24);
@@ -438,26 +438,26 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
                 } else if (this.Z.a() != null) {
                     this.Z.a().setVisibility(8);
                 }
-                ((d2) this.o).Z2(false, true);
+                ((d2) this.o).b3(false, true);
                 this.z.setData((d2) this.o);
-                SpannableStringBuilder g1 = ((d2) this.o).g1();
-                if (g1 != null && !StringUtils.isNull(g1.toString())) {
-                    this.F.setText(((d2) this.o).g1());
+                SpannableStringBuilder h1 = ((d2) this.o).h1();
+                if (h1 != null && !StringUtils.isNull(h1.toString())) {
+                    this.F.setText(((d2) this.o).h1());
                     this.F.setVisibility(0);
                 } else {
                     this.F.setVisibility(8);
                 }
-                if (((d2) this.o).l1().audience_count > 0) {
+                if (((d2) this.o).m1().audience_count > 0) {
                     this.N.setVisibility(0);
                     this.K.setVisibility(0);
-                    this.K.setText(String.format(this.m.getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(((d2) this.o).l1().audience_count)));
+                    this.K.setText(String.format(this.m.getResources().getString(R.string.ala_audience_count_prefix), StringHelper.numFormatOverWan(((d2) this.o).m1().audience_count)));
                 } else {
                     this.N.setVisibility(8);
                     this.K.setVisibility(8);
                 }
                 this.L.setVisibility(8);
-                if (((d2) this.o).l1().openRecomReason == 1) {
-                    String str = ((d2) this.o).l1().recomReason;
+                if (((d2) this.o).m1().openRecomReason == 1) {
+                    String str = ((d2) this.o).m1().recomReason;
                     if (!StringUtils.isNull(str)) {
                         this.L.setVisibility(0);
                         this.L.setText(str);
@@ -465,7 +465,7 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
                         String w0 = ((d2) this.o).w0();
                         String C0 = ((d2) this.o).C0();
                         if (UtilHelper.isDecimal(w0) && UtilHelper.isDecimal(C0) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                            AppPosInfo c2 = b.a.r0.z2.j0.a.e().c();
+                            AppPosInfo c2 = b.a.r0.a3.j0.a.e().c();
                             String str2 = c2.latitude;
                             String str3 = c2.longitude;
                             if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && l.a(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(w0), Double.parseDouble(C0)) <= 50.0d) {
@@ -476,9 +476,9 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
                     }
                 }
                 RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.O.getLayoutParams();
-                if (((d2) this.o).l1() != null && !StringUtils.isNull(((d2) this.o).l1().forumUserLiveMsg)) {
+                if (((d2) this.o).m1() != null && !StringUtils.isNull(((d2) this.o).m1().forumUserLiveMsg)) {
                     this.P.setVisibility(0);
-                    String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(((d2) this.o).l1().forumUserLiveMsg, 10, "...");
+                    String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(((d2) this.o).m1().forumUserLiveMsg, 10, "...");
                     this.Q.setText(cutChineseAndEnglishWithSuffix + TbadkCoreApplication.getInst().getResources().getString(R.string.ala_forum_live_suffix));
                     layoutParams3.addRule(3, R.id.forum_friends_now_looking);
                 } else {
@@ -514,7 +514,7 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
         v(bdUniqueId);
     }
 
-    @Override // b.a.r0.b0.a0
+    @Override // b.a.r0.b0.b0
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
@@ -556,7 +556,7 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
     public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048591, this, tbPageContext, i2) == null) {
-            if (this.f14736e != i2) {
+            if (this.f16223e != i2) {
                 u(tbPageContext, i2);
                 b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.E);
                 d2.n(R.string.J_X06);
@@ -577,7 +577,7 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
                 this.z.onChangeSkinType(h(), TbadkCoreApplication.getInst().getSkinType());
                 this.I.setPlaceHolder(3);
                 this.p.onChangeSkinType();
-                this.f14736e = i2;
+                this.f16223e = i2;
                 ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = this.A;
                 if (threadSourceShareAndPraiseLayout != null && threadSourceShareAndPraiseLayout.getVisibility() == 0) {
                     this.A.onChangeSkinType();
@@ -624,7 +624,7 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
                 StatisticItem statisticItem = new StatisticItem("c12942");
                 statisticItem.param("obj_locate", 2);
                 statisticItem.param("obj_type", 5);
-                statisticItem.param("tid", ((d2) this.o).s1());
+                statisticItem.param("tid", ((d2) this.o).t1());
                 statisticItem.param("nid", ((d2) this.o).F0());
                 b.a.q0.m0.c f2 = TbPageExtraHelper.f(view);
                 if (f2 != null) {
@@ -638,7 +638,7 @@ public class e extends b.a.r0.b0.a<d2> implements a0, b.a.r0.p.e {
         }
     }
 
-    @Override // b.a.r0.b0.a0
+    @Override // b.a.r0.b0.b0
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {

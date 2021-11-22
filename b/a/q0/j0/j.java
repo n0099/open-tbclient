@@ -22,7 +22,7 @@ public class j {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f12683a;
+        public static final /* synthetic */ int[] f13433a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -39,17 +39,17 @@ public class j {
                 }
             }
             int[] iArr = new int[DataType.values().length];
-            f12683a = iArr;
+            f13433a = iArr;
             try {
                 iArr[DataType.ORM.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f12683a[DataType.PARCELABLE.ordinal()] = 2;
+                f13433a[DataType.PARCELABLE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f12683a[DataType.SERIALIZABLE.ordinal()] = 3;
+                f13433a[DataType.SERIALIZABLE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -77,7 +77,7 @@ public class j {
             if (intExtra < 0) {
                 return null;
             }
-            int i2 = a.f12683a[DataType.values()[intExtra].ordinal()];
+            int i2 = a.f13433a[DataType.values()[intExtra].ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

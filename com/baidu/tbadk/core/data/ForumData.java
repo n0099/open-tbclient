@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.b0;
 import b.a.q0.s.q.d0;
 import b.a.q0.s.q.f2;
@@ -513,7 +513,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.topic_special_icon_right : (String) invokeV.objValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

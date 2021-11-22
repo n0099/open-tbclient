@@ -21,7 +21,7 @@ public class a extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SpecialLiveFragment f24814a;
+    public SpecialLiveFragment f26331a;
 
     public a(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class a extends b {
                 return;
             }
         }
-        this.f24814a = SpecialLiveFragment.newInstance(str, str2);
-        getFragmentTabStructure().f12612a = this.f24814a;
+        this.f26331a = SpecialLiveFragment.newInstance(str, str2);
+        getFragmentTabStructure().f13359a = this.f26331a;
     }
 
     @Override // b.a.q0.h0.b
@@ -48,9 +48,9 @@ public class a extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            cVar.f12616e = 4;
-            cVar.f12613b = R.string.ala_live;
-            cVar.f12620i = c.k;
+            cVar.f13363e = 4;
+            cVar.f13360b = R.string.ala_live;
+            cVar.f13367i = c.k;
             return cVar;
         }
         return (c) invokeV.objValue;

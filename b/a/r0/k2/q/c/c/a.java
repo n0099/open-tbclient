@@ -1,6 +1,6 @@
 package b.a.r0.k2.q.c.c;
 
-import b.a.q0.z0.b;
+import b.a.q0.y0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -40,7 +40,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, b.a.r0.l3.f0.a.a(TbConfig.FINE_PB_PRAISE, 309095));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, b.a.r0.m3.f0.a.a(TbConfig.FINE_PB_PRAISE, 309095));
             tbHttpMessageTask.setResponsedClass(ChosenPbZanHttpResponse.class);
             messageManager.registerTask(tbHttpMessageTask);
         }

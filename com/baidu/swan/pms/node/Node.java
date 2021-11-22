@@ -2,9 +2,9 @@ package com.baidu.swan.pms.node;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.n.j.d;
-import b.a.p0.n.j.e;
-import b.a.p0.n.j.j.c;
+import b.a.p0.q.k.d;
+import b.a.p0.q.k.e;
+import b.a.p0.q.k.j.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -43,10 +43,10 @@ public final class Node {
                 return;
             }
         }
-        HOST = new Node("HOST", 0, "host", c.class, b.a.p0.n.j.j.d.class);
-        PACKAGE = new Node("PACKAGE", 1, "package", b.a.p0.n.j.k.d.class, b.a.p0.n.j.k.e.class, true);
-        CERES = new Node("CERES", 2, "ceres", b.a.p0.n.j.h.c.class, b.a.p0.n.j.h.d.class);
-        Node node = new Node("COMMON", 3, "common", b.a.p0.n.j.i.c.class, b.a.p0.n.j.i.d.class);
+        HOST = new Node("HOST", 0, "host", c.class, b.a.p0.q.k.j.d.class);
+        PACKAGE = new Node("PACKAGE", 1, "package", b.a.p0.q.k.k.d.class, b.a.p0.q.k.k.e.class, true);
+        CERES = new Node("CERES", 2, "ceres", b.a.p0.q.k.h.c.class, b.a.p0.q.k.h.d.class);
+        Node node = new Node("COMMON", 3, "common", b.a.p0.q.k.i.c.class, b.a.p0.q.k.i.d.class);
         COMMON = node;
         $VALUES = new Node[]{HOST, PACKAGE, CERES, node};
     }
@@ -100,10 +100,7 @@ public final class Node {
             }
             try {
                 return paramsProvider.newInstance();
-            } catch (IllegalAccessException | InstantiationException e2) {
-                if (b.a.p0.n.c.f11048a) {
-                    e2.printStackTrace();
-                }
+            } catch (IllegalAccessException | InstantiationException unused) {
                 return null;
             }
         }

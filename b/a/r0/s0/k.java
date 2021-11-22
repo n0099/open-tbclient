@@ -25,28 +25,28 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final TbPageContext<FacePurchaseRecordsActivity> f23315a;
+    public final TbPageContext<FacePurchaseRecordsActivity> f24646a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f23316b;
+    public final View f24647b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final NavigationBar f23317c;
+    public final NavigationBar f24648c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final NoNetworkView f23318d;
+    public final NoNetworkView f24649d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BdListView f23319e;
+    public final BdListView f24650e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final b.a.q0.s.g0.g f23320f;
+    public final b.a.q0.s.g0.g f24651f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f23321g;
+    public View f24652g;
 
     /* renamed from: h  reason: collision with root package name */
-    public j f23322h;
+    public j f24653h;
 
     public k(TbPageContext<FacePurchaseRecordsActivity> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -63,70 +63,70 @@ public class k {
                 return;
             }
         }
-        this.f23315a = tbPageContext;
+        this.f24646a = tbPageContext;
         tbPageContext.getPageActivity().setContentView(R.layout.face_purchase_records_layout);
         View findViewById = tbPageContext.getPageActivity().findViewById(R.id.purchase_record);
-        this.f23316b = findViewById;
+        this.f24647b = findViewById;
         NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
-        this.f23317c = navigationBar;
+        this.f24648c = navigationBar;
         navigationBar.setTitleText(tbPageContext.getResources().getString(R.string.purchase_record));
-        this.f23317c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f23318d = (NoNetworkView) this.f23316b.findViewById(R.id.view_no_network);
-        this.f23319e = (BdListView) this.f23316b.findViewById(R.id.purchase_record_list);
+        this.f24648c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f24649d = (NoNetworkView) this.f24647b.findViewById(R.id.view_no_network);
+        this.f24650e = (BdListView) this.f24647b.findViewById(R.id.purchase_record_list);
         b.a.q0.s.g0.g gVar = new b.a.q0.s.g0.g(tbPageContext);
-        this.f23320f = gVar;
-        this.f23319e.setPullRefresh(gVar);
-        this.f23321g = BdListViewHelper.d(this.f23315a.getPageActivity(), this.f23319e, BdListViewHelper.HeadType.DEFAULT);
+        this.f24651f = gVar;
+        this.f24650e.setPullRefresh(gVar);
+        this.f24652g = BdListViewHelper.d(this.f24646a.getPageActivity(), this.f24650e, BdListViewHelper.HeadType.DEFAULT);
     }
 
     public void a(NoNetworkView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f23318d.addNetworkChangeListener(bVar);
+            this.f24649d.addNetworkChangeListener(bVar);
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            BdListViewHelper.c(this.f23321g, BdListViewHelper.HeadType.DEFAULT, z);
+            BdListViewHelper.c(this.f24652g, BdListViewHelper.HeadType.DEFAULT, z);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f23319e.completePullRefreshPostDelayed(0L);
+            this.f24650e.completePullRefreshPostDelayed(0L);
         }
     }
 
     public j d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f23322h : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24653h : (j) invokeV.objValue;
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            b.a.q0.s.c layoutMode = this.f23315a.getLayoutMode();
+            b.a.q0.s.c layoutMode = this.f24646a.getLayoutMode();
             layoutMode.k(i2 == 1);
-            layoutMode.j(this.f23316b);
-            this.f23317c.onChangeSkinType(this.f23315a, i2);
-            this.f23318d.onChangeSkinType(this.f23315a, i2);
-            this.f23320f.C(i2);
+            layoutMode.j(this.f24647b);
+            this.f24648c.onChangeSkinType(this.f24646a, i2);
+            this.f24649d.onChangeSkinType(this.f24646a, i2);
+            this.f24651f.C(i2);
         }
     }
 
     public void f(FacePurchaseRecordsData facePurchaseRecordsData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, facePurchaseRecordsData) == null) {
-            if (this.f23322h == null) {
-                j jVar = new j(this.f23315a.getOrignalPage());
-                this.f23322h = jVar;
-                this.f23319e.setAdapter((ListAdapter) jVar);
+            if (this.f24653h == null) {
+                j jVar = new j(this.f24646a.getOrignalPage());
+                this.f24653h = jVar;
+                this.f24650e.setAdapter((ListAdapter) jVar);
             }
-            this.f23322h.e(facePurchaseRecordsData);
+            this.f24653h.e(facePurchaseRecordsData);
             c();
         }
     }
@@ -134,21 +134,21 @@ public class k {
     public void g(NoNetworkView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f23318d.removeNetworkChangeListener(bVar);
+            this.f24649d.removeNetworkChangeListener(bVar);
         }
     }
 
     public void h(AdapterView.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onItemClickListener) == null) {
-            this.f23319e.setOnItemClickListener(onItemClickListener);
+            this.f24650e.setOnItemClickListener(onItemClickListener);
         }
     }
 
     public void i(f.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gVar) == null) {
-            this.f23320f.a(gVar);
+            this.f24651f.a(gVar);
         }
     }
 }

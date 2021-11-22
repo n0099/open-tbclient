@@ -14,13 +14,13 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f3210a;
+    public long f3301a;
 
     /* renamed from: b  reason: collision with root package name */
-    public V8ExceptionInfo f3211b;
+    public V8ExceptionInfo f3302b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3212c;
+    public int f3303c;
 
     public b(int i2, V8ExceptionInfo v8ExceptionInfo, long j) {
         Interceptable interceptable = $ic;
@@ -37,22 +37,22 @@ public class b {
                 return;
             }
         }
-        this.f3210a = j;
-        this.f3211b = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
-        this.f3212c = i2;
+        this.f3301a = j;
+        this.f3302b = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
+        this.f3303c = i2;
     }
 
     public V8ExceptionInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3211b : (V8ExceptionInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3302b : (V8ExceptionInfo) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "StuckScreenExceptionInfo{mLastOnScreenHappenedTime=" + this.f3210a + ", mV8ExceptionInfo=" + this.f3211b + ", type=" + this.f3212c + ExtendedMessageFormat.END_FE;
+            return "StuckScreenExceptionInfo{mLastOnScreenHappenedTime=" + this.f3301a + ", mV8ExceptionInfo=" + this.f3302b + ", type=" + this.f3303c + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

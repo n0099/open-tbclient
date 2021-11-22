@@ -81,7 +81,7 @@ public abstract class b<V extends TextView, M extends c> extends b.a.p0.a.c0.a.d
     public void U(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            boolean z = b.a.p0.a.c0.b.a.f4044h;
+            boolean z = b.a.p0.a.c0.b.a.f4184h;
             boolean z2 = !TextUtils.isEmpty(m.x) && m.B >= 0;
             String str = m.x;
             if (z2) {
@@ -99,7 +99,7 @@ public abstract class b<V extends TextView, M extends c> extends b.a.p0.a.c0.a.d
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, v, m) == null) || m.n == null) {
             return;
         }
-        boolean z = b.a.p0.a.c0.b.a.f4044h;
+        boolean z = b.a.p0.a.c0.b.a.f4184h;
         if (m.z) {
             v.setTextColor(m.y);
         }
@@ -109,7 +109,7 @@ public abstract class b<V extends TextView, M extends c> extends b.a.p0.a.c0.a.d
         }
         X(v, m);
         W(v, m);
-        String str = m.E;
+        String str = m.F;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != -1039745817) {
@@ -124,7 +124,7 @@ public abstract class b<V extends TextView, M extends c> extends b.a.p0.a.c0.a.d
         } else if (c2 == 1) {
             v.setSingleLine(true);
         }
-        if ("ellipsis".equals(m.F)) {
+        if ("ellipsis".equals(m.G)) {
             v.setEllipsize(TextUtils.TruncateAt.END);
         }
     }
@@ -134,8 +134,8 @@ public abstract class b<V extends TextView, M extends c> extends b.a.p0.a.c0.a.d
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, v, m) == null) || m.n == null) {
             return;
         }
-        boolean z = b.a.p0.a.c0.b.a.f4044h;
-        String str = m.D;
+        boolean z = b.a.p0.a.c0.b.a.f4184h;
+        String str = m.E;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != -1039745817) {
@@ -148,7 +148,7 @@ public abstract class b<V extends TextView, M extends c> extends b.a.p0.a.c0.a.d
         if (c2 == 0) {
             v.setTypeface(Typeface.SANS_SERIF, 0);
         } else if (c2 != 1) {
-            d.l("Component-TextView", "invalid font weight : " + m.D);
+            d.o("Component-TextView", "invalid font weight : " + m.E);
             v.setTypeface(Typeface.SANS_SERIF, 0);
         } else {
             v.setTypeface(Typeface.SANS_SERIF, 1);
@@ -168,8 +168,8 @@ public abstract class b<V extends TextView, M extends c> extends b.a.p0.a.c0.a.d
         if (!(interceptable == null || interceptable.invokeLLI(1048585, this, v, m, i2) == null) || m.n == null) {
             return;
         }
-        boolean z = b.a.p0.a.c0.b.a.f4044h;
-        String str = m.C;
+        boolean z = b.a.p0.a.c0.b.a.f4184h;
+        String str = m.D;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != -1364013995) {
@@ -187,7 +187,7 @@ public abstract class b<V extends TextView, M extends c> extends b.a.p0.a.c0.a.d
             if (c2 == 1) {
                 i3 = 8388613 | i2;
             } else if (c2 != 2) {
-                d.l("Component-TextView", "invalid text align: " + m.C);
+                d.o("Component-TextView", "invalid text align: " + m.D);
             } else {
                 i3 = i2 | 1;
             }

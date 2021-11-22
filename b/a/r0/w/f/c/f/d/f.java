@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -93,13 +93,13 @@ public class f extends b.a.r0.b0.b<b.a.r0.w.f.c.f.b.b> {
             return;
         }
         this.r = bVar;
-        String str = bVar.f24635g;
+        String str = bVar.f26152g;
         if (StringUtils.isNull(str)) {
-            str = StringUtils.isNull(bVar.f24634f) ? "" : bVar.f24634f;
+            str = StringUtils.isNull(bVar.f26151f) ? "" : bVar.f26151f;
         }
         this.m.setText(str);
-        this.n.setText(StringUtils.isNull(bVar.f24637i) ? "" : bVar.f24637i);
-        this.o.startLoad(bVar.f24636h, 10, false);
+        this.n.setText(StringUtils.isNull(bVar.f26154i) ? "" : bVar.f26154i);
+        this.o.startLoad(bVar.f26153h, 10, false);
         this.p.setText(StringUtils.isNull(bVar.j) ? "" : bVar.j);
     }
 

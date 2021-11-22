@@ -24,23 +24,23 @@ public class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static m f19353f;
+    public static m f20919f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f19354a;
+    public long f20920a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f19355b;
+    public long f20921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f19356c;
+    public boolean f20922c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f19357d;
+    public int f20923d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19358e;
+    public int f20924e;
 
     /* loaded from: classes5.dex */
     public class a extends b.a.q0.o0.b {
@@ -112,26 +112,26 @@ public class m {
                 return;
             }
         }
-        this.f19354a = 0L;
-        this.f19355b = 0L;
-        this.f19356c = false;
-        this.f19357d = 0;
-        this.f19357d = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), b.a.r0.k2.g.tbds144);
-        this.f19358e = b.a.e.e.p.l.i(TbadkCoreApplication.getInst());
+        this.f20920a = 0L;
+        this.f20921b = 0L;
+        this.f20922c = false;
+        this.f20923d = 0;
+        this.f20923d = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), b.a.r0.k2.g.tbds144);
+        this.f20924e = b.a.e.f.p.l.i(TbadkCoreApplication.getInst());
     }
 
     public static m a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f19353f == null) {
+            if (f20919f == null) {
                 synchronized (m.class) {
-                    if (f19353f == null) {
-                        f19353f = new m();
+                    if (f20919f == null) {
+                        f20919f = new m();
                     }
                 }
             }
-            return f19353f;
+            return f20919f;
         }
         return (m) invokeV.objValue;
     }
@@ -143,7 +143,7 @@ public class m {
             if (view != null) {
                 int[] iArr = new int[2];
                 view.getLocationOnScreen(iArr);
-                if (iArr[1] > 0 && iArr[1] < this.f19358e - this.f19357d) {
+                if (iArr[1] > 0 && iArr[1] < this.f20924e - this.f20923d) {
                     return true;
                 }
             }
@@ -169,7 +169,7 @@ public class m {
             view.getLocationOnScreen(iArr);
             int i2 = iArr[1];
             if (view2.getVisibility() != 0) {
-                return i2 > 0 && i2 < this.f19358e - this.f19357d;
+                return i2 > 0 && i2 < this.f20924e - this.f20923d;
             }
             return true;
         }
@@ -179,10 +179,10 @@ public class m {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f19353f = null;
-            this.f19354a = 0L;
-            this.f19356c = false;
-            this.f19355b = 0L;
+            f20919f = null;
+            this.f20920a = 0L;
+            this.f20922c = false;
+            this.f20921b = 0L;
         }
     }
 
@@ -219,10 +219,10 @@ public class m {
         if (!StringUtils.isNull(dVar.s)) {
             statisticItem.param(TiebaStatic.Params.RESOURCE_ID, dVar.s);
         }
-        if (!b.a.e.e.p.k.isEmpty(dVar.j())) {
+        if (!b.a.e.f.p.k.isEmpty(dVar.j())) {
             statisticItem.param("task_id", String.valueOf(dVar.j()));
         }
-        if (!b.a.e.e.p.k.isEmpty(dVar.a())) {
+        if (!b.a.e.f.p.k.isEmpty(dVar.a())) {
             statisticItem.param("ab_tag", dVar.a());
         }
         if (!StringUtils.isNull(dVar.f())) {
@@ -242,10 +242,10 @@ public class m {
     public void g(boolean z, View view, View view2, b.a.q0.o0.d dVar, boolean z2, View view3, ListView listView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), view, view2, dVar, Boolean.valueOf(z2), view3, listView}) == null) {
-            if (this.f19356c) {
+            if (this.f20922c) {
                 z = false;
             } else {
-                this.f19356c = z;
+                this.f20922c = z;
             }
             if (c(view, view2) || (z && !z2)) {
                 h();
@@ -262,15 +262,15 @@ public class m {
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f19354a == 0) {
-            this.f19354a = System.currentTimeMillis();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f20920a == 0) {
+            this.f20920a = System.currentTimeMillis();
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f19355b == 0) {
-            this.f19355b = System.currentTimeMillis();
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f20921b == 0) {
+            this.f20921b = System.currentTimeMillis();
         }
     }
 
@@ -285,21 +285,21 @@ public class m {
 
     public final void k(b.a.q0.o0.d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, dVar) == null) || this.f19354a <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, dVar) == null) || this.f20920a <= 0) {
             return;
         }
-        this.f19354a = 0L;
-        dVar.y(System.currentTimeMillis() - this.f19354a);
+        this.f20920a = 0L;
+        dVar.y(System.currentTimeMillis() - this.f20920a);
         e(TbadkCoreApplication.getInst(), dVar, "c14085");
     }
 
     public final void l(b.a.q0.o0.d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) || this.f19355b <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) || this.f20921b <= 0) {
             return;
         }
-        this.f19355b = 0L;
-        dVar.y(System.currentTimeMillis() - this.f19355b);
+        this.f20921b = 0L;
+        dVar.y(System.currentTimeMillis() - this.f20921b);
         e(TbadkCoreApplication.getInst(), dVar, "rec_stime");
     }
 }

@@ -1,7 +1,7 @@
 package b.a.r0.x1.l;
 
 import android.location.Address;
-import b.a.e.e.i.a;
+import b.a.e.f.i.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.location.LocationCallback;
 import com.baidu.searchbox.live.interfaces.location.LocationInfo;
@@ -11,21 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements LiveLocationService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LocationCallback f27033a;
+        public final /* synthetic */ LocationCallback f28565a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f27034b;
+        public final /* synthetic */ b f28566b;
 
         public a(b bVar, LocationCallback locationCallback) {
             Interceptable interceptable = $ic;
@@ -42,19 +42,19 @@ public class b implements LiveLocationService {
                     return;
                 }
             }
-            this.f27034b = bVar;
-            this.f27033a = locationCallback;
+            this.f28566b = bVar;
+            this.f28565a = locationCallback;
         }
 
-        @Override // b.a.e.e.i.a.c
+        @Override // b.a.e.f.i.a.c
         public void onLocationGeted(int i2, String str, Address address) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, address) == null) {
                 try {
-                    if (this.f27033a == null || address == null) {
+                    if (this.f28565a == null || address == null) {
                         return;
                     }
-                    this.f27033a.onReceiveLocation(this.f27034b.b(address));
+                    this.f28565a.onReceiveLocation(this.f28566b.b(address));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -97,14 +97,14 @@ public class b implements LiveLocationService {
     public LocationInfo getLocationInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b(b.a.e.e.i.a.n().k(false, null)) : (LocationInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b(b.a.e.f.i.a.n().k(false, null)) : (LocationInfo) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
     public void requestLocate(LocationCallback locationCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationCallback) == null) {
-            b.a.e.e.i.a.n().k(false, new a(this, locationCallback));
+            b.a.e.f.i.a.n().k(false, new a(this, locationCallback));
         }
     }
 }

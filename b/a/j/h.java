@@ -15,13 +15,13 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f2988a;
+    public final String f3081a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LruCache<String, a> f2989b;
+    public final LruCache<String, a> f3082b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2990c;
+    public boolean f3083c;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -29,16 +29,16 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f2991a;
+        public ArrayList<String> f3084a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<String> f2992b;
+        public ArrayList<String> f3085b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f2993c;
+        public long f3086c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f2994d;
+        public long f3087d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -57,59 +57,59 @@ public class h {
         public void a(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                this.f2993c = j;
+                this.f3086c = j;
             }
         }
 
         public void b(ArrayList<String> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-                this.f2991a = arrayList;
+                this.f3084a = arrayList;
             }
         }
 
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? i() + this.f2993c < System.currentTimeMillis() / 1000 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? i() + this.f3086c < System.currentTimeMillis() / 1000 : invokeV.booleanValue;
         }
 
         public ArrayList<String> d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2991a : (ArrayList) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3084a : (ArrayList) invokeV.objValue;
         }
 
         public void e(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-                this.f2994d = j;
+                this.f3087d = j;
             }
         }
 
         public void f(ArrayList<String> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-                this.f2992b = arrayList;
+                this.f3085b = arrayList;
             }
         }
 
         public ArrayList<String> g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2992b : (ArrayList) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3085b : (ArrayList) invokeV.objValue;
         }
 
         public long h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2993c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3086c : invokeV.longValue;
         }
 
         public long i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2994d : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f3087d : invokeV.longValue;
         }
     }
 
@@ -128,20 +128,20 @@ public class h {
                 return;
             }
         }
-        this.f2990c = false;
-        this.f2989b = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
-        this.f2988a = str;
-        this.f2990c = z;
+        this.f3083c = false;
+        this.f3082b = new LruCache<>(((int) Runtime.getRuntime().maxMemory()) / 16);
+        this.f3081a = str;
+        this.f3083c = z;
     }
 
     public a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            a aVar = this.f2989b.get(str);
-            if (aVar != null && aVar.c() && this.f2990c) {
-                this.f2989b.remove(str);
-                k.a("Remove expired entry from %s cache while reading, host(%s)", this.f2988a, str);
+            a aVar = this.f3082b.get(str);
+            if (aVar != null && aVar.c() && this.f3083c) {
+                this.f3082b.remove(str);
+                k.a("Remove expired entry from %s cache while reading, host(%s)", this.f3081a, str);
                 return null;
             }
             return aVar;
@@ -152,8 +152,8 @@ public class h {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f2989b.evictAll();
-            k.a("Clear %s cache", this.f2988a);
+            this.f3082b.evictAll();
+            k.a("Clear %s cache", this.f3081a);
         }
     }
 
@@ -165,9 +165,9 @@ public class h {
             if ((d2 == null || d2.isEmpty()) && (g2 == null || g2.isEmpty())) {
                 return;
             }
-            this.f2989b.put(str, aVar);
+            this.f3082b.put(str, aVar);
             Object[] objArr = new Object[5];
-            objArr[0] = this.f2988a;
+            objArr[0] = this.f3081a;
             objArr[1] = str;
             objArr[2] = d2 != null ? d2.toString() : null;
             objArr[3] = g2 != null ? g2.toString() : null;
@@ -179,7 +179,7 @@ public class h {
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f2990c = z;
+            this.f3083c = z;
         }
     }
 
@@ -188,7 +188,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            for (String str : this.f2989b.snapshot().keySet()) {
+            for (String str : this.f3082b.snapshot().keySet()) {
                 arrayList.add(str);
             }
             return arrayList;
@@ -200,8 +200,8 @@ public class h {
         a a2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (a2 = a(str)) != null && a2.c()) {
-            this.f2989b.remove(str);
-            k.a("Remove expired entry from %s cache, host(%s)", this.f2988a, str);
+            this.f3082b.remove(str);
+            k.a("Remove expired entry from %s cache, host(%s)", this.f3081a, str);
         }
     }
 }

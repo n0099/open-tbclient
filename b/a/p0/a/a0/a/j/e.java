@@ -13,25 +13,25 @@ public class e extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f3810a;
+    public float f3904a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f3811b;
+    public float f3905b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f3812c;
+    public float f3906c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f3813d;
+    public float f3907d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f3814e;
+    public float f3908e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f3815f;
+    public float f3909f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f3816g;
+    public boolean f3910g;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class e extends a {
                 return;
             }
         }
-        this.f3816g = false;
+        this.f3910g = false;
     }
 
     @Override // b.a.p0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) && this.f3816g) {
-            bVar.j.cubicTo(this.f3810a, this.f3811b, this.f3812c, this.f3813d, this.f3814e, this.f3815f);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) && this.f3910g) {
+            bVar.j.cubicTo(this.f3904a, this.f3905b, this.f3906c, this.f3907d, this.f3908e, this.f3909f);
         }
     }
 
@@ -63,12 +63,12 @@ public class e extends a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 5) {
             return;
         }
-        this.f3810a = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
-        this.f3811b = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
-        this.f3812c = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(2));
-        this.f3813d = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(3));
-        this.f3814e = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(4));
-        this.f3815f = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(5));
-        this.f3816g = true;
+        this.f3904a = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(0));
+        this.f3905b = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(1));
+        this.f3906c = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(2));
+        this.f3907d = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(3));
+        this.f3908e = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(4));
+        this.f3909f = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(5));
+        this.f3910g = true;
     }
 }

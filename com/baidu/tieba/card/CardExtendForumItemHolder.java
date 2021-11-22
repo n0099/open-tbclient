@@ -3,7 +3,7 @@ package com.baidu.tieba.card;
 import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.TextView;
-import b.a.r0.b0.e0.g;
+import b.a.r0.b0.f0.g;
 import b.a.r0.i1.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -18,16 +18,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class CardExtendForumItemHolder extends ItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public g f47390a;
+    public g f48254a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f47391b;
+    public int f48255b;
     public EntelechyUserLikeButton mAddLoveBtnTextView;
     public BarImageView mForumAvatarImageView;
     public TextView mForumNameTextView;
@@ -53,7 +53,7 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
         this.mForumAvatarImageView = null;
         this.mForumNameTextView = null;
         this.mAddLoveBtnTextView = null;
-        this.f47391b = 3;
+        this.f48255b = 3;
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -72,18 +72,18 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             if (cVar != null && (cVar instanceof g)) {
                 g gVar = (g) cVar;
-                this.f47390a = gVar;
-                this.mForumAvatarImageView.setTag(gVar.f14758b);
-                this.mForumAvatarImageView.setTag(R.id.tag_forum_name, this.f47390a.f14759c);
-                this.mForumAvatarImageView.startLoad(this.f47390a.f14758b, 15, false);
+                this.f48254a = gVar;
+                this.mForumAvatarImageView.setTag(gVar.f16245b);
+                this.mForumAvatarImageView.setTag(R.id.tag_forum_name, this.f48254a.f16246c);
+                this.mForumAvatarImageView.startLoad(this.f48254a.f16245b, 15, false);
                 TextView textView = this.mForumNameTextView;
-                textView.setText(StringHelper.getFixedText(this.f47390a.f14759c, 4, true) + getView().getContext().getResources().getString(R.string.forum));
-                this.mForumNameTextView.setTag(R.id.tag_forum_name, this.f47390a.f14759c);
-                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_id, Long.valueOf(this.f47390a.f14760d));
-                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_name, this.f47390a.f14759c);
-                getView().setTag(R.id.tag_forum_id, Long.valueOf(this.f47390a.f14760d));
-                getView().setTag(R.id.tag_forum_name, this.f47390a.f14759c);
-                a(this.mAddLoveBtnTextView, this.f47390a.f14761e);
+                textView.setText(StringHelper.getFixedText(this.f48254a.f16246c, 4, true) + getView().getContext().getResources().getString(R.string.forum));
+                this.mForumNameTextView.setTag(R.id.tag_forum_name, this.f48254a.f16246c);
+                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_id, Long.valueOf(this.f48254a.f16247d));
+                this.mAddLoveBtnTextView.setTag(R.id.tag_forum_name, this.f48254a.f16246c);
+                getView().setTag(R.id.tag_forum_id, Long.valueOf(this.f48254a.f16247d));
+                getView().setTag(R.id.tag_forum_name, this.f48254a.f16246c);
+                a(this.mAddLoveBtnTextView, this.f48254a.f16248e);
                 this.mForumAvatarImageView.setOnClickListener(this.onClickListener);
                 this.mAddLoveBtnTextView.setOnClickListener(this.onClickListener);
                 this.mForumNameTextView.setOnClickListener(this.onClickListener);
@@ -114,12 +114,12 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (this.f47391b != i2) {
+            if (this.f48255b != i2) {
                 SkinManager.setBackgroundColor(getView(), R.color.CAM_X0201);
                 SkinManager.setViewTextColor(this.mForumNameTextView, R.color.CAM_X0105);
-                a(this.mAddLoveBtnTextView, this.f47390a.f14761e);
+                a(this.mAddLoveBtnTextView, this.f48254a.f16248e);
             }
-            this.f47391b = i2;
+            this.f48255b = i2;
         }
     }
 }

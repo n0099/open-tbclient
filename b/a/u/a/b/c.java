@@ -34,20 +34,20 @@ public class c implements b.a, Observer {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b.a.u.a.b.b f28962h;
+    public static volatile b.a.u.a.b.b f29831h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile c f28963i;
+    public static volatile c f29832i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f28964e;
+    public Context f29833e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28965f;
+    public int f29834f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f28966g;
+    public b f29835g;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -67,7 +67,7 @@ public class c implements b.a, Observer {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f28967e;
+            public final /* synthetic */ b f29836e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -84,14 +84,14 @@ public class c implements b.a, Observer {
                         return;
                     }
                 }
-                this.f28967e = bVar;
+                this.f29836e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f28967e.this$0.d("netchange");
+                    this.f29836e.this$0.d("netchange");
                 }
             }
         }
@@ -144,7 +144,7 @@ public class c implements b.a, Observer {
                 return;
             }
         }
-        f28962h = new b.a.u.a.b.b();
+        f29831h = new b.a.u.a.b.b();
         new LinkedHashMap();
     }
 
@@ -161,7 +161,7 @@ public class c implements b.a, Observer {
                 return;
             }
         }
-        this.f28965f = -1;
+        this.f29834f = -1;
         new LinkedBlockingQueue();
     }
 
@@ -171,14 +171,14 @@ public class c implements b.a, Observer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (c.class) {
-                if (f28963i == null) {
+                if (f29832i == null) {
                     synchronized (c.class) {
-                        if (f28963i == null) {
-                            f28963i = new c();
+                        if (f29832i == null) {
+                            f29832i = new c();
                         }
                     }
                 }
-                cVar = f28963i;
+                cVar = f29832i;
             }
             return cVar;
         }
@@ -188,13 +188,13 @@ public class c implements b.a, Observer {
     public static int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f28962h.f28961a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f29831h.f29830a : invokeV.intValue;
     }
 
     public void b(Context context, String str, String str2, int i2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i2), str3}) == null) {
-            if (f28962h.f28961a != -2 && f28962h.f28961a != 0) {
+            if (f29831h.f29830a != -2 && f29831h.f29830a != 0) {
                 if (!TextUtils.isEmpty(str3) && UnitedSchemeConstants.SCHEME_INVOKE_TYPE_OUTSIDE.equals(str3)) {
                     d.h(context).f();
                 }
@@ -203,7 +203,7 @@ public class c implements b.a, Observer {
             }
             StringBuilder sb = new StringBuilder();
             sb.append("SocketConnect state is ");
-            sb.append(f28962h.f28961a == 0 ? "connected" : "connecting");
+            sb.append(f29831h.f29830a == 0 ? "connected" : "connecting");
             e.a("LCPClientManager", sb.toString());
         }
     }
@@ -216,20 +216,20 @@ public class c implements b.a, Observer {
                     return;
                 }
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && RequsetNetworkUtils.isConnected(context)) {
-                    this.f28964e = context;
+                    this.f29833e = context;
                     if (TextUtils.isEmpty(f.b(context))) {
                         f.q(context, str);
                     }
                     if (TextUtils.isEmpty(f.e(context))) {
                         f.s(context, str2);
                     }
-                    b.a.u.a.c.f.S(context).addObserver(f28963i);
-                    if (f28962h.f28961a != -2 && f28962h.f28961a != 0) {
-                        if (this.f28966g == null) {
+                    b.a.u.a.c.f.S(context).addObserver(f29832i);
+                    if (f29831h.f29830a != -2 && f29831h.f29830a != 0) {
+                        if (this.f29835g == null) {
                             IntentFilter intentFilter = new IntentFilter();
                             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
                             b bVar = new b(this, null);
-                            this.f28966g = bVar;
+                            this.f29835g = bVar;
                             context.registerReceiver(bVar, intentFilter);
                         }
                         if (g.f(context) && !d.i().booleanValue()) {
@@ -237,7 +237,7 @@ public class c implements b.a, Observer {
                             g.m(context, i2);
                         }
                         if (!f.k(context)) {
-                            if (this.f28965f < 0) {
+                            if (this.f29834f < 0) {
                                 b.a.u.a.a.a.h(context).b(601110).c("flow_start_time", System.currentTimeMillis()).d("source", str3).c("token_begin", System.currentTimeMillis());
                                 l();
                             }
@@ -250,7 +250,7 @@ public class c implements b.a, Observer {
                     }
                     StringBuilder sb = new StringBuilder();
                     sb.append("SocketConnect state is ");
-                    sb.append(f28962h.f28961a == 0 ? "connected" : "connecting");
+                    sb.append(f29831h.f29830a == 0 ? "connected" : "connecting");
                     e.a("LCPClientManager", sb.toString());
                     return;
                 }
@@ -263,36 +263,36 @@ public class c implements b.a, Observer {
     public final void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Context context = this.f28964e;
-            b(context, f.b(context), f.e(this.f28964e), g.c(this.f28964e), str);
+            Context context = this.f29833e;
+            b(context, f.b(context), f.e(this.f29833e), g.c(this.f29833e), str);
         }
     }
 
     public void g(@NonNull BLCPRequest bLCPRequest, @Nullable b.a.u.a.b.d.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, bLCPRequest, bVar) == null) {
-            Context context = this.f28964e;
+            Context context = this.f29833e;
             if (context == null || !f.m(context)) {
                 if (bVar != null) {
-                    bVar.onResponse(ResponseCode.LCP_STATE_CONNECTING, "unconnected", bLCPRequest.f38603a, bLCPRequest.f38604b, bLCPRequest.f38606d, new byte[0]);
+                    bVar.onResponse(ResponseCode.LCP_STATE_CONNECTING, "unconnected", bLCPRequest.f39435a, bLCPRequest.f39436b, bLCPRequest.f39438d, new byte[0]);
                 }
-            } else if (f28962h.f28961a != 0) {
+            } else if (f29831h.f29830a != 0) {
                 if (!(bLCPRequest instanceof b.a.u.a.b.d.a) && bVar != null) {
-                    bVar.onResponse(ResponseCode.LCP_STATE_CONNECTING, "unconnected", bLCPRequest.f38603a, bLCPRequest.f38604b, bLCPRequest.f38606d, new byte[0]);
+                    bVar.onResponse(ResponseCode.LCP_STATE_CONNECTING, "unconnected", bLCPRequest.f39435a, bLCPRequest.f39436b, bLCPRequest.f39438d, new byte[0]);
                 }
-                if (f28962h.f28961a == -1 || !j()) {
+                if (f29831h.f29830a == -1 || !j()) {
                     d("invoke");
                 }
             } else {
-                b.a.u.a.c.f.S(this.f28964e).H(bLCPRequest, bVar);
-                if (bLCPRequest.f38604b == 1 && bLCPRequest.f38603a == 4) {
+                b.a.u.a.c.f.S(this.f29833e).H(bLCPRequest, bVar);
+                if (bLCPRequest.f39436b == 1 && bLCPRequest.f39435a == 4) {
                     e.a("LCPClientManager", "云控登录打点");
-                    Context context2 = this.f28964e;
-                    b.a.u.a.h.b.a(context2, 1L, "invoke", bLCPRequest.f38606d + "");
+                    Context context2 = this.f29833e;
+                    b.a.u.a.h.b.a(context2, 1L, "invoke", bLCPRequest.f39438d + "");
                 }
-                if (bLCPRequest.f38604b == 50 && bLCPRequest.f38603a == 2) {
-                    Context context3 = this.f28964e;
-                    b.a.u.a.h.b.a(context3, 50L, "invoke", bLCPRequest.f38606d + "");
+                if (bLCPRequest.f39436b == 50 && bLCPRequest.f39435a == 2) {
+                    Context context3 = this.f29833e;
+                    b.a.u.a.h.b.a(context3, 50L, "invoke", bLCPRequest.f39438d + "");
                 }
             }
         }
@@ -301,7 +301,7 @@ public class c implements b.a, Observer {
     public void h() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (context = this.f28964e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (context = this.f29833e) == null) {
             return;
         }
         b.a.u.a.c.f.S(context).b0();
@@ -312,15 +312,15 @@ public class c implements b.a, Observer {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, context) == null) || context == null) {
             return;
         }
-        this.f28964e = context;
+        this.f29833e = context;
     }
 
     public final boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Context context = this.f28964e;
-            return context == null || b.a.u.a.c.f.S(context).R().f28961a != -1;
+            Context context = this.f29833e;
+            return context == null || b.a.u.a.c.f.S(context).R().f29830a != -1;
         }
         return invokeV.booleanValue;
     }
@@ -328,19 +328,19 @@ public class c implements b.a, Observer {
     public final void k(int i2) {
         Context context;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i2) == null) && (context = this.f28964e) != null && f.m(context)) {
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i2) == null) && (context = this.f29833e) != null && f.m(context)) {
             if (i2 != 0) {
                 if (i2 != 1) {
                     return;
                 }
                 e.a("LCPClientManager", "socketAction closeSocket");
-                b.a.u.a.c.f.S(this.f28964e).i0("socketAction closeSocket:", b.a.u.a.c.f.S(this.f28964e).x);
+                b.a.u.a.c.f.S(this.f29833e).i0("socketAction closeSocket:", b.a.u.a.c.f.S(this.f29833e).x);
                 return;
             }
             e.a("LCPClientManager", "socketAction createSocket");
-            f28962h.f28961a = -2;
-            b.a.u.a.a.a.h(this.f28964e).g(601110).d("P8", "socketAction createSocket").d("con_err_code", "P8");
-            b.a.u.a.c.f.S(this.f28964e).h0();
+            f29831h.f29830a = -2;
+            b.a.u.a.a.a.h(this.f29833e).g(601110).d("P8", "socketAction createSocket").d("con_err_code", "P8");
+            b.a.u.a.c.f.S(this.f29833e).h0();
         }
     }
 
@@ -348,26 +348,26 @@ public class c implements b.a, Observer {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Context context2 = this.f28964e;
+            Context context2 = this.f29833e;
             if (context2 != null && RequsetNetworkUtils.isConnected(context2)) {
-                this.f28965f++;
-                b.a.u.a.a.a.h(this.f28964e).g(601110).b("token_count", this.f28965f);
-                e.a("LCPClientManager", "no token, so request token, and tryCount = " + this.f28965f);
-                if (this.f28965f < 3) {
-                    b.a.u.a.f.b bVar = new b.a.u.a.f.b(this.f28964e, this);
+                this.f29834f++;
+                b.a.u.a.a.a.h(this.f29833e).g(601110).b("token_count", this.f29834f);
+                e.a("LCPClientManager", "no token, so request token, and tryCount = " + this.f29834f);
+                if (this.f29834f < 3) {
+                    b.a.u.a.f.b bVar = new b.a.u.a.f.b(this.f29833e, this);
                     b.a.u.a.f.c.e(bVar, bVar);
                     return;
                 }
-                this.f28965f = -1;
+                this.f29834f = -1;
                 return;
             }
             StringBuilder sb = new StringBuilder();
             sb.append("context = ");
-            sb.append(this.f28964e);
+            sb.append(this.f29833e);
             sb.append(", net :");
-            sb.append(this.f28964e == null ? "" : Boolean.valueOf(!RequsetNetworkUtils.isConnected(context)));
+            sb.append(this.f29833e == null ? "" : Boolean.valueOf(!RequsetNetworkUtils.isConnected(context)));
             e.a("LCPClientManager", sb.toString());
-            b.a.u.a.a.a.h(this.f28964e).g(601110).d("P1", "token request net unconnected").d("con_err_code", "P1").c("flow_end_time", System.currentTimeMillis()).e();
+            b.a.u.a.a.a.h(this.f29833e).g(601110).d("P1", "token request net unconnected").d("con_err_code", "P1").c("flow_end_time", System.currentTimeMillis()).e();
         }
     }
 
@@ -376,14 +376,14 @@ public class c implements b.a, Observer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048585, this, i2, str) == null) {
             e.b("LCPClientManager", "getToken :" + str);
-            b.a.u.a.a.c g2 = b.a.u.a.a.a.h(this.f28964e).g(601110);
+            b.a.u.a.a.c g2 = b.a.u.a.a.a.h(this.f29833e).g(601110);
             g2.d("P4", "getToken errCode:" + i2 + ",errMsg:" + str).d("con_err_code", "P4");
             l();
-            if (this.f28965f == 2) {
-                b.a.u.a.a.c c2 = b.a.u.a.a.a.h(this.f28964e).g(601110).c("flow_end_time", System.currentTimeMillis());
-                c2.d("P5", "token request count is max:" + this.f28965f).d("con_err_code", "P5").e();
-                f28962h.f28961a = -1;
-                b.a.u.a.c.f.S(this.f28964e).Z();
+            if (this.f29834f == 2) {
+                b.a.u.a.a.c c2 = b.a.u.a.a.a.h(this.f29833e).g(601110).c("flow_end_time", System.currentTimeMillis());
+                c2.d("P5", "token request count is max:" + this.f29834f).d("con_err_code", "P5").e();
+                f29831h.f29830a = -1;
+                b.a.u.a.c.f.S(this.f29833e).Z();
             }
         }
     }
@@ -392,8 +392,8 @@ public class c implements b.a, Observer {
     public void onResponse(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            b.a.u.a.a.a.h(this.f28964e).g(601110).d("P3", "accessToken success").d("con_err_code", "P3");
-            this.f28965f = -1;
+            b.a.u.a.a.a.h(this.f29833e).g(601110).d("P3", "accessToken success").d("con_err_code", "P3");
+            this.f29834f = -1;
             k(0);
         }
     }
@@ -402,8 +402,8 @@ public class c implements b.a, Observer {
     public void update(Observable observable, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048587, this, observable, obj) == null) && (obj instanceof b.a.u.a.b.b)) {
-            f28962h.f28961a = ((b.a.u.a.b.b) obj).f28961a;
-            e.a("LCPClientManager", "Manager update connectState :" + f28962h.f28961a);
+            f29831h.f29830a = ((b.a.u.a.b.b) obj).f29830a;
+            e.a("LCPClientManager", "Manager update connectState :" + f29831h.f29830a);
         }
     }
 }

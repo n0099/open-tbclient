@@ -15,7 +15,7 @@ public class k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<l> f13805a;
+    public List<l> f14573a;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class k {
                 return;
             }
         }
-        this.f13805a = new ArrayList();
+        this.f14573a = new ArrayList();
     }
 
     public void a(JSONObject jSONObject) throws JSONException {
@@ -44,7 +44,7 @@ public class k {
             if (jSONObject2 != null) {
                 l lVar = new l();
                 lVar.a(jSONObject2);
-                this.f13805a.add(lVar);
+                this.f14573a.add(lVar);
             }
         }
     }

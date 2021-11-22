@@ -11,7 +11,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -34,19 +34,19 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f16545e;
+    public View f18045e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f16546f;
+    public View f18046f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f16547g;
+    public View f18047g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f16548h;
+    public View f18048h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f16549i;
+    public ImageView f18049i;
     public ImageView j;
     public TextView k;
     public TextView l;
@@ -57,31 +57,31 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
 
     /* renamed from: b.a.r0.f2.h.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC0849a implements Runnable {
+    public class RunnableC0914a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f16550e;
+        public final /* synthetic */ a f18050e;
 
         /* renamed from: b.a.r0.f2.h.f.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0850a implements Runnable {
+        public class RunnableC0915a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f16551e;
+            public final /* synthetic */ int f18051e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ RunnableC0849a f16552f;
+            public final /* synthetic */ RunnableC0914a f18052f;
 
-            public RunnableC0850a(RunnableC0849a runnableC0849a, int i2) {
+            public RunnableC0915a(RunnableC0914a runnableC0914a, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {runnableC0849a, Integer.valueOf(i2)};
+                    Object[] objArr = {runnableC0914a, Integer.valueOf(i2)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i3 = newInitContext.flag;
                     if ((i3 & 1) != 0) {
@@ -91,24 +91,24 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
                         return;
                     }
                 }
-                this.f16552f = runnableC0849a;
-                this.f16551e = i2;
+                this.f18052f = runnableC0914a;
+                this.f18051e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f16551e >= 30) {
-                        l.M(this.f16552f.f16550e.n.getPageActivity(), String.format(this.f16552f.f16550e.n.getString(R.string.emotion_create_tip), 30));
+                    if (this.f18051e >= 30) {
+                        l.M(this.f18052f.f18050e.n.getPageActivity(), String.format(this.f18052f.f18050e.n.getString(R.string.emotion_create_tip), 30));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f16552f.f16550e.n.getPageActivity(), true, 25021)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f18052f.f18050e.n.getPageActivity(), true, 25021)));
                     }
                 }
             }
         }
 
-        public RunnableC0849a(a aVar) {
+        public RunnableC0914a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
                     return;
                 }
             }
-            this.f16550e = aVar;
+            this.f18050e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -131,7 +131,7 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 List<MyEmotionGroupData> f2 = b.a.r0.f2.c.i().f();
-                b.a.e.e.m.e.a().post(new RunnableC0850a(this, f2 == null ? 0 : f2.size()));
+                b.a.e.f.m.e.a().post(new RunnableC0915a(this, f2 == null ? 0 : f2.size()));
             }
         }
     }
@@ -142,21 +142,21 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f16553e;
+        public final /* synthetic */ a f18053e;
 
         /* renamed from: b.a.r0.f2.h.f.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0851a implements Runnable {
+        public class RunnableC0916a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f16554e;
+            public final /* synthetic */ int f18054e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f16555f;
+            public final /* synthetic */ b f18055f;
 
-            public RunnableC0851a(b bVar, int i2) {
+            public RunnableC0916a(b bVar, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,18 +171,18 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
                         return;
                     }
                 }
-                this.f16555f = bVar;
-                this.f16554e = i2;
+                this.f18055f = bVar;
+                this.f18054e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f16554e >= 30) {
-                        l.M(this.f16555f.f16553e.n.getPageActivity(), String.format(this.f16555f.f16553e.n.getString(R.string.emotion_create_tip), 30));
+                    if (this.f18054e >= 30) {
+                        l.M(this.f18055f.f18053e.n.getPageActivity(), String.format(this.f18055f.f18053e.n.getString(R.string.emotion_create_tip), 30));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f16555f.f16553e.n.getPageActivity(), 25021)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f18055f.f18053e.n.getPageActivity(), 25021)));
                     }
                 }
             }
@@ -203,7 +203,7 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
                     return;
                 }
             }
-            this.f16553e = aVar;
+            this.f18053e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -211,7 +211,7 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 List<MyEmotionGroupData> f2 = b.a.r0.f2.c.i().f();
-                b.a.e.e.m.e.a().post(new RunnableC0851a(this, f2 == null ? 0 : f2.size()));
+                b.a.e.f.m.e.a().post(new RunnableC0916a(this, f2 == null ? 0 : f2.size()));
             }
         }
     }
@@ -235,21 +235,21 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
         this.n = tbPageContext;
         this.o = i2;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.emotion_native_manager_create_layout, (ViewGroup) null);
-        this.f16547g = inflate;
-        this.f16545e = inflate.findViewById(R.id.emotion_manager_add_layout);
-        View findViewById = this.f16547g.findViewById(R.id.emotion_manager_create);
-        this.f16546f = findViewById;
+        this.f18047g = inflate;
+        this.f18045e = inflate.findViewById(R.id.emotion_manager_add_layout);
+        View findViewById = this.f18047g.findViewById(R.id.emotion_manager_create);
+        this.f18046f = findViewById;
         findViewById.setOnClickListener(this);
-        this.f16545e.setVisibility(0);
-        View findViewById2 = this.f16547g.findViewById(R.id.emotion_manager_upload_status);
-        this.f16548h = findViewById2;
+        this.f18045e.setVisibility(0);
+        View findViewById2 = this.f18047g.findViewById(R.id.emotion_manager_upload_status);
+        this.f18048h = findViewById2;
         findViewById2.setClickable(false);
-        this.f16548h.setOnClickListener(this);
-        this.f16548h.setVisibility(8);
-        this.f16549i = (ImageView) this.f16547g.findViewById(R.id.uploading_status_img);
-        this.j = (ImageView) this.f16547g.findViewById(R.id.icon_add);
-        this.k = (TextView) this.f16547g.findViewById(R.id.add_emotion_tv);
-        this.l = (TextView) this.f16547g.findViewById(R.id.add_emotion_manager_upload_status);
+        this.f18048h.setOnClickListener(this);
+        this.f18048h.setVisibility(8);
+        this.f18049i = (ImageView) this.f18047g.findViewById(R.id.uploading_status_img);
+        this.j = (ImageView) this.f18047g.findViewById(R.id.icon_add);
+        this.k = (TextView) this.f18047g.findViewById(R.id.add_emotion_tv);
+        this.l = (TextView) this.f18047g.findViewById(R.id.add_emotion_manager_upload_status);
     }
 
     @Override // b.a.r0.s0.x.d.c
@@ -264,14 +264,14 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b.a.r0.f2.a.b().a(new RunnableC0849a(this));
+            b.a.r0.f2.a.b().a(new RunnableC0914a(this));
         }
     }
 
     public void d() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (imageView = this.f16549i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (imageView = this.f18049i) == null) {
             return;
         }
         imageView.clearAnimation();
@@ -294,13 +294,13 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16547g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18047g : (View) invokeV.objValue;
     }
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            View view = this.f16545e;
+            View view = this.f18045e;
             if (view != null) {
                 SkinManager.setBackgroundColor(view, R.color.cp_bg_line_d_alpha90, i2);
             }
@@ -316,11 +316,11 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
             if (textView2 != null) {
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, i2);
             }
-            View view2 = this.f16548h;
+            View view2 = this.f18048h;
             if (view2 != null) {
                 SkinManager.setBackgroundColor(view2, R.color.cp_bg_line_d_alpha90, i2);
             }
-            ImageView imageView2 = this.f16549i;
+            ImageView imageView2 = this.f18049i;
             if (imageView2 != null) {
                 SkinManager.setImageResource(imageView2, R.drawable.emotion_uploading_bar_refresh);
             }
@@ -343,8 +343,8 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
                 aVar.dismiss();
             }
             d();
-            this.f16548h.setVisibility(8);
-            this.f16545e.setVisibility(0);
+            this.f18048h.setVisibility(8);
+            this.f18045e.setVisibility(0);
         }
     }
 
@@ -356,20 +356,20 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
                 aVar.dismiss();
             }
             k();
-            this.f16548h.setVisibility(0);
-            this.f16545e.setVisibility(8);
-            SkinManager.setBackgroundColor(this.f16548h, R.color.CAM_X0201);
-            SkinManager.setImageResource(this.f16549i, R.drawable.emotion_uploading_bar_refresh);
+            this.f18048h.setVisibility(0);
+            this.f18045e.setVisibility(8);
+            SkinManager.setBackgroundColor(this.f18048h, R.color.CAM_X0201);
+            SkinManager.setImageResource(this.f18049i, R.drawable.emotion_uploading_bar_refresh);
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0302);
             this.l.setText(R.string.emotion_uploading);
-            this.f16548h.setClickable(false);
+            this.f18048h.setClickable(false);
         }
     }
 
     public void k() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (imageView = this.f16549i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (imageView = this.f18049i) == null) {
             return;
         }
         imageView.startAnimation(e());
@@ -394,17 +394,17 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
                 aVar.dismiss();
             }
             d();
-            this.f16548h.setVisibility(0);
-            this.f16545e.setVisibility(8);
-            SkinManager.setBackgroundColor(this.f16548h, R.color.CAM_X0201);
-            SkinManager.setImageResource(this.f16549i, R.drawable.emotion_update_fail);
+            this.f18048h.setVisibility(0);
+            this.f18045e.setVisibility(8);
+            SkinManager.setBackgroundColor(this.f18048h, R.color.CAM_X0201);
+            SkinManager.setImageResource(this.f18049i, R.drawable.emotion_update_fail);
             SkinManager.setViewTextColor(this.l, R.color.common_color_10037);
             if (!TextUtils.isEmpty(str)) {
                 this.l.setText(str);
             } else {
                 this.l.setText(R.string.emotion_center_upload_failed);
             }
-            this.f16548h.setClickable(true);
+            this.f18048h.setClickable(true);
         }
     }
 
@@ -412,7 +412,7 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, view) == null) {
-            if (this.f16546f != null && view.getId() == this.f16546f.getId() && this.f16546f.isShown()) {
+            if (this.f18046f != null && view.getId() == this.f18046f.getId() && this.f18046f.isShown()) {
                 if (this.o == 1) {
                     if (this.p == null) {
                         b.a.r0.s0.x.d.a aVar = new b.a.r0.s0.x.d.a(this.n.getPageActivity(), this.o);
@@ -422,12 +422,12 @@ public class a implements View.OnClickListener, b.a.r0.s0.x.d.c {
                     this.p.c(TbadkCoreApplication.getInst().getSkinType());
                     Rect rect = new Rect();
                     this.n.getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-                    this.p.showAtLocation(this.f16547g, 81, 0, this.n.getPageActivity().getWindow().getDecorView().getHeight() - rect.bottom);
+                    this.p.showAtLocation(this.f18047g, 81, 0, this.n.getPageActivity().getWindow().getDecorView().getHeight() - rect.bottom);
                 } else {
                     a();
                 }
             }
-            if (this.f16548h != null && view.getId() == this.f16548h.getId() && this.f16548h.isShown()) {
+            if (this.f18048h != null && view.getId() == this.f18048h.getId() && this.f18048h.isShown()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.n.getPageActivity(), this.o == 1, 25021)));
             }
         }

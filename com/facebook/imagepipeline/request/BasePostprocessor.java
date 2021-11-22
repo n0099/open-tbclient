@@ -14,15 +14,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
-import com.facebook.imagepipeline.core.NativeCodeSetup;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import com.facebook.imagepipeline.nativecode.Bitmaps;
 import javax.annotation.Nullable;
 /* loaded from: classes11.dex */
 public abstract class BasePostprocessor implements Postprocessor {
     public static /* synthetic */ Interceptable $ic;
     public static final Bitmap.Config FALLBACK_BITMAP_CONFIGURATION;
-    public static Method sCopyBitmap;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,24 +55,11 @@ public abstract class BasePostprocessor implements Postprocessor {
     public static void internalCopyBitmap(Bitmap bitmap, Bitmap bitmap2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, bitmap, bitmap2) == null) {
-            if (NativeCodeSetup.getUseNativeCode() && bitmap.getConfig() == bitmap2.getConfig()) {
-                try {
-                    if (sCopyBitmap == null) {
-                        sCopyBitmap = Class.forName("com.facebook.imagepipeline.nativecode.Bitmaps").getDeclaredMethod("copyBitmap", Bitmap.class, Bitmap.class);
-                    }
-                    sCopyBitmap.invoke(null, bitmap, bitmap2);
-                    return;
-                } catch (ClassNotFoundException e2) {
-                    throw new RuntimeException("Wrong Native code setup, reflection failed.", e2);
-                } catch (IllegalAccessException e3) {
-                    throw new RuntimeException("Wrong Native code setup, reflection failed.", e3);
-                } catch (NoSuchMethodException e4) {
-                    throw new RuntimeException("Wrong Native code setup, reflection failed.", e4);
-                } catch (InvocationTargetException e5) {
-                    throw new RuntimeException("Wrong Native code setup, reflection failed.", e5);
-                }
+            if (bitmap.getConfig() == bitmap2.getConfig()) {
+                Bitmaps.copyBitmap(bitmap, bitmap2);
+            } else {
+                new Canvas(bitmap).drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
             }
-            new Canvas(bitmap).drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
         }
     }
 

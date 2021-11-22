@@ -1,7 +1,7 @@
 package b.a.p0.a.e0.f.f;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.a1.e;
+import b.a.p0.a.a1.d;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
@@ -14,21 +14,21 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static e.g a(b.a.p0.a.f1.e.b bVar) {
+    public static d.g a(b.a.p0.a.f1.e.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bVar)) == null) {
             File e2 = e();
-            e.K(b(), e2, bVar);
-            e.g gVar = new e.g();
+            b.a.p0.a.a1.d.M(b(), e2, bVar);
+            d.g gVar = new d.g();
             File file = new File(e2, "app.json");
-            SwanAppConfigData b2 = b.a.p0.a.a2.n.d.b(e2.getAbsolutePath());
-            gVar.f3903a = e2.getPath() + File.separator;
-            gVar.f3904b = b2;
-            b.a.p0.a.e0.d.h("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.f3903a);
+            SwanAppConfigData b2 = b.a.p0.a.d2.n.d.b(e2.getAbsolutePath());
+            gVar.f3996a = e2.getPath() + File.separator;
+            gVar.f3997b = b2;
+            b.a.p0.a.e0.d.k("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.f3996a);
             return gVar;
         }
-        return (e.g) invokeL.objValue;
+        return (d.g) invokeL.objValue;
     }
 
     public static File b() {

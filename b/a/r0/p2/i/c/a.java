@@ -1,12 +1,12 @@
 package b.a.r0.p2.i.c;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.e0.b;
-import b.a.r0.b0.e0.e;
-import b.a.r0.b0.e0.f;
-import b.a.r0.b0.e0.l;
+import b.a.r0.b0.f0.b;
+import b.a.r0.b0.f0.e;
+import b.a.r0.b0.f0.f;
+import b.a.r0.b0.f0.l;
 import b.a.r0.p2.e.k;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -25,13 +25,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f22385a;
+    public static final int f23862a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f22386b;
+    public static final int f23863b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f22387c;
+    public static final int f23864c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,9 +47,9 @@ public class a {
                 return;
             }
         }
-        f22385a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-        f22386b = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-        f22387c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+        f23862a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+        f23863b = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+        f23864c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
     }
 
     public static List<n> a(List<d2> list) {
@@ -83,10 +83,10 @@ public class a {
             ArrayList arrayList = new ArrayList();
             if (!ListUtils.isEmpty(list)) {
                 k kVar = new k();
-                kVar.f22315h = f22387c;
-                kVar.f22314g = f22386b;
-                kVar.f22313f = f22385a;
-                kVar.f22312e = R.string.person_center_tab_main_list_title;
+                kVar.f23792h = f23864c;
+                kVar.f23791g = f23863b;
+                kVar.f23790f = f23862a;
+                kVar.f23789e = R.string.person_center_tab_main_list_title;
                 arrayList.add(kVar);
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     d2 d2Var = list.get(i2);
@@ -139,24 +139,24 @@ public class a {
                 return null;
             }
             d2Var.e2 = true;
-            d2Var.G1();
+            d2Var.I1();
             if (d2Var.z1) {
-                bVar = new b.a.r0.b0.e0.k();
-                bVar.f14748e = d2Var;
+                bVar = new b.a.r0.b0.f0.k();
+                bVar.f16235e = d2Var;
             } else if (e.Y(d2Var)) {
                 bVar = new e(d2Var);
             } else if (f.b0(d2Var)) {
                 bVar = new f(d2Var);
-            } else if (!b.a.r0.b0.e0.k.Y(d2Var) && !b.a.r0.b0.e0.k.Z(d2Var)) {
+            } else if (!b.a.r0.b0.f0.k.Y(d2Var) && !b.a.r0.b0.f0.k.Z(d2Var)) {
                 if (l.T(d2Var)) {
                     bVar = new l(d2Var);
                 }
             } else {
-                bVar = new b.a.r0.b0.e0.k();
-                if (!d2Var.e2() && !d2Var.w2()) {
-                    d2Var.Z1();
+                bVar = new b.a.r0.b0.f0.k();
+                if (!d2Var.g2() && !d2Var.y2()) {
+                    d2Var.b2();
                 }
-                bVar.f14748e = d2Var;
+                bVar.f16235e = d2Var;
             }
             if (bVar != null) {
                 b.a.q0.b.f.a.e(bVar);

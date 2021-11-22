@@ -16,21 +16,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c extends b.a.e.l.e.b {
+public class c extends b.a.e.m.e.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f25056f;
+    public Context f26573f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f25057g;
+    public View f26574g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f25058h;
+    public ImageView f26575h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f25059i;
+    public TextView f26576i;
     public View j;
     public View k;
     public View.OnClickListener l;
@@ -50,32 +50,32 @@ public class c extends b.a.e.l.e.b {
                 return;
             }
         }
-        this.f25056f = context;
+        this.f26573f = context;
     }
 
-    @Override // b.a.e.l.e.b
+    @Override // b.a.e.m.e.b
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.f25056f).inflate(R.layout.ala_frs_game_more_live_layout, (ViewGroup) null);
-            this.f25057g = inflate;
-            this.f25059i = (TextView) inflate.findViewById(R.id.ala_game_frs_more_live_tip);
-            this.f25058h = (ImageView) this.f25057g.findViewById(R.id.ala_game_frs_more_live_icon);
-            this.j = this.f25057g.findViewById(R.id.ala_game_frs_more_live_top_line);
-            this.k = this.f25057g.findViewById(R.id.ala_game_frs_more_live_bottom_line);
+            View inflate = LayoutInflater.from(this.f26573f).inflate(R.layout.ala_frs_game_more_live_layout, (ViewGroup) null);
+            this.f26574g = inflate;
+            this.f26576i = (TextView) inflate.findViewById(R.id.ala_game_frs_more_live_tip);
+            this.f26575h = (ImageView) this.f26574g.findViewById(R.id.ala_game_frs_more_live_icon);
+            this.j = this.f26574g.findViewById(R.id.ala_game_frs_more_live_top_line);
+            this.k = this.f26574g.findViewById(R.id.ala_game_frs_more_live_bottom_line);
             d(TbadkCoreApplication.getInst().getSkinType());
-            return this.f25057g;
+            return this.f26574g;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // b.a.e.l.e.b
+    @Override // b.a.e.m.e.b
     public void c() {
         View.OnClickListener onClickListener;
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (onClickListener = this.l) == null || (view = this.f25057g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (onClickListener = this.l) == null || (view = this.f26574g) == null) {
             return;
         }
         onClickListener.onClick(view);
@@ -84,15 +84,15 @@ public class c extends b.a.e.l.e.b {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            View view = this.f25057g;
+            View view = this.f26574g;
             if (view != null) {
                 SkinManager.setBackgroundResource(view, R.drawable.addresslist_item_bg);
             }
-            TextView textView = this.f25059i;
+            TextView textView = this.f26576i;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0304);
             }
-            ImageView imageView = this.f25058h;
+            ImageView imageView = this.f26575h;
             if (imageView != null) {
                 SkinManager.setImageResource(imageView, R.drawable.icon_inf_arrowblue_n);
             }

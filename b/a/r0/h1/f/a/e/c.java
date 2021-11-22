@@ -14,22 +14,22 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f17214a;
+    public long f18682a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17215b;
+    public String f18683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f17216c;
+    public int f18684c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f17217d;
+    public int f18685d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f17218e;
+    public boolean f18686e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17219f;
+    public int f18687f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,19 +44,19 @@ public class c {
                 return;
             }
         }
-        this.f17218e = true;
+        this.f18686e = true;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17219f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18687f : invokeV.intValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17219f == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18687f == 1 : invokeV.booleanValue;
     }
 
     public c(@NonNull RecomTopicList recomTopicList, int i2) {
@@ -74,10 +74,10 @@ public class c {
                 return;
             }
         }
-        this.f17214a = recomTopicList.topic_id.longValue();
-        this.f17215b = recomTopicList.topic_name;
-        this.f17216c = recomTopicList.tag.intValue();
-        this.f17217d = i2 + 1;
-        this.f17219f = recomTopicList.is_video_topic.intValue();
+        this.f18682a = recomTopicList.topic_id.longValue();
+        this.f18683b = recomTopicList.topic_name;
+        this.f18684c = recomTopicList.tag.intValue();
+        this.f18685d = i2 + 1;
+        this.f18687f = recomTopicList.is_video_topic.intValue();
     }
 }

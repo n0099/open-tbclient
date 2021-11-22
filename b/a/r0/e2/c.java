@@ -26,7 +26,7 @@ public class c {
                 b.a.r0.e2.e.b bVar = (b.a.r0.e2.e.b) obj;
                 d2 d2Var = bVar.l;
                 if (d2Var != null) {
-                    statisticItem.param("tid", d2Var.s1());
+                    statisticItem.param("tid", d2Var.t1());
                 }
                 statisticItem.param("obj_locate", bVar.a());
             }
@@ -58,7 +58,7 @@ public class c {
         d2 threadData = aVar2.getThreadData();
         boolean g0 = aVar.g0();
         StatisticItem statisticItem = new StatisticItem(z ? g0 ? "c13823" : "c13822" : g0 ? "c13824" : "c13821");
-        statisticItem.param("tid", threadData.s1());
+        statisticItem.param("tid", threadData.t1());
         statisticItem.param("fid", threadData.T());
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
         if (aVar.h0().getOrignalPage() instanceof HotTopicDetailActivity) {

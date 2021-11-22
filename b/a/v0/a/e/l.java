@@ -15,7 +15,7 @@ public final class l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<String, Long> f29124a;
+    public final LinkedHashMap<String, Long> f29993a;
 
     /* loaded from: classes6.dex */
     public class a extends b.a.v0.a.f.c {
@@ -23,7 +23,7 @@ public final class l {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ com.baidu.ubs.analytics.a.l f29125e;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.l f29994e;
 
         public a(l lVar, com.baidu.ubs.analytics.a.l lVar2) {
             Interceptable interceptable = $ic;
@@ -40,14 +40,14 @@ public final class l {
                     return;
                 }
             }
-            this.f29125e = lVar2;
+            this.f29994e = lVar2;
         }
 
         @Override // b.a.v0.a.f.c
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                new c.j().c(this.f29125e);
+                new c.j().c(this.f29994e);
             }
         }
     }
@@ -65,7 +65,7 @@ public final class l {
                 return;
             }
         }
-        this.f29124a = new LinkedHashMap<>();
+        this.f29993a = new LinkedHashMap<>();
     }
 
     public final void a(String str) {
@@ -75,8 +75,8 @@ public final class l {
             return;
         }
         com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-        synchronized (this.f29124a) {
-            Long remove = this.f29124a.remove(str);
+        synchronized (this.f29993a) {
+            Long remove = this.f29993a.remove(str);
             if (remove == null) {
                 return;
             }
@@ -84,7 +84,7 @@ public final class l {
                 lVar.setStartTime(String.valueOf(remove));
                 lVar.t(str);
                 lVar.z(String.valueOf(System.currentTimeMillis()));
-                dVar = d.a.f29102a;
+                dVar = d.a.f29971a;
                 lVar.setPath(dVar.b());
                 lVar.x(m.f().I());
             } catch (Exception e2) {
@@ -100,8 +100,8 @@ public final class l {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        synchronized (this.f29124a) {
-            this.f29124a.put(str, Long.valueOf(System.currentTimeMillis()));
+        synchronized (this.f29993a) {
+            this.f29993a.put(str, Long.valueOf(System.currentTimeMillis()));
             String.valueOf(System.currentTimeMillis());
         }
     }

@@ -16,7 +16,7 @@ public class cd extends cg.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f70740a;
+    public String f71660a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cd(String str, ContentValues contentValues, String str2) {
@@ -37,8 +37,8 @@ public class cd extends cg.e {
                 return;
             }
         }
-        this.f70740a = "MessageInsertJob";
-        this.f70740a = str2;
+        this.f71660a = "MessageInsertJob";
+        this.f71660a = str2;
     }
 
     public static cd a(Context context, String str, hj hjVar) {

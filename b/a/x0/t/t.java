@@ -13,10 +13,10 @@ public class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f29936a;
+    public static boolean f30805a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f29937b;
+    public static final boolean f30806b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,11 +34,11 @@ public class t {
         }
         a();
         b();
-        f29936a = d();
+        f30805a = d();
         c();
         e();
         f();
-        f29937b = g();
+        f30806b = g();
         h();
     }
 

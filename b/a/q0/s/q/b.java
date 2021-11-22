@@ -18,31 +18,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13203a;
+    public int f13983a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13204b;
+    public int f13984b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13205c;
+    public int f13985c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13206d;
+    public int f13986d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13207e;
+    public String f13987e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13208f;
+    public int f13988f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13209g;
+    public boolean f13989g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13210h;
+    public int f13990h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13211i;
+    public int f13991i;
     public y1 j;
 
     public b() {
@@ -58,50 +58,50 @@ public class b {
                 return;
             }
         }
-        this.f13210h = 1;
-        this.f13211i = 1;
+        this.f13990h = 1;
+        this.f13991i = 1;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13203a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13983a : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13205c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13985c : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13206d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13986d : invokeV.intValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13209g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13989g : invokeV.booleanValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13204b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13984b : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13208f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13988f : invokeV.intValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13207e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13987e : (String) invokeV.objValue;
     }
 
     public void h(JSONObject jSONObject) {
@@ -110,29 +110,29 @@ public class b {
             return;
         }
         try {
-            this.f13203a = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
-            this.f13204b = jSONObject.optInt("status");
-            this.f13205c = jSONObject.optInt(ExternalTransferSpeedStats.UBC_APPLICATION_CREATE_KEY);
-            this.f13206d = jSONObject.optInt("end_time");
-            this.f13207e = jSONObject.optString("url");
-            this.f13208f = jSONObject.optInt("total_num");
+            this.f13983a = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+            this.f13984b = jSONObject.optInt("status");
+            this.f13985c = jSONObject.optInt(ExternalTransferSpeedStats.UBC_APPLICATION_CREATE_KEY);
+            this.f13986d = jSONObject.optInt("end_time");
+            this.f13987e = jSONObject.optString("url");
+            this.f13988f = jSONObject.optInt("total_num");
             jSONObject.optInt("activity_id");
             jSONObject.optInt("award_act_id");
             jSONObject.optInt("component_id");
-            this.f13209g = jSONObject.optBoolean("is_senior");
+            this.f13989g = jSONObject.optBoolean("is_senior");
             jSONObject.optString("banner_img");
             jSONObject.optInt("show_total_num");
             String optString = jSONObject.optString("banner_img_size");
-            if (!b.a.e.e.p.k.isEmpty(optString)) {
+            if (!b.a.e.f.p.k.isEmpty(optString)) {
                 String[] split = optString.split(",");
-                this.f13210h = b.a.e.e.m.b.e(split[0], 1);
-                this.f13211i = b.a.e.e.m.b.e(split[1], 1);
+                this.f13990h = b.a.e.f.m.b.e(split[0], 1);
+                this.f13991i = b.a.e.f.m.b.e(split[1], 1);
             }
-            if (this.f13210h <= 0) {
-                this.f13210h = 1;
+            if (this.f13990h <= 0) {
+                this.f13990h = 1;
             }
-            if (this.f13211i <= 0) {
-                this.f13211i = 1;
+            if (this.f13991i <= 0) {
+                this.f13991i = 1;
             }
         } catch (Exception e2) {
             BdLog.e(e2.toString());
@@ -145,37 +145,37 @@ public class b {
             return;
         }
         Integer num = actInfo.activity_type;
-        this.f13203a = num != null ? num.intValue() : -1;
+        this.f13983a = num != null ? num.intValue() : -1;
         Integer num2 = actInfo.status;
-        this.f13204b = num2 != null ? num2.intValue() : -1;
+        this.f13984b = num2 != null ? num2.intValue() : -1;
         Integer num3 = actInfo.begin_time;
-        this.f13205c = num3 != null ? num3.intValue() : -1;
+        this.f13985c = num3 != null ? num3.intValue() : -1;
         Integer num4 = actInfo.end_time;
-        this.f13206d = num4 != null ? num4.intValue() : -1;
-        this.f13207e = actInfo.url;
+        this.f13986d = num4 != null ? num4.intValue() : -1;
+        this.f13987e = actInfo.url;
         Integer num5 = actInfo.total_num;
-        this.f13208f = num5 != null ? num5.intValue() : -1;
+        this.f13988f = num5 != null ? num5.intValue() : -1;
         actInfo.activity_id.intValue();
         actInfo.award_act_id.intValue();
         actInfo.component_id.intValue();
-        this.f13209g = actInfo.is_senior.booleanValue();
+        this.f13989g = actInfo.is_senior.booleanValue();
         String str = actInfo.banner_img;
         actInfo.show_total_num.intValue();
         String str2 = actInfo.banner_img_size;
-        if (!b.a.e.e.p.k.isEmpty(str2)) {
+        if (!b.a.e.f.p.k.isEmpty(str2)) {
             try {
                 String[] split = str2.split(",");
-                this.f13210h = b.a.e.e.m.b.e(split[0], 1);
-                this.f13211i = b.a.e.e.m.b.e(split[1], 1);
+                this.f13990h = b.a.e.f.m.b.e(split[0], 1);
+                this.f13991i = b.a.e.f.m.b.e(split[1], 1);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
-        if (this.f13210h <= 0) {
-            this.f13210h = 1;
+        if (this.f13990h <= 0) {
+            this.f13990h = 1;
         }
-        if (this.f13211i <= 0) {
-            this.f13211i = 1;
+        if (this.f13991i <= 0) {
+            this.f13991i = 1;
         }
         y1 y1Var = new y1();
         this.j = y1Var;

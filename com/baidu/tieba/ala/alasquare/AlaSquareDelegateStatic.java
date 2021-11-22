@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.x0.i0;
+import b.a.r0.x0.j0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -50,12 +50,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import tbclient.FrsTabInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AlaSquareDelegateStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a implements CustomMessageTask.CustomRunnable<BaseFragment> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,14 +116,14 @@ public class AlaSquareDelegateStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof i0) {
-                i0 i0Var = (i0) data;
-                i0Var.a(new b.a.r0.w.f.g.a(i0Var.c(), i0Var.d()));
+            if (data instanceof j0) {
+                j0 j0Var = (j0) data;
+                j0Var.a(new b.a.r0.w.f.g.a(j0Var.c(), j0Var.d()));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class c implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +150,7 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class d implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -177,7 +177,7 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class e implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,7 +223,7 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class f implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -260,7 +260,7 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class g implements CustomMessageTask.CustomRunnable<IntentConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -293,7 +293,7 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class h extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -334,13 +334,13 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class i extends b.a.q0.h0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.x0.g f46852a;
+        public final /* synthetic */ b.a.r0.x0.g f47716a;
 
         public i(b.a.r0.x0.g gVar) {
             Interceptable interceptable = $ic;
@@ -357,7 +357,7 @@ public class AlaSquareDelegateStatic {
                     return;
                 }
             }
-            this.f46852a = gVar;
+            this.f47716a = gVar;
         }
 
         @Override // b.a.q0.h0.b
@@ -366,11 +366,11 @@ public class AlaSquareDelegateStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 LiveTabYYSubFragment newInstance = LiveTabYYSubFragment.newInstance(false, 2);
-                newInstance.setForumInfo(this.f46852a.b(), this.f46852a.c());
+                newInstance.setForumInfo(this.f47716a.b(), this.f47716a.c());
                 b.a.q0.h0.c cVar = new b.a.q0.h0.c();
-                cVar.f12612a = newInstance;
-                cVar.f12616e = 1120;
-                cVar.f12620i = b.a.q0.h0.c.k;
+                cVar.f13359a = newInstance;
+                cVar.f13363e = 1120;
+                cVar.f13367i = b.a.q0.h0.c.k;
                 return cVar;
             }
             return (b.a.q0.h0.c) invokeV.objValue;
@@ -397,12 +397,12 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class j extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes8.dex */
         public class a extends b.a.q0.h0.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -429,11 +429,11 @@ public class AlaSquareDelegateStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     b.a.q0.h0.c cVar = new b.a.q0.h0.c();
-                    cVar.f12612a = new MainBottomLiveTabFragment();
-                    cVar.f12616e = 20;
-                    cVar.f12613b = R.string.ala_live;
-                    cVar.f12617f = R.raw.lottie_tab_live;
-                    cVar.f12620i = b.a.q0.h0.c.l;
+                    cVar.f13359a = new MainBottomLiveTabFragment();
+                    cVar.f13363e = 20;
+                    cVar.f13360b = R.string.ala_live;
+                    cVar.f13364f = R.raw.lottie_tab_live;
+                    cVar.f13367i = b.a.q0.h0.c.l;
                     return cVar;
                 }
                 return (b.a.q0.h0.c) invokeV.objValue;

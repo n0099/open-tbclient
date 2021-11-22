@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e extends b.a.e.l.e.a<b.a.r0.w.g.b.c, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder> {
+public class e extends b.a.e.m.e.a<b.a.r0.w.g.b.c, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
@@ -42,7 +42,7 @@ public class e extends b.a.e.l.e.a<b.a.r0.w.g.b.c, AlaGameFrsLiveGameCardView.Al
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -51,7 +51,7 @@ public class e extends b.a.e.l.e.a<b.a.r0.w.g.b.c, AlaGameFrsLiveGameCardView.Al
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.w.g.b.c cVar, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder alaGameFrsGameViewHolder) {
         InterceptResult invokeCommon;

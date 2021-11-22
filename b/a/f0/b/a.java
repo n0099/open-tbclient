@@ -35,30 +35,30 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Handler f2798a;
+    public final Handler f2891a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.f0.b.c f2799b;
+    public b.a.f0.b.c f2892b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Runnable f2800c;
+    public final Runnable f2893c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2801d;
+    public int f2894d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f2802e;
+    public volatile boolean f2895e;
 
     /* renamed from: b.a.f0.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0066a implements Runnable {
+    public class RunnableC0068a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f2803e;
+        public final /* synthetic */ a f2896e;
 
-        public RunnableC0066a(a aVar) {
+        public RunnableC0068a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,25 +73,25 @@ public class a {
                     return;
                 }
             }
-            this.f2803e = aVar;
+            this.f2896e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2803e.f2802e = true;
-                g.f2795a.e("Afd", "执行超时回调");
+                this.f2896e.f2895e = true;
+                g.f2888a.e("Afd", "执行超时回调");
                 h l = b.a.f0.b.g.f.l();
-                if (this.f2803e.f2799b == null) {
+                if (this.f2896e.f2892b == null) {
                     return;
                 }
                 if (l == null) {
-                    this.f2803e.f2799b.a(new Throwable("no ad"));
+                    this.f2896e.f2892b.a(new Throwable("no ad"));
                     return;
                 }
                 l.C = 2;
-                this.f2803e.f2799b.b(l);
+                this.f2896e.f2892b.b(l);
             }
         }
     }
@@ -102,16 +102,16 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.f0.a.b.a f2804a;
+        public final /* synthetic */ b.a.f0.a.b.a f2897a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f2805b;
+        public final /* synthetic */ long f2898b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ long f2806c;
+        public final /* synthetic */ long f2899c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f2807d;
+        public final /* synthetic */ a f2900d;
 
         public b(a aVar, b.a.f0.a.b.a aVar2, long j, long j2) {
             Interceptable interceptable = $ic;
@@ -128,19 +128,19 @@ public class a {
                     return;
                 }
             }
-            this.f2807d = aVar;
-            this.f2804a = aVar2;
-            this.f2805b = j;
-            this.f2806c = j2;
+            this.f2900d = aVar;
+            this.f2897a = aVar2;
+            this.f2898b = j;
+            this.f2899c = j2;
         }
 
         @Override // b.a.f0.d.a.i
         public void a(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                g gVar = g.f2795a;
+                g gVar = g.f2888a;
                 gVar.e("Afd", "update接口 " + th.getMessage());
-                this.f2807d.k(this.f2804a, this.f2805b, this.f2806c, th.getMessage(), "update");
+                this.f2900d.k(this.f2897a, this.f2898b, this.f2899c, th.getMessage(), "update");
             }
         }
 
@@ -150,9 +150,9 @@ public class a {
         public void onResponse(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f2807d.k(this.f2804a, this.f2805b, this.f2806c, BasicPushStatus.SUCCESS_CODE, "update");
+                this.f2900d.k(this.f2897a, this.f2898b, this.f2899c, BasicPushStatus.SUCCESS_CODE, "update");
                 try {
-                    b.a.f0.b.g.a.b(str, this.f2804a.l());
+                    b.a.f0.b.g.a.b(str, this.f2897a.l());
                 } catch (ParseError e2) {
                     e2.printStackTrace();
                 }
@@ -166,22 +166,22 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.f0.a.b.a f2808a;
+        public final /* synthetic */ b.a.f0.a.b.a f2901a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ long f2809b;
+        public final /* synthetic */ long f2902b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ long f2810c;
+        public final /* synthetic */ long f2903c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f2811d;
+        public final /* synthetic */ String f2904d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.f0.b.c f2812e;
+        public final /* synthetic */ b.a.f0.b.c f2905e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f2813f;
+        public final /* synthetic */ a f2906f;
 
         public c(a aVar, b.a.f0.a.b.a aVar2, long j, long j2, String str, b.a.f0.b.c cVar) {
             Interceptable interceptable = $ic;
@@ -198,33 +198,33 @@ public class a {
                     return;
                 }
             }
-            this.f2813f = aVar;
-            this.f2808a = aVar2;
-            this.f2809b = j;
-            this.f2810c = j2;
-            this.f2811d = str;
-            this.f2812e = cVar;
+            this.f2906f = aVar;
+            this.f2901a = aVar2;
+            this.f2902b = j;
+            this.f2903c = j2;
+            this.f2904d = str;
+            this.f2905e = cVar;
         }
 
         @Override // b.a.f0.d.a.i
         public void a(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                g gVar = g.f2795a;
+                g gVar = g.f2888a;
                 gVar.e("Afd", "query接口 " + th.getMessage());
-                this.f2813f.k(this.f2808a, this.f2809b, this.f2810c, th.getMessage(), "query");
-                if (!this.f2813f.f2802e) {
-                    if (this.f2813f.f2798a != null) {
-                        this.f2813f.f2798a.removeCallbacksAndMessages(null);
-                        this.f2813f.f2798a.post(this.f2813f.f2800c);
+                this.f2906f.k(this.f2901a, this.f2902b, this.f2903c, th.getMessage(), "query");
+                if (!this.f2906f.f2895e) {
+                    if (this.f2906f.f2891a != null) {
+                        this.f2906f.f2891a.removeCallbacksAndMessages(null);
+                        this.f2906f.f2891a.post(this.f2906f.f2893c);
                         return;
                     }
                     return;
                 }
-                g gVar2 = g.f2795a;
+                g gVar2 = g.f2888a;
                 StringBuilder sb = new StringBuilder();
                 sb.append("query接口 error 超时：");
-                sb.append(System.currentTimeMillis() - this.f2809b);
+                sb.append(System.currentTimeMillis() - this.f2902b);
                 sb.append(" cause : ");
                 sb.append(th);
                 gVar2.e("Afd", sb.toString() == null ? "unknow" : th.getMessage());
@@ -237,25 +237,25 @@ public class a {
         public void onResponse(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f2813f.k(this.f2808a, this.f2809b, this.f2810c, BasicPushStatus.SUCCESS_CODE, "query");
-                if (!this.f2813f.f2802e) {
-                    this.f2813f.f2798a.removeCallbacksAndMessages(null);
+                this.f2906f.k(this.f2901a, this.f2902b, this.f2903c, BasicPushStatus.SUCCESS_CODE, "query");
+                if (!this.f2906f.f2895e) {
+                    this.f2906f.f2891a.removeCallbacksAndMessages(null);
                     try {
-                        List<h> b2 = b.a.f0.b.g.a.b(str, this.f2811d);
+                        List<h> b2 = b.a.f0.b.g.a.b(str, this.f2904d);
                         if (b2 != null && b2.size() > 0 && b2.get(0) != null) {
-                            this.f2812e.b(b2.get(0));
+                            this.f2905e.b(b2.get(0));
                         } else {
-                            this.f2812e.a(new Throwable("no ad"));
+                            this.f2905e.a(new Throwable("no ad"));
                         }
                         return;
                     } catch (ParseError e2) {
                         e2.printStackTrace();
-                        this.f2812e.a(e2);
+                        this.f2905e.a(e2);
                         return;
                     }
                 }
-                g gVar = g.f2795a;
-                gVar.e("Afd", "query接口 response 超时：" + (System.currentTimeMillis() - this.f2809b));
+                g gVar = g.f2888a;
+                gVar.e("Afd", "query接口 response 超时：" + (System.currentTimeMillis() - this.f2902b));
             }
         }
     }
@@ -273,10 +273,10 @@ public class a {
                 return;
             }
         }
-        this.f2798a = new Handler(Looper.getMainLooper());
-        this.f2800c = new RunnableC0066a(this);
-        this.f2801d = 5000;
-        this.f2802e = false;
+        this.f2891a = new Handler(Looper.getMainLooper());
+        this.f2893c = new RunnableC0068a(this);
+        this.f2894d = 5000;
+        this.f2895e = false;
     }
 
     public final void g(Request.c cVar, b.a.f0.a.b.a aVar) {
@@ -332,20 +332,20 @@ public class a {
                 if (p != null && p.size() > 0) {
                     for (h hVar : p) {
                         JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("k", hVar.f2858c);
-                        if (!TextUtils.isEmpty(hVar.f2858c)) {
+                        jSONObject3.put("k", hVar.f2951c);
+                        if (!TextUtils.isEmpty(hVar.f2951c)) {
                             int e2 = b.a.f0.b.g.f.e(hVar);
                             String str3 = "onAdSuccess: " + e2;
                             if (e2 == 0) {
                                 if (equals && hVar.h()) {
-                                    arrayList.add(hVar.f2858c);
+                                    arrayList.add(hVar.f2951c);
                                 }
                                 if (!equals && hVar.f()) {
-                                    arrayList.add(hVar.f2858c);
+                                    arrayList.add(hVar.f2951c);
                                 }
                             }
                         }
-                        jSONObject3.put(r.f40168a, String.valueOf(hVar.w));
+                        jSONObject3.put(r.f41000a, String.valueOf(hVar.w));
                         jSONArray2.put(jSONObject3);
                     }
                 }
@@ -412,13 +412,13 @@ public class a {
             long currentTimeMillis2 = System.currentTimeMillis();
             i2.m();
             i2.l().e(new c(this, aVar, currentTimeMillis, currentTimeMillis2, str, cVar));
-            this.f2799b = cVar;
-            this.f2802e = false;
+            this.f2892b = cVar;
+            this.f2895e = false;
             int t = aVar.t() - b.a.f0.b.g.g.f();
-            this.f2801d = t;
-            Handler handler = this.f2798a;
+            this.f2894d = t;
+            Handler handler = this.f2891a;
             if (handler != null) {
-                handler.postDelayed(this.f2800c, t);
+                handler.postDelayed(this.f2893c, t);
             }
         }
     }

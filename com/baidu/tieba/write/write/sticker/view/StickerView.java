@@ -11,11 +11,11 @@ import android.view.MotionEvent;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
-import b.a.e.e.p.l;
-import b.a.q0.d1.k;
-import b.a.q0.d1.k0;
-import b.a.r0.d4.u.n.a;
-import b.a.r0.d4.u.n.b.b;
+import b.a.e.f.p.l;
+import b.a.q0.c1.k;
+import b.a.q0.c1.k0;
+import b.a.r0.e4.u.n.a;
+import b.a.r0.e4.u.n.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.R;
@@ -24,31 +24,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class StickerView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f56147e;
+    public Context f57069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f56148f;
+    public a f57070f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Matrix f56149g;
+    public Matrix f57071g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Matrix f56150h;
+    public Matrix f57072h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PointF f56151i;
+    public PointF f57073i;
     public b j;
     public Paint k;
     public int l;
     public boolean m;
     public boolean n;
-    public b.a.r0.d4.u.n.b.a o;
+    public b.a.r0.e4.u.n.b.a o;
     public long p;
     public float q;
     public float r;
@@ -79,7 +79,7 @@ public class StickerView extends ImageView {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f56147e = context;
+            this.f57069e = context;
             setScaleType(ImageView.ScaleType.MATRIX);
             this.j = new b(context);
             Paint paint = new Paint();
@@ -100,11 +100,11 @@ public class StickerView extends ImageView {
     public void onDraw(Canvas canvas) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || (aVar = this.f56148f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || (aVar = this.f57070f) == null) {
             return;
         }
         aVar.a(canvas);
-        float[] d2 = k.d(this.f56148f.c(), this.f56148f.b());
+        float[] d2 = k.d(this.f57070f.c(), this.f57070f.b());
         float f2 = d2[0];
         float f3 = d2[1];
         float f4 = d2[2];
@@ -132,7 +132,7 @@ public class StickerView extends ImageView {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (z) {
-                this.f56148f.b().postTranslate((getWidth() - this.f56148f.e()) / 2, (getHeight() - this.f56148f.d()) / 2);
+                this.f57070f.b().postTranslate((getWidth() - this.f57070f.e()) / 2, (getHeight() - this.f57070f.d()) / 2);
             }
         }
     }
@@ -140,7 +140,7 @@ public class StickerView extends ImageView {
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        b.a.r0.d4.u.n.b.a aVar;
+        b.a.r0.e4.u.n.b.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
             int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
@@ -152,25 +152,25 @@ public class StickerView extends ImageView {
                         }
                         int i2 = this.l;
                         if (i2 == 2) {
-                            this.f56150h.set(this.f56149g);
+                            this.f57072h.set(this.f57071g);
                             float d2 = k0.d(motionEvent) / this.s;
                             float c2 = k0.c(motionEvent) - this.t;
                             PointF b2 = k0.b(motionEvent);
-                            Matrix matrix = this.f56150h;
-                            PointF pointF = this.f56151i;
+                            Matrix matrix = this.f57072h;
+                            PointF pointF = this.f57073i;
                             matrix.postScale(d2, d2, pointF.x, pointF.y);
-                            Matrix matrix2 = this.f56150h;
-                            PointF pointF2 = this.f56151i;
+                            Matrix matrix2 = this.f57072h;
+                            PointF pointF2 = this.f57073i;
                             matrix2.postRotate(c2, pointF2.x, pointF2.y);
-                            Matrix matrix3 = this.f56150h;
+                            Matrix matrix3 = this.f57072h;
                             float f2 = b2.x;
-                            PointF pointF3 = this.f56151i;
+                            PointF pointF3 = this.f57073i;
                             matrix3.postTranslate(f2 - pointF3.x, b2.y - pointF3.y);
-                            this.f56148f.b().set(this.f56150h);
+                            this.f57070f.b().set(this.f57072h);
                         } else if (i2 == 1) {
-                            this.f56150h.set(this.f56149g);
-                            this.f56150h.postTranslate(motionEvent.getX() - this.q, motionEvent.getY() - this.r);
-                            this.f56148f.b().set(this.f56150h);
+                            this.f57072h.set(this.f57071g);
+                            this.f57072h.postTranslate(motionEvent.getX() - this.q, motionEvent.getY() - this.r);
+                            this.f57070f.b().set(this.f57072h);
                         }
                         if (this.m) {
                             return true;
@@ -181,16 +181,16 @@ public class StickerView extends ImageView {
                         this.l = 2;
                         this.s = k0.d(motionEvent);
                         this.t = k0.c(motionEvent);
-                        this.f56151i = k0.b(motionEvent);
-                        this.f56149g.set(this.f56148f.b());
+                        this.f57073i = k0.b(motionEvent);
+                        this.f57071g.set(this.f57070f.b());
                         return true;
                     } else if (actionMasked != 6) {
                         return true;
                     }
                 }
                 this.l = 0;
-                this.f56151i = null;
-                b.a.r0.d4.u.n.b.a aVar2 = this.o;
+                this.f57073i = null;
+                b.a.r0.e4.u.n.b.a aVar2 = this.o;
                 if (aVar2 != null) {
                     if (this.m) {
                         aVar2.c(this);
@@ -206,18 +206,18 @@ public class StickerView extends ImageView {
             }
             this.q = motionEvent.getX();
             this.r = motionEvent.getY();
-            if (this.f56148f == null) {
+            if (this.f57070f == null) {
                 return false;
             }
             if (this.n && this.j.b(motionEvent)) {
                 this.m = false;
-                b.a.r0.d4.u.n.b.a aVar3 = this.o;
+                b.a.r0.e4.u.n.b.a aVar3 = this.o;
                 if (aVar3 != null) {
                     aVar3.onDelete();
                     return true;
                 }
                 return true;
-            } else if (b(this.f56148f, motionEvent)) {
+            } else if (b(this.f57070f, motionEvent)) {
                 this.m = true;
                 if (System.currentTimeMillis() - this.p <= 300 && (aVar = this.o) != null) {
                     aVar.a(this);
@@ -225,11 +225,11 @@ public class StickerView extends ImageView {
                 }
                 this.p = System.currentTimeMillis();
                 this.l = 1;
-                this.f56149g.set(this.f56148f.b());
+                this.f57071g.set(this.f57070f.b());
                 return true;
             } else {
                 this.m = false;
-                b.a.r0.d4.u.n.b.a aVar4 = this.o;
+                b.a.r0.e4.u.n.b.a aVar4 = this.o;
                 if (aVar4 != null) {
                     aVar4.b(this, false);
                     invalidate();
@@ -243,11 +243,11 @@ public class StickerView extends ImageView {
     public void replaceImageBitmap(Bitmap bitmap) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) || (aVar = this.f56148f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) || (aVar = this.f57070f) == null) {
             return;
         }
         aVar.c().recycle();
-        this.f56148f.f(bitmap);
+        this.f57070f.f(bitmap);
         invalidate();
     }
 
@@ -263,7 +263,7 @@ public class StickerView extends ImageView {
     public void setImageBitmap(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bitmap) == null) {
-            this.f56148f = new a(bitmap);
+            this.f57070f = new a(bitmap);
         }
     }
 
@@ -271,7 +271,7 @@ public class StickerView extends ImageView {
     public void setImageResource(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f56148f = new a(BitmapHelper.getResBitmap(this.f56147e, i2));
+            this.f57070f = new a(BitmapHelper.getResBitmap(this.f57069e, i2));
         }
     }
 
@@ -282,7 +282,7 @@ public class StickerView extends ImageView {
         }
     }
 
-    public void setmOnStickerActionListener(b.a.r0.d4.u.n.b.a aVar) {
+    public void setmOnStickerActionListener(b.a.r0.e4.u.n.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
             this.o = aVar;
@@ -329,9 +329,9 @@ public class StickerView extends ImageView {
                 return;
             }
         }
-        this.f56149g = new Matrix();
-        this.f56150h = new Matrix();
-        this.f56151i = new PointF();
+        this.f57071g = new Matrix();
+        this.f57072h = new Matrix();
+        this.f57073i = new PointF();
         this.m = true;
         this.n = false;
         this.p = 0L;

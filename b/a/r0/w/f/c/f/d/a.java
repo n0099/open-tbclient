@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.g0.f;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
@@ -32,31 +32,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f24648a;
+    public TbPageContext f26165a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f24649b;
+    public View f26166b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f24650c;
+    public NavigationBar f26167c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f24651d;
+    public RelativeLayout f26168d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdTypeRecyclerView f24652e;
+    public BdTypeRecyclerView f26169e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdSwipeRefreshLayout f24653f;
+    public BdSwipeRefreshLayout f26170f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.q0.s.g0.g f24654g;
+    public b.a.q0.s.g0.g f26171g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f24655h;
+    public View f26172h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.r0.w.f.c.f.a.a f24656i;
+    public b.a.r0.w.f.c.f.a.a f26173i;
     public f j;
     public AlphaAnimation k;
     public AlphaAnimation l;
@@ -64,14 +64,14 @@ public class a {
 
     /* renamed from: b.a.r0.w.f.c.f.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1203a implements BdListView.p {
+    public class C1271a implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24657e;
+        public final /* synthetic */ a f26174e;
 
-        public C1203a(a aVar) {
+        public C1271a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,16 +86,16 @@ public class a {
                     return;
                 }
             }
-            this.f24657e = aVar;
+            this.f26174e = aVar;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f24657e.j == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26174e.j == null) {
                 return;
             }
-            this.f24657e.j.onScrollToBottom();
+            this.f26174e.j.onScrollToBottom();
         }
     }
 
@@ -105,7 +105,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24658e;
+        public final /* synthetic */ a f26175e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -122,16 +122,16 @@ public class a {
                     return;
                 }
             }
-            this.f24658e = aVar;
+            this.f26175e = aVar;
         }
 
         @Override // b.a.q0.s.g0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f24658e.j == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f26175e.j == null) {
                 return;
             }
-            this.f24658e.j.onListPullRefresh(z);
+            this.f26175e.j.onListPullRefresh(z);
         }
     }
 
@@ -141,7 +141,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24659e;
+        public final /* synthetic */ a f26176e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -158,16 +158,16 @@ public class a {
                     return;
                 }
             }
-            this.f24659e = aVar;
+            this.f26176e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f24659e.f24648a == null || this.f24659e.f24648a.getPageActivity() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26176e.f26165a == null || this.f26176e.f26165a.getPageActivity() == null) {
                 return;
             }
-            this.f24659e.f24648a.getPageActivity().finish();
+            this.f26176e.f26165a.getPageActivity().finish();
         }
     }
 
@@ -177,7 +177,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f24660a;
+        public final /* synthetic */ a f26177a;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -194,14 +194,14 @@ public class a {
                     return;
                 }
             }
-            this.f24660a = aVar;
+            this.f26177a = aVar;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f24660a.f24655h.setVisibility(8);
+                this.f26177a.f26172h.setVisibility(8);
             }
         }
 
@@ -226,10 +226,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f24661a;
+        public int f26178a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f24662b;
+        public final /* synthetic */ a f26179b;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -246,27 +246,27 @@ public class a {
                     return;
                 }
             }
-            this.f24662b = aVar;
-            this.f24661a = -1;
+            this.f26179b = aVar;
+            this.f26178a = -1;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) || this.f24661a == i2) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) || this.f26178a == i2) {
                 return;
             }
-            this.f24661a = i2;
+            this.f26178a = i2;
             if (i2 != 1) {
-                if (this.f24662b.n(recyclerView)) {
-                    this.f24662b.e();
+                if (this.f26179b.n(recyclerView)) {
+                    this.f26179b.e();
                     return;
                 } else {
-                    this.f24662b.s();
+                    this.f26179b.s();
                     return;
                 }
             }
-            this.f24662b.s();
+            this.f26179b.s();
         }
     }
 
@@ -293,8 +293,8 @@ public class a {
             }
         }
         this.m = new e(this);
-        this.f24648a = tbPageContext;
-        this.f24649b = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.ala_live_tab_my_concern_activity, (ViewGroup) null);
+        this.f26165a = tbPageContext;
+        this.f26166b = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.ala_live_tab_my_concern_activity, (ViewGroup) null);
         j();
     }
 
@@ -308,35 +308,35 @@ public class a {
                 this.l.setDuration(300L);
                 this.l.setAnimationListener(new d(this));
             }
-            this.f24655h.startAnimation(this.l);
+            this.f26172h.startAnimation(this.l);
         }
     }
 
     public RelativeLayout f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24651d : (RelativeLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26168d : (RelativeLayout) invokeV.objValue;
     }
 
     public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24651d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26168d : (View) invokeV.objValue;
     }
 
     public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24649b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26166b : (View) invokeV.objValue;
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.f24649b.findViewById(R.id.ala_live_tab_my_concern_navigationbar);
-            this.f24650c = navigationBar;
-            navigationBar.setCenterTextTitle(this.f24648a.getResources().getString(R.string.live_tab_my_concern));
-            this.f24650c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
+            NavigationBar navigationBar = (NavigationBar) this.f26166b.findViewById(R.id.ala_live_tab_my_concern_navigationbar);
+            this.f26167c = navigationBar;
+            navigationBar.setCenterTextTitle(this.f26165a.getResources().getString(R.string.live_tab_my_concern));
+            this.f26167c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
         }
     }
 
@@ -344,63 +344,63 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             i();
-            this.f24651d = (RelativeLayout) this.f24649b.findViewById(R.id.ala_live_tab_my_concern_container);
-            this.f24655h = this.f24649b.findViewById(R.id.divider_shadow);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.f24649b.findViewById(R.id.ala_live_tab_my_concern_recyclerview);
-            this.f24652e = bdTypeRecyclerView;
-            bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.f24648a.getPageActivity()));
-            this.f24652e.setFadingEdgeLength(0);
-            this.f24652e.setOverScrollMode(2);
-            this.f24652e.addOnScrollListener(this.m);
-            this.f24652e.setOnSrollToBottomListener(new C1203a(this));
-            b.a.q0.s.g0.g gVar = new b.a.q0.s.g0.g(this.f24648a);
-            this.f24654g = gVar;
+            this.f26168d = (RelativeLayout) this.f26166b.findViewById(R.id.ala_live_tab_my_concern_container);
+            this.f26172h = this.f26166b.findViewById(R.id.divider_shadow);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.f26166b.findViewById(R.id.ala_live_tab_my_concern_recyclerview);
+            this.f26169e = bdTypeRecyclerView;
+            bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.f26165a.getPageActivity()));
+            this.f26169e.setFadingEdgeLength(0);
+            this.f26169e.setOverScrollMode(2);
+            this.f26169e.addOnScrollListener(this.m);
+            this.f26169e.setOnSrollToBottomListener(new C1271a(this));
+            b.a.q0.s.g0.g gVar = new b.a.q0.s.g0.g(this.f26165a);
+            this.f26171g = gVar;
             gVar.a(new b(this));
-            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.f24649b.findViewById(R.id.ala_live_tab_my_concern_pull_refresh_layout);
-            this.f24653f = bdSwipeRefreshLayout;
-            bdSwipeRefreshLayout.setProgressView(this.f24654g);
-            b.a.r0.w.f.c.f.a.a aVar = new b.a.r0.w.f.c.f.a.a(this.f24648a);
-            this.f24656i = aVar;
-            this.f24652e.addAdapters(aVar.a());
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.f26166b.findViewById(R.id.ala_live_tab_my_concern_pull_refresh_layout);
+            this.f26170f = bdSwipeRefreshLayout;
+            bdSwipeRefreshLayout.setProgressView(this.f26171g);
+            b.a.r0.w.f.c.f.a.a aVar = new b.a.r0.w.f.c.f.a.a(this.f26165a);
+            this.f26173i = aVar;
+            this.f26169e.addAdapters(aVar.a());
         }
     }
 
     public final boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f24655h.getVisibility() == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26172h.getVisibility() == 0 : invokeV.booleanValue;
     }
 
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            NavigationBar navigationBar = this.f24650c;
+            NavigationBar navigationBar = this.f26167c;
             if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.f24648a, i2);
+                navigationBar.onChangeSkinType(this.f26165a, i2);
             }
-            SkinManager.setBackgroundColor(this.f24649b, R.color.CAM_X0201);
-            b.a.q0.s.g0.g gVar = this.f24654g;
+            SkinManager.setBackgroundColor(this.f26166b, R.color.CAM_X0201);
+            b.a.q0.s.g0.g gVar = this.f26171g;
             if (gVar != null) {
                 gVar.C(i2);
             }
-            SkinManager.setBackgroundColor(this.f24653f, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.f24652e, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f26170f, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f26169e, R.color.CAM_X0201);
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.f24652e;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f26169e;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.removeOnScrollListener(this.m);
-                this.f24652e.setOnSrollToBottomListener(null);
-                this.f24652e.setScrollable(null);
+                this.f26169e.setOnSrollToBottomListener(null);
+                this.f26169e.setScrollable(null);
             }
-            b.a.q0.s.g0.g gVar = this.f24654g;
+            b.a.q0.s.g0.g gVar = this.f26171g;
             if (gVar != null) {
                 gVar.a(null);
-                this.f24654g.S();
+                this.f26171g.S();
             }
         }
     }
@@ -414,13 +414,13 @@ public class a {
     public void o(Class<? extends BaseCardInfo> cls) {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, cls) == null) || (bdTypeRecyclerView = this.f24652e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, cls) == null) || (bdTypeRecyclerView = this.f26169e) == null) {
             return;
         }
         for (int count = bdTypeRecyclerView.getCount() - 1; count >= 0; count--) {
-            n item = this.f24652e.getItem(count);
+            n item = this.f26169e.getItem(count);
             if (item != null && item.getClass().equals(cls)) {
-                this.f24652e.removeItem(count);
+                this.f26169e.removeItem(count);
             }
         }
     }
@@ -428,7 +428,7 @@ public class a {
     public void p(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            this.f24652e.setData(list);
+            this.f26169e.setData(list);
         }
     }
 
@@ -437,7 +437,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || z) {
             return;
         }
-        this.f24653f.setRefreshing(false);
+        this.f26170f.setRefreshing(false);
     }
 
     public void r(f fVar) {
@@ -452,13 +452,13 @@ public class a {
         if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || k()) {
             return;
         }
-        this.f24655h.setVisibility(0);
+        this.f26172h.setVisibility(0);
         if (this.k == null) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             this.k = alphaAnimation;
             alphaAnimation.setFillAfter(true);
             this.k.setDuration(300L);
         }
-        this.f24655h.startAnimation(this.k);
+        this.f26172h.startAnimation(this.k);
     }
 }

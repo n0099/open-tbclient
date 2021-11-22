@@ -23,13 +23,13 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f55370e;
+    public float f56292e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Shape f55371f;
+    public Shape f56293f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f55372g;
+    public Paint f56294g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundAndShadowLinearLayout(Context context) {
@@ -59,9 +59,9 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
             int saveCount = canvas.getSaveCount();
             canvas.save();
             super.dispatchDraw(canvas);
-            Shape shape = this.f55371f;
+            Shape shape = this.f56293f;
             if (shape != null) {
-                shape.draw(canvas, this.f55372g);
+                shape.draw(canvas, this.f56294g);
             }
             if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
                 return;
@@ -76,16 +76,16 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             if (z) {
-                if (this.f55371f == null) {
+                if (this.f56293f == null) {
                     float[] fArr = new float[8];
                     Arrays.fill(fArr, 0.0f);
                     RectF rectF = new RectF(getPaddingLeft() <= 0 ? 0.1f : getPaddingLeft(), getPaddingTop() <= 0 ? 0.1f : getPaddingTop(), getPaddingRight() <= 0 ? 0.1f : getPaddingRight(), getPaddingBottom() > 0 ? getPaddingBottom() : 0.1f);
                     float[] fArr2 = new float[8];
                     Arrays.fill(fArr, 0.0f);
-                    Arrays.fill(fArr2, this.f55370e);
-                    this.f55371f = new RoundRectShape(fArr, rectF, fArr2);
+                    Arrays.fill(fArr2, this.f56292e);
+                    this.f56293f = new RoundRectShape(fArr, rectF, fArr2);
                 }
-                this.f55371f.resize(getWidth(), getHeight());
+                this.f56293f.resize(getWidth(), getHeight());
             }
         }
     }
@@ -93,7 +93,7 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f55370e = f2;
+            this.f56292e = f2;
         }
     }
 
@@ -137,14 +137,14 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f55370e = 0.0f;
+        this.f56292e = 0.0f;
         setLayerType(1, null);
-        this.f55370e = getResources().getDimension(R.dimen.tbds32);
+        this.f56292e = getResources().getDimension(R.dimen.tbds32);
         Paint paint = new Paint();
-        this.f55372g = paint;
+        this.f56294g = paint;
         paint.setAntiAlias(true);
-        this.f55372g.setColor(-7829368);
-        this.f55372g.setStyle(Paint.Style.FILL);
-        this.f55372g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f56294g.setColor(-7829368);
+        this.f56294g.setStyle(Paint.Style.FILL);
+        this.f56294g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
     }
 }

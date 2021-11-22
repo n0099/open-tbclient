@@ -4,13 +4,13 @@ import android.view.View;
 import b.a.p0.a.p.e.c;
 /* loaded from: classes.dex */
 public interface f<T extends c> extends d<T> {
-    void H();
+    void J();
 
-    boolean d();
+    boolean e();
 
-    void g(boolean z);
+    void h(boolean z);
 
-    void i(View.OnClickListener onClickListener);
+    void j(View.OnClickListener onClickListener);
 
     void removeFromParent();
 }

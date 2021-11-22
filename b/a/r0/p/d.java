@@ -1,6 +1,6 @@
 package b.a.r0.p;
 
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -17,20 +17,20 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile d f22127e;
+    public static volatile d f23604e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<Integer> f22128a;
+    public ArrayList<Integer> f23605a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f22129b;
+    public a f23606b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f22130c;
+    public c f23607c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<StatisticItem> f22131d;
+    public List<StatisticItem> f23608d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -46,12 +46,12 @@ public class d {
             }
         }
         ArrayList<Integer> arrayList = new ArrayList<>();
-        this.f22128a = arrayList;
+        this.f23605a = arrayList;
         arrayList.add(1);
-        this.f22128a.add(2);
+        this.f23605a.add(2);
         c cVar = new c();
-        this.f22130c = cVar;
-        this.f22129b = new a(cVar, this.f22128a);
+        this.f23607c = cVar;
+        this.f23606b = new a(cVar, this.f23605a);
         g(b.a.q0.s.e0.b.j().k("key_abtest_channel", 0));
     }
 
@@ -59,14 +59,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f22127e == null) {
+            if (f23604e == null) {
                 synchronized (c.class) {
-                    if (f22127e == null) {
-                        f22127e = new d();
+                    if (f23604e == null) {
+                        f23604e = new d();
                     }
                 }
             }
-            return f22127e;
+            return f23604e;
         }
         return (d) invokeV.objValue;
     }
@@ -76,17 +76,17 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null) {
             return;
         }
-        if (this.f22131d == null) {
-            this.f22131d = new ArrayList();
+        if (this.f23608d == null) {
+            this.f23608d = new ArrayList();
         }
-        this.f22131d.add(statisticItem);
+        this.f23608d.add(statisticItem);
     }
 
     public int b(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
-            a aVar = this.f22129b;
+            a aVar = this.f23606b;
             if (aVar == null) {
                 return 0;
             }
@@ -99,7 +99,7 @@ public class d {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (k.isEmpty(str) || (cVar = this.f22130c) == null || !cVar.g()) {
+            if (k.isEmpty(str) || (cVar = this.f23607c) == null || !cVar.g()) {
                 b.a.v0.a.a.d(str);
             }
         }
@@ -109,7 +109,7 @@ public class d {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (k.isEmpty(str) || (cVar = this.f22130c) == null || !cVar.g()) {
+            if (k.isEmpty(str) || (cVar = this.f23607c) == null || !cVar.g()) {
                 b.a.v0.a.a.e(str);
             }
         }
@@ -118,7 +118,7 @@ public class d {
     public void f(String str) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (aVar = this.f22129b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (aVar = this.f23606b) == null) {
             return;
         }
         aVar.b(str);
@@ -127,7 +127,7 @@ public class d {
     public void g(int i2) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (cVar = this.f22130c) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (cVar = this.f23607c) == null) {
             return;
         }
         cVar.k(i2);
@@ -136,11 +136,11 @@ public class d {
     public void h(String str, String str2) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || ListUtils.isEmpty(this.f22131d) || (cVar = this.f22130c) == null || !cVar.g()) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || ListUtils.isEmpty(this.f23608d) || (cVar = this.f23607c) == null || !cVar.g()) {
             return;
         }
         int i2 = -1;
-        for (StatisticItem statisticItem : this.f22131d) {
+        for (StatisticItem statisticItem : this.f23608d) {
             if (statisticItem != null) {
                 if (statisticItem.getPosition() == 0) {
                     i(str, str2, statisticItem);
@@ -150,13 +150,13 @@ public class d {
                 }
             }
         }
-        this.f22131d.clear();
+        this.f23608d.clear();
     }
 
     public void i(String str, String str2, StatisticItem statisticItem) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, statisticItem) == null) || statisticItem == null || (cVar = this.f22130c) == null || !cVar.g()) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, statisticItem) == null) || statisticItem == null || (cVar = this.f23607c) == null || !cVar.g()) {
             return;
         }
         HashMap hashMap = new HashMap();

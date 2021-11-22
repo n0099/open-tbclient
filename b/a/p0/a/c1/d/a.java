@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.FormattableUtils;
 /* loaded from: classes.dex */
 public abstract class a implements a0 {
     public static /* synthetic */ Interceptable $ic;
@@ -30,14 +31,14 @@ public abstract class a implements a0 {
     }
 
     @Override // b.a.p0.a.p.d.a0
-    public String D() {
+    public String G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("%s/ma/landingpage?t=service_agreement_m", "https://ossapi.baidu.com") : (String) invokeV.objValue;
     }
 
     @Override // b.a.p0.a.p.d.a0
-    public String E() {
+    public String H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -47,14 +48,14 @@ public abstract class a implements a0 {
     }
 
     @Override // b.a.p0.a.p.d.a0
-    public String F() {
+    public String I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b.a.p0.a.d0.c.w(String.format("%s/ma/navigate", b.a.p0.a.d0.c.f4519a), true) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b.a.p0.a.d0.c.w(String.format("%s/ma/navigate", b.a.p0.a.d0.c.f4448a), true) : (String) invokeV.objValue;
     }
 
     @Override // b.a.p0.a.p.d.a0
-    public boolean G() {
+    public boolean J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -64,7 +65,7 @@ public abstract class a implements a0 {
     }
 
     @Override // b.a.p0.a.p.d.a0
-    public String H() {
+    public String K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -128,18 +129,18 @@ public abstract class a implements a0 {
     public String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? b.a.p0.a.d0.c.v(String.format("%s/ma/customer/checknewmess", b.a.p0.a.d0.c.f4519a)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? b.a.p0.a.d0.c.v(String.format("%s/ma/customer/checknewmess", b.a.p0.a.d0.c.f4448a)) : (String) invokeV.objValue;
     }
 
     @Override // b.a.p0.a.p.d.a0
-    public String p() {
+    public String q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? String.format("%s/pms", "https://ossapi.baidu.com") : (String) invokeV.objValue;
     }
 
     @Override // b.a.p0.a.p.d.a0
-    public int q() {
+    public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
@@ -149,37 +150,44 @@ public abstract class a implements a0 {
     }
 
     @Override // b.a.p0.a.p.d.a0
-    public String u() {
+    public String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // b.a.p0.a.p.d.a0
-    public void v(Message message, b.a.p0.a.i1.c.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, message, aVar) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? String.format(FormattableUtils.SIMPLEST_FORMAT, "https://ossapi.baidu.com") : (String) invokeV.objValue;
     }
 
     @Override // b.a.p0.a.p.d.a0
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return null;
         }
         return (String) invokeV.objValue;
     }
 
     @Override // b.a.p0.a.p.d.a0
-    public String x(Context context) {
+    public void x(Message message, b.a.p0.a.j1.c.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048592, this, message, aVar) == null) {
+        }
+    }
+
+    @Override // b.a.p0.a.p.d.a0
+    public String y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.a.p.d.a0
+    public String z(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) {
             return null;
         }
         return (String) invokeL.objValue;

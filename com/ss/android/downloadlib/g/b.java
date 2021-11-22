@@ -14,7 +14,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f68843a;
+    public static final a f69763a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.ss.android.downloadlib.g.b$1  reason: invalid class name */
@@ -61,12 +61,12 @@ public class b {
     @TargetApi(11)
     /* renamed from: com.ss.android.downloadlib.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1976b extends a {
+    public static class C2014b extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1976b() {
+        public C2014b() {
             super(null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -94,7 +94,7 @@ public class b {
             }
         }
 
-        public /* synthetic */ C1976b(AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C2014b(AnonymousClass1 anonymousClass1) {
             this();
         }
     }
@@ -112,13 +112,13 @@ public class b {
                 return;
             }
         }
-        f68843a = new C1976b(null);
+        f69763a = new C2014b(null);
     }
 
     public static <T> void a(AsyncTask<T, ?, ?> asyncTask, T... tArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, asyncTask, tArr) == null) {
-            f68843a.a(asyncTask, tArr);
+            f69763a.a(asyncTask, tArr);
         }
     }
 }

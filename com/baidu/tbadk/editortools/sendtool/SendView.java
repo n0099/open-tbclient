@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import b.a.q0.x.n;
-import b.a.r0.l3.c;
+import b.a.r0.m3.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -28,19 +28,19 @@ public class SendView extends TextView implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditorTools f45904e;
+    public EditorTools f46754e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45905f;
+    public int f46755f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean[] f45906g;
+    public boolean[] f46756g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int[] f45907h;
+    public int[] f46757h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f45908i;
+    public int f46758i;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -48,7 +48,7 @@ public class SendView extends TextView implements n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SendView f45909e;
+        public final /* synthetic */ SendView f46759e;
 
         public a(SendView sendView) {
             Interceptable interceptable = $ic;
@@ -65,14 +65,14 @@ public class SendView extends TextView implements n {
                     return;
                 }
             }
-            this.f45909e = sendView;
+            this.f46759e = sendView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f45909e.sendAction(new b.a.q0.x.a(8, -1, null));
+                this.f46759e.sendAction(new b.a.q0.x.a(8, -1, null));
             }
         }
     }
@@ -110,9 +110,9 @@ public class SendView extends TextView implements n {
                 return;
             }
         }
-        this.f45906g = new boolean[]{false, false, false, false, false};
-        this.f45907h = new int[]{0, 0};
-        this.f45908i = ALL;
+        this.f46756g = new boolean[]{false, false, false, false, false};
+        this.f46757h = new int[]{0, 0};
+        this.f46758i = ALL;
         setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds17), context.getResources().getDimensionPixelSize(R.dimen.ds28), context.getResources().getDimensionPixelSize(R.dimen.ds10), context.getResources().getDimensionPixelSize(R.dimen.ds28));
         setGravity(17);
         setIncludeFontPadding(false);
@@ -127,14 +127,14 @@ public class SendView extends TextView implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 == ALL) {
-                boolean[] zArr = this.f45906g;
+                boolean[] zArr = this.f46756g;
                 if (!zArr[0] && !zArr[1] && !zArr[2] && !zArr[3] && !zArr[4]) {
                     setEnabled(false);
                 } else {
                     setEnabled(true);
                 }
             } else if (i2 == PICTURE) {
-                if (this.f45906g[1]) {
+                if (this.f46756g[1]) {
                     setEnabled(true);
                 } else {
                     setEnabled(false);
@@ -155,7 +155,7 @@ public class SendView extends TextView implements n {
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45905f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46755f : invokeV.intValue;
     }
 
     @Override // b.a.q0.x.n
@@ -180,72 +180,72 @@ public class SendView extends TextView implements n {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null) {
             return;
         }
-        int i2 = aVar.f14195a;
+        int i2 = aVar.f14962a;
         if (i2 == 4) {
-            Object obj = aVar.f14197c;
+            Object obj = aVar.f14964c;
             if (obj != null && (!(obj instanceof String) || !StringUtils.isNull((String) obj))) {
-                this.f45906g[0] = true;
+                this.f46756g[0] = true;
             } else {
-                this.f45906g[0] = false;
+                this.f46756g[0] = false;
             }
         } else if (i2 == 39 || i2 == 28) {
-            this.f45906g[3] = true;
+            this.f46756g[3] = true;
         } else if (i2 != 29) {
             switch (i2) {
                 case 9:
-                    boolean[] zArr = this.f45906g;
+                    boolean[] zArr = this.f46756g;
                     zArr[0] = false;
                     zArr[1] = false;
                     zArr[2] = false;
                     zArr[3] = false;
                     zArr[4] = false;
-                    int[] iArr = this.f45907h;
+                    int[] iArr = this.f46757h;
                     iArr[0] = 0;
                     iArr[1] = 0;
                     break;
                 case 10:
-                    this.f45906g[2] = true;
+                    this.f46756g[2] = true;
                     break;
                 case 11:
-                    this.f45906g[2] = false;
+                    this.f46756g[2] = false;
                     break;
                 case 12:
-                    Object obj2 = aVar.f14197c;
+                    Object obj2 = aVar.f14964c;
                     if (obj2 instanceof b.a.q0.x.r.a) {
                         b.a.q0.x.r.a aVar2 = (b.a.q0.x.r.a) obj2;
-                        WriteImagesInfo writeImagesInfo = aVar2.f14225a;
+                        WriteImagesInfo writeImagesInfo = aVar2.f14992a;
                         if (writeImagesInfo != null) {
                             if (writeImagesInfo.getChosedFiles() != null) {
-                                this.f45907h[0] = aVar2.f14225a.getChosedFiles().size();
+                                this.f46757h[0] = aVar2.f14992a.getChosedFiles().size();
                             } else {
-                                this.f45907h[0] = 0;
+                                this.f46757h[0] = 0;
                             }
                         }
-                        if (this.f45907h[0] > 0) {
-                            this.f45906g[1] = true;
+                        if (this.f46757h[0] > 0) {
+                            this.f46756g[1] = true;
                             break;
                         } else {
-                            this.f45906g[1] = false;
+                            this.f46756g[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr2 = this.f45907h;
+                    int[] iArr2 = this.f46757h;
                     iArr2[0] = iArr2[0] - 1;
                     if (iArr2[0] > 0) {
-                        this.f45906g[1] = true;
+                        this.f46756g[1] = true;
                         break;
                     } else {
-                        this.f45906g[1] = false;
+                        this.f46756g[1] = false;
                         break;
                     }
             }
         } else {
-            this.f45906g[3] = false;
+            this.f46756g[3] = false;
         }
-        applyType(this.f45908i);
+        applyType(this.f46758i);
     }
 
     @Override // b.a.q0.x.n
@@ -261,7 +261,7 @@ public class SendView extends TextView implements n {
     public void sendAction(b.a.q0.x.a aVar) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) || (editorTools = this.f45904e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) || (editorTools = this.f46754e) == null) {
             return;
         }
         editorTools.sendAction(aVar);
@@ -271,7 +271,7 @@ public class SendView extends TextView implements n {
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
-            this.f45904e = editorTools;
+            this.f46754e = editorTools;
         }
     }
 
@@ -279,14 +279,14 @@ public class SendView extends TextView implements n {
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f45905f = i2;
+            this.f46755f = i2;
         }
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f45908i = i2;
+            this.f46758i = i2;
         }
     }
 }

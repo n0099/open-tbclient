@@ -10,31 +10,31 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13299a;
+    public int f14079a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13300b;
+    public int f14080b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13301c;
+    public int f14081c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13302d;
+    public int f14082d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13303e;
+    public int f14083e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13304f;
+    public int f14084f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13305g;
+    public int f14085g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13306h;
+    public int f14086h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13307i;
+    public int f14087i;
     public String j;
 
     public f() {
@@ -50,14 +50,14 @@ public class f {
                 return;
             }
         }
-        this.f13299a = 0;
-        this.f13300b = 0;
-        this.f13301c = 1;
-        this.f13302d = 1;
-        this.f13303e = 0;
-        this.f13304f = 0;
-        this.f13305g = 1;
-        this.f13306h = 0;
-        this.f13307i = 0;
+        this.f14079a = 0;
+        this.f14080b = 0;
+        this.f14081c = 1;
+        this.f14082d = 1;
+        this.f14083e = 0;
+        this.f14084f = 0;
+        this.f14085g = 1;
+        this.f14086h = 0;
+        this.f14087i = 0;
     }
 }

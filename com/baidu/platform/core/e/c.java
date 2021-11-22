@@ -33,7 +33,7 @@ public class c extends com.baidu.platform.base.e {
     private void a(PoiDetailShareURLOption poiDetailShareURLOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, poiDetailShareURLOption) == null) {
-            this.f42041a.a("url", ("http://wapmap.baidu.com/s?tn=Detail&pid=" + poiDetailShareURLOption.mUid + "&smsf=3") + HttpClient.getPhoneInfo());
+            this.f42889a.a("url", ("http://wapmap.baidu.com/s?tn=Detail&pid=" + poiDetailShareURLOption.mUid + "&smsf=3") + HttpClient.getPhoneInfo());
             b(false);
             a(false);
         }

@@ -37,6 +37,7 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.down.utils.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiOptions;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -79,13 +80,13 @@ public final class m {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f35719a = -1;
+    public static int f36548a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f35720b;
+    public static final String[] f36549b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f35721c = -1;
+    public static int f36550c = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -101,17 +102,17 @@ public final class m {
                 return;
             }
         }
-        f35720b = new String[]{"android.permission.INTERNET", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION};
+        f36549b = new String[]{"android.permission.INTERNET", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION};
     }
 
     public static boolean A(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f35721c == -1) {
-                f35721c = !k(context, "android.permission.WRITE_EXTERNAL_STORAGE") ? 1 : 0;
+            if (f36550c == -1) {
+                f36550c = !k(context, "android.permission.WRITE_EXTERNAL_STORAGE") ? 1 : 0;
             }
-            return f35721c == 0;
+            return f36550c == 0;
         }
         return invokeL.booleanValue;
     }
@@ -335,7 +336,7 @@ public final class m {
         }
         synchronized (m.class) {
             try {
-                f35719a = z ? 1 : 0;
+                f36548a = z ? 1 : 0;
                 SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
                 edit.putBoolean("bind_status", z);
                 edit.commit();
@@ -358,7 +359,7 @@ public final class m {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f35722a;
+                    public final /* synthetic */ Context f36551a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -375,14 +376,14 @@ public final class m {
                                 return;
                             }
                         }
-                        this.f35722a = context;
+                        this.f36551a = context;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            l.b(this.f35722a);
+                            l.b(this.f36551a);
                         }
                     }
                 }, com.baidu.android.pushservice.b.d.h() * 1000);
@@ -766,10 +767,10 @@ public final class m {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f35723a;
+                public final /* synthetic */ Context f36552a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f35724b;
+                public final /* synthetic */ boolean f36553b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -786,8 +787,8 @@ public final class m {
                             return;
                         }
                     }
-                    this.f35723a = context;
-                    this.f35724b = z;
+                    this.f36552a = context;
+                    this.f36553b = z;
                 }
 
                 @Override // com.vivo.push.IPushActionListener
@@ -795,28 +796,28 @@ public final class m {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
                         if (i2 == 101) {
-                            com.baidu.android.pushservice.f.b(this.f35723a, 0);
-                            if (this.f35724b) {
+                            com.baidu.android.pushservice.f.b(this.f36552a, 0);
+                            if (this.f36553b) {
                                 return;
                             }
-                            com.baidu.android.pushservice.a.a(this.f35723a, true);
-                            i.a(this.f35723a, "vi_push_proxy_mode", 0);
-                            com.baidu.android.pushservice.PushManager.enableVivoProxy(this.f35723a, false);
-                            m.a(this.f35723a, true, true);
+                            com.baidu.android.pushservice.a.a(this.f36552a, true);
+                            i.a(this.f36552a, "vi_push_proxy_mode", 0);
+                            com.baidu.android.pushservice.PushManager.enableVivoProxy(this.f36552a, false);
+                            m.a(this.f36552a, true, true);
                             return;
                         }
                         if (i2 == 0 || i2 == 1) {
-                            i.a(this.f35723a, "vi_push_proxy_mode", 1);
-                            if (!this.f35724b && !com.baidu.android.pushservice.b.d.c(this.f35723a)) {
-                                com.baidu.android.pushservice.a.a(this.f35723a, false);
+                            i.a(this.f36552a, "vi_push_proxy_mode", 1);
+                            if (!this.f36553b && !com.baidu.android.pushservice.b.d.c(this.f36552a)) {
+                                com.baidu.android.pushservice.a.a(this.f36552a, false);
                             }
-                            String regId = PushClient.getInstance(this.f35723a).getRegId();
+                            String regId = PushClient.getInstance(this.f36552a).getRegId();
                             if (!TextUtils.isEmpty(regId)) {
-                                com.baidu.android.pushservice.f.a(this.f35723a, regId);
+                                com.baidu.android.pushservice.f.a(this.f36552a, regId);
                                 return;
                             }
                         }
-                        com.baidu.android.pushservice.f.k(this.f35723a);
+                        com.baidu.android.pushservice.f.k(this.f36552a);
                     }
                 }
             });
@@ -1374,13 +1375,13 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65600, null, context)) == null) {
             synchronized (m.class) {
-                if (f35719a == -1) {
+                if (f36548a == -1) {
                     try {
-                        f35719a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
+                        f36548a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
                     } catch (Exception unused) {
                     }
                 }
-                z = f35719a == 1;
+                z = f36548a == 1;
             }
             return z;
         }
@@ -1394,7 +1395,7 @@ public final class m {
         }
         Context applicationContext = context.getApplicationContext();
         Intent intent = new Intent("com.huawei.android.push.intent.REGISTER");
-        intent.putExtra("pkg_name", applicationContext.getPackageName());
+        intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, applicationContext.getPackageName());
         intent.putExtra("is_hms", true);
         intent.setFlags(32);
         applicationContext.sendBroadcast(intent);
@@ -1476,7 +1477,7 @@ public final class m {
         if (interceptable == null || (invokeL = interceptable.invokeL(65607, null, context)) == null) {
             String upperCase = Build.MANUFACTURER.toUpperCase();
             if (upperCase.contains("XIAOMI")) {
-                str = "ro.build.version.incremental";
+                str = RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL;
             } else if (upperCase.contains("HUAWEI") || upperCase.contains("HONOR")) {
                 str = "ro.build.version.emui";
             } else if (upperCase.contains("MEIZU")) {
@@ -1578,7 +1579,7 @@ public final class m {
         return (interceptable == null || (invokeV = interceptable.invokeV(65612, null)) == null) ? l() : invokeV.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x00e6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x00ec, code lost:
         if (r0.find() != false) goto L25;
      */
     /*
@@ -1828,7 +1829,7 @@ public final class m {
                 if (a(context, strArr2)) {
                     return "permission Push-SDK for oppo proxy need is not exist !";
                 }
-                for (String str : f35720b) {
+                for (String str : f36549b) {
                     if (!a(str, strArr2)) {
                         return str + " permission Push-SDK need is not exist !";
                     }

@@ -21,7 +21,7 @@ public class j extends c implements p<d2>, q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public FollowUserDecorView f3236i;
+    public FollowUserDecorView f3327i;
     public boolean j;
     public int k;
     public int l;
@@ -42,10 +42,10 @@ public class j extends c implements p<d2>, q {
             }
         }
         this.j = true;
-        this.k = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds166);
-        this.l = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds78);
+        this.k = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds166);
+        this.l = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds78);
         FollowUserDecorView followUserDecorView = new FollowUserDecorView(tbPageContext.getPageActivity());
-        this.f3236i = followUserDecorView;
+        this.f3327i = followUserDecorView;
         followUserDecorView.setUseNewStyle(z);
         g(-1);
         l(z);
@@ -63,15 +63,15 @@ public class j extends c implements p<d2>, q {
     public final int k(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), i2) : invokeI.intValue;
     }
 
     public final void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                this.k = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds177);
-                this.l = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds76);
+                this.k = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds177);
+                this.l = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds76);
             }
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.k, this.l);
             layoutParams.addRule(11);
@@ -81,7 +81,7 @@ public class j extends c implements p<d2>, q {
                 layoutParams.topMargin = k(R.dimen.tbds52);
             }
             h(layoutParams);
-            f(this.f3236i);
+            f(this.f3327i);
         }
     }
 
@@ -93,26 +93,26 @@ public class j extends c implements p<d2>, q {
         if (interceptable == null || interceptable.invokeL(1048579, this, d2Var) == null) {
             if (d2Var != null && d2Var.J() != null) {
                 p(k(this.j ? R.dimen.tbds120 : R.dimen.tbds44));
-                this.f3236i.setVisibility(0);
-                this.f3236i.setData(d2Var);
-                this.f3236i.setTag(d2Var);
+                this.f3327i.setVisibility(0);
+                this.f3327i.setData(d2Var);
+                this.f3327i.setTag(d2Var);
                 return;
             }
-            this.f3236i.setVisibility(8);
+            this.f3327i.setVisibility(8);
         }
     }
 
     public void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f3236i.setClickableUnLike(z);
+            this.f3327i.setClickableUnLike(z);
         }
     }
 
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f3236i.setIsShowIcon(z);
+            this.f3327i.setIsShowIcon(z);
         }
     }
 
@@ -120,7 +120,7 @@ public class j extends c implements p<d2>, q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i2) == null) {
-            this.f3236i.onChangeSkinType(i2);
+            this.f3327i.onChangeSkinType(i2);
         }
     }
 
@@ -130,28 +130,28 @@ public class j extends c implements p<d2>, q {
             if (c() != null) {
                 c().rightMargin = i2;
             }
-            this.f3236i.setLayoutParams(c());
+            this.f3327i.setLayoutParams(c());
         }
     }
 
     public void q(FollowUserButton.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f3236i.setOnClickEvent(aVar);
+            this.f3327i.setOnClickEvent(aVar);
         }
     }
 
     public void r(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
-            this.f3236i.setPageUniqueId(bdUniqueId);
+            this.f3327i.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f3236i.setSvgIconResId(i2);
+            this.f3327i.setSvgIconResId(i2);
         }
     }
 }

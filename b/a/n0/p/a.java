@@ -23,22 +23,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.sso.o.a f3733a;
+    public com.baidu.sso.o.a f3823a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f3734b;
+    public Context f3824b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3735c;
+    public String f3825c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3736d;
+    public String f3826d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.n0.n.b f3737e;
+    public b.a.n0.n.b f3827e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ServiceConnection f3738f;
+    public ServiceConnection f3828f;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -55,11 +55,11 @@ public class a {
                 return;
             }
         }
-        this.f3733a = null;
-        this.f3735c = null;
-        this.f3736d = null;
-        this.f3738f = new c(this);
-        this.f3734b = context;
+        this.f3823a = null;
+        this.f3825c = null;
+        this.f3826d = null;
+        this.f3828f = new c(this);
+        this.f3824b = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:25:0x0055 A[Catch: NoSuchAlgorithmException -> 0x006f, all -> 0x007e, LOOP:0: B:24:0x0053->B:25:0x0055, LOOP_END, TryCatch #1 {NoSuchAlgorithmException -> 0x006f, blocks: (B:23:0x0045, B:25:0x0055, B:26:0x006b), top: B:45:0x0045 }] */
@@ -72,15 +72,15 @@ public class a {
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.f3733a != null) {
+            if (this.f3823a != null) {
                 String str2 = null;
                 try {
-                    if (TextUtils.isEmpty(this.f3735c)) {
-                        this.f3735c = this.f3734b.getPackageName();
+                    if (TextUtils.isEmpty(this.f3825c)) {
+                        this.f3825c = this.f3824b.getPackageName();
                     }
-                    if (TextUtils.isEmpty(this.f3736d)) {
+                    if (TextUtils.isEmpty(this.f3826d)) {
                         try {
-                            packageInfo = this.f3734b.getPackageManager().getPackageInfo(this.f3735c, 64);
+                            packageInfo = this.f3824b.getPackageManager().getPackageInfo(this.f3825c, 64);
                         } catch (PackageManager.NameNotFoundException unused) {
                         }
                         if (packageInfo != null) {
@@ -96,7 +96,7 @@ public class a {
                                 } catch (NoSuchAlgorithmException unused2) {
                                 }
                             }
-                            this.f3736d = str2;
+                            this.f3826d = str2;
                         }
                         signatureArr = null;
                         if (signatureArr != null) {
@@ -106,9 +106,9 @@ public class a {
                             }
                             str2 = sb2.toString();
                         }
-                        this.f3736d = str2;
+                        this.f3826d = str2;
                     }
-                    str2 = ((a.AbstractBinderC1686a.C1687a) this.f3733a).a(this.f3735c, this.f3736d, str);
+                    str2 = ((a.AbstractBinderC1721a.C1722a) this.f3823a).a(this.f3825c, this.f3826d, str);
                 } catch (Throwable unused3) {
                 }
                 if (!TextUtils.isEmpty(str2)) {
@@ -126,7 +126,7 @@ public class a {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            this.f3734b.bindService(intent, this.f3738f, 1);
+            this.f3824b.bindService(intent, this.f3828f, 1);
         }
     }
 }

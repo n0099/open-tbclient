@@ -29,19 +29,19 @@ public class b extends ReplacementSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float[] f12953e;
+    public float[] f13733e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12954f;
+    public int f13734f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f12955g;
+    public RectF f13735g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12956h;
+    public int f13736h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12957i;
+    public int f13737i;
     public int j;
     public int k;
     public int l;
@@ -69,24 +69,24 @@ public class b extends ReplacementSpan {
                 return;
             }
         }
-        this.f12953e = new float[8];
-        this.f12955g = new RectF();
+        this.f13733e = new float[8];
+        this.f13735g = new RectF();
         this.r = 255;
         this.s = false;
         this.t = 0;
         if (i3 > 0) {
             c(i3);
         }
-        this.f12954f = i4;
-        this.f12956h = i5;
-        this.f12957i = i6;
+        this.f13734f = i4;
+        this.f13736h = i5;
+        this.f13737i = i6;
         this.j = i7;
         this.l = i8;
         Paint paint = new Paint();
         this.m = paint;
         paint.setAntiAlias(true);
         this.m.setStyle(Paint.Style.STROKE);
-        this.m.setTextSize(this.f12956h);
+        this.m.setTextSize(this.f13736h);
     }
 
     public void a(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
@@ -99,7 +99,7 @@ public class b extends ReplacementSpan {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            Arrays.fill(this.f12953e, i2);
+            Arrays.fill(this.f13733e, i2);
         }
     }
 
@@ -107,10 +107,10 @@ public class b extends ReplacementSpan {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             float[] y = b.a.q0.s.u.a.y(i2);
-            if (Arrays.equals(this.f12953e, y)) {
+            if (Arrays.equals(this.f13733e, y)) {
                 return;
             }
-            this.f12953e = y;
+            this.f13733e = y;
         }
     }
 
@@ -128,7 +128,7 @@ public class b extends ReplacementSpan {
         int color2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) {
-            this.m.setColor(SkinManager.getColor(this.f12954f));
+            this.m.setColor(SkinManager.getColor(this.f13734f));
             this.m.setAlpha(this.r);
             if (this.q) {
                 this.m.setStyle(Paint.Style.FILL);
@@ -136,7 +136,7 @@ public class b extends ReplacementSpan {
                 this.m.setStyle(Paint.Style.STROKE);
             }
             if (this.s) {
-                RectF rectF = this.f12955g;
+                RectF rectF = this.f13735g;
                 int i8 = this.o;
                 rectF.left = f2 + i8;
                 int i9 = this.t;
@@ -152,10 +152,10 @@ public class b extends ReplacementSpan {
                     i7 = (((fontMetricsInt.descent - fontMetricsInt.ascent) - this.l) / 2) + 0;
                 }
                 int i10 = i7 + i5 + fontMetricsInt.ascent;
-                RectF rectF2 = this.f12955g;
+                RectF rectF2 = this.f13735g;
                 rectF2.left = f2 + this.o;
                 rectF2.top = Math.max(i10, i5 + fontMetricsInt.top);
-                RectF rectF3 = this.f12955g;
+                RectF rectF3 = this.f13735g;
                 rectF3.right = f2 + this.k + this.o;
                 rectF3.bottom = Math.min(i10 + this.l, i5 + fontMetricsInt.bottom);
             }
@@ -176,11 +176,11 @@ public class b extends ReplacementSpan {
                 }
                 int i11 = color;
                 int i12 = color2;
-                RectF rectF4 = this.f12955g;
+                RectF rectF4 = this.f13735g;
                 this.m.setShader(new LinearGradient(rectF4.left, rectF4.top, rectF4.right, rectF4.bottom, i11, i12, Shader.TileMode.CLAMP));
             }
             Path path = new Path();
-            path.addRoundRect(this.f12955g, this.f12953e, Path.Direction.CW);
+            path.addRoundRect(this.f13735g, this.f13733e, Path.Direction.CW);
             canvas.drawPath(path, this.m);
             this.m.setShader(null);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
@@ -192,18 +192,18 @@ public class b extends ReplacementSpan {
                     this.m.setStyle(Paint.Style.STROKE);
                 }
                 Path path2 = new Path();
-                path2.addRoundRect(this.f12955g, this.f12953e, Path.Direction.CW);
+                path2.addRoundRect(this.f13735g, this.f13733e, Path.Direction.CW);
                 canvas.drawPath(path2, this.m);
             }
             Paint.FontMetricsInt fontMetricsInt2 = this.m.getFontMetricsInt();
-            int i13 = this.f12957i;
+            int i13 = this.f13737i;
             if (i13 != 0) {
                 this.m.setColor(SkinManager.getColor(i13));
             } else {
                 this.m.setColor(SelectorHelper.getResources().getColor(R.color.CAM_X0201));
             }
             this.m.setStyle(Paint.Style.FILL);
-            float centerY = this.f12955g.centerY();
+            float centerY = this.f13735g.centerY();
             int i14 = fontMetricsInt2.bottom;
             canvas.drawText(charSequence, i2, i3, f2 + this.j + this.o, (int) ((centerY + ((i14 - fontMetricsInt2.top) / 2)) - i14), this.m);
         }

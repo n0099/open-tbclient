@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.h1.k.a.c.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -29,16 +29,16 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49869e;
+    public int f50781e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f49870f;
+    public TextView f50782f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RecyclerView f49871g;
+    public RecyclerView f50783g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TopicTimelineAdapter f49872h;
+    public TopicTimelineAdapter f50784h;
 
     /* loaded from: classes9.dex */
     public class a extends RecyclerView.ItemDecoration {
@@ -46,16 +46,16 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f49873a;
+        public int f50785a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f49874b;
+        public int f50786b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f49875c;
+        public int f50787c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ TopicTimelineView f49876d;
+        public final /* synthetic */ TopicTimelineView f50788d;
 
         public a(TopicTimelineView topicTimelineView, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -72,10 +72,10 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
                     return;
                 }
             }
-            this.f49876d = topicTimelineView;
-            this.f49873a = i2;
-            this.f49874b = i3;
-            this.f49875c = i4;
+            this.f50788d = topicTimelineView;
+            this.f50785a = i2;
+            this.f50786b = i3;
+            this.f50787c = i4;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -85,23 +85,23 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
                 LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
                 if (linearLayoutManager.getOrientation() == 1) {
                     if (recyclerView.getChildAdapterPosition(view) == 0) {
-                        rect.top = this.f49873a;
+                        rect.top = this.f50785a;
                     } else {
-                        rect.top = this.f49874b;
+                        rect.top = this.f50786b;
                     }
                     if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                        rect.bottom = this.f49875c;
+                        rect.bottom = this.f50787c;
                         return;
                     }
                     return;
                 }
                 if (recyclerView.getChildAdapterPosition(view) == 0) {
-                    rect.left = this.f49873a;
+                    rect.left = this.f50785a;
                 } else {
-                    rect.left = this.f49874b;
+                    rect.left = this.f50786b;
                 }
                 if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                    rect.right = this.f49875c;
+                    rect.right = this.f50787c;
                 }
             }
         }
@@ -125,7 +125,7 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
         }
-        this.f49869e = 3;
+        this.f50781e = 3;
         a(context);
     }
 
@@ -134,14 +134,14 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.topic_timeline_view_layout, (ViewGroup) this, true);
-            this.f49870f = (TextView) findViewById(R.id.topic_timeline_title);
-            this.f49871g = (RecyclerView) findViewById(R.id.topic_timeline_list);
+            this.f50782f = (TextView) findViewById(R.id.topic_timeline_title);
+            this.f50783g = (RecyclerView) findViewById(R.id.topic_timeline_list);
             TopicTimelineAdapter topicTimelineAdapter = new TopicTimelineAdapter(context);
-            this.f49872h = topicTimelineAdapter;
-            this.f49871g.setAdapter(topicTimelineAdapter);
-            this.f49871g.setLayoutManager(new LinearLayoutManager(context, 0, false));
-            this.f49871g.setItemAnimator(new DefaultItemAnimator());
-            this.f49871g.addItemDecoration(new a(this, l.g(context, R.dimen.tbds44), l.g(context, R.dimen.tbds20), l.g(context, R.dimen.tbds44)));
+            this.f50784h = topicTimelineAdapter;
+            this.f50783g.setAdapter(topicTimelineAdapter);
+            this.f50783g.setLayoutManager(new LinearLayoutManager(context, 0, false));
+            this.f50783g.setItemAnimator(new DefaultItemAnimator());
+            this.f50783g.addItemDecoration(new a(this, l.g(context, R.dimen.tbds44), l.g(context, R.dimen.tbds20), l.g(context, R.dimen.tbds44)));
             onChangeSkinType();
         }
     }
@@ -149,22 +149,22 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f49869e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f50781e) {
             return;
         }
-        this.f49869e = skinType;
-        SkinManager.setViewTextColor(this.f49870f, R.color.CAM_X0105);
-        this.f49872h.notifyDataSetChanged();
+        this.f50781e = skinType;
+        SkinManager.setViewTextColor(this.f50782f, R.color.CAM_X0105);
+        this.f50784h.notifyDataSetChanged();
     }
 
     public void setData(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
-            if (fVar != null && !ListUtils.isEmpty(fVar.f17613b)) {
+            if (fVar != null && !ListUtils.isEmpty(fVar.f19082b)) {
                 setVisibility(0);
-                this.f49870f.setText(fVar.f17612a);
-                this.f49872h.setData(fVar.f17613b);
-                this.f49872h.notifyDataSetChanged();
+                this.f50782f.setText(fVar.f19081a);
+                this.f50784h.setData(fVar.f19082b);
+                this.f50784h.notifyDataSetChanged();
                 return;
             }
             setVisibility(8);
@@ -190,7 +190,7 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
         }
-        this.f49869e = 3;
+        this.f50781e = 3;
         a(context);
     }
 
@@ -213,7 +213,7 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
         }
-        this.f49869e = 3;
+        this.f50781e = 3;
         a(context);
     }
 }

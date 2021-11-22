@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.j.m;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -65,6 +66,7 @@ public class CrossMsgActivity extends Activity {
                 }
             }
             finish();
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

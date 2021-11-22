@@ -46,7 +46,7 @@ public class DirectorySoSource extends SoSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
             if (SoLoader.SYSTRACE_LIBRARY_LOADING) {
-                Api18TraceUtils.beginTraceSection("SoLoader.getElfDependencies[", file.getName(), PreferencesUtil.RIGHT_MOUNT);
+                Api18TraceUtils.beginTraceSection("SoLoader.getElfDependencies[" + file.getName() + PreferencesUtil.RIGHT_MOUNT);
             }
             try {
                 return MinElf.extract_DT_NEEDED(file);
@@ -59,10 +59,10 @@ public class DirectorySoSource extends SoSource {
         return (String[]) invokeL.objValue;
     }
 
-    public static void loadDependencies(File file, int i2, StrictMode.ThreadPolicy threadPolicy) throws IOException {
+    private void loadDependencies(File file, int i2, StrictMode.ThreadPolicy threadPolicy) throws IOException {
         String[] dependencies;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, null, file, i2, threadPolicy) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65538, this, file, i2, threadPolicy) == null) {
             String str = "Loading lib dependencies: " + Arrays.toString(dependencies);
             for (String str2 : getDependencies(file)) {
                 if (!str2.startsWith("/")) {
@@ -81,46 +81,16 @@ public class DirectorySoSource extends SoSource {
     }
 
     @Override // com.facebook.soloader.SoSource
-    @Nullable
-    public String[] getLibraryDependencies(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            File file = new File(this.soDirectory, str);
-            if (file.exists()) {
-                return getDependencies(file);
-            }
-            return null;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    @Override // com.facebook.soloader.SoSource
-    @Nullable
-    public String getLibraryPath(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            File file = new File(this.soDirectory, str);
-            if (file.exists()) {
-                return file.getCanonicalPath();
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.facebook.soloader.SoSource
     public int loadLibrary(String str, int i2, StrictMode.ThreadPolicy threadPolicy) throws IOException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, str, i2, threadPolicy)) == null) ? loadLibraryFrom(str, i2, this.soDirectory, threadPolicy) : invokeLIL.intValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, threadPolicy)) == null) ? loadLibraryFrom(str, i2, this.soDirectory, threadPolicy) : invokeLIL.intValue;
     }
 
     public int loadLibraryFrom(String str, int i2, File file, StrictMode.ThreadPolicy threadPolicy) throws IOException {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048580, this, str, i2, file, threadPolicy)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, str, i2, file, threadPolicy)) == null) {
             File file2 = new File(file, str);
             if (!file2.exists()) {
                 String str2 = str + " not found on " + file.getCanonicalPath();
@@ -154,7 +124,7 @@ public class DirectorySoSource extends SoSource {
         String name;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
                 name = String.valueOf(this.soDirectory.getCanonicalPath());
             } catch (IOException unused) {
@@ -170,7 +140,7 @@ public class DirectorySoSource extends SoSource {
     public File unpackLibrary(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             File file = new File(this.soDirectory, str);
             if (file.exists()) {
                 return file;

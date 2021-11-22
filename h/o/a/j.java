@@ -14,10 +14,10 @@ public final class j<T> implements d.b<Boolean, T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.n.f<? super T, Boolean> f71925e;
+    public final h.n.f<? super T, Boolean> f72844e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f71926f;
+    public final boolean f72845f;
 
     /* loaded from: classes2.dex */
     public class a extends h.j<T> {
@@ -25,7 +25,7 @@ public final class j<T> implements d.b<Boolean, T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f71927i;
+        public boolean f72846i;
         public boolean j;
         public final /* synthetic */ SingleDelayedProducer k;
         public final /* synthetic */ h.j l;
@@ -58,10 +58,10 @@ public final class j<T> implements d.b<Boolean, T> {
                 return;
             }
             this.j = true;
-            if (this.f71927i) {
+            if (this.f72846i) {
                 this.k.setValue(Boolean.FALSE);
             } else {
-                this.k.setValue(Boolean.valueOf(this.m.f71926f));
+                this.k.setValue(Boolean.valueOf(this.m.f72845f));
             }
         }
 
@@ -84,11 +84,11 @@ public final class j<T> implements d.b<Boolean, T> {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.j) {
                 return;
             }
-            this.f71927i = true;
+            this.f72846i = true;
             try {
-                if (this.m.f71925e.call(t).booleanValue()) {
+                if (this.m.f72844e.call(t).booleanValue()) {
                     this.j = true;
-                    this.k.setValue(Boolean.valueOf(true ^ this.m.f71926f));
+                    this.k.setValue(Boolean.valueOf(true ^ this.m.f72845f));
                     unsubscribe();
                 }
             } catch (Throwable th) {
@@ -112,8 +112,8 @@ public final class j<T> implements d.b<Boolean, T> {
                 return;
             }
         }
-        this.f71925e = fVar;
-        this.f71926f = z;
+        this.f72844e = fVar;
+        this.f72845f = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

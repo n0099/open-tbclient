@@ -17,14 +17,14 @@ public class PassPermissions implements com.baidu.pass.a {
     public static final String TAG = "PassPermissions";
 
     /* renamed from: a  reason: collision with root package name */
-    public static PassPermissions f41989a;
+    public static PassPermissions f42821a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public PermissionsDTO f41990b;
+    public PermissionsDTO f42822b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PermissionsCallback f41991c;
+    public PermissionsCallback f42823c;
 
     public PassPermissions() {
         Interceptable interceptable = $ic;
@@ -62,10 +62,10 @@ public class PassPermissions implements com.baidu.pass.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (PassPermissions.class) {
-                if (f41989a == null) {
-                    f41989a = new PassPermissions();
+                if (f42821a == null) {
+                    f42821a = new PassPermissions();
                 }
-                passPermissions = f41989a;
+                passPermissions = f42821a;
             }
             return passPermissions;
         }
@@ -75,13 +75,13 @@ public class PassPermissions implements com.baidu.pass.a {
     public PermissionsCallback getPermissionsCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41991c : (PermissionsCallback) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42823c : (PermissionsCallback) invokeV.objValue;
     }
 
     public PermissionsDTO getPermissionsDTO() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41990b : (PermissionsDTO) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42822b : (PermissionsDTO) invokeV.objValue;
     }
 
     public void requestPermissions(PermissionsDTO permissionsDTO, PermissionsCallback permissionsCallback) {
@@ -89,16 +89,16 @@ public class PassPermissions implements com.baidu.pass.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, permissionsDTO, permissionsCallback) == null) {
             if (permissionsDTO != null && permissionsDTO.context != null && (strArr = permissionsDTO.permissions) != null && strArr.length != 0 && permissionsCallback != null) {
-                this.f41990b = permissionsDTO;
-                this.f41991c = new PermissionsCallback(this, permissionsCallback) { // from class: com.baidu.pass.permissions.PassPermissions.1
+                this.f42822b = permissionsDTO;
+                this.f42823c = new PermissionsCallback(this, permissionsCallback) { // from class: com.baidu.pass.permissions.PassPermissions.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PermissionsCallback f41992a;
+                    public final /* synthetic */ PermissionsCallback f42824a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ PassPermissions f41993b;
+                    public final /* synthetic */ PassPermissions f42825b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -115,16 +115,16 @@ public class PassPermissions implements com.baidu.pass.a {
                                 return;
                             }
                         }
-                        this.f41993b = this;
-                        this.f41992a = permissionsCallback;
+                        this.f42825b = this;
+                        this.f42824a = permissionsCallback;
                     }
 
                     @Override // com.baidu.pass.permissions.PermissionsCallback
                     public void onFailure(int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                            this.f41993b.a();
-                            this.f41992a.onFailure(i2);
+                            this.f42825b.a();
+                            this.f42824a.onFailure(i2);
                         }
                     }
 
@@ -132,16 +132,16 @@ public class PassPermissions implements com.baidu.pass.a {
                     public void onSuccess() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            this.f41993b.a();
-                            this.f41992a.onSuccess();
+                            this.f42825b.a();
+                            this.f42824a.onSuccess();
                         }
                     }
                 };
                 if (a(permissionsDTO.permissions)) {
-                    this.f41991c.onSuccess();
+                    this.f42823c.onSuccess();
                     return;
                 } else if (Build.VERSION.SDK_INT < 23) {
-                    this.f41991c.onFailure(-1);
+                    this.f42823c.onFailure(-1);
                     return;
                 } else {
                     Intent intent = new Intent(permissionsDTO.context, PermissionsHelperActivity.class);
@@ -164,7 +164,7 @@ public class PassPermissions implements com.baidu.pass.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
             for (String str : strArr) {
-                if (!checkRequestPermission(str, this.f41990b.context)) {
+                if (!checkRequestPermission(str, this.f42822b.context)) {
                     return false;
                 }
             }
@@ -177,9 +177,9 @@ public class PassPermissions implements com.baidu.pass.a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f41990b = null;
-            this.f41991c = null;
-            f41989a = null;
+            this.f42822b = null;
+            this.f42823c = null;
+            f42821a = null;
         }
     }
 }

@@ -22,10 +22,10 @@ public final class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Activity f58782a;
+            public final /* synthetic */ Activity f59704a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ float f58783b;
+            public final /* synthetic */ float f59705b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -42,17 +42,17 @@ public final class c {
                         return;
                     }
                 }
-                this.f58782a = activity;
-                this.f58783b = f2;
+                this.f59704a = activity;
+                this.f59705b = f2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    WindowManager.LayoutParams attributes = this.f58782a.getWindow().getAttributes();
+                    WindowManager.LayoutParams attributes = this.f59704a.getWindow().getAttributes();
                     float f3 = attributes.screenBrightness;
-                    float f4 = this.f58783b;
+                    float f4 = this.f59705b;
                     if (f3 == f4) {
                         return;
                     }
@@ -61,7 +61,7 @@ public final class c {
                     } else {
                         attributes.screenBrightness = -1.0f;
                     }
-                    this.f58782a.getWindow().setAttributes(attributes);
+                    this.f59704a.getWindow().setAttributes(attributes);
                 }
             }
         });

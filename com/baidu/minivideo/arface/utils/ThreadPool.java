@@ -20,10 +20,10 @@ public class ThreadPool {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f40484a;
+    public static volatile c f41316a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f40485b;
+    public static volatile c f41317b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -136,20 +136,20 @@ public class ThreadPool {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final AtomicInteger f40486i;
+        public static final AtomicInteger f41318i;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ThreadGroup f40487e;
+        public final ThreadGroup f41319e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final AtomicInteger f40488f;
+        public final AtomicInteger f41320f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final String f40489g;
+        public final String f41321g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f40490h;
+        public final int f41322h;
 
         static {
             InterceptResult invokeClinit;
@@ -164,7 +164,7 @@ public class ThreadPool {
                     return;
                 }
             }
-            f40486i = new AtomicInteger(1);
+            f41318i = new AtomicInteger(1);
         }
 
         public b(String str, int i2) {
@@ -182,11 +182,11 @@ public class ThreadPool {
                     return;
                 }
             }
-            this.f40488f = new AtomicInteger(1);
-            this.f40490h = i2;
+            this.f41320f = new AtomicInteger(1);
+            this.f41322h = i2;
             SecurityManager securityManager = System.getSecurityManager();
-            this.f40487e = securityManager == null ? Thread.currentThread().getThreadGroup() : securityManager.getThreadGroup();
-            this.f40489g = str + "-" + f40486i.getAndIncrement() + "-thread-";
+            this.f41319e = securityManager == null ? Thread.currentThread().getThreadGroup() : securityManager.getThreadGroup();
+            this.f41321g = str + "-" + f41318i.getAndIncrement() + "-thread-";
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -194,12 +194,12 @@ public class ThreadPool {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                ThreadGroup threadGroup = this.f40487e;
-                Thread thread = new Thread(threadGroup, runnable, this.f40489g + this.f40488f.getAndIncrement(), 0L);
+                ThreadGroup threadGroup = this.f41319e;
+                Thread thread = new Thread(threadGroup, runnable, this.f41321g + this.f41320f.getAndIncrement(), 0L);
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }
-                thread.setPriority(this.f40490h);
+                thread.setPriority(this.f41322h);
                 return thread;
             }
             return (Thread) invokeL.objValue;
@@ -211,29 +211,29 @@ public class ThreadPool {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final int f40491f;
+        public static final int f41323f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final int f40492g;
+        public static final int f41324g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final int f40493h;
+        public static final int f41325h;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ExecutorService f40494a;
+        public ExecutorService f41326a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40495b;
+        public int f41327b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f40496c;
+        public int f41328c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f40497d;
+        public String f41329d;
 
         /* renamed from: e  reason: collision with root package name */
-        public QueueProcessingType f40498e;
+        public QueueProcessingType f41330e;
 
         static {
             InterceptResult invokeClinit;
@@ -249,9 +249,9 @@ public class ThreadPool {
                 }
             }
             int availableProcessors = Runtime.getRuntime().availableProcessors();
-            f40491f = availableProcessors;
-            f40492g = Math.max(2, Math.min(availableProcessors - 1, 4));
-            f40493h = f40491f;
+            f41323f = availableProcessors;
+            f41324g = Math.max(2, Math.min(availableProcessors - 1, 4));
+            f41325h = f41323f;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -278,11 +278,11 @@ public class ThreadPool {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ExecutorService executorService = this.f40494a;
+                ExecutorService executorService = this.f41326a;
                 if (!(executorService instanceof ThreadPoolExecutor) || executorService == null || executorService.isShutdown()) {
                     return;
                 }
-                ((ThreadPoolExecutor) this.f40494a).allowsCoreThreadTimeOut();
+                ((ThreadPoolExecutor) this.f41326a).allowsCoreThreadTimeOut();
             }
         }
 
@@ -298,7 +298,7 @@ public class ThreadPool {
         public void e(Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-                this.f40494a.execute(runnable);
+                this.f41326a.execute(runnable);
             }
         }
 
@@ -317,15 +317,15 @@ public class ThreadPool {
                     return;
                 }
             }
-            this.f40495b = f40492g;
-            this.f40496c = 4;
-            this.f40498e = QueueProcessingType.FIFO;
-            this.f40497d = str;
-            this.f40495b = i2;
-            this.f40496c = i3;
-            this.f40498e = queueProcessingType;
-            if (this.f40494a == null) {
-                this.f40494a = d(str, i2, i3, queueProcessingType);
+            this.f41327b = f41324g;
+            this.f41328c = 4;
+            this.f41330e = QueueProcessingType.FIFO;
+            this.f41329d = str;
+            this.f41327b = i2;
+            this.f41328c = i3;
+            this.f41330e = queueProcessingType;
+            if (this.f41326a == null) {
+                this.f41326a = d(str, i2, i3, queueProcessingType);
             }
         }
     }
@@ -348,16 +348,16 @@ public class ThreadPool {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f40485b == null) {
+            if (f41317b == null) {
                 synchronized (ThreadPool.class) {
-                    if (f40485b == null) {
-                        c cVar = new c("ComputationThreadPool", c.f40492g);
+                    if (f41317b == null) {
+                        c cVar = new c("ComputationThreadPool", c.f41324g);
                         cVar.c();
-                        f40485b = cVar;
+                        f41317b = cVar;
                     }
                 }
             }
-            return f40485b;
+            return f41317b;
         }
         return (c) invokeV.objValue;
     }
@@ -366,16 +366,16 @@ public class ThreadPool {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f40484a == null) {
+            if (f41316a == null) {
                 synchronized (ThreadPool.class) {
-                    if (f40484a == null) {
-                        c cVar = new c("IOThreadPool", c.f40493h);
+                    if (f41316a == null) {
+                        c cVar = new c("IOThreadPool", c.f41325h);
                         cVar.c();
-                        f40484a = cVar;
+                        f41316a = cVar;
                     }
                 }
             }
-            return f40484a;
+            return f41316a;
         }
         return (c) invokeV.objValue;
     }

@@ -6,8 +6,8 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
-import b.a.e0.d;
-import b.a.e0.j;
+import b.a.e0.e;
+import b.a.e0.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,10 +20,10 @@ public class MaxHeightScrollView extends ScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f42083e;
+    public float f42985e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f42084f;
+    public float f42986f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaxHeightScrollView(Context context) {
@@ -51,7 +51,7 @@ public class MaxHeightScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
             Resources resources = getContext().getResources();
-            return (((resources.getDisplayMetrics().heightPixels * f2) - resources.getDimensionPixelSize(d.title_height)) - resources.getDimensionPixelSize(d.confirm_pay_button_height)) - resources.getDimensionPixelSize(d.confirm_pay_button_ver_margin);
+            return (((resources.getDisplayMetrics().heightPixels * f2) - resources.getDimensionPixelSize(e.title_height)) - resources.getDimensionPixelSize(e.confirm_pay_button_height)) - resources.getDimensionPixelSize(e.confirm_pay_button_ver_margin);
         }
         return invokeF.floatValue;
     }
@@ -59,9 +59,9 @@ public class MaxHeightScrollView extends ScrollView {
     public final void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, j.MaxHeightScrollView);
-            this.f42083e = obtainStyledAttributes.getFloat(j.MaxHeightScrollView_maxHeightRatio, -1.0f);
-            this.f42084f = obtainStyledAttributes.getFloat(j.MaxHeightScrollView_minHeightRatio, -1.0f);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, k.MaxHeightScrollView);
+            this.f42985e = obtainStyledAttributes.getFloat(k.MaxHeightScrollView_maxHeightRatio, -1.0f);
+            this.f42986f = obtainStyledAttributes.getFloat(k.MaxHeightScrollView_minHeightRatio, -1.0f);
             obtainStyledAttributes.recycle();
         }
     }
@@ -70,13 +70,13 @@ public class MaxHeightScrollView extends ScrollView {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            if (this.f42083e > 0.0f || this.f42084f > 0.0f) {
+            if (this.f42985e > 0.0f || this.f42986f > 0.0f) {
                 int size = View.MeasureSpec.getSize(i3);
-                float f2 = this.f42083e;
+                float f2 = this.f42985e;
                 if (f2 > 0.0f) {
                     size = (int) Math.min(a(f2), size);
                 }
-                float f3 = this.f42084f;
+                float f3 = this.f42986f;
                 if (f3 > 0.0f) {
                     size = (int) Math.max(a(f3), size);
                 }

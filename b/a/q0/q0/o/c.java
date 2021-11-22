@@ -15,19 +15,19 @@ public class c implements Choreographer.FrameCallback {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f12876e;
+    public long f13626e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f12877f;
+    public long f13627f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f12878g;
+    public long f13628g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12879h;
+    public int f13629h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12880i;
+    public int f13630i;
     public boolean j;
 
     public c() {
@@ -43,42 +43,42 @@ public class c implements Choreographer.FrameCallback {
                 return;
             }
         }
-        this.f12876e = 0L;
-        this.f12879h = 0;
-        this.f12880i = -1;
+        this.f13626e = 0L;
+        this.f13629h = 0;
+        this.f13630i = -1;
         this.j = false;
     }
 
     public final void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            long j2 = this.f12878g;
+            long j2 = this.f13628g;
             if (j2 <= 0) {
                 return;
             }
             long j3 = j - j2;
-            if (j3 <= 0 || this.f12880i > 0) {
+            if (j3 <= 0 || this.f13630i > 0) {
                 return;
             }
-            this.f12880i = (int) (60 - ((this.f12879h * 1000) / j3));
+            this.f13630i = (int) (60 - ((this.f13629h * 1000) / j3));
         }
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12880i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13630i : invokeV.intValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.f12878g = currentTimeMillis;
-            this.f12877f = currentTimeMillis + 1000;
-            this.f12876e = 0L;
-            this.f12879h = 0;
-            this.f12880i = -1;
+            this.f13628g = currentTimeMillis;
+            this.f13627f = currentTimeMillis + 1000;
+            this.f13626e = 0L;
+            this.f13629h = 0;
+            this.f13630i = -1;
             this.j = false;
             Choreographer.getInstance().postFrameCallback(this);
         }
@@ -90,8 +90,8 @@ public class c implements Choreographer.FrameCallback {
             this.j = true;
             Choreographer.getInstance().removeFrameCallback(this);
             a(System.currentTimeMillis());
-            this.f12879h = 0;
-            this.f12878g = 0L;
+            this.f13629h = 0;
+            this.f13628g = 0L;
         }
     }
 
@@ -99,22 +99,22 @@ public class c implements Choreographer.FrameCallback {
     public void doFrame(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            long j2 = this.f12876e;
+            long j2 = this.f13626e;
             if (j2 != 0) {
                 long j3 = (j - j2) / 1000000;
                 if (j3 > 16 && j3 < 960) {
-                    this.f12879h = (int) (this.f12879h + (j3 / 16));
+                    this.f13629h = (int) (this.f13629h + (j3 / 16));
                 }
             }
-            this.f12876e = j;
+            this.f13626e = j;
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis < this.f12877f && !this.j) {
+            if (currentTimeMillis < this.f13627f && !this.j) {
                 Choreographer.getInstance().postFrameCallback(this);
                 return;
             }
             a(currentTimeMillis);
-            this.f12879h = 0;
-            this.f12878g = 0L;
+            this.f13629h = 0;
+            this.f13628g = 0L;
         }
     }
 }

@@ -1,6 +1,6 @@
 package b.a.r0.m2.h;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +13,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<n> f21196a;
+    public ArrayList<n> f22351a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class e {
     public void a(ArrayList<n> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.f21196a = arrayList;
+            this.f22351a = arrayList;
         }
     }
 

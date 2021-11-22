@@ -17,10 +17,10 @@ public class b implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f17888a;
+    public a f19341a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AbsHListView f17889b;
+    public AbsHListView f19342b;
 
     public b(AbsHListView absHListView) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class b implements a {
                 return;
             }
         }
-        this.f17889b = absHListView;
+        this.f19342b = absHListView;
     }
 
     @Override // b.a.r0.i1.a.c.a
@@ -45,8 +45,8 @@ public class b implements a {
     public void a(ActionMode actionMode, int i2, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{actionMode, Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.f17888a.a(actionMode, i2, j, z);
-            if (this.f17889b.getCheckedItemCount() == 0) {
+            this.f19341a.a(actionMode, i2, j, z);
+            if (this.f19342b.getCheckedItemCount() == 0) {
                 actionMode.finish();
             }
         }
@@ -55,13 +55,13 @@ public class b implements a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17888a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19341a != null : invokeV.booleanValue;
     }
 
     public void c(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f17888a = aVar;
+            this.f19341a = aVar;
         }
     }
 
@@ -70,7 +70,7 @@ public class b implements a {
     public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menuItem)) == null) ? this.f17888a.onActionItemClicked(actionMode, menuItem) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menuItem)) == null) ? this.f19341a.onActionItemClicked(actionMode, menuItem) : invokeLL.booleanValue;
     }
 
     @Override // android.view.ActionMode.Callback
@@ -79,8 +79,8 @@ public class b implements a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, actionMode, menu)) == null) {
-            if (this.f17888a.onCreateActionMode(actionMode, menu)) {
-                this.f17889b.setLongClickable(false);
+            if (this.f19341a.onCreateActionMode(actionMode, menu)) {
+                this.f19342b.setLongClickable(false);
                 return true;
             }
             return false;
@@ -93,15 +93,15 @@ public class b implements a {
     public void onDestroyActionMode(ActionMode actionMode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, actionMode) == null) {
-            this.f17888a.onDestroyActionMode(actionMode);
-            AbsHListView absHListView = this.f17889b;
+            this.f19341a.onDestroyActionMode(actionMode);
+            AbsHListView absHListView = this.f19342b;
             absHListView.mChoiceActionMode = null;
             absHListView.clearChoices();
-            AbsHListView absHListView2 = this.f17889b;
+            AbsHListView absHListView2 = this.f19342b;
             absHListView2.mDataChanged = true;
             absHListView2.rememberSyncState();
-            this.f17889b.requestLayout();
-            this.f17889b.setLongClickable(true);
+            this.f19342b.requestLayout();
+            this.f19342b.setLongClickable(true);
         }
     }
 
@@ -110,6 +110,6 @@ public class b implements a {
     public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, actionMode, menu)) == null) ? this.f17888a.onPrepareActionMode(actionMode, menu) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, actionMode, menu)) == null) ? this.f19341a.onPrepareActionMode(actionMode, menu) : invokeLL.booleanValue;
     }
 }

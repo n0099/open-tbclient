@@ -21,18 +21,18 @@ import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements ThirdPartWxRechargeService {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f27083b;
+    public static BroadcastReceiver f28615b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IWXAPI f27084a;
+    public IWXAPI f28616a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,8 +122,8 @@ public class b implements ThirdPartWxRechargeService {
     @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
     public void initWx() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f27084a == null) {
-            this.f27084a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f28616a == null) {
+            this.f28616a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
         }
     }
 
@@ -132,10 +132,10 @@ public class b implements ThirdPartWxRechargeService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f27084a == null) {
-                this.f27084a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+            if (this.f28616a == null) {
+                this.f28616a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
             }
-            return this.f27084a.isWXAppInstalled();
+            return this.f28616a.isWXAppInstalled();
         }
         return invokeV.booleanValue;
     }
@@ -145,25 +145,25 @@ public class b implements ThirdPartWxRechargeService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, wxPayType) == null) {
             try {
-                if (this.f27084a == null) {
-                    this.f27084a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+                if (this.f28616a == null) {
+                    this.f28616a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
                 }
                 PayReq a2 = a(new JSONObject(str));
-                this.f27084a.registerApp(a2.appId);
-                if (!this.f27084a.sendReq(a2)) {
+                this.f28616a.registerApp(a2.appId);
+                if (!this.f28616a.sendReq(a2)) {
                     String str2 = wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive ? "wx_pay_result" : "yy_wx_pay_result";
                     HashMap hashMap = new HashMap();
                     hashMap.put(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_CODE, 6);
                     hashMap.put(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_STR, "wx_start_failed");
                     LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
                 }
-                if (f27083b != null) {
-                    TbadkCoreApplication.getInst().unregisterReceiver(f27083b);
+                if (f28615b != null) {
+                    TbadkCoreApplication.getInst().unregisterReceiver(f28615b);
                 }
-                f27083b = new a(this, wxPayType);
+                f28615b = new a(this, wxPayType);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("WXPayResult");
-                TbadkCoreApplication.getInst().registerReceiver(f27083b, intentFilter);
+                TbadkCoreApplication.getInst().registerReceiver(f28615b, intentFilter);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

@@ -112,10 +112,10 @@ public class LivenessBaseActivity extends BeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BioAlertDialog f37888a;
+                public final /* synthetic */ BioAlertDialog f38718a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessBaseActivity f37889b;
+                public final /* synthetic */ LivenessBaseActivity f38719b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -132,17 +132,17 @@ public class LivenessBaseActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f37889b = this;
-                    this.f37888a = bioAlertDialog;
+                    this.f38719b = this;
+                    this.f38718a = bioAlertDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f37888a.dismiss();
+                        this.f38718a.dismiss();
                         try {
-                            this.f37889b.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
+                            this.f38719b.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
@@ -154,10 +154,10 @@ public class LivenessBaseActivity extends BeanActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BioAlertDialog f37890a;
+                public final /* synthetic */ BioAlertDialog f38720a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LivenessBaseActivity f37891b;
+                public final /* synthetic */ LivenessBaseActivity f38721b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -174,15 +174,15 @@ public class LivenessBaseActivity extends BeanActivity {
                             return;
                         }
                     }
-                    this.f37891b = this;
-                    this.f37890a = bioAlertDialog;
+                    this.f38721b = this;
+                    this.f38720a = bioAlertDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f37890a.dismiss();
+                        this.f38720a.dismiss();
                     }
                 }
             });

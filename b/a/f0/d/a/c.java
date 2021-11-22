@@ -12,11 +12,11 @@ public final class c extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f2887b;
+    public static e f2980b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f2888a;
+    public final e f2981a;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -33,21 +33,21 @@ public final class c extends b {
                 return;
             }
         }
-        this.f2888a = new g(context);
+        this.f2981a = new g(context);
     }
 
     public static e c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f2887b == null) {
+            if (f2980b == null) {
                 synchronized (e.class) {
-                    if (f2887b == null) {
-                        f2887b = new c(context);
+                    if (f2980b == null) {
+                        f2980b = new c(context);
                     }
                 }
             }
-            return f2887b;
+            return f2980b;
         }
         return (e) invokeL.objValue;
     }
@@ -56,7 +56,7 @@ public final class c extends b {
     public void a(Request request, k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, request, kVar) == null) {
-            this.f2888a.a(request, kVar);
+            this.f2981a.a(request, kVar);
         }
     }
 }

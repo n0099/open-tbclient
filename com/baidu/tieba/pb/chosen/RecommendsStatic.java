@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.chosen;
 
-import b.a.e.e.m.b;
+import b.a.e.f.m.b;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;

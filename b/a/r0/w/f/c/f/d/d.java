@@ -54,7 +54,7 @@ public class d extends b.a.r0.b0.b<k> {
         this.o.addView(this.m.h());
         this.o.addView(view, new LinearLayout.LayoutParams(h().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
         this.o.addView(this.n.h());
-        k(this.f14737f, TbadkCoreApplication.getInst().getSkinType());
+        k(this.f16224f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // b.a.r0.b0.b
@@ -83,9 +83,9 @@ public class d extends b.a.r0.b0.b<k> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) || kVar == null) {
             return;
         }
-        this.m.i(kVar.f24618e);
-        this.n.i(kVar.f24619f);
-        if (kVar.f24620g) {
+        this.m.i(kVar.f26135e);
+        this.n.i(kVar.f26136f);
+        if (kVar.f26137g) {
             this.q.setVisibility(0);
         } else {
             this.q.setVisibility(8);

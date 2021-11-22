@@ -18,7 +18,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3142a = "b";
+    public static final String f3235a = "b";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public class b {
             try {
                 return ContextCompat.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
             } catch (Throwable th) {
-                BdLog.c(f3142a, th);
+                BdLog.c(f3235a, th);
                 return !ApiUtil.shouldCheckPermission();
             }
         }
@@ -77,7 +77,7 @@ public class b {
                 }
                 return checkPermissionGranted;
             } catch (Throwable th) {
-                BdLog.c(f3142a, th);
+                BdLog.c(f3235a, th);
                 return !ApiUtil.shouldCheckPermission();
             }
         }
@@ -91,7 +91,7 @@ public class b {
             if (context == null) {
                 return false;
             }
-            SharedPreferences sharedPreferences = context.getSharedPreferences(f3142a, 0);
+            SharedPreferences sharedPreferences = context.getSharedPreferences(f3235a, 0);
             if (sharedPreferences == null) {
                 return true;
             }
@@ -106,7 +106,7 @@ public class b {
     public static void d(Context context, String str) {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) || context == null || (sharedPreferences = context.getSharedPreferences(f3142a, 0)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) || context == null || (sharedPreferences = context.getSharedPreferences(f3235a, 0)) == null) {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();

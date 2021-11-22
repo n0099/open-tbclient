@@ -5,15 +5,15 @@ import android.view.ViewGroup;
 import b.a.p0.a.p.e.c;
 /* loaded from: classes.dex */
 public interface a<T extends c> extends d<T> {
-    void E();
+    void F();
 
-    void F(ViewGroup viewGroup);
+    void G(ViewGroup viewGroup);
 
-    void G(View view);
+    void H(View view);
 
-    void P(boolean z);
+    void R(boolean z);
 
-    void U();
+    void X();
 
-    void e0(String str, String str2);
+    void i0(String str, String str2);
 }

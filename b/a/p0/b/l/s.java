@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import b.a.p0.a.u.e.a.c;
+import b.a.p0.a.u.e.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class s extends b.a.p0.a.e2.c.j.f {
+public class s extends b.a.p0.a.h2.c.j.f {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean t;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,12 +33,12 @@ public class s extends b.a.p0.a.e2.c.j.f {
     }
 
     /* loaded from: classes.dex */
-    public class b extends b.a.p0.a.e2.c.e implements b.a.p0.a.m.a {
+    public class b extends b.a.p0.a.h2.c.e implements b.a.p0.a.m.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ s f9354g;
+        public final /* synthetic */ s f9937g;
 
         public b(s sVar) {
             Interceptable interceptable = $ic;
@@ -55,23 +55,23 @@ public class s extends b.a.p0.a.e2.c.j.f {
                     return;
                 }
             }
-            this.f9354g = sVar;
+            this.f9937g = sVar;
         }
 
-        @Override // b.a.p0.a.e2.c.e
+        @Override // b.a.p0.a.h2.c.e
         public boolean f() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                boolean e2 = b.a.p0.a.c1.a.a0().e(this.f9354g.m);
+                boolean e2 = b.a.p0.a.c1.a.h0().e(this.f9937g.m);
                 if (s.t) {
                     String str = "LoginPreparation isLogin : " + e2 + " call stack:" + Log.getStackTraceString(new Exception());
                 }
                 if (!e2) {
-                    this.f9354g.M().j().f(this.f9354g.m, this.f9354g.p, this);
+                    this.f9937g.M().M().f(this.f9937g.m, this.f9937g.p, this);
                     return false;
                 }
-                s sVar = this.f9354g;
+                s sVar = this.f9937g;
                 sVar.h(new c(sVar, null));
                 return true;
             }
@@ -82,16 +82,16 @@ public class s extends b.a.p0.a.e2.c.j.f {
         public void onResult(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                b.a.p0.a.e2.c.d.j("onResult :: " + i2, Boolean.FALSE);
+                b.a.p0.a.h2.c.d.k("onResult :: " + i2, Boolean.FALSE);
                 if (i2 == -2) {
-                    b.a.p0.a.e2.c.d.j("login error ERR_BY_UESR_REFUSE", Boolean.TRUE);
+                    b.a.p0.a.h2.c.d.k("login error ERR_BY_UESR_REFUSE", Boolean.TRUE);
                     e(new OAuthException(10004));
                 } else if (i2 != 0) {
-                    b.a.p0.a.e2.c.d.j("login error ERR_BY_LOGIN", Boolean.TRUE);
+                    b.a.p0.a.h2.c.d.k("login error ERR_BY_LOGIN", Boolean.TRUE);
                     e(new OAuthException(10004));
                 } else {
-                    b.a.p0.a.e2.c.d.j("Login Preparation ok, is already login", Boolean.FALSE);
-                    s sVar = this.f9354g;
+                    b.a.p0.a.h2.c.d.k("Login Preparation ok, is already login", Boolean.FALSE);
+                    s sVar = this.f9937g;
                     sVar.h(new c(sVar, null));
                     d();
                 }
@@ -104,20 +104,20 @@ public class s extends b.a.p0.a.e2.c.j.f {
     }
 
     /* loaded from: classes.dex */
-    public class c extends b.a.p0.a.e2.c.e {
+    public class c extends b.a.p0.a.h2.c.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ s f9355g;
+        public final /* synthetic */ s f9938g;
 
         /* loaded from: classes.dex */
-        public class a implements b.a.p0.a.v2.e1.b<Bundle> {
+        public class a implements b.a.p0.a.z2.g1.c<Bundle> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f9356e;
+            public final /* synthetic */ c f9939e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -134,28 +134,28 @@ public class s extends b.a.p0.a.e2.c.j.f {
                         return;
                     }
                 }
-                this.f9356e = cVar;
+                this.f9939e = cVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.a.p0.a.v2.e1.b
+            @Override // b.a.p0.a.z2.g1.c
             /* renamed from: a */
             public void onCallback(Bundle bundle) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
                     if (bundle == null) {
-                        b.a.p0.a.e2.c.d.j("null stoken", Boolean.TRUE);
-                        this.f9356e.e(new OAuthException(10001));
+                        b.a.p0.a.h2.c.d.k("null stoken", Boolean.TRUE);
+                        this.f9939e.e(new OAuthException(10001));
                         return;
                     }
                     String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
                     if (!TextUtils.isEmpty(string)) {
-                        this.f9356e.f9355g.s = string;
-                        this.f9356e.d();
+                        this.f9939e.f9938g.s = string;
+                        this.f9939e.d();
                         return;
                     }
-                    b.a.p0.a.e2.c.d.j("empty stoken", Boolean.TRUE);
-                    this.f9356e.e(new OAuthException(10001));
+                    b.a.p0.a.h2.c.d.k("empty stoken", Boolean.TRUE);
+                    this.f9939e.e(new OAuthException(10001));
                 }
             }
         }
@@ -164,19 +164,19 @@ public class s extends b.a.p0.a.e2.c.j.f {
             this(sVar);
         }
 
-        @Override // b.a.p0.a.e2.c.e
+        @Override // b.a.p0.a.h2.c.e
         public boolean f() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                b.a.p0.b.l.a.t(this.f9355g.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                b.a.p0.b.l.a.t(this.f9938g.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
                 return false;
             }
             return invokeV.booleanValue;
         }
 
         public c(s sVar) {
-            c.C0379c c0379c;
+            d.C0412d c0412d;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,11 +191,11 @@ public class s extends b.a.p0.a.e2.c.j.f {
                     return;
                 }
             }
-            this.f9355g = sVar;
-            if (sVar.o == null || (c0379c = sVar.n) == null || !c0379c.f8022a) {
+            this.f9938g = sVar;
+            if (sVar.o == null || (c0412d = sVar.n) == null || !c0412d.f8516a) {
                 return;
             }
-            long j = c0379c.f8023b;
+            long j = c0412d.f8517b;
             if (s.t) {
                 String str = "send timeout " + j + "ms msg";
             }
@@ -216,23 +216,23 @@ public class s extends b.a.p0.a.e2.c.j.f {
                 return;
             }
         }
-        t = b.a.p0.a.k.f6397a;
+        t = b.a.p0.a.k.f6863a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(Activity activity, c.C0379c c0379c, Bundle bundle) {
-        super(activity, c0379c, bundle);
+    public s(Activity activity, d.C0412d c0412d, Bundle bundle) {
+        super(activity, c0412d, bundle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, c0379c, bundle};
+            Object[] objArr = {activity, c0412d, bundle};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Activity) objArr2[0], (c.C0379c) objArr2[1], (Bundle) objArr2[2]);
+                super((Activity) objArr2[0], (d.C0412d) objArr2[1], (Bundle) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -242,15 +242,15 @@ public class s extends b.a.p0.a.e2.c.j.f {
         y();
     }
 
-    @Override // b.a.p0.a.e2.c.j.f
+    @Override // b.a.p0.a.h2.c.j.f
     @NonNull
-    public b.a.p0.a.e2.c.e Q() {
+    public b.a.p0.a.h2.c.e Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this, null) : (b.a.p0.a.e2.c.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this, null) : (b.a.p0.a.h2.c.e) invokeV.objValue;
     }
 
-    @Override // b.a.p0.a.e2.c.j.f, b.a.p0.a.e2.c.c
+    @Override // b.a.p0.a.h2.c.j.f, b.a.p0.a.h2.c.c
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -258,13 +258,13 @@ public class s extends b.a.p0.a.e2.c.j.f {
             JSONObject jSONObject = new JSONObject();
             try {
                 boolean isEmpty = TextUtils.isEmpty(this.q);
-                jSONObject.put("ma_id", isEmpty ? M().k() : this.q);
+                jSONObject.put("ma_id", isEmpty ? M().N() : this.q);
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("app_key", isEmpty ? M().k() : this.q);
+                jSONObject2.put("app_key", isEmpty ? M().N() : this.q);
                 jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
-                jSONObject2.put("host_key_hash", b.a.p0.a.e2.c.d.g());
+                jSONObject2.put("host_key_hash", b.a.p0.a.h2.c.d.g());
                 jSONObject2.put("stoken", this.s);
-                String l = b.a.p0.a.c1.a.n().l();
+                String l = b.a.p0.a.c1.a.o().l();
                 if (!TextUtils.isEmpty(l)) {
                     jSONObject2.put("host_api_key", l);
                 }

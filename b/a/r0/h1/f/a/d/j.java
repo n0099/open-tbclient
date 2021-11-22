@@ -26,7 +26,7 @@ public class j extends b.a.r0.h1.f.a.d.a<b.a.r0.h1.f.a.e.e, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HotTopicTabThreadItem f17204a;
+        public HotTopicTabThreadItem f18672a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HotTopicTabThreadItem hotTopicTabThreadItem) {
@@ -46,7 +46,7 @@ public class j extends b.a.r0.h1.f.a.d.a<b.a.r0.h1.f.a.e.e, a> {
                     return;
                 }
             }
-            this.f17204a = hotTopicTabThreadItem;
+            this.f18672a = hotTopicTabThreadItem;
         }
 
         public void a(b.a.r0.h1.f.a.e.e eVar) {
@@ -54,20 +54,20 @@ public class j extends b.a.r0.h1.f.a.d.a<b.a.r0.h1.f.a.e.e, a> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) || eVar == null) {
                 return;
             }
-            this.f17204a.bindData(eVar);
+            this.f18672a.bindData(eVar);
         }
 
         public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f17204a.onChangeSkinType(i2);
+                this.f18672a.onChangeSkinType(i2);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), b.a.r0.h1.f.a.e.a.f17211b);
+        super(tbPageContext.getPageActivity(), b.a.r0.h1.f.a.e.a.f18679b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +87,7 @@ public class j extends b.a.r0.h1.f.a.d.a<b.a.r0.h1.f.a.e.e, a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: l0 */
     public a T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -104,7 +104,7 @@ public class j extends b.a.r0.h1.f.a.d.a<b.a.r0.h1.f.a.e.e, a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.r0.h1.f.a.d.a, b.a.e.l.e.a
+    @Override // b.a.r0.h1.f.a.d.a, b.a.e.m.e.a
     /* renamed from: m0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.h1.f.a.e.e eVar, a aVar) {
         InterceptResult invokeCommon;

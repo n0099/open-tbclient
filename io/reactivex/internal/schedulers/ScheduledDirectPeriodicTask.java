@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ScheduledDirectPeriodicTask extends AbstractDirectTask implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1811839108042568751L;

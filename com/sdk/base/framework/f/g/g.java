@@ -15,13 +15,13 @@ public abstract class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f68240a;
+    public static final g f69160a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f68241b;
+    public static final g f69161b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static g f68242c;
+    public static g f69162c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public abstract class g {
                 return;
             }
         }
-        f68242c = new g(OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE, 0) { // from class: com.sdk.base.framework.f.g.h
+        f69162c = new g(OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE, 0) { // from class: com.sdk.base.framework.f.g.h
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -69,7 +69,7 @@ public abstract class g {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE : (String) invokeV.objValue;
             }
         };
-        f68240a = new g(OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM, 1) { // from class: com.sdk.base.framework.f.g.i
+        f69160a = new g(OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM, 1) { // from class: com.sdk.base.framework.f.g.i
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -101,7 +101,7 @@ public abstract class g {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM : (String) invokeV.objValue;
             }
         };
-        f68241b = new g("CTC", 2) { // from class: com.sdk.base.framework.f.g.j
+        f69161b = new g("CTC", 2) { // from class: com.sdk.base.framework.f.g.j
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

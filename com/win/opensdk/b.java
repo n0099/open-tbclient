@@ -6,7 +6,6 @@ import android.os.IInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 /* loaded from: classes2.dex */
 public abstract class b extends Binder implements c {
     public static /* synthetic */ Interceptable $ic;
@@ -19,7 +18,7 @@ public abstract class b extends Binder implements c {
             if (iBinder == null) {
                 return null;
             }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+            IInterface queryLocalInterface = iBinder.queryLocalInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
             return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new a(iBinder) : (c) queryLocalInterface;
         }
         return (c) invokeL.objValue;

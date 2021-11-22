@@ -14,7 +14,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b.a.a0.a.g.b f14186a;
+    public static b.a.a0.a.g.b f14953a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -24,14 +24,14 @@ public class d {
 
         /* renamed from: b.a.q0.w.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0712a implements e {
+        public class C0748a implements e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ b.a.a0.a.g.a f14187a;
+            public final /* synthetic */ b.a.a0.a.g.a f14954a;
 
-            public C0712a(a aVar, b.a.a0.a.g.a aVar2) {
+            public C0748a(a aVar, b.a.a0.a.g.a aVar2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,14 +46,14 @@ public class d {
                         return;
                     }
                 }
-                this.f14187a = aVar2;
+                this.f14954a = aVar2;
             }
 
             @Override // b.a.q0.w.e
             public void onFileDownloadFailed(DownloadData downloadData, int i2, String str) {
                 b.a.a0.a.g.a aVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i2, str) == null) || (aVar = this.f14187a) == null) {
+                if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i2, str) == null) || (aVar = this.f14954a) == null) {
                     return;
                 }
                 aVar.onFailed(new Exception(str));
@@ -63,7 +63,7 @@ public class d {
             public void onFileDownloadSucceed(DownloadData downloadData) {
                 b.a.a0.a.g.a aVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || (aVar = this.f14187a) == null) {
+                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || (aVar = this.f14954a) == null) {
                     return;
                 }
                 aVar.b(downloadData.getPath());
@@ -83,7 +83,7 @@ public class d {
             public void onFileUpdateProgress(DownloadData downloadData) {
                 b.a.a0.a.g.a aVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || (aVar = this.f14187a) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || (aVar = this.f14954a) == null) {
                     return;
                 }
                 aVar.a(0L, 100L, (int) (downloadData.getLength() / downloadData.getSize()));
@@ -94,7 +94,7 @@ public class d {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                    b.a.a0.a.g.a aVar = this.f14187a;
+                    b.a.a0.a.g.a aVar = this.f14954a;
                     if (aVar != null) {
                         aVar.onStarted();
                         return true;
@@ -126,7 +126,7 @@ public class d {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setPath(str2 + "/" + str3);
                 downloadData.setUrl(str);
-                downloadData.setCallback(new C0712a(this, aVar));
+                downloadData.setCallback(new C0748a(this, aVar));
                 f.k().l(downloadData);
             }
         }
@@ -145,13 +145,13 @@ public class d {
                 return;
             }
         }
-        f14186a = new a();
+        f14953a = new a();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            b.a.a0.a.b.q(f14186a);
+            b.a.a0.a.b.q(f14953a);
         }
     }
 }

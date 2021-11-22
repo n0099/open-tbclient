@@ -34,7 +34,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Pattern f20431a;
+    public static Pattern f21953a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,7 +50,7 @@ public class c {
                 return;
             }
         }
-        f20431a = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+        f21953a = Pattern.compile("(#\\([^#\\)\\(]+\\))");
     }
 
     public static String a(String str) {
@@ -257,8 +257,8 @@ public class c {
                 return null;
             }
             d dVar = new d();
-            dVar.f20116a = split[0];
-            dVar.f20117b = split[1];
+            dVar.f21638a = split[0];
+            dVar.f21639b = split[1];
             return dVar;
         }
         return (d) invokeL.objValue;
@@ -364,7 +364,7 @@ public class c {
             if (chatMessage == null) {
                 return -1L;
             }
-            if (b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), -1L) == chatMessage.getUserId()) {
+            if (b.a.e.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), -1L) == chatMessage.getUserId()) {
                 return chatMessage.getToUserId();
             }
             return chatMessage.getUserId();
@@ -493,7 +493,7 @@ public class c {
             if (str == null) {
                 return null;
             }
-            Matcher matcher = f20431a.matcher(str);
+            Matcher matcher = f21953a.matcher(str);
             while (matcher.find()) {
                 String group = matcher.group();
                 str = str.replace(group, group.replace(SmallTailInfo.EMOTION_PREFIX, PreferencesUtil.LEFT_MOUNT).replace(SmallTailInfo.EMOTION_SUFFIX, PreferencesUtil.RIGHT_MOUNT));

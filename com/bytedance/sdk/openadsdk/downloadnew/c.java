@@ -28,16 +28,16 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public InputStream f61700a;
+        public InputStream f62599a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, String> f61701b;
+        public Map<String, String> f62600b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f61702c;
+        public int f62601c;
 
         /* renamed from: d  reason: collision with root package name */
-        public HttpURLConnection f61703d;
+        public HttpURLConnection f62602d;
 
         public a(InputStream inputStream, Map<String, String> map, int i2, HttpURLConnection httpURLConnection) {
             Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public class c {
                     return;
                 }
             }
-            this.f61700a = inputStream;
-            this.f61701b = map;
-            this.f61702c = i2;
-            this.f61703d = httpURLConnection;
+            this.f62599a = inputStream;
+            this.f62600b = map;
+            this.f62601c = i2;
+            this.f62602d = httpURLConnection;
         }
     }
 

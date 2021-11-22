@@ -1,6 +1,6 @@
 package b.a.r0.h1.h.k;
 
-import b.a.e.e.d.l;
+import b.a.e.f.d.l;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
@@ -25,32 +25,32 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final g f17486i;
+    public static final g f18955i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DataRes f17487a;
+    public DataRes f18956a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DataRes f17488b;
+    public DataRes f18957b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f17489c;
+    public int f18958c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f17490d;
+    public String f18959d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f17491e;
+    public boolean f18960e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f17492f;
+    public boolean f18961f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f17493g;
+    public boolean f18962g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f17494h;
+    public boolean f18963h;
 
     /* loaded from: classes4.dex */
     public class a implements RecPersonalizePageModel.b {
@@ -58,7 +58,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f17495a;
+        public final /* synthetic */ g f18964a;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -75,16 +75,16 @@ public class g {
                     return;
                 }
             }
-            this.f17495a = gVar;
+            this.f18964a = gVar;
         }
 
         @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.b
         public void a(DataRes dataRes, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                this.f17495a.f17488b = dataRes;
-                this.f17495a.f17491e = z;
-                this.f17495a.f17492f = z2;
+                this.f18964a.f18957b = dataRes;
+                this.f18964a.f18960e = z;
+                this.f18964a.f18961f = z2;
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_GET_NET_CACHE_KEY);
             }
         }
@@ -93,8 +93,8 @@ public class g {
         public void onLoadError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f17495a.f17489c = i2;
-                this.f17495a.f17490d = str;
+                this.f18964a.f18958c = i2;
+                this.f18964a.f18959d = str;
             }
         }
     }
@@ -124,9 +124,9 @@ public class g {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.q0.d1.e eVar = new b.a.q0.d1.e();
-                eVar.f12090b = "";
-                eVar.f12089a = 0;
+                b.a.q0.c1.e eVar = new b.a.q0.c1.e();
+                eVar.f12764b = "";
+                eVar.f12763a = 0;
                 RecPersonalizePageModel.f().g(1, 0, eVar, 1, 0);
             }
         }
@@ -145,7 +145,7 @@ public class g {
                 return;
             }
         }
-        f17486i = new g();
+        f18955i = new g();
     }
 
     public g() {
@@ -161,25 +161,25 @@ public class g {
                 return;
             }
         }
-        this.f17489c = 0;
-        this.f17493g = LaunchUpPrefetchSwitch.getIsOn();
-        this.f17494h = false;
+        this.f18958c = 0;
+        this.f18962g = LaunchUpPrefetchSwitch.getIsOn();
+        this.f18963h = false;
     }
 
     public static g h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f17486i : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f18955i : (g) invokeV.objValue;
     }
 
     public DataRes f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.f17493g) {
+            if (!this.f18962g) {
                 j();
             }
-            return this.f17487a;
+            return this.f18956a;
         }
         return (DataRes) invokeV.objValue;
     }
@@ -188,19 +188,19 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f17494h) {
-                this.f17494h = false;
+            if (this.f18963h) {
+                this.f18963h = false;
                 RecPersonalizePageModel.b e2 = RecPersonalizePageModel.f().e();
                 if (e2 != null) {
-                    if (this.f17489c == 0 && this.f17488b == null) {
+                    if (this.f18958c == 0 && this.f18957b == null) {
                         return true;
                     }
-                    int i2 = this.f17489c;
+                    int i2 = this.f18958c;
                     if (i2 == 0) {
-                        e2.a(this.f17488b, this.f17491e, this.f17492f);
+                        e2.a(this.f18957b, this.f18960e, this.f18961f);
                         return true;
                     }
-                    e2.onLoadError(i2, this.f17490d);
+                    e2.onLoadError(i2, this.f18959d);
                     return true;
                 }
                 return true;
@@ -238,7 +238,7 @@ public class g {
                 if (TbSingleton.getInstance().getForceRefreshHomeRecommend()) {
                     TbSingleton.getInstance().setForceRefreshHomeRecommend(false);
                 } else if (dataRes != null && dataRes.thread_list != null && dataRes.thread_list.size() > 0 && !i()) {
-                    this.f17487a = dataRes;
+                    this.f18956a = dataRes;
                 }
             } catch (IOException e3) {
                 BdLog.e(e3);
@@ -248,12 +248,12 @@ public class g {
 
     public void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && PermissionUtil.isAgreePrivacyPolicy() && this.f17493g) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && PermissionUtil.isAgreePrivacyPolicy() && this.f18962g) {
             j();
-            if (this.f17487a == null) {
+            if (this.f18956a == null) {
                 RecPersonalizePageModel.f().n(new a(this));
-                b.a.e.e.m.e.a().post(new b(this));
-                this.f17494h = true;
+                b.a.e.f.m.e.a().post(new b(this));
+                this.f18963h = true;
                 return;
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_GET_CACHE_KEY);

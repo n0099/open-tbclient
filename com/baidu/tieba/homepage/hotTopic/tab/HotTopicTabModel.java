@@ -3,8 +3,8 @@ package com.baidu.tieba.homepage.hotTopic.tab;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.a.f;
-import b.a.e.e.p.j;
-import b.a.e.l.e.n;
+import b.a.e.f.p.j;
+import b.a.e.m.e.n;
 import b.a.r0.h1.f.a.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
@@ -27,19 +27,19 @@ public class HotTopicTabModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f49572e;
+    public b f50484e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.e.c.g.a f49573f;
+    public b.a.e.c.g.a f50485f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f49574g;
+    public boolean f50486g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f49575h;
+    public String f50487h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49576i;
+    public int f50488i;
     public final HashMap<String, List<n>> j;
 
     /* loaded from: classes9.dex */
@@ -48,7 +48,7 @@ public class HotTopicTabModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicTabModel f49577a;
+        public final /* synthetic */ HotTopicTabModel f50489a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HotTopicTabModel hotTopicTabModel, int i2, int i3) {
@@ -69,25 +69,25 @@ public class HotTopicTabModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f49577a = hotTopicTabModel;
+            this.f50489a = hotTopicTabModel;
         }
 
         @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f49577a.f49574g = false;
-                if (this.f49577a.f49572e != null && (responsedMessage instanceof b.a.r0.h1.f.a.f.a) && this.f49577a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
+                this.f50489a.f50486g = false;
+                if (this.f50489a.f50484e != null && (responsedMessage instanceof b.a.r0.h1.f.a.f.a) && this.f50489a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
                     if (responsedMessage.getOrginalMessage() == null) {
-                        this.f49577a.f49572e.netCallback(-1, null);
+                        this.f50489a.f50484e.netCallback(-1, null);
                         return;
                     }
                     HotTopicTabRequest hotTopicTabRequest = (HotTopicTabRequest) responsedMessage.getOrginalMessage().getExtra();
                     b.a.r0.h1.f.a.f.a aVar = (b.a.r0.h1.f.a.f.a) responsedMessage;
-                    if (!TextUtils.isEmpty(this.f49577a.f49575h)) {
-                        this.f49577a.j.put(this.f49577a.f49575h, aVar.getDataList());
+                    if (!TextUtils.isEmpty(this.f50489a.f50487h)) {
+                        this.f50489a.j.put(this.f50489a.f50487h, aVar.getDataList());
                     }
-                    this.f49577a.f49572e.netCallback(responsedMessage.getError(), aVar);
+                    this.f50489a.f50484e.netCallback(responsedMessage.getError(), aVar);
                 }
             }
         }
@@ -111,8 +111,8 @@ public class HotTopicTabModel extends BdBaseModel {
                 return;
             }
         }
-        this.f49575h = "all";
-        this.f49576i = 0;
+        this.f50487h = "all";
+        this.f50488i = 0;
         this.j = new HashMap<>();
         E();
     }
@@ -120,7 +120,7 @@ public class HotTopicTabModel extends BdBaseModel {
     public List<n> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? C(this.f49575h) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? C(this.f50487h) : (List) invokeV.objValue;
     }
 
     public List<n> C(String str) {
@@ -132,27 +132,27 @@ public class HotTopicTabModel extends BdBaseModel {
     public String D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49575h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50487h : (String) invokeV.objValue;
     }
 
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f49573f = new a(this, CmdConfigHttp.CMD_HOT_TOPIC_TAB, 309661);
+            this.f50485f = new a(this, CmdConfigHttp.CMD_HOT_TOPIC_TAB, 309661);
         }
     }
 
     public void F(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f49572e = bVar;
+            this.f50484e = bVar;
         }
     }
 
     public void G(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f49575h = str;
+            this.f50487h = str;
         }
     }
 
@@ -169,7 +169,7 @@ public class HotTopicTabModel extends BdBaseModel {
     public int getTabId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f49576i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f50488i : invokeV.intValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -177,14 +177,14 @@ public class HotTopicTabModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!j.A() || this.f49574g) {
+            if (!j.A() || this.f50486g) {
                 return false;
             }
             HotTopicTabRequest hotTopicTabRequest = new HotTopicTabRequest();
-            hotTopicTabRequest.setTabCode(this.f49575h);
+            hotTopicTabRequest.setTabCode(this.f50487h);
             hotTopicTabRequest.setTag(this.unique_id);
             boolean sendMessage = MessageManager.getInstance().sendMessage(hotTopicTabRequest);
-            this.f49574g = sendMessage;
+            this.f50486g = sendMessage;
             return sendMessage;
         }
         return invokeV.booleanValue;
@@ -193,15 +193,15 @@ public class HotTopicTabModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f49573f);
-            this.f49574g = false;
+            MessageManager.getInstance().unRegisterListener(this.f50485f);
+            this.f50486g = false;
         }
     }
 
     public void setTabId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f49576i = i2;
+            this.f50488i = i2;
         }
     }
 
@@ -210,8 +210,8 @@ public class HotTopicTabModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) {
             super.setUniqueId(bdUniqueId);
-            this.f49573f.setTag(bdUniqueId);
-            registerListener(this.f49573f);
+            this.f50485f.setTag(bdUniqueId);
+            registerListener(this.f50485f);
         }
     }
 }

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.h0.c;
 import b.a.q0.h0.d;
 import com.baidu.adp.framework.MessageManager;
@@ -30,10 +30,10 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f51479a;
+    public ImageView f52391a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CustomMessageListener f51480b;
+    public CustomMessageListener f52392b;
 
     /* loaded from: classes9.dex */
     public static class a extends CustomMessageListener {
@@ -73,7 +73,7 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
             if (((d) customResponsedMessage.getData()).getContext() == null || (fragmentTabStructure = memberCenterDelegateStatic.getFragmentTabStructure()) == null) {
                 return;
             }
-            fragmentTabStructure.f12612a.setArguments(new Bundle());
+            fragmentTabStructure.f13359a.setArguments(new Bundle());
         }
     }
 
@@ -83,7 +83,7 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberCenterDelegateStatic f51481a;
+        public final /* synthetic */ MemberCenterDelegateStatic f52393a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(MemberCenterDelegateStatic memberCenterDelegateStatic, int i2) {
@@ -103,7 +103,7 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
                     return;
                 }
             }
-            this.f51481a = memberCenterDelegateStatic;
+            this.f52393a = memberCenterDelegateStatic;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -112,16 +112,16 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    this.f51481a.f51479a.setVisibility(8);
+                    this.f52393a.f52391a.setVisibility(8);
                 } else if (!TbadkCoreApplication.isLogin()) {
-                    this.f51481a.f51479a.setVisibility(8);
+                    this.f52393a.f52391a.setVisibility(8);
                 } else {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     b.a.q0.s.e0.b j = b.a.q0.s.e0.b.j();
                     if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() > j.l("maintab_member_center_red_tip_" + currentAccount, 0L)) {
-                        this.f51481a.f51479a.setVisibility(0);
+                        this.f52393a.f52391a.setVisibility(0);
                     } else {
-                        this.f51481a.f51479a.setVisibility(8);
+                        this.f52393a.f52391a.setVisibility(8);
                     }
                 }
             }
@@ -164,9 +164,9 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            cVar.f12612a = new MemberCenterFragment();
-            cVar.f12616e = 14;
-            cVar.f12613b = R.string.member;
+            cVar.f13359a = new MemberCenterFragment();
+            cVar.f13363e = 14;
+            cVar.f13360b = R.string.member;
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -178,13 +178,13 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.f51479a = new ImageView(context);
+            this.f52391a = new ImageView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f45978f = this.mIndicator;
-            aVar.f45975c = l.e(context, 3.0f);
-            ImageView imageView = this.f51479a;
-            aVar.f45973a = imageView;
-            aVar.f45976d = R.drawable.icon_news_down_bar_one;
+            aVar.f46828f = this.mIndicator;
+            aVar.f46825c = l.e(context, 3.0f);
+            ImageView imageView = this.f52391a;
+            aVar.f46823a = imageView;
+            aVar.f46826d = R.drawable.icon_news_down_bar_one;
             imageView.setVisibility(8);
             this.mIndicator.addTip("member_center_red_tip", aVar);
             return this.mIndicator;
@@ -204,7 +204,7 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAdd();
-            this.f51480b = new b(this, 2016459);
+            this.f52392b = new b(this, 2016459);
         }
     }
 
@@ -213,8 +213,8 @@ public class MemberCenterDelegateStatic extends b.a.q0.h0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onRemove();
-            this.f51479a = null;
-            MessageManager.getInstance().unRegisterListener(this.f51480b);
+            this.f52391a = null;
+            MessageManager.getInstance().unRegisterListener(this.f52392b);
         }
     }
 }

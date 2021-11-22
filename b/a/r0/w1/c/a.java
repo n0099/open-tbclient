@@ -14,7 +14,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f25361a;
+    public List<String> f26878a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public class a {
     public void a(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-            this.f25361a = new ArrayList();
+            this.f26878a = new ArrayList();
             if (jSONArray == null || jSONArray.length() <= 0) {
                 return;
             }
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 String optString = jSONArray.optString(i2);
                 if (!StringUtils.isNull(optString)) {
-                    this.f25361a.add(optString);
+                    this.f26878a.add(optString);
                 }
             }
         }

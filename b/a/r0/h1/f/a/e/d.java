@@ -19,7 +19,7 @@ public class d extends b.a.q0.s.q.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c> f17220e;
+    public List<c> f18688e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class d extends b.a.q0.s.q.a {
     public List<c> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17220e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18688e : (List) invokeV.objValue;
     }
 
     @Override // b.a.q0.s.q.a
@@ -61,17 +61,17 @@ public class d extends b.a.q0.s.q.a {
         return (d2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.f17210a : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.f18678a : (BdUniqueId) invokeV.objValue;
     }
 
     public void i(List<c> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f17220e = list;
+            this.f18688e = list;
         }
     }
 
@@ -90,11 +90,11 @@ public class d extends b.a.q0.s.q.a {
                 return;
             }
         }
-        this.f17220e = new ArrayList();
+        this.f18688e = new ArrayList();
         int size = list.size();
         for (int i4 = 0; i4 < size; i4++) {
-            this.f17220e.add(new c(list.get(i4), i4));
+            this.f18688e.add(new c(list.get(i4), i4));
         }
-        this.f17220e.add(new c());
+        this.f18688e.add(new c());
     }
 }

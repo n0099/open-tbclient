@@ -52,13 +52,13 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53496a;
+        public String f54415a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53497b;
+        public String f54416b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f53498c;
+        public int f54417c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -81,13 +81,13 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f53499a;
+        public int f54418a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53500b;
+        public String f54419b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f53501c;
+        public String f54420c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -110,10 +110,10 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f53502d;
+        public String f54421d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f53503e;
+        public String f54422e;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -136,10 +136,10 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f53504d;
+        public String f54423d;
 
         /* renamed from: e  reason: collision with root package name */
-        public h f53505e;
+        public h f54424e;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -162,7 +162,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public String[] f53506d;
+        public String[] f54425d;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -185,10 +185,10 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f53507a;
+        public String f54426a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53508b;
+        public String f54427b;
 
         public f() {
             Interceptable interceptable = $ic;
@@ -231,7 +231,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f53509d;
+        public String f54428d;
 
         public h() {
             Interceptable interceptable = $ic;
@@ -290,9 +290,9 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         if (optJSONObject != null) {
             a aVar = new a();
             this.backgroundInfo = aVar;
-            aVar.f53496a = optJSONObject.optString("img", "");
-            this.backgroundInfo.f53497b = optJSONObject.optString("color", "");
-            this.backgroundInfo.f53498c = optJSONObject.optInt("mode", -1);
+            aVar.f54415a = optJSONObject.optString("img", "");
+            this.backgroundInfo.f54416b = optJSONObject.optString("color", "");
+            this.backgroundInfo.f54417c = optJSONObject.optInt("mode", -1);
         } else {
             this.backgroundInfo = null;
         }
@@ -300,8 +300,8 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         if (optJSONObject2 != null) {
             f fVar = new f();
             this.resultInfo = fVar;
-            fVar.f53507a = optJSONObject2.optString("title", "");
-            this.resultInfo.f53508b = optJSONObject2.optString("desc", "");
+            fVar.f54426a = optJSONObject2.optString("title", "");
+            this.resultInfo.f54427b = optJSONObject2.optString("desc", "");
         } else {
             this.resultInfo = null;
         }
@@ -309,11 +309,11 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         if (optJSONObject3 != null) {
             c cVar = new c();
             this.commitInfo = cVar;
-            cVar.f53499a = optJSONObject3.optInt("type", -1);
-            this.commitInfo.f53503e = optJSONObject3.optString("post_url", "");
-            this.commitInfo.f53500b = optJSONObject3.optString("content", "");
-            this.commitInfo.f53502d = optJSONObject3.optString("check_str", "");
-            this.commitInfo.f53501c = optJSONObject3.optString("tag", "");
+            cVar.f54418a = optJSONObject3.optInt("type", -1);
+            this.commitInfo.f54422e = optJSONObject3.optString("post_url", "");
+            this.commitInfo.f54419b = optJSONObject3.optString("content", "");
+            this.commitInfo.f54421d = optJSONObject3.optString("check_str", "");
+            this.commitInfo.f54420c = optJSONObject3.optString("tag", "");
         } else {
             this.commitInfo = null;
         }
@@ -321,9 +321,9 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         if (optJSONObject4 != null) {
             g gVar = new g();
             this.titleInfo = gVar;
-            gVar.f53499a = optJSONObject4.optInt("type", -1);
-            this.titleInfo.f53500b = optJSONObject4.optString("content", "");
-            this.titleInfo.f53501c = optJSONObject4.optString("tag", "");
+            gVar.f54418a = optJSONObject4.optInt("type", -1);
+            this.titleInfo.f54419b = optJSONObject4.optString("content", "");
+            this.titleInfo.f54420c = optJSONObject4.optString("tag", "");
         } else {
             this.titleInfo = null;
         }
@@ -340,34 +340,34 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                     switch (optInt) {
                         case 1:
                             g gVar2 = new g();
-                            gVar2.f53499a = optInt;
-                            gVar2.f53500b = jSONObject3.optString("content", "");
-                            gVar2.f53501c = jSONObject3.optString("tag", "");
+                            gVar2.f54418a = optInt;
+                            gVar2.f54419b = jSONObject3.optString("content", "");
+                            gVar2.f54420c = jSONObject3.optString("tag", "");
                             b.a.r0.q1.o.k.a.a(this.itemList, gVar2);
                             continue;
                         case 2:
                             c cVar2 = new c();
-                            cVar2.f53499a = optInt;
-                            cVar2.f53500b = jSONObject3.optString("content", "");
-                            cVar2.f53502d = jSONObject3.optString("check_str", "");
-                            cVar2.f53503e = jSONObject3.optString("post_url", "");
-                            cVar2.f53501c = jSONObject3.optString("tag", "");
+                            cVar2.f54418a = optInt;
+                            cVar2.f54419b = jSONObject3.optString("content", "");
+                            cVar2.f54421d = jSONObject3.optString("check_str", "");
+                            cVar2.f54422e = jSONObject3.optString("post_url", "");
+                            cVar2.f54420c = jSONObject3.optString("tag", "");
                             b.a.r0.q1.o.k.a.a(this.itemList, cVar2);
                             continue;
                         case 3:
                         case 4:
                         case 5:
                             d dVar = new d();
-                            dVar.f53499a = optInt;
-                            dVar.f53500b = jSONObject3.optString("content", "");
-                            dVar.f53501c = jSONObject3.optString("tag", "");
-                            dVar.f53504d = jSONObject3.optString("reg_str", "");
+                            dVar.f54418a = optInt;
+                            dVar.f54419b = jSONObject3.optString("content", "");
+                            dVar.f54420c = jSONObject3.optString("tag", "");
+                            dVar.f54423d = jSONObject3.optString("reg_str", "");
                             if (jSONObject3.has("veri_code_info") && (jSONObject2 = jSONObject3.getJSONObject("veri_code_info")) != null) {
                                 h hVar = new h();
-                                hVar.f53500b = jSONObject2.optString("content");
-                                hVar.f53509d = jSONObject2.optString("btn_title");
-                                hVar.f53501c = jSONObject2.optString("tag");
-                                dVar.f53505e = hVar;
+                                hVar.f54419b = jSONObject2.optString("content");
+                                hVar.f54428d = jSONObject2.optString("btn_title");
+                                hVar.f54420c = jSONObject2.optString("tag");
+                                dVar.f54424e = hVar;
                             }
                             b.a.r0.q1.o.k.a.a(this.itemList, dVar);
                             continue;
@@ -375,17 +375,17 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                         case 7:
                         case 8:
                             e eVar = new e();
-                            eVar.f53499a = optInt;
-                            eVar.f53501c = jSONObject3.optString("tag", "");
-                            eVar.f53500b = jSONObject3.optString("content", "");
-                            eVar.f53501c = jSONObject3.optString("tag", "");
+                            eVar.f54418a = optInt;
+                            eVar.f54420c = jSONObject3.optString("tag", "");
+                            eVar.f54419b = jSONObject3.optString("content", "");
+                            eVar.f54420c = jSONObject3.optString("tag", "");
                             if (jSONObject3.has("list") && (jSONArray = jSONObject3.getJSONArray("list")) != null && jSONArray.length() > 0) {
                                 String[] strArr = new String[jSONArray.length()];
                                 while (i4 < jSONArray.length()) {
                                     strArr[i4] = jSONArray.getString(i4);
                                     i4++;
                                 }
-                                eVar.f53506d = strArr;
+                                eVar.f54425d = strArr;
                             }
                             b.a.r0.q1.o.k.a.a(this.itemList, eVar);
                             continue;
@@ -466,7 +466,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
             if (advertAppInfo == null) {
                 return null;
             }
-            return advertAppInfo.e4;
+            return advertAppInfo.f4;
         }
         return (String) invokeV.objValue;
     }
@@ -478,7 +478,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             AdvertAppInfo advertAppInfo = this.appInfo;
             if (advertAppInfo != null) {
-                return advertAppInfo.Z3;
+                return advertAppInfo.a4;
             }
             return 0;
         }

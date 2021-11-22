@@ -20,31 +20,31 @@ public class a implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final InputStream f69294a;
+    public final InputStream f70214a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f69295b;
+    public final int f70215b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f69296c;
+    public final int f70216c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f69297d;
+    public final Object f70217d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f69298e;
+    public final Object f70218e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.f.a f69299f;
+    public com.ss.android.socialbase.downloader.f.a f70219f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.f.a f69300g;
+    public com.ss.android.socialbase.downloader.f.a f70220g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.f.a f69301h;
+    public com.ss.android.socialbase.downloader.f.a f70221h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.f.a f69302i;
+    public com.ss.android.socialbase.downloader.f.a f70222i;
     public com.ss.android.socialbase.downloader.f.a j;
     public com.ss.android.socialbase.downloader.f.a k;
     public volatile boolean l;
@@ -69,14 +69,14 @@ public class a implements b {
                 return;
             }
         }
-        this.f69297d = new Object();
-        this.f69298e = new Object();
+        this.f70217d = new Object();
+        this.f70218e = new Object();
         this.q = new Runnable(this) { // from class: com.ss.android.socialbase.downloader.e.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f69303a;
+            public final /* synthetic */ a f70223a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -93,7 +93,7 @@ public class a implements b {
                         return;
                     }
                 }
-                this.f69303a = this;
+                this.f70223a = this;
             }
 
             /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -106,45 +106,45 @@ public class a implements b {
                     Process.setThreadPriority(10);
                     do {
                         try {
-                            d2 = this.f69303a.d();
-                            d2.f69316c = this.f69303a.f69294a.read(d2.f69314a);
-                            this.f69303a.c(d2);
+                            d2 = this.f70223a.d();
+                            d2.f70236c = this.f70223a.f70214a.read(d2.f70234a);
+                            this.f70223a.c(d2);
                         } catch (Throwable th) {
                             try {
-                                this.f69303a.n = th;
+                                this.f70223a.n = th;
                                 th.printStackTrace();
-                                synchronized (this.f69303a.f69298e) {
-                                    this.f69303a.m = true;
-                                    this.f69303a.f69298e.notify();
-                                    f.a(this.f69303a.f69294a);
+                                synchronized (this.f70223a.f70218e) {
+                                    this.f70223a.m = true;
+                                    this.f70223a.f70218e.notify();
+                                    f.a(this.f70223a.f70214a);
                                     return;
                                 }
                             } catch (Throwable th2) {
-                                synchronized (this.f69303a.f69298e) {
-                                    this.f69303a.m = true;
-                                    this.f69303a.f69298e.notify();
-                                    f.a(this.f69303a.f69294a);
+                                synchronized (this.f70223a.f70218e) {
+                                    this.f70223a.m = true;
+                                    this.f70223a.f70218e.notify();
+                                    f.a(this.f70223a.f70214a);
                                     throw th2;
                                 }
                             }
                         }
-                    } while (d2.f69316c != -1);
-                    synchronized (this.f69303a.f69298e) {
-                        this.f69303a.m = true;
-                        this.f69303a.f69298e.notify();
+                    } while (d2.f70236c != -1);
+                    synchronized (this.f70223a.f70218e) {
+                        this.f70223a.m = true;
+                        this.f70223a.f70218e.notify();
                     }
-                    f.a(this.f69303a.f69294a);
+                    f.a(this.f70223a.f70214a);
                 }
             }
         };
-        this.f69294a = inputStream;
-        this.f69295b = i2;
+        this.f70214a = inputStream;
+        this.f70215b = i2;
         if (i3 < 1) {
             i3 = 1;
         } else if (i3 > 64) {
             i3 = 64;
         }
-        this.f69296c = i3;
+        this.f70216c = i3;
         c();
     }
 
@@ -153,34 +153,34 @@ public class a implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            com.ss.android.socialbase.downloader.f.a aVar = this.f69301h;
+            com.ss.android.socialbase.downloader.f.a aVar = this.f70221h;
             if (aVar != null) {
                 if (!this.l) {
-                    this.f69301h = aVar.f69317d;
-                    aVar.f69317d = null;
+                    this.f70221h = aVar.f70237d;
+                    aVar.f70237d = null;
                     return aVar;
                 }
                 throw new p("");
             }
-            synchronized (this.f69297d) {
+            synchronized (this.f70217d) {
                 if (!this.l) {
-                    com.ss.android.socialbase.downloader.f.a aVar2 = this.f69299f;
-                    if (aVar2 == null && this.p < this.f69296c) {
+                    com.ss.android.socialbase.downloader.f.a aVar2 = this.f70219f;
+                    if (aVar2 == null && this.p < this.f70216c) {
                         this.p++;
-                        return new com.ss.android.socialbase.downloader.f.a(this.f69295b);
+                        return new com.ss.android.socialbase.downloader.f.a(this.f70215b);
                     }
                     while (aVar2 == null) {
-                        this.f69297d.wait();
+                        this.f70217d.wait();
                         if (!this.l) {
-                            aVar2 = this.f69299f;
+                            aVar2 = this.f70219f;
                         } else {
                             throw new p("");
                         }
                     }
-                    this.f69301h = aVar2.f69317d;
-                    this.f69300g = null;
-                    this.f69299f = null;
-                    aVar2.f69317d = null;
+                    this.f70221h = aVar2.f70237d;
+                    this.f70220g = null;
+                    this.f70219f = null;
+                    aVar2.f70237d = null;
                     return aVar2;
                 }
                 throw new p("");
@@ -196,29 +196,29 @@ public class a implements b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
             com.ss.android.socialbase.downloader.f.a aVar2 = this.k;
             if (aVar2 != null) {
-                this.k = aVar2.f69317d;
-                aVar2.f69317d = null;
+                this.k = aVar2.f70237d;
+                aVar2.f70237d = null;
                 return aVar2;
             }
-            synchronized (this.f69298e) {
-                aVar = this.f69302i;
+            synchronized (this.f70218e) {
+                aVar = this.f70222i;
                 if (aVar == null) {
                     do {
                         if (this.m) {
                             f();
                         }
-                        this.f69298e.wait();
-                        aVar = this.f69302i;
+                        this.f70218e.wait();
+                        aVar = this.f70222i;
                     } while (aVar == null);
-                    this.k = aVar.f69317d;
+                    this.k = aVar.f70237d;
                     this.j = null;
-                    this.f69302i = null;
-                    aVar.f69317d = null;
+                    this.f70222i = null;
+                    aVar.f70237d = null;
                 } else {
-                    this.k = aVar.f69317d;
+                    this.k = aVar.f70237d;
                     this.j = null;
-                    this.f69302i = null;
-                    aVar.f69317d = null;
+                    this.f70222i = null;
+                    aVar.f70237d = null;
                 }
             }
             return aVar;
@@ -251,9 +251,9 @@ public class a implements b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this.f69297d) {
+            synchronized (this.f70217d) {
                 this.l = true;
-                this.f69297d.notify();
+                this.f70217d.notify();
             }
             Future future = this.o;
             if (future != null) {
@@ -270,14 +270,14 @@ public class a implements b {
     public void c(com.ss.android.socialbase.downloader.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, aVar) == null) {
-            synchronized (this.f69298e) {
+            synchronized (this.f70218e) {
                 com.ss.android.socialbase.downloader.f.a aVar2 = this.j;
                 if (aVar2 == null) {
                     this.j = aVar;
-                    this.f69302i = aVar;
-                    this.f69298e.notify();
+                    this.f70222i = aVar;
+                    this.f70218e.notify();
                 } else {
-                    aVar2.f69317d = aVar;
+                    aVar2.f70237d = aVar;
                     this.j = aVar;
                 }
             }
@@ -302,15 +302,15 @@ public class a implements b {
     private void b(com.ss.android.socialbase.downloader.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, aVar) == null) {
-            synchronized (this.f69297d) {
-                com.ss.android.socialbase.downloader.f.a aVar2 = this.f69300g;
+            synchronized (this.f70217d) {
+                com.ss.android.socialbase.downloader.f.a aVar2 = this.f70220g;
                 if (aVar2 == null) {
-                    this.f69300g = aVar;
-                    this.f69299f = aVar;
-                    this.f69297d.notify();
+                    this.f70220g = aVar;
+                    this.f70219f = aVar;
+                    this.f70217d.notify();
                 } else {
-                    aVar2.f69317d = aVar;
-                    this.f69300g = aVar;
+                    aVar2.f70237d = aVar;
+                    this.f70220g = aVar;
                 }
             }
         }

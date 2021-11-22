@@ -1,7 +1,6 @@
 package com.yy.gslbsdk.cache;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -112,7 +111,7 @@ public class HttpsLevelMgr {
                     SwitchController.getInstance().deal(1);
                     return 3;
                 }
-                int i2 = jSONObject.getInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
+                int i2 = jSONObject.getInt("level");
                 SwitchController.getInstance().deal(i2);
                 if (i2 >= 0 && 2 >= i2) {
                     setHttpsLevel(i2);

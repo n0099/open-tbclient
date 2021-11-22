@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.pm.PatchManagerService;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class WorkerService extends JobIntentService {
     public static final String ACTION_CLEAN_PATCH = "action_clean_patch";
     public static final String ACTION_INSTALL_PATCH = "action_install_patch";
@@ -56,7 +56,7 @@ public class WorkerService extends JobIntentService {
         }
     };
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class InstallParameter {
         public Bundle extra;
         public int flages;

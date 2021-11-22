@@ -1,7 +1,7 @@
 package b.a.r0.i0;
 
 import android.text.TextUtils;
-import b.a.e.e.d.l;
+import b.a.e.f.d.l;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.cache.BdCacheService;
@@ -23,7 +23,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f17825a;
+    public boolean f19278a;
 
     public c(boolean z) {
         Interceptable interceptable = $ic;
@@ -40,13 +40,13 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 return;
             }
         }
-        this.f17825a = z;
+        this.f19278a = z;
         setPriority(4);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x0283  */
-    /* JADX WARN: Removed duplicated region for block: B:113:0x02af  */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x0282  */
+    /* JADX WARN: Removed duplicated region for block: B:113:0x02ae  */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     /*
@@ -61,7 +61,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, collectionArr)) == null) {
             l<String> c2 = BdCacheService.k().c("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-            if (this.f17825a) {
+            if (this.f19278a) {
                 String str2 = c2.get("dnsproxycachedata");
                 if (str2 != null) {
                     DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) OrmObject.objectWithJsonStr(str2, DnsProxyResponseData.class);
@@ -99,11 +99,11 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 sb2.append(str3);
             }
             String str4 = "http://" + a2 + "/domains/resolve?domains=" + ((Object) sb2) + "&t=" + System.currentTimeMillis();
-            b.a.e.e.j.a.e eVar = new b.a.e.e.j.a.e();
-            b.a.e.e.j.a.c cVar = new b.a.e.e.j.a.c(eVar);
+            b.a.e.f.j.a.e eVar = new b.a.e.f.j.a.e();
+            b.a.e.f.j.a.c cVar = new b.a.e.f.j.a.c(eVar);
             eVar.b().s(str4);
             cVar.e(-1, -1, -1);
-            byte[] bArr = eVar.c().f1812h;
+            byte[] bArr = eVar.c().f1815h;
             if (bArr != null) {
                 try {
                     str = new String(bArr, "UTF-8");
@@ -150,13 +150,13 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                     publishProgress(hashMap3);
                     c2.g("dnsproxycachedata", str);
                     if (!TextUtils.isEmpty(message)) {
-                        b.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                        b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                         statsItem.b("workflow", "dnsproxy_get");
                         statsItem.c("issuc", Boolean.TRUE);
                         statsItem.b("comment", sb == null ? "" : sb.toString());
                         BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
                     } else {
-                        b.a.e.e.n.a statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                        b.a.e.f.n.a statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
                         statsItem2.b("workflow", "dnsproxy_get");
                         statsItem2.c("issuc", Boolean.FALSE);
                         statsItem2.b("comment", message);
@@ -169,17 +169,17 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                     message = dnsProxyResponseData2.getErrno() + " " + dnsProxyResponseData2.getErrmsg();
                 }
             } else if (eVar.a() != null) {
-                message = eVar.a().f1792h;
+                message = eVar.a().f1795h;
             } else {
                 StringBuilder sb4 = new StringBuilder();
-                List<b.a.e.e.j.a.d> d2 = eVar.d();
+                List<b.a.e.f.j.a.d> d2 = eVar.d();
                 if (d2 != null) {
-                    for (b.a.e.e.j.a.d dVar : d2) {
-                        if (dVar != null && !TextUtils.isEmpty(dVar.f1792h)) {
+                    for (b.a.e.f.j.a.d dVar : d2) {
+                        if (dVar != null && !TextUtils.isEmpty(dVar.f1795h)) {
                             if (sb4.length() > 0) {
                                 sb4.append(",");
                             }
-                            sb4.append(dVar.f1792h);
+                            sb4.append(dVar.f1795h);
                         }
                     }
                 }

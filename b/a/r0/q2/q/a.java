@@ -2,7 +2,7 @@ package b.a.r0.q2.q;
 
 import android.content.Intent;
 import android.net.Uri;
-import b.a.e.e.m.e;
+import b.a.e.f.m.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -22,21 +22,21 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f22891a;
+    public boolean f24412a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f22892b;
+    public boolean f24413b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, Integer> f22893c;
+    public HashMap<String, Integer> f24414c;
 
     /* renamed from: b.a.r0.q2.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class RunnableC1116a implements Runnable {
+    public class RunnableC1183a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC1116a(a aVar) {
+        public RunnableC1183a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            HashMap<String, Integer> hashMap = this.f22893c;
+            HashMap<String, Integer> hashMap = this.f24414c;
             if (hashMap == null || uri == null) {
                 return false;
             }
@@ -91,17 +91,17 @@ public class a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22892b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24413b : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f22891a) {
+            if (this.f24412a) {
                 c.f();
             }
-            return this.f22891a;
+            return this.f24412a;
         }
         return invokeV.booleanValue;
     }
@@ -111,20 +111,20 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        boolean z = this.f22891a;
-        this.f22891a = jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0) == 1;
-        this.f22892b = jSONObject.optInt("p2p_config", 0) == 1;
+        boolean z = this.f24412a;
+        this.f24412a = jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0) == 1;
+        this.f24413b = jSONObject.optInt("p2p_config", 0) == 1;
         JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
         if (optJSONArray != null) {
-            this.f22893c = new HashMap<>();
+            this.f24414c = new HashMap<>();
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 String optString = optJSONArray.optString(i2);
                 if (!StringUtils.isNull(optString)) {
-                    this.f22893c.put(optString, 0);
+                    this.f24414c.put(optString, 0);
                 }
             }
         }
-        if (this.f22891a) {
+        if (this.f24412a) {
             c.f();
             if (z) {
                 return;
@@ -132,7 +132,7 @@ public class a {
             Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
             intent.putExtra("pcdn", true);
             TbadkCoreApplication.getInst().getContext().startService(intent);
-            e.a().postDelayed(new RunnableC1116a(this), 3000L);
+            e.a().postDelayed(new RunnableC1183a(this), 3000L);
         }
     }
 }

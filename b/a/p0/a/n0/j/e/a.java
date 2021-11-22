@@ -2,11 +2,10 @@ package b.a.p0.a.n0.j.e;
 
 import android.os.Bundle;
 import b.a.p0.a.k;
-import b.a.p0.a.v1.b.d;
-import b.a.p0.a.v1.b.f;
+import b.a.p0.a.y1.b.e;
+import b.a.p0.a.y1.b.g;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ public class a extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6821a;
+    public static final boolean f7150a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +34,7 @@ public class a extends ProviderDelegation {
                 return;
             }
         }
-        f6821a = k.f6397a;
+        f7150a = k.f6863a;
     }
 
     public a() {
@@ -60,10 +59,10 @@ public class a extends ProviderDelegation {
                 return b.b().c(i2);
             }
             Bundle bundle = new Bundle();
-            bundle.putInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, i2);
-            f b2 = d.b(a.class, bundle);
-            int i3 = b2.a() ? b2.f8485a.getInt("count", 0) : 0;
-            if (f6821a) {
+            bundle.putInt("level", i2);
+            g c2 = e.c(a.class, bundle);
+            int i3 = c2.a() ? c2.f9464a.getInt("count", 0) : 0;
+            if (f7150a) {
                 String str = "GetRecoveryCount level=" + i2 + ";count=" + i3;
             }
             return i3;
@@ -76,7 +75,7 @@ public class a extends ProviderDelegation {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            int i2 = bundle.getInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, -1);
+            int i2 = bundle.getInt("level", -1);
             Bundle bundle2 = new Bundle();
             bundle2.putInt("count", b.b().c(i2));
             return bundle2;

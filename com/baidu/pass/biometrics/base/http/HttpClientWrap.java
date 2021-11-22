@@ -45,29 +45,29 @@ public class HttpClientWrap {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f41739c = "encode";
+    public static final String f42571c = "encode";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f41740d = "ua";
+    public static final String f42572d = "ua";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f41741e = "cuid_2";
+    public static final String f42573e = "cuid_2";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f41742f = "reqid";
+    public static final String f42574f = "reqid";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f41743g = "sp_params";
+    public static final String f42575g = "sp_params";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f41744h = "s1";
+    public static final String f42576h = "s1";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PassHttpClient f41745a;
+    public PassHttpClient f42577a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f41746b;
+    public Context f42578b;
 
     public HttpClientWrap(Context context) {
         Interceptable interceptable = $ic;
@@ -84,8 +84,8 @@ public class HttpClientWrap {
                 return;
             }
         }
-        this.f41745a = PassHttpClient.getInstance();
-        this.f41746b = context;
+        this.f42577a = PassHttpClient.getInstance();
+        this.f42578b = context;
     }
 
     private PassHttpParamDTO a(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, int i2) {
@@ -187,15 +187,15 @@ public class HttpClientWrap {
     public void get(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, int i2, HttpHandlerWrap httpHandlerWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, reqPriority, httpHashMap, list, Integer.valueOf(i2), httpHandlerWrap}) == null) {
-            this.f41745a.get(this.f41746b, a(str, reqPriority, httpHashMap, list, i2), new HttpResponseHandler(this, Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread(), httpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.1
+            this.f42577a.get(this.f42578b, a(str, reqPriority, httpHashMap, list, i2), new HttpResponseHandler(this, Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread(), httpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ HttpHandlerWrap f41747a;
+                public final /* synthetic */ HttpHandlerWrap f42579a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ HttpClientWrap f41748b;
+                public final /* synthetic */ HttpClientWrap f42580b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -216,15 +216,15 @@ public class HttpClientWrap {
                             return;
                         }
                     }
-                    this.f41748b = this;
-                    this.f41747a = httpHandlerWrap;
+                    this.f42580b = this;
+                    this.f42579a = httpHandlerWrap;
                 }
 
                 @Override // com.baidu.pass.http.HttpResponseHandler
                 public void onFailure(Throwable th, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, th, str2) == null) {
-                        this.f41747a.onFailure(th, -1, str2);
+                        this.f42579a.onFailure(th, -1, str2);
                     }
                 }
 
@@ -232,7 +232,7 @@ public class HttpClientWrap {
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f41747a.onFinish();
+                        this.f42579a.onFinish();
                     }
                 }
 
@@ -240,7 +240,7 @@ public class HttpClientWrap {
                 public void onStart() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        this.f41747a.onStart();
+                        this.f42579a.onStart();
                     }
                 }
 
@@ -248,7 +248,7 @@ public class HttpClientWrap {
                 public void onSuccess(int i3, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048579, this, i3, str2) == null) {
-                        this.f41747a.onSuccess(i3, str2);
+                        this.f42579a.onSuccess(i3, str2);
                     }
                 }
             });
@@ -270,7 +270,7 @@ public class HttpClientWrap {
             passHttpParamDTO.url = str;
             passHttpParamDTO.paramsMap = httpHashMap;
             passHttpParamDTO.cookie = list;
-            passHttpParamDTO.userAgent = PassBiometricUtil.getUA(this.f41746b, BeanConstants.tpl);
+            passHttpParamDTO.userAgent = PassBiometricUtil.getUA(this.f42578b, BeanConstants.tpl);
             passHttpParamDTO.connectTimeout = i2;
             passHttpParamDTO.asyncCookie = true;
             return passHttpParamDTO;
@@ -281,15 +281,15 @@ public class HttpClientWrap {
     public void post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, int i2, HttpHandlerWrap httpHandlerWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, reqPriority, httpHashMap, list, Integer.valueOf(i2), httpHandlerWrap}) == null) {
-            this.f41745a.post(this.f41746b, a(str, reqPriority, httpHashMap, list, i2), new HttpResponseHandler(this, Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread(), httpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.3
+            this.f42577a.post(this.f42578b, a(str, reqPriority, httpHashMap, list, i2), new HttpResponseHandler(this, Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread(), httpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ HttpHandlerWrap f41751a;
+                public final /* synthetic */ HttpHandlerWrap f42583a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ HttpClientWrap f41752b;
+                public final /* synthetic */ HttpClientWrap f42584b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -310,15 +310,15 @@ public class HttpClientWrap {
                             return;
                         }
                     }
-                    this.f41752b = this;
-                    this.f41751a = httpHandlerWrap;
+                    this.f42584b = this;
+                    this.f42583a = httpHandlerWrap;
                 }
 
                 @Override // com.baidu.pass.http.HttpResponseHandler
                 public void onFailure(Throwable th, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, th, str2) == null) {
-                        this.f41751a.onFailure(th, -1, str2);
+                        this.f42583a.onFailure(th, -1, str2);
                     }
                 }
 
@@ -326,7 +326,7 @@ public class HttpClientWrap {
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f41751a.onFinish();
+                        this.f42583a.onFinish();
                     }
                 }
 
@@ -334,7 +334,7 @@ public class HttpClientWrap {
                 public void onStart() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        this.f41751a.onStart();
+                        this.f42583a.onStart();
                     }
                 }
 
@@ -342,7 +342,7 @@ public class HttpClientWrap {
                 public void onSuccess(int i3, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048579, this, i3, str2) == null) {
-                        this.f41751a.onSuccess(i3, str2);
+                        this.f42583a.onSuccess(i3, str2);
                     }
                 }
             });
@@ -359,15 +359,15 @@ public class HttpClientWrap {
     public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i2, BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, httpHashMap, list, Integer.valueOf(i2), binaryHttpHandlerWrap}) == null) {
-            this.f41745a.get(this.f41746b, a(str, httpHashMap, list, i2), new BinaryHttpResponseHandler(this, Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread(), binaryHttpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.2
+            this.f42577a.get(this.f42578b, a(str, httpHashMap, list, i2), new BinaryHttpResponseHandler(this, Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread(), binaryHttpHandlerWrap) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BinaryHttpHandlerWrap f41749a;
+                public final /* synthetic */ BinaryHttpHandlerWrap f42581a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ HttpClientWrap f41750b;
+                public final /* synthetic */ HttpClientWrap f42582b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -388,15 +388,15 @@ public class HttpClientWrap {
                             return;
                         }
                     }
-                    this.f41750b = this;
-                    this.f41749a = binaryHttpHandlerWrap;
+                    this.f42582b = this;
+                    this.f42581a = binaryHttpHandlerWrap;
                 }
 
                 @Override // com.baidu.pass.http.HttpResponseHandler
                 public void onFailure(Throwable th, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, th, str2) == null) {
-                        this.f41749a.onFailure(th, -1, str2);
+                        this.f42581a.onFailure(th, -1, str2);
                     }
                 }
 
@@ -404,7 +404,7 @@ public class HttpClientWrap {
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f41749a.onFinish();
+                        this.f42581a.onFinish();
                     }
                 }
 
@@ -412,7 +412,7 @@ public class HttpClientWrap {
                 public void onStart() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        this.f41749a.onStart();
+                        this.f42581a.onStart();
                     }
                 }
 
@@ -420,7 +420,7 @@ public class HttpClientWrap {
                 public void onSuccess(int i3, byte[] bArr) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048579, this, i3, bArr) == null) {
-                        this.f41749a.onSuccess(i3, bArr);
+                        this.f42581a.onSuccess(i3, bArr);
                     }
                 }
             });

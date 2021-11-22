@@ -2,10 +2,10 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
-import b.a.e.e.a.d;
-import b.a.e.e.a.f.c;
-import b.a.e.e.l.b;
-import b.a.e.e.p.l;
+import b.a.e.f.a.d;
+import b.a.e.f.a.f.c;
+import b.a.e.f.l.b;
+import b.a.e.f.p.l;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -119,7 +119,7 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsFromCDN : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, b.a.e.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, b.a.e.f.l.e
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f1859a = diskCancelWorker;
+            bVar.f1862a = diskCancelWorker;
         }
     }
 }

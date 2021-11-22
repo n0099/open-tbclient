@@ -5,9 +5,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import b.a.e.l.e.n;
-import b.a.e.l.e.s;
-import b.a.e.l.e.w;
+import b.a.e.m.e.n;
+import b.a.e.m.e.s;
+import b.a.e.m.e.w;
 import b.a.q0.s.q.x1;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class m extends b.a.e.l.e.a<x1, CardViewHolder<b>> {
+public class m extends b.a.e.m.e.a<x1, CardViewHolder<b>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
@@ -37,10 +37,10 @@ public class m extends b.a.e.l.e.a<x1, CardViewHolder<b>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f21793e;
+        public final /* synthetic */ b f23292e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ m f21794f;
+        public final /* synthetic */ m f23293f;
 
         public a(m mVar, b bVar) {
             Interceptable interceptable = $ic;
@@ -57,19 +57,19 @@ public class m extends b.a.e.l.e.a<x1, CardViewHolder<b>> {
                     return;
                 }
             }
-            this.f21794f = mVar;
-            this.f21793e = bVar;
+            this.f23293f = mVar;
+            this.f23292e = bVar;
         }
 
-        @Override // b.a.e.l.e.w
+        @Override // b.a.e.m.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                this.f21793e.o();
+                this.f23292e.o();
                 StatisticItem statisticItem = new StatisticItem("c13647");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("obj_id", this.f21794f.D(i2) + 1);
-                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f21794f.n);
+                statisticItem.param("obj_id", this.f23293f.D(i2) + 1);
+                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.f23293f.n);
                 TiebaStatic.log(statisticItem);
             }
         }
@@ -108,7 +108,7 @@ public class m extends b.a.e.l.e.a<x1, CardViewHolder<b>> {
             tbImageView.setOnClickListener(this);
             this.n.setConrers(15);
             this.n.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.n.setRadius(b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            this.n.setRadius(b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10));
             this.n.setDrawCorner(true);
             this.n.setAutoChangeStyle(true);
             this.n.setPlaceHolder(2);
@@ -151,10 +151,10 @@ public class m extends b.a.e.l.e.a<x1, CardViewHolder<b>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, x1Var) == null) {
                 if (x1Var != null) {
-                    this.o = x1Var.f13489f;
+                    this.o = x1Var.f14271f;
                     this.n.setScaleType(ImageView.ScaleType.FIT_XY);
                     this.n.setPlaceHolder(2);
-                    this.n.startLoad(x1Var.f13488e, 10, false);
+                    this.n.startLoad(x1Var.f14270e, 10, false);
                 }
                 k(this.m, TbadkCoreApplication.getInst().getSkinType());
             }
@@ -185,7 +185,7 @@ public class m extends b.a.e.l.e.a<x1, CardViewHolder<b>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public CardViewHolder<b> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -199,7 +199,7 @@ public class m extends b.a.e.l.e.a<x1, CardViewHolder<b>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public View Z(int i2, View view, ViewGroup viewGroup, x1 x1Var, CardViewHolder<b> cardViewHolder) {
         InterceptResult invokeCommon;

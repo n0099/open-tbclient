@@ -1,8 +1,8 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.i.d.a.n;
-import b.i.d.c.m;
+import b.h.d.a.n;
+import b.h.d.c.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,13 +17,13 @@ import java.io.Serializable;
 import java.lang.Comparable;
 import java.math.BigInteger;
 import java.util.NoSuchElementException;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public abstract class DiscreteDomain<C extends Comparable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean supportsFastOffset;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class BigIntegerDomain extends DiscreteDomain<BigInteger> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final BigIntegerDomain INSTANCE;
@@ -118,7 +118,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class IntegerDomain extends DiscreteDomain<Integer> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final IntegerDomain INSTANCE;
@@ -245,7 +245,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class LongDomain extends DiscreteDomain<Long> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final LongDomain INSTANCE;
@@ -386,7 +386,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

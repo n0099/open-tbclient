@@ -16,7 +16,7 @@ public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public DownAPPConfirmPolicy f67814f;
+    public DownAPPConfirmPolicy f68735f;
 
     /* loaded from: classes2.dex */
     public interface BasicADListener {
@@ -40,7 +40,7 @@ public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
     public void a(T t) {
         DownAPPConfirmPolicy downAPPConfirmPolicy;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || (downAPPConfirmPolicy = this.f67814f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || (downAPPConfirmPolicy = this.f68735f) == null) {
             return;
         }
         setDownAPPConfirmPolicy(downAPPConfirmPolicy);
@@ -64,8 +64,8 @@ public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
     public void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, downAPPConfirmPolicy) == null) {
-            this.f67814f = downAPPConfirmPolicy;
-            T t = this.f67798a;
+            this.f68735f = downAPPConfirmPolicy;
+            T t = this.f68719a;
             if (t == 0 || downAPPConfirmPolicy == null) {
                 return;
             }

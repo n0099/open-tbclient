@@ -4,8 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.n;
-import b.a.e.l.e.w;
+import b.a.e.m.e.n;
+import b.a.e.m.e.w;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class g extends b.a.e.l.e.a<b.a.r0.g2.c.f, InterestedForumStyleATitleViewHolder> {
+public class g extends b.a.e.m.e.a<b.a.r0.g2.c.f, InterestedForumStyleATitleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,7 +41,7 @@ public class g extends b.a.e.l.e.a<b.a.r0.g2.c.f, InterestedForumStyleATitleView
             }
         }
 
-        @Override // b.a.e.l.e.w
+        @Override // b.a.e.m.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) != null) || !(nVar instanceof b.a.r0.g2.c.f)) {
@@ -68,20 +68,20 @@ public class g extends b.a.e.l.e.a<b.a.r0.g2.c.f, InterestedForumStyleATitleView
                 return;
             }
         }
-        this.f2419e = context;
-        this.f2422h = bdUniqueId;
+        this.f2421e = context;
+        this.f2424h = bdUniqueId;
         c0(new a(this));
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.g2.c.f fVar, InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
         h0(i2, view, viewGroup, fVar, interestedForumStyleATitleViewHolder);
         return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public InterestedForumStyleATitleViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -89,9 +89,9 @@ public class g extends b.a.e.l.e.a<b.a.r0.g2.c.f, InterestedForumStyleATitleView
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             if (b.a.q0.b.d.z()) {
-                inflate = LayoutInflater.from(this.f2419e).inflate(R.layout.item_interested_forum_style_a_title, viewGroup, false);
+                inflate = LayoutInflater.from(this.f2421e).inflate(R.layout.item_interested_forum_style_a_title, viewGroup, false);
             } else {
-                inflate = b.a.q0.b.d.B() ? LayoutInflater.from(this.f2419e).inflate(R.layout.item_interested_forum_style_b_title, viewGroup, false) : null;
+                inflate = b.a.q0.b.d.B() ? LayoutInflater.from(this.f2421e).inflate(R.layout.item_interested_forum_style_b_title, viewGroup, false) : null;
             }
             return new InterestedForumStyleATitleViewHolder(inflate);
         }

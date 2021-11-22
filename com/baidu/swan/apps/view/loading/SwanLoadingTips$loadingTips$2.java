@@ -65,14 +65,14 @@ public final class SwanLoadingTips$loadingTips$2 extends Lambda implements Funct
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (((int) (Math.random() * 2)) != 0) {
-                Application b2 = a.b();
-                if (b2 == null || (resources2 = b2.getResources()) == null) {
+                Application c2 = a.c();
+                if (c2 == null || (resources2 = c2.getResources()) == null) {
                     return null;
                 }
                 return resources2.getStringArray(b.aiapps_loading_tips_prepare);
             }
-            Application b3 = a.b();
-            if (b3 == null || (resources = b3.getResources()) == null) {
+            Application c3 = a.c();
+            if (c3 == null || (resources = c3.getResources()) == null) {
                 return null;
             }
             return resources.getStringArray(b.aiapps_loading_tips_skill);

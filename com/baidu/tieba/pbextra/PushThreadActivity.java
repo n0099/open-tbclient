@@ -52,7 +52,7 @@ public class PushThreadActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PushThreadActivity f52939a;
+        public final /* synthetic */ PushThreadActivity f53856a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PushThreadActivity pushThreadActivity, int i2) {
@@ -72,7 +72,7 @@ public class PushThreadActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f52939a = pushThreadActivity;
+            this.f53856a = pushThreadActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,14 +82,14 @@ public class PushThreadActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && ((z = httpResponsedMessage instanceof PbPushHttpResponseMessage))) {
                 if (httpResponsedMessage.hasError()) {
-                    this.f52939a.showToast(R.string.neterror);
+                    this.f53856a.showToast(R.string.neterror);
                 } else if (z) {
-                    if (this.f52939a.mCurrentPushType == ((PbPushHttpResponseMessage) httpResponsedMessage).getPushType()) {
-                        this.f52939a.setResult(-1, new Intent());
+                    if (this.f53856a.mCurrentPushType == ((PbPushHttpResponseMessage) httpResponsedMessage).getPushType()) {
+                        this.f53856a.setResult(-1, new Intent());
                     } else {
-                        this.f52939a.showToast(R.string.neterror);
+                        this.f53856a.showToast(R.string.neterror);
                     }
-                    this.f52939a.finish();
+                    this.f53856a.finish();
                 }
             }
         }
@@ -101,7 +101,7 @@ public class PushThreadActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushThreadActivity f52940e;
+        public final /* synthetic */ PushThreadActivity f53857e;
 
         public b(PushThreadActivity pushThreadActivity) {
             Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class PushThreadActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f52940e = pushThreadActivity;
+            this.f53857e = pushThreadActivity;
             pushThreadActivity.mCurrentPushType = 0;
         }
 
@@ -126,7 +126,7 @@ public class PushThreadActivity extends BaseActivity {
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f52940e.mPushTypeDatas) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f53857e.mPushTypeDatas) : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -154,15 +154,15 @@ public class PushThreadActivity extends BaseActivity {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
-                View inflate = LayoutInflater.from(this.f52940e.getPageContext().getPageActivity()).inflate(R.layout.push_thread_item, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.f53857e.getPageContext().getPageActivity()).inflate(R.layout.push_thread_item, (ViewGroup) null);
                 TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.iv_item_icon);
                 ImageView imageView = (ImageView) inflate.findViewById(R.id.iv_item_hint);
                 TextView textView = (TextView) inflate.findViewById(R.id.tv_item_title);
-                PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.f52940e.mPushTypeDatas, i2);
+                PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.f53857e.mPushTypeDatas, i2);
                 if (pushTypeData != null) {
                     tbImageView.startLoad(pushTypeData.getIcon(), 10, false);
                     textView.setText(pushTypeData.getName());
-                    if (pushTypeData.getType() == this.f52940e.mCurrentPushType) {
+                    if (pushTypeData.getType() == this.f53857e.mCurrentPushType) {
                         SkinManager.setImageResource(imageView, R.drawable.bg_choose_ok);
                         SkinManager.setViewTextColor(textView, R.color.CAM_X0308);
                     } else {

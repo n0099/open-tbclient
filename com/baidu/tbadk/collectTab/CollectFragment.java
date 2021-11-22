@@ -1,7 +1,7 @@
 package com.baidu.tbadk.collectTab;
 
 import android.os.Bundle;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -22,7 +22,7 @@ public abstract class CollectFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CustomMessageListener f44989e;
+    public final CustomMessageListener f45837e;
     public boolean mIsEnableEdit;
 
     /* loaded from: classes8.dex */
@@ -31,7 +31,7 @@ public abstract class CollectFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CollectFragment f44990a;
+        public final /* synthetic */ CollectFragment f45838a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CollectFragment collectFragment, int i2) {
@@ -51,7 +51,7 @@ public abstract class CollectFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f44990a = collectFragment;
+            this.f45838a = collectFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,9 +59,9 @@ public abstract class CollectFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment collectFragment = this.f44990a;
+                CollectFragment collectFragment = this.f45838a;
                 collectFragment.sendEditEnableMessage(collectFragment.getType());
-                CollectFragment collectFragment2 = this.f44990a;
+                CollectFragment collectFragment2 = this.f45838a;
                 if (collectFragment2.mIsEnableEdit) {
                     return;
                 }
@@ -84,7 +84,7 @@ public abstract class CollectFragment extends BaseFragment {
             }
         }
         this.mIsEnableEdit = false;
-        this.f44989e = new a(this, 2000994);
+        this.f45837e = new a(this, 2000994);
     }
 
     public abstract int getType();
@@ -102,7 +102,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onStart();
-            registerListener(this.f44989e);
+            registerListener(this.f45837e);
         }
     }
 
@@ -111,7 +111,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onStop();
-            MessageManager.getInstance().unRegisterListener(this.f44989e);
+            MessageManager.getInstance().unRegisterListener(this.f45837e);
         }
     }
 

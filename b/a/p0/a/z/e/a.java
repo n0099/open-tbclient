@@ -20,7 +20,7 @@ public class a extends b.a.p0.a.c0.b.b {
 
     /* renamed from: b.a.p0.a.z.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0474a {
+    public static class C0495a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,11 +74,11 @@ public class a extends b.a.p0.a.c0.b.b {
         try {
             a(new JSONObject(str));
         } catch (JSONException e2) {
-            d.c("Camera", "parsing CameraAttrModel occurs exception", e2);
+            d.d("Camera", "parsing CameraAttrModel occurs exception", e2);
         }
     }
 
-    @Override // b.a.p0.a.c0.b.b, b.a.p0.a.l1.a
+    @Override // b.a.p0.a.c0.b.b, b.a.p0.a.m1.a
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -91,14 +91,14 @@ public class a extends b.a.p0.a.c0.b.b {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? C0474a.a(this.o) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? C0495a.a(this.o) : (String) invokeV.objValue;
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b.a.p0.a.l1.e.a.a aVar = this.l;
+            b.a.p0.a.m1.e.a.a aVar = this.l;
             if (aVar == null) {
                 return 0;
             }
@@ -111,7 +111,7 @@ public class a extends b.a.p0.a.c0.b.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            b.a.p0.a.l1.e.a.a aVar = this.l;
+            b.a.p0.a.m1.e.a.a aVar = this.l;
             if (aVar == null) {
                 return 0;
             }

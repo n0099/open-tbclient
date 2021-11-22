@@ -58,13 +58,13 @@ public class u {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f70639a;
+        public String f71559a;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f101a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f70640b;
+        public String f71560b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f102b;
@@ -84,10 +84,10 @@ public class u {
                     return;
                 }
             }
-            this.f70639a = str;
+            this.f71559a = str;
             this.f101a = z;
             this.f102b = z2;
-            this.f70640b = str2;
+            this.f71560b = str2;
         }
     }
 
@@ -304,7 +304,7 @@ public class u {
                         b bVar = (b) hashMap2.remove(serviceInfo.name);
                         boolean z = bVar.f101a;
                         boolean z2 = bVar.f102b;
-                        String str = bVar.f70640b;
+                        String str = bVar.f71560b;
                         if (z != serviceInfo.enabled) {
                             throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));
                         }

@@ -22,31 +22,31 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SafeKeyBoardState f57646a;
+    public SafeKeyBoardState f58568a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f57647b;
+    public Context f58569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f57648c;
+    public ViewGroup f58570c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SafeScrollView f57649d;
+    public SafeScrollView f58571d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f57650e;
+    public View f58572e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f57651f;
+    public boolean f58573f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f57652g;
+    public boolean f58574g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57653h;
+    public int f58575h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57654i;
+    public int f58576i;
     public boolean j;
     public boolean k;
     public boolean l;
@@ -151,7 +151,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     public void dismissKeyBorad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f57649d.dismissKeyBoard(this);
+            this.f58571d.dismissKeyBoard(this);
         }
     }
 
@@ -164,7 +164,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     public int getCloseBtnVisibility() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f57653h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f58575h : invokeV.intValue;
     }
 
     public int getGap() {
@@ -182,13 +182,13 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     public int getHeadLayoutVisibility() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f57654i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58576i : invokeV.intValue;
     }
 
     public SafeKeyBoardState getKeyBoardState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f57646a : (SafeKeyBoardState) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f58568a : (SafeKeyBoardState) invokeV.objValue;
     }
 
     public View.OnClickListener getOnConfirmListener() {
@@ -200,13 +200,13 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     public boolean getUseKeyDot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f57651f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f58573f : invokeV.booleanValue;
     }
 
     public boolean getUseKeyX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f57652g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f58574g : invokeV.booleanValue;
     }
 
     public boolean getUseRandKey() {
@@ -224,21 +224,21 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     public ViewGroup getViewGroup() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f57648c : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f58570c : (ViewGroup) invokeV.objValue;
     }
 
     public View getVisibleView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f57650e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f58572e : (View) invokeV.objValue;
     }
 
     public void initSafeKeyBoardParams(ViewGroup viewGroup, SafeScrollView safeScrollView, View view, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{viewGroup, safeScrollView, view, Boolean.valueOf(z)}) == null) {
-            this.f57648c = viewGroup;
-            this.f57649d = safeScrollView;
-            this.f57650e = view;
+            this.f58570c = viewGroup;
+            this.f58571d = safeScrollView;
+            this.f58572e = view;
             if (z) {
                 safeScrollView.showKeyBoard(viewGroup, this, view);
             }
@@ -266,14 +266,14 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
             requestFocus();
             this.off = layout.getOffsetForHorizontal(layout.getLineForVertical(getScrollY() + ((int) motionEvent.getY())), (int) motionEvent.getX());
             if (hasFocus()) {
-                SafeScrollView safeScrollView = this.f57649d;
+                SafeScrollView safeScrollView = this.f58571d;
                 if (safeScrollView == null) {
-                    GlobalUtils.showInputMethod(this.f57647b, this);
+                    GlobalUtils.showInputMethod(this.f58569b, this);
                     return true;
                 } else if (safeScrollView.isPopupWindowShowing()) {
                     return true;
                 } else {
-                    this.f57649d.showKeyBoard(this.f57648c, this, this.f57650e);
+                    this.f58571d.showKeyBoard(this.f58570c, this, this.f58572e);
                     return true;
                 }
             }
@@ -292,7 +292,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     public void setCloseBtnVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f57653h = i2;
+            this.f58575h = i2;
         }
     }
 
@@ -320,7 +320,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     public void setHeadLayoutVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.f57654i = i2;
+            this.f58576i = i2;
         }
     }
 
@@ -355,14 +355,14 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
     public void setUseKeyDot(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
-            this.f57651f = z;
+            this.f58573f = z;
         }
     }
 
     public void setUseKeyX(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            this.f57652g = z;
+            this.f58574g = z;
         }
     }
 
@@ -399,10 +399,10 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
                 return;
             }
         }
-        this.f57651f = false;
-        this.f57652g = false;
-        this.f57653h = 0;
-        this.f57654i = 0;
+        this.f58573f = false;
+        this.f58574g = false;
+        this.f58575h = 0;
+        this.f58576i = 0;
         this.j = true;
         this.l = true;
         this.m = 0;
@@ -429,22 +429,22 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
                 return;
             }
         }
-        this.f57651f = false;
-        this.f57652g = false;
-        this.f57653h = 0;
-        this.f57654i = 0;
+        this.f58573f = false;
+        this.f58574g = false;
+        this.f58575h = 0;
+        this.f58576i = 0;
         this.j = true;
         this.l = true;
         this.m = 0;
         this.o = false;
         this.p = false;
-        this.f57647b = context;
+        this.f58569b = context;
         setOnLongClickListener(new View.OnLongClickListener(this) { // from class: com.baidu.wallet.base.widget.SafeKeyBoardEditText.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SafeKeyBoardEditText f57655a;
+            public final /* synthetic */ SafeKeyBoardEditText f58577a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -461,7 +461,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
                         return;
                     }
                 }
-                this.f57655a = this;
+                this.f58577a = this;
             }
 
             @Override // android.view.View.OnLongClickListener
@@ -469,8 +469,8 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view)) == null) {
-                    if (this.f57655a.p) {
-                        this.f57655a.requestFocusFromTouch();
+                    if (this.f58577a.p) {
+                        this.f58577a.requestFocusFromTouch();
                         return true;
                     }
                     return false;
@@ -484,7 +484,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SafeKeyBoardEditText f57656a;
+            public final /* synthetic */ SafeKeyBoardEditText f58578a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -501,7 +501,7 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
                         return;
                     }
                 }
-                this.f57656a = this;
+                this.f58578a = this;
             }
 
             @Override // android.view.View.OnFocusChangeListener
@@ -509,25 +509,25 @@ public class SafeKeyBoardEditText extends PluginEditText implements View.OnTouch
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, view, z) == null) {
                     if (!z) {
-                        SafeKeyBoardEditText safeKeyBoardEditText = this.f57656a;
+                        SafeKeyBoardEditText safeKeyBoardEditText = this.f58578a;
                         if (!safeKeyBoardEditText.isAlwaysShow) {
-                            if (safeKeyBoardEditText.f57649d != null) {
-                                this.f57656a.f57649d.dismissKeyBoard(this.f57656a);
+                            if (safeKeyBoardEditText.f58571d != null) {
+                                this.f58578a.f58571d.dismissKeyBoard(this.f58578a);
                             } else {
-                                GlobalUtils.hideInputMethod(this.f57656a.f57647b, this.f57656a);
+                                GlobalUtils.hideInputMethod(this.f58578a.f58569b, this.f58578a);
                             }
                         }
-                    } else if (this.f57656a.l) {
-                        GlobalUtils.hideInputMethod(this.f57656a.f57647b, this.f57656a);
-                        if (this.f57656a.f57649d != null && this.f57656a.f57649d.hasWindowFocus() && !this.f57656a.f57649d.isPopupWindowShowing()) {
-                            SafeScrollView safeScrollView = this.f57656a.f57649d;
-                            ViewGroup viewGroup = this.f57656a.f57648c;
-                            SafeKeyBoardEditText safeKeyBoardEditText2 = this.f57656a;
-                            safeScrollView.showKeyBoard(viewGroup, safeKeyBoardEditText2, safeKeyBoardEditText2.f57650e);
+                    } else if (this.f58578a.l) {
+                        GlobalUtils.hideInputMethod(this.f58578a.f58569b, this.f58578a);
+                        if (this.f58578a.f58571d != null && this.f58578a.f58571d.hasWindowFocus() && !this.f58578a.f58571d.isPopupWindowShowing()) {
+                            SafeScrollView safeScrollView = this.f58578a.f58571d;
+                            ViewGroup viewGroup = this.f58578a.f58570c;
+                            SafeKeyBoardEditText safeKeyBoardEditText2 = this.f58578a;
+                            safeScrollView.showKeyBoard(viewGroup, safeKeyBoardEditText2, safeKeyBoardEditText2.f58572e);
                         }
                     }
-                    if (this.f57656a.n != null) {
-                        this.f57656a.n.onMyFocusChange(view, z);
+                    if (this.f58578a.n != null) {
+                        this.f58578a.n.onMyFocusChange(view, z);
                     }
                 }
             }

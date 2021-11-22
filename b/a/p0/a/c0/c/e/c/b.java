@@ -11,8 +11,8 @@ import org.json.JSONObject;
 public final class b extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int G;
-    public String H;
+    public int H;
+    public String I;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b() {
@@ -31,10 +31,10 @@ public final class b extends c {
                 return;
             }
         }
-        this.H = "";
+        this.I = "";
     }
 
-    @Override // b.a.p0.a.c0.a.c.c, b.a.p0.a.c0.a.d.b, b.a.p0.a.c0.b.b, b.a.p0.a.l1.a
+    @Override // b.a.p0.a.c0.a.c.c, b.a.p0.a.c0.a.d.b, b.a.p0.a.c0.b.b, b.a.p0.a.m1.a
     public void a(JSONObject jSONObject) throws JSONException {
         JSONObject jSONObject2;
         Interceptable interceptable = $ic;
@@ -42,12 +42,12 @@ public final class b extends c {
             return;
         }
         super.a(jSONObject);
-        this.G = jSONObject.optInt("scrollTop");
+        this.H = jSONObject.optInt("scrollTop");
         JSONObject jSONObject3 = this.n;
         if (jSONObject3 != null) {
-            this.H = jSONObject3.optString("overflowY");
+            this.I = jSONObject3.optString("overflowY");
         }
-        b.a.p0.a.l1.e.a.a aVar = this.l;
+        b.a.p0.a.m1.e.a.a aVar = this.l;
         if (aVar == null || (jSONObject2 = this.n) == null) {
             return;
         }

@@ -36,13 +36,13 @@ public abstract class e extends com.google.a.a.b implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, parcel)) == null) {
             if (i2 == 1) {
-                a((Bundle) b.i.a.a.a.a(parcel, Bundle.CREATOR));
+                a((Bundle) b.h.a.a.a.a(parcel, Bundle.CREATOR));
             } else if (i2 == 2) {
-                b((Bundle) b.i.a.a.a.a(parcel, Bundle.CREATOR));
+                b((Bundle) b.h.a.a.a.a(parcel, Bundle.CREATOR));
             } else if (i2 != 3) {
                 return false;
             } else {
-                b.i.a.a.a.a(parcel, Bundle.CREATOR);
+                b.h.a.a.a.a(parcel, Bundle.CREATOR);
                 a();
             }
             return true;

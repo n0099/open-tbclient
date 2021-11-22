@@ -1,8 +1,9 @@
 package com.baidu.tbadk.core.data;
 
-import b.a.e.e.m.b;
+import b.a.e.f.m.b;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -79,7 +80,7 @@ public class ItemData extends OrmObject implements Serializable {
                 this.mIconSize = jSONObject.optDouble("icon_size");
                 this.mIconUrl = jSONObject.optString("icon_url");
                 this.mScore = jSONObject.optDouble("score");
-                this.mStar = jSONObject.optInt("star");
+                this.mStar = jSONObject.optInt(AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR);
                 this.buttonName = jSONObject.optString("button_name");
                 this.buttonLink = jSONObject.optString("button_link");
                 this.buttonLinkType = Integer.valueOf(jSONObject.optInt("button_link_type"));

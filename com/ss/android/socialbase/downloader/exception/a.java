@@ -11,7 +11,7 @@ public class a extends BaseException {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f69306a;
+    public String f70226a;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -28,12 +28,12 @@ public class a extends BaseException {
                 return;
             }
         }
-        this.f69306a = str;
+        this.f70226a = str;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69306a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70226a : (String) invokeV.objValue;
     }
 }

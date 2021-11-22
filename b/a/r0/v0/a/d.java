@@ -1,6 +1,6 @@
 package b.a.r0.v0.a;
 
-import b.a.e.e.d.l;
+import b.a.e.f.d.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -15,7 +15,7 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public l<byte[]> f24219a;
+    public l<byte[]> f25682a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class d {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            l<byte[]> lVar = this.f24219a;
+            l<byte[]> lVar = this.f25682a;
             l.b<byte[]> h2 = (lVar == null || str == null) ? null : lVar.h(str);
-            if (h2 == null || (bArr = h2.f1705b) == null) {
+            if (h2 == null || (bArr = h2.f1708b) == null) {
                 return null;
             }
             return bArr;
@@ -50,9 +50,9 @@ public class d {
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f24219a == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f25682a == null) {
             b.a.q0.s.r.a.f();
-            this.f24219a = b.a.q0.s.r.a.d("tb.bawu_team_info");
+            this.f25682a = b.a.q0.s.r.a.d("tb.bawu_team_info");
         }
     }
 
@@ -62,6 +62,6 @@ public class d {
             return;
         }
         b();
-        this.f24219a.e(str, bArr, TbConfig.MILLS_7DAYS);
+        this.f25682a.e(str, bArr, TbConfig.MILLS_7DAYS);
     }
 }

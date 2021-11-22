@@ -20,21 +20,21 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final VIEW f22987a;
+    public final VIEW f24519a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MODEL f22988b;
+    public MODEL f24520b;
 
     /* renamed from: b.a.r0.r.e.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1123a implements View.OnClickListener {
+    public class View$OnClickListenerC1191a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f22989e;
+        public final /* synthetic */ a f24521e;
 
-        public View$OnClickListenerC1123a(a aVar) {
+        public View$OnClickListenerC1191a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +49,7 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
                     return;
                 }
             }
-            this.f22989e = aVar;
+            this.f24521e = aVar;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r5v2, resolved type: b.a.r0.r.e.g.a */
@@ -57,11 +57,11 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f22989e.f22987a.onClickIntercept(view)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f24521e.f24519a.onClickIntercept(view)) {
                 return;
             }
-            a aVar = this.f22989e;
-            aVar.j(aVar.f22988b);
+            a aVar = this.f24521e;
+            aVar.j(aVar.f24520b);
         }
     }
 
@@ -95,44 +95,44 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
                 return;
             }
         }
-        this.f22987a = view;
+        this.f24519a = view;
         k(model);
-        this.f22988b = model;
-        View actionBar = this.f22987a.getActionBar();
+        this.f24520b = model;
+        View actionBar = this.f24519a.getActionBar();
         if (actionBar != null) {
-            actionBar.setOnClickListener(new View$OnClickListenerC1123a(this));
+            actionBar.setOnClickListener(new View$OnClickListenerC1191a(this));
         }
     }
 
     public MODEL c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22988b : (MODEL) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24520b : (MODEL) invokeV.objValue;
     }
 
     public VIEW d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22987a : (VIEW) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24519a : (VIEW) invokeV.objValue;
     }
 
     @CallSuper
     public void e(@NonNull MODEL model) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, model) == null) {
-            this.f22988b = model;
-            if (this.f22987a == null) {
+            this.f24520b = model;
+            if (this.f24519a == null) {
                 return;
             }
             i();
-            this.f22987a.onStateAndProgressChanged(model.getCurrentState(), model.getPercent());
+            this.f24519a.onStateAndProgressChanged(model.getCurrentState(), model.getPercent());
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f22987a.onProgressChanged(Math.max(this.f22988b.getPercent(), i2));
+            this.f24519a.onProgressChanged(Math.max(this.f24520b.getPercent(), i2));
         }
     }
 
@@ -140,8 +140,8 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f22987a.onProgressChanged(Math.max(this.f22988b.getPercent(), i2));
-            MODEL model = this.f22988b;
+            this.f24519a.onProgressChanged(Math.max(this.f24520b.getPercent(), i2));
+            MODEL model = this.f24520b;
             if (model != null) {
                 model.getCurrentState();
             }
@@ -153,10 +153,10 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
     public void h(@NonNull DownloadStatus downloadStatus) {
         MODEL model;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, downloadStatus) == null) || (model = this.f22988b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, downloadStatus) == null) || (model = this.f24520b) == null) {
             return;
         }
-        this.f22987a.onStatusChanged(downloadStatus);
+        this.f24519a.onStatusChanged(downloadStatus);
         if (downloadStatus != DownloadStatus.STATUS_NONE) {
             i();
         }
@@ -167,10 +167,10 @@ public abstract class a<VIEW extends b, MODEL extends IDownloadModel> {
 
     public void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f22987a.getRealView().getVisibility() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f24519a.getRealView().getVisibility() == 0) {
             return;
         }
-        this.f22987a.getRealView().setVisibility(0);
+        this.f24519a.getRealView().setVisibility(0);
     }
 
     public abstract void j(MODEL model);

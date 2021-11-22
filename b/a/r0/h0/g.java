@@ -16,11 +16,11 @@ public class g extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f16888f;
+    public static final BdUniqueId f18355f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ScoreCardInfo f16889e;
+    public ScoreCardInfo f18356e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class g extends BaseCardInfo {
                 return;
             }
         }
-        f16888f = BdUniqueId.gen();
+        f18355f = BdUniqueId.gen();
     }
 
     public g() {
@@ -55,20 +55,20 @@ public class g extends BaseCardInfo {
     public ScoreCardInfo g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16889e : (ScoreCardInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18356e : (ScoreCardInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f16888f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f18355f : (BdUniqueId) invokeV.objValue;
     }
 
     public void i(ScoreCardInfo scoreCardInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scoreCardInfo) == null) {
-            this.f16889e = scoreCardInfo;
+            this.f18356e = scoreCardInfo;
         }
     }
 }

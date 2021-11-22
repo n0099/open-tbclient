@@ -3,7 +3,7 @@ package b.a.q0.s;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity;

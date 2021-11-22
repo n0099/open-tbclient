@@ -49,6 +49,7 @@ import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.share.ShareUtils;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.Enums;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -1479,8 +1480,8 @@ public class SapiUtils implements NoProguard {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65610, null, str, str2)) == null) {
             String replaceAll = TextUtils.isEmpty(str) ? "0" : str.replaceAll("[^\\d\\.]+", "");
             String replaceAll2 = TextUtils.isEmpty(str2) ? "0" : str2.replaceAll("[^\\d\\.]+", "");
-            String[] split = replaceAll.split("\\.");
-            String[] split2 = replaceAll2.split("\\.");
+            String[] split = replaceAll.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split2 = replaceAll2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             for (String str3 : split) {

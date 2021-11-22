@@ -1,111 +1,38 @@
 package b.a.r0.k2.u.f;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Intent;
+import android.net.Uri;
+import b.a.q0.a.g;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.pb.godreply.LookMoreHttpResMessage;
-import com.baidu.tieba.pb.pb.godreply.LookMoreReqMessage;
-import com.baidu.tieba.pb.pb.godreply.LookMoreSocketResMessage;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class c0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PbModel f19135a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public b f19136b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final BdUniqueId f19137c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final b.a.e.c.g.a f19138d;
-
-    /* loaded from: classes5.dex */
-    public class a extends b.a.e.c.g.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c0 f19139a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(c0 c0Var, int i2, int i3) {
-            super(i2, i3);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c0Var, Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f19139a = c0Var;
-        }
-
-        @Override // b.a.e.c.g.a
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == this.f19139a.f19137c) {
-                if (responsedMessage instanceof LookMoreHttpResMessage) {
-                    LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
-                    List<PostData> data = lookMoreHttpResMessage.getData();
-                    String errorString = lookMoreHttpResMessage.getErrorString();
-                    int error = lookMoreHttpResMessage.getError();
-                    if (error != 0) {
-                        this.f19139a.f19136b.a(error, errorString, "");
-                    } else if (ListUtils.isEmpty(data)) {
-                    } else {
-                        this.f19139a.f19136b.onSuccess(data);
-                    }
-                } else if (responsedMessage instanceof LookMoreSocketResMessage) {
-                    LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
-                    List<PostData> data2 = lookMoreSocketResMessage.getData();
-                    String errorString2 = lookMoreSocketResMessage.getErrorString();
-                    int error2 = lookMoreSocketResMessage.getError();
-                    if (error2 != 0) {
-                        this.f19139a.f19136b.a(error2, errorString2, "");
-                    } else if (data2 != null) {
-                        this.f19139a.f19136b.onSuccess(data2);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(int i2, String str, String str2);
-
-        void onSuccess(List<PostData> list);
-    }
+    public int f20641a;
 
     public c0(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
@@ -119,58 +46,96 @@ public class c0 {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f19138d = new a(this, CmdConfigHttp.CMD_PB_GOD_MORE, 309446);
-        this.f19135a = pbModel;
-        this.f19137c = BdUniqueId.gen();
-        e();
-        this.f19138d.setTag(baseFragmentActivity.getUniqueId());
-        MessageManager.getInstance().registerListener(this.f19138d);
-        this.f19136b = null;
     }
 
-    public void c(List<Long> list) {
-        PbModel pbModel;
+    public HashMap<String, Object> a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || (pbModel = this.f19135a) == null || pbModel.P0() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            if (str.startsWith("//")) {
+                str = str.substring(2);
+            }
+            HashMap<String, Object> hashMap = new HashMap<>();
+            String[] split = str.split("[&]");
+            if (split.length == 0) {
+                return null;
+            }
+            for (String str2 : split) {
+                String[] split2 = str2.split("[=]");
+                if (split2.length > 1) {
+                    hashMap.put(split2[0], split2[1]);
+                }
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public void b(Intent intent, g.b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, bVar) == null) || intent == null || intent.getParcelableExtra(IntentConfig.KEY_URI) == null) {
             return;
         }
-        int k = b.a.e.e.p.l.k(TbadkCoreApplication.getInst());
-        int i2 = b.a.e.e.p.l.i(TbadkCoreApplication.getInst());
-        LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
-        lookMoreReqMessage.setKz(Long.valueOf(b.a.e.e.m.b.g(this.f19135a.f52415f, 0L)));
-        lookMoreReqMessage.setPost_id(list);
-        lookMoreReqMessage.setSt_type(b.a.e.e.m.b.e(this.f19135a.mStType, 0));
-        lookMoreReqMessage.setWith_floor(1);
-        lookMoreReqMessage.setScr_w(k);
-        lookMoreReqMessage.setScr_h(i2);
-        lookMoreReqMessage.setTag(this.f19137c);
-        MessageManager.getInstance().sendMessage(lookMoreReqMessage);
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f19138d);
+        Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
+        String uri2 = uri.toString();
+        if (StringUtils.isNull(uri2) || !uri2.startsWith("tbpb://")) {
+            return;
         }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_GOD_MORE, b.a.r0.l3.f0.a.a(TbConfig.PB_MORE_GOD_REPLY_URL, 309446));
-            tbHttpMessageTask.setResponsedClass(LookMoreHttpResMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            b.a.r0.l3.f0.a.f(309446, LookMoreSocketResMessage.class, false);
+        String decode = Uri.decode(uri.getEncodedPath());
+        if (StringUtils.isNull(decode)) {
+            return;
         }
+        c(decode);
+        HashMap<String, Object> a2 = a(decode);
+        String str = (String) a2.get("tid");
+        if ("mpush".equals((String) a2.get("fr")) && !StringUtils.isNull(str)) {
+            TiebaStatic.log(new StatisticItem("c11895").param("tid", str));
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SCHEMA_UPLOAD);
+        httpMessage.addParam("call_url", uri2);
+        MessageManager.getInstance().sendMessage(httpMessage);
+        bVar.onCallBack(a2);
     }
 
-    public void f(b bVar) {
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f19136b = bVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (str.startsWith("//")) {
+                str = str.substring(2);
+            }
+            Map<String, String> paramPair = UrlManager.getParamPair(str);
+            if (paramPair != null) {
+                this.f20641a = 5;
+                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
+                b.a.q0.a.w.b(statisticItem, paramPair);
+                statisticItem.param("obj_locate", paramPair.get("obj_locate"));
+                statisticItem.param("obj_type", 1);
+                statisticItem.param("tid", paramPair.get("tid"));
+                statisticItem.param("obj_source", paramPair.get("obj_source"));
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2));
+                statisticItem.param(TiebaStatic.Params.OBJ_TO, 3);
+                statisticItem.param("obj_id", paramPair.get(TiebaStatic.Params.BDID));
+                statisticItem.param("obj_name", TbadkCoreApplication.getInst().getStartType());
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, 1);
+                if (!b.a.e.f.p.k.isEmpty(paramPair.get("ext_log"))) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(paramPair.get("ext_log"));
+                        Iterator<String> keys = jSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            statisticItem.param(next, jSONObject.getString(next));
+                        }
+                    } catch (Exception e2) {
+                        BdLog.e(e2.getMessage());
+                    }
+                }
+                TiebaStatic.log(statisticItem);
+            }
         }
     }
 }

@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class be implements TextView.OnEditorActionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f56827a;
+    public final /* synthetic */ FeedbackInputActivity f57749a;
 
     public be(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class be implements TextView.OnEditorActionListener {
                 return;
             }
         }
-        this.f56827a = feedbackInputActivity;
+        this.f57749a = feedbackInputActivity;
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
@@ -39,7 +39,7 @@ public final class be implements TextView.OnEditorActionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
             if (i2 == 4) {
-                FeedbackInputActivity.a(this.f56827a);
+                FeedbackInputActivity.a(this.f57749a);
                 return false;
             }
             return false;

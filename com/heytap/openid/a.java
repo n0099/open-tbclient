@@ -10,25 +10,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.openid.IOpenID;
 /* loaded from: classes2.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.heytap.openid.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static abstract class AbstractBinderC1882a extends Binder implements a {
+    public static abstract class AbstractBinderC1922a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.heytap.openid.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C1883a implements a {
+        public static class C1923a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f63715a;
+            public IBinder f64615a;
 
-            public C1883a(IBinder iBinder) {
+            public C1923a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,9 +44,10 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f63715a = iBinder;
+                this.f64615a = iBinder;
             }
 
+            @Override // com.heytap.openid.a
             public String a(String str, String str2, String str3) {
                 InterceptResult invokeLLL;
                 Interceptable interceptable = $ic;
@@ -53,11 +55,11 @@ public interface a extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken("com.heytap.openid.IOpenID");
+                        obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
                         obtain.writeString(str);
                         obtain.writeString(str2);
                         obtain.writeString(str3);
-                        this.f63715a.transact(1, obtain, obtain2, 0);
+                        this.f64615a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -72,7 +74,7 @@ public interface a extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63715a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64615a : (IBinder) invokeV.objValue;
             }
         }
 
@@ -83,10 +85,12 @@ public interface a extends IInterface {
                 if (iBinder == null) {
                     return null;
                 }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1883a(iBinder) : (a) queryLocalInterface;
+                IInterface queryLocalInterface = iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1923a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }
     }
+
+    String a(String str, String str2, String str3);
 }

@@ -19,25 +19,25 @@ import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.DislikeInfo;
 /* loaded from: classes5.dex */
-public class z implements b.a.e.l.e.n {
+public class z implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId s;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19532e;
+    public String f21082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19533f;
+    public int f21083f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19534g;
+    public int f21084g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f19535h;
+    public String f21085h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f19536i;
+    public String f21086i;
     public MetaData j;
     public HashMap<String, MetaData> k;
     public boolean l;
@@ -86,14 +86,14 @@ public class z implements b.a.e.l.e.n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, alaLiveInfo) == null) {
             if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
-                this.f19532e = alaLiveInfo.user_info.user_name;
-                this.f19533f = alaLiveInfo.live_status.intValue();
-                this.f19534g = alaLiveInfo.audience_count.intValue();
-                this.f19535h = alaLiveInfo.description;
+                this.f21082e = alaLiveInfo.user_info.user_name;
+                this.f21083f = alaLiveInfo.live_status.intValue();
+                this.f21084g = alaLiveInfo.audience_count.intValue();
+                this.f21085h = alaLiveInfo.description;
                 String str = alaLiveInfo.cover_wide;
-                this.f19536i = str;
+                this.f21086i = str;
                 if (str == null || TextUtils.isEmpty(str)) {
-                    this.f19536i = alaLiveInfo.cover;
+                    this.f21086i = alaLiveInfo.cover;
                 }
                 alaLiveInfo.live_id.longValue();
                 this.l = alaLiveInfo.live_from.intValue() == 1;
@@ -120,7 +120,7 @@ public class z implements b.a.e.l.e.n {
                     b.a.q0.s.q.x0 x0Var = new b.a.q0.s.q.x0();
                     this.q = x0Var;
                     x0Var.j(sparseArray);
-                    this.q.f13484g = sparseArray2;
+                    this.q.f14266g = sparseArray2;
                 } else {
                     this.q = null;
                 }
@@ -138,7 +138,7 @@ public class z implements b.a.e.l.e.n {
         }
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

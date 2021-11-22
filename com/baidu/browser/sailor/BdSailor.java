@@ -29,7 +29,6 @@ import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.baidu.webkit.internal.utils.NetWorkUtils;
-import com.baidu.webkit.sdk.IABTestInterface;
 import com.baidu.webkit.sdk.ICronetListenerInterface;
 import com.baidu.webkit.sdk.INetProbeInterface;
 import com.baidu.webkit.sdk.Log;
@@ -42,7 +41,7 @@ import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BdSailor implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "BdSailor";
@@ -275,24 +274,10 @@ public class BdSailor implements INoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? WebKitFactory.getSdkVersionName() : (String) invokeV.objValue;
     }
 
-    @Nullable
-    public ISailorAbTestInterface getSailorAbTestInterface() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
-            if (abTestInterface == null || !(abTestInterface instanceof ISailorAbTestInterface)) {
-                return null;
-            }
-            return (ISailorAbTestInterface) abTestInterface;
-        }
-        return (ISailorAbTestInterface) invokeV.objValue;
-    }
-
     public BdSailorClient getSailorClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             BdSailorClient bdSailorClient = this.mClient;
             if (bdSailorClient == null) {
                 Log.e(LOG_TAG, "SailorClient can not be NULL!");
@@ -307,7 +292,7 @@ public class BdSailor implements INoProGuard {
     public ISailorCronetListenerInterface getSailorCronetListenerInterface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             ICronetListenerInterface cronetListenerInterface = WebViewFactory.getCronetListenerInterface();
             if (cronetListenerInterface == null || !(cronetListenerInterface instanceof ISailorCronetListenerInterface)) {
                 return null;
@@ -321,7 +306,7 @@ public class BdSailor implements INoProGuard {
     public ISailorNetProbeInterface getSailorNetProbeInterface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             INetProbeInterface netProbeInterface = WebViewFactory.getNetProbeInterface();
             if (netProbeInterface == null || !(netProbeInterface instanceof ISailorNetProbeInterface)) {
                 return null;
@@ -335,7 +320,7 @@ public class BdSailor implements INoProGuard {
         InterceptResult invokeV;
         BdSailorSettings bdSailorSettings;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             synchronized (this) {
                 if (this.mSettings == null) {
                     this.mSettings = new BdSailorSettings();
@@ -350,7 +335,7 @@ public class BdSailor implements INoProGuard {
     public b.a.k.b.b.b.a getStatic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             BdSailorPlatform.getInstance();
             return BdSailorPlatform.getStatic();
         }
@@ -360,13 +345,13 @@ public class BdSailor implements INoProGuard {
     public String getZeusVersionName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? WebKitFactory.getZeusVersionName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? WebKitFactory.getZeusVersionName() : (String) invokeV.objValue;
     }
 
     public boolean hasPictureInCurrentPage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
             List<String> currentPagePictureList = getCurrentPagePictureList();
             if (currentPagePictureList != null) {
                 return currentPagePictureList.contains(str);
@@ -379,7 +364,7 @@ public class BdSailor implements INoProGuard {
     public boolean init(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, context, str)) == null) {
             if (!this.mIsInit) {
                 Log.d(LOG_TAG, "BdSailor::init");
                 if (context == null) {
@@ -400,7 +385,7 @@ public class BdSailor implements INoProGuard {
     public boolean init(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048600, this, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048599, this, context, str, str2)) == null) {
             boolean init = init(context, str);
             if (TextUtils.isEmpty(str2)) {
                 str2 = CommonParam.getCUID(BdSailorPlatform.getInstance().getAppContext());
@@ -415,7 +400,7 @@ public class BdSailor implements INoProGuard {
     public int initAdBlock() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             return -1;
         }
         return invokeV.intValue;
@@ -423,14 +408,14 @@ public class BdSailor implements INoProGuard {
 
     public void initWebkit(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048602, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048601, this, str, z) == null) {
             initWebkit(str, z, (Class<? extends CrashCallback>) null);
         }
     }
 
     public void initWebkit(String str, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             if ((1 == i2 || 2 == i2) && z) {
                 WebKitFactory.forceInitT7(i2);
             }
@@ -440,7 +425,7 @@ public class BdSailor implements INoProGuard {
 
     public void initWebkit(String str, boolean z, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             WebKitFactory.setHttpCacheMbSize(i3);
             initWebkit(str, z, i2);
         }
@@ -450,9 +435,9 @@ public class BdSailor implements INoProGuard {
         StringBuilder sb;
         String zeusInitTiming;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{str, Boolean.valueOf(z), cls}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{str, Boolean.valueOf(z), cls}) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            boolean z2 = BdWebkitManager.a.f36604a == BdSailorPlatform.getWebkitManager().getWebkitType();
+            boolean z2 = BdWebkitManager.a.f37433a == BdSailorPlatform.getWebkitManager().getWebkitType();
             ZeusPerformanceTiming.Stage stage = ZeusPerformanceTiming.Stage.Start;
             if (z2) {
                 ZeusPerformanceTiming.record(stage, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
@@ -481,7 +466,7 @@ public class BdSailor implements INoProGuard {
 
     public void installZeusFromDownload(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
             BdSailorPlatform.getWebkitManager().installZeusFromDownload(str);
         }
     }
@@ -490,7 +475,7 @@ public class BdSailor implements INoProGuard {
         InterceptResult invokeL;
         a featureByName;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
             if (TextUtils.isEmpty(str) || (featureByName = BdSailorPlatform.getInstance().getFeatureByName(str)) == null) {
                 return false;
             }
@@ -502,24 +487,24 @@ public class BdSailor implements INoProGuard {
     public boolean isInit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.mIsInit : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.mIsInit : invokeV.booleanValue;
     }
 
     public boolean isWebkitInit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mIsInit && BdSailorPlatform.getInstance().isWebkitInit() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.mIsInit && BdSailorPlatform.getInstance().isWebkitInit() : invokeV.booleanValue;
     }
 
     public boolean isZeusForceInited() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? isWebkitInit() && WebKitFactory.isForceInitT7() && WebViewFactory.isForceZeusProviderInited() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? isWebkitInit() && WebKitFactory.isForceInitT7() && WebViewFactory.isForceZeusProviderInited() : invokeV.booleanValue;
     }
 
     public void notifyUserPrivacyConfirmIfNeeded(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048611, this, z) == null) || WebKitFactory.isUserPrivacyEnabled() == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048610, this, z) == null) || WebKitFactory.isUserPrivacyEnabled() == z) {
             return;
         }
         if (z) {
@@ -530,13 +515,13 @@ public class BdSailor implements INoProGuard {
 
     public void onAccountLoginSuccess(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
         }
     }
 
     public void onActivityDestory(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, activity) == null) {
             Log.d(LOG_TAG, "BdSailor::onActivityDestory");
             BdSailorPlatform.getInstance().onActivityDestory(activity);
         }
@@ -544,7 +529,7 @@ public class BdSailor implements INoProGuard {
 
     public void onActivityResult(Activity activity, int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{activity, Integer.valueOf(i2), Integer.valueOf(i3), intent}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{activity, Integer.valueOf(i2), Integer.valueOf(i3), intent}) == null) {
             BdSailorPlatform.getInstance().onActivityResult(activity, i2, i3, intent);
         }
     }
@@ -552,7 +537,7 @@ public class BdSailor implements INoProGuard {
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048615, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048614, this, i2, keyEvent)) == null) {
             if (getCurSailorWebView() != null) {
                 getCurSailorWebView().onKeyDown(i2, keyEvent);
                 return false;
@@ -565,7 +550,7 @@ public class BdSailor implements INoProGuard {
     public boolean onKeyUp(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048616, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048615, this, i2, keyEvent)) == null) {
             if (getCurSailorWebView() != null) {
                 getCurSailorWebView().onKeyUp(i2, keyEvent);
                 return false;
@@ -577,13 +562,13 @@ public class BdSailor implements INoProGuard {
 
     public void onLowMemory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
         }
     }
 
     public void onNetworkChanged(NetworkInfo networkInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, networkInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048617, this, networkInfo) == null) {
             if (networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED) {
                 BdSailorPlatform.getInstance().onReceivedNetworkType(networkInfo.getType());
             }
@@ -593,25 +578,25 @@ public class BdSailor implements INoProGuard {
 
     public void onVideoGetUrl(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048619, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048618, this, str, str2) == null) {
         }
     }
 
     public void onWindowSwitched(BdSailorWebView bdSailorWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, bdSailorWebView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, bdSailorWebView) == null) {
         }
     }
 
     public void openUrlInBrowser(Activity activity, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048621, this, activity, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048620, this, activity, str) == null) {
         }
     }
 
     public void pause() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048622, this) == null) && WebKitFactory.isUserPrivacyEnabled() && isInit()) {
+        if ((interceptable == null || interceptable.invokeV(1048621, this) == null) && WebKitFactory.isUserPrivacyEnabled() && isInit()) {
             WebSettingsGlobalBlink.notifyPause();
             Log.d(LOG_TAG, "BdSailor::pause");
             BdSailorPlatform.getInstance().pause();
@@ -620,27 +605,27 @@ public class BdSailor implements INoProGuard {
 
     public void removeForceInitListener(WebKitFactory.IForceInitZeusListener iForceInitZeusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, iForceInitZeusListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048622, this, iForceInitZeusListener) == null) {
             WebKitFactory.removeListener(iForceInitZeusListener);
         }
     }
 
     public void removeListener(IWebkitLoaderListener iWebkitLoaderListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, iWebkitLoaderListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048623, this, iWebkitLoaderListener) == null) {
             BdSailorPlatform.getWebkitManager().removeListener(iWebkitLoaderListener);
         }
     }
 
     public void requestFocusNodeHref(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
         }
     }
 
     public void resume() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048626, this) == null) && WebKitFactory.isUserPrivacyEnabled() && isInit()) {
+        if ((interceptable == null || interceptable.invokeV(1048625, this) == null) && WebKitFactory.isUserPrivacyEnabled() && isInit()) {
             WebSettingsGlobalBlink.notifyResume();
             Log.d(LOG_TAG, "BdSailor::resume");
             BdSailorPlatform.getInstance().resume();
@@ -649,7 +634,7 @@ public class BdSailor implements INoProGuard {
 
     public void setCuid(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048627, this, str) == null) || TextUtils.isEmpty(str) || TextUtils.equals(str, WebKitFactory.getCUIDString())) {
+        if (!(interceptable == null || interceptable.invokeL(1048626, this, str) == null) || TextUtils.isEmpty(str) || TextUtils.equals(str, WebKitFactory.getCUIDString())) {
             return;
         }
         WebKitFactory.setCUIDString(str);
@@ -657,14 +642,14 @@ public class BdSailor implements INoProGuard {
 
     public void setCurrentSailorWebView(BdSailorWebView bdSailorWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, bdSailorWebView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048627, this, bdSailorWebView) == null) {
             this.mCurSailorWebView = bdSailorWebView;
         }
     }
 
     public void setLocation(BdGeoLocationInfo bdGeoLocationInfo, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048629, this, bdGeoLocationInfo, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048628, this, bdGeoLocationInfo, z) == null) {
             ZeusGeoLocationInfo zeusGeoLocationInfo = new ZeusGeoLocationInfo();
             zeusGeoLocationInfo.setLatitude(bdGeoLocationInfo.getLatitude());
             zeusGeoLocationInfo.setLongitude(bdGeoLocationInfo.getLongitude());
@@ -681,24 +666,24 @@ public class BdSailor implements INoProGuard {
 
     public void setSailorAbTestInterface(ISailorAbTestInterface iSailorAbTestInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, iSailorAbTestInterface) == null) {
+        if (interceptable == null || interceptable.invokeL(1048629, this, iSailorAbTestInterface) == null) {
             WebViewFactory.setAbTestInterface(iSailorAbTestInterface);
         }
     }
 
     public void setSailorClient(BdSailorClient bdSailorClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, bdSailorClient) == null) {
+        if (interceptable == null || interceptable.invokeL(1048630, this, bdSailorClient) == null) {
             this.mClient = bdSailorClient;
             WebKitFactory.setWebKitClient(bdSailorClient);
             setSailorFeatureListener();
-            BdSailorPlatform.getStatic().f3155a = this.mClient;
+            BdSailorPlatform.getStatic().f3246a = this.mClient;
         }
     }
 
     public void setSailorCronetListenerInterface(ICronetListenerInterface iCronetListenerInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, iCronetListenerInterface) == null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, iCronetListenerInterface) == null) {
             Log.i(LOG_TAG, "setSailorCronetListenerInterface");
             WebViewFactory.setCronetListenerInterface(iCronetListenerInterface);
         }
@@ -706,15 +691,29 @@ public class BdSailor implements INoProGuard {
 
     public void setSailorNetProbeInterface(ISailorNetProbeInterface iSailorNetProbeInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, iSailorNetProbeInterface) == null) {
+        if (interceptable == null || interceptable.invokeL(1048632, this, iSailorNetProbeInterface) == null) {
             Log.i(LOG_TAG, "setSailorNetProbeInterface");
             WebViewFactory.setNetProbeInterface(iSailorNetProbeInterface);
         }
     }
 
+    public void setSailorPMSDownloadInterface(ISailorPMSDownloadInterface iSailorPMSDownloadInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048633, this, iSailorPMSDownloadInterface) == null) {
+            WebViewFactory.setPMSDownloadInterface(iSailorPMSDownloadInterface);
+        }
+    }
+
+    public void setSailorUploadInterface(ISailorUploadInterface iSailorUploadInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048634, this, iSailorUploadInterface) == null) {
+            WebViewFactory.setUploadInterface(iSailorUploadInterface);
+        }
+    }
+
     public void setWebkitEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048634, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048635, this, z) == null) {
             if (z) {
                 BdSailorPlatform.getWebkitManager().enableBdWebkit();
             } else {
@@ -725,21 +724,21 @@ public class BdSailor implements INoProGuard {
 
     public void startCaptureCurrentPageContent() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
             getCurSailorWebView().getWebViewExt().startCaptureContentExt();
         }
     }
 
     public void startCheckUpdate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048637, this) == null) {
             BdSailorPlatform.getInstance().startCheckUpdate();
         }
     }
 
     public void syncCookie(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048637, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048638, this, str, str2) == null) {
             BdSailorPlatform.getInstance().sync2Cookie(str, str2);
         }
     }
@@ -747,7 +746,7 @@ public class BdSailor implements INoProGuard {
     @Deprecated
     public void updateAdBlock() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
         }
     }
 }

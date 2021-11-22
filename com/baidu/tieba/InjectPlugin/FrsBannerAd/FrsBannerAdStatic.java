@@ -1,7 +1,7 @@
 package com.baidu.tieba.InjectPlugin.FrsBannerAd;
 
 import android.view.View;
-import b.a.e.l.e.p;
+import b.a.e.m.e.p;
 import b.a.r0.g.a.a;
 import b.a.r0.g.d;
 import b.a.r0.g.e.b;
@@ -32,11 +32,11 @@ public class FrsBannerAdStatic {
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C1710a implements a.InterfaceC0853a {
+        public class C1748a implements a.InterfaceC0920a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1710a(a aVar) {
+            public C1748a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public class FrsBannerAdStatic {
                 }
             }
 
-            @Override // b.a.r0.g.a.a.InterfaceC0853a
+            @Override // b.a.r0.g.a.a.InterfaceC0920a
             public void a(c cVar, View view) {
                 b a2;
                 Interceptable interceptable = $ic;
@@ -60,12 +60,12 @@ public class FrsBannerAdStatic {
                     return;
                 }
                 d dVar = new d();
-                dVar.f16607a = 2;
+                dVar.f18121a = 2;
                 dVar.b(view);
                 a2.dispatchInjectPluginMessage(dVar);
             }
 
-            @Override // b.a.r0.g.a.a.InterfaceC0853a
+            @Override // b.a.r0.g.a.a.InterfaceC0920a
             public void b(c cVar, View view) {
                 b a2;
                 Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class FrsBannerAdStatic {
                     return;
                 }
                 d dVar = new d();
-                dVar.f16607a = 3;
+                dVar.f18121a = 3;
                 dVar.b(view);
                 a2.dispatchInjectPluginMessage(dVar);
             }
@@ -117,7 +117,7 @@ public class FrsBannerAdStatic {
                     if (!(injectPlugin instanceof b.a.r0.g.a.a)) {
                         return;
                     }
-                    ((b.a.r0.g.a.a) injectPlugin).g(new C1710a(this));
+                    ((b.a.r0.g.a.a) injectPlugin).g(new C1748a(this));
                 }
                 if (injectPlugin instanceof b.a.r0.g.a.a) {
                     b.a.r0.g.a.a aVar2 = (b.a.r0.g.a.a) injectPlugin;

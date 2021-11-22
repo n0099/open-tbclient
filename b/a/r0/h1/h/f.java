@@ -12,7 +12,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile List<Long> f17362a;
+    public static volatile List<Long> f18830a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,22 +28,22 @@ public class f {
                 return;
             }
         }
-        f17362a = new ArrayList();
+        f18830a = new ArrayList();
     }
 
     public static void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(65537, null, j) == null) {
-            if (f17362a.size() > 300) {
-                f17362a.remove(0);
+            if (f18830a.size() > 300) {
+                f18830a.remove(0);
             }
-            f17362a.add(Long.valueOf(j));
+            f18830a.add(Long.valueOf(j));
         }
     }
 
     public static boolean b(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? f17362a.contains(Long.valueOf(j)) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? f18830a.contains(Long.valueOf(j)) : invokeJ.booleanValue;
     }
 }

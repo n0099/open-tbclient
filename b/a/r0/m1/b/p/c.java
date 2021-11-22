@@ -6,9 +6,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import b.a.e.e.p.k;
-import b.a.e.e.p.l;
-import b.a.r0.b0.c0;
+import b.a.e.f.p.k;
+import b.a.e.f.p.l;
+import b.a.r0.b0.d0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -61,7 +61,7 @@ public class c extends b.a.r0.b0.b<b.a.r0.m1.b.p.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f21122a;
+        public final /* synthetic */ c f22277a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -78,25 +78,25 @@ public class c extends b.a.r0.b0.b<b.a.r0.m1.b.p.a> {
                     return;
                 }
             }
-            this.f21122a = cVar;
+            this.f22277a = cVar;
         }
 
         @Override // com.baidu.tieba.card.OriginalThreadCardView.b
         public void a(OriginalThreadInfo originalThreadInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) {
-                if (this.f21122a.A != null && this.f21122a.A.x() != null) {
-                    StatisticItem param = new StatisticItem(this.f21122a.A.x()).param("obj_locate", 2);
-                    if (this.f21122a.A.getType() != b.a.r0.m1.b.p.a.B && this.f21122a.A.getType() != b.a.r0.m1.b.p.a.x) {
+                if (this.f22277a.A != null && this.f22277a.A.x() != null) {
+                    StatisticItem param = new StatisticItem(this.f22277a.A.x()).param("obj_locate", 2);
+                    if (this.f22277a.A.getType() != b.a.r0.m1.b.p.a.B && this.f22277a.A.getType() != b.a.r0.m1.b.p.a.x) {
                         param.param("obj_type", 2);
                     } else {
                         param.param("obj_type", 1);
                     }
                     TiebaStatic.log(param);
                 }
-                if (this.f21122a.f() != null) {
-                    c0<b.a.r0.m1.b.p.a> f2 = this.f21122a.f();
-                    c cVar = this.f21122a;
+                if (this.f22277a.f() != null) {
+                    d0<b.a.r0.m1.b.p.a> f2 = this.f22277a.f();
+                    c cVar = this.f22277a;
                     f2.a(cVar.v, cVar.A);
                 }
             }

@@ -3,7 +3,7 @@ package b.a.r0.j2;
 import android.webkit.JsPromptResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import b.a.e.e.m.g;
+import b.a.e.f.m.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.payment.PayVcodeActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,10 +17,10 @@ public class b extends WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PayVcodeActivity f18585a;
+    public PayVcodeActivity f19919a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.r0.l3.n0.c f18586b;
+    public b.a.r0.m3.n0.c f19920b;
 
     public b(PayVcodeActivity payVcodeActivity) {
         Interceptable interceptable = $ic;
@@ -37,13 +37,13 @@ public class b extends WebChromeClient {
                 return;
             }
         }
-        this.f18585a = payVcodeActivity;
+        this.f19919a = payVcodeActivity;
     }
 
-    public void a(b.a.r0.l3.n0.c cVar) {
+    public void a(b.a.r0.m3.n0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f18586b = cVar;
+            this.f19920b = cVar;
         }
     }
 
@@ -53,8 +53,8 @@ public class b extends WebChromeClient {
         PayVcodeActivity payVcodeActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            b.a.r0.l3.n0.c cVar = this.f18586b;
-            if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (payVcodeActivity = this.f18585a) != null && g.f(payVcodeActivity.getPageContext())) {
+            b.a.r0.m3.n0.c cVar = this.f19920b;
+            if ((cVar == null || !cVar.onJsPrompt(str2, jsPromptResult)) && (payVcodeActivity = this.f19919a) != null && g.f(payVcodeActivity.getPageContext())) {
                 return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }
             return true;

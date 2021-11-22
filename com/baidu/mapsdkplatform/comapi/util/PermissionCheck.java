@@ -21,31 +21,31 @@ public class PermissionCheck {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40376a = 200;
+    public static int f41208a = 200;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f40377b = 202;
+    public static int f41209b = 202;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f40378c = 252;
+    public static int f41210c = 252;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f40379d = "PermissionCheck";
+    public static final String f41211d = "PermissionCheck";
 
     /* renamed from: e  reason: collision with root package name */
-    public static Context f40380e = null;
+    public static Context f41212e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f40381f = null;
+    public static String f41213f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Hashtable<String, String> f40382g = null;
+    public static Hashtable<String, String> f41214g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static LBSAuthManager f40383h = null;
+    public static LBSAuthManager f41215h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static LBSAuthManagerListener f40384i = null;
+    public static LBSAuthManagerListener f41216i = null;
     public static c j = null;
     public static int k = 601;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,9 +78,9 @@ public class PermissionCheck {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 if (str == null) {
-                    String unused = PermissionCheck.f40379d;
+                    String unused = PermissionCheck.f41211d;
                     int permissionCheck = PermissionCheck.permissionCheck();
-                    String unused2 = PermissionCheck.f40379d;
+                    String unused2 = PermissionCheck.f41211d;
                     String str2 = "onAuthResult try permissionCheck result is: " + permissionCheck;
                     return;
                 }
@@ -88,27 +88,27 @@ public class PermissionCheck {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     if (jSONObject.has("status")) {
-                        bVar.f40385a = jSONObject.optInt("status");
+                        bVar.f41217a = jSONObject.optInt("status");
                     }
                     if (jSONObject.has("appid")) {
-                        bVar.f40387c = jSONObject.optString("appid");
+                        bVar.f41219c = jSONObject.optString("appid");
                     }
                     if (jSONObject.has("uid")) {
-                        bVar.f40386b = jSONObject.optString("uid");
+                        bVar.f41218b = jSONObject.optString("uid");
                     }
                     if (jSONObject.has("message")) {
-                        bVar.f40388d = jSONObject.optString("message");
+                        bVar.f41220d = jSONObject.optString("message");
                     }
                     if (jSONObject.has("token")) {
-                        bVar.f40389e = jSONObject.optString("token");
+                        bVar.f41221e = jSONObject.optString("token");
                     }
                     if (jSONObject.has("ak_permission")) {
-                        bVar.f40390f = jSONObject.optInt("ak_permission");
+                        bVar.f41222f = jSONObject.optInt("ak_permission");
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                int unused3 = PermissionCheck.k = bVar.f40385a;
+                int unused3 = PermissionCheck.k = bVar.f41217a;
                 if (PermissionCheck.j != null) {
                     PermissionCheck.j.a(bVar);
                 }
@@ -122,22 +122,22 @@ public class PermissionCheck {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40385a;
+        public int f41217a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40386b;
+        public String f41218b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f40387c;
+        public String f41219c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f40388d;
+        public String f41220d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f40389e;
+        public String f41221e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f40390f;
+        public int f41222f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -152,16 +152,16 @@ public class PermissionCheck {
                     return;
                 }
             }
-            this.f40385a = 0;
-            this.f40386b = "-1";
-            this.f40387c = "-1";
-            this.f40388d = "";
+            this.f41217a = 0;
+            this.f41218b = "-1";
+            this.f41219c = "-1";
+            this.f41220d = "";
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("=============================================\n----------------- 鉴权错误信息 ------------\nsha1;package:%s\nkey:%s\nerrorcode: %d uid: %s appid %s msg: %s\n请仔细核查 SHA1、package与key申请信息是否对应，key是否删除，平台是否匹配\nerrorcode为230时，请参考论坛链接：\nhttp://bbs.lbsyun.baidu.com/forum.php?mod=viewthread&tid=106461\n=============================================\n", com.baidu.mapsdkplatform.comapi.util.a.a(PermissionCheck.f40380e), PermissionCheck.f40381f, Integer.valueOf(this.f40385a), this.f40386b, this.f40387c, this.f40388d) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("=============================================\n----------------- 鉴权错误信息 ------------\nsha1;package:%s\nkey:%s\nerrorcode: %d uid: %s appid %s msg: %s\n请仔细核查 SHA1、package与key申请信息是否对应，key是否删除，平台是否匹配\nerrorcode为230时，请参考论坛链接：\nhttp://bbs.lbsyun.baidu.com/forum.php?mod=viewthread&tid=106461\n=============================================\n", com.baidu.mapsdkplatform.comapi.util.a.a(PermissionCheck.f41212e), PermissionCheck.f41213f, Integer.valueOf(this.f41217a), this.f41218b, this.f41219c, this.f41220d) : (String) invokeV.objValue;
         }
     }
 
@@ -203,8 +203,8 @@ public class PermissionCheck {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             j = null;
-            f40380e = null;
-            f40384i = null;
+            f41212e = null;
+            f41216i = null;
         }
     }
 
@@ -219,49 +219,49 @@ public class PermissionCheck {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            f40380e = context;
+            f41212e = context;
             try {
-                applicationInfo = context.getPackageManager().getApplicationInfo(f40380e.getPackageName(), 128);
+                applicationInfo = context.getPackageManager().getApplicationInfo(f41212e.getPackageName(), 128);
             } catch (PackageManager.NameNotFoundException e2) {
                 e2.printStackTrace();
                 applicationInfo = null;
             }
             if (applicationInfo != null) {
-                f40381f = applicationInfo.metaData.getString("com.baidu.lbsapi.API_KEY");
+                f41213f = applicationInfo.metaData.getString("com.baidu.lbsapi.API_KEY");
             }
-            if (f40382g == null) {
-                f40382g = new Hashtable<>();
+            if (f41214g == null) {
+                f41214g = new Hashtable<>();
             }
-            if (f40383h == null) {
-                f40383h = LBSAuthManager.getInstance(f40380e);
+            if (f41215h == null) {
+                f41215h = LBSAuthManager.getInstance(f41212e);
             }
-            if (f40384i == null) {
-                f40384i = new a(null);
+            if (f41216i == null) {
+                f41216i = new a(null);
             }
             try {
-                str = context.getPackageManager().getPackageInfo(f40380e.getPackageName(), 0).applicationInfo.loadLabel(f40380e.getPackageManager()).toString();
+                str = context.getPackageManager().getPackageInfo(f41212e.getPackageName(), 0).applicationInfo.loadLabel(f41212e.getPackageManager()).toString();
             } catch (Exception e3) {
                 e3.printStackTrace();
                 str = "";
             }
             Bundle b2 = i.b();
             if (b2 != null) {
-                f40382g.put("mb", b2.getString("mb"));
-                f40382g.put("os", b2.getString("os"));
-                f40382g.put("sv", b2.getString("sv"));
-                f40382g.put("imt", "1");
-                f40382g.put("net", b2.getString("net"));
-                f40382g.put("cpu", b2.getString("cpu"));
-                f40382g.put("glr", b2.getString("glr"));
-                f40382g.put("glv", b2.getString("glv"));
-                f40382g.put("resid", b2.getString("resid"));
-                f40382g.put("appid", "-1");
-                f40382g.put("ver", "1");
-                f40382g.put("screen", String.format("(%d,%d)", Integer.valueOf(b2.getInt("screen_x")), Integer.valueOf(b2.getInt("screen_y"))));
-                f40382g.put("dpi", String.format("(%d,%d)", Integer.valueOf(b2.getInt("dpi_x")), Integer.valueOf(b2.getInt("dpi_y"))));
-                f40382g.put("pcn", b2.getString("pcn"));
-                f40382g.put("cuid", b2.getString("cuid"));
-                f40382g.put("name", str);
+                f41214g.put("mb", b2.getString("mb"));
+                f41214g.put("os", b2.getString("os"));
+                f41214g.put("sv", b2.getString("sv"));
+                f41214g.put("imt", "1");
+                f41214g.put("net", b2.getString("net"));
+                f41214g.put("cpu", b2.getString("cpu"));
+                f41214g.put("glr", b2.getString("glr"));
+                f41214g.put("glv", b2.getString("glv"));
+                f41214g.put("resid", b2.getString("resid"));
+                f41214g.put("appid", "-1");
+                f41214g.put("ver", "1");
+                f41214g.put("screen", String.format("(%d,%d)", Integer.valueOf(b2.getInt("screen_x")), Integer.valueOf(b2.getInt("screen_y"))));
+                f41214g.put("dpi", String.format("(%d,%d)", Integer.valueOf(b2.getInt("dpi_x")), Integer.valueOf(b2.getInt("dpi_y"))));
+                f41214g.put("pcn", b2.getString("pcn"));
+                f41214g.put("cuid", b2.getString("cuid"));
+                f41214g.put("name", str);
             }
         }
     }
@@ -271,14 +271,14 @@ public class PermissionCheck {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             synchronized (PermissionCheck.class) {
-                if (f40383h != null && f40384i != null && f40380e != null) {
-                    int authenticate = f40383h.authenticate(false, "lbs_androidmapsdk", f40382g, f40384i);
+                if (f41215h != null && f41216i != null && f41212e != null) {
+                    int authenticate = f41215h.authenticate(false, "lbs_androidmapsdk", f41214g, f41216i);
                     if (authenticate != 0) {
                         String str = "permission check result is: " + authenticate;
                     }
                     return authenticate;
                 }
-                String str2 = "The authManager is: " + f40383h + "; the authCallback is: " + f40384i + "; the mContext is: " + f40380e;
+                String str2 = "The authManager is: " + f41215h + "; the authCallback is: " + f41216i + "; the mContext is: " + f41212e;
                 return 0;
             }
         }

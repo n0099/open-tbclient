@@ -1,7 +1,7 @@
 package com.baidu.tieba.play.monitor;
 
 import androidx.core.app.NotificationCompat;
-import b.a.e.e.m.b;
+import b.a.e.f.m.b;
 import b.a.q0.s.q.d2;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
@@ -303,19 +303,19 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.mBaijiahaoData = baijiahaoData;
         }
         VideoAggregationVideoData videoAggregationVideoData = new VideoAggregationVideoData();
-        if (d2Var.q1() != null) {
-            videoAggregationVideoData.thumbnailWidth = String.valueOf(d2Var.q1().thumbnail_width);
-            videoAggregationVideoData.thumbnailHeight = String.valueOf(d2Var.q1().thumbnail_height);
-            videoAggregationVideoData.videoMd5 = d2Var.q1().video_md5;
-            videoAggregationVideoData.videoUrl = d2Var.q1().video_url;
-            videoAggregationVideoData.videoDuration = d2Var.q1().video_duration.intValue();
-            videoAggregationVideoData.videoWidth = String.valueOf(d2Var.q1().video_width);
-            videoAggregationVideoData.videoHeight = String.valueOf(d2Var.q1().video_height);
-            videoAggregationVideoData.videoSize = d2Var.q1().video_length.intValue();
-            videoAggregationVideoData.thumbnailUrl = d2Var.q1().thumbnail_url;
-            videoAggregationVideoData.originVideoUrl = d2Var.q1().video_url;
-            videoAggregationVideoData.mcnLeadPage = d2Var.q1().mcn_lead_page;
-            this.playCount = d2Var.q1().play_count.intValue();
+        if (d2Var.r1() != null) {
+            videoAggregationVideoData.thumbnailWidth = String.valueOf(d2Var.r1().thumbnail_width);
+            videoAggregationVideoData.thumbnailHeight = String.valueOf(d2Var.r1().thumbnail_height);
+            videoAggregationVideoData.videoMd5 = d2Var.r1().video_md5;
+            videoAggregationVideoData.videoUrl = d2Var.r1().video_url;
+            videoAggregationVideoData.videoDuration = d2Var.r1().video_duration.intValue();
+            videoAggregationVideoData.videoWidth = String.valueOf(d2Var.r1().video_width);
+            videoAggregationVideoData.videoHeight = String.valueOf(d2Var.r1().video_height);
+            videoAggregationVideoData.videoSize = d2Var.r1().video_length.intValue();
+            videoAggregationVideoData.thumbnailUrl = d2Var.r1().thumbnail_url;
+            videoAggregationVideoData.originVideoUrl = d2Var.r1().video_url;
+            videoAggregationVideoData.mcnLeadPage = d2Var.r1().mcn_lead_page;
+            this.playCount = d2Var.r1().play_count.intValue();
         }
         this.video = videoAggregationVideoData;
         this.forumId = String.valueOf(d2Var.T());
@@ -330,7 +330,7 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         this.agreeNum = d2Var.C();
         this.disAgreeNum = d2Var.Q();
         this.agreeType = d2Var.D();
-        this.shareNum = d2Var.b1();
+        this.shareNum = d2Var.c1();
         this.hasAgree = d2Var.d0() == 1;
         this.source = d2Var.R0();
         this.title = d2Var.getTitle();
@@ -412,8 +412,8 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.forumId = originalForumInfo.id;
         }
         if (originalThreadInfo != null) {
-            this.threadId = originalThreadInfo.f45040f;
-            this.title = originalThreadInfo.f45036b;
+            this.threadId = originalThreadInfo.f45889f;
+            this.title = originalThreadInfo.f45885b;
             this.postNum = originalThreadInfo.z.intValue();
         }
         if (originalThreadInfo != null && (agree = originalThreadInfo.y) != null) {

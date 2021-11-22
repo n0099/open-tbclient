@@ -54,10 +54,10 @@ public class x extends a<b.a.q0.s.q.a> {
     }
 
     @Override // b.a.l.a
-    public void k(b.a.r0.b0.c0<b.a.q0.s.q.a> c0Var) {
+    public void k(b.a.r0.b0.d0<b.a.q0.s.q.a> d0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0Var) == null) {
-            this.j.setSubClickListener(c0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d0Var) == null) {
+            this.j.setSubClickListener(d0Var);
         }
     }
 

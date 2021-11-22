@@ -5,8 +5,8 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.e0.f.d.g;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.e0;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.z2.e0;
+import b.a.p0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.JSRuntime;
 import com.baidu.searchbox.v8engine.JsObject;
@@ -36,11 +36,11 @@ public class d extends b.a.p0.a.l0.a {
 
         /* renamed from: b.a.p0.a.h0.k.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0216a implements Runnable {
+        public class RunnableC0227a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0216a(a aVar) {
+            public RunnableC0227a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +60,7 @@ public class d extends b.a.p0.a.l0.a {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    e0.a(b.a.p0.a.g1.f.T().getActivity());
+                    e0.a(b.a.p0.a.g1.f.U().getActivity());
                 }
             }
         }
@@ -92,7 +92,7 @@ public class d extends b.a.p0.a.l0.a {
         public void addMask() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.p0.a.e0.d.h("SwanAppV8DaemonEngine", "addMask");
+                b.a.p0.a.e0.d.k("SwanAppV8DaemonEngine", "addMask");
                 b.a.p0.a.e0.f.d.e.b();
             }
         }
@@ -128,11 +128,11 @@ public class d extends b.a.p0.a.l0.a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                b.a.p0.a.e0.d.h("SwanAppV8DaemonEngine", "freeMaster");
-                synchronized (b.a.p0.a.l0.d.t) {
+                b.a.p0.a.e0.d.k("SwanAppV8DaemonEngine", "freeMaster");
+                synchronized (b.a.p0.a.l0.e.t) {
                     try {
                         try {
-                            b.a.p0.a.l0.d.t.notify();
+                            b.a.p0.a.l0.e.t.notify();
                         } catch (IllegalMonitorStateException e2) {
                             e2.printStackTrace();
                             return false;
@@ -152,9 +152,9 @@ public class d extends b.a.p0.a.l0.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 if (d.s) {
-                    String str = "getDevToolsResponse = " + b.a.p0.a.l0.d.u;
+                    String str = "getDevToolsResponse = " + b.a.p0.a.l0.e.u;
                 }
-                return b.a.p0.a.l0.d.u;
+                return b.a.p0.a.l0.e.u;
             }
             return (String) invokeV.objValue;
         }
@@ -163,8 +163,8 @@ public class d extends b.a.p0.a.l0.a {
         public void reload() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                b.a.p0.a.e0.d.h("SwanAppV8DaemonEngine", "reload");
-                q0.X(new RunnableC0216a(this));
+                b.a.p0.a.e0.d.k("SwanAppV8DaemonEngine", "reload");
+                q0.a0(new RunnableC0227a(this));
             }
         }
 
@@ -172,7 +172,7 @@ public class d extends b.a.p0.a.l0.a {
         public void removeMask() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                b.a.p0.a.e0.d.h("SwanAppV8DaemonEngine", "removeMask");
+                b.a.p0.a.e0.d.k("SwanAppV8DaemonEngine", "removeMask");
                 b.a.p0.a.e0.f.d.e.c();
             }
         }
@@ -197,7 +197,7 @@ public class d extends b.a.p0.a.l0.a {
                 if (d.s) {
                     String str2 = "setDevToolsResponse = " + str;
                 }
-                b.a.p0.a.l0.d.u = str;
+                b.a.p0.a.l0.e.u = str;
             }
         }
 
@@ -205,9 +205,9 @@ public class d extends b.a.p0.a.l0.a {
         public void shutdown() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                b.a.p0.a.e0.d.h("SwanAppV8DaemonEngine", "shutdown");
+                b.a.p0.a.e0.d.k("SwanAppV8DaemonEngine", "shutdown");
                 b.a.p0.a.e0.f.d.f.k().r();
-                b.a.p0.a.g1.f.T().exit();
+                b.a.p0.a.g1.f.U().exit();
             }
         }
     }
@@ -225,11 +225,11 @@ public class d extends b.a.p0.a.l0.a {
                 return;
             }
         }
-        s = k.f6397a;
+        s = k.f6863a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(@NonNull String str, @NonNull b.a.p0.a.l0.n.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+    public d(@NonNull String str, @NonNull b.a.p0.a.l0.p.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
         super(str, bVar, v8ThreadDelegatePolicy);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -241,7 +241,7 @@ public class d extends b.a.p0.a.l0.a {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (b.a.p0.a.l0.n.b) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
+                super((String) objArr2[0], (b.a.p0.a.l0.p.b) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -251,12 +251,12 @@ public class d extends b.a.p0.a.l0.a {
 
     @Override // b.a.p0.a.l0.a
     @NonNull
-    public EventTarget C() {
+    public EventTarget B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a aVar = new a(this, this.f6492f.getInitBasePath());
-            aVar.env.config = b.a.p0.a.m2.c.a.b();
+            a aVar = new a(this, this.f6915f.getInitBasePath());
+            aVar.env.config = b.a.p0.a.q2.c.a.b();
             return aVar;
         }
         return (EventTarget) invokeV.objValue;

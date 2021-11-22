@@ -52,7 +52,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AccessibilityBridge extends AccessibilityNodeProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_SHOW_ON_SCREEN = 16908342;
@@ -105,7 +105,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     public final AccessibilityManager.TouchExplorationStateChangeListener touchExplorationStateChangeListener;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class AccessibilityFeature {
         public static final /* synthetic */ AccessibilityFeature[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -170,7 +170,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Action {
         public static final /* synthetic */ Action[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -270,7 +270,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class CustomAccessibilityAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -300,7 +300,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class Flag {
         public static final /* synthetic */ Flag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -402,12 +402,12 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface OnAccessibilityChangeListener {
         void onAccessibilityChanged(boolean z, boolean z2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class SemanticsNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -837,7 +837,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class TextDirection {
         public static final /* synthetic */ TextDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1375,7 +1375,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, obj)) == null) ? AccessibilityBridge.a(AccessibilityBridge.SemanticsNode.this, (AccessibilityBridge.SemanticsNode) obj) : invokeL2.booleanValue;
             }
-        }) || !SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, b.f71693a)) : invokeL.booleanValue;
+        }) || !SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, b.f72612a)) : invokeL.booleanValue;
     }
 
     private void willRemoveSemanticsNode(SemanticsNode semanticsNode) {

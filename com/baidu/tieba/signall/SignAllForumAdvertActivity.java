@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import b.a.e.e.l.d;
+import b.a.e.f.l.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
@@ -30,12 +30,12 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public NavigationBar mNavigationBar;
 
     /* loaded from: classes9.dex */
-    public class a extends b.a.e.e.l.c<b.a.e.l.d.a> {
+    public class a extends b.a.e.f.l.c<b.a.e.m.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumAdvertActivity f53984a;
+        public final /* synthetic */ SignAllForumAdvertActivity f54904a;
 
         public a(SignAllForumAdvertActivity signAllForumAdvertActivity) {
             Interceptable interceptable = $ic;
@@ -52,17 +52,17 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
                     return;
                 }
             }
-            this.f53984a = signAllForumAdvertActivity;
+            this.f54904a = signAllForumAdvertActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.l.c
-        public void onLoaded(b.a.e.l.d.a aVar, String str, int i2) {
+        @Override // b.a.e.f.l.c
+        public void onLoaded(b.a.e.m.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((a) aVar, str, i2);
                 if (aVar == null) {
-                    this.f53984a.finish();
+                    this.f54904a.finish();
                 }
             }
         }
@@ -74,7 +74,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumAdvertActivity f53985e;
+        public final /* synthetic */ SignAllForumAdvertActivity f54905e;
 
         public b(SignAllForumAdvertActivity signAllForumAdvertActivity) {
             Interceptable interceptable = $ic;
@@ -91,14 +91,14 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
                     return;
                 }
             }
-            this.f53985e = signAllForumAdvertActivity;
+            this.f54905e = signAllForumAdvertActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                UrlManager.getInstance().dealOneLink(this.f53985e.getPageContext(), new String[]{this.f53985e.mAdUrl});
+                UrlManager.getInstance().dealOneLink(this.f54905e.getPageContext(), new String[]{this.f54905e.mAdUrl});
             }
         }
     }
@@ -109,7 +109,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SignAllForumAdvertActivity f53986e;
+        public final /* synthetic */ SignAllForumAdvertActivity f54906e;
 
         public c(SignAllForumAdvertActivity signAllForumAdvertActivity) {
             Interceptable interceptable = $ic;
@@ -126,14 +126,14 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
                     return;
                 }
             }
-            this.f53986e = signAllForumAdvertActivity;
+            this.f54906e = signAllForumAdvertActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f53986e.finish();
+                this.f54906e.finish();
             }
         }
     }

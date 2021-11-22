@@ -2,8 +2,8 @@ package com.baidu.tieba.recapp.adapter;
 
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import b.a.r0.a3.n;
 import b.a.r0.q2.e;
-import b.a.r0.z2.n;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,10 +17,10 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.q1.o.l.e<?> f53494e;
+    public b.a.r0.q1.o.l.e<?> f54413e;
 
     /* renamed from: f  reason: collision with root package name */
-    public n f53495f;
+    public n f54414f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbAppLegoViewHolder(b.a.r0.q1.o.l.e<?> eVar) {
@@ -40,13 +40,13 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
                 return;
             }
         }
-        this.f53494e = eVar;
+        this.f54413e = eVar;
     }
 
     public void autoPlay(int i2) {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (nVar = this.f53495f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (nVar = this.f54414f) == null) {
             return;
         }
         nVar.autoPlay(i2);
@@ -56,7 +56,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            n nVar = this.f53495f;
+            n nVar = this.f54414f;
             if (nVar == null) {
                 return false;
             }
@@ -70,7 +70,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            n nVar = this.f53495f;
+            n nVar = this.f54414f;
             if (nVar == null) {
                 return 0;
             }
@@ -83,7 +83,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            n nVar = this.f53495f;
+            n nVar = this.f54414f;
             if (nVar != null) {
                 return nVar.getPlayStatus();
             }
@@ -97,7 +97,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            n nVar = this.f53495f;
+            n nVar = this.f54414f;
             return nVar == null ? "" : nVar.getPlayUrl();
         }
         return (String) invokeV.objValue;
@@ -108,7 +108,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            n nVar = this.f53495f;
+            n nVar = this.f54414f;
             if (nVar == null) {
                 return null;
             }
@@ -132,7 +132,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            n nVar = this.f53495f;
+            n nVar = this.f54414f;
             if (nVar == null) {
                 return false;
             }
@@ -146,7 +146,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            n nVar = this.f53495f;
+            n nVar = this.f54414f;
             if (nVar == null) {
                 return false;
             }
@@ -158,7 +158,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public void release() {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (nVar = this.f53495f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (nVar = this.f54414f) == null) {
             return;
         }
         nVar.release();
@@ -167,7 +167,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public void setAdVideoView(n nVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, nVar) == null) {
-            this.f53495f = nVar;
+            this.f54414f = nVar;
         }
     }
 
@@ -175,7 +175,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public void startPlay() {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (nVar = this.f53495f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (nVar = this.f54414f) == null) {
             return;
         }
         nVar.startPlay();
@@ -185,7 +185,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public void stopPlay() {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (nVar = this.f53495f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (nVar = this.f54414f) == null) {
             return;
         }
         nVar.stopPlay();
@@ -194,7 +194,7 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public void updateFontSize() {
         b.a.r0.q1.o.l.e<?> eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (eVar = this.f53494e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (eVar = this.f54413e) == null) {
             return;
         }
         eVar.updateFontSize();

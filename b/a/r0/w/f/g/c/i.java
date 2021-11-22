@@ -11,7 +11,7 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f24841a;
+    public boolean f26358a;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class i {
         jSONObject.optInt("cout_total_sign_num");
         jSONObject.optInt("total_resign_num");
         jSONObject.optInt("miss_sign_num");
-        this.f24841a = jSONObject.optInt("is_sign_in") == 1;
+        this.f26358a = jSONObject.optInt("is_sign_in") == 1;
         jSONObject.optInt("user_sign_rank");
     }
 }

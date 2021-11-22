@@ -1,7 +1,7 @@
 package b.a.p0.a.e0.f.d;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.a1.e;
+import b.a.p0.a.a1.d;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
@@ -16,13 +16,13 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4583a;
+    public static final String f4553a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f4584b;
+    public static final String f4554b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f4585c;
+    public static final String f4555c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,28 +38,28 @@ public class b {
                 return;
             }
         }
-        f4583a = "__localDebug__" + File.separator + "master.js";
-        f4584b = "__localDebug__" + File.separator + "main.js";
-        f4585c = "__localDebug__" + File.separator + "slave.js";
+        f4553a = "__localDebug__" + File.separator + "master.js";
+        f4554b = "__localDebug__" + File.separator + "main.js";
+        f4555c = "__localDebug__" + File.separator + "slave.js";
     }
 
-    public static e.g a(b.a.p0.a.f1.e.b bVar) {
+    public static d.g a(b.a.p0.a.f1.e.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
             File d2 = d();
             d.e().f("unzipstart");
-            b.a.p0.a.a1.e.K(b(), d2, bVar);
+            b.a.p0.a.a1.d.M(b(), d2, bVar);
             d.e().f("unzipend");
-            e.g gVar = new e.g();
+            d.g gVar = new d.g();
             File file = new File(d2, "app.json");
-            SwanAppConfigData b2 = b.a.p0.a.a2.n.d.b(d2.getAbsolutePath());
-            gVar.f3903a = d2.getPath() + File.separator;
-            gVar.f3904b = b2;
-            b.a.p0.a.e0.d.h("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.f3903a);
+            SwanAppConfigData b2 = b.a.p0.a.d2.n.d.b(d2.getAbsolutePath());
+            gVar.f3996a = d2.getPath() + File.separator;
+            gVar.f3997b = b2;
+            b.a.p0.a.e0.d.k("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.f3996a);
             return gVar;
         }
-        return (e.g) invokeL.objValue;
+        return (d.g) invokeL.objValue;
     }
 
     public static File b() {
@@ -98,7 +98,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            return d() + File.separator + f4583a;
+            return d() + File.separator + f4553a;
         }
         return (String) invokeV.objValue;
     }
@@ -107,8 +107,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            return d() + File.separator + f4585c;
+            return d() + File.separator + f4555c;
         }
         return (String) invokeV.objValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug").exists() : invokeV.booleanValue;
     }
 }

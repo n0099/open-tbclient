@@ -26,7 +26,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelFragment f55077a;
+        public final /* synthetic */ VideoChannelFragment f55999a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(VideoChannelFragment videoChannelFragment, int i2) {
@@ -46,15 +46,15 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
                     return;
                 }
             }
-            this.f55077a = videoChannelFragment;
+            this.f55999a = videoChannelFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f55077a.isResumed()) {
-                this.f55077a.s();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f55999a.isResumed()) {
+                this.f55999a.startBrowseTimeMission();
             }
         }
     }
@@ -65,7 +65,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelFragment f55078a;
+        public final /* synthetic */ VideoChannelFragment f56000a;
 
         public b(VideoChannelFragment videoChannelFragment) {
             Interceptable interceptable = $ic;
@@ -82,14 +82,14 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
                     return;
                 }
             }
-            this.f55078a = videoChannelFragment;
+            this.f56000a = videoChannelFragment;
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.k
         public void a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-                this.f55078a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
+                this.f56000a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
             }
         }
     }
@@ -100,7 +100,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelFragment f55079a;
+        public final /* synthetic */ VideoChannelFragment f56001a;
 
         public c(VideoChannelFragment videoChannelFragment) {
             Interceptable interceptable = $ic;
@@ -117,14 +117,14 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
                     return;
                 }
             }
-            this.f55079a = videoChannelFragment;
+            this.f56001a = videoChannelFragment;
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.k
         public void a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-                this.f55079a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
+                this.f56001a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
             }
         }
     }
@@ -192,7 +192,9 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPause();
-            d.y().E();
+            if (d.y().A(b.a.q0.a.c.c0)) {
+                d.y().F();
+            }
         }
     }
 
@@ -202,9 +204,9 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
-                s();
-            } else {
-                d.y().E();
+                startBrowseTimeMission();
+            } else if (d.y().A(b.a.q0.a.c.c0)) {
+                d.y().F();
             }
         }
     }
@@ -214,14 +216,14 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            s();
+            startBrowseTimeMission();
         }
     }
 
-    public final void s() {
+    public final void startBrowseTimeMission() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            d.y().N(b.a.q0.a.c.b0);
+            d.y().O(b.a.q0.a.c.c0);
         }
     }
 }

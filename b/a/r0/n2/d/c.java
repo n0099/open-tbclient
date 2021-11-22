@@ -1,6 +1,6 @@
 package b.a.r0.n2.d;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,10 +16,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdTypeListView f21428a;
+    public BdTypeListView f22924a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f21429b;
+    public a f22925b;
 
     public c(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
@@ -36,42 +36,42 @@ public class c {
                 return;
             }
         }
-        this.f21428a = bdTypeListView;
-        this.f21429b = new a(bdTypeListView, tbPageContext, bdUniqueId);
+        this.f22924a = bdTypeListView;
+        this.f22925b = new a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f21429b.a();
+            this.f22925b.a();
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f21429b.c();
+            this.f22925b.c();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f21429b.c();
+            this.f22925b.c();
         }
     }
 
     public void d(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f21428a.setData(list);
+            this.f22924a.setData(list);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f21429b.d();
+            this.f22925b.d();
         }
     }
 }

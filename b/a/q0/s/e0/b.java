@@ -10,7 +10,7 @@ import android.os.Looper;
 import android.os.MessageQueue;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -32,29 +32,29 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f12928f;
+    public static b f13708f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static ContentResolver f12929g;
+    public static ContentResolver f13709g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static HashMap<String, String> f12930h;
+    public static HashMap<String, String> f13710h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12931a;
+    public String f13711a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f12932b;
+    public SharedPreferences f13712b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12933c;
+    public String f13713c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConcurrentHashMap<String, Object> f12934d;
+    public ConcurrentHashMap<String, Object> f13714d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12935e;
+    public String f13715e;
 
     /* loaded from: classes4.dex */
     public class a implements MessageQueue.IdleHandler {
@@ -62,7 +62,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f12936a;
+        public final /* synthetic */ b f13716a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class b {
                     return;
                 }
             }
-            this.f12936a = bVar;
+            this.f13716a = bVar;
         }
 
         @Override // android.os.MessageQueue.IdleHandler
@@ -87,7 +87,7 @@ public class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f12936a.d();
+                this.f13716a.d();
                 return false;
             }
             return invokeV.booleanValue;
@@ -96,20 +96,20 @@ public class b {
 
     /* renamed from: b.a.q0.s.e0.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0675b extends BdAsyncTask<Void, Void, Void> {
+    public class C0710b extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Uri f12937a;
+        public final /* synthetic */ Uri f13717a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f12938b;
+        public final /* synthetic */ ContentValues f13718b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f12939c;
+        public final /* synthetic */ b f13719c;
 
-        public C0675b(b bVar, Uri uri, ContentValues contentValues) {
+        public C0710b(b bVar, Uri uri, ContentValues contentValues) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,9 +124,9 @@ public class b {
                     return;
                 }
             }
-            this.f12939c = bVar;
-            this.f12937a = uri;
-            this.f12938b = contentValues;
+            this.f13719c = bVar;
+            this.f13717a = uri;
+            this.f13718b = contentValues;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,7 +135,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                this.f12939c.F(this.f12937a, this.f12938b);
+                this.f13719c.F(this.f13717a, this.f13718b);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -148,10 +148,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Uri f12940a;
+        public final /* synthetic */ Uri f13720a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f12941b;
+        public final /* synthetic */ b f13721b;
 
         public c(b bVar, Uri uri) {
             Interceptable interceptable = $ic;
@@ -168,8 +168,8 @@ public class b {
                     return;
                 }
             }
-            this.f12941b = bVar;
-            this.f12940a = uri;
+            this.f13721b = bVar;
+            this.f13720a = uri;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -178,7 +178,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                this.f12941b.f(this.f12940a);
+                this.f13721b.f(this.f13720a);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -198,17 +198,17 @@ public class b {
                 return;
             }
         }
-        this.f12935e = null;
-        this.f12934d = new ConcurrentHashMap<>();
+        this.f13715e = null;
+        this.f13714d = new ConcurrentHashMap<>();
         HashMap<String, String> hashMap = new HashMap<>();
-        f12930h = hashMap;
-        hashMap.put(b.a.q0.s.e0.a.f12919a, "settings");
-        f12930h.put(b.a.q0.s.e0.a.f12920b, "remote_settings");
-        f12930h.put(b.a.q0.s.e0.a.f12921c, "bdservice_settings");
-        f12930h.put(b.a.q0.s.e0.a.f12922d, b.a.q0.s.e0.a.f12925g);
-        f12930h.put(b.a.q0.s.e0.a.f12923e, b.a.q0.s.e0.a.f12926h);
-        f12930h.put(b.a.q0.s.e0.a.f12924f, b.a.q0.s.e0.a.f12927i);
-        f12929g = TbadkCoreApplication.getInst().getContentResolver();
+        f13710h = hashMap;
+        hashMap.put(b.a.q0.s.e0.a.f13699a, "settings");
+        f13710h.put(b.a.q0.s.e0.a.f13700b, "remote_settings");
+        f13710h.put(b.a.q0.s.e0.a.f13701c, "bdservice_settings");
+        f13710h.put(b.a.q0.s.e0.a.f13702d, b.a.q0.s.e0.a.f13705g);
+        f13710h.put(b.a.q0.s.e0.a.f13703e, b.a.q0.s.e0.a.f13706h);
+        f13710h.put(b.a.q0.s.e0.a.f13704f, b.a.q0.s.e0.a.f13707i);
+        f13709g = TbadkCoreApplication.getInst().getContentResolver();
     }
 
     public static synchronized b j() {
@@ -217,10 +217,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (b.class) {
-                if (f12928f == null) {
-                    f12928f = new b();
+                if (f13708f == null) {
+                    f13708f = new b();
                 }
-                bVar = f12928f;
+                bVar = f13708f;
             }
             return bVar;
         }
@@ -261,11 +261,11 @@ public class b {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             if (c(str)) {
                 D(str);
-            } else if (this.f12934d.containsKey(str)) {
-                this.f12934d.remove(str);
+            } else if (this.f13714d.containsKey(str)) {
+                this.f13714d.remove(str);
             } else {
                 SharedPreferences o = o();
-                this.f12932b = o;
+                this.f13712b = o;
                 EditorHelper.remove(o, str);
             }
         }
@@ -282,7 +282,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, uri, contentValues) == null) {
             if (l.C()) {
-                new C0675b(this, uri, contentValues).execute(new Void[0]);
+                new C0710b(this, uri, contentValues).execute(new Void[0]);
             } else {
                 F(uri, contentValues);
             }
@@ -293,7 +293,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, uri, contentValues) == null) {
             try {
-                f12929g.insert(uri, contentValues);
+                f13709g.insert(uri, contentValues);
             } catch (Exception e2) {
                 BdLog.detailException(e2);
             }
@@ -320,15 +320,15 @@ public class b {
     public void d() {
         SharedPreferences.Editor edit;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f12934d.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f13714d.isEmpty()) {
             return;
         }
         SharedPreferences o = o();
-        this.f12932b = o;
+        this.f13712b = o;
         if (o == null || (edit = o.edit()) == null) {
             return;
         }
-        for (Map.Entry<String, Object> entry : this.f12934d.entrySet()) {
+        for (Map.Entry<String, Object> entry : this.f13714d.entrySet()) {
             if (entry != null) {
                 String valueOf = String.valueOf(entry.getKey());
                 Object value = entry.getValue();
@@ -350,7 +350,7 @@ public class b {
         } else {
             edit.commit();
         }
-        this.f12934d.clear();
+        this.f13714d.clear();
     }
 
     public void e(Uri uri) {
@@ -368,7 +368,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, uri) == null) {
             try {
-                f12929g.delete(uri, null, null);
+                f13709g.delete(uri, null, null);
             } catch (SecurityException e2) {
                 BdLog.detailException(e2);
             }
@@ -391,12 +391,12 @@ public class b {
                     return z;
                 }
             }
-            Object obj = this.f12934d.get(str);
+            Object obj = this.f13714d.get(str);
             if (obj instanceof Boolean) {
                 return ((Boolean) obj).booleanValue();
             }
             SharedPreferences o = o();
-            this.f12932b = o;
+            this.f13712b = o;
             return o.getBoolean(str, z);
         }
         return invokeLZ.booleanValue;
@@ -406,15 +406,15 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f12935e == null) {
+            if (this.f13715e == null) {
                 String packageName = AppRuntime.getAppContext().getPackageName();
                 if ("com.baidu.tieba".equals(packageName)) {
-                    this.f12935e = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
+                    this.f13715e = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
                 } else {
-                    this.f12935e = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
+                    this.f13715e = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
                 }
             }
-            return this.f12935e;
+            return this.f13715e;
         }
         return (String) invokeV.objValue;
     }
@@ -422,7 +422,7 @@ public class b {
     public ContentResolver i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? f12929g : (ContentResolver) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? f13709g : (ContentResolver) invokeV.objValue;
     }
 
     public int k(String str, int i2) {
@@ -441,12 +441,12 @@ public class b {
                     return i2;
                 }
             }
-            Object obj = this.f12934d.get(str);
+            Object obj = this.f13714d.get(str);
             if (obj instanceof Integer) {
                 return ((Integer) obj).intValue();
             }
             SharedPreferences o = o();
-            this.f12932b = o;
+            this.f13712b = o;
             return o.getInt(str, i2);
         }
         return invokeLI.intValue;
@@ -468,12 +468,12 @@ public class b {
                     return j;
                 }
             }
-            Object obj = this.f12934d.get(str);
+            Object obj = this.f13714d.get(str);
             if (obj instanceof Long) {
                 return ((Long) obj).longValue();
             }
             SharedPreferences o = o();
-            this.f12932b = o;
+            this.f13712b = o;
             try {
                 return o.getLong(str, j);
             } catch (ClassCastException e3) {
@@ -488,7 +488,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            String str = b.a.q0.s.e0.a.f12919a;
+            String str = b.a.q0.s.e0.a.f13699a;
             ActivityManager activityManager = (ActivityManager) TbadkCoreApplication.getInst().getSystemService("activity");
             if (activityManager != null) {
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
@@ -514,17 +514,17 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             synchronized (this) {
-                if (this.f12933c == null || this.f12933c.length() == 0) {
-                    if (this.f12931a == null || this.f12931a.length() == 0) {
-                        this.f12931a = m();
+                if (this.f13713c == null || this.f13713c.length() == 0) {
+                    if (this.f13711a == null || this.f13711a.length() == 0) {
+                        this.f13711a = m();
                     }
-                    if (f12930h.containsKey(this.f12931a)) {
-                        this.f12933c = f12930h.get(this.f12931a);
+                    if (f13710h.containsKey(this.f13711a)) {
+                        this.f13713c = f13710h.get(this.f13711a);
                     } else {
-                        this.f12933c = "settings";
+                        this.f13713c = "settings";
                     }
                 }
-                sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences(this.f12933c, 4);
+                sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences(this.f13713c, 0);
             }
             return sharedPreferences;
         }
@@ -539,12 +539,12 @@ public class b {
                 String r = r(str);
                 return r != null ? r : str2;
             }
-            Object obj = this.f12934d.get(str);
+            Object obj = this.f13714d.get(str);
             if (obj instanceof String) {
                 return (String) obj;
             }
             SharedPreferences o = o();
-            this.f12932b = o;
+            this.f13712b = o;
             return o.getString(str, str2);
         }
         return (String) invokeLL.objValue;
@@ -555,7 +555,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, uri)) == null) {
             try {
-                return f12929g.getType(uri);
+                return f13709g.getType(uri);
             } catch (SecurityException e2) {
                 BdLog.detailException(e2);
                 return null;
@@ -580,7 +580,7 @@ public class b {
             if (c(str)) {
                 return false;
             }
-            return this.f12934d.containsKey(str) || o().contains(str);
+            return this.f13714d.containsKey(str) || o().contains(str);
         }
         return invokeL.booleanValue;
     }
@@ -594,7 +594,7 @@ public class b {
                 u(str, Boolean.valueOf(z));
             } else {
                 SharedPreferences o = o();
-                this.f12932b = o;
+                this.f13712b = o;
                 SharedPreferences.Editor edit = o.edit();
                 edit.putBoolean(str, z);
                 edit.commit();
@@ -607,7 +607,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeLL(1048598, this, str, obj) == null) || str == null || obj == null) {
             return;
         }
-        this.f12934d.put(str, obj);
+        this.f13714d.put(str, obj);
         Looper.myQueue().addIdleHandler(new a(this));
     }
 
@@ -620,7 +620,7 @@ public class b {
                 u(str, Integer.valueOf(i2));
             } else {
                 SharedPreferences o = o();
-                this.f12932b = o;
+                this.f13712b = o;
                 SharedPreferences.Editor edit = o.edit();
                 edit.putInt(str, i2);
                 edit.commit();
@@ -637,7 +637,7 @@ public class b {
                 u(str, Long.valueOf(j));
             } else {
                 SharedPreferences o = o();
-                this.f12932b = o;
+                this.f13712b = o;
                 SharedPreferences.Editor edit = o.edit();
                 edit.putLong(str, j);
                 edit.commit();
@@ -656,7 +656,7 @@ public class b {
                 u(str, str2);
             } else {
                 SharedPreferences o = o();
-                this.f12932b = o;
+                this.f13712b = o;
                 SharedPreferences.Editor edit = o.edit();
                 edit.putString(str, str2);
                 edit.commit();

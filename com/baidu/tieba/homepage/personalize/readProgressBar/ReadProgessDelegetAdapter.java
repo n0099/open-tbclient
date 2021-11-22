@@ -3,9 +3,9 @@ package com.baidu.tieba.homepage.personalize.readProgressBar;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.n;
-import b.a.e.l.e.w;
-import b.a.r0.b0.u;
+import b.a.e.m.e.n;
+import b.a.e.m.e.w;
+import b.a.r0.b0.v;
 import b.a.r0.h1.h.l.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class ReadProgessDelegetAdapter extends b.a.e.l.e.a<b, ViewHolder> {
+public class ReadProgessDelegetAdapter extends b.a.e.m.e.a<b, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<?> m;
@@ -76,7 +76,7 @@ public class ReadProgessDelegetAdapter extends b.a.e.l.e.a<b, ViewHolder> {
             }
         }
 
-        @Override // b.a.e.l.e.w
+        @Override // b.a.e.m.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
@@ -112,7 +112,7 @@ public class ReadProgessDelegetAdapter extends b.a.e.l.e.a<b, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public ViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -121,13 +121,13 @@ public class ReadProgessDelegetAdapter extends b.a.e.l.e.a<b, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b bVar, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, viewHolder})) == null) {
-            u.b().a(new StatisticItem("c11272"));
+            v.b().a(new StatisticItem("c11272"));
             viewHolder.mCardView.j(bVar);
             return viewHolder.getView();
         }

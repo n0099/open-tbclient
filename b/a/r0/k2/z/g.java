@@ -6,7 +6,7 @@ import android.text.SpannableStringBuilder;
 import android.util.SparseIntArray;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -20,7 +20,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SparseIntArray f19910a;
+    public static SparseIntArray f21447a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class g {
                 return;
             }
         }
-        f19910a = new SparseIntArray();
+        f21447a = new SparseIntArray();
     }
 
     public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
@@ -60,7 +60,7 @@ public class g {
         spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
         Drawable drawable = SkinManager.getDrawable(b.a.r0.k2.h.icon_pb_tail);
         drawable.setBounds(0, 0, b2, b2);
-        b.a.q0.f1.d dVar = new b.a.q0.f1.d(drawable);
+        b.a.q0.e1.d dVar = new b.a.q0.e1.d(drawable);
         dVar.c(b(b.a.r0.k2.g.ds4));
         spannableStringBuilder.setSpan(dVar, 0, 4, 33);
         textView.setLayoutParams(layoutParams);
@@ -73,10 +73,10 @@ public class g {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            int i3 = f19910a.get(i2, -1);
+            int i3 = f21447a.get(i2, -1);
             if (i3 == -1) {
                 int g2 = l.g(TbadkCoreApplication.getInst().getContext(), i2);
-                f19910a.put(i2, g2);
+                f21447a.put(i2, g2);
                 return g2;
             }
             return i3;

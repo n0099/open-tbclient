@@ -48,7 +48,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WXLoginActivity f42558a;
+        public final /* synthetic */ WXLoginActivity f43504a;
 
         public a(WXLoginActivity wXLoginActivity) {
             Interceptable interceptable = $ic;
@@ -65,15 +65,15 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            this.f42558a = wXLoginActivity;
+            this.f43504a = wXLoginActivity;
         }
 
         @Override // com.baidu.sapi2.activity.social.WXLoginActivity.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Toast.makeText(this.f42558a, "微信未安装", 1).show();
-                this.f42558a.a(WXLoginActivity.v);
+                Toast.makeText(this.f43504a, "微信未安装", 1).show();
+                this.f43504a.a(WXLoginActivity.v);
             }
         }
 
@@ -81,7 +81,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f42558a.finish();
+                this.f43504a.finish();
             }
         }
     }
@@ -134,16 +134,16 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            ((BaseSSOLoginActivity) this).f42535g = v;
-            ((BaseSSOLoginActivity) this).f42533e = w;
-            ((BaseSSOLoginActivity) this).f42534f = x;
+            ((BaseSSOLoginActivity) this).f43481g = v;
+            ((BaseSSOLoginActivity) this).f43479e = w;
+            ((BaseSSOLoginActivity) this).f43480f = x;
             w = null;
             x = false;
             this.o = getIntent().getStringExtra("code");
             this.n = getIntent().getStringExtra("state");
             int intExtra = getIntent().getIntExtra("error_code", -1);
             this.p = intExtra;
-            if (((BaseSSOLoginActivity) this).f42534f) {
+            if (((BaseSSOLoginActivity) this).f43480f) {
                 Intent intent = new Intent();
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_AUTHORIZATION_CODE, this.o);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_TYPE_CODE, String.valueOf(SocialType.QQ_SSO.getType()));
@@ -178,8 +178,8 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
             }
             if (!getIntent().getBooleanExtra(r, false)) {
                 v = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
-                w = ((BaseSSOLoginActivity) this).f42533e;
-                x = ((BaseSSOLoginActivity) this).f42534f;
+                w = ((BaseSSOLoginActivity) this).f43479e;
+                x = ((BaseSSOLoginActivity) this).f43480f;
                 a(new a(this));
                 return;
             }

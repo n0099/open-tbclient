@@ -14,22 +14,22 @@ public class j0 extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f3832a;
+    public float f3926a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f3833b;
+    public float f3927b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f3834c;
+    public float f3928c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f3835d;
+    public float f3929d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3836e;
+    public int f3930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3837f;
+    public int f3931f;
 
     public j0() {
         Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class j0 extends a {
                 bVar.b(canvas.save());
             }
             Matrix matrix = new Matrix();
-            matrix.setValues(new float[]{this.f3832a, this.f3834c, this.f3836e, this.f3833b, this.f3835d, this.f3837f, 0.0f, 0.0f, 1.0f});
+            matrix.setValues(new float[]{this.f3926a, this.f3928c, this.f3930e, this.f3927b, this.f3929d, this.f3931f, 0.0f, 0.0f, 1.0f});
             canvas.concat(matrix);
         }
     }
@@ -67,15 +67,15 @@ public class j0 extends a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
                 if (jSONArray.length() == 6) {
-                    this.f3832a = (float) jSONArray.optDouble(0);
-                    this.f3833b = (float) jSONArray.optDouble(1);
-                    this.f3834c = (float) jSONArray.optDouble(2);
-                    this.f3835d = (float) jSONArray.optDouble(3);
-                    this.f3836e = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(4));
-                    this.f3837f = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(5));
+                    this.f3926a = (float) jSONArray.optDouble(0);
+                    this.f3927b = (float) jSONArray.optDouble(1);
+                    this.f3928c = (float) jSONArray.optDouble(2);
+                    this.f3929d = (float) jSONArray.optDouble(3);
+                    this.f3930e = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(4));
+                    this.f3931f = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(5));
                 }
             } catch (Exception e2) {
-                if (b.a.p0.a.k.f6397a) {
+                if (b.a.p0.a.k.f6863a) {
                     e2.printStackTrace();
                 }
             }

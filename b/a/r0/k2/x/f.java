@@ -18,13 +18,13 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f19687a;
+    public c f21224a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseFragmentActivity f19688b;
+    public BaseFragmentActivity f21225b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f19689c;
+    public int f21226c;
 
     public f(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class f {
                 return;
             }
         }
-        this.f19689c = 3;
-        this.f19688b = baseFragmentActivity;
+        this.f21226c = 3;
+        this.f21225b = baseFragmentActivity;
     }
 
     public final void a(b.a.r0.k2.r.f fVar, String str) {
@@ -50,35 +50,35 @@ public class f {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, fVar, str) == null) || fVar == null) {
             return;
         }
-        if (this.f19687a == null) {
-            this.f19687a = new c(LayoutInflater.from(this.f19688b.getPageContext().getPageActivity()).inflate(j.pb_header_video_abstract_layout, (ViewGroup) null));
+        if (this.f21224a == null) {
+            this.f21224a = new c(LayoutInflater.from(this.f21225b.getPageContext().getPageActivity()).inflate(j.pb_header_video_abstract_layout, (ViewGroup) null));
         }
-        this.f19687a.m(fVar, str);
+        this.f21224a.m(fVar, str);
     }
 
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c cVar = this.f19687a;
+            c cVar = this.f21224a;
             if (cVar == null) {
                 return null;
             }
-            return cVar.f19666a;
+            return cVar.f21203a;
         }
         return (View) invokeV.objValue;
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f19689c == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f21226c == i2) {
             return;
         }
-        c cVar = this.f19687a;
+        c cVar = this.f21224a;
         if (cVar != null) {
             cVar.o();
         }
-        this.f19689c = i2;
+        this.f21226c = i2;
     }
 
     public void d(b.a.r0.k2.r.f fVar, String str) {
@@ -92,9 +92,9 @@ public class f {
     public void e(BdTypeListView bdTypeListView) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, bdTypeListView) == null) || (cVar = this.f19687a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bdTypeListView) == null) || (cVar = this.f21224a) == null) {
             return;
         }
-        bdTypeListView.removeHeaderView(cVar.f19666a);
+        bdTypeListView.removeHeaderView(cVar.f21203a);
     }
 }

@@ -2,14 +2,12 @@ package b.a.p0.b.n;
 
 import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
-import b.a.p0.a.a2.e;
-import b.a.p0.a.e2.c.i;
-import b.a.p0.a.e2.c.j.b;
+import b.a.p0.a.d2.e;
+import b.a.p0.a.h2.c.i;
+import b.a.p0.a.h2.c.j.b;
 import b.a.p0.a.u.c.c;
 import b.a.p0.a.u.c.d;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,31 +22,31 @@ public class a extends d {
 
     /* renamed from: b.a.p0.b.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0486a extends b.a.p0.a.u.c.c {
+    public class C0511a extends b.a.p0.a.u.c.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f9366d;
+        public final /* synthetic */ a f9949d;
 
         /* renamed from: b.a.p0.b.n.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0487a implements b.a.p0.a.v2.e1.b<i<b.e>> {
+        public class C0512a implements b.a.p0.a.z2.g1.c<i<b.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.b f9367e;
+            public final /* synthetic */ c.b f9950e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ C0486a f9368f;
+            public final /* synthetic */ C0511a f9951f;
 
-            public C0487a(C0486a c0486a, c.b bVar) {
+            public C0512a(C0511a c0511a, c.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0486a, bVar};
+                    Object[] objArr = {c0511a, bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -58,32 +56,28 @@ public class a extends d {
                         return;
                     }
                 }
-                this.f9368f = c0486a;
-                this.f9367e = bVar;
+                this.f9951f = c0511a;
+                this.f9950e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.a.p0.a.v2.e1.b
+            @Override // b.a.p0.a.z2.g1.c
             /* renamed from: a */
             public void onCallback(i<b.e> iVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                    if (b.a.p0.a.e2.c.d.h(iVar)) {
-                        this.f9367e.a(this.f9368f.f9366d.s());
+                    if (b.a.p0.a.h2.c.d.h(iVar)) {
+                        this.f9950e.a(this.f9951f.f9949d.z());
                         return;
                     }
                     int b2 = iVar.b();
-                    String f2 = b.a.p0.a.e2.c.d.f(b2);
-                    if (d.f8000c) {
-                        String str = "getBduss failed: auth fail(" + b2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2 + SmallTailInfo.EMOTION_SUFFIX;
-                    }
-                    this.f9367e.a(new b.a.p0.a.u.h.b(b2, f2));
+                    this.f9950e.a(new b.a.p0.a.u.h.b(b2, b.a.p0.a.h2.c.d.f(b2)));
                 }
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0486a(a aVar, String str) {
+        public C0511a(a aVar, String str) {
             super(str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -100,7 +94,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f9366d = aVar;
+            this.f9949d = aVar;
         }
 
         @Override // b.a.p0.a.u.c.c
@@ -109,13 +103,12 @@ public class a extends d {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bVar)) == null) {
-                e P = e.P();
-                if (P == null) {
-                    boolean z = d.f8000c;
+                e a0 = e.a0();
+                if (a0 == null) {
                     return new b.a.p0.a.u.h.b(1001, "null swan runtime");
                 }
-                P.S().g(b.a.p0.a.a2.d.g(), "mapp_i_get_bduss", new C0487a(this, bVar));
-                return new b.a.p0.a.u.h.b(0);
+                a0.d0().g(b.a.p0.a.d2.d.J(), "mapp_i_get_bduss", new C0512a(this, bVar));
+                return b.a.p0.a.u.h.b.f();
             }
             return (b.a.p0.a.u.h.b) invokeLL.objValue;
         }
@@ -125,14 +118,14 @@ public class a extends d {
         public b.a.p0.a.u.h.b e(@NonNull JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? this.f9366d.s() : (b.a.p0.a.u.h.b) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? this.f9949d.z() : (b.a.p0.a.u.h.b) invokeL.objValue;
         }
 
         @Override // b.a.p0.a.u.c.c
         public boolean i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b.a.p0.a.a2.d.g().C() && b.a.p0.a.a2.d.g().r().S().f("mapp_i_get_bduss") : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b.a.p0.a.d2.d.J().D() && b.a.p0.a.d2.d.J().r().d0().f("mapp_i_get_bduss") : invokeV.booleanValue;
         }
     }
 
@@ -156,31 +149,44 @@ public class a extends d {
         }
     }
 
+    @Override // b.a.p0.a.u.c.d
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PrivateAccount" : (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.a.u.c.d
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GetBdussApi" : (String) invokeV.objValue;
+    }
+
     @SuppressLint({"SwanBindApiNote"})
-    public b.a.p0.a.u.h.b r(String str) {
+    public b.a.p0.a.u.h.b y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? j(str, new C0486a(this, "getBDUSS")) : (b.a.p0.a.u.h.b) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#getBduss", false);
+            return m(str, new C0511a(this, "getBDUSS"));
+        }
+        return (b.a.p0.a.u.h.b) invokeL.objValue;
     }
 
     @NonNull
-    public final b.a.p0.a.u.h.b s() {
+    public final b.a.p0.a.u.h.b z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String i2 = b.a.p0.b.l.a.i(b.a.p0.a.a2.d.g());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String i2 = b.a.p0.b.l.a.i(b.a.p0.a.d2.d.J());
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("bduss", i2);
-                if (d.f8000c) {
-                    String str = "getBduss success: " + jSONObject.toString();
-                }
                 return new b.a.p0.a.u.h.b(0, jSONObject);
             } catch (JSONException e2) {
-                if (d.f8000c) {
-                    e2.printStackTrace();
-                }
-                return new b.a.p0.a.u.h.b(1001, "result JSONException");
+                p("#getBdussResult json put data fail", e2, false);
+                return new b.a.p0.a.u.h.b(1001, "json put data fail");
             }
         }
         return (b.a.p0.a.u.h.b) invokeV.objValue;

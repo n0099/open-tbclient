@@ -10,13 +10,13 @@ import org.apache.commons.lang3.StringUtils;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f67275a;
+    public final String[] f68188a;
 
     /* loaded from: classes2.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<String> f67276a = new ArrayList(20);
+        public final List<String> f68189a = new ArrayList(20);
 
         private void c(String str, String str2) {
             if (str == null) {
@@ -54,18 +54,18 @@ public final class c {
         }
 
         public a b(String str, String str2) {
-            this.f67276a.add(str);
-            this.f67276a.add(str2.trim());
+            this.f68189a.add(str);
+            this.f68189a.add(str2.trim());
             return this;
         }
     }
 
     public c(a aVar) {
-        this.f67275a = (String[]) aVar.f67276a.toArray(new String[aVar.f67276a.size()]);
+        this.f68188a = (String[]) aVar.f68189a.toArray(new String[aVar.f68189a.size()]);
     }
 
     public c(String[] strArr) {
-        this.f67275a = strArr;
+        this.f68188a = strArr;
     }
 
     public static c a(String... strArr) {
@@ -99,19 +99,19 @@ public final class c {
     }
 
     public int a() {
-        return this.f67275a.length / 2;
+        return this.f68188a.length / 2;
     }
 
     public String a(int i2) {
-        return this.f67275a[i2 * 2];
+        return this.f68188a[i2 * 2];
     }
 
     public String a(String str) {
-        return a(this.f67275a, str);
+        return a(this.f68188a, str);
     }
 
     public String b(int i2) {
-        return this.f67275a[(i2 * 2) + 1];
+        return this.f68188a[(i2 * 2) + 1];
     }
 
     public Set<String> b() {
@@ -125,7 +125,7 @@ public final class c {
 
     public a c() {
         a aVar = new a();
-        Collections.addAll(aVar.f67276a, this.f67275a);
+        Collections.addAll(aVar.f68189a, this.f68188a);
         return aVar;
     }
 

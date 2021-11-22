@@ -41,7 +41,7 @@ public final class DataExt {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Gson f46061a;
+    public static final Gson f46910a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -49,7 +49,7 @@ public final class DataExt {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Type f46062a;
+        public static final Type f46911a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes8.dex */
@@ -59,7 +59,7 @@ public final class DataExt {
             @NonNull
 
             /* renamed from: a  reason: collision with root package name */
-            public final List<String> f46063a;
+            public final List<String> f46912a;
 
             /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
             /* loaded from: classes8.dex */
@@ -71,7 +71,6 @@ public final class DataExt {
                 public static final NumberType INTEGER;
                 public static final NumberType LONG;
                 public transient /* synthetic */ FieldHolder $fh;
-                @NonNull
                 public final List<Class<?>> typeList;
 
                 static {
@@ -163,10 +162,10 @@ public final class DataExt {
                     }
                 }
                 ArrayList arrayList = new ArrayList();
-                this.f46063a = arrayList;
+                this.f46912a = arrayList;
                 arrayList.add("");
-                this.f46063a.add(StringUtil.NULL_STRING);
-                this.f46063a.add("NULL");
+                this.f46912a.add(StringUtil.NULL_STRING);
+                this.f46912a.add("NULL");
             }
 
             @NonNull
@@ -198,7 +197,7 @@ public final class DataExt {
                         if (b(asNumber.toString()) || (valueOfByType = NumberType.valueOfByType(type)) == null) {
                             return null;
                         }
-                        int i2 = b.f46065a[valueOfByType.ordinal()];
+                        int i2 = b.f46914a[valueOfByType.ordinal()];
                         if (i2 != 1) {
                             if (i2 != 2) {
                                 if (i2 != 3) {
@@ -221,7 +220,7 @@ public final class DataExt {
             public final boolean b(@NonNull String str) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f46063a.contains(str) : invokeL.booleanValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f46912a.contains(str) : invokeL.booleanValue;
             }
         }
 
@@ -331,7 +330,7 @@ public final class DataExt {
                     return;
                 }
             }
-            f46062a = new a().getType();
+            f46911a = new a().getType();
         }
     }
 
@@ -341,7 +340,7 @@ public final class DataExt {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Class f46064e;
+        public final /* synthetic */ Class f46913e;
 
         public a(Class cls) {
             Interceptable interceptable = $ic;
@@ -358,7 +357,7 @@ public final class DataExt {
                     return;
                 }
             }
-            this.f46064e = cls;
+            this.f46913e = cls;
         }
 
         @Override // java.lang.reflect.ParameterizedType
@@ -366,7 +365,7 @@ public final class DataExt {
         public Type[] getActualTypeArguments() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Type[]{this.f46064e} : (Type[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Type[]{this.f46913e} : (Type[]) invokeV.objValue;
         }
 
         @Override // java.lang.reflect.ParameterizedType
@@ -394,7 +393,7 @@ public final class DataExt {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f46065a;
+        public static final /* synthetic */ int[] f46914a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -411,21 +410,21 @@ public final class DataExt {
                 }
             }
             int[] iArr = new int[GsonWidget.BadNumberFix.NumberType.values().length];
-            f46065a = iArr;
+            f46914a = iArr;
             try {
                 iArr[GsonWidget.BadNumberFix.NumberType.INTEGER.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f46065a[GsonWidget.BadNumberFix.NumberType.LONG.ordinal()] = 2;
+                f46914a[GsonWidget.BadNumberFix.NumberType.LONG.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f46065a[GsonWidget.BadNumberFix.NumberType.FLOAT.ordinal()] = 3;
+                f46914a[GsonWidget.BadNumberFix.NumberType.FLOAT.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f46065a[GsonWidget.BadNumberFix.NumberType.DOUBLE.ordinal()] = 4;
+                f46914a[GsonWidget.BadNumberFix.NumberType.DOUBLE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -446,14 +445,14 @@ public final class DataExt {
         }
         GsonBuilder gsonBuilder = new GsonBuilder();
         GsonWidget.BadNumberFix.c(gsonBuilder);
-        f46061a = gsonBuilder.registerTypeAdapter(GsonWidget.f46062a, new GsonWidget.MapDeserializerDoubleAsIntFix(null)).create();
+        f46910a = gsonBuilder.registerTypeAdapter(GsonWidget.f46911a, new GsonWidget.MapDeserializerDoubleAsIntFix(null)).create();
     }
 
     @NonNull
     public static <T> T a(@NonNull String str, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, cls)) == null) ? (T) f46061a.fromJson(str, (Class<Object>) cls) : (T) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, cls)) == null) ? (T) f46910a.fromJson(str, (Class<Object>) cls) : (T) invokeLL.objValue;
     }
 
     @NonNull
@@ -467,7 +466,7 @@ public final class DataExt {
     public static <T> List<T> c(@NonNull String str, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, cls)) == null) ? (List) Objects.requireNonNull(f46061a.fromJson(str, new a(cls))) : (List) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, cls)) == null) ? (List) Objects.requireNonNull(f46910a.fromJson(str, new a(cls))) : (List) invokeLL.objValue;
     }
 
     @NonNull
@@ -512,7 +511,7 @@ public final class DataExt {
     public static String f(@NonNull Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? f46061a.toJson(obj) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? f46910a.toJson(obj) : (String) invokeL.objValue;
     }
 
     @NonNull
@@ -533,6 +532,6 @@ public final class DataExt {
     public static Map<String, Object> i(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? (Map) f46061a.fromJson(str, GsonWidget.f46062a) : (Map) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? (Map) f46910a.fromJson(str, GsonWidget.f46911a) : (Map) invokeL.objValue;
     }
 }

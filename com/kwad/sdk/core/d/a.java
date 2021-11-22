@@ -17,13 +17,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f64346a = true;
+    public static boolean f65259a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f64347b = "[KSAdSDK_3.3.11.4]";
+    public static String f65260b = "[KSAdSDK_3.3.11.4]";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f64348c;
+    public static boolean f65261c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +44,7 @@ public class a {
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f64347b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f65260b : (String) invokeV.objValue;
     }
 
     public static void a(String str) {
@@ -56,7 +56,7 @@ public class a {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f64346a && b.f63999b.booleanValue()) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f65259a && b.f64912b.booleanValue()) {
             b(a(), f(str, str2));
         }
     }
@@ -64,31 +64,31 @@ public class a {
     public static void a(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) {
-            boolean z = f64346a;
+            boolean z = f65259a;
         }
     }
 
     public static void a(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, str, z) == null) {
-            f64347b = PreferencesUtil.LEFT_MOUNT + str + PreferencesUtil.RIGHT_MOUNT;
-            f64346a = z;
+            f65260b = PreferencesUtil.LEFT_MOUNT + str + PreferencesUtil.RIGHT_MOUNT;
+            f65259a = z;
         }
     }
 
     public static void a(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th) == null) {
-            if (f64346a && th != null) {
+            if (f65259a && th != null) {
                 th.printStackTrace();
             }
-            if (b.f63999b.booleanValue()) {
+            if (b.f64912b.booleanValue()) {
                 ar.a(new Runnable(th) { // from class: com.kwad.sdk.core.d.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Throwable f64349a;
+                    public final /* synthetic */ Throwable f65262a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -105,14 +105,14 @@ public class a {
                                 return;
                             }
                         }
-                        this.f64349a = th;
+                        this.f65262a = th;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            throw new RuntimeException(this.f64349a);
+                            throw new RuntimeException(this.f65262a);
                         }
                     }
                 });
@@ -126,7 +126,7 @@ public class a {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f64348c) {
+            if (f65261c) {
                 StackTraceElement[] stackTrace = new Throwable().getStackTrace();
                 if (stackTrace.length > 3) {
                     str = stackTrace[3].getFileName();
@@ -153,14 +153,14 @@ public class a {
 
     public static void b(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, th) == null) && b.f63999b.booleanValue() && th != null) {
+        if ((interceptable == null || interceptable.invokeL(65545, null, th) == null) && b.f64912b.booleanValue() && th != null) {
             th.printStackTrace();
         }
     }
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && f64346a) {
+        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && f65259a) {
             a();
             f(str, str2);
         }
@@ -168,7 +168,7 @@ public class a {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && f64346a) {
+        if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && f65259a) {
             a();
             f(str, str2);
         }
@@ -176,7 +176,7 @@ public class a {
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && f64346a) {
+        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && f65259a) {
             a();
             f(str, str2);
         }

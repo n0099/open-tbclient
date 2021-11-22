@@ -12,13 +12,13 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f64911a;
+    public com.kwad.sdk.core.download.b.b f65824a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f64912b;
+    public RecyclerView f65825b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f64913c;
+    public AdTemplate f65826c;
 
     public e(AdTemplate adTemplate, com.kwad.sdk.core.download.b.b bVar, RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class e {
                 return;
             }
         }
-        this.f64913c = adTemplate;
-        this.f64911a = bVar;
-        this.f64912b = recyclerView;
+        this.f65826c = adTemplate;
+        this.f65824a = bVar;
+        this.f65825b = recyclerView;
     }
 }

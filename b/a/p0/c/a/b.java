@@ -10,13 +10,13 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9543a;
+    public static final String f10123a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9544b;
+    public static final String f10124b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f9545c;
+    public static final byte[] f10125c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,8 +32,8 @@ public class b {
                 return;
             }
         }
-        f9543a = b.a.p0.a.d0.a.c();
-        f9544b = f9543a + "/bdtls";
-        f9545c = new byte[]{0, -98};
+        f10123a = b.a.p0.a.c1.a.o().t();
+        f10124b = f10123a + "/bdtls";
+        f10125c = new byte[]{0, -98};
     }
 }

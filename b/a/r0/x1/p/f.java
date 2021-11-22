@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.player.LivePlayer;
 import com.baidu.searchbox.player.helper.SimpleStyleSwitchHelper;
@@ -21,24 +21,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f extends d implements LivePlayer {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Integer f27045i;
+    public static final Integer f28577i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<LivePlayer.OnProgressChangeListener> f27046f;
+    public List<LivePlayer.OnProgressChangeListener> f28578f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IVideoUpdateStrategy f27047g;
+    public IVideoUpdateStrategy f28579g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27048h;
+    public boolean f28580h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends b.a.r0.x1.p.k.a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,16 +70,16 @@ public class f extends d implements LivePlayer {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f27049e;
+        public final /* synthetic */ int f28581e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f27050f;
+        public final /* synthetic */ f f28582f;
 
         public b(f fVar, int i2) {
             Interceptable interceptable = $ic;
@@ -96,29 +96,29 @@ public class f extends d implements LivePlayer {
                     return;
                 }
             }
-            this.f27050f = fVar;
-            this.f27049e = i2;
+            this.f28582f = fVar;
+            this.f28581e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f27049e;
+                int i2 = this.f28581e;
                 if (i2 == -2) {
-                    if (this.f27050f.isPlaying()) {
-                        this.f27050f.pauseInternal(2);
+                    if (this.f28582f.isPlaying()) {
+                        this.f28582f.pauseInternal(2);
                     }
-                    this.f27050f.mHasAudioFocus = false;
+                    this.f28582f.mHasAudioFocus = false;
                 } else if (i2 != -1) {
-                    if (i2 == 1 && this.f27050f.isPause() && this.f27050f.isForeground()) {
-                        this.f27050f.resume();
+                    if (i2 == 1 && this.f28582f.isPause() && this.f28582f.isForeground()) {
+                        this.f28582f.resume();
                     }
                 } else {
-                    if (this.f27050f.isPlaying()) {
-                        this.f27050f.pauseInternal(2);
+                    if (this.f28582f.isPlaying()) {
+                        this.f28582f.pauseInternal(2);
                     }
-                    this.f27050f.abandonAudioFocus();
+                    this.f28582f.abandonAudioFocus();
                 }
             }
         }
@@ -137,7 +137,7 @@ public class f extends d implements LivePlayer {
                 return;
             }
         }
-        f27045i = 0;
+        f28577i = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -159,8 +159,8 @@ public class f extends d implements LivePlayer {
                 return;
             }
         }
-        this.f27046f = new ArrayList();
-        this.f27048h = false;
+        this.f28578f = new ArrayList();
+        this.f28580h = false;
     }
 
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer
@@ -174,7 +174,7 @@ public class f extends d implements LivePlayer {
     public void addProgressListener(@NonNull LivePlayer.OnProgressChangeListener onProgressChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onProgressChangeListener) == null) {
-            this.f27046f.add(onProgressChangeListener);
+            this.f28578f.add(onProgressChangeListener);
         }
     }
 
@@ -182,10 +182,10 @@ public class f extends d implements LivePlayer {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f27047g == null) {
-                this.f27047g = new a(this);
+            if (this.f28579g == null) {
+                this.f28579g = new a(this);
             }
-            return this.f27047g;
+            return this.f28579g;
         }
         return (IVideoUpdateStrategy) invokeV.objValue;
     }
@@ -208,7 +208,7 @@ public class f extends d implements LivePlayer {
     public final void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f27048h = z;
+            this.f28580h = z;
             this.mVideoSession.getControlEventTrigger().pause(z);
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer != null) {
@@ -263,7 +263,7 @@ public class f extends d implements LivePlayer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.release();
-            this.f27046f.clear();
+            this.f28578f.clear();
         }
     }
 
@@ -278,7 +278,7 @@ public class f extends d implements LivePlayer {
     public void removeProgressListener(@NonNull LivePlayer.OnProgressChangeListener onProgressChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, onProgressChangeListener) == null) {
-            this.f27046f.remove(onProgressChangeListener);
+            this.f28578f.remove(onProgressChangeListener);
         }
     }
 
@@ -296,7 +296,7 @@ public class f extends d implements LivePlayer {
         if ((interceptable == null || interceptable.invokeZ(1048592, this, z) == null) && isPause()) {
             if (z) {
                 super.resume();
-            } else if (this.f27048h) {
+            } else if (this.f28580h) {
             } else {
                 resume();
             }
@@ -338,7 +338,7 @@ public class f extends d implements LivePlayer {
         if (!(interceptable == null || interceptable.invokeL(1048597, this, hashMap) == null) || hashMap == null) {
             return;
         }
-        String str = hashMap.get(f27045i);
+        String str = hashMap.get(f28577i);
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -420,7 +420,7 @@ public class f extends d implements LivePlayer {
                 return;
             }
         }
-        this.f27046f = new ArrayList();
-        this.f27048h = false;
+        this.f28578f = new ArrayList();
+        this.f28580h = false;
     }
 }

@@ -17,7 +17,7 @@ import com.google.zxing.pdf417.encoder.PDF417;
 import java.lang.reflect.Array;
 import java.nio.charset.Charset;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class PDF417Writer implements Writer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_ERROR_CORRECTION_LEVEL = 2;

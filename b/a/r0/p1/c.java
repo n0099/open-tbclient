@@ -14,7 +14,7 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.r0.p1.a f22144a;
+    public b.a.r0.p1.a f23621a;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -27,7 +27,7 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f22145a;
+        public static c f23622a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +43,7 @@ public class c {
                     return;
                 }
             }
-            f22145a = new c(null);
+            f23622a = new c(null);
         }
     }
 
@@ -54,19 +54,19 @@ public class c {
     public static c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f22145a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f23622a : (c) invokeV.objValue;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            b.a.r0.p1.a aVar = this.f22144a;
+            b.a.r0.p1.a aVar = this.f23621a;
             if (aVar != null) {
                 aVar.cancel();
-                this.f22144a = null;
+                this.f23621a = null;
             }
             b.a.r0.p1.a aVar2 = new b.a.r0.p1.a(z);
-            this.f22144a = aVar2;
+            this.f23621a = aVar2;
             aVar2.execute(new String[0]);
         }
     }
@@ -74,11 +74,11 @@ public class c {
     public void c() {
         b.a.r0.p1.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f22144a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f23621a) == null) {
             return;
         }
         aVar.cancel();
-        this.f22144a = null;
+        this.f23621a = null;
     }
 
     public c() {

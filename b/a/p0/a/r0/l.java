@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes.dex */
-public class l implements b.a.p0.a.k2.f.d {
+public class l implements b.a.p0.a.o2.f.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.p0.a.k2.f.e f7597a;
+    public b.a.p0.a.o2.f.e f8112a;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -32,17 +32,17 @@ public class l implements b.a.p0.a.k2.f.d {
                 return;
             }
         }
-        n.T(n.n(), n.r());
+        n.X(n.p(), n.t());
     }
 
-    @Override // b.a.p0.a.k2.f.d
+    @Override // b.a.p0.a.o2.f.d
     public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? n.U(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? n.Y(str) : (String) invokeL.objValue;
     }
 
-    @Override // b.a.p0.a.k2.f.d
+    @Override // b.a.p0.a.o2.f.d
     public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -59,97 +59,97 @@ public class l implements b.a.p0.a.k2.f.d {
         return invokeL.booleanValue;
     }
 
-    @Override // b.a.p0.a.k2.f.d
+    @Override // b.a.p0.a.o2.f.d
     public String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return n.K("bdfile://tmp" + File.separator + str);
+            return n.N("bdfile://tmp" + File.separator + str);
         }
         return (String) invokeL.objValue;
     }
 
-    @Override // b.a.p0.a.k2.f.d
+    @Override // b.a.p0.a.o2.f.d
     @NonNull
-    public synchronized b.a.p0.a.k2.f.e d() {
+    public synchronized b.a.p0.a.o2.f.e d() {
         InterceptResult invokeV;
-        b.a.p0.a.k2.f.e eVar;
+        b.a.p0.a.o2.f.e eVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                if (this.f7597a == null) {
-                    this.f7597a = new m();
+                if (this.f8112a == null) {
+                    this.f8112a = new m();
                 }
-                eVar = this.f7597a;
+                eVar = this.f8112a;
             }
             return eVar;
         }
-        return (b.a.p0.a.k2.f.e) invokeV.objValue;
+        return (b.a.p0.a.o2.f.e) invokeV.objValue;
     }
 
-    @Override // b.a.p0.a.k2.f.d
+    @Override // b.a.p0.a.o2.f.d
     public String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (b.a.p0.a.k2.b.s(str) == PathType.RELATIVE) {
-                return n.U(str);
+            if (b.a.p0.a.o2.b.s(str) == PathType.RELATIVE) {
+                return n.Y(str);
             }
             return null;
         }
         return (String) invokeL.objValue;
     }
 
-    @Override // b.a.p0.a.k2.f.d
+    @Override // b.a.p0.a.o2.f.d
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? n.M(a.USER_DATA_PATH) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? n.P(a.USER_DATA_PATH) : (String) invokeV.objValue;
     }
 
-    @Override // b.a.p0.a.k2.f.d
+    @Override // b.a.p0.a.o2.f.d
     public String g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? n.V(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? n.Z(str) : (String) invokeL.objValue;
     }
 
-    @Override // b.a.p0.a.k2.f.d
+    @Override // b.a.p0.a.o2.f.d
     public String h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? g(str) : (String) invokeL.objValue;
     }
 
-    @Override // b.a.p0.a.k2.f.d
+    @Override // b.a.p0.a.o2.f.d
     public String i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            String y = n.y(str);
-            if (TextUtils.isEmpty(y)) {
+            String B = n.B(str);
+            if (TextUtils.isEmpty(B)) {
                 return null;
             }
-            return y;
+            return B;
         }
         return (String) invokeL.objValue;
     }
 
-    @Override // b.a.p0.a.k2.f.d
+    @Override // b.a.p0.a.o2.f.d
     public boolean j(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) ? n.R(str) : invokeLZ.booleanValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) ? n.V(str) : invokeLZ.booleanValue;
     }
 
-    @Override // b.a.p0.a.k2.f.d
+    @Override // b.a.p0.a.o2.f.d
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? n.K("bdfile://tmp") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? n.N("bdfile://tmp") : (String) invokeV.objValue;
     }
 
-    @Override // b.a.p0.a.k2.f.d
+    @Override // b.a.p0.a.o2.f.d
     public boolean l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -164,7 +164,7 @@ public class l implements b.a.p0.a.k2.f.d {
         return invokeL.booleanValue;
     }
 
-    @Override // b.a.p0.a.k2.f.d
+    @Override // b.a.p0.a.o2.f.d
     public String m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -1,10 +1,11 @@
 package b.a.p0.a.p0.h;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.k;
-import b.a.p0.t.d;
+import b.a.p0.w.d;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,20 +22,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7285c;
+    public static final boolean f7710c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f7286d;
+    public static a f7711d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f7287e;
+    public static a f7712e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7288a;
+    public String f7713a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f7289b;
+    public long f7714b;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +50,7 @@ public class a {
                 return;
             }
         }
-        f7285c = k.f6397a;
+        f7710c = k.f6863a;
     }
 
     public a() {
@@ -71,10 +72,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (f7286d == null) {
-                f7286d = d(e(str));
+            if (f7711d == null) {
+                f7711d = d(e(str));
             }
-            return f7286d;
+            return f7711d;
         }
         return (a) invokeL.objValue;
     }
@@ -97,10 +98,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (f7287e == null) {
-                f7287e = d(e(str));
+            if (f7712e == null) {
+                f7712e = d(e(str));
             }
-            return f7287e;
+            return f7712e;
         }
         return (a) invokeL.objValue;
     }
@@ -112,32 +113,33 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, jSONObject)) == null) {
             a aVar = new a();
             if (jSONObject != null) {
-                aVar.f7288a = jSONObject.optString("extension-core-version-name");
-                aVar.f7289b = jSONObject.optLong("extension-core-version-code");
+                aVar.f7713a = jSONObject.optString("extension-core-version-name");
+                aVar.f7714b = jSONObject.optLong("extension-core-version-code");
             }
             return aVar;
         }
         return (a) invokeL.objValue;
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public static JSONObject e(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            boolean z = f7285c;
-            String C = d.C(AppRuntime.getAppContext(), str);
-            if (TextUtils.isEmpty(C)) {
-                boolean z2 = f7285c;
+            boolean z = f7710c;
+            String D = d.D(AppRuntime.getAppContext(), str);
+            if (TextUtils.isEmpty(D)) {
+                boolean z2 = f7710c;
                 return null;
             }
             try {
-                JSONObject jSONObject = new JSONObject(C);
-                if (f7285c) {
+                JSONObject jSONObject = new JSONObject(D);
+                if (f7710c) {
                     String str2 = "readPresetConfig end. config: " + jSONObject.toString();
                 }
                 return jSONObject;
             } catch (JSONException e2) {
-                if (f7285c) {
+                if (f7710c) {
                     throw new RuntimeException(e2);
                 }
                 return null;

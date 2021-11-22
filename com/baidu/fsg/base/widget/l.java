@@ -11,7 +11,7 @@ public class l implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardUtil f37735a;
+    public final /* synthetic */ SafeKeyBoardUtil f38565a;
 
     public l(SafeKeyBoardUtil safeKeyBoardUtil) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class l implements Runnable {
                 return;
             }
         }
-        this.f37735a = safeKeyBoardUtil;
+        this.f38565a = safeKeyBoardUtil;
     }
 
     @Override // java.lang.Runnable
@@ -46,25 +46,25 @@ public class l implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int[] iArr = new int[2];
-            view = this.f37735a.f37710f;
+            view = this.f38565a.f38540f;
             view.getLocationOnScreen(iArr);
-            SafeKeyBoardUtil safeKeyBoardUtil = this.f37735a;
+            SafeKeyBoardUtil safeKeyBoardUtil = this.f38565a;
             int i7 = iArr[1];
-            view2 = safeKeyBoardUtil.f37710f;
+            view2 = safeKeyBoardUtil.f38540f;
             int height = i7 + view2.getHeight();
-            i2 = this.f37735a.f37711g;
-            i3 = this.f37735a.j;
+            i2 = this.f38565a.f38541g;
+            i3 = this.f38565a.j;
             int i8 = height - (i2 - i3);
-            safeKeyBoardEditText = this.f37735a.f37707c;
-            safeKeyBoardUtil.f37713i = i8 + safeKeyBoardEditText.getGap();
-            i4 = this.f37735a.f37713i;
+            safeKeyBoardEditText = this.f38565a.f38537c;
+            safeKeyBoardUtil.f38543i = i8 + safeKeyBoardEditText.getGap();
+            i4 = this.f38565a.f38543i;
             if (i4 > 0) {
-                safeScrollView2 = this.f37735a.f37709e;
-                i6 = this.f37735a.f37713i;
+                safeScrollView2 = this.f38565a.f38539e;
+                i6 = this.f38565a.f38543i;
                 safeScrollView2.smoothScrollBy(0, i6);
             }
-            safeScrollView = this.f37735a.f37709e;
-            i5 = this.f37735a.j;
+            safeScrollView = this.f38565a.f38539e;
+            i5 = this.f38565a.j;
             safeScrollView.notifyShowKeyBoard(i5);
         }
     }

@@ -15,16 +15,16 @@ public class b implements i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<BawuRoleInfoPub> f24214a;
+    public ArrayList<BawuRoleInfoPub> f25677a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f24215b;
+    public boolean f25678b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f24216c;
+    public boolean f25679c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f24217d;
+    public String f25680d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public class b implements i {
                 return;
             }
         }
-        this.f24214a = new ArrayList<>();
-        this.f24215b = false;
-        this.f24216c = false;
+        this.f25677a = new ArrayList<>();
+        this.f25678b = false;
+        this.f25679c = false;
     }
 
     @Override // b.a.r0.v0.a.i
@@ -57,52 +57,52 @@ public class b implements i {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24216c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25679c : invokeV.booleanValue;
     }
 
     public ArrayList<BawuRoleInfoPub> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24214a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25677a : (ArrayList) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24217d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25680d : (String) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24215b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f25678b : invokeV.booleanValue;
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f24216c = z;
+            this.f25679c = z;
         }
     }
 
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f24215b = z;
+            this.f25678b = z;
         }
     }
 
     public void h(ArrayList<BawuRoleInfoPub> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
-            this.f24214a = arrayList;
+            this.f25677a = arrayList;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f24217d = str;
+            this.f25680d = str;
         }
     }
 }

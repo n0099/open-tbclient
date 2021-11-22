@@ -21,7 +21,7 @@ public class ScanLoadingView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TBLottieAnimationView f53476e;
+    public TBLottieAnimationView f54395e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ScanLoadingView(Context context) {
@@ -49,10 +49,10 @@ public class ScanLoadingView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.layout_scan_loading, (ViewGroup) this, true);
             TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.loading_anim);
-            this.f53476e = tBLottieAnimationView;
+            this.f54395e = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
-            this.f53476e.setFrame(0);
-            SkinManager.setLottieAnimation(this.f53476e, R.raw.scan_refresh);
+            this.f54395e.setFrame(0);
+            SkinManager.setLottieAnimation(this.f54395e, R.raw.scan_refresh);
             SkinManager.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.CAM_X0108, 1);
             setVisibility(8);
         }
@@ -61,7 +61,7 @@ public class ScanLoadingView extends LinearLayout {
     public void hideLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.f53476e;
+            TBLottieAnimationView tBLottieAnimationView = this.f54395e;
             if (tBLottieAnimationView != null) {
                 tBLottieAnimationView.cancelAnimation();
             }
@@ -73,12 +73,12 @@ public class ScanLoadingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setVisibility(0);
-            TBLottieAnimationView tBLottieAnimationView = this.f53476e;
+            TBLottieAnimationView tBLottieAnimationView = this.f54395e;
             if (tBLottieAnimationView != null) {
                 if (tBLottieAnimationView.isAnimating()) {
-                    this.f53476e.cancelAnimation();
+                    this.f54395e.cancelAnimation();
                 }
-                this.f53476e.playAnimation();
+                this.f54395e.playAnimation();
             }
         }
     }

@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SpecialLiveTabInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SpecialLiveTabInfo> CREATOR;
@@ -26,7 +26,7 @@ public class SpecialLiveTabInfo implements Parcelable {
     public String tabName;
     public int tabType;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Parcelable.Creator<SpecialLiveTabInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

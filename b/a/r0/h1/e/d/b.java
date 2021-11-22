@@ -1,14 +1,14 @@
 package b.a.r0.h1.e.d;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.d.l;
-import b.a.e.e.p.j;
-import b.a.e.l.e.n;
-import b.a.q0.d1.i0;
-import b.a.q0.d1.l0;
-import b.a.q0.d1.q;
+import b.a.e.f.d.l;
+import b.a.e.f.p.j;
+import b.a.e.m.e.n;
+import b.a.q0.c1.i0;
+import b.a.q0.c1.l0;
+import b.a.q0.c1.q;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.e0.k;
+import b.a.r0.b0.f0.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -42,31 +42,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f17142a;
+    public TbPageContext f18610a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f17143b;
+    public e f18611b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f17144c;
+    public boolean f18612c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f17145d;
+    public boolean f18613d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f17146e;
+    public boolean f18614e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f17147f;
+    public List<n> f18615f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<ThreadInfo> f17148g;
+    public List<ThreadInfo> f18616g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17149h;
+    public int f18617h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<b.a.r0.h1.e.c.a> f17150i;
+    public List<b.a.r0.h1.e.c.a> f18618i;
     public boolean j;
     public DataRes.Builder k;
     public b.a.e.c.g.a l;
@@ -77,7 +77,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f17151a;
+        public final /* synthetic */ b f18619a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2, int i3) {
@@ -98,7 +98,7 @@ public class b {
                     return;
                 }
             }
-            this.f17151a = bVar;
+            this.f18619a = bVar;
         }
 
         @Override // b.a.e.c.g.a
@@ -107,11 +107,11 @@ public class b {
             ClassInfo classInfo;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f17151a.f17144c = false;
+                this.f18619a.f18612c = false;
                 if (responsedMessage == null) {
-                    this.f17151a.f17146e = false;
-                    if (this.f17151a.f17143b != null) {
-                        this.f17151a.f17143b.b(-1, "", this.f17151a.f17145d);
+                    this.f18619a.f18614e = false;
+                    if (this.f18619a.f18611b != null) {
+                        this.f18619a.f18611b.b(-1, "", this.f18619a.f18613d);
                         return;
                     }
                     return;
@@ -123,40 +123,40 @@ public class b {
                     dataRes = ((GameVideoHttpResMessage) responsedMessage).mResultData;
                 }
                 if (dataRes != null && (classInfo = dataRes.class_info) != null && !ListUtils.isEmpty(classInfo.sub_class_list)) {
-                    this.f17151a.k(dataRes.class_info.sub_class_list);
-                    this.f17151a.j = dataRes.need_rechoose.intValue() == 1;
+                    this.f18619a.k(dataRes.class_info.sub_class_list);
+                    this.f18619a.j = dataRes.need_rechoose.intValue() == 1;
                 }
                 if (dataRes == null || ListUtils.getCount(dataRes.thread_list) <= 0) {
                     i2 = 0;
                 } else {
                     i2 = ListUtils.getCount(dataRes.thread_list);
-                    this.f17151a.n(dataRes);
+                    this.f18619a.n(dataRes);
                     if (!ListUtils.isEmpty(dataRes.thread_list)) {
-                        this.f17151a.z(dataRes);
+                        this.f18619a.z(dataRes);
                     }
                 }
-                if (this.f17151a.f17143b != null) {
+                if (this.f18619a.f18611b != null) {
                     if (responsedMessage.getError() == 0) {
-                        this.f17151a.f17143b.a(i2, this.f17151a.f17145d, false);
+                        this.f18619a.f18611b.a(i2, this.f18619a.f18613d, false);
                     } else {
-                        this.f17151a.f17143b.b(responsedMessage.getError(), responsedMessage.getErrorString(), this.f17151a.f17145d);
+                        this.f18619a.f18611b.b(responsedMessage.getError(), responsedMessage.getErrorString(), this.f18619a.f18613d);
                     }
                 }
-                this.f17151a.f17146e = false;
+                this.f18619a.f18614e = false;
             }
         }
     }
 
     /* renamed from: b.a.r0.h1.e.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0880b extends i0<DataRes> {
+    public class C0948b extends i0<DataRes> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f17152a;
+        public final /* synthetic */ b f18620a;
 
-        public C0880b(b bVar) {
+        public C0948b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,11 +171,11 @@ public class b {
                     return;
                 }
             }
-            this.f17152a = bVar;
+            this.f18620a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.i0
+        @Override // b.a.q0.c1.i0
         /* renamed from: a */
         public DataRes doInBackground() {
             InterceptResult invokeV;
@@ -184,7 +184,7 @@ public class b {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 b.a.q0.s.r.a.f();
                 l<byte[]> e2 = b.a.q0.s.r.a.e("tb.game_video", TbadkCoreApplication.getCurrentAccount());
-                if (e2 != null && (bArr = e2.get(String.valueOf(this.f17152a.f17149h))) != null && bArr.length != 0) {
+                if (e2 != null && (bArr = e2.get(String.valueOf(this.f18620a.f18617h))) != null && bArr.length != 0) {
                     try {
                         return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
                     } catch (IOException e3) {
@@ -203,7 +203,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f17153a;
+        public final /* synthetic */ b f18621a;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -220,24 +220,24 @@ public class b {
                     return;
                 }
             }
-            this.f17153a = bVar;
+            this.f18621a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.q
+        @Override // b.a.q0.c1.q
         /* renamed from: a */
         public void onReturnDataInUI(DataRes dataRes) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
                 return;
             }
-            this.f17153a.k = new DataRes.Builder(dataRes);
+            this.f18621a.k = new DataRes.Builder(dataRes);
             int count = ListUtils.getCount(dataRes.thread_list);
             if (count > 0) {
-                this.f17153a.n(dataRes);
-                this.f17153a.k(dataRes.class_info.sub_class_list);
-                if (this.f17153a.f17143b != null) {
-                    this.f17153a.f17143b.a(count, false, true);
+                this.f18621a.n(dataRes);
+                this.f18621a.k(dataRes.class_info.sub_class_list);
+                if (this.f18621a.f18611b != null) {
+                    this.f18621a.f18611b.a(count, false, true);
                 }
             }
         }
@@ -249,10 +249,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DataRes.Builder f17154a;
+        public final /* synthetic */ DataRes.Builder f18622a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f17155b;
+        public final /* synthetic */ b f18623b;
 
         public d(b bVar, DataRes.Builder builder) {
             Interceptable interceptable = $ic;
@@ -269,19 +269,19 @@ public class b {
                     return;
                 }
             }
-            this.f17155b = bVar;
-            this.f17154a = builder;
+            this.f18623b = bVar;
+            this.f18622a = builder;
         }
 
-        @Override // b.a.q0.d1.i0
+        @Override // b.a.q0.c1.i0
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                DataRes.Builder builder = new DataRes.Builder(this.f17154a.build(true));
+                DataRes.Builder builder = new DataRes.Builder(this.f18622a.build(true));
                 b.a.q0.s.r.a.f();
                 try {
-                    b.a.q0.s.r.a.e("tb.game_video", TbadkCoreApplication.getCurrentAccount()).g(String.valueOf(this.f17155b.f17149h), builder.build(true).toByteArray());
+                    b.a.q0.s.r.a.e("tb.game_video", TbadkCoreApplication.getCurrentAccount()).g(String.valueOf(this.f18623b.f18617h), builder.build(true).toByteArray());
                     return null;
                 } catch (Exception e2) {
                     BdLog.e(e2);
@@ -314,14 +314,14 @@ public class b {
                 return;
             }
         }
-        this.f17146e = true;
+        this.f18614e = true;
         this.j = false;
         this.l = new a(this, CmdConfigHttp.CMD_GAME_VIDEO, 309646);
-        this.f17142a = tbPageContext;
-        this.f17143b = eVar;
-        this.f17147f = new LinkedList();
-        this.f17148g = new LinkedList();
-        this.f17150i = new LinkedList();
+        this.f18610a = tbPageContext;
+        this.f18611b = eVar;
+        this.f18615f = new LinkedList();
+        this.f18616g = new LinkedList();
+        this.f18618i = new LinkedList();
     }
 
     public final void A(DataRes.Builder builder) {
@@ -336,35 +336,35 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        if (this.f17150i == null) {
-            this.f17150i = new LinkedList();
+        if (this.f18618i == null) {
+            this.f18618i = new LinkedList();
         }
-        this.f17150i.clear();
+        this.f18618i.clear();
         for (SubClassItem subClassItem : list) {
             b.a.r0.h1.e.c.a aVar = new b.a.r0.h1.e.c.a();
             aVar.a(subClassItem);
-            this.f17150i.add(aVar);
+            this.f18618i.add(aVar);
         }
     }
 
     public List<n> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17147f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18615f : (List) invokeV.objValue;
     }
 
     public List<b.a.r0.h1.e.c.a> m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17150i : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18618i : (List) invokeV.objValue;
     }
 
     public final void n(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dataRes) == null) {
-            s(dataRes.thread_list, !this.f17145d);
+            s(dataRes.thread_list, !this.f18613d);
             List<n> y = y();
-            this.f17147f = y;
+            this.f18615f = y;
             b.a.r0.h1.e.d.a.b(dataRes, y);
         }
     }
@@ -378,22 +378,22 @@ public class b {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            l0.b(new C0880b(this), new c(this));
+            l0.b(new C0948b(this), new c(this));
         }
     }
 
     public void q(int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.f17144c) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.f18612c) {
             return;
         }
-        this.f17149h = i2;
-        this.f17144c = true;
-        this.f17145d = false;
-        if (this.f17146e) {
+        this.f18617h = i2;
+        this.f18612c = true;
+        this.f18613d = false;
+        if (this.f18614e) {
             p();
-            this.f17146e = false;
+            this.f18614e = false;
         }
         GameVideoRequestMessage gameVideoRequestMessage = new GameVideoRequestMessage();
         gameVideoRequestMessage.class_id = "1";
@@ -410,25 +410,25 @@ public class b {
             gameVideoRequestMessage.load_type = 1;
             gameVideoRequestMessage.page_thread_count = 12;
             gameVideoRequestMessage.setNetType(NetMessage.NetType.HTTP);
-            this.f17142a.sendMessage(gameVideoRequestMessage);
+            this.f18610a.sendMessage(gameVideoRequestMessage);
         }
         i3 = 1;
         gameVideoRequestMessage.new_net_type = i3;
         gameVideoRequestMessage.load_type = 1;
         gameVideoRequestMessage.page_thread_count = 12;
         gameVideoRequestMessage.setNetType(NetMessage.NetType.HTTP);
-        this.f17142a.sendMessage(gameVideoRequestMessage);
+        this.f18610a.sendMessage(gameVideoRequestMessage);
     }
 
     public void r(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.f17144c) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || this.f18612c) {
             return;
         }
-        this.f17149h = i2;
+        this.f18617h = i2;
         int i3 = 1;
-        this.f17144c = true;
-        this.f17145d = true;
+        this.f18612c = true;
+        this.f18613d = true;
         GameVideoRequestMessage gameVideoRequestMessage = new GameVideoRequestMessage();
         gameVideoRequestMessage.class_id = "1";
         gameVideoRequestMessage.sub_class_id = i2;
@@ -445,7 +445,7 @@ public class b {
         gameVideoRequestMessage.load_type = 2;
         gameVideoRequestMessage.page_thread_count = 12;
         gameVideoRequestMessage.setNetType(NetMessage.NetType.HTTP);
-        this.f17142a.sendMessage(gameVideoRequestMessage);
+        this.f18610a.sendMessage(gameVideoRequestMessage);
     }
 
     public final void s(List<ThreadInfo> list, boolean z) {
@@ -456,12 +456,12 @@ public class b {
         if (z) {
             LinkedList linkedList = new LinkedList();
             linkedList.addAll(list);
-            linkedList.addAll(this.f17148g);
-            this.f17148g.clear();
-            this.f17148g.addAll(linkedList);
+            linkedList.addAll(this.f18616g);
+            this.f18616g.clear();
+            this.f18616g.addAll(linkedList);
             return;
         }
-        this.f17148g.addAll(list);
+        this.f18616g.addAll(list);
     }
 
     public void t() {
@@ -485,7 +485,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || (builder = this.k) == null || ListUtils.isEmpty(builder.thread_list)) {
             return;
         }
-        long g2 = b.a.e.e.m.b.g(str, 0L);
+        long g2 = b.a.e.f.m.b.g(str, 0L);
         for (int i2 = 0; i2 < this.k.thread_list.size(); i2++) {
             ThreadInfo threadInfo = this.k.thread_list.get(i2);
             if (threadInfo != null && (l = threadInfo.tid) != null && l.longValue() == g2) {
@@ -498,15 +498,15 @@ public class b {
 
     public void w(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || ListUtils.isEmpty(this.f17147f)) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || ListUtils.isEmpty(this.f18615f)) {
             return;
         }
-        Iterator<n> it = this.f17147f.iterator();
+        Iterator<n> it = this.f18615f.iterator();
         while (it.hasNext()) {
             n next = it.next();
-            if (next instanceof b.a.r0.b0.e0.b) {
-                b.a.r0.b0.e0.b bVar = (b.a.r0.b0.e0.b) next;
-                if (bVar.getThreadData() != null && bVar.getThreadData().s1() != null && bVar.getThreadData().s1().equals(str)) {
+            if (next instanceof b.a.r0.b0.f0.b) {
+                b.a.r0.b0.f0.b bVar = (b.a.r0.b0.f0.b) next;
+                if (bVar.getThreadData() != null && bVar.getThreadData().t1() != null && bVar.getThreadData().t1().equals(str)) {
                     it.remove();
                 }
             }
@@ -516,9 +516,9 @@ public class b {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f17146e = true;
-            this.f17147f.clear();
-            this.f17148g.clear();
+            this.f18614e = true;
+            this.f18615f.clear();
+            this.f18616g.clear();
         }
     }
 
@@ -527,38 +527,38 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            if (ListUtils.isEmpty(this.f17148g)) {
+            if (ListUtils.isEmpty(this.f18616g)) {
                 return linkedList;
             }
             int i2 = 0;
-            for (ThreadInfo threadInfo : this.f17148g) {
+            for (ThreadInfo threadInfo : this.f18616g) {
                 d2 d2Var = new d2();
-                d2Var.Y2(threadInfo);
-                if (b.a.r0.b0.e0.l.T(d2Var)) {
+                d2Var.a3(threadInfo);
+                if (b.a.r0.b0.f0.l.T(d2Var)) {
                     k kVar = new k();
-                    kVar.f14748e = d2Var;
-                    kVar.l = d2Var.s1();
+                    kVar.f16235e = d2Var;
+                    kVar.l = d2Var.t1();
                     kVar.position = i2;
                     kVar.r = true;
                     linkedList.add(kVar);
-                    b.a.r0.b0.e0.l lVar = new b.a.r0.b0.e0.l(d2Var);
-                    lVar.l = d2Var.s1();
+                    b.a.r0.b0.f0.l lVar = new b.a.r0.b0.f0.l(d2Var);
+                    lVar.l = d2Var.t1();
                     lVar.position = i2;
                     lVar.x = true;
                     linkedList.add(lVar);
                     if (threadInfo.top_agree_post != null) {
                         k kVar2 = new k();
-                        kVar2.f14748e = d2Var;
-                        kVar2.l = d2Var.s1();
+                        kVar2.f16235e = d2Var;
+                        kVar2.l = d2Var.t1();
                         kVar2.position = i2;
-                        kVar2.C = true;
+                        kVar2.D = true;
                         linkedList.add(kVar2);
                     }
                     k kVar3 = new k();
-                    kVar3.f14748e = d2Var;
-                    kVar3.l = d2Var.s1();
+                    kVar3.f16235e = d2Var;
+                    kVar3.l = d2Var.t1();
                     kVar3.position = i2;
-                    kVar3.E = true;
+                    kVar3.F = true;
                     linkedList.add(kVar3);
                     i2++;
                 }
@@ -575,16 +575,16 @@ public class b {
             builder.need_rechoose = dataRes.need_rechoose;
             builder.class_info = dataRes.class_info;
             builder.thread_personalized = dataRes.thread_personalized;
-            if (ListUtils.getCount(this.f17148g) >= 12) {
-                if (this.f17145d) {
-                    List<ThreadInfo> list = this.f17148g;
-                    builder.thread_list = list.subList(list.size() - 12, this.f17148g.size());
+            if (ListUtils.getCount(this.f18616g) >= 12) {
+                if (this.f18613d) {
+                    List<ThreadInfo> list = this.f18616g;
+                    builder.thread_list = list.subList(list.size() - 12, this.f18616g.size());
                 } else {
-                    builder.thread_list = this.f17148g.subList(0, 12);
+                    builder.thread_list = this.f18616g.subList(0, 12);
                 }
             } else {
                 ArrayList arrayList = new ArrayList();
-                arrayList.addAll(this.f17148g);
+                arrayList.addAll(this.f18616g);
                 builder.thread_list = arrayList;
             }
             this.k = builder;

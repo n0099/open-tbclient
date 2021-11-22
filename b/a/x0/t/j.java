@@ -14,7 +14,7 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, HashMap> f29925a;
+    public static HashMap<String, HashMap> f30794a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -57,7 +57,7 @@ public class j {
                 return;
             }
         }
-        f29925a = new HashMap<>();
+        f30794a = new HashMap<>();
     }
 
     public static HashMap a() {
@@ -100,8 +100,8 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (f29925a.get(str) != null) {
-                return f29925a.get(str);
+            if (f30794a.get(str) != null) {
+                return f30794a.get(str);
             }
             HashMap hashMap = null;
             char c2 = 65535;
@@ -157,7 +157,7 @@ public class j {
                 hashMap = i();
             }
             if (hashMap != null) {
-                f29925a.put(str, hashMap);
+                f30794a.put(str, hashMap);
             }
             return hashMap;
         }

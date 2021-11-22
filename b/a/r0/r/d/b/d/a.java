@@ -3,10 +3,10 @@ package b.a.r0.r.d.b.d;
 import android.app.Activity;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import b.a.r0.a3.z;
 import b.a.r0.r.e.d;
 import b.a.r0.r.e.e;
 import b.a.r0.r.e.g.b;
-import b.a.r0.z2.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
@@ -28,18 +28,18 @@ public class a extends b.a.r0.r.e.g.a<b, AdDownloadData> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public PermissionJudgePolicy f22960c;
+    public PermissionJudgePolicy f24492c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d f22961d;
+    public final d f24493d;
 
     /* renamed from: b.a.r0.r.d.b.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class C1121a {
+    public static /* synthetic */ class C1189a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f22962a;
+        public static final /* synthetic */ int[] f24494a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,25 +56,25 @@ public class a extends b.a.r0.r.e.g.a<b, AdDownloadData> {
                 }
             }
             int[] iArr = new int[DownloadStatus.values().length];
-            f22962a = iArr;
+            f24494a = iArr;
             try {
                 iArr[DownloadStatus.STATUS_NONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f22962a[DownloadStatus.STATUS_DOWNLOADING.ordinal()] = 2;
+                f24494a[DownloadStatus.STATUS_DOWNLOADING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f22962a[DownloadStatus.STATUS_PAUSED.ordinal()] = 3;
+                f24494a[DownloadStatus.STATUS_PAUSED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f22962a[DownloadStatus.STATUS_SUCCESS.ordinal()] = 4;
+                f24494a[DownloadStatus.STATUS_SUCCESS.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f22962a[DownloadStatus.STATUS_INSTALL_SUCCESS.ordinal()] = 5;
+                f24494a[DownloadStatus.STATUS_INSTALL_SUCCESS.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -99,7 +99,7 @@ public class a extends b.a.r0.r.e.g.a<b, AdDownloadData> {
                 return;
             }
         }
-        this.f22961d = new d(this, adDownloadData);
+        this.f24493d = new d(this, adDownloadData);
     }
 
     @Override // b.a.r0.r.e.g.a
@@ -111,7 +111,7 @@ public class a extends b.a.r0.r.e.g.a<b, AdDownloadData> {
                 AdDownloadData c2 = c();
                 long j = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0).getLong(c2.adId(), 0L);
                 c2.setContentLength(Math.max(c().getContentLength(), j));
-                this.f22961d.d(j);
+                this.f24493d.d(j);
             }
         }
     }
@@ -135,12 +135,12 @@ public class a extends b.a.r0.r.e.g.a<b, AdDownloadData> {
             if (d() == null || !(d().getRealView().getContext() instanceof Activity) || b.a.r0.a.h().u()) {
                 return true;
             }
-            if (this.f22960c == null) {
-                this.f22960c = new PermissionJudgePolicy();
+            if (this.f24492c == null) {
+                this.f24492c = new PermissionJudgePolicy();
             }
-            this.f22960c.clearRequestPermissionList();
-            this.f22960c.appendRequestPermission((Activity) d().getRealView().getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            return !this.f22960c.startRequestPermission((Activity) d().getRealView().getContext());
+            this.f24492c.clearRequestPermissionList();
+            this.f24492c.appendRequestPermission((Activity) d().getRealView().getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
+            return !this.f24492c.startRequestPermission((Activity) d().getRealView().getContext());
         }
         return invokeV.booleanValue;
     }
@@ -149,7 +149,7 @@ public class a extends b.a.r0.r.e.g.a<b, AdDownloadData> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             i();
-            this.f22961d.a();
+            this.f24493d.a();
         }
     }
 
@@ -163,18 +163,18 @@ public class a extends b.a.r0.r.e.g.a<b, AdDownloadData> {
         }
         DownloadStatus currentState = adDownloadData.getCurrentState();
         DownloadCacheKey g2 = e.c().g(adDownloadData.adId());
-        int i2 = C1121a.f22962a[currentState.ordinal()];
+        int i2 = C1189a.f24494a[currentState.ordinal()];
         if (i2 == 1) {
             if (g2 != null && l()) {
                 e.c().l(g2, null);
-                this.f22961d.a();
+                this.f24493d.a();
             }
         } else if (i2 == 2) {
             e.c().e(adDownloadData.adId());
         } else if (i2 == 3) {
             if (l()) {
                 e.c().j(adDownloadData.adId());
-                this.f22961d.a();
+                this.f24493d.a();
             }
         } else if (i2 != 4) {
             if (i2 != 5) {
@@ -207,7 +207,7 @@ public class a extends b.a.r0.r.e.g.a<b, AdDownloadData> {
             }
             String downloadFilePath = adDownloadData.extra().getDownloadFilePath();
             if (TextUtils.isEmpty(downloadFilePath) && !TextUtils.isEmpty(adDownloadData.adId())) {
-                downloadFilePath = b.a.r0.z2.b.h(adDownloadData.adId());
+                downloadFilePath = b.a.r0.a3.b.h(adDownloadData.adId());
             }
             if (TextUtils.isEmpty(downloadFilePath) || !new File(downloadFilePath).exists()) {
                 return;

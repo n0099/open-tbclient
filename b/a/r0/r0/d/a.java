@@ -19,10 +19,10 @@ public class a extends ImageSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Drawable> f23055e;
+    public WeakReference<Drawable> f24587e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f23056f;
+    public int f24588f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(@NonNull Drawable drawable, int i2) {
@@ -49,11 +49,11 @@ public class a extends ImageSpan {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.f23055e;
+            WeakReference<Drawable> weakReference = this.f24587e;
             Drawable drawable = weakReference != null ? weakReference.get() : null;
             if (drawable == null) {
                 Drawable drawable2 = getDrawable();
-                this.f23055e = new WeakReference<>(drawable2);
+                this.f24587e = new WeakReference<>(drawable2);
                 return drawable2;
             }
             return drawable;
@@ -94,7 +94,7 @@ public class a extends ImageSpan {
                 fontMetricsInt.bottom = i9;
                 fontMetricsInt.descent = i9;
             }
-            return bounds.right + this.f23056f;
+            return bounds.right + this.f24588f;
         }
         return invokeCommon.intValue;
     }
@@ -118,6 +118,6 @@ public class a extends ImageSpan {
                 return;
             }
         }
-        this.f23056f = i3;
+        this.f24588f = i3;
     }
 }

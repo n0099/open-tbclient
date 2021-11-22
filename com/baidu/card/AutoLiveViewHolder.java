@@ -1,7 +1,7 @@
 package com.baidu.card;
 
 import android.view.View;
-import b.a.q0.d1.s0;
+import b.a.q0.c1.r0;
 import b.a.r0.q2.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -125,7 +125,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements e {
     public void startPlay() {
         TbLiveContainer tbLiveContainer;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (tbLiveContainer = this.tbLiveContainer) != null && s0.d(tbLiveContainer.getContext())) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (tbLiveContainer = this.tbLiveContainer) != null && r0.d(tbLiveContainer.getContext())) {
             this.tbLiveContainer.startPlay();
         }
     }

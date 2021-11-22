@@ -1,7 +1,7 @@
 package com.baidu.tieba.wallet.pay;
 
 import b.a.e.a.f;
-import b.a.e.e.m.b;
+import b.a.e.f.m.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;

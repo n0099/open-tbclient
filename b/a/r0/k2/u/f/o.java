@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o extends b.a.e.e.f.a {
+public class o extends b.a.e.f.f.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,14 +25,14 @@ public class o extends b.a.e.e.f.a {
         }
     }
 
-    @Override // b.a.e.e.f.a
+    @Override // b.a.e.f.f.a
     public void changeSettingByType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
         }
     }
 
-    @Override // b.a.e.e.f.a
+    @Override // b.a.e.f.f.a
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class o extends b.a.e.e.f.a {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // b.a.e.e.f.a
+    @Override // b.a.e.f.f.a
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class o extends b.a.e.e.f.a {
         return invokeV.intValue;
     }
 
-    @Override // b.a.e.e.f.a
+    @Override // b.a.e.f.f.a
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,14 +62,14 @@ public class o extends b.a.e.e.f.a {
         return invokeV.intValue;
     }
 
-    @Override // b.a.e.e.f.a
+    @Override // b.a.e.f.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "pb_v89_smallflow_open" : (String) invokeV.objValue;
     }
 
-    @Override // b.a.e.e.f.a
+    @Override // b.a.e.f.f.a
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

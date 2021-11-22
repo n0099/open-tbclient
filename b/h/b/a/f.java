@@ -1,147 +1,214 @@
 package b.h.b.a;
 
-import androidx.core.view.InputDeviceCompat;
-import com.android.internal.http.multipart.Part;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
+import com.google.android.exoplayer2.audio.AudioProcessor;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class f {
+public class f implements u {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Object f31302a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f31303b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final SimpleDateFormat f31304c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: a  reason: collision with root package name */
+    public final Context f33309a;
+    @Nullable
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    /* renamed from: b  reason: collision with root package name */
+    public final b.h.b.a.z.a<b.h.b.a.z.c> f33310b;
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                File[] f2 = c.f();
-                if (f2 == null || f2.length <= 0) {
-                    return;
-                }
-                synchronized (f.f31302a) {
-                    for (File file : f2) {
-                        if (currentTimeMillis - file.lastModified() > 172800000) {
-                            file.delete();
-                        }
-                    }
-                }
-            }
-        }
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public final int f33311c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2075136400, "Lb/h/b/a/f;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-2075136400, "Lb/h/b/a/f;");
+    /* renamed from: d  reason: collision with root package name */
+    public final long f33312d;
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public f(Context context, @Nullable b.h.b.a.z.a<b.h.b.a.z.c> aVar) {
+        this(context, aVar, 0);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (b.h.b.a.z.a) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        f31302a = new Object();
-        f31303b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
-        f31304c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
     }
 
-    public static void b() {
+    @Override // b.h.b.a.u
+    public r[] a(Handler handler, b.h.b.a.j0.e eVar, b.h.b.a.x.d dVar, b.h.b.a.e0.j jVar, b.h.b.a.c0.d dVar2) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            e.b().post(new a());
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, handler, eVar, dVar, jVar, dVar2)) == null) {
+            ArrayList<r> arrayList = new ArrayList<>();
+            g(this.f33309a, this.f33310b, this.f33312d, handler, eVar, this.f33311c, arrayList);
+            c(this.f33309a, this.f33310b, b(), handler, dVar, this.f33311c, arrayList);
+            f(this.f33309a, jVar, handler.getLooper(), this.f33311c, arrayList);
+            d(this.f33309a, dVar2, handler.getLooper(), this.f33311c, arrayList);
+            e(this.f33309a, handler, this.f33311c, arrayList);
+            return (r[]) arrayList.toArray(new r[arrayList.size()]);
         }
+        return (r[]) invokeLLLLL.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
-        String d2;
+    public AudioProcessor[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (f31302a) {
-                d2 = d("looper", str);
-            }
-            return d2;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new AudioProcessor[0] : (AudioProcessor[]) invokeV.objValue;
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(12:7|(1:9)|10|11|12|13|(2:14|15)|16|17|18|(2:19|20)|(2:22|23)) */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void c(Context context, @Nullable b.h.b.a.z.a<b.h.b.a.z.c> aVar, AudioProcessor[] audioProcessorArr, Handler handler, b.h.b.a.x.d dVar, int i2, ArrayList<r> arrayList) {
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, aVar, audioProcessorArr, handler, dVar, Integer.valueOf(i2), arrayList}) != null) {
+            return;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            String str3 = "";
-            BufferedWriter bufferedWriter = null;
+        arrayList.add(new b.h.b.a.x.g(b.h.b.a.b0.b.f32718a, aVar, true, handler, dVar, b.h.b.a.x.c.a(context), audioProcessorArr));
+        if (i2 == 0) {
+            return;
+        }
+        int size = arrayList.size();
+        if (i2 == 2) {
+            size--;
+        }
+        try {
             try {
-                File c2 = c.c();
-                long currentTimeMillis = System.currentTimeMillis();
-                str3 = c2.getAbsolutePath() + "/" + str + "-" + f31303b.format(Long.valueOf(currentTimeMillis)) + ".log";
-                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
-                try {
-                    bufferedWriter2.write(Part.CRLF);
-                    bufferedWriter2.write("**********************");
-                    bufferedWriter2.write(Part.CRLF);
-                    bufferedWriter2.write(f31304c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
-                    bufferedWriter2.write(Part.CRLF);
-                    bufferedWriter2.write(Part.CRLF);
-                    bufferedWriter2.write(str2);
-                    bufferedWriter2.write(Part.CRLF);
-                    bufferedWriter2.flush();
-                    bufferedWriter2.close();
-                } catch (Throwable unused) {
-                    bufferedWriter = bufferedWriter2;
-                    if (bufferedWriter != null) {
-                        try {
-                            bufferedWriter.close();
-                        } catch (Exception unused2) {
-                        }
-                    }
-                    return str3;
-                }
-            } catch (Throwable unused3) {
+                i3 = size + 1;
+            } catch (Exception e2) {
+                throw new RuntimeException(e2);
             }
-            return str3;
+        } catch (ClassNotFoundException unused) {
         }
-        return (String) invokeLL.objValue;
+        try {
+            try {
+                arrayList.add(size, (r) Class.forName("com.google.android.exoplayer2.ext.opus.LibopusAudioRenderer").getConstructor(Handler.class, b.h.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
+            } catch (ClassNotFoundException unused2) {
+                size = i3;
+                i3 = size;
+                i4 = i3 + 1;
+                arrayList.add(i3, (r) Class.forName("com.google.android.exoplayer2.ext.flac.LibflacAudioRenderer").getConstructor(Handler.class, b.h.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
+                arrayList.add(i4, (r) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, b.h.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
+            }
+            i4 = i3 + 1;
+            try {
+                arrayList.add(i3, (r) Class.forName("com.google.android.exoplayer2.ext.flac.LibflacAudioRenderer").getConstructor(Handler.class, b.h.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
+            } catch (ClassNotFoundException unused3) {
+                i3 = i4;
+                i4 = i3;
+                arrayList.add(i4, (r) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, b.h.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
+            }
+            try {
+                arrayList.add(i4, (r) Class.forName("com.google.android.exoplayer2.ext.ffmpeg.FfmpegAudioRenderer").getConstructor(Handler.class, b.h.b.a.x.d.class, AudioProcessor[].class).newInstance(handler, dVar, audioProcessorArr));
+            } catch (ClassNotFoundException unused4) {
+            } catch (Exception e3) {
+                throw new RuntimeException(e3);
+            }
+        } catch (Exception e4) {
+            throw new RuntimeException(e4);
+        }
+    }
+
+    public void d(Context context, b.h.b.a.c0.d dVar, Looper looper, int i2, ArrayList<r> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, dVar, looper, Integer.valueOf(i2), arrayList}) == null) {
+            arrayList.add(new b.h.b.a.c0.e(dVar, looper));
+        }
+    }
+
+    public void e(Context context, Handler handler, int i2, ArrayList<r> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(1048580, this, context, handler, i2, arrayList) == null) {
+        }
+    }
+
+    public void f(Context context, b.h.b.a.e0.j jVar, Looper looper, int i2, ArrayList<r> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, jVar, looper, Integer.valueOf(i2), arrayList}) == null) {
+            arrayList.add(new b.h.b.a.e0.k(jVar, looper));
+        }
+    }
+
+    public void g(Context context, @Nullable b.h.b.a.z.a<b.h.b.a.z.c> aVar, long j, Handler handler, b.h.b.a.j0.e eVar, int i2, ArrayList<r> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{context, aVar, Long.valueOf(j), handler, eVar, Integer.valueOf(i2), arrayList}) != null) {
+            return;
+        }
+        arrayList.add(new b.h.b.a.j0.c(context, b.h.b.a.b0.b.f32718a, j, aVar, false, handler, eVar, 50));
+        if (i2 == 0) {
+            return;
+        }
+        int size = arrayList.size();
+        if (i2 == 2) {
+            size--;
+        }
+        try {
+            arrayList.add(size, (r) Class.forName("com.google.android.exoplayer2.ext.vp9.LibvpxVideoRenderer").getConstructor(Boolean.TYPE, Long.TYPE, Handler.class, b.h.b.a.j0.e.class, Integer.TYPE).newInstance(Boolean.TRUE, Long.valueOf(j), handler, eVar, 50));
+        } catch (ClassNotFoundException unused) {
+        } catch (Exception e2) {
+            throw new RuntimeException(e2);
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public f(Context context, @Nullable b.h.b.a.z.a<b.h.b.a.z.c> aVar, int i2) {
+        this(context, aVar, i2, 5000L);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r8;
+            Object[] objArr = {context, aVar, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (b.h.b.a.z.a) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public f(Context context, @Nullable b.h.b.a.z.a<b.h.b.a.z.c> aVar, int i2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, aVar, Integer.valueOf(i2), Long.valueOf(j)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f33309a = context;
+        this.f33310b = aVar;
+        this.f33311c = i2;
+        this.f33312d = j;
     }
 }

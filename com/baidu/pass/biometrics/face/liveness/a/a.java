@@ -13,14 +13,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f41814b = null;
+    public static a f42646b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f41815c = "request_data";
+    public static final String f42647c = "request_data";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, PassBiometricDto> f41816a;
+    public HashMap<String, PassBiometricDto> f42648a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -35,17 +35,17 @@ public class a {
                 return;
             }
         }
-        this.f41816a = new HashMap<>();
+        this.f42648a = new HashMap<>();
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f41814b == null) {
-                f41814b = new a();
+            if (f42646b == null) {
+                f42646b = new a();
             }
-            return f41814b;
+            return f42646b;
         }
         return (a) invokeV.objValue;
     }
@@ -54,7 +54,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HashMap<String, PassBiometricDto> hashMap = this.f41816a;
+            HashMap<String, PassBiometricDto> hashMap = this.f42648a;
             if (hashMap != null) {
                 return hashMap.get(str);
             }
@@ -66,20 +66,20 @@ public class a {
     public void a(String str, PassBiometricDto passBiometricDto) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, passBiometricDto) == null) {
-            if (this.f41816a == null) {
-                this.f41816a = new HashMap<>();
+            if (this.f42648a == null) {
+                this.f42648a = new HashMap<>();
             }
-            this.f41816a.put(str, passBiometricDto);
+            this.f42648a.put(str, passBiometricDto);
         }
     }
 
     public void a() {
         HashMap<String, PassBiometricDto> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (hashMap = this.f41816a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (hashMap = this.f42648a) == null) {
             return;
         }
         hashMap.clear();
-        this.f41816a = null;
+        this.f42648a = null;
     }
 }

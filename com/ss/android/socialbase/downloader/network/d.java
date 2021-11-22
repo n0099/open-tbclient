@@ -12,16 +12,16 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final double f69697a;
+    public final double f70617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f69698b;
+    public final int f70618b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f69699c;
+    public double f70619c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f69700d;
+    public int f70620d;
 
     public d(double d2) {
         Interceptable interceptable = $ic;
@@ -38,31 +38,31 @@ public class d {
                 return;
             }
         }
-        this.f69699c = -1.0d;
-        this.f69697a = d2;
-        this.f69698b = d2 == 0.0d ? Integer.MAX_VALUE : (int) Math.ceil(1.0d / d2);
+        this.f70619c = -1.0d;
+        this.f70617a = d2;
+        this.f70618b = d2 == 0.0d ? Integer.MAX_VALUE : (int) Math.ceil(1.0d / d2);
     }
 
     public void a(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2)}) == null) {
-            double d3 = 1.0d - this.f69697a;
-            int i2 = this.f69700d;
-            if (i2 > this.f69698b) {
-                this.f69699c = Math.exp((d3 * Math.log(this.f69699c)) + (this.f69697a * Math.log(d2)));
+            double d3 = 1.0d - this.f70617a;
+            int i2 = this.f70620d;
+            if (i2 > this.f70618b) {
+                this.f70619c = Math.exp((d3 * Math.log(this.f70619c)) + (this.f70617a * Math.log(d2)));
             } else if (i2 > 0) {
                 double d4 = (d3 * i2) / (i2 + 1.0d);
-                this.f69699c = Math.exp((d4 * Math.log(this.f69699c)) + ((1.0d - d4) * Math.log(d2)));
+                this.f70619c = Math.exp((d4 * Math.log(this.f70619c)) + ((1.0d - d4) * Math.log(d2)));
             } else {
-                this.f69699c = d2;
+                this.f70619c = d2;
             }
-            this.f69700d++;
+            this.f70620d++;
         }
     }
 
     public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69699c : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70619c : invokeV.doubleValue;
     }
 }

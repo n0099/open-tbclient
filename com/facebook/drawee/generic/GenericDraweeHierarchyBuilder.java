@@ -27,40 +27,25 @@ public class GenericDraweeHierarchyBuilder {
     public static final int DEFAULT_FADE_DURATION = 150;
     public static final ScalingUtils.ScaleType DEFAULT_SCALE_TYPE;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public ColorFilter mActualImageColorFilter;
-    @Nullable
     public PointF mActualImageFocusPoint;
-    @Nullable
     public Matrix mActualImageMatrix;
-    @Nullable
     public ScalingUtils.ScaleType mActualImageScaleType;
-    @Nullable
     public Drawable mBackground;
     public float mDesiredAspectRatio;
     public int mFadeDuration;
-    @Nullable
     public Drawable mFailureImage;
-    @Nullable
     public ScalingUtils.ScaleType mFailureImageScaleType;
-    @Nullable
     public List<Drawable> mOverlays;
-    @Nullable
     public Drawable mPlaceholderImage;
     @Nullable
     public ScalingUtils.ScaleType mPlaceholderImageScaleType;
-    @Nullable
     public Drawable mPressedStateOverlay;
-    @Nullable
     public Drawable mProgressBarImage;
-    @Nullable
     public ScalingUtils.ScaleType mProgressBarImageScaleType;
     public Resources mResources;
-    @Nullable
     public Drawable mRetryImage;
-    @Nullable
     public ScalingUtils.ScaleType mRetryImageScaleType;
-    @Nullable
     public RoundingParams mRoundingParams;
     public boolean mUseGlobalColorFilter;
 

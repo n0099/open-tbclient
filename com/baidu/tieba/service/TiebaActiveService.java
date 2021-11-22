@@ -41,7 +41,7 @@ public class TiebaActiveService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TiebaActiveService f53761e;
+        public final /* synthetic */ TiebaActiveService f54681e;
 
         public a(TiebaActiveService tiebaActiveService) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class TiebaActiveService extends BdBaseService {
                     return;
                 }
             }
-            this.f53761e = tiebaActiveService;
+            this.f54681e = tiebaActiveService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53761e.sendActive();
+                this.f54681e.sendActive();
             }
         }
     }
@@ -76,10 +76,10 @@ public class TiebaActiveService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f53762a;
+        public NetWork f54682a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TiebaActiveService f53763b;
+        public final /* synthetic */ TiebaActiveService f54683b;
 
         public b(TiebaActiveService tiebaActiveService) {
             Interceptable interceptable = $ic;
@@ -96,16 +96,16 @@ public class TiebaActiveService extends BdBaseService {
                     return;
                 }
             }
-            this.f53763b = tiebaActiveService;
-            this.f53762a = null;
+            this.f54683b = tiebaActiveService;
+            this.f54682a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53763b.mActiveTask = null;
-                NetWork netWork = this.f53762a;
+                this.f54683b.mActiveTask = null;
+                NetWork netWork = this.f54682a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
@@ -121,15 +121,15 @@ public class TiebaActiveService extends BdBaseService {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
                 try {
                     NetWork netWork = new NetWork("http://114.113.149.3:8086/partnersService");
-                    this.f53762a = netWork;
+                    this.f54682a = netWork;
                     netWork.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                    this.f53762a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
-                    this.f53762a.addPostData("model", Build.MODEL);
-                    this.f53762a.addPostData("edition", TbConfig.getVersion());
-                    this.f53762a.addPostData(ConstantHelper.LOG_OS, Build.VERSION.SDK);
-                    this.f53762a.getNetContext().getRequest().getNetWorkParam().mIsBaiduServer = false;
-                    String postNetData = this.f53762a.postNetData();
-                    if (this.f53762a.isNetSuccess()) {
+                    this.f54682a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
+                    this.f54682a.addPostData("model", Build.MODEL);
+                    this.f54682a.addPostData("edition", TbConfig.getVersion());
+                    this.f54682a.addPostData(ConstantHelper.LOG_OS, Build.VERSION.SDK);
+                    this.f54682a.getNetContext().getRequest().getNetWorkParam().mIsBaiduServer = false;
+                    String postNetData = this.f54682a.postNetData();
+                    if (this.f54682a.isNetSuccess()) {
                         return postNetData;
                     }
                     return null;
@@ -148,19 +148,19 @@ public class TiebaActiveService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 super.onPostExecute((b) str);
-                this.f53763b.mActiveTask = null;
+                this.f54683b.mActiveTask = null;
                 if (str == null) {
-                    TiebaActiveService.access$308(this.f53763b);
-                    if (this.f53763b.mHaveRetry < 10) {
-                        this.f53763b.mHandler.removeCallbacks(this.f53763b.mRunnable);
-                        this.f53763b.mHandler.postDelayed(this.f53763b.mRunnable, 60000L);
+                    TiebaActiveService.access$308(this.f54683b);
+                    if (this.f54683b.mHaveRetry < 10) {
+                        this.f54683b.mHandler.removeCallbacks(this.f54683b.mRunnable);
+                        this.f54683b.mHandler.postDelayed(this.f54683b.mRunnable, 60000L);
                     } else {
                         b.a.q0.s.e0.b.j().v(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 1);
-                        this.f53763b.stopSelf();
+                        this.f54683b.stopSelf();
                     }
                 }
                 b.a.q0.s.e0.b.j().v(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 2);
-                this.f53763b.stopSelf();
+                this.f54683b.stopSelf();
             }
         }
 

@@ -1,8 +1,8 @@
 package b.a.r0;
 
 import android.text.TextUtils;
-import b.a.e.e.p.q;
-import b.a.e.e.p.s;
+import b.a.e.f.p.q;
+import b.a.e.f.p.s;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -23,7 +23,7 @@ public class n {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, file)) == null) {
             if (!TextUtils.isEmpty(str) && file != null && file.exists()) {
                 try {
-                    PublicKey e2 = s.e(b.a.e.e.p.c.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
+                    PublicKey e2 = s.e(b.a.e.f.p.c.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
                     if (e2 == null) {
                         TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "publicKeyCode is null").param("obj_source", file.getName()));
                         return false;

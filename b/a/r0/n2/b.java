@@ -14,11 +14,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f21408b;
+    public static b f22904b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f21409a;
+    public Context f22905a;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class b {
                 return;
             }
         }
-        this.f21409a = context;
+        this.f22905a = context;
         UfoSDK.init(context);
         UfoSDK.openRobotAnswer();
         UfoSDK.setContactDialogSwitch(false);
@@ -45,14 +45,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f21408b == null) {
+            if (f22904b == null) {
                 synchronized (b.class) {
-                    if (f21408b == null) {
-                        f21408b = new b(TbadkCoreApplication.getInst());
+                    if (f22904b == null) {
+                        f22904b = new b(TbadkCoreApplication.getInst());
                     }
                 }
             }
-            return f21408b;
+            return f22904b;
         }
         return (b) invokeV.objValue;
     }
@@ -67,9 +67,9 @@ public class b {
             }
             UfoSDK.setUserId(TbadkCoreApplication.getCurrentAccount());
             UfoSDK.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
-            Intent feedbackInputIntent = UfoSDK.getFeedbackInputIntent(this.f21409a, 0);
+            Intent feedbackInputIntent = UfoSDK.getFeedbackInputIntent(this.f22905a, 0);
             feedbackInputIntent.addFlags(268435456);
-            this.f21409a.startActivity(feedbackInputIntent);
+            this.f22905a.startActivity(feedbackInputIntent);
         }
     }
 }

@@ -45,17 +45,17 @@ public class b extends c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
             g gVar = new g();
             try {
-                jSONObject = new JSONObject(new String(eVar.f35781b));
+                jSONObject = new JSONObject(new String(eVar.f36610b));
             } catch (JSONException e2) {
-                new b.c(this.f35777a).a(Log.getStackTraceString(e2)).a();
+                new b.c(this.f36606a).a(Log.getStackTraceString(e2)).a();
                 jSONObject = null;
             }
             int optInt = jSONObject != null ? jSONObject.optInt(Constants.KEYS.RET, -1) : -1;
             if (optInt == 2002) {
-                com.baidu.android.pushservice.k.a(this.f35777a).a(null, null, null, null);
-                m.c(this.f35777a);
+                com.baidu.android.pushservice.k.a(this.f36606a).a(null, null, null, null);
+                m.c(this.f36606a);
             }
-            new b.C1566b(this.f35777a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
+            new b.C1603b(this.f36606a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
             gVar.a(optInt);
             return gVar;
         }

@@ -9,7 +9,7 @@ import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.f;
 import b.a.p0.a.g;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.n0;
+import b.a.p0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,7 +26,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f44033i;
+    public int f44831i;
     public int j;
     public int k;
     public int l;
@@ -39,10 +39,10 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f44034e;
+        public final /* synthetic */ Runnable f44832e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NeutralHeaderLoadingLayout f44035f;
+        public final /* synthetic */ NeutralHeaderLoadingLayout f44833f;
 
         public a(NeutralHeaderLoadingLayout neutralHeaderLoadingLayout, Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -59,15 +59,15 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                     return;
                 }
             }
-            this.f44035f = neutralHeaderLoadingLayout;
-            this.f44034e = runnable;
+            this.f44833f = neutralHeaderLoadingLayout;
+            this.f44832e = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44034e.run();
+                this.f44832e.run();
             }
         }
     }
@@ -85,7 +85,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        o = k.f6397a;
+        o = k.f6863a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,7 +106,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        this.f44033i = 0;
+        this.f44831i = 0;
         a();
     }
 
@@ -115,13 +115,13 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.n = (NeutralRefreshAnimView) findViewById(f.neutral_refresh_anim_view);
             int f2 = n0.f(getContext(), 29.0f);
-            this.f44033i = f2;
+            this.f44831i = f2;
             this.j = (int) (f2 * 2.4f);
             int i2 = (int) (f2 * 1.5f);
             this.l = i2;
             this.k = i2;
             if (o) {
-                String str = "mRefreshingViewSizeInPixel" + this.f44033i;
+                String str = "mRefreshingViewSizeInPixel" + this.f44831i;
                 String str2 = "mTriggerRefreshLength" + this.j;
                 String str3 = "mRefreshingHeight" + this.l;
                 String str4 = "mScrollStartLength" + this.k;
@@ -136,7 +136,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             int i3 = this.j;
             if (i2 < i3) {
-                int i4 = this.f44033i;
+                int i4 = this.f44831i;
                 f2 = i2 < i4 ? 0.0f : (i2 - i4) / (i3 - i4);
             } else {
                 f2 = 1.0f;

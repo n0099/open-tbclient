@@ -58,19 +58,19 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f34259e;
+    public boolean f35093e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34260f;
+    public String f35094f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f34261g;
+    public boolean f35095g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final com.alipay.sdk.sys.a f34262h;
+    public final com.alipay.sdk.sys.a f35096h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f34263i;
+    public boolean f35097i;
     public com.alipay.sdk.widget.e j;
     public com.alipay.sdk.widget.f k;
 
@@ -80,7 +80,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f34264a;
+        public final /* synthetic */ d f35098a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -97,14 +97,14 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     return;
                 }
             }
-            this.f34264a = dVar;
+            this.f35098a = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f34264a.f34257a.finish();
+                this.f35098a.f35091a.finish();
             }
         }
     }
@@ -115,10 +115,10 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.alipay.sdk.widget.e f34265a;
+        public final /* synthetic */ com.alipay.sdk.widget.e f35099a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f34266b;
+        public final /* synthetic */ d f35100b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(d dVar, com.alipay.sdk.widget.e eVar) {
@@ -138,16 +138,16 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     return;
                 }
             }
-            this.f34266b = dVar;
-            this.f34265a = eVar;
+            this.f35100b = dVar;
+            this.f35099a = eVar;
         }
 
         @Override // com.alipay.sdk.widget.d.e, android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f34265a.a();
-                this.f34266b.f34261g = false;
+                this.f35099a.a();
+                this.f35100b.f35095g = false;
             }
         }
     }
@@ -158,13 +158,13 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ com.alipay.sdk.widget.e f34267a;
+        public final /* synthetic */ com.alipay.sdk.widget.e f35101a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f34268b;
+        public final /* synthetic */ String f35102b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f34269c;
+        public final /* synthetic */ d f35103c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(d dVar, com.alipay.sdk.widget.e eVar, String str) {
@@ -184,36 +184,36 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     return;
                 }
             }
-            this.f34269c = dVar;
-            this.f34267a = eVar;
-            this.f34268b = str;
+            this.f35103c = dVar;
+            this.f35101a = eVar;
+            this.f35102b = str;
         }
 
         @Override // com.alipay.sdk.widget.d.e, android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f34269c.removeView(this.f34267a);
-                this.f34269c.j.a(this.f34268b);
-                this.f34269c.f34261g = false;
+                this.f35103c.removeView(this.f35101a);
+                this.f35103c.j.a(this.f35102b);
+                this.f35103c.f35095g = false;
             }
         }
     }
 
     /* renamed from: com.alipay.sdk.widget.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC1525d implements Runnable {
+    public class RunnableC1567d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Activity f34270a;
+        public final /* synthetic */ Activity f35104a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SslErrorHandler f34271b;
+        public final /* synthetic */ SslErrorHandler f35105b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f34272c;
+        public final /* synthetic */ d f35106c;
 
         /* renamed from: com.alipay.sdk.widget.d$d$a */
         /* loaded from: classes6.dex */
@@ -222,14 +222,14 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ RunnableC1525d f34273a;
+            public final /* synthetic */ RunnableC1567d f35107a;
 
-            public a(RunnableC1525d runnableC1525d) {
+            public a(RunnableC1567d runnableC1567d) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {runnableC1525d};
+                    Object[] objArr = {runnableC1567d};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -239,22 +239,22 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                         return;
                     }
                 }
-                this.f34273a = runnableC1525d;
+                this.f35107a = runnableC1567d;
             }
 
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                    this.f34273a.f34271b.cancel();
-                    com.alipay.sdk.app.statistic.a.b(this.f34273a.f34272c.f34262h, "net", com.alipay.sdk.app.statistic.b.E, "2");
+                    this.f35107a.f35105b.cancel();
+                    com.alipay.sdk.app.statistic.a.b(this.f35107a.f35106c.f35096h, "net", com.alipay.sdk.app.statistic.b.E, "2");
                     com.alipay.sdk.app.b.a(com.alipay.sdk.app.b.a());
-                    this.f34273a.f34270a.finish();
+                    this.f35107a.f35104a.finish();
                 }
             }
         }
 
-        public RunnableC1525d(d dVar, Activity activity, SslErrorHandler sslErrorHandler) {
+        public RunnableC1567d(d dVar, Activity activity, SslErrorHandler sslErrorHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -269,16 +269,16 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     return;
                 }
             }
-            this.f34272c = dVar;
-            this.f34270a = activity;
-            this.f34271b = sslErrorHandler;
+            this.f35106c = dVar;
+            this.f35104a = activity;
+            this.f35105b = sslErrorHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                com.alipay.sdk.widget.b.a(this.f34270a, "安全警告", "安全连接证书校验无效，将无法保证访问数据的安全性，请安装支付宝后重试。", "确定", new a(this), null, null);
+                com.alipay.sdk.widget.b.a(this.f35104a, "安全警告", "安全连接证书校验无效，将无法保证访问数据的安全性，请安装支付宝后重试。", "确定", new a(this), null, null);
             }
         }
     }
@@ -334,10 +334,10 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final f f34279a;
+        public final f f35113a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f34280b;
+        public final String f35114b;
 
         public g(f fVar, String str) {
             Interceptable interceptable = $ic;
@@ -354,8 +354,8 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     return;
                 }
             }
-            this.f34279a = fVar;
-            this.f34280b = str;
+            this.f35113a = fVar;
+            this.f35114b = str;
         }
 
         @Override // com.alipay.sdk.app.d.a
@@ -363,7 +363,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), jSONObject, str}) == null) {
                 try {
-                    this.f34279a.a(new JSONObject().put("success", z).put("random", this.f34280b).put("code", jSONObject).put("status", str));
+                    this.f35113a.a(new JSONObject().put("success", z).put("random", this.f35114b).put("code", jSONObject).put("status", str));
                 } catch (JSONException unused) {
                 }
             }
@@ -389,12 +389,12 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                 return;
             }
         }
-        this.f34259e = true;
-        this.f34260f = "GET";
-        this.f34261g = false;
+        this.f35093e = true;
+        this.f35094f = "GET";
+        this.f35095g = false;
         this.j = null;
         this.k = new com.alipay.sdk.widget.f();
-        this.f34262h = aVar;
+        this.f35096h = aVar;
         g();
     }
 
@@ -404,9 +404,9 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             synchronized (this) {
                 if (this.k.b()) {
-                    this.f34257a.finish();
+                    this.f35091a.finish();
                 } else {
-                    this.f34261g = true;
+                    this.f35095g = true;
                     com.alipay.sdk.widget.e eVar = this.j;
                     this.j = this.k.c();
                     TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 1.0f, 1, 0.0f, 1, 0.0f);
@@ -427,10 +427,10 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             synchronized (this) {
-                Activity activity = this.f34257a;
+                Activity activity = this.f35091a;
                 com.alipay.sdk.widget.e eVar = this.j;
                 if (activity != null && eVar != null) {
-                    if (this.f34259e) {
+                    if (this.f35093e) {
                         activity.finish();
                     } else {
                         eVar.a("javascript:window.AlipayJSBridge.callListener('h5BackAction');");
@@ -446,7 +446,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             synchronized (this) {
                 try {
-                    com.alipay.sdk.widget.e eVar = new com.alipay.sdk.widget.e(this.f34257a, this.f34262h, new e.C1527e(!a(), !a()));
+                    com.alipay.sdk.widget.e eVar = new com.alipay.sdk.widget.e(this.f35091a, this.f35096h, new e.C1569e(!a(), !a()));
                     this.j = eVar;
                     eVar.setChromeProxy(this);
                     this.j.setWebClientProxy(this);
@@ -506,7 +506,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, eVar, str)) == null) {
             synchronized (this) {
-                com.alipay.sdk.sys.a aVar = this.f34262h;
+                com.alipay.sdk.sys.a aVar = this.f35096h;
                 com.alipay.sdk.app.statistic.a.a(aVar, "biz", "h5ld", SystemClock.elapsedRealtime() + "|" + l.g(str));
                 if (!TextUtils.isEmpty(str) && !str.endsWith(".apk")) {
                     h();
@@ -524,7 +524,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
             synchronized (this) {
-                onInterceptTouchEvent = this.f34261g ? true : super.onInterceptTouchEvent(motionEvent);
+                onInterceptTouchEvent = this.f35095g ? true : super.onInterceptTouchEvent(motionEvent);
             }
             return onInterceptTouchEvent;
         }
@@ -537,7 +537,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this) {
-                Activity activity = this.f34257a;
+                Activity activity = this.f35091a;
                 if (activity == null) {
                     return true;
                 }
@@ -546,7 +546,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     if (eVar != null && eVar.getWebView() != null) {
                         if (eVar.getWebView().canGoBack()) {
                             if (d()) {
-                                com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f34040f.b());
+                                com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f34874f.b());
                                 com.alipay.sdk.app.b.a(com.alipay.sdk.app.b.a(b2.b(), b2.a(), ""));
                                 activity.finish();
                             }
@@ -559,7 +559,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     activity.finish();
                     return true;
                 }
-                if (!this.f34261g) {
+                if (!this.f35095g) {
                     f();
                 }
                 return true;
@@ -572,9 +572,9 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, str2, z2) == null) {
             synchronized (this) {
-                this.f34260f = str2;
+                this.f35094f = str2;
                 this.j.getTitle().setText(str);
-                this.f34259e = z2;
+                this.f35093e = z2;
             }
         }
     }
@@ -594,7 +594,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f34263i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f35097i : invokeV.booleanValue;
     }
 
     private synchronized void a(boolean z2) {
@@ -602,7 +602,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         if (interceptable == null || interceptable.invokeZ(65539, this, z2) == null) {
             synchronized (this) {
                 com.alipay.sdk.app.b.a(z2);
-                this.f34257a.finish();
+                this.f35091a.finish();
             }
         }
     }
@@ -613,19 +613,19 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<com.alipay.sdk.widget.e> f34274a;
+        public final WeakReference<com.alipay.sdk.widget.e> f35108a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f34275b;
+        public final String f35109b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f34276c;
+        public final String f35110c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final JSONObject f34277d;
+        public final JSONObject f35111d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f34278e;
+        public boolean f35112e;
 
         public f(com.alipay.sdk.widget.e eVar, String str, String str2, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -642,21 +642,21 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     return;
                 }
             }
-            this.f34278e = false;
-            this.f34274a = new WeakReference<>(eVar);
-            this.f34275b = str;
-            this.f34276c = str2;
-            this.f34277d = jSONObject;
+            this.f35112e = false;
+            this.f35108a = new WeakReference<>(eVar);
+            this.f35109b = str;
+            this.f35110c = str2;
+            this.f35111d = jSONObject;
         }
 
         public void a(JSONObject jSONObject) {
             com.alipay.sdk.widget.e eVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || this.f34278e || (eVar = (com.alipay.sdk.widget.e) l.a(this.f34274a)) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || this.f35112e || (eVar = (com.alipay.sdk.widget.e) l.a(this.f35108a)) == null) {
                 return;
             }
-            this.f34278e = true;
-            eVar.a(String.format("javascript:window.AlipayJSBridge.callBackFromNativeFunc('%s','%s');", a(this.f34276c), a(jSONObject.toString())));
+            this.f35112e = true;
+            eVar.a(String.format("javascript:window.AlipayJSBridge.callBackFromNativeFunc('%s','%s');", a(this.f35110c), a(jSONObject.toString())));
         }
 
         public static String a(String str) {
@@ -671,7 +671,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             synchronized (this) {
-                if ("POST".equals(this.f34260f)) {
+                if ("POST".equals(this.f35094f)) {
                     this.j.a(str, (byte[]) null);
                 } else {
                     this.j.a(str);
@@ -688,7 +688,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, eVar, str, str2, str3, jsPromptResult)) == null) {
             synchronized (this) {
                 if (str2.startsWith("<head>") && str2.contains(l)) {
-                    this.f34257a.runOnUiThread(new a(this));
+                    this.f35091a.runOnUiThread(new a(this));
                 }
                 jsPromptResult.cancel();
             }
@@ -704,7 +704,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
             synchronized (this) {
                 com.alipay.sdk.widget.e eVar = this.j;
                 try {
-                    com.alipay.sdk.widget.e eVar2 = new com.alipay.sdk.widget.e(this.f34257a, this.f34262h, new e.C1527e(!a(), !a()));
+                    com.alipay.sdk.widget.e eVar2 = new com.alipay.sdk.widget.e(this.f35091a, this.f35096h, new e.C1569e(!a(), !a()));
                     this.j = eVar2;
                     eVar2.setChromeProxy(this);
                     this.j.setWebClientProxy(this);
@@ -712,7 +712,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     if (!TextUtils.isEmpty(str2)) {
                         this.j.getTitle().setText(str2);
                     }
-                    this.f34261g = true;
+                    this.f35095g = true;
                     this.k.a(eVar);
                     TranslateAnimation translateAnimation = new TranslateAnimation(1, 1.0f, 1, 0.0f, 1, 0.0f, 1, 0.0f);
                     translateAnimation.setDuration(400L);
@@ -738,11 +738,11 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
-                Activity activity = this.f34257a;
+                Activity activity = this.f35091a;
                 if (activity == null) {
                     return true;
                 }
-                if (l.a(this.f34262h, str, activity)) {
+                if (l.a(this.f35096h, str, activity)) {
                     return true;
                 }
                 if (str.startsWith(m)) {
@@ -769,8 +769,8 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048579, this, eVar, i2, str, str2)) == null) {
             synchronized (this) {
-                this.f34263i = true;
-                com.alipay.sdk.sys.a aVar = this.f34262h;
+                this.f35097i = true;
+                com.alipay.sdk.sys.a aVar = this.f35096h;
                 com.alipay.sdk.app.statistic.a.b(aVar, "net", com.alipay.sdk.app.statistic.b.C, "onReceivedError:" + str2);
                 eVar.getRefreshButton().setVisibility(0);
             }
@@ -785,7 +785,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, eVar, str)) == null) {
             synchronized (this) {
-                com.alipay.sdk.sys.a aVar = this.f34262h;
+                com.alipay.sdk.sys.a aVar = this.f35096h;
                 com.alipay.sdk.app.statistic.a.a(aVar, "biz", "h5ldd", SystemClock.elapsedRealtime() + "|" + l.g(str));
                 h();
                 eVar.getRefreshButton().setVisibility(0);
@@ -801,13 +801,13 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, eVar, sslErrorHandler, sslError)) == null) {
             synchronized (this) {
-                Activity activity = this.f34257a;
+                Activity activity = this.f35091a;
                 if (activity == null) {
                     return true;
                 }
-                com.alipay.sdk.sys.a aVar = this.f34262h;
+                com.alipay.sdk.sys.a aVar = this.f35096h;
                 com.alipay.sdk.app.statistic.a.b(aVar, "net", com.alipay.sdk.app.statistic.b.C, "2-" + sslError);
-                activity.runOnUiThread(new RunnableC1525d(this, activity, sslErrorHandler));
+                activity.runOnUiThread(new RunnableC1567d(this, activity, sslErrorHandler));
                 return true;
             }
         }
@@ -818,7 +818,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str) == null) {
             synchronized (this) {
-                Map<String, String> b2 = l.b(this.f34262h, str);
+                Map<String, String> b2 = l.b(this.f35096h, str);
                 if (str.startsWith(t)) {
                     a(b2.get(WebChromeClient.KEY_FUNCTION_NAME), b2.get("cbId"), b2.get("data"));
                 } else if (str.startsWith(n)) {
@@ -850,7 +850,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                 JSONObject f2 = l.f(str3);
                 f fVar = new f(eVar, str, str2, f2);
                 Context context = eVar.getContext();
-                String str4 = fVar.f34275b;
+                String str4 = fVar.f35109b;
                 char c2 = 65535;
                 switch (str4.hashCode()) {
                     case -1785164386:
@@ -943,27 +943,27 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                     case 7:
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("sdk_version", "15.8.02");
-                        jSONObject.put("app_name", this.f34262h.b());
-                        jSONObject.put("app_version", this.f34262h.c());
+                        jSONObject.put("app_name", this.f35096h.b());
+                        jSONObject.put("app_version", this.f35096h.c());
                         fVar.a(jSONObject);
                         break;
                     case '\b':
                         String url = eVar.getUrl();
-                        if (!l.a(this.f34262h, url)) {
-                            com.alipay.sdk.app.statistic.a.b(this.f34262h, "biz", "jsUrlErr", url);
+                        if (!l.a(this.f35096h, url)) {
+                            com.alipay.sdk.app.statistic.a.b(this.f35096h, "biz", "jsUrlErr", url);
                             break;
                         } else {
                             JSONObject jSONObject2 = new JSONObject();
-                            boolean a2 = com.alipay.sdk.app.d.a(this.f34262h, context);
+                            boolean a2 = com.alipay.sdk.app.d.a(this.f35096h, context);
                             jSONObject2.put(SapiOptions.KEY_CACHE_ENABLED, a2);
-                            com.alipay.sdk.app.statistic.a.a(this.f34262h, "biz", com.alipay.sdk.app.statistic.b.y0, String.valueOf(a2));
+                            com.alipay.sdk.app.statistic.a.a(this.f35096h, "biz", com.alipay.sdk.app.statistic.b.y0, String.valueOf(a2));
                             fVar.a(jSONObject2);
                             break;
                         }
                     case '\t':
                         String url2 = eVar.getUrl();
-                        if (!l.a(this.f34262h, url2)) {
-                            com.alipay.sdk.app.statistic.a.b(this.f34262h, "biz", "jsUrlErr", url2);
+                        if (!l.a(this.f35096h, url2)) {
+                            com.alipay.sdk.app.statistic.a.b(this.f35096h, "biz", "jsUrlErr", url2);
                             break;
                         } else {
                             String optString = f2.optString("random");
@@ -972,7 +972,7 @@ public class d extends com.alipay.sdk.widget.c implements e.f, e.g, e.h {
                                 String optString2 = optJSONObject.optString("url");
                                 String optString3 = optJSONObject.optString("action");
                                 if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3) && (context instanceof Activity)) {
-                                    com.alipay.sdk.app.d.a(this.f34262h, (Activity) context, 1010, optString2, optString3, new g(fVar, optString));
+                                    com.alipay.sdk.app.d.a(this.f35096h, (Activity) context, 1010, optString2, optString3, new g(fVar, optString));
                                     break;
                                 }
                             }

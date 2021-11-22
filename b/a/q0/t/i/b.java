@@ -15,7 +15,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.l.a;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
@@ -38,34 +38,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.InterfaceC0685a A;
+    public a.InterfaceC0720a A;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f14042a;
+    public View f14815a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Dialog f14043b;
+    public Dialog f14816b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EditText f14044c;
+    public EditText f14817c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RadioGroup f14045d;
+    public RadioGroup f14818d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RadioGroup f14046e;
+    public RadioGroup f14819e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CompoundButton.OnCheckedChangeListener f14047f;
+    public CompoundButton.OnCheckedChangeListener f14820f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RadioButton f14048g;
+    public RadioButton f14821g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RadioButton f14049h;
+    public RadioButton f14822h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RadioButton f14050i;
+    public RadioButton f14823i;
     public TextView j;
     public Activity k;
     public f l;
@@ -90,7 +90,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f14051e;
+        public final /* synthetic */ b f14824e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -107,29 +107,29 @@ public class b {
                     return;
                 }
             }
-            this.f14051e = bVar;
+            this.f14824e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f14051e.p();
-                this.f14051e.t();
+                this.f14824e.p();
+                this.f14824e.t();
             }
         }
     }
 
     /* renamed from: b.a.q0.t.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class View$OnClickListenerC0705b implements View.OnClickListener {
+    public class View$OnClickListenerC0741b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f14052e;
+        public final /* synthetic */ b f14825e;
 
-        public View$OnClickListenerC0705b(b bVar) {
+        public View$OnClickListenerC0741b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -144,14 +144,14 @@ public class b {
                     return;
                 }
             }
-            this.f14052e = bVar;
+            this.f14825e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f14052e.B();
+                this.f14825e.B();
             }
         }
     }
@@ -162,7 +162,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f14053e;
+        public final /* synthetic */ b f14826e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -179,39 +179,39 @@ public class b {
                     return;
                 }
             }
-            this.f14053e = bVar;
+            this.f14826e = bVar;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) && z) {
-                if (compoundButton == this.f14053e.f14048g) {
-                    this.f14053e.f14046e.clearCheck();
-                    this.f14053e.f14048g.setChecked(true);
-                    this.f14053e.f14048g.setCompoundDrawables(this.f14053e.s, null, null, null);
-                    this.f14053e.f14049h.setChecked(false);
-                    this.f14053e.f14049h.setCompoundDrawables(this.f14053e.t, null, null, null);
-                    this.f14053e.f14050i.setChecked(false);
-                    this.f14053e.f14050i.setCompoundDrawables(this.f14053e.t, null, null, null);
-                } else if (compoundButton == this.f14053e.f14049h) {
-                    this.f14053e.f14046e.clearCheck();
-                    this.f14053e.f14048g.setChecked(false);
-                    this.f14053e.f14048g.setCompoundDrawables(this.f14053e.t, null, null, null);
-                    this.f14053e.f14049h.setChecked(true);
-                    this.f14053e.f14049h.setCompoundDrawables(this.f14053e.s, null, null, null);
-                    this.f14053e.f14050i.setChecked(false);
-                    this.f14053e.f14050i.setCompoundDrawables(this.f14053e.t, null, null, null);
-                } else if (compoundButton == this.f14053e.f14050i) {
-                    this.f14053e.f14045d.clearCheck();
-                    this.f14053e.f14048g.setChecked(false);
-                    this.f14053e.f14048g.setCompoundDrawables(this.f14053e.t, null, null, null);
-                    this.f14053e.f14049h.setChecked(false);
-                    this.f14053e.f14049h.setCompoundDrawables(this.f14053e.t, null, null, null);
-                    this.f14053e.f14050i.setChecked(true);
-                    this.f14053e.f14050i.setCompoundDrawables(this.f14053e.s, null, null, null);
+                if (compoundButton == this.f14826e.f14821g) {
+                    this.f14826e.f14819e.clearCheck();
+                    this.f14826e.f14821g.setChecked(true);
+                    this.f14826e.f14821g.setCompoundDrawables(this.f14826e.s, null, null, null);
+                    this.f14826e.f14822h.setChecked(false);
+                    this.f14826e.f14822h.setCompoundDrawables(this.f14826e.t, null, null, null);
+                    this.f14826e.f14823i.setChecked(false);
+                    this.f14826e.f14823i.setCompoundDrawables(this.f14826e.t, null, null, null);
+                } else if (compoundButton == this.f14826e.f14822h) {
+                    this.f14826e.f14819e.clearCheck();
+                    this.f14826e.f14821g.setChecked(false);
+                    this.f14826e.f14821g.setCompoundDrawables(this.f14826e.t, null, null, null);
+                    this.f14826e.f14822h.setChecked(true);
+                    this.f14826e.f14822h.setCompoundDrawables(this.f14826e.s, null, null, null);
+                    this.f14826e.f14823i.setChecked(false);
+                    this.f14826e.f14823i.setCompoundDrawables(this.f14826e.t, null, null, null);
+                } else if (compoundButton == this.f14826e.f14823i) {
+                    this.f14826e.f14818d.clearCheck();
+                    this.f14826e.f14821g.setChecked(false);
+                    this.f14826e.f14821g.setCompoundDrawables(this.f14826e.t, null, null, null);
+                    this.f14826e.f14822h.setChecked(false);
+                    this.f14826e.f14822h.setCompoundDrawables(this.f14826e.t, null, null, null);
+                    this.f14826e.f14823i.setChecked(true);
+                    this.f14826e.f14823i.setCompoundDrawables(this.f14826e.s, null, null, null);
                 }
-                this.f14053e.f14044c.setText(compoundButton.getText());
+                this.f14826e.f14817c.setText(compoundButton.getText());
             }
         }
     }
@@ -222,7 +222,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f14054e;
+        public final /* synthetic */ b f14827e;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -239,7 +239,7 @@ public class b {
                     return;
                 }
             }
-            this.f14054e = bVar;
+            this.f14827e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -259,7 +259,7 @@ public class b {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fillUsernameResult) == null) || StringUtils.isNull(fillUsernameResult.getResultMsg())) {
                 return;
             }
-            this.f14054e.A(fillUsernameResult.getResultMsg());
+            this.f14827e.A(fillUsernameResult.getResultMsg());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -268,10 +268,10 @@ public class b {
         public void onSuccess(FillUsernameResult fillUsernameResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fillUsernameResult) == null) {
-                this.f14054e.p();
-                l.L(this.f14054e.k, R.string.reset_success);
+                this.f14827e.p();
+                l.L(this.f14827e.k, R.string.reset_success);
                 SapiAccount session = SapiAccountManager.getInstance().getSession();
-                b.a.q0.s.l.a.b().a(session.username, session.bduss, "", null, this.f14054e.A);
+                b.a.q0.s.l.a.b().a(session.username, session.bduss, "", null, this.f14827e.A);
             }
         }
 
@@ -279,9 +279,9 @@ public class b {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f14054e.o.setVisibility(8);
-                this.f14054e.n.setVisibility(0);
-                this.f14054e.z = false;
+                this.f14827e.o.setVisibility(8);
+                this.f14827e.n.setVisibility(0);
+                this.f14827e.z = false;
             }
         }
 
@@ -289,7 +289,7 @@ public class b {
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.f14054e.z = true;
+                this.f14827e.z = true;
             }
         }
 
@@ -318,10 +318,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f14055e;
+        public View f14828e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f14056f;
+        public final /* synthetic */ b f14829f;
 
         public g(b bVar, View view) {
             Interceptable interceptable = $ic;
@@ -338,21 +338,21 @@ public class b {
                     return;
                 }
             }
-            this.f14056f = bVar;
-            this.f14055e = null;
-            this.f14055e = view;
+            this.f14829f = bVar;
+            this.f14828e = null;
+            this.f14828e = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f14056f.k.isFinishing()) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f14829f.k.isFinishing()) {
                 return;
             }
-            InputMethodManager inputMethodManager = (InputMethodManager) this.f14056f.k.getSystemService("input_method");
+            InputMethodManager inputMethodManager = (InputMethodManager) this.f14829f.k.getSystemService("input_method");
             try {
-                if (this.f14055e != null && inputMethodManager != null) {
-                    inputMethodManager.showSoftInput(this.f14055e, 0);
+                if (this.f14828e != null && inputMethodManager != null) {
+                    inputMethodManager.showSoftInput(this.f14828e, 0);
                 }
             } catch (Exception e2) {
                 BdLog.e(e2);
@@ -375,15 +375,15 @@ public class b {
                 return;
             }
         }
-        this.f14042a = null;
-        this.f14043b = null;
-        this.f14044c = null;
-        this.f14045d = null;
-        this.f14046e = null;
-        this.f14047f = null;
-        this.f14048g = null;
-        this.f14049h = null;
-        this.f14050i = null;
+        this.f14815a = null;
+        this.f14816b = null;
+        this.f14817c = null;
+        this.f14818d = null;
+        this.f14819e = null;
+        this.f14820f = null;
+        this.f14821g = null;
+        this.f14822h = null;
+        this.f14823i = null;
         this.j = null;
         this.k = null;
         this.l = null;
@@ -424,7 +424,7 @@ public class b {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String obj = this.f14044c.getText().toString();
+            String obj = this.f14817c.getText().toString();
             if (obj != null && obj.length() > 0) {
                 if (UtilHelper.getFixedTextSize(obj) > 14) {
                     A(this.k.getString(R.string.input_alias_limit_length_tip));
@@ -451,49 +451,49 @@ public class b {
     public void p() {
         Dialog dialog;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (dialog = this.f14043b) != null && dialog.isShowing()) {
-            b.a.e.e.m.g.a(this.f14043b, this.k);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (dialog = this.f14816b) != null && dialog.isShowing()) {
+            b.a.e.f.m.g.a(this.f14816b, this.k);
         }
     }
 
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f14045d.setVisibility(8);
-            this.f14045d.clearCheck();
-            this.f14046e.setVisibility(8);
-            this.f14046e.clearCheck();
-            this.f14048g.setVisibility(8);
-            this.f14049h.setVisibility(8);
-            this.f14050i.setVisibility(8);
-            this.f14048g.setChecked(false);
-            this.f14049h.setChecked(false);
-            this.f14050i.setChecked(false);
+            this.f14818d.setVisibility(8);
+            this.f14818d.clearCheck();
+            this.f14819e.setVisibility(8);
+            this.f14819e.clearCheck();
+            this.f14821g.setVisibility(8);
+            this.f14822h.setVisibility(8);
+            this.f14823i.setVisibility(8);
+            this.f14821g.setChecked(false);
+            this.f14822h.setChecked(false);
+            this.f14823i.setChecked(false);
         }
     }
 
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setBackgroundResource(this.f14042a, R.drawable.dialog_background);
+            SkinManager.setBackgroundResource(this.f14815a, R.drawable.dialog_background);
             SkinManager.setViewTextColor(this.p, R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.v, R.color.CAM_X0106);
-            SkinManager.setViewTextColor(this.f14044c, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f14817c, R.color.CAM_X0105);
             SkinManager.setBackgroundResource(this.w, R.drawable.bg_search_input);
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0301);
-            SkinManager.setViewTextColor(this.f14048g, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f14049h, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f14050i, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f14821g, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f14822h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f14823i, R.color.CAM_X0105);
             SkinManager.setBackgroundColor(this.x, R.color.CAM_X0204);
             SkinManager.setBackgroundResource(this.j, R.drawable.dialog_left_button_selector);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0302);
             SkinManager.setBackgroundColor(this.y, R.color.CAM_X0204);
             SkinManager.setBackgroundResource(this.n, R.drawable.dialog_right_button_selector);
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0302);
-            this.f14044c.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            this.f14048g.setCompoundDrawables(this.t, null, null, null);
-            this.f14049h.setCompoundDrawables(this.t, null, null, null);
-            this.f14050i.setCompoundDrawables(this.t, null, null, null);
+            this.f14817c.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            this.f14821g.setCompoundDrawables(this.t, null, null, null);
+            this.f14822h.setCompoundDrawables(this.t, null, null, null);
+            this.f14823i.setCompoundDrawables(this.t, null, null, null);
         }
     }
 
@@ -538,10 +538,10 @@ public class b {
         }
     }
 
-    public void x(a.InterfaceC0685a interfaceC0685a) {
+    public void x(a.InterfaceC0720a interfaceC0720a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, interfaceC0685a) == null) {
-            this.A = interfaceC0685a;
+        if (interceptable == null || interceptable.invokeL(1048586, this, interfaceC0720a) == null) {
+            this.A = interfaceC0720a;
         }
     }
 
@@ -555,41 +555,41 @@ public class b {
     public void z(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            if (this.f14043b == null) {
+            if (this.f14816b == null) {
                 View inflate = LayoutInflater.from(this.k).inflate(R.layout.main_input_username, (ViewGroup) null);
-                this.f14042a = inflate;
+                this.f14815a = inflate;
                 this.v = (TextView) inflate.findViewById(R.id.tip_info);
-                this.w = this.f14042a.findViewById(R.id.divider_under_account);
-                this.x = this.f14042a.findViewById(R.id.divider_under_radiongroup);
-                this.y = this.f14042a.findViewById(R.id.divider_with_yes_no_button);
-                EditText editText = (EditText) this.f14042a.findViewById(R.id.account);
-                this.f14044c = editText;
+                this.w = this.f14815a.findViewById(R.id.divider_under_account);
+                this.x = this.f14815a.findViewById(R.id.divider_under_radiongroup);
+                this.y = this.f14815a.findViewById(R.id.divider_with_yes_no_button);
+                EditText editText = (EditText) this.f14815a.findViewById(R.id.account);
+                this.f14817c = editText;
                 editText.setHint(this.k.getString(R.string.hint_tip_input_name));
-                TextView textView = (TextView) this.f14042a.findViewById(R.id.back);
+                TextView textView = (TextView) this.f14815a.findViewById(R.id.back);
                 this.j = textView;
                 textView.setOnClickListener(new a(this));
-                TextView textView2 = (TextView) this.f14042a.findViewById(R.id.confirm);
+                TextView textView2 = (TextView) this.f14815a.findViewById(R.id.confirm);
                 this.n = textView2;
-                textView2.setOnClickListener(new View$OnClickListenerC0705b(this));
-                this.o = (ProgressBar) this.f14042a.findViewById(R.id.confirm_progress);
-                this.m = (TextView) this.f14042a.findViewById(R.id.error_info);
-                this.f14045d = (RadioGroup) this.f14042a.findViewById(R.id.names_group1);
-                this.f14046e = (RadioGroup) this.f14042a.findViewById(R.id.names_group2);
-                this.f14048g = (RadioButton) this.f14042a.findViewById(R.id.name1);
-                this.f14049h = (RadioButton) this.f14042a.findViewById(R.id.name2);
-                this.f14050i = (RadioButton) this.f14042a.findViewById(R.id.name3);
+                textView2.setOnClickListener(new View$OnClickListenerC0741b(this));
+                this.o = (ProgressBar) this.f14815a.findViewById(R.id.confirm_progress);
+                this.m = (TextView) this.f14815a.findViewById(R.id.error_info);
+                this.f14818d = (RadioGroup) this.f14815a.findViewById(R.id.names_group1);
+                this.f14819e = (RadioGroup) this.f14815a.findViewById(R.id.names_group2);
+                this.f14821g = (RadioButton) this.f14815a.findViewById(R.id.name1);
+                this.f14822h = (RadioButton) this.f14815a.findViewById(R.id.name2);
+                this.f14823i = (RadioButton) this.f14815a.findViewById(R.id.name3);
                 c cVar = new c(this);
-                this.f14047f = cVar;
-                this.f14048g.setOnCheckedChangeListener(cVar);
-                this.f14049h.setOnCheckedChangeListener(this.f14047f);
-                this.f14050i.setOnCheckedChangeListener(this.f14047f);
-                this.p = (TextView) this.f14042a.findViewById(R.id.phone_info);
+                this.f14820f = cVar;
+                this.f14821g.setOnCheckedChangeListener(cVar);
+                this.f14822h.setOnCheckedChangeListener(this.f14820f);
+                this.f14823i.setOnCheckedChangeListener(this.f14820f);
+                this.p = (TextView) this.f14815a.findViewById(R.id.phone_info);
                 q();
                 Dialog dialog = new Dialog(this.k, R.style.input_username_dialog);
-                this.f14043b = dialog;
+                this.f14816b = dialog;
                 dialog.setCanceledOnTouchOutside(false);
-                this.f14043b.setCancelable(false);
-                this.f14043b.setCanceledOnTouchOutside(false);
+                this.f14816b.setCancelable(false);
+                this.f14816b.setCanceledOnTouchOutside(false);
                 r();
             }
             if (i2 == 1) {
@@ -597,22 +597,22 @@ public class b {
             } else {
                 this.p.setText(R.string.bar_friend);
             }
-            if (this.f14043b.isShowing()) {
+            if (this.f14816b.isShowing()) {
                 return;
             }
-            this.f14044c.setText((CharSequence) null);
+            this.f14817c.setText((CharSequence) null);
             q();
             A(null);
             if (this.k.isFinishing()) {
                 return;
             }
-            this.f14043b.setContentView(this.f14042a);
-            b.a.e.e.m.g.i(this.f14043b, this.k);
+            this.f14816b.setContentView(this.f14815a);
+            b.a.e.f.m.g.i(this.f14816b, this.k);
             Activity activity = this.k;
             if (activity instanceof BaseActivity) {
-                ((BaseActivity) activity).ShowSoftKeyPadDelay(this.f14044c, 150);
+                ((BaseActivity) activity).ShowSoftKeyPadDelay(this.f14817c, 150);
             } else {
-                new Handler().postDelayed(new g(this, this.f14044c), 150L);
+                new Handler().postDelayed(new g(this, this.f14817c), 150L);
             }
         }
     }

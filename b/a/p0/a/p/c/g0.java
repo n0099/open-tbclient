@@ -1,15 +1,12 @@
 package b.a.p0.a.p.c;
 
-import b.a.p0.a.p.d.a1;
-import com.baidu.android.imsdk.internal.Constants;
+import b.a.p0.a.p.d.b1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes.dex */
-public class g0 implements a1 {
+public class g0 implements b1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,39 +24,10 @@ public class g0 implements a1 {
         }
     }
 
-    @Override // b.a.p0.a.p.d.a1
-    public String[] a() {
-        InterceptResult invokeV;
+    @Override // b.a.p0.a.p.d.b1
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return (String[]) invokeV.objValue;
-    }
-
-    @Override // b.a.p0.a.p.d.a1
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.a1
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (b.a.p0.a.c1.a.n0().d()) {
-                return null;
-            }
-            if (b.a.p0.a.h0.s.a.b()) {
-                return b.a.p0.a.h0.s.a.f5753b + File.separator + "libcom.baidu.zeus.so";
-            }
-            return b.a.p0.a.h0.s.a.f5755d + File.separator + "libcom.baidu.zeus.so";
-        }
-        return (String) invokeV.objValue;
     }
 }

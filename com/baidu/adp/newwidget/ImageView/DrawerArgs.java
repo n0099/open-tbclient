@@ -1,7 +1,7 @@
 package com.baidu.adp.newwidget.ImageView;
 
 import android.graphics.Matrix;
-import b.a.e.f.a.b;
+import b.a.e.g.a.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,31 +15,31 @@ public class DrawerArgs {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f34425a;
+    public float[] f35257a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34426b;
+    public boolean f35258b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f34427c;
+    public boolean f35259c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34428d;
+    public int f35260d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34429e;
+    public int f35261e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SkinType f34430f;
+    public SkinType f35262f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f34431g;
+    public boolean f35263g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f34432h;
+    public boolean f35264h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f34433i;
+    public boolean f35265i;
     public int j;
     public float k;
     public Matrix l;
@@ -122,11 +122,11 @@ public class DrawerArgs {
                 return;
             }
         }
-        this.f34425a = new float[8];
-        this.f34430f = SkinType.DAY;
-        this.f34432h = false;
-        this.f34433i = true;
-        this.j = b.f2181a;
+        this.f35257a = new float[8];
+        this.f35262f = SkinType.DAY;
+        this.f35264h = false;
+        this.f35265i = true;
+        this.j = b.f2184a;
         this.k = 1.0f;
         this.o = false;
     }

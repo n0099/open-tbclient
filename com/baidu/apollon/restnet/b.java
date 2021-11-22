@@ -14,31 +14,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f36095a;
+    public final String f36924a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f36096b;
+    public final String f36925b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f36097c;
+    public final long f36926c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f36098d;
+    public final boolean f36927d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f36099e;
+    public final boolean f36928e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f36100f;
+    public final boolean f36929f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f36101g;
+    public final boolean f36930g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f36102h;
+    public final int f36931h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f36103i;
+    public String f36932i;
     public String j;
 
     /* loaded from: classes6.dex */
@@ -47,31 +47,31 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f36104a;
+        public String f36933a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f36105b;
+        public String f36934b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f36106c;
+        public long f36935c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f36107d;
+        public boolean f36936d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f36108e;
+        public int f36937e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f36109f;
+        public boolean f36938f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f36110g;
+        public String f36939g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f36111h;
+        public String f36940h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f36112i;
+        public boolean f36941i;
         public boolean j;
         public int k;
 
@@ -96,8 +96,8 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) {
                 if (uri != null) {
-                    this.f36104a = uri.getHost();
-                    this.f36105b = uri.getPath();
+                    this.f36933a = uri.getHost();
+                    this.f36934b = uri.getPath();
                 }
                 return this;
             }
@@ -108,7 +108,7 @@ public class b {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.f36112i = z;
+                this.f36941i = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -118,7 +118,7 @@ public class b {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-                this.f36109f = z;
+                this.f36938f = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -138,7 +138,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f36111h = str;
+                this.f36940h = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -148,7 +148,7 @@ public class b {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                this.f36106c = j;
+                this.f36935c = j;
                 return this;
             }
             return (a) invokeJ.objValue;
@@ -158,7 +158,7 @@ public class b {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f36107d = z;
+                this.f36936d = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -168,7 +168,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f36110g = str;
+                this.f36939g = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -206,58 +206,58 @@ public class b {
                 return;
             }
         }
-        this.f36095a = aVar.f36104a;
-        this.f36096b = aVar.f36105b;
-        this.f36097c = aVar.f36106c;
-        this.f36098d = aVar.f36107d;
-        this.f36099e = aVar.f36109f;
-        this.f36103i = aVar.f36110g;
-        this.j = aVar.f36111h;
-        this.f36100f = aVar.f36112i;
-        this.f36101g = aVar.j;
-        this.f36102h = aVar.k;
+        this.f36924a = aVar.f36933a;
+        this.f36925b = aVar.f36934b;
+        this.f36926c = aVar.f36935c;
+        this.f36927d = aVar.f36936d;
+        this.f36928e = aVar.f36938f;
+        this.f36932i = aVar.f36939g;
+        this.j = aVar.f36940h;
+        this.f36929f = aVar.f36941i;
+        this.f36930g = aVar.j;
+        this.f36931h = aVar.k;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36095a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36924a : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36096b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36925b : (String) invokeV.objValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36097c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36926c : invokeV.longValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36098d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36927d : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36099e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36928e : invokeV.booleanValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36100f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36929f : invokeV.booleanValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36103i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36932i : (String) invokeV.objValue;
     }
 
     public String h() {
@@ -269,12 +269,12 @@ public class b {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f36101g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f36930g : invokeV.booleanValue;
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f36102h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f36931h : invokeV.intValue;
     }
 }

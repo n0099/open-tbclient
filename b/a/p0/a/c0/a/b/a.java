@@ -5,12 +5,12 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import b.a.p0.a.a2.e;
 import b.a.p0.a.c0.a.b.b;
+import b.a.p0.a.d2.e;
 import b.a.p0.a.e0.d;
 import b.a.p0.a.h0.u.g;
-import b.a.p0.a.p.d.h0;
-import b.a.p0.a.v2.d0;
+import b.a.p0.a.p.d.k0;
+import b.a.p0.a.z2.d0;
 import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -39,11 +39,11 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends b.a.p0.
 
     /* renamed from: b.a.p0.a.c0.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0117a {
+    public static /* synthetic */ class C0125a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f4038a;
+        public static final /* synthetic */ int[] f4178a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -60,21 +60,21 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends b.a.p0.
                 }
             }
             int[] iArr = new int[PathType.values().length];
-            f4038a = iArr;
+            f4178a = iArr;
             try {
                 iArr[PathType.BD_FILE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f4038a[PathType.RELATIVE.ordinal()] = 2;
+                f4178a[PathType.RELATIVE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f4038a[PathType.NETWORK.ordinal()] = 3;
+                f4178a[PathType.NETWORK.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f4038a[PathType.ERROR.ordinal()] = 4;
+                f4178a[PathType.ERROR.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -107,11 +107,11 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends b.a.p0.
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            PathType s = b.a.p0.a.k2.b.s(str);
-            e i2 = e.i();
-            if (i2 != null) {
-                str2 = i2.f3961f;
-                str3 = i2.Y();
+            PathType s = b.a.p0.a.o2.b.s(str);
+            e L = e.L();
+            if (L != null) {
+                str2 = L.f4474f;
+                str3 = L.j0();
             } else {
                 str2 = null;
                 str3 = null;
@@ -119,15 +119,15 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends b.a.p0.
             if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                 return null;
             }
-            int i3 = C0117a.f4038a[s.ordinal()];
-            if (i3 == 1) {
-                String M = b.a.p0.a.k2.b.M(str, str2);
+            int i2 = C0125a.f4178a[s.ordinal()];
+            if (i2 == 1) {
+                String M = b.a.p0.a.o2.b.M(str, str2);
                 if (TextUtils.isEmpty(M)) {
                     return null;
                 }
                 return Uri.fromFile(new File(M));
-            } else if (i3 != 2) {
-                if (i3 != 3) {
+            } else if (i2 != 2) {
+                if (i2 != 3) {
                     return null;
                 }
                 return Uri.parse(str);
@@ -136,11 +136,11 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends b.a.p0.
                 if (file.exists()) {
                     return Uri.fromFile(file);
                 }
-                String L = b.a.p0.a.k2.b.L(str, i2, str3);
-                if (TextUtils.isEmpty(L)) {
+                String L2 = b.a.p0.a.o2.b.L(str, L, str3);
+                if (TextUtils.isEmpty(L2)) {
                     return null;
                 }
-                return Uri.fromFile(new File(L));
+                return Uri.fromFile(new File(L2));
             }
         }
         return (Uri) invokeL.objValue;
@@ -189,28 +189,28 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends b.a.p0.
         if (!(interceptable == null || interceptable.invokeLLL(1048582, this, v, m, baseControllerListener) == null) || m.n == null) {
             return;
         }
-        boolean z = b.a.p0.a.c0.b.a.f4044h;
+        boolean z = b.a.p0.a.c0.b.a.f4184h;
         String str = m.x;
         if (TextUtils.isEmpty(str) || (W = W(str)) == null) {
             return;
         }
-        d.g("Component-SimpleDrawee", "Image Uri:" + W);
+        d.i("Component-SimpleDrawee", "Image Uri:" + W);
         PipelineDraweeControllerBuilder oldController = Fresco.newDraweeControllerBuilder().setOldController(v.getController());
         if (baseControllerListener != null) {
             oldController.setControllerListener(baseControllerListener);
         }
         HashMap hashMap = new HashMap();
-        String X = g.M().X();
-        if (!TextUtils.isEmpty(X)) {
-            hashMap.put("User-Agent", X);
+        String g0 = g.U().g0();
+        if (!TextUtils.isEmpty(g0)) {
+            hashMap.put("User-Agent", g0);
         }
         String b2 = d0.b();
         if (!TextUtils.isEmpty(b2) && d0.c(W.toString())) {
             hashMap.put("Referer", b2);
         }
-        h0 y = b.a.p0.a.c1.a.y();
+        k0 C = b.a.p0.a.c1.a.C();
         ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(W);
-        y.e(newBuilderWithSource, hashMap);
+        C.e(newBuilderWithSource, hashMap);
         oldController.setImageRequest(newBuilderWithSource.build());
         AbstractDraweeController build = oldController.build();
         RoundingParams roundingParams = new RoundingParams();

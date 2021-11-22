@@ -2,6 +2,7 @@ package com.kwad.sdk.core.c.a;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
+import com.baidu.tbadk.core.util.deeplink.DeepLinkItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +40,7 @@ public class h implements com.kwad.sdk.core.d<AdInfo.AdConversionInfo> {
         adConversionInfo.h5Type = jSONObject.optInt("h5Type");
         adConversionInfo.deeplinkUrl = jSONObject.optString(BaiduAppJsBridgeHandler.INPUT_PARAM_DEEP_LINK_URL);
         adConversionInfo.appDownloadUrl = jSONObject.optString("appDownloadUrl");
-        adConversionInfo.marketUrl = jSONObject.optString("marketUrl");
+        adConversionInfo.marketUrl = jSONObject.optString(DeepLinkItem.DEEPLINK_MARKETURL_KEY);
         adConversionInfo.retryH5TimeStep = jSONObject.optInt("retryH5TimeStep", new Integer("2000").intValue());
         adConversionInfo.playableUrl = jSONObject.optString("playableUrl");
         AdInfo.PlayableStyleInfo playableStyleInfo = new AdInfo.PlayableStyleInfo();
@@ -61,7 +62,7 @@ public class h implements com.kwad.sdk.core.d<AdInfo.AdConversionInfo> {
             com.kwad.sdk.utils.q.a(jSONObject, "h5Type", adConversionInfo.h5Type);
             com.kwad.sdk.utils.q.a(jSONObject, BaiduAppJsBridgeHandler.INPUT_PARAM_DEEP_LINK_URL, adConversionInfo.deeplinkUrl);
             com.kwad.sdk.utils.q.a(jSONObject, "appDownloadUrl", adConversionInfo.appDownloadUrl);
-            com.kwad.sdk.utils.q.a(jSONObject, "marketUrl", adConversionInfo.marketUrl);
+            com.kwad.sdk.utils.q.a(jSONObject, DeepLinkItem.DEEPLINK_MARKETURL_KEY, adConversionInfo.marketUrl);
             com.kwad.sdk.utils.q.a(jSONObject, "retryH5TimeStep", adConversionInfo.retryH5TimeStep);
             com.kwad.sdk.utils.q.a(jSONObject, "playableUrl", adConversionInfo.playableUrl);
             com.kwad.sdk.utils.q.a(jSONObject, "playableStyleInfo", adConversionInfo.playableStyleInfo);

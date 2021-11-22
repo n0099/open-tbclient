@@ -56,7 +56,7 @@ public interface OpenDeviceIdentifierService extends IInterface {
             public String getInterfaceDescriptor() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Stub.DESCRIPTOR : (String) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "com.uodis.opendevice.aidl.OpenDeviceIdentifierService" : (String) invokeV.objValue;
             }
 
             @Override // com.uodis.opendevice.aidl.OpenDeviceIdentifierService
@@ -67,7 +67,7 @@ public interface OpenDeviceIdentifierService extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                        obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
                         this.mRemote.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
@@ -87,7 +87,7 @@ public interface OpenDeviceIdentifierService extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                        obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
                         this.mRemote.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
@@ -113,7 +113,7 @@ public interface OpenDeviceIdentifierService extends IInterface {
                     return;
                 }
             }
-            attachInterface(this, DESCRIPTOR);
+            attachInterface(this, "com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
         }
 
         public static OpenDeviceIdentifierService asInterface(IBinder iBinder) {
@@ -123,7 +123,7 @@ public interface OpenDeviceIdentifierService extends IInterface {
                 if (iBinder == null) {
                     return null;
                 }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface(DESCRIPTOR);
+                IInterface queryLocalInterface = iBinder.queryLocalInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
                 if (queryLocalInterface != null && (queryLocalInterface instanceof OpenDeviceIdentifierService)) {
                     return (OpenDeviceIdentifierService) queryLocalInterface;
                 }
@@ -145,7 +145,7 @@ public interface OpenDeviceIdentifierService extends IInterface {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
                 if (i2 == 1) {
-                    parcel.enforceInterface(DESCRIPTOR);
+                    parcel.enforceInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
                     String oaid = getOaid();
                     parcel2.writeNoException();
                     parcel2.writeString(oaid);
@@ -154,10 +154,10 @@ public interface OpenDeviceIdentifierService extends IInterface {
                     if (i2 != 1598968902) {
                         return super.onTransact(i2, parcel, parcel2, i3);
                     }
-                    parcel2.writeString(DESCRIPTOR);
+                    parcel2.writeString("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
                     return true;
                 } else {
-                    parcel.enforceInterface(DESCRIPTOR);
+                    parcel.enforceInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
                     boolean isOaidTrackLimited = isOaidTrackLimited();
                     parcel2.writeNoException();
                     parcel2.writeInt(isOaidTrackLimited ? 1 : 0);

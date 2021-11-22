@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.b0.e0.a;
+import b.a.r0.b0.f0.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class c<T extends b.a.r0.b0.e0.a> extends b<T> {
+public abstract class c<T extends b.a.r0.b0.f0.a> extends b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RelativeLayout m;
@@ -76,10 +76,10 @@ public abstract class c<T extends b.a.r0.b0.e0.a> extends b<T> {
     public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f14736e != i2) {
+            if (this.f16223e != i2) {
                 o();
             }
-            this.f14736e = i2;
+            this.f16223e = i2;
         }
     }
 

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.f;
+import b.a.e.f.m.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -24,19 +24,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f13608a;
+    public static boolean f14390a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f13609b;
+    public static Handler f14391b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.q0.s.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class HandlerC0693a extends Handler {
+    public static class HandlerC0729a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public HandlerC0693a() {
+        public HandlerC0729a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,13 +90,13 @@ public class a {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                 if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    if (a.f13608a) {
+                    if (a.f14390a) {
                         return;
                     }
-                    a.f13609b.sendEmptyMessageDelayed(1, 10000L);
+                    a.f14391b.sendEmptyMessageDelayed(1, 10000L);
                     return;
                 }
-                a.f13609b.removeMessages(1);
+                a.f14391b.removeMessages(1);
                 a.stopService();
             }
         }
@@ -115,7 +115,7 @@ public class a {
                 return;
             }
         }
-        f13609b = new HandlerC0693a();
+        f14391b = new HandlerC0729a();
     }
 
     public static void d() {
@@ -128,7 +128,7 @@ public class a {
     public static void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z) == null) {
-            f13608a = z;
+            f14390a = z;
         }
     }
 

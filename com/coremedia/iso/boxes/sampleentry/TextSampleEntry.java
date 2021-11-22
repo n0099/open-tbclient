@@ -242,7 +242,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
     public boolean isWriteTextVertically() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (this.displayFlags & 131072) == 131072 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (this.displayFlags & PlaybackStateCompat.ACTION_PREPARE_FROM_URI) == PlaybackStateCompat.ACTION_PREPARE_FROM_URI : invokeV.booleanValue;
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
@@ -373,7 +373,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
             if (z) {
-                this.displayFlags |= 131072;
+                this.displayFlags |= PlaybackStateCompat.ACTION_PREPARE_FROM_URI;
             } else {
                 this.displayFlags &= -131073;
             }

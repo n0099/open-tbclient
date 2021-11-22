@@ -2,8 +2,8 @@ package com.baidu.adp.lib.featureSwitch;
 
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.f.b;
-import b.a.e.e.f.c;
+import b.a.e.f.f.b;
+import b.a.e.f.f.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -91,8 +91,8 @@ public class SwitchManager {
         for (c cVar : this.mSwitchs.values()) {
             if (cVar != null) {
                 cVar.h(0);
-                edit.putInt(cVar.d() + c.f1734d, 0);
-                edit.putInt(cVar.d() + c.f1735e, cVar.c());
+                edit.putInt(cVar.d() + c.f1737d, 0);
+                edit.putInt(cVar.d() + c.f1738e, cVar.c());
             }
         }
         edit.commit();

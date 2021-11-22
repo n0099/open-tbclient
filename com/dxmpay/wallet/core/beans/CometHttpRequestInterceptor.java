@@ -1,7 +1,7 @@
 package com.dxmpay.wallet.core.beans;
 
 import android.content.Context;
-import b.f.a.g.d.d;
+import b.e.a.g.d.d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;

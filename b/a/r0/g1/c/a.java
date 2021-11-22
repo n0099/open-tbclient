@@ -1,6 +1,6 @@
 package b.a.r0.g1.c;
 
-import b.a.r0.l3.w;
+import b.a.r0.m3.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ public class a extends b.a.r0.h1.i.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.r0.q1.p.a f16708g;
+    public b.a.r0.q1.p.a f18222g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,20 +34,20 @@ public class a extends b.a.r0.h1.i.a.a {
     private void update() {
         b.a.r0.q1.p.a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (aVar = this.f16708g) != null && aVar.a()) {
-            List<ICardInfo> e2 = this.f16708g.e();
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (aVar = this.f18222g) != null && aVar.a()) {
+            List<ICardInfo> e2 = this.f18222g.e();
             ArrayList arrayList = new ArrayList();
-            this.f17510e = arrayList;
+            this.f18979e = arrayList;
             arrayList.addAll(e2);
-            this.f16708g.b();
-            this.f16708g.c();
+            this.f18222g.b();
+            this.f18222g.c();
         }
     }
 
     public final void a() {
         List<Object> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f17510e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f18979e) == null) {
             return;
         }
         w.e(list, 2);
@@ -56,7 +56,7 @@ public class a extends b.a.r0.h1.i.a.a {
     public void b(b.a.r0.q1.p.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f16708g = aVar;
+            this.f18222g = aVar;
             update();
             a();
         }

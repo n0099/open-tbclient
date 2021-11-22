@@ -8,8 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.q0.d1.m0;
+import b.a.e.f.p.l;
+import b.a.q0.c1.m0;
 import b.a.q0.s.q.d2;
 import b.a.q0.s.q.k2;
 import com.baidu.adp.lib.util.StringUtils;
@@ -142,10 +142,10 @@ public class g extends b.a.r0.b0.b<b.a.r0.w.f.a.g> {
             this.C = (TextView) i().findViewById(R.id.tvNewCount);
             this.D = (TextView) i().findViewById(R.id.tvSquareNewTitle);
             this.A.setIsRound(true);
-            this.C.setCompoundDrawablesWithIntrinsicBounds(this.f14738g.getResources().getDrawable(R.drawable.icon_home_card_like_grey), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.C.setCompoundDrawablesWithIntrinsicBounds(this.f16225g.getResources().getDrawable(R.drawable.icon_home_card_like_grey), (Drawable) null, (Drawable) null, (Drawable) null);
             this.n.setDefaultBgResource(b.a.r0.w.f.i.a.a());
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.t.getLayoutParams();
-            int k = l.k(this.f14738g) / 2;
+            int k = l.k(this.f16225g) / 2;
             this.H = k;
             int i2 = (k * 9) / 16;
             this.I = i2;
@@ -179,7 +179,7 @@ public class g extends b.a.r0.b0.b<b.a.r0.w.f.a.g> {
     public void j(b.a.r0.w.f.a.g gVar) {
         d2 d2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) || gVar == null || gVar.f24516e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) || gVar == null || gVar.f26033e == null) {
             return;
         }
         this.F = gVar;
@@ -187,49 +187,49 @@ public class g extends b.a.r0.b0.b<b.a.r0.w.f.a.g> {
         this.q.setVisibility(0);
         if (this.G) {
             int i2 = this.I;
-            if (gVar != null && (d2Var = gVar.f24516e) != null && d2Var.q1() != null && gVar.f24516e.q1().thumbnail_width != null && gVar.f24516e.q1().thumbnail_width.intValue() > 0) {
-                i2 = (this.H * gVar.f24516e.q1().thumbnail_height.intValue()) / gVar.f24516e.q1().thumbnail_width.intValue();
+            if (gVar != null && (d2Var = gVar.f26033e) != null && d2Var.r1() != null && gVar.f26033e.r1().thumbnail_width != null && gVar.f26033e.r1().thumbnail_width.intValue() > 0) {
+                i2 = (this.H * gVar.f26033e.r1().thumbnail_height.intValue()) / gVar.f26033e.r1().thumbnail_width.intValue();
             }
             ViewGroup.LayoutParams layoutParams = this.t.getLayoutParams();
             layoutParams.width = this.H;
             layoutParams.height = i2;
             this.t.setLayoutParams(layoutParams);
         }
-        String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(gVar.f24516e.C());
+        String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(gVar.f26033e.C());
         this.r.setText(numberUniformFormatExtra);
         this.u.setVisibility(0);
-        this.u.setData(gVar.f24516e);
+        this.u.setData(gVar.f26033e);
         this.u.setIsRound(true);
-        this.y.setText(gVar.f24516e.getTitle());
-        this.n.startLoad(gVar.f24516e.q1().thumbnail_url, 10, false);
+        this.y.setText(gVar.f26033e.getTitle());
+        this.n.startLoad(gVar.f26033e.r1().thumbnail_url, 10, false);
         this.v.setVisibility(0);
-        this.J = gVar.f24516e.p1();
-        this.w.setText(StringHelper.getFormatTime(gVar.f24516e.P()));
+        this.J = gVar.f26033e.q1();
+        this.w.setText(StringHelper.getFormatTime(gVar.f26033e.P()));
         k2 k2Var = this.J;
         if (k2Var != null) {
-            String str = k2Var.f13386b;
+            String str = k2Var.f14166b;
             if (m0.d(str) > 10) {
                 str = m0.m(str, 10) + "...";
             }
             this.v.setText(str);
             this.B.setText(str);
-        } else if (gVar.f24516e.J() != null && !StringUtils.isNull(gVar.f24516e.J().getName_show())) {
-            String name_show = gVar.f24516e.J().getName_show();
+        } else if (gVar.f26033e.J() != null && !StringUtils.isNull(gVar.f26033e.J().getName_show())) {
+            String name_show = gVar.f26033e.J().getName_show();
             if (m0.d(name_show) > 10) {
                 name_show = m0.m(name_show, 10) + "...";
             }
             this.v.setText(name_show);
             this.B.setText(name_show);
         }
-        this.A.setData(gVar.f24516e, false);
+        this.A.setData(gVar.f26033e, false);
         this.C.setText(numberUniformFormatExtra);
-        this.D.setText(gVar.f24516e.getTitle());
+        this.D.setText(gVar.f26033e.getTitle());
         if (gVar.k()) {
             this.M.setVisibility(0);
         } else {
             this.M.setVisibility(8);
         }
-        k(this.f14737f, TbadkCoreApplication.getInst().getSkinType());
+        k(this.f16224f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void q(boolean z) {

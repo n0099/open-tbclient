@@ -11,7 +11,7 @@ public class JNIBaseMap {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f40427a;
+    public long f41259a;
 
     public JNIBaseMap() {
         Interceptable interceptable = $ic;

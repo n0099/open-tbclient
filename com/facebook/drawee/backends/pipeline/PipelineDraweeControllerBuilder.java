@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.ImmutableList;
 import com.facebook.common.internal.Preconditions;
-import com.facebook.common.internal.Suppliers;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
 import com.facebook.drawee.backends.pipeline.info.ImageOriginListener;
@@ -23,7 +22,6 @@ import com.facebook.drawee.controller.AbstractDraweeControllerBuilder;
 import com.facebook.drawee.controller.ControllerListener;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.interfaces.SimpleDraweeControllerBuilder;
-import com.facebook.fresco.ui.common.ControllerListener2;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.core.ImagePipeline;
@@ -88,19 +86,19 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PipelineDraweeControllerBuilder(Context context, PipelineDraweeControllerFactory pipelineDraweeControllerFactory, ImagePipeline imagePipeline, Set<ControllerListener> set, Set<ControllerListener2> set2) {
-        super(context, set, set2);
+    public PipelineDraweeControllerBuilder(Context context, PipelineDraweeControllerFactory pipelineDraweeControllerFactory, ImagePipeline imagePipeline, Set<ControllerListener> set) {
+        super(context, set);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, pipelineDraweeControllerFactory, imagePipeline, set, set2};
+            Object[] objArr = {context, pipelineDraweeControllerFactory, imagePipeline, set};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (Set) objArr2[1], (Set) objArr2[2]);
+                super((Context) objArr2[0], (Set) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -205,7 +203,7 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
     public DataSource<CloseableReference<CloseableImage>> getDataSourceForRequest(DraweeController draweeController, String str, ImageRequest imageRequest, Object obj, AbstractDraweeControllerBuilder.CacheLevel cacheLevel) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, draweeController, str, imageRequest, obj, cacheLevel)) == null) ? this.mImagePipeline.fetchDecodedImage(imageRequest, obj, convertCacheLevelToRequestLevel(cacheLevel), getRequestListener(draweeController), str) : (DataSource) invokeLLLLL.objValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, draweeController, str, imageRequest, obj, cacheLevel)) == null) ? this.mImagePipeline.fetchDecodedImage(imageRequest, obj, convertCacheLevelToRequestLevel(cacheLevel), getRequestListener(draweeController)) : (DataSource) invokeLLLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -227,7 +225,7 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
                     newController = this.mPipelineDraweeControllerFactory.newController();
                 }
                 newController.initialize(obtainDataSourceSupplier(newController, generateUniqueControllerId), generateUniqueControllerId, getCacheKey(), getCallerContext(), this.mCustomDrawableFactories, this.mImageOriginListener);
-                newController.initializePerformanceMonitoring(this.mImagePerfDataListener, this, Suppliers.BOOLEAN_FALSE);
+                newController.initializePerformanceMonitoring(this.mImagePerfDataListener);
                 return newController;
             } finally {
                 if (FrescoSystrace.isTracing()) {

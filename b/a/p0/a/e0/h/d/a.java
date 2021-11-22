@@ -3,7 +3,7 @@ package b.a.p0.a.e0.h.d;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.k;
-import b.a.p0.t.d;
+import b.a.p0.w.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketException;
 import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketFrame;
@@ -29,30 +29,30 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f4765g;
+    public static final boolean f4746g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4766a;
+    public int f4747a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InputStream f4767b;
+    public InputStream f4748b;
 
     /* renamed from: c  reason: collision with root package name */
-    public OutputStream f4768c;
+    public OutputStream f4749c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC0157a f4769d;
+    public InterfaceC0161a f4750d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebSocketFrame.OpCode f4770e;
+    public WebSocketFrame.OpCode f4751e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<WebSocketFrame> f4771f;
+    public final List<WebSocketFrame> f4752f;
 
     /* renamed from: b.a.p0.a.e0.h.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0157a {
+    public interface InterfaceC0161a {
         void a(WebSocketFrame webSocketFrame);
 
         void b(IOException iOException);
@@ -75,7 +75,7 @@ public class a {
                 return;
             }
         }
-        f4765g = k.f6397a;
+        f4746g = k.f6863a;
     }
 
     public a() {
@@ -91,9 +91,9 @@ public class a {
                 return;
             }
         }
-        this.f4766a = 1;
-        this.f4770e = null;
-        this.f4771f = new LinkedList();
+        this.f4747a = 1;
+        this.f4751e = null;
+        this.f4752f = new LinkedList();
     }
 
     public static boolean f(Map<String, String> map) {
@@ -121,8 +121,8 @@ public class a {
     public void a(WebSocketFrame.CloseCode closeCode, String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, closeCode, str) == null) {
-            int i2 = this.f4766a;
-            this.f4766a = 3;
+            int i2 = this.f4747a;
+            this.f4747a = 3;
             if (i2 == 2) {
                 j(new WebSocketFrame.b(closeCode, str));
             } else {
@@ -133,13 +133,13 @@ public class a {
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f4766a == 4) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f4747a == 4) {
             return;
         }
-        d.d(this.f4767b);
-        d.d(this.f4768c);
-        this.f4766a = 4;
-        this.f4769d.onClose();
+        d.d(this.f4748b);
+        d.d(this.f4749c);
+        this.f4747a = 4;
+        this.f4750d.onClose();
     }
 
     public final void c(WebSocketFrame webSocketFrame) throws IOException {
@@ -154,7 +154,7 @@ public class a {
             } else {
                 str = "";
             }
-            if (this.f4766a == 3) {
+            if (this.f4747a == 3) {
                 b();
             } else {
                 a(closeCode, str);
@@ -166,23 +166,23 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, webSocketFrame) == null) {
             if (webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
-                if (this.f4770e != null && f4765g) {
+                if (this.f4751e != null && f4746g) {
                     throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Previous continuous frame sequence not completed.");
                 }
-                this.f4770e = webSocketFrame.f();
-                this.f4771f.clear();
-                this.f4771f.add(webSocketFrame);
+                this.f4751e = webSocketFrame.f();
+                this.f4752f.clear();
+                this.f4752f.add(webSocketFrame);
             } else if (webSocketFrame.h()) {
-                if (this.f4770e != null) {
-                    this.f4771f.add(webSocketFrame);
-                    this.f4769d.a(new WebSocketFrame(this.f4770e, this.f4771f));
-                    this.f4770e = null;
-                    this.f4771f.clear();
+                if (this.f4751e != null) {
+                    this.f4752f.add(webSocketFrame);
+                    this.f4750d.a(new WebSocketFrame(this.f4751e, this.f4752f));
+                    this.f4751e = null;
+                    this.f4752f.clear();
                     return;
                 }
                 throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
-            } else if (this.f4770e != null) {
-                this.f4771f.add(webSocketFrame);
+            } else if (this.f4751e != null) {
+                this.f4752f.add(webSocketFrame);
             } else {
                 throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
             }
@@ -197,13 +197,13 @@ public class a {
             } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Ping) {
                 j(new WebSocketFrame(WebSocketFrame.OpCode.Pong, true, webSocketFrame.d()));
             } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Pong) {
-                boolean z = f4765g;
+                boolean z = f4746g;
             } else if (webSocketFrame.h() && webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
-                if (this.f4770e == null) {
+                if (this.f4751e == null) {
                     if (webSocketFrame.f() != WebSocketFrame.OpCode.Text && webSocketFrame.f() != WebSocketFrame.OpCode.Binary) {
                         throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Non control or continuous frame expected.");
                     }
-                    this.f4769d.a(webSocketFrame);
+                    this.f4750d.a(webSocketFrame);
                     return;
                 }
                 throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence not completed.");
@@ -216,12 +216,12 @@ public class a {
     public void h(InputStream inputStream, OutputStream outputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, inputStream, outputStream) == null) {
-            this.f4767b = inputStream;
-            this.f4768c = outputStream;
-            this.f4766a = 2;
-            InterfaceC0157a interfaceC0157a = this.f4769d;
-            if (interfaceC0157a != null) {
-                interfaceC0157a.onOpen();
+            this.f4748b = inputStream;
+            this.f4749c = outputStream;
+            this.f4747a = 2;
+            InterfaceC0161a interfaceC0161a = this.f4750d;
+            if (interfaceC0161a != null) {
+                interfaceC0161a.onOpen();
             }
             i();
         }
@@ -230,15 +230,15 @@ public class a {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            while (this.f4766a == 2) {
+            while (this.f4747a == 2) {
                 try {
                     try {
-                        e(WebSocketFrame.k(this.f4767b));
+                        e(WebSocketFrame.k(this.f4748b));
                     } catch (IOException e2) {
-                        if (this.f4769d != null) {
-                            this.f4769d.b(e2);
+                        if (this.f4750d != null) {
+                            this.f4750d.b(e2);
                         }
-                        b.a.p0.a.e0.d.c("V8WebSocket", "parse web socket frame fail", e2);
+                        b.a.p0.a.e0.d.d("V8WebSocket", "parse web socket frame fail", e2);
                     }
                 } finally {
                     b();
@@ -251,15 +251,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, webSocketFrame) == null) {
             synchronized (this) {
-                webSocketFrame.t(this.f4768c);
+                webSocketFrame.t(this.f4749c);
             }
         }
     }
 
-    public void k(InterfaceC0157a interfaceC0157a) {
+    public void k(InterfaceC0161a interfaceC0161a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, interfaceC0157a) == null) {
-            this.f4769d = interfaceC0157a;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, interfaceC0161a) == null) {
+            this.f4750d = interfaceC0161a;
         }
     }
 }

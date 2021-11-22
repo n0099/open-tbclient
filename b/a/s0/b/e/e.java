@@ -15,16 +15,16 @@ public class e extends InputStream {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d f28659e;
+    public final d f29528e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28660f;
+    public boolean f29529f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ByteBuffer f28661g;
+    public ByteBuffer f29530g;
 
     /* renamed from: h  reason: collision with root package name */
-    public IOException f28662h;
+    public IOException f29531h;
 
     public e(d dVar) {
         Interceptable interceptable = $ic;
@@ -41,27 +41,27 @@ public class e extends InputStream {
                 return;
             }
         }
-        this.f28659e = dVar;
+        this.f29528e = dVar;
     }
 
     public final void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f28660f) {
-                IOException iOException = this.f28662h;
+            if (this.f29529f) {
+                IOException iOException = this.f29531h;
                 if (iOException != null) {
                     throw iOException;
                 }
             } else if (c()) {
             } else {
-                if (this.f28661g == null) {
-                    this.f28661g = ByteBuffer.allocateDirect(32768);
+                if (this.f29530g == null) {
+                    this.f29530g = ByteBuffer.allocateDirect(32768);
                 }
-                this.f28661g.clear();
-                this.f28659e.u(this.f28661g);
-                IOException iOException2 = this.f28662h;
+                this.f29530g.clear();
+                this.f29528e.u(this.f29530g);
+                IOException iOException2 = this.f29531h;
                 if (iOException2 == null) {
-                    ByteBuffer byteBuffer = this.f28661g;
+                    ByteBuffer byteBuffer = this.f29530g;
                     if (byteBuffer != null) {
                         byteBuffer.flip();
                         return;
@@ -77,7 +77,7 @@ public class e extends InputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ByteBuffer byteBuffer = this.f28661g;
+            ByteBuffer byteBuffer = this.f29530g;
             return byteBuffer != null && byteBuffer.hasRemaining();
         }
         return invokeV.booleanValue;
@@ -86,9 +86,9 @@ public class e extends InputStream {
     public void d(IOException iOException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iOException) == null) {
-            this.f28662h = iOException;
-            this.f28660f = true;
-            this.f28661g = null;
+            this.f29531h = iOException;
+            this.f29529f = true;
+            this.f29530g = null;
         }
     }
 
@@ -99,7 +99,7 @@ public class e extends InputStream {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             a();
             if (c()) {
-                return this.f28661g.get() & 255;
+                return this.f29530g.get() & 255;
             }
             return -1;
         }
@@ -119,8 +119,8 @@ public class e extends InputStream {
             }
             a();
             if (c()) {
-                int min = Math.min(this.f28661g.limit() - this.f28661g.position(), i3);
-                this.f28661g.get(bArr, i2, min);
+                int min = Math.min(this.f29530g.limit() - this.f29530g.position(), i3);
+                this.f29530g.get(bArr, i2, min);
                 return min;
             }
             return -1;

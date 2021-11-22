@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.framework.indicator;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.g0.n.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;

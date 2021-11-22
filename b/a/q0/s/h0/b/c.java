@@ -2,8 +2,8 @@ package b.a.q0.s.h0.b;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.l.e;
-import b.a.e.e.q.h;
+import b.a.e.f.l.e;
+import b.a.e.f.q.h;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
@@ -37,9 +37,9 @@ public class c implements e<a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.e.l.e
+    @Override // b.a.e.f.l.e
     /* renamed from: a */
-    public a getFromLocal(String str, String str2, int i2, int i3, b.a.e.e.l.b bVar, Object... objArr) {
+    public a getFromLocal(String str, String str2, int i2, int i3, b.a.e.f.l.b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
@@ -50,14 +50,14 @@ public class c implements e<a> {
             if (bVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                 diskCancelWorker.setOperate(diskFileOperate);
-                bVar.f1859a = diskCancelWorker;
+                bVar.f1862a = diskCancelWorker;
             }
             diskFileOperate.call();
             if (diskFileOperate.isSuccess()) {
                 String desPath = diskFileOperate.getDesPath();
                 a aVar = new a();
-                aVar.f13096a = str;
-                aVar.f13097b = desPath;
+                aVar.f13876a = str;
+                aVar.f13877b = desPath;
                 return aVar;
             }
             return null;
@@ -66,7 +66,7 @@ public class c implements e<a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.e.l.e
+    @Override // b.a.e.f.l.e
     /* renamed from: b */
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
@@ -78,9 +78,9 @@ public class c implements e<a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.e.l.e
+    @Override // b.a.e.f.l.e
     /* renamed from: c */
-    public a getFromRemote(String str, String str2, int i2, int i3, b.a.e.e.l.b bVar, Object... objArr) {
+    public a getFromRemote(String str, String str2, int i2, int i3, b.a.e.f.l.b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
@@ -90,7 +90,7 @@ public class c implements e<a> {
             a aVar = new a();
             WebClient webClient = new WebClient();
             if (bVar != null) {
-                bVar.f1859a = webClient;
+                bVar.f1862a = webClient;
             }
             String str4 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
             if (!TextUtils.isEmpty(valueOf)) {
@@ -98,12 +98,12 @@ public class c implements e<a> {
             }
             byte[] downloadCommonBytes = webClient.downloadCommonBytes(str4);
             if (!webClient.IsRequestSuccess()) {
-                aVar.f13098c = 3;
-                aVar.f13099d = h.a(R.string.neterror);
+                aVar.f13878c = 3;
+                aVar.f13879d = h.a(R.string.neterror);
                 return aVar;
             } else if (downloadCommonBytes == null || downloadCommonBytes.length == 0) {
-                aVar.f13098c = 4;
-                aVar.f13099d = h.a(R.string.voice_cache_error_no_file);
+                aVar.f13878c = 4;
+                aVar.f13879d = h.a(R.string.voice_cache_error_no_file);
                 return aVar;
             } else {
                 if (str == null) {
@@ -118,7 +118,7 @@ public class c implements e<a> {
                     if (bVar != null) {
                         DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
                         diskCancelWorker.setOperate(diskFileOperate);
-                        bVar.f1859a = diskCancelWorker;
+                        bVar.f1862a = diskCancelWorker;
                     }
                     diskFileOperate.call();
                     if (diskFileOperate.isSuccess() && diskFileOperate.getFileInfo() != null) {
@@ -129,11 +129,11 @@ public class c implements e<a> {
                     }
                 }
                 if (i4 == 0) {
-                    aVar.f13097b = str3;
-                    aVar.f13096a = str;
+                    aVar.f13877b = str3;
+                    aVar.f13876a = str;
                 } else {
-                    aVar.f13098c = i4;
-                    aVar.f13099d = a.a(i4);
+                    aVar.f13878c = i4;
+                    aVar.f13879d = a.a(i4);
                 }
                 return aVar;
             }
@@ -141,7 +141,7 @@ public class c implements e<a> {
         return (a) invokeCommon.objValue;
     }
 
-    @Override // b.a.e.e.l.e
+    @Override // b.a.e.f.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -151,7 +151,7 @@ public class c implements e<a> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // b.a.e.e.l.e
+    @Override // b.a.e.f.l.e
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -161,7 +161,7 @@ public class c implements e<a> {
         return invokeV.intValue;
     }
 
-    @Override // b.a.e.e.l.e
+    @Override // b.a.e.f.l.e
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -171,7 +171,7 @@ public class c implements e<a> {
         return invokeV.booleanValue;
     }
 
-    @Override // b.a.e.e.l.e
+    @Override // b.a.e.f.l.e
     public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) {

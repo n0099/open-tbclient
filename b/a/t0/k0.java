@@ -24,7 +24,7 @@ public class k0 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final k0 f28822a;
+        public static final k0 f29691a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,7 +40,7 @@ public class k0 {
                     return;
                 }
             }
-            f28822a = new k0(null);
+            f29691a = new k0(null);
         }
     }
 
@@ -51,7 +51,7 @@ public class k0 {
     public static k0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f28822a : (k0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f29691a : (k0) invokeV.objValue;
     }
 
     public int b(String str, int i2) {

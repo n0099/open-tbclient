@@ -13,7 +13,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, Integer> f13149a;
+    public static HashMap<String, Integer> f13929a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class f {
                 return;
             }
         }
-        f13149a = new HashMap<>();
+        f13929a = new HashMap<>();
     }
 
     public static int a(int i2) {
@@ -37,10 +37,10 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
             String str = TbadkCoreApplication.getCurrentAccount() + "@" + i2;
-            if (f13149a.containsKey(str)) {
-                return f13149a.get(str).intValue();
+            if (f13929a.containsKey(str)) {
+                return f13929a.get(str).intValue();
             }
-            f13149a.put(str, 1);
+            f13929a.put(str, 1);
             return 1;
         }
         return invokeI.intValue;
@@ -53,16 +53,16 @@ public class f {
         }
         String str = TbadkCoreApplication.getCurrentAccount() + "@2";
         int w = personPrivateData.w();
-        if (f13149a.containsKey(str)) {
+        if (f13929a.containsKey(str)) {
             return;
         }
-        f13149a.put(str, Integer.valueOf(w));
+        f13929a.put(str, Integer.valueOf(w));
     }
 
     public static void c(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65539, null, i2, i3) == null) {
-            f13149a.put(TbadkCoreApplication.getCurrentAccount() + "@" + i2, Integer.valueOf(i3));
+            f13929a.put(TbadkCoreApplication.getCurrentAccount() + "@" + i2, Integer.valueOf(i3));
         }
     }
 }

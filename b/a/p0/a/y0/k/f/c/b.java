@@ -17,7 +17,7 @@ public class b extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9084b;
+    public String f9431b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(String str) {
@@ -39,55 +39,55 @@ public class b extends a {
         }
     }
 
-    @Override // b.a.p0.a.y0.k.f.c.f, b.a.p0.a.y0.k.f.c.e
+    @Override // b.a.p0.a.y0.k.f.c.e, b.a.p0.a.y0.k.f.c.d
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && e(str)) {
             boolean equals = TextUtils.equals(str2, DebugKt.DEBUG_PROPERTY_VALUE_AUTO);
             boolean equals2 = TextUtils.equals(str2, RetrieveTaskManager.KEY);
-            this.f9083a.g("autoPlay", equals ? "1" : "0");
-            this.f9083a.g("playMethod", equals2 ? "1" : "0");
+            this.f9430a.g("autoPlay", equals ? "1" : "0");
+            this.f9430a.g("playMethod", equals2 ? "1" : "0");
         }
     }
 
-    @Override // b.a.p0.a.y0.k.f.c.a, b.a.p0.a.y0.k.f.c.f, b.a.p0.a.y0.k.f.c.e
+    @Override // b.a.p0.a.y0.k.f.c.a, b.a.p0.a.y0.k.f.c.e, b.a.p0.a.y0.k.f.c.d
     public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, hybridUbcFlow) == null) {
-            UbcFlowEvent f2 = hybridUbcFlow.f("fe_slave_dispatch_start");
-            UbcFlowEvent f3 = hybridUbcFlow.f("fe_master_page_oninit_start");
-            UbcFlowEvent f4 = hybridUbcFlow.f("master_page_onload_start");
-            UbcFlowEvent f5 = hybridUbcFlow.f("video_fe_init");
-            UbcFlowEvent f6 = hybridUbcFlow.f("video_fe_init_end");
-            if (f2 != null) {
-                this.f9083a.i("fe_slave_dispatch_start", z ? f2.g() : 0L);
+            UbcFlowEvent g2 = hybridUbcFlow.g("fe_slave_dispatch_start");
+            UbcFlowEvent g3 = hybridUbcFlow.g("fe_master_page_oninit_start");
+            UbcFlowEvent g4 = hybridUbcFlow.g("master_page_onload_start");
+            UbcFlowEvent g5 = hybridUbcFlow.g("video_fe_init");
+            UbcFlowEvent g6 = hybridUbcFlow.g("video_fe_init_end");
+            if (g2 != null) {
+                this.f9430a.i("fe_slave_dispatch_start", z ? g2.g() : 0L);
             }
-            if (f3 != null) {
-                this.f9083a.i("fe_master_page_oninit_start", z ? f3.g() : 0L);
+            if (g3 != null) {
+                this.f9430a.i("fe_master_page_oninit_start", z ? g3.g() : 0L);
             }
-            if (f4 != null) {
-                this.f9083a.i("master_page_onload_start", z ? f4.g() : 0L);
+            if (g4 != null) {
+                this.f9430a.i("master_page_onload_start", z ? g4.g() : 0L);
             }
-            if (f5 != null) {
-                this.f9083a.i("video_fe_init", z ? f5.g() : 0L);
+            if (g5 != null) {
+                this.f9430a.i("video_fe_init", z ? g5.g() : 0L);
             }
-            if (f6 != null) {
-                this.f9083a.i("video_fe_init_end", z ? f6.g() : 0L);
+            if (g6 != null) {
+                this.f9430a.i("video_fe_init_end", z ? g6.g() : 0L);
             }
-            this.f9083a.g("fmpArrived", z ? "1" : "0");
-            if (this.f9083a.f()) {
-                this.f9083a.k();
-                b.a.p0.a.y0.k.f.b.f();
+            this.f9430a.g("fmpArrived", z ? "1" : "0");
+            if (this.f9430a.f()) {
+                this.f9430a.k();
+                b.a.p0.a.y0.k.f.b.e();
             }
         }
     }
 
-    @Override // b.a.p0.a.y0.k.f.c.f, b.a.p0.a.y0.k.f.c.e
+    @Override // b.a.p0.a.y0.k.f.c.e, b.a.p0.a.y0.k.f.c.d
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f9083a.d("video_will_play")) {
-                this.f9083a.h("video_play_cancel");
+            if (this.f9430a.d("video_will_play")) {
+                this.f9430a.h("video_play_cancel");
             }
             d();
         }
@@ -96,12 +96,6 @@ public class b extends a {
     public final boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? TextUtils.equals(this.f9084b, str) : invokeL.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? TextUtils.equals(this.f9431b, str) : invokeL.booleanValue;
     }
 }

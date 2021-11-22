@@ -2,7 +2,7 @@ package b.a.r0.v.b.f.e;
 
 import android.app.Activity;
 import android.os.Bundle;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.p0.a.k;
 import b.a.q0.p0.d;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
@@ -21,19 +21,19 @@ public class a extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f24181a;
+    public static final boolean f25644a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.r0.v.b.f.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1181a implements b.a.r0.v.b.f.d.a {
+    public class C1247a implements b.a.r0.v.b.f.d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f24182a;
+        public final /* synthetic */ a f25645a;
 
-        public C1181a(a aVar) {
+        public C1247a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,16 +48,16 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f24182a = aVar;
+            this.f25645a = aVar;
         }
 
         @Override // b.a.r0.v.b.f.d.a
         public void a(Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                this.f24182a.mResult.putInt("status_code", bundle.getInt("result_code"));
-                this.f24182a.mResult.putString("params", bundle.getString(AbstractThirdPartyService.EXTRA_RESULT_MSG));
-                this.f24182a.finish();
+                this.f25645a.mResult.putInt("status_code", bundle.getInt("result_code"));
+                this.f25645a.mResult.putString("params", bundle.getString(AbstractThirdPartyService.EXTRA_RESULT_MSG));
+                this.f25645a.finish();
             }
         }
     }
@@ -75,7 +75,7 @@ public class a extends ActivityDelegation {
                 return;
             }
         }
-        f24181a = k.f6397a;
+        f25644a = k.f6863a;
     }
 
     public a() {
@@ -109,10 +109,10 @@ public class a extends ActivityDelegation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.mParams.isEmpty()) {
-                boolean z = f24181a;
+                boolean z = f25644a;
                 return false;
             }
-            boolean z2 = f24181a;
+            boolean z2 = f25644a;
             if (!d.c().g()) {
                 l.L(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
                 return false;
@@ -121,7 +121,7 @@ public class a extends ActivityDelegation {
                 aVar.mParams.putInt("type", 1);
                 aVar.mParams.putString("orderInfo", this.mParams.getString("order_info"));
                 aVar.b(getAgent());
-                aVar.c(new C1181a(this));
+                aVar.c(new C1247a(this));
                 aVar.onExec();
                 return false;
             } else {

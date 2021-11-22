@@ -19,14 +19,14 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f68533a = "c";
+    public static String f69453a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f68534b;
+    public static volatile c f69454b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcurrentHashMap<Long, Runnable> f68535c;
+    public ConcurrentHashMap<Long, Runnable> f69455c;
 
     static {
         InterceptResult invokeClinit;
@@ -56,22 +56,22 @@ public class c {
                 return;
             }
         }
-        this.f68535c = null;
-        this.f68535c = new ConcurrentHashMap<>();
+        this.f69455c = null;
+        this.f69455c = new ConcurrentHashMap<>();
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f68534b == null) {
+            if (f69454b == null) {
                 synchronized (c.class) {
-                    if (f68534b == null) {
-                        f68534b = new c();
+                    if (f69454b == null) {
+                        f69454b = new c();
                     }
                 }
             }
-            return f68534b;
+            return f69454b;
         }
         return (c) invokeV.objValue;
     }
@@ -105,7 +105,7 @@ public class c {
                 a(id, true, 1);
             } else if (i2 != 7) {
             } else {
-                Runnable remove = this.f68535c.remove(Long.valueOf(id));
+                Runnable remove = this.f69455c.remove(Long.valueOf(id));
                 if (z) {
                     com.ss.android.downloadlib.d.a.a().a(id, 1);
                     a(id, true, 1);
@@ -137,16 +137,16 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e f68536a;
+                public final /* synthetic */ e f69456a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f68537b;
+                public final /* synthetic */ int f69457b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadModel f68538c;
+                public final /* synthetic */ DownloadModel f69458c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ c f68539d;
+                public final /* synthetic */ c f69459d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -163,17 +163,17 @@ public class c {
                             return;
                         }
                     }
-                    this.f68539d = this;
-                    this.f68536a = eVar;
-                    this.f68537b = i2;
-                    this.f68538c = downloadModel;
+                    this.f69459d = this;
+                    this.f69456a = eVar;
+                    this.f69457b = i2;
+                    this.f69458c = downloadModel;
                 }
 
                 @Override // com.ss.android.downloadlib.b.d
                 public void a(boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                        this.f68539d.a(this.f68536a, z, this.f68537b, this.f68538c);
+                        this.f69459d.a(this.f69456a, z, this.f69457b, this.f69458c);
                     }
                 }
             }, b());

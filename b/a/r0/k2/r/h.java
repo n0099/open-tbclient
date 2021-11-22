@@ -11,25 +11,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class h implements b.a.e.l.e.n {
+public class h implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
     public static BdUniqueId m;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18766e;
+    public String f20302e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18767f;
+    public String f20303f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18768g;
+    public int f20304g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f18769h;
+    public int f20305h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f18770i;
+    public boolean f20306i;
     public String j;
     public String k;
     public boolean l;
@@ -65,19 +65,19 @@ public class h implements b.a.e.l.e.n {
                 return;
             }
         }
-        this.f18770i = false;
+        this.f20306i = false;
         if (forumData == null) {
             return;
         }
-        this.f18766e = forumData.getName();
-        this.f18767f = forumData.getImage_url();
-        this.f18768g = forumData.getPost_num();
-        this.f18769h = forumData.getMember_num();
+        this.f20302e = forumData.getName();
+        this.f20303f = forumData.getImage_url();
+        this.f20304g = forumData.getPost_num();
+        this.f20305h = forumData.getMember_num();
         this.j = forumData.getId();
         this.l = forumData.isLike() == 1;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,15 +99,15 @@ public class h implements b.a.e.l.e.n {
                 return;
             }
         }
-        this.f18770i = false;
+        this.f20306i = false;
         if (z1Var == null) {
             return;
         }
-        this.f18766e = z1Var.f13506b;
-        this.f18767f = z1Var.f13507c;
-        this.f18768g = z1Var.f13512h;
-        this.f18769h = z1Var.f13513i;
-        this.j = z1Var.f13505a;
+        this.f20302e = z1Var.f14288b;
+        this.f20303f = z1Var.f14289c;
+        this.f20304g = z1Var.f14294h;
+        this.f20305h = z1Var.f14295i;
+        this.j = z1Var.f14287a;
         this.l = z1Var.getIsLike();
     }
 }

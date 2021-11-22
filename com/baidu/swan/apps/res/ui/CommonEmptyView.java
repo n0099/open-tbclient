@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.c;
 import b.a.p0.a.d;
@@ -37,12 +38,12 @@ public class CommonEmptyView extends RelativeLayout {
     public TextView mTitle;
 
     /* loaded from: classes8.dex */
-    public class a implements b.a.p0.a.g2.a {
+    public class a implements b.a.p0.a.j2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonEmptyView f43960a;
+        public final /* synthetic */ CommonEmptyView f44758a;
 
         public a(CommonEmptyView commonEmptyView) {
             Interceptable interceptable = $ic;
@@ -59,7 +60,7 @@ public class CommonEmptyView extends RelativeLayout {
                     return;
                 }
             }
-            this.f43960a = commonEmptyView;
+            this.f44758a = commonEmptyView;
         }
     }
 
@@ -105,7 +106,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            b.a.p0.a.c1.a.H().f(this, new a(this));
+            b.a.p0.a.c1.a.M().f(this, new a(this));
         }
     }
 
@@ -134,7 +135,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            b.a.p0.a.c1.a.H().g(this);
+            b.a.p0.a.c1.a.M().g(this);
         }
     }
 
@@ -193,7 +194,7 @@ public class CommonEmptyView extends RelativeLayout {
             TextView textView3 = this.mRefreshTextBtn;
             if (textView3 != null) {
                 textView3.setBackground(getResources().getDrawable(e.aiapps_emptyview_btn_bg));
-                this.mRefreshTextBtn.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color));
+                this.mRefreshTextBtn.setTextColor(AppCompatResources.getColorStateList(getContext(), c.swan_app_emptyview_btn_text_color));
             }
             TextView textView4 = this.mSubTitle;
             if (textView4 != null) {

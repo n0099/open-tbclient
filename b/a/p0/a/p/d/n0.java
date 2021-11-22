@@ -1,7 +1,19 @@
 package b.a.p0.a.p.d;
 
-import android.os.Message;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes.dex */
 public interface n0 {
-    boolean a(Message message);
+    void a(String str);
+
+    void b();
+
+    void c(String str);
+
+    void d(@NonNull SwanAppActivity swanAppActivity, int i2, @Nullable b.a.p0.a.f1.e.b bVar);
+
+    void e(String str);
+
+    void f(String str);
 }

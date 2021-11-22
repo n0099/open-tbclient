@@ -13,19 +13,19 @@ public class d implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29398e;
+    public int f30267e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29399f;
+    public int f30268f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29400g;
+    public boolean f30269g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f29401h;
+    public boolean f30270h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f29402i;
+    public int f30271i;
     public int j;
     public long k;
 
@@ -42,10 +42,10 @@ public class d implements Cloneable {
                 return;
             }
         }
-        this.f29398e = 3553;
-        this.f29399f = -1;
-        this.f29400g = false;
-        this.f29401h = false;
+        this.f30267e = 3553;
+        this.f30268f = -1;
+        this.f30269g = false;
+        this.f30270h = false;
         this.k = 0L;
     }
 
@@ -74,39 +74,39 @@ public class d implements Cloneable {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29399f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30268f : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29402i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30271i : invokeV.intValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29399f != -1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30268f != -1 : invokeV.booleanValue;
     }
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f29399f = i2;
+            this.f30268f = i2;
         }
     }
 
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29398e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30267e : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "type = " + this.f29398e + " && id = " + this.f29399f + " && cameraFrame" + this.f29400g + " && frontCamera = " + this.f29401h + " && width * height = " + this.f29402i + " * " + this.j + " && timestamp = " + this.k;
+            return "type = " + this.f30267e + " && id = " + this.f30268f + " && cameraFrame" + this.f30269g + " && frontCamera = " + this.f30270h + " && width * height = " + this.f30271i + " * " + this.j + " && timestamp = " + this.k;
         }
         return (String) invokeV.objValue;
     }

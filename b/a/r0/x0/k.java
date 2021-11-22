@@ -25,19 +25,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class k<T, V extends TypeAdapter.ViewHolder> extends b.a.e.l.e.a<T, V> {
+/* loaded from: classes6.dex */
+public abstract class k<T, V extends TypeAdapter.ViewHolder> extends b.a.e.m.e.a<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean m;
     public FrsViewData n;
     public TbPageContext<?> o;
     public f p;
-    public b.a.e.l.e.s q;
+    public b.a.e.m.e.s q;
     public int r;
     public i s;
     public boolean t;
-    public b.a.r0.b0.c0 u;
+    public b.a.r0.b0.d0 u;
     public TbPageTag v;
     public boolean w;
 
@@ -84,15 +84,15 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends b.a.e.l.e.a
         o(tbPageContext, bdUniqueId2);
     }
 
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public View Z(int i2, View view, ViewGroup viewGroup, T t, V v) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), view, viewGroup, t, v})) == null) {
             this.r = TbadkCoreApplication.getInst().getSkinType();
-            this.q = (b.a.e.l.e.s) viewGroup;
+            this.q = (b.a.e.m.e.s) viewGroup;
             if (t instanceof c2) {
-                ((c2) t).w.o4(2);
+                ((c2) t).w.q4(2);
                 return null;
             }
             return null;
@@ -137,11 +137,11 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends b.a.e.l.e.a
     public void j0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f2419e = null;
+            this.f2421e = null;
             this.o = null;
             this.p = null;
-            this.f2420f = null;
-            this.f2421g = null;
+            this.f2422f = null;
+            this.f2423g = null;
             i iVar = this.s;
             if (iVar != null) {
                 iVar.a();
@@ -183,9 +183,9 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends b.a.e.l.e.a
         if (!(interceptable == null || interceptable.invokeLL(1048585, this, tbPageContext, bdUniqueId) == null) || tbPageContext == null) {
             return;
         }
-        this.f2419e = tbPageContext.getPageActivity();
+        this.f2421e = tbPageContext.getPageActivity();
         this.o = tbPageContext;
-        this.f2423i = bdUniqueId;
+        this.f2425i = bdUniqueId;
     }
 
     public void o0(boolean z) {
@@ -195,17 +195,17 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends b.a.e.l.e.a
         }
     }
 
-    public void p0(b.a.e.l.e.s sVar) {
+    public void p0(b.a.e.m.e.s sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, sVar) == null) {
             this.q = sVar;
         }
     }
 
-    public void q0(b.a.r0.b0.c0 c0Var) {
+    public void q0(b.a.r0.b0.d0 d0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, c0Var) == null) {
-            this.u = c0Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, d0Var) == null) {
+            this.u = d0Var;
         }
     }
 

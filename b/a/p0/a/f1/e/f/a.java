@@ -3,7 +3,7 @@ package b.a.p0.a.f1.e.f;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
-import b.a.p0.a.j2.c;
+import b.a.p0.a.n2.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,36 +15,36 @@ import java.util.ConcurrentModificationException;
 public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b.a.p0.a.f1.e.f.b<Boolean> f5052a = new d(Boolean.FALSE);
+    public static final b.a.p0.a.f1.e.f.b<Boolean> f4827a = new d(Boolean.FALSE);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b.a.p0.a.f1.e.f.b<Integer> f5053b = new e(0);
+    public static final b.a.p0.a.f1.e.f.b<Integer> f4828b = new e(0);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b.a.p0.a.f1.e.f.b<Long> f5054c = new f(0L);
+    public static final b.a.p0.a.f1.e.f.b<Long> f4829c = new f(0L);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b.a.p0.a.f1.e.f.b<Float> f5055d = new g(Float.valueOf(0.0f));
+    public static final b.a.p0.a.f1.e.f.b<Float> f4830d = new g(Float.valueOf(0.0f));
 
     /* renamed from: e  reason: collision with root package name */
-    public static final b.a.p0.a.f1.e.f.b<String> f5056e = new h();
+    public static final b.a.p0.a.f1.e.f.b<String> f4831e = new h();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final b.a.p0.a.f1.e.f.b<String[]> f5057f = new C0181a();
+    public static final b.a.p0.a.f1.e.f.b<String[]> f4832f = new C0169a();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final b.a.p0.a.f1.e.f.b<Bundle> f5058g = new b();
+    public static final b.a.p0.a.f1.e.f.b<Bundle> f4833g = new b();
 
     /* renamed from: h  reason: collision with root package name */
-    public static final b.a.p0.a.f1.e.f.b<Parcelable> f5059h = new c();
+    public static final b.a.p0.a.f1.e.f.b<Parcelable> f4834h = new c();
 
     /* renamed from: b.a.p0.a.f1.e.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0181a extends b.a.p0.a.f1.e.f.b<String[]> {
+    public static class C0169a extends b.a.p0.a.f1.e.f.b<String[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0181a() {
+        public C0169a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -245,7 +245,7 @@ public interface a {
                     bundle.putInt(str, num.intValue());
                 } catch (ConcurrentModificationException e2) {
                     c.b bVar = new c.b(10011);
-                    bVar.h(b.a.p0.a.a2.e.i() == null ? "null appKey" : b.a.p0.a.a2.e.i().k());
+                    bVar.h(b.a.p0.a.d2.e.L() == null ? "null appKey" : b.a.p0.a.d2.e.L().N());
                     bVar.k(str);
                     bVar.i(Log.getStackTraceString(e2));
                     bVar.m();

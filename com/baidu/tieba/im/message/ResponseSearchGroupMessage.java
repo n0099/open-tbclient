@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import b.a.e.e.d.l;
+import b.a.e.f.d.l;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BaseGroupData;

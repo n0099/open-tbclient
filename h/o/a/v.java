@@ -14,7 +14,7 @@ public final class v<T> implements h.c<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a<T> f71977e;
+    public final d.a<T> f72896e;
 
     /* loaded from: classes2.dex */
     public static final class a<T> extends h.j<T> {
@@ -22,7 +22,7 @@ public final class v<T> implements h.c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final h.i<? super T> f71978i;
+        public final h.i<? super T> f72897i;
         public T j;
         public int k;
 
@@ -41,7 +41,7 @@ public final class v<T> implements h.c<T> {
                     return;
                 }
             }
-            this.f71978i = iVar;
+            this.f72897i = iVar;
         }
 
         @Override // h.e
@@ -50,12 +50,12 @@ public final class v<T> implements h.c<T> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 int i2 = this.k;
                 if (i2 == 0) {
-                    this.f71978i.b(new NoSuchElementException());
+                    this.f72897i.b(new NoSuchElementException());
                 } else if (i2 == 1) {
                     this.k = 2;
                     T t = this.j;
                     this.j = null;
-                    this.f71978i.c(t);
+                    this.f72897i.c(t);
                 }
             }
         }
@@ -69,7 +69,7 @@ public final class v<T> implements h.c<T> {
                     return;
                 }
                 this.j = null;
-                this.f71978i.b(th);
+                this.f72897i.b(th);
             }
         }
 
@@ -83,7 +83,7 @@ public final class v<T> implements h.c<T> {
                     this.j = t;
                 } else if (i2 == 1) {
                     this.k = 2;
-                    this.f71978i.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
+                    this.f72897i.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
                 }
             }
         }
@@ -104,7 +104,7 @@ public final class v<T> implements h.c<T> {
                 return;
             }
         }
-        this.f71977e = aVar;
+        this.f72896e = aVar;
     }
 
     @Override // h.h.c, h.n.b
@@ -117,7 +117,7 @@ public final class v<T> implements h.c<T> {
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
             a aVar = new a(iVar);
             iVar.a(aVar);
-            this.f71977e.call(aVar);
+            this.f72896e.call(aVar);
         }
     }
 }

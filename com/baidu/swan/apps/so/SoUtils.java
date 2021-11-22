@@ -5,9 +5,10 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.h2.c;
 import b.a.p0.a.k;
+import b.a.p0.a.k2.c;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +57,7 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = k.f6397a;
+        DEBUG = k.f6863a;
         sUbcImpl = new c();
         uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
     }
@@ -125,7 +126,7 @@ public final class SoUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
             if (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so")) {
-                String[] split = str.split("\\.");
+                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 String substring = (split == null || split.length != 2) ? str : split[0].substring(3);
                 if (DEBUG) {
                     String str2 = "SoUtils load but the param soName:" + str + ", name:" + substring;

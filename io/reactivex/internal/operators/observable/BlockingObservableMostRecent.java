@@ -12,20 +12,20 @@ import io.reactivex.internal.util.NotificationLite;
 import io.reactivex.observers.DefaultObserver;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class BlockingObservableMostRecent<T> implements Iterable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final T initialValue;
     public final ObservableSource<T> source;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class MostRecentObserver<T> extends DefaultObserver<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile Object value;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public final class Iterator implements java.util.Iterator<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

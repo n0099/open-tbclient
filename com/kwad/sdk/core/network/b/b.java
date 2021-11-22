@@ -14,25 +14,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f64790a;
+    public long f65703a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f64791b;
+    public long f65704b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f64792c;
+    public long f65705c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f64793d;
+    public long f65706d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f64794e;
+    public String f65707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SceneImpl f64795f;
+    public SceneImpl f65708f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f64796g;
+    public String f65709g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -47,49 +47,49 @@ public class b {
                 return;
             }
         }
-        this.f64796g = "";
+        this.f65709g = "";
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f64790a = SystemClock.uptimeMillis();
+            this.f65703a = SystemClock.uptimeMillis();
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f64796g = str;
+            this.f65709g = str;
         }
     }
 
     public void a(String str, SceneImpl sceneImpl) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, sceneImpl) == null) {
-            this.f64794e = str;
-            this.f64795f = sceneImpl;
+            this.f65707e = str;
+            this.f65708f = sceneImpl;
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f64791b = SystemClock.uptimeMillis();
+            this.f65704b = SystemClock.uptimeMillis();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f64792c = SystemClock.uptimeMillis();
+            this.f65705c = SystemClock.uptimeMillis();
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f64793d = SystemClock.uptimeMillis();
+            this.f65706d = SystemClock.uptimeMillis();
         }
     }
 
@@ -108,74 +108,74 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             a aVar = new a();
-            aVar.f64789g = this.f64794e;
+            aVar.f65702g = this.f65707e;
             long uptimeMillis = SystemClock.uptimeMillis();
-            long j6 = this.f64790a;
-            aVar.f64783a = j6 != 0 ? uptimeMillis - j6 : 0L;
-            long j7 = this.f64791b;
+            long j6 = this.f65703a;
+            aVar.f65696a = j6 != 0 ? uptimeMillis - j6 : 0L;
+            long j7 = this.f65704b;
             if (j7 != 0) {
-                long j8 = this.f64790a;
+                long j8 = this.f65703a;
                 if (j8 != 0) {
                     j = j7 - j8;
-                    aVar.f64784b = j;
-                    j2 = this.f64792c;
+                    aVar.f65697b = j;
+                    j2 = this.f65705c;
                     if (j2 != 0) {
-                        long j9 = this.f64791b;
+                        long j9 = this.f65704b;
                         if (j9 != 0) {
                             j3 = j2 - j9;
-                            aVar.f64785c = j3;
-                            j4 = this.f64793d;
+                            aVar.f65698c = j3;
+                            j4 = this.f65706d;
                             if (j4 != 0) {
-                                long j10 = this.f64792c;
+                                long j10 = this.f65705c;
                                 if (j10 != 0) {
                                     j5 = j4 - j10;
-                                    aVar.f64786d = j5;
-                                    long j11 = this.f64793d;
-                                    aVar.f64787e = j11 != 0 ? uptimeMillis - j11 : 0L;
-                                    aVar.f64788f = this.f64796g;
-                                    d.a(this.f64795f, aVar);
+                                    aVar.f65699d = j5;
+                                    long j11 = this.f65706d;
+                                    aVar.f65700e = j11 != 0 ? uptimeMillis - j11 : 0L;
+                                    aVar.f65701f = this.f65709g;
+                                    d.a(this.f65708f, aVar);
                                     com.kwad.sdk.core.d.a.a("NetworkMonitorRecorder", aVar.toString());
                                 }
                             }
                             j5 = 0;
-                            aVar.f64786d = j5;
-                            long j112 = this.f64793d;
-                            aVar.f64787e = j112 != 0 ? uptimeMillis - j112 : 0L;
-                            aVar.f64788f = this.f64796g;
-                            d.a(this.f64795f, aVar);
+                            aVar.f65699d = j5;
+                            long j112 = this.f65706d;
+                            aVar.f65700e = j112 != 0 ? uptimeMillis - j112 : 0L;
+                            aVar.f65701f = this.f65709g;
+                            d.a(this.f65708f, aVar);
                             com.kwad.sdk.core.d.a.a("NetworkMonitorRecorder", aVar.toString());
                         }
                     }
                     j3 = 0;
-                    aVar.f64785c = j3;
-                    j4 = this.f64793d;
+                    aVar.f65698c = j3;
+                    j4 = this.f65706d;
                     if (j4 != 0) {
                     }
                     j5 = 0;
-                    aVar.f64786d = j5;
-                    long j1122 = this.f64793d;
-                    aVar.f64787e = j1122 != 0 ? uptimeMillis - j1122 : 0L;
-                    aVar.f64788f = this.f64796g;
-                    d.a(this.f64795f, aVar);
+                    aVar.f65699d = j5;
+                    long j1122 = this.f65706d;
+                    aVar.f65700e = j1122 != 0 ? uptimeMillis - j1122 : 0L;
+                    aVar.f65701f = this.f65709g;
+                    d.a(this.f65708f, aVar);
                     com.kwad.sdk.core.d.a.a("NetworkMonitorRecorder", aVar.toString());
                 }
             }
             j = 0;
-            aVar.f64784b = j;
-            j2 = this.f64792c;
+            aVar.f65697b = j;
+            j2 = this.f65705c;
             if (j2 != 0) {
             }
             j3 = 0;
-            aVar.f64785c = j3;
-            j4 = this.f64793d;
+            aVar.f65698c = j3;
+            j4 = this.f65706d;
             if (j4 != 0) {
             }
             j5 = 0;
-            aVar.f64786d = j5;
-            long j11222 = this.f64793d;
-            aVar.f64787e = j11222 != 0 ? uptimeMillis - j11222 : 0L;
-            aVar.f64788f = this.f64796g;
-            d.a(this.f64795f, aVar);
+            aVar.f65699d = j5;
+            long j11222 = this.f65706d;
+            aVar.f65700e = j11222 != 0 ? uptimeMillis - j11222 : 0L;
+            aVar.f65701f = this.f65709g;
+            d.a(this.f65708f, aVar);
             com.kwad.sdk.core.d.a.a("NetworkMonitorRecorder", aVar.toString());
         }
     }

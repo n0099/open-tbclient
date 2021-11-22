@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.systemchannels.PlatformChannel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PlatformPlugin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SYSTEM_UI = 1280;
@@ -37,7 +37,7 @@ public class PlatformPlugin {
     public final PlatformChannel platformChannel;
 
     /* renamed from: io.flutter.plugin.platform.PlatformPlugin$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$Brightness;
         public static final /* synthetic */ int[] $SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$HapticFeedbackType;

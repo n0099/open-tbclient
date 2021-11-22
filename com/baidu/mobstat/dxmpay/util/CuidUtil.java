@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import b.a.r.b;
-import b.a.r.c;
+import b.a.r.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.dxmpay.u;
@@ -39,10 +39,10 @@ public class CuidUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                str = b.e(context).b();
+                str = b.f(context).c();
                 try {
                     if (TextUtils.isEmpty(str)) {
-                        b.e(context).i(new c<String>() { // from class: com.baidu.mobstat.dxmpay.util.CuidUtil.2
+                        b.f(context).j(new d<String>() { // from class: com.baidu.mobstat.dxmpay.util.CuidUtil.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -60,7 +60,7 @@ public class CuidUtil {
                                 }
                             }
 
-                            @Override // b.a.r.c
+                            @Override // b.a.r.d
                             public void onError(int i2, Throwable th, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, th, bundle) == null) {
@@ -68,7 +68,7 @@ public class CuidUtil {
                             }
 
                             /* JADX DEBUG: Method merged with bridge method */
-                            @Override // b.a.r.c
+                            @Override // b.a.r.d
                             public void onResult(String str2, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str2, bundle) == null) {
@@ -95,7 +95,7 @@ public class CuidUtil {
                 str = u.a().b();
                 try {
                     if (TextUtils.isEmpty(str)) {
-                        b.e(context).k(new c<String>() { // from class: com.baidu.mobstat.dxmpay.util.CuidUtil.3
+                        b.f(context).m(new d<String>() { // from class: com.baidu.mobstat.dxmpay.util.CuidUtil.3
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -113,7 +113,7 @@ public class CuidUtil {
                                 }
                             }
 
-                            @Override // b.a.r.c
+                            @Override // b.a.r.d
                             public void onError(int i2, Throwable th, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, th, bundle) == null) {
@@ -121,7 +121,7 @@ public class CuidUtil {
                             }
 
                             /* JADX DEBUG: Method merged with bridge method */
-                            @Override // b.a.r.c
+                            @Override // b.a.r.d
                             public void onResult(String str2, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str2, bundle) == null) || TextUtils.isEmpty(str2)) {
@@ -147,7 +147,7 @@ public class CuidUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                str = b.e(context).d();
+                str = b.f(context).e();
             } catch (Throwable unused) {
                 str = "";
             }
@@ -162,10 +162,10 @@ public class CuidUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
-                str = b.e(context).f();
+                str = b.f(context).g();
                 try {
                     if (TextUtils.isEmpty(str)) {
-                        b.e(context).m(new c<String>() { // from class: com.baidu.mobstat.dxmpay.util.CuidUtil.1
+                        b.f(context).o(new d<String>() { // from class: com.baidu.mobstat.dxmpay.util.CuidUtil.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -183,7 +183,7 @@ public class CuidUtil {
                                 }
                             }
 
-                            @Override // b.a.r.c
+                            @Override // b.a.r.d
                             public void onError(int i2, Throwable th, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, th, bundle) == null) {
@@ -191,7 +191,7 @@ public class CuidUtil {
                             }
 
                             /* JADX DEBUG: Method merged with bridge method */
-                            @Override // b.a.r.c
+                            @Override // b.a.r.d
                             public void onResult(String str2, Bundle bundle) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str2, bundle) == null) {
@@ -215,7 +215,7 @@ public class CuidUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
             try {
-                str = b.e(context).g();
+                str = b.f(context).h();
             } catch (Throwable unused) {
                 str = "";
             }

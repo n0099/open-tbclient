@@ -27,7 +27,7 @@ import com.google.android.material.internal.ManufacturerUtils;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.platform.PlatformViewsController;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TextInputPlugin {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class TextInputPlugin {
     @NonNull
     public final TextInputChannel textInputChannel;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class InputTarget {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class TextInputPlugin {
         public Type type;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static final class Type {
             public static final /* synthetic */ Type[] $VALUES;
             public static /* synthetic */ Interceptable $ic;

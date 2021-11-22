@@ -588,19 +588,19 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x0147, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x0149, code lost:
         if (r4 != null) goto L37;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0149, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x014b, code lost:
         r4.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0162, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x0164, code lost:
         if (r4 != null) goto L37;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0166, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0168, code lost:
         return;
      */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x016b A[Catch: all -> 0x016f, TryCatch #6 {, blocks: (B:6:0x000d, B:8:0x001a, B:9:0x001f, B:41:0x0149, B:52:0x0165, B:57:0x016b, B:58:0x016e), top: B:66:0x000d }] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x016d A[Catch: all -> 0x0171, TryCatch #2 {, blocks: (B:6:0x000d, B:8:0x001a, B:9:0x001f, B:41:0x014b, B:52:0x0167, B:57:0x016d, B:58:0x0170), top: B:66:0x000d }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -696,7 +696,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x006f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x0070 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r11v0 */
     /* JADX WARN: Type inference failed for: r11v1 */

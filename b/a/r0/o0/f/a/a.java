@@ -14,19 +14,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f21583a;
+    public int f23082a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21584b;
+    public String f23083b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f21585c;
+    public long f23084c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f21586d;
+    public long f23085d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f21587e;
+    public List<String> f23086e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -45,31 +45,31 @@ public class a {
     public List<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21587e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23086e : (List) invokeV.objValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21585c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23084c : invokeV.longValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21583a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23082a : invokeV.intValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21584b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f23083b : (String) invokeV.objValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21586d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23085d : invokeV.longValue;
     }
 
     public void f(ForumPopupInfo forumPopupInfo) {
@@ -77,10 +77,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, forumPopupInfo) == null) || forumPopupInfo == null) {
             return;
         }
-        this.f21583a = forumPopupInfo.forum_id.intValue();
-        this.f21585c = forumPopupInfo.mem_count_static.intValue();
-        this.f21586d = forumPopupInfo.thread_count_static.intValue();
-        this.f21587e = forumPopupInfo.forum_names;
-        this.f21584b = forumPopupInfo.forum_name;
+        this.f23082a = forumPopupInfo.forum_id.intValue();
+        this.f23084c = forumPopupInfo.mem_count_static.intValue();
+        this.f23085d = forumPopupInfo.thread_count_static.intValue();
+        this.f23086e = forumPopupInfo.forum_names;
+        this.f23083b = forumPopupInfo.forum_name;
     }
 }

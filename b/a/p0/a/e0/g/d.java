@@ -1,67 +1,24 @@
 package b.a.p0.a.e0.g;
 
-import android.app.ActivityManager;
-import android.os.Debug;
+import android.os.Build;
 import android.os.Process;
-import com.baidu.android.imsdk.internal.Constants;
+import b.a.p0.a.k;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.Log;
-import java.text.DecimalFormat;
-import java.util.Random;
-import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static ActivityManager f4712b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static int f4713c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static int f4714d;
-    public transient /* synthetic */ FieldHolder $fh;
-
     /* renamed from: a  reason: collision with root package name */
-    public DecimalFormat f4715a;
-
-    /* loaded from: classes.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final d f4716a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1366701073, "Lb/a/p0/a/e0/g/d$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1366701073, "Lb/a/p0/a/e0/g/d$b;");
-                    return;
-                }
-            }
-            f4716a = new d(null);
-        }
-    }
+    public static final boolean f4682a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
@@ -76,116 +33,124 @@ public class d {
                 return;
             }
         }
-        f4712b = (ActivityManager) b.a.p0.a.c1.a.b().getSystemService("activity");
-        b.a.p0.a.c1.a.Z().getSwitch("swan_memory_sample", 0);
-        f4713c = 0;
-        f4714d = new Random().nextInt(100);
+        f4682a = k.f6863a;
     }
 
-    public /* synthetic */ d(a aVar) {
-        this();
-    }
-
-    public static d b() {
+    public static synchronized String a() {
         InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Throwable th;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f4716a : (d) invokeV.objValue;
-    }
-
-    public final String a(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? this.f4715a.format(f2) : (String) invokeF.objValue;
-    }
-
-    public String c(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (e()) {
-                JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (d.class) {
+                boolean z = f4682a;
+                BufferedReader bufferedReader2 = null;
                 try {
-                    b.a.p0.a.e0.d.h("SwanMemoryProperty", "getMemoryInfo mainPid: " + i2);
-                    Debug.MemoryInfo[] processMemoryInfo = f4712b.getProcessMemoryInfo(new int[]{Process.myPid(), i2});
-                    if (processMemoryInfo != null && processMemoryInfo.length == 2) {
-                        Debug.MemoryInfo memoryInfo = processMemoryInfo[0];
-                        if (memoryInfo != null) {
-                            jSONObject.put("smart_app_used_mem", a(((float) Debug.getPss()) / 1024.0f));
-                            jSONObject.put("total_rss", a((((memoryInfo.getTotalPrivateClean() + memoryInfo.getTotalPrivateDirty()) + memoryInfo.getTotalSharedClean()) + memoryInfo.getTotalSharedDirty()) / 1024.0f));
-                            jSONObject.put("private_clean", a(memoryInfo.getTotalPrivateClean() / 1024.0f));
-                            jSONObject.put("private_dirty", a(memoryInfo.getTotalPrivateDirty() / 1024.0f));
-                            jSONObject.put("shared_clean", a(memoryInfo.getTotalSharedClean() / 1024.0f));
-                            jSONObject.put("shared_dirty", a(memoryInfo.getTotalSharedDirty() / 1024.0f));
-                        }
-                        Debug.MemoryInfo memoryInfo2 = processMemoryInfo[1];
-                        if (memoryInfo2 != null) {
-                            jSONObject.put("host_used_mem", a((((memoryInfo2.getTotalPrivateClean() + memoryInfo2.getTotalPrivateDirty()) + memoryInfo2.getTotalSharedClean()) + memoryInfo2.getTotalSharedDirty()) / 1024.0f));
-                        }
+                    try {
+                        bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{IAdRequestParam.SCREEN_HEIGHT, "-c", "top -n 1 | grep " + Process.myPid()}).getInputStream()));
+                    } catch (IOException unused) {
                     }
-                    ActivityManager.MemoryInfo memoryInfo3 = new ActivityManager.MemoryInfo();
-                    f4712b.getMemoryInfo(memoryInfo3);
-                    jSONObject.put("sys_free_mem", a(((float) memoryInfo3.availMem) / 1048576.0f));
-                    jSONObject.put("sys_low_mem", memoryInfo3.lowMemory ? "1" : "0");
-                    jSONObject.put("native_heap", a(((float) Debug.getNativeHeapSize()) / 1048576.0f));
-                    jSONObject.put("native_heap_alloc", a(((float) Debug.getNativeHeapAllocatedSize()) / 1048576.0f));
-                    jSONObject.put("vm_max_mem", a(((float) Runtime.getRuntime().maxMemory()) / 1048576.0f));
-                    jSONObject.put("vm_total_mem", a(((float) Runtime.getRuntime().totalMemory()) / 1048576.0f));
-                    jSONObject.put("vm_free_mem", a(((float) Runtime.getRuntime().freeMemory()) / 1048576.0f));
-                    jSONObject.put("thread_count", Thread.activeCount());
-                } catch (Exception e2) {
-                    b.a.p0.a.e0.d.h("SwanMemoryProperty", "getMemoryInfo: " + Log.getStackTraceString(e2));
+                } catch (Throwable th2) {
+                    bufferedReader = bufferedReader2;
+                    th = th2;
                 }
-                b.a.p0.a.e0.d.h("SwanMemoryProperty", "getMemoryInfo result=" + jSONObject);
-                return jSONObject.toString();
+                try {
+                    String c2 = c(bufferedReader);
+                    if (f4682a) {
+                        String str = "stop cpu monitor thread , cpu rate is : " + c2;
+                    }
+                    b.a.p0.w.d.d(bufferedReader);
+                    return c2;
+                } catch (IOException unused2) {
+                    bufferedReader2 = bufferedReader;
+                    boolean z2 = f4682a;
+                    b.a.p0.w.d.d(bufferedReader2);
+                    return "";
+                } catch (Throwable th3) {
+                    th = th3;
+                    b.a.p0.w.d.d(bufferedReader);
+                    throw th;
+                }
             }
-            return "";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (e()) {
-                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                f4712b.getMemoryInfo(memoryInfo);
-                String a2 = a(((float) memoryInfo.totalMem) / 1048576.0f);
-                b.a.p0.a.e0.d.h("SwanMemoryProperty", "getMemoryInfo sysTotalMemory=" + a2);
-                return a2;
-            }
-            return "";
         }
         return (String) invokeV.objValue;
     }
 
-    public final boolean e() {
+    public static float b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            b.a.p0.a.e0.d.h("SwanMemoryProperty", "getMemoryInfo mMemSample =" + f4713c + "; mRandomNum =" + f4714d);
-            int i2 = f4713c;
-            if (i2 <= 0) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String a2 = a();
+            try {
+                if (a2.contains("%")) {
+                    return Float.parseFloat(a2.replace("%", "").trim());
+                }
+                return Float.parseFloat(a2);
+            } catch (Exception unused) {
+                boolean z = f4682a;
+                return 0.0f;
             }
-            return i2 >= 100 || f4714d <= i2;
         }
-        return invokeV.booleanValue;
+        return invokeV.floatValue;
     }
 
-    public d() {
+    /* JADX WARN: Can't wrap try/catch for region: R(10:6|(1:9)|10|(6:12|(1:15)|16|17|18|19)|(1:27)(1:32)|(1:31)|16|17|18|19) */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0053, code lost:
+        r11 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0056, code lost:
+        if (b.a.p0.a.e0.g.d.f4682a != false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0058, code lost:
+        r0 = "get CPU Fail : " + r11.getMessage();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String c(BufferedReader bufferedReader) throws IOException {
+        InterceptResult invokeL;
+        char read;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bufferedReader)) == null) {
+            char[] cArr = new char[4];
+            int i2 = 0;
+            if (Build.VERSION.SDK_INT < 26) {
+                int i3 = 0;
+                do {
+                    read = (char) bufferedReader.read();
+                    if (read == ' ' || i3 == 4) {
+                        i3 = 0;
+                    } else {
+                        cArr[i3] = read;
+                        i3++;
+                    }
+                    if (read == '%') {
+                        break;
+                    }
+                } while (read != 65535);
+                return String.valueOf(cArr, 0, i3);
+            }
+            int i4 = 0;
+            int i5 = 0;
+            while (true) {
+                char read2 = (char) bufferedReader.read();
+                if (z && read2 != ' ') {
+                    i4++;
+                }
+                if (i4 == 9) {
+                    if (read2 != '.' && read2 != ' ') {
+                        cArr[i5] = read2;
+                        i5++;
+                    }
+                    i2 = Integer.parseInt(String.valueOf(cArr, 0, i5)) / Runtime.getRuntime().availableProcessors();
+                    return i2 + "%";
+                }
+                z = (i4 <= 9 && read2 != 65535 && i5 < 4) ? read2 == ' ' : true;
+                i2 = Integer.parseInt(String.valueOf(cArr, 0, i5)) / Runtime.getRuntime().availableProcessors();
+                return i2 + "%";
             }
         }
-        this.f4715a = new DecimalFormat("#.###");
+        return (String) invokeL.objValue;
     }
 }

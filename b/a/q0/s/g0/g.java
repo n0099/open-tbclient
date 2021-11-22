@@ -30,7 +30,7 @@ public class g extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f12986a;
+        public final /* synthetic */ g f13766a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(g gVar, int i2) {
@@ -50,7 +50,7 @@ public class g extends f {
                     return;
                 }
             }
-            this.f12986a = gVar;
+            this.f13766a = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +58,7 @@ public class g extends f {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                g gVar = this.f12986a;
+                g gVar = this.f13766a;
                 if (gVar.F) {
                     gVar.C(TbadkCoreApplication.getInst().getSkinType());
                 }
@@ -72,7 +72,7 @@ public class g extends f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f12987a;
+        public final /* synthetic */ g f13767a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(g gVar, int i2) {
@@ -92,7 +92,7 @@ public class g extends f {
                     return;
                 }
             }
-            this.f12987a = gVar;
+            this.f13767a = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -100,7 +100,7 @@ public class g extends f {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f12987a.l.setBackgroundColor(PullViewHelper.getInstance().getPullViewBackgroundColor(TbadkCoreApplication.getInst().getSkinType()));
+                this.f13767a.l.setBackgroundColor(PullViewHelper.getInstance().getPullViewBackgroundColor(TbadkCoreApplication.getInst().getSkinType()));
             }
         }
     }
@@ -200,7 +200,7 @@ public class g extends f {
         }
     }
 
-    @Override // b.a.q0.s.g0.f, b.a.e.l.e.c
+    @Override // b.a.q0.s.g0.f, b.a.e.m.e.c
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
@@ -210,7 +210,7 @@ public class g extends f {
         }
     }
 
-    @Override // b.a.q0.s.g0.f, b.a.e.l.e.c
+    @Override // b.a.q0.s.g0.f, b.a.e.m.e.c
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
@@ -228,7 +228,7 @@ public class g extends f {
         }
     }
 
-    @Override // b.a.q0.s.g0.f, b.a.e.l.e.c
+    @Override // b.a.q0.s.g0.f, b.a.e.m.e.c
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {

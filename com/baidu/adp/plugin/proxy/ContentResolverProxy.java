@@ -3,7 +3,7 @@ package com.baidu.adp.plugin.proxy;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.IContentProvider;
-import b.a.e.h.k.d;
+import b.a.e.i.k.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;

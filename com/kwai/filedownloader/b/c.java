@@ -23,25 +23,25 @@ public class c implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f66818a;
+    public final b f67731a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d f66819b;
+    public final d f67732b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f66820c;
+    public Handler f67733c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f66821d;
+    public final long f67734d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile List<Integer> f66822e;
+    public volatile List<Integer> f67735e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f66823f;
+    public AtomicInteger f67736f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile Thread f66824g;
+    public volatile Thread f67737g;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -56,19 +56,19 @@ public class c implements a {
                 return;
             }
         }
-        this.f66822e = new CopyOnWriteArrayList();
-        this.f66823f = new AtomicInteger();
-        this.f66818a = new b();
-        this.f66819b = new d();
-        this.f66821d = com.kwai.filedownloader.f.e.a().f66975b;
+        this.f67735e = new CopyOnWriteArrayList();
+        this.f67736f = new AtomicInteger();
+        this.f67731a = new b();
+        this.f67732b = new d();
+        this.f67734d = com.kwai.filedownloader.f.e.a().f67888b;
         HandlerThread handlerThread = new HandlerThread(f.i("RemitHandoverToDB"), 10);
         handlerThread.start();
-        this.f66820c = new Handler(handlerThread.getLooper(), new Handler.Callback(this) { // from class: com.kwai.filedownloader.b.c.1
+        this.f67733c = new Handler(handlerThread.getLooper(), new Handler.Callback(this) { // from class: com.kwai.filedownloader.b.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f66825a;
+            public final /* synthetic */ c f67738a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -85,7 +85,7 @@ public class c implements a {
                         return;
                     }
                 }
-                this.f66825a = this;
+                this.f67738a = this;
             }
 
             @Override // android.os.Handler.Callback
@@ -95,22 +95,22 @@ public class c implements a {
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, message)) == null) {
                     int i4 = message.what;
                     if (i4 == 0) {
-                        if (this.f66825a.f66824g != null) {
-                            LockSupport.unpark(this.f66825a.f66824g);
-                            this.f66825a.f66824g = null;
+                        if (this.f67738a.f67737g != null) {
+                            LockSupport.unpark(this.f67738a.f67737g);
+                            this.f67738a.f67737g = null;
                         }
                         return false;
                     }
                     try {
-                        this.f66825a.f66823f.set(i4);
-                        this.f66825a.g(i4);
-                        this.f66825a.f66822e.add(Integer.valueOf(i4));
+                        this.f67738a.f67736f.set(i4);
+                        this.f67738a.g(i4);
+                        this.f67738a.f67735e.add(Integer.valueOf(i4));
                         return false;
                     } finally {
-                        this.f66825a.f66823f.set(0);
-                        if (this.f66825a.f66824g != null) {
-                            LockSupport.unpark(this.f66825a.f66824g);
-                            this.f66825a.f66824g = null;
+                        this.f67738a.f67736f.set(0);
+                        if (this.f67738a.f67737g != null) {
+                            LockSupport.unpark(this.f67738a.f67737g);
+                            this.f67738a.f67737g = null;
                         }
                     }
                 }
@@ -123,11 +123,11 @@ public class c implements a {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2) == null) {
-            this.f66819b.a(this.f66818a.b(i2));
-            List<com.kwai.filedownloader.d.a> c2 = this.f66818a.c(i2);
-            this.f66819b.d(i2);
+            this.f67732b.a(this.f67731a.b(i2));
+            List<com.kwai.filedownloader.d.a> c2 = this.f67731a.c(i2);
+            this.f67732b.d(i2);
             for (com.kwai.filedownloader.d.a aVar : c2) {
-                this.f66819b.a(aVar);
+                this.f67732b.a(aVar);
             }
         }
     }
@@ -135,19 +135,19 @@ public class c implements a {
     private boolean h(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i2)) == null) ? !this.f66822e.contains(Integer.valueOf(i2)) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i2)) == null) ? !this.f67735e.contains(Integer.valueOf(i2)) : invokeI.booleanValue;
     }
 
     private void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65544, this, i2) == null) {
-            this.f66820c.removeMessages(i2);
-            if (this.f66823f.get() != i2) {
+            this.f67733c.removeMessages(i2);
+            if (this.f67736f.get() != i2) {
                 g(i2);
                 return;
             }
-            this.f66824g = Thread.currentThread();
-            this.f66820c.sendEmptyMessage(0);
+            this.f67737g = Thread.currentThread();
+            this.f67733c.sendEmptyMessage(0);
             LockSupport.park();
         }
     }
@@ -156,8 +156,8 @@ public class c implements a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f66818a.a();
-            this.f66819b.a();
+            this.f67731a.a();
+            this.f67732b.a();
         }
     }
 
@@ -165,7 +165,7 @@ public class c implements a {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f66820c.sendEmptyMessageDelayed(i2, this.f66821d);
+            this.f67733c.sendEmptyMessageDelayed(i2, this.f67734d);
         }
     }
 
@@ -173,11 +173,11 @@ public class c implements a {
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            this.f66818a.a(i2, i3);
+            this.f67731a.a(i2, i3);
             if (h(i2)) {
                 return;
             }
-            this.f66819b.a(i2, i3);
+            this.f67732b.a(i2, i3);
         }
     }
 
@@ -185,11 +185,11 @@ public class c implements a {
     public void a(int i2, int i3, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
-            this.f66818a.a(i2, i3, j);
+            this.f67731a.a(i2, i3, j);
             if (h(i2)) {
                 return;
             }
-            this.f66819b.a(i2, i3, j);
+            this.f67732b.a(i2, i3, j);
         }
     }
 
@@ -197,11 +197,11 @@ public class c implements a {
     public void a(int i2, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            this.f66818a.a(i2, j);
+            this.f67731a.a(i2, j);
             if (h(i2)) {
                 return;
             }
-            this.f66819b.a(i2, j);
+            this.f67732b.a(i2, j);
         }
     }
 
@@ -209,11 +209,11 @@ public class c implements a {
     public void a(int i2, long j, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, str2}) == null) {
-            this.f66818a.a(i2, j, str, str2);
+            this.f67731a.a(i2, j, str, str2);
             if (h(i2)) {
                 return;
             }
-            this.f66819b.a(i2, j, str, str2);
+            this.f67732b.a(i2, j, str, str2);
         }
     }
 
@@ -221,11 +221,11 @@ public class c implements a {
     public void a(int i2, String str, long j, long j2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i3)}) == null) {
-            this.f66818a.a(i2, str, j, j2, i3);
+            this.f67731a.a(i2, str, j, j2, i3);
             if (h(i2)) {
                 return;
             }
-            this.f66819b.a(i2, str, j, j2, i3);
+            this.f67732b.a(i2, str, j, j2, i3);
         }
     }
 
@@ -233,11 +233,11 @@ public class c implements a {
     public void a(int i2, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i2, th) == null) {
-            this.f66818a.a(i2, th);
+            this.f67731a.a(i2, th);
             if (h(i2)) {
                 return;
             }
-            this.f66819b.a(i2, th);
+            this.f67732b.a(i2, th);
         }
     }
 
@@ -245,12 +245,12 @@ public class c implements a {
     public void a(int i2, Throwable th, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), th, Long.valueOf(j)}) == null) {
-            this.f66818a.a(i2, th, j);
+            this.f67731a.a(i2, th, j);
             if (h(i2)) {
                 i(i2);
             }
-            this.f66819b.a(i2, th, j);
-            this.f66822e.remove(Integer.valueOf(i2));
+            this.f67732b.a(i2, th, j);
+            this.f67735e.remove(Integer.valueOf(i2));
         }
     }
 
@@ -258,11 +258,11 @@ public class c implements a {
     public void a(com.kwai.filedownloader.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f66818a.a(aVar);
+            this.f67731a.a(aVar);
             if (h(aVar.a())) {
                 return;
             }
-            this.f66819b.a(aVar);
+            this.f67732b.a(aVar);
         }
     }
 
@@ -270,49 +270,49 @@ public class c implements a {
     public void a(com.kwai.filedownloader.d.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.f66818a.a(cVar);
+            this.f67731a.a(cVar);
             if (h(cVar.a())) {
                 return;
             }
-            this.f66819b.a(cVar);
+            this.f67732b.a(cVar);
         }
     }
 
     @Override // com.kwai.filedownloader.b.a
-    public a.InterfaceC1939a b() {
+    public a.InterfaceC1979a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            d dVar = this.f66819b;
-            b bVar = this.f66818a;
-            return dVar.a(bVar.f66814a, bVar.f66815b);
+            d dVar = this.f67732b;
+            b bVar = this.f67731a;
+            return dVar.a(bVar.f67727a, bVar.f67728b);
         }
-        return (a.InterfaceC1939a) invokeV.objValue;
+        return (a.InterfaceC1979a) invokeV.objValue;
     }
 
     @Override // com.kwai.filedownloader.b.a
     public com.kwai.filedownloader.d.c b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? this.f66818a.b(i2) : (com.kwai.filedownloader.d.c) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? this.f67731a.b(i2) : (com.kwai.filedownloader.d.c) invokeI.objValue;
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void b(int i2, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            this.f66818a.b(i2, j);
+            this.f67731a.b(i2, j);
             if (h(i2)) {
-                this.f66820c.removeMessages(i2);
-                if (this.f66823f.get() == i2) {
-                    this.f66824g = Thread.currentThread();
-                    this.f66820c.sendEmptyMessage(0);
+                this.f67733c.removeMessages(i2);
+                if (this.f67736f.get() == i2) {
+                    this.f67737g = Thread.currentThread();
+                    this.f67733c.sendEmptyMessage(0);
                     LockSupport.park();
                 }
-                this.f66822e.remove(Integer.valueOf(i2));
+                this.f67735e.remove(Integer.valueOf(i2));
             }
-            this.f66819b.b(i2, j);
-            this.f66822e.remove(Integer.valueOf(i2));
+            this.f67732b.b(i2, j);
+            this.f67735e.remove(Integer.valueOf(i2));
         }
     }
 
@@ -320,19 +320,19 @@ public class c implements a {
     public List<com.kwai.filedownloader.d.a> c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) ? this.f66818a.c(i2) : (List) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) ? this.f67731a.c(i2) : (List) invokeI.objValue;
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void c(int i2, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            this.f66818a.c(i2, j);
+            this.f67731a.c(i2, j);
             if (h(i2)) {
                 i(i2);
             }
-            this.f66819b.c(i2, j);
-            this.f66822e.remove(Integer.valueOf(i2));
+            this.f67732b.c(i2, j);
+            this.f67735e.remove(Integer.valueOf(i2));
         }
     }
 
@@ -340,11 +340,11 @@ public class c implements a {
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f66818a.d(i2);
+            this.f67731a.d(i2);
             if (h(i2)) {
                 return;
             }
-            this.f66819b.d(i2);
+            this.f67732b.d(i2);
         }
     }
 
@@ -353,8 +353,8 @@ public class c implements a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-            this.f66819b.e(i2);
-            return this.f66818a.e(i2);
+            this.f67732b.e(i2);
+            return this.f67731a.e(i2);
         }
         return invokeI.booleanValue;
     }
@@ -363,11 +363,11 @@ public class c implements a {
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f66818a.f(i2);
+            this.f67731a.f(i2);
             if (h(i2)) {
                 return;
             }
-            this.f66819b.f(i2);
+            this.f67732b.f(i2);
         }
     }
 }

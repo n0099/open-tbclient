@@ -218,7 +218,7 @@ public class f {
             imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.GROUP_UPDATE);
             imMessageCenterPojo2.setCustomGroupType(-3);
             imMessageCenterPojo2.setUnread_count(1);
-            imMessageCenterPojo2.setLast_rid(b.a.e.e.m.b.g(groupNewsPojo.getNotice_id(), 0L));
+            imMessageCenterPojo2.setLast_rid(b.a.e.f.m.b.g(groupNewsPojo.getNotice_id(), 0L));
             imMessageCenterPojo2.setLast_content_time(groupNewsPojo.getTime());
             imMessageCenterPojo2.setLast_content(groupNewsPojo.getContent());
             imMessageCenterPojo2.setIs_hidden(0);
@@ -229,7 +229,7 @@ public class f {
             imMessageCenterPojo3.setGid(TbEnum.CustomGroupId.GROUP_VALIDATION);
             imMessageCenterPojo3.setCustomGroupType(-4);
             imMessageCenterPojo3.setUnread_count(1);
-            imMessageCenterPojo3.setLast_rid(b.a.e.e.m.b.g(groupNewsPojo2.getNotice_id(), 0L));
+            imMessageCenterPojo3.setLast_rid(b.a.e.f.m.b.g(groupNewsPojo2.getNotice_id(), 0L));
             imMessageCenterPojo3.setLast_content_time(groupNewsPojo2.getTime());
             imMessageCenterPojo3.setLast_content(groupNewsPojo2.getContent());
             imMessageCenterPojo3.setIs_hidden(0);

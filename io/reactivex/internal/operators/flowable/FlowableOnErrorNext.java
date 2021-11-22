@@ -15,14 +15,14 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class FlowableOnErrorNext<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean allowFatal;
     public final Function<? super Throwable, ? extends Publisher<? extends T>> nextSupplier;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class OnErrorNextSubscriber<T> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

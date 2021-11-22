@@ -18,7 +18,7 @@ public class e {
             if (e2.x()) {
                 return;
             }
-            e2.f68515c.setRefer(str);
+            e2.f69435c.setRefer(str);
             com.ss.android.downloadlib.d.a.a().b("lp_app_dialog_click", e2);
         }
     }

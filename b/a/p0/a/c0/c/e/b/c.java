@@ -32,7 +32,7 @@ public final class c extends b.a.p0.a.c0.a.b.b {
         this.y = false;
     }
 
-    @Override // b.a.p0.a.c0.a.b.b, b.a.p0.a.c0.a.d.b, b.a.p0.a.c0.b.b, b.a.p0.a.l1.a
+    @Override // b.a.p0.a.c0.a.b.b, b.a.p0.a.c0.a.d.b, b.a.p0.a.c0.b.b, b.a.p0.a.m1.a
     public void a(JSONObject jSONObject) throws JSONException {
         JSONObject jSONObject2;
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public final class c extends b.a.p0.a.c0.a.b.b {
         }
         super.a(jSONObject);
         this.y = jSONObject.optBoolean("loadState", false);
-        b.a.p0.a.l1.e.a.a aVar = this.l;
+        b.a.p0.a.m1.e.a.a aVar = this.l;
         if (aVar == null || (jSONObject2 = this.n) == null) {
             return;
         }

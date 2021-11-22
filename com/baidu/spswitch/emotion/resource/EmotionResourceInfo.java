@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class EmotionResourceInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JSON_KEY_MAX_HOST_VER = "max_host_ver";
@@ -82,7 +82,7 @@ public final class EmotionResourceInfo {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            String[] split = str.split("\\.");
+            String[] split = str.split(VERSION_NAME_SEPARATOR_REGEX);
             int i2 = 0;
             long j = 0;
             while (i2 < 4) {
@@ -107,7 +107,7 @@ public final class EmotionResourceInfo {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                return new EmotionResourceInfo(jSONObject.optString("pkg_name"), "", jSONObject.optString("res_save_path"), jSONObject.optLong("version"), jSONObject.optString("min_host_ver"), jSONObject.optString("max_host_ver"));
+                return new EmotionResourceInfo(jSONObject.optString(JSON_KEY_PKG_NAME), "", jSONObject.optString(JSON_KEY_RES_SAVE_PATH), jSONObject.optLong("version"), jSONObject.optString(JSON_KEY_MIN_HOST_VER), jSONObject.optString(JSON_KEY_MAX_HOST_VER));
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return null;
@@ -165,11 +165,11 @@ public final class EmotionResourceInfo {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("pkg_name", this.mPkgName);
-                jSONObject.put("res_save_path", this.mEmotionResSavePath);
+                jSONObject.put(JSON_KEY_PKG_NAME, this.mPkgName);
+                jSONObject.put(JSON_KEY_RES_SAVE_PATH, this.mEmotionResSavePath);
                 jSONObject.put("version", this.mVersion);
-                jSONObject.put("min_host_ver", this.mMinHostVer);
-                jSONObject.put("max_host_ver", this.mMaxHostVer);
+                jSONObject.put(JSON_KEY_MIN_HOST_VER, this.mMinHostVer);
+                jSONObject.put(JSON_KEY_MAX_HOST_VER, this.mMaxHostVer);
                 return jSONObject.toString();
             } catch (JSONException e2) {
                 e2.printStackTrace();

@@ -16,7 +16,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,12 +27,12 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f56695a;
+    public static SimpleDateFormat f57617a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static int a() {
@@ -110,10 +109,10 @@ public final class i {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
-            if (f56695a == null) {
-                f56695a = new SimpleDateFormat("MM-dd HH:mm");
+            if (f57617a == null) {
+                f57617a = new SimpleDateFormat("MM-dd HH:mm");
             }
-            return f56695a.format(new Date(j));
+            return f57617a.format(new Date(j));
         }
         return (String) invokeJ.objValue;
     }
@@ -227,10 +226,10 @@ public final class i {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65549, null, j)) == null) {
-            if (f56695a == null) {
-                f56695a = new SimpleDateFormat("yy-MM-dd");
+            if (f57617a == null) {
+                f57617a = new SimpleDateFormat("yy-MM-dd");
             }
-            return f56695a.format(new Date(j));
+            return f57617a.format(new Date(j));
         }
         return (String) invokeJ.objValue;
     }
@@ -252,9 +251,9 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j)) == null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
-            f56695a = simpleDateFormat;
+            f57617a = simpleDateFormat;
             String format = simpleDateFormat.format(new Date(j));
-            f56695a = null;
+            f57617a = null;
             return format.split(" ")[1];
         }
         return (String) invokeJ.objValue;
@@ -279,9 +278,8 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65553, null, j)) == null) {
             if (j / 1000000000 > 0) {
-                long j2 = j / CoolPraiseView.BILLION;
                 sb = new StringBuilder();
-                sb.append(((float) j2) / 10.0f);
+                sb.append(((float) (j / 100000000)) / 10.0f);
                 str = "G";
             } else if (j / 1000000 > 0) {
                 sb = new StringBuilder();

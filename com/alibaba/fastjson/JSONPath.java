@@ -1,6 +1,7 @@
 package com.alibaba.fastjson;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.parser.JSONLexerBase;
@@ -20,6 +21,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,6 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.base.iddetect.IdCardActivity;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
@@ -928,7 +931,7 @@ public class JSONPath implements JSONAware {
                         }
                         if (readSegement instanceof PropertySegment) {
                             PropertySegment propertySegment = (PropertySegment) readSegement;
-                            if (!propertySegment.deep && propertySegment.propertyName.equals("*")) {
+                            if (!propertySegment.deep && propertySegment.propertyName.equals(ProxyConfig.MATCH_ALL_SCHEMES)) {
                             }
                         }
                         int i2 = this.level;
@@ -1102,7 +1105,7 @@ public class JSONPath implements JSONAware {
                     substring = this.path.substring(i6, i4);
                     if (substring.indexOf(92) != 0) {
                     }
-                    if (substring.indexOf("\\.") == -1) {
+                    if (substring.indexOf(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) == -1) {
                     }
                 } else {
                     int i7 = this.pos;
@@ -1123,11 +1126,11 @@ public class JSONPath implements JSONAware {
                         }
                         substring = sb.toString();
                     }
-                    if (substring.indexOf("\\.") == -1) {
+                    if (substring.indexOf(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) == -1) {
                         if (c15 == '\'' && substring.length() > 2 && substring.charAt(substring.length() - 1) == c15) {
                             replaceAll = substring.substring(1, substring.length() - 1);
                         } else {
-                            replaceAll = substring.replaceAll("\\\\\\.", "\\.");
+                            replaceAll = substring.replaceAll("\\\\\\.", EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                             if (replaceAll.indexOf("\\-") != -1) {
                                 replaceAll = replaceAll.replaceAll("\\\\-", "-");
                             }
@@ -1757,7 +1760,7 @@ public class JSONPath implements JSONAware {
                     }
                 } else if (c2 == '!') {
                     next();
-                    accept(a.f34124h);
+                    accept(a.f34958h);
                     operator = Operator.NE;
                 } else if (c2 == '<') {
                     next();
@@ -2692,7 +2695,7 @@ public class JSONPath implements JSONAware {
                 context.object = new JSONArray();
             }
             if (jSONLexerBase.token() == 14) {
-                if ("*".equals(this.propertyName)) {
+                if (ProxyConfig.MATCH_ALL_SCHEMES.equals(this.propertyName)) {
                     return;
                 }
                 jSONLexerBase.nextToken();
@@ -3304,7 +3307,7 @@ public class JSONPath implements JSONAware {
         public String eval(JSONPath jSONPath, Object obj, Object obj2) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONPath, obj, obj2)) == null) ? obj2 == null ? StringUtil.NULL_STRING : obj2 instanceof Collection ? "array" : obj2 instanceof Number ? "number" : obj2 instanceof Boolean ? "boolean" : ((obj2 instanceof String) || (obj2 instanceof UUID) || (obj2 instanceof Enum)) ? "string" : "object" : (String) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONPath, obj, obj2)) == null) ? obj2 == null ? StringUtil.NULL_STRING : obj2 instanceof Collection ? "array" : obj2 instanceof Number ? IdCardActivity.KEY_NUMBER : obj2 instanceof Boolean ? "boolean" : ((obj2 instanceof String) || (obj2 instanceof UUID) || (obj2 instanceof Enum)) ? "string" : "object" : (String) invokeLLL.objValue;
         }
     }
 
@@ -4305,7 +4308,7 @@ public class JSONPath implements JSONAware {
     public void init() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.segments == null) {
-            if ("*".equals(this.path)) {
+            if (ProxyConfig.MATCH_ALL_SCHEMES.equals(this.path)) {
                 this.segments = new Segment[]{WildCardSegment.instance};
                 return;
             }

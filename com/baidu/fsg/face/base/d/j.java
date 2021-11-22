@@ -30,26 +30,26 @@ public class j {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f37853a = -1728053248;
+    public static final int f38683a = -1728053248;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f37854b;
+    public static String f38684b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f37855c;
+    public final a f38685c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37856d;
+    public boolean f38686d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f37857e;
+    public boolean f38687e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f37858f;
+    public View f38688f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f37859g;
+    public View f38689g;
 
     /* renamed from: com.baidu.fsg.face.base.d.j$1  reason: invalid class name */
     /* loaded from: classes7.dex */
@@ -63,32 +63,32 @@ public class j {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f37860a = "status_bar_height";
+        public static final String f38690a = "status_bar_height";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f37861b = "navigation_bar_height";
+        public static final String f38691b = "navigation_bar_height";
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f37862c = "navigation_bar_height_landscape";
+        public static final String f38692c = "navigation_bar_height_landscape";
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f37863d = "navigation_bar_width";
+        public static final String f38693d = "navigation_bar_width";
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f37864e = "config_showNavigationBar";
+        public static final String f38694e = "config_showNavigationBar";
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f37865f;
+        public final int f38695f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final boolean f37866g;
+        public final boolean f38696g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f37867h;
+        public final int f38697h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final int f37868i;
+        public final int f38698i;
         public final boolean j;
         public final float k;
 
@@ -133,10 +133,10 @@ public class j {
                 int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
                 if (identifier != 0) {
                     boolean z = resources.getBoolean(identifier);
-                    if ("1".equals(j.f37854b)) {
+                    if ("1".equals(j.f38684b)) {
                         return false;
                     }
-                    if ("0".equals(j.f37854b)) {
+                    if ("0".equals(j.f38684b)) {
                         return true;
                     }
                     return z;
@@ -149,13 +149,13 @@ public class j {
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37865f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38695f : invokeV.intValue;
         }
 
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37866g : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38696g : invokeV.booleanValue;
         }
 
         public a(Activity activity, boolean z, boolean z2) {
@@ -176,22 +176,22 @@ public class j {
             Resources resources = activity.getResources();
             this.j = resources.getConfiguration().orientation == 1;
             this.k = a(activity);
-            this.f37865f = a(resources, "status_bar_height");
-            this.f37867h = a((Context) activity);
-            this.f37868i = b(activity);
-            this.f37866g = this.f37867h > 0;
+            this.f38695f = a(resources, "status_bar_height");
+            this.f38697h = a((Context) activity);
+            this.f38698i = b(activity);
+            this.f38696g = this.f38697h > 0;
         }
 
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37868i : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38698i : invokeV.intValue;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37867h : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38697h : invokeV.intValue;
         }
 
         private int a(Resources resources, String str) {
@@ -248,9 +248,9 @@ public class j {
             try {
                 Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
                 declaredMethod.setAccessible(true);
-                f37854b = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
+                f38684b = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
             } catch (Throwable unused) {
-                f37854b = null;
+                f38684b = null;
             }
         }
     }
@@ -276,81 +276,81 @@ public class j {
         if (Build.VERSION.SDK_INT >= 19) {
             TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{16843759, 16843760});
             try {
-                this.f37856d = obtainStyledAttributes.getBoolean(0, false);
-                this.f37857e = obtainStyledAttributes.getBoolean(1, false);
+                this.f38686d = obtainStyledAttributes.getBoolean(0, false);
+                this.f38687e = obtainStyledAttributes.getBoolean(1, false);
                 obtainStyledAttributes.recycle();
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 if ((67108864 & attributes.flags) != 0) {
-                    this.f37856d = true;
+                    this.f38686d = true;
                 }
                 if ((attributes.flags & 134217728) != 0) {
-                    this.f37857e = true;
+                    this.f38687e = true;
                 }
             } catch (Throwable th) {
                 obtainStyledAttributes.recycle();
                 throw th;
             }
         }
-        a aVar = new a(activity, this.f37856d, this.f37857e, null);
-        this.f37855c = aVar;
+        a aVar = new a(activity, this.f38686d, this.f38687e, null);
+        this.f38685c = aVar;
         if (!aVar.e()) {
-            this.f37857e = false;
+            this.f38687e = false;
         }
-        if (this.f37856d) {
+        if (this.f38686d) {
             a(activity, viewGroup);
         }
-        if (this.f37857e) {
+        if (this.f38687e) {
             b(activity, viewGroup);
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.f37856d) {
-            this.f37858f.setVisibility(z ? 0 : 8);
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.f38686d) {
+            this.f38688f.setVisibility(z ? 0 : 8);
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.f37857e) {
-            this.f37859g.setVisibility(z ? 0 : 8);
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.f38687e) {
+            this.f38689g.setVisibility(z ? 0 : 8);
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && this.f37856d) {
-            this.f37858f.setBackgroundColor(i2);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && this.f38686d) {
+            this.f38688f.setBackgroundColor(i2);
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && this.f37857e) {
-            this.f37859g.setBackgroundColor(i2);
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && this.f38687e) {
+            this.f38689g.setBackgroundColor(i2);
         }
     }
 
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37855c : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38685c : (a) invokeV.objValue;
     }
 
     private void a(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, context, viewGroup) == null) {
-            this.f37858f = new View(context);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.f37855c.d());
+            this.f38688f = new View(context);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.f38685c.d());
             layoutParams.gravity = 48;
-            if (this.f37857e && !this.f37855c.c()) {
-                layoutParams.rightMargin = this.f37855c.b();
+            if (this.f38687e && !this.f38685c.c()) {
+                layoutParams.rightMargin = this.f38685c.b();
             }
-            this.f37858f.setLayoutParams(layoutParams);
-            this.f37858f.setBackgroundColor(-1728053248);
-            this.f37858f.setVisibility(8);
-            viewGroup.addView(this.f37858f);
+            this.f38688f.setLayoutParams(layoutParams);
+            this.f38688f.setBackgroundColor(-1728053248);
+            this.f38688f.setVisibility(8);
+            viewGroup.addView(this.f38688f);
         }
     }
 
@@ -358,18 +358,18 @@ public class j {
         FrameLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, viewGroup) == null) {
-            this.f37859g = new View(context);
-            if (this.f37855c.c()) {
-                layoutParams = new FrameLayout.LayoutParams(-1, this.f37855c.a());
+            this.f38689g = new View(context);
+            if (this.f38685c.c()) {
+                layoutParams = new FrameLayout.LayoutParams(-1, this.f38685c.a());
                 layoutParams.gravity = 80;
             } else {
-                layoutParams = new FrameLayout.LayoutParams(this.f37855c.b(), -1);
+                layoutParams = new FrameLayout.LayoutParams(this.f38685c.b(), -1);
                 layoutParams.gravity = 5;
             }
-            this.f37859g.setLayoutParams(layoutParams);
-            this.f37859g.setBackgroundColor(-1728053248);
-            this.f37859g.setVisibility(8);
-            viewGroup.addView(this.f37859g);
+            this.f38689g.setLayoutParams(layoutParams);
+            this.f38689g.setBackgroundColor(-1728053248);
+            this.f38689g.setVisibility(8);
+            viewGroup.addView(this.f38689g);
         }
     }
 }

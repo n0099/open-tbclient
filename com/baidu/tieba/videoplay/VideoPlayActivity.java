@@ -8,12 +8,12 @@ import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentTransaction;
 import b.a.e.a.b;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.a.c;
 import b.a.q0.b.d;
-import b.a.r0.b4.f;
-import b.a.r0.b4.g;
-import b.a.r0.b4.i;
+import b.a.r0.c4.f;
+import b.a.r0.c4.g;
+import b.a.r0.c4.i;
 import b.a.r0.j.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -199,10 +199,10 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (aVar != null) {
                 aVar.h();
             }
-            if (d.Y()) {
+            if (d.c0()) {
                 b.a.r0.y0.a.i().d("6061002332-203360688");
             }
-            if (d.Z()) {
+            if (d.d0()) {
                 b.a.r0.y0.a.i().c("6061002410-390177882");
             }
         }
@@ -251,7 +251,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 videoMiddleFragment.setPrimary(false);
                 this.mFragment.setUserVisibleHint(false);
             }
-            b.a.q0.a.d.y().E();
+            b.a.q0.a.d.y().F();
         }
     }
 
@@ -264,7 +264,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (videoMiddleFragment != null) {
                 videoMiddleFragment.setPrimary(true);
                 this.mFragment.setUserVisibleHint(true);
-                b.a.q0.a.d.y().P(c.Z, this.mFragment.getMissionTid());
+                b.a.q0.a.d.y().Q(c.a0, this.mFragment.getMissionTid());
             }
         }
     }

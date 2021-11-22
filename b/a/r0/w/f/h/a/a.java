@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a extends b.a.e.l.e.a<b.a.r0.w.f.h.b.a, AlaSubListGameDoubleViewHolder> {
+public class a extends b.a.e.m.e.a<b.a.r0.w.f.h.b.a, AlaSubListGameDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
@@ -31,7 +31,7 @@ public class a extends b.a.e.l.e.a<b.a.r0.w.f.h.b.a, AlaSubListGameDoubleViewHol
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), b.a.r0.w.f.h.b.a.f24888g);
+        super(tbPageContext.getPageActivity(), b.a.r0.w.f.h.b.a.f26405g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,37 +59,37 @@ public class a extends b.a.e.l.e.a<b.a.r0.w.f.h.b.a, AlaSubListGameDoubleViewHol
         }
         int i2 = this.r;
         if (i2 == 1) {
-            if (aVar.f24889e != null) {
+            if (aVar.f26406e != null) {
                 b.a.r0.w.f.e.a c2 = b.a.r0.w.f.e.a.c();
                 b.a.r0.w.f.e.a c3 = b.a.r0.w.f.e.a.c();
                 int i3 = this.q;
-                e eVar = aVar.f24889e;
-                c2.a(c3.e(i3, "c12117", eVar.f24507e, eVar.f24508f, eVar.getThreadData()));
+                e eVar = aVar.f26406e;
+                c2.a(c3.e(i3, "c12117", eVar.f26024e, eVar.f26025f, eVar.getThreadData()));
             }
-            if (aVar.f24890f != null) {
+            if (aVar.f26407f != null) {
                 b.a.r0.w.f.e.a c4 = b.a.r0.w.f.e.a.c();
                 b.a.r0.w.f.e.a c5 = b.a.r0.w.f.e.a.c();
                 int i4 = this.q;
-                e eVar2 = aVar.f24890f;
-                c4.a(c5.e(i4, "c12117", eVar2.f24507e, eVar2.f24508f, eVar2.getThreadData()));
+                e eVar2 = aVar.f26407f;
+                c4.a(c5.e(i4, "c12117", eVar2.f26024e, eVar2.f26025f, eVar2.getThreadData()));
             }
         } else if (i2 == 2) {
-            e eVar3 = aVar.f24889e;
-            if (eVar3 != null && eVar3.getThreadData() != null && aVar.f24889e.getThreadData().l1() != null) {
-                d2 threadData = aVar.f24889e.getThreadData();
-                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.l1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.l1().appId).param("locate_type", aVar.f24889e.f24508f));
+            e eVar3 = aVar.f26406e;
+            if (eVar3 != null && eVar3.getThreadData() != null && aVar.f26406e.getThreadData().m1() != null) {
+                d2 threadData = aVar.f26406e.getThreadData();
+                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.m1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.m1().appId).param("locate_type", aVar.f26406e.f26025f));
             }
-            e eVar4 = aVar.f24890f;
-            if (eVar4 == null || eVar4.getThreadData() == null || aVar.f24890f.getThreadData().l1() == null) {
+            e eVar4 = aVar.f26407f;
+            if (eVar4 == null || eVar4.getThreadData() == null || aVar.f26407f.getThreadData().m1() == null) {
                 return;
             }
-            d2 threadData2 = aVar.f24890f.getThreadData();
-            TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.l1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.l1().appId).param("locate_type", aVar.f24890f.f24508f));
+            d2 threadData2 = aVar.f26407f.getThreadData();
+            TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.m1().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.m1().appId).param("locate_type", aVar.f26407f.f26025f));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public AlaSubListGameDoubleViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -102,7 +102,7 @@ public class a extends b.a.e.l.e.a<b.a.r0.w.f.h.b.a, AlaSubListGameDoubleViewHol
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.w.f.h.b.a aVar, AlaSubListGameDoubleViewHolder alaSubListGameDoubleViewHolder) {
         InterceptResult invokeCommon;

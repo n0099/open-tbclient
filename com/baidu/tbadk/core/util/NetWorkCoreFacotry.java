@@ -1,10 +1,11 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.deeplink.DeepLinkManager1;
 import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -108,7 +109,7 @@ public class NetWorkCoreFacotry {
                     String c2 = j.c();
                     if (c2 != null) {
                         if (c2.length() > 0) {
-                            return "wap";
+                            return DeepLinkManager1.AD_WAP;
                         }
                     }
                     return "net";

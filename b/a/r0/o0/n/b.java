@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -26,31 +26,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f21927a;
+    public TbPageContext<?> f23426a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f21928b;
+    public View f23427b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RoundRelativeLayout f21929c;
+    public RoundRelativeLayout f23428c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f21930d;
+    public ImageView f23429d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f21931e;
+    public ImageView f23430e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f21932f;
+    public ImageView f23431f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f21933g;
+    public TextView f23432g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21934h;
+    public TextView f23433h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f21935i;
+    public int f23434i;
     public int j;
     public boolean k;
 
@@ -60,7 +60,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f21936e;
+        public final /* synthetic */ b f23435e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -77,19 +77,19 @@ public class b {
                     return;
                 }
             }
-            this.f21936e = bVar;
+            this.f23435e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.r0.o0.b.a(this.f21936e.f21927a, null);
+                b.a.r0.o0.b.a(this.f23435e.f23426a, null);
                 StatisticItem statisticItem = new StatisticItem(RecommendBarLayout.KEY_RECOMMEND_BAR_MORE);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("obj_locate", 1);
-                statisticItem.param("obj_type", this.f21936e.k ? 5 : 1);
-                statisticItem.param("obj_source", this.f21936e.k ? 1 : 3);
+                statisticItem.param("obj_type", this.f23435e.k ? 5 : 1);
+                statisticItem.param("obj_source", this.f23435e.k ? 1 : 3);
                 TiebaStatic.log(statisticItem);
             }
         }
@@ -110,22 +110,22 @@ public class b {
                 return;
             }
         }
-        this.f21927a = tbPageContext;
+        this.f23426a = tbPageContext;
         View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.forum_square_item_view, (ViewGroup) null);
-        this.f21928b = inflate;
-        this.f21929c = (RoundRelativeLayout) inflate.findViewById(R.id.square_background);
-        this.f21930d = (ImageView) this.f21928b.findViewById(R.id.square_left_img);
-        this.f21931e = (ImageView) this.f21928b.findViewById(R.id.square_right_img);
-        this.f21933g = (TextView) this.f21928b.findViewById(R.id.square_title);
-        this.f21934h = (TextView) this.f21928b.findViewById(R.id.square_desc);
-        this.f21932f = (ImageView) this.f21928b.findViewById(R.id.iv_right_arrow);
-        this.f21933g.setText(R.string.forum_square_title);
-        this.f21934h.setText(R.string.forum_square_desc);
-        this.f21928b.setOnClickListener(new a(this));
-        this.f21935i = l.g(this.f21927a.getPageActivity(), R.dimen.tbds90);
-        this.j = l.g(this.f21927a.getPageActivity(), R.dimen.tbds58);
-        RoundRelativeLayout roundRelativeLayout = this.f21929c;
-        int i4 = this.f21935i;
+        this.f23427b = inflate;
+        this.f23428c = (RoundRelativeLayout) inflate.findViewById(R.id.square_background);
+        this.f23429d = (ImageView) this.f23427b.findViewById(R.id.square_left_img);
+        this.f23430e = (ImageView) this.f23427b.findViewById(R.id.square_right_img);
+        this.f23432g = (TextView) this.f23427b.findViewById(R.id.square_title);
+        this.f23433h = (TextView) this.f23427b.findViewById(R.id.square_desc);
+        this.f23431f = (ImageView) this.f23427b.findViewById(R.id.iv_right_arrow);
+        this.f23432g.setText(R.string.forum_square_title);
+        this.f23433h.setText(R.string.forum_square_desc);
+        this.f23427b.setOnClickListener(new a(this));
+        this.f23434i = l.g(this.f23426a.getPageActivity(), R.dimen.tbds90);
+        this.j = l.g(this.f23426a.getPageActivity(), R.dimen.tbds58);
+        RoundRelativeLayout roundRelativeLayout = this.f23428c;
+        int i4 = this.f23434i;
         roundRelativeLayout.setRoundLayoutRadius(new float[]{i4, i4, i4, i4, i4, i4, i4, i4});
     }
 
@@ -133,35 +133,35 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             if (aVar.k()) {
-                if (this.f21929c.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f21929c.getLayoutParams();
+                if (this.f23428c.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f23428c.getLayoutParams();
                     int i2 = marginLayoutParams.bottomMargin;
                     int i3 = this.j;
                     if (i2 != i3) {
                         marginLayoutParams.bottomMargin = i3;
-                        this.f21929c.requestLayout();
+                        this.f23428c.requestLayout();
                     }
                 }
-            } else if (this.f21929c.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f21929c.getLayoutParams();
+            } else if (this.f23428c.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f23428c.getLayoutParams();
                 if (marginLayoutParams2.bottomMargin != 0) {
                     marginLayoutParams2.bottomMargin = 0;
-                    this.f21929c.requestLayout();
+                    this.f23428c.requestLayout();
                 }
             }
-            SkinManager.setBackgroundColor(this.f21929c, R.color.CAM_X0206);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f21930d, R.drawable.ic_pic_mask_square, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setImageResource(this.f21931e, R.drawable.pic_mask_square_circle);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f21932f, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setViewTextColor(this.f21933g, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f21934h, R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.f23428c, R.color.CAM_X0206);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f23429d, R.drawable.ic_pic_mask_square, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setImageResource(this.f23430e, R.drawable.pic_mask_square_circle);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f23431f, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.f23432g, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f23433h, R.color.CAM_X0108);
         }
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21928b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23427b : (View) invokeV.objValue;
     }
 
     public void e(boolean z) {

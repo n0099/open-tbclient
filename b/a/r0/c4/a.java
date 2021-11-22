@@ -1,397 +1,162 @@
 package b.a.r0.c4;
 
-import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class a {
-    public static /* synthetic */ Interceptable $ic;
+public final class a {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int abc_fade_in = 2130771968;
+    public static final int abc_fade_out = 2130771969;
+    public static final int abc_grow_fade_in_from_bottom = 2130771970;
+    public static final int abc_popup_enter = 2130771971;
+    public static final int abc_popup_exit = 2130771972;
+    public static final int abc_shrink_fade_out_from_bottom = 2130771973;
+    public static final int abc_slide_in_bottom = 2130771974;
+    public static final int abc_slide_in_top = 2130771975;
+    public static final int abc_slide_out_bottom = 2130771976;
+    public static final int abc_slide_out_top = 2130771977;
+    public static final int abc_tooltip_enter = 2130771978;
+    public static final int abc_tooltip_exit = 2130771979;
+    public static final int activity_close_from_top = 2130771980;
+    public static final int activity_open_from_bottom = 2130771981;
+    public static final int alpha_in = 2130772015;
+    public static final int alpha_out = 2130772016;
+    public static final int anim_alpha_0_to_1_duration_200_accelerate = 2130772011;
+    public static final int anim_alpha_0_to_1_duration_300 = 2130772012;
+    public static final int anim_alpha_1_to_0_duration_200 = 2130772020;
+    public static final int anim_alpha_1_to_0_duration_2000_accelerate = 2130772021;
+    public static final int anim_alpha_1_to_0_duration_300 = 2130772022;
+    public static final int anim_alpha_1_to_0_duration_500_accelerate = 2130772023;
+    public static final int anim_interpolator = 2130772024;
+    public static final int bavigationbar_slide_in = 2130772025;
+    public static final int bavigationbar_slide_out = 2130772028;
+    public static final int big_image_anim = 2130772031;
+    public static final int bomb_pop_enter_anim = 2130772032;
+    public static final int bottom_fold_down = 2130772033;
+    public static final int bottom_fold_up = 2130772034;
+    public static final int btn_checkbox_to_checked_box_inner_merged_animation = 2130772035;
+    public static final int btn_checkbox_to_checked_box_outer_merged_animation = 2130772036;
+    public static final int btn_checkbox_to_checked_icon_null_animation = 2130772037;
+    public static final int btn_checkbox_to_unchecked_box_inner_merged_animation = 2130772038;
+    public static final int btn_checkbox_to_unchecked_check_path_merged_animation = 2130772039;
+    public static final int btn_checkbox_to_unchecked_icon_null_animation = 2130772041;
+    public static final int btn_radio_to_off_mtrl_dot_group_animation = 2130772042;
+    public static final int btn_radio_to_off_mtrl_ring_outer_animation = 2130772043;
+    public static final int btn_radio_to_off_mtrl_ring_outer_path_animation = 2130772044;
+    public static final int btn_radio_to_on_mtrl_dot_group_animation = 2130772045;
+    public static final int btn_radio_to_on_mtrl_ring_outer_animation = 2130772046;
+    public static final int btn_radio_to_on_mtrl_ring_outer_path_animation = 2130772047;
+    public static final int center_head_rotate = 2130772050;
+    public static final int cubic_interpolator_enter = 2130772051;
+    public static final int design_bottom_sheet_slide_in = 2130772052;
+    public static final int design_bottom_sheet_slide_out = 2130772053;
+    public static final int design_snackbar_in = 2130772054;
+    public static final int design_snackbar_out = 2130772055;
+    public static final int dialog_ani_b2t_enter = 2130772056;
+    public static final int dialog_ani_b2t_exit = 2130772057;
+    public static final int dialog_ani_l2r_enter = 2130772058;
+    public static final int dialog_ani_l2r_exit = 2130772059;
+    public static final int dialog_ani_r2l_enter = 2130772060;
+    public static final int dialog_ani_r2l_exit = 2130772061;
+    public static final int dialog_ani_t2b_enter = 2130772062;
+    public static final int dialog_ani_t2b_exit = 2130772063;
+    public static final int down = 2130772064;
+    public static final int fade_in = 2130772083;
+    public static final int fade_out = 2130772084;
+    public static final int fade_out_video_cover = 2130772085;
+    public static final int fragment_close_enter = 2130772101;
+    public static final int fragment_close_exit = 2130772102;
+    public static final int fragment_fade_enter = 2130772103;
+    public static final int fragment_fade_exit = 2130772104;
+    public static final int fragment_fast_out_extra_slow_in = 2130772105;
+    public static final int fragment_open_enter = 2130772106;
+    public static final int fragment_open_exit = 2130772107;
+    public static final int hold = 2130772118;
+    public static final int home_write_in = 2130772119;
+    public static final int home_write_out = 2130772120;
+    public static final int im_voice_btn_play_anim = 2130772121;
+    public static final int im_voice_btn_play_anim_r = 2130772122;
+    public static final int in_from_bottom = 2130772125;
+    public static final int in_from_right = 2130772126;
+    public static final int in_from_top = 2130772127;
+    public static final int left = 2130772129;
+    public static final int mcn_video_ad_close_anim = 2130772134;
+    public static final int mcn_video_ad_open_anim = 2130772135;
+    public static final int mtrl_bottom_sheet_slide_in = 2130772136;
+    public static final int mtrl_bottom_sheet_slide_out = 2130772137;
+    public static final int mtrl_card_lowers_interpolator = 2130772138;
+    public static final int normal_dialog_enter = 2130772141;
+    public static final int normal_dialog_exit = 2130772142;
+    public static final int out_to_bottom = 2130772146;
+    public static final int out_to_left = 2130772147;
+    public static final int out_to_right = 2130772148;
+    public static final int out_to_top = 2130772149;
+    public static final int pass_liveness_tip_warning = 2130772152;
+    public static final int pickerview_dialog_scale_in = 2130772157;
+    public static final int pickerview_dialog_scale_out = 2130772158;
+    public static final int pickerview_slide_in_bottom = 2130772159;
+    public static final int pickerview_slide_out_bottom = 2130772160;
+    public static final int pop_enter_anim = 2130772163;
+    public static final int pop_exit_anim = 2130772164;
+    public static final int pop_window_close = 2130772165;
+    public static final int pop_window_open = 2130772166;
+    public static final int praise_animation_scale3 = 2130772205;
+    public static final int pull_up_refresh_in = 2130772206;
+    public static final int pull_up_refresh_out = 2130772207;
+    public static final int push_right_in = 2130772208;
+    public static final int push_right_out = 2130772209;
+    public static final int push_top_in = 2130772210;
+    public static final int push_top_out = 2130772211;
+    public static final int push_up_in = 2130772212;
+    public static final int push_up_out = 2130772213;
+    public static final int rotate_anim = 2130772223;
+    public static final int rotate_collapse = 2130772224;
+    public static final int rotate_expand = 2130772225;
+    public static final int sapi_sdk_anim_activity_push_bottom_in = 2130772234;
+    public static final int sapi_sdk_anim_activity_push_bottom_out = 2130772235;
+    public static final int sapi_sdk_anim_activity_stay = 2130772236;
+    public static final int sapi_sdk_anim_push_bottom_in = 2130772237;
+    public static final int sapi_sdk_anim_push_bottom_out = 2130772238;
+    public static final int sapi_sdk_common_dialog_fragment_in = 2130772239;
+    public static final int sapi_sdk_common_dialog_fragment_out = 2130772240;
+    public static final int sapi_sdk_hold = 2130772241;
+    public static final int sapi_sdk_push_bottom_in = 2130772242;
+    public static final int sapi_sdk_push_bottom_out = 2130772243;
+    public static final int sapi_sdk_slide_left_in = 2130772244;
+    public static final int sapi_sdk_slide_left_out = 2130772245;
+    public static final int sapi_sdk_slide_right_in = 2130772246;
+    public static final int sapi_sdk_slide_right_out = 2130772247;
+    public static final int sapi_sdk_speech_dialog_enter = 2130772248;
+    public static final int sapi_sdk_speech_dialog_exit = 2130772249;
+    public static final int sapi_sdk_sweep_light_trans = 2130772250;
+    public static final int scale_rb2lt_in = 2130772251;
+    public static final int scale_rb2lt_out = 2130772252;
+    public static final int scale_rt2lb_in = 2130772253;
+    public static final int scale_rt2lb_out = 2130772254;
+    public static final int scale_zoom_in_and_out_anim = 2130772255;
+    public static final int share_dialog_enter = 2130772256;
+    public static final int share_dialog_exit = 2130772257;
+    public static final int slide_down = 2130772258;
+    public static final int slide_right_in = 2130772263;
+    public static final int slide_up = 2130772264;
+    public static final int svfade_in_center = 2130772269;
+    public static final int svfade_out_center = 2130772270;
+    public static final int svslide_in_bottom = 2130772271;
+    public static final int svslide_in_top = 2130772272;
+    public static final int svslide_out_bottom = 2130772273;
+    public static final int svslide_out_top = 2130772274;
+    public static final int ubs_test_in_anim = 2130772285;
+    public static final int ubs_test_out_anim = 2130772286;
+    public static final int user_info_center_head_rotate = 2130772293;
+    public static final int video_title_fade_out = 2130772295;
+    public static final int voice_btn_play_anim = 2130772296;
+    public static final int voice_btn_play_anim_1 = 2130772297;
+    public static final int wallet_base_dismiss_dialog_anim = 2130772300;
+    public static final int wallet_base_show_dialog_anim = 2130772306;
+    public static final int wallet_base_slide_from_left = 2130772308;
+    public static final int wallet_base_slide_from_right = 2130772309;
+    public static final int wallet_base_slide_to_left = 2130772310;
+    public static final int wallet_base_slide_to_right = 2130772311;
+    public static final int write_tab_bg_anim = 2130772320;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f15342a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f15343b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f15344c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f15345d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f15346e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f15347f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f15348g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public List<b> f15349h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public e f15350i;
-    public c j;
-    public boolean k;
-
-    /* renamed from: b.a.r0.c4.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class View$OnClickListenerC0772a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f15351e;
-
-        public View$OnClickListenerC0772a(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f15351e = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f15351e.j.onClick();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f15352a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public a f15353b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public View f15354c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f15355d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public View f15356e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public String f15357f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f15358g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public d f15359h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public boolean f15360i;
-        public boolean j;
-        public final View.OnClickListener k;
-
-        /* renamed from: b.a.r0.c4.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0773a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f15361e;
-
-            public View$OnClickListenerC0773a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f15361e = bVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    if (this.f15361e.f15359h != null) {
-                        this.f15361e.f15359h.onClick();
-                    }
-                    if (this.f15361e.f15353b == null || this.f15361e.f15353b.c() == null) {
-                        return;
-                    }
-                    this.f15361e.f15353b.c().a(this.f15361e.f15352a, view);
-                }
-            }
-        }
-
-        public b(String str, a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f15358g = 17;
-            this.f15360i = true;
-            this.k = new View$OnClickListenerC0773a(this);
-            this.f15357f = str;
-            this.f15353b = aVar;
-            this.f15352a = hashCode();
-            f();
-            e();
-        }
-
-        public View d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15354c : (View) invokeV.objValue;
-        }
-
-        public final void e() {
-            TextView textView;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (textView = this.f15355d) == null) {
-                return;
-            }
-            textView.setOnClickListener(this.k);
-        }
-
-        public final void f() {
-            a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f15353b) == null || aVar.getContext() == null) {
-                return;
-            }
-            View inflate = LayoutInflater.from(this.f15353b.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.f15353b.d(), false);
-            this.f15354c = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.item_view);
-            this.f15355d = textView;
-            textView.setText(this.f15357f);
-            this.f15355d.setGravity(this.f15358g);
-            View findViewById = this.f15354c.findViewById(R.id.divider_line);
-            this.f15356e = findViewById;
-            if (this.f15360i) {
-                findViewById.setVisibility(0);
-            } else {
-                findViewById.setVisibility(8);
-            }
-            g();
-        }
-
-        public void g() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                TextView textView = this.f15355d;
-                if (textView != null) {
-                    if (this.j) {
-                        SkinManager.setBackgroundResource(textView, R.drawable.bg_bottom_up_corner_dialog);
-                    } else {
-                        textView.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0211));
-                    }
-                }
-                SkinManager.setViewTextColor(this.f15355d, R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(this.f15356e, R.color.CAM_X0204);
-            }
-        }
-
-        public void h(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-                this.f15359h = dVar;
-                e();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface c {
-        void onClick();
-    }
-
-    /* loaded from: classes4.dex */
-    public interface d {
-        void onClick();
-    }
-
-    /* loaded from: classes4.dex */
-    public interface e {
-        void a(int i2, View view);
-    }
-
-    public a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        if (context == null) {
-            return;
-        }
-        this.f15342a = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.bottom_up_list_dialog_view, (ViewGroup) null);
-        this.f15343b = inflate;
-        this.f15344c = (LinearLayout) inflate.findViewById(R.id.content_view);
-        this.f15345d = (TextView) this.f15343b.findViewById(R.id.title);
-        this.f15346e = this.f15343b.findViewById(R.id.title_divide_line);
-        this.f15349h = new ArrayList();
-        this.f15347f = (TextView) this.f15343b.findViewById(R.id.dialog_bottom_cancel_button);
-    }
-
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!StringUtils.isNull(this.f15348g)) {
-                this.f15345d.setText(this.f15348g);
-                this.f15346e.setVisibility(0);
-            } else {
-                this.f15345d.setVisibility(8);
-                this.f15346e.setVisibility(8);
-            }
-            if (this.j != null) {
-                this.f15347f.setOnClickListener(new View$OnClickListenerC0772a(this));
-            }
-            e();
-            return this.f15343b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public e c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15350i : (e) invokeV.objValue;
-    }
-
-    public ViewGroup d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15344c : (ViewGroup) invokeV.objValue;
-    }
-
-    public void e() {
-        b bVar;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SkinManager.setBackgroundColor(this.f15343b, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(this.f15345d, R.drawable.bg_title_corner_dialog_item);
-            SkinManager.setViewTextColor(this.f15345d, R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.f15346e, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(this.f15347f, R.drawable.bg_bottom_up_list_dialog_item);
-            SkinManager.setViewTextColor(this.f15347f, R.color.CAM_X0107);
-            List<b> list = this.f15349h;
-            if (list != null) {
-                for (b bVar2 : list) {
-                    bVar2.g();
-                }
-            }
-            if (this.k) {
-                if (!StringUtils.isNull(this.f15348g) && (textView = this.f15345d) != null && (textView.getBackground() instanceof GradientDrawable)) {
-                    float dimension = getContext().getResources().getDimension(R.dimen.tbds32);
-                    ((GradientDrawable) this.f15345d.getBackground()).setCornerRadii(new float[]{dimension, dimension, dimension, dimension, 0.0f, 0.0f, 0.0f, 0.0f});
-                    return;
-                }
-                List<b> list2 = this.f15349h;
-                if (list2 == null || ListUtils.getCount(list2) <= 0 || (bVar = this.f15349h.get(0)) == null || bVar.j) {
-                    return;
-                }
-                bVar.j = true;
-                bVar.g();
-            }
-        }
-    }
-
-    public void f(List<b> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || list == null) {
-            return;
-        }
-        this.f15349h = list;
-        this.f15344c.removeAllViews();
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            b bVar = list.get(i2);
-            if (bVar != null) {
-                this.f15344c.addView(bVar.d());
-            }
-        }
-    }
-
-    public void g(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.j = cVar;
-        }
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15342a : (Context) invokeV.objValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f15348g = str;
-        }
-    }
 }

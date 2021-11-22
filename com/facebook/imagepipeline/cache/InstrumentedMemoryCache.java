@@ -39,7 +39,7 @@ public class InstrumentedMemoryCache<K, V> implements MemoryCache<K, V> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, closeableReference)) == null) {
-            this.mTracker.onCachePut(k);
+            this.mTracker.onCachePut();
             return this.mDelegate.cache(k, closeableReference);
         }
         return (CloseableReference) invokeLL.objValue;
@@ -59,7 +59,7 @@ public class InstrumentedMemoryCache<K, V> implements MemoryCache<K, V> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k)) == null) {
             CloseableReference<V> closeableReference = this.mDelegate.get(k);
             if (closeableReference == null) {
-                this.mTracker.onCacheMiss(k);
+                this.mTracker.onCacheMiss();
             } else {
                 this.mTracker.onCacheHit(k);
             }
@@ -69,32 +69,10 @@ public class InstrumentedMemoryCache<K, V> implements MemoryCache<K, V> {
     }
 
     @Override // com.facebook.imagepipeline.cache.MemoryCache
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mDelegate.getCount() : invokeV.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.cache.MemoryCache
-    public int getSizeInBytes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mDelegate.getSizeInBytes() : invokeV.intValue;
-    }
-
-    @Override // com.facebook.imagepipeline.cache.MemoryCache
-    public void probe(K k) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, k) == null) {
-            this.mDelegate.probe(k);
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.cache.MemoryCache
     public int removeAll(Predicate<K> predicate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, predicate)) == null) ? this.mDelegate.removeAll(predicate) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, predicate)) == null) ? this.mDelegate.removeAll(predicate) : invokeL.intValue;
     }
 
     @Override // com.facebook.imagepipeline.cache.MemoryCache

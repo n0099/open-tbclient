@@ -64,7 +64,7 @@ public final class FastLoginFeature {
         GLORY_LOGIN = new FastLoginFeature("GLORY_LOGIN", 6, SSOLoginType.HONOR);
         MEIZU_SSO = new FastLoginFeature("MEIZU_SSO", 7, SSOLoginType.MEIZU);
         XIAOMI_SSO = new FastLoginFeature("XIAOMI_SSO", 8, SSOLoginType.XIAOMI);
-        FastLoginFeature fastLoginFeature = new FastLoginFeature("YY_SSO", 9, SSOLoginType.YY);
+        FastLoginFeature fastLoginFeature = new FastLoginFeature("YY_SSO", 9, "yy");
         YY_SSO = fastLoginFeature;
         $VALUES = new FastLoginFeature[]{TX_WEIXIN_SSO, SINA_WEIBO_SSO, SINA_WEIBO_WEBVIEW, TX_QQ_SSO, QR_LOGIN, HUAWEI_LOGIN, GLORY_LOGIN, MEIZU_SSO, XIAOMI_SSO, fastLoginFeature};
     }

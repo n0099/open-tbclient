@@ -25,7 +25,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddleFragment f55080a;
+        public final /* synthetic */ VideoMiddleFragment f56002a;
 
         public a(VideoMiddleFragment videoMiddleFragment) {
             Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
                     return;
                 }
             }
-            this.f55080a = videoMiddleFragment;
+            this.f56002a = videoMiddleFragment;
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.k
         public void a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-                this.f55080a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
+                this.f56002a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
             }
         }
     }
@@ -60,7 +60,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddleFragment f55081a;
+        public final /* synthetic */ VideoMiddleFragment f56003a;
 
         public b(VideoMiddleFragment videoMiddleFragment) {
             Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
                     return;
                 }
             }
-            this.f55081a = videoMiddleFragment;
+            this.f56003a = videoMiddleFragment;
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.k
         public void a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-                this.f55081a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
+                this.f56003a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
             }
         }
     }

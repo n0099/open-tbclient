@@ -13,10 +13,10 @@ public class j0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13803a;
+    public String f14571a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<Object> f13804b;
+    public ArrayList<Object> f14572b;
 
     public j0() {
         Interceptable interceptable = $ic;
@@ -37,19 +37,19 @@ public class j0 {
     public ArrayList<Object> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13804b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14572b : (ArrayList) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13803a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14571a : (String) invokeV.objValue;
     }
 
     public void c(ArrayList<Object> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.f13804b = arrayList;
+            this.f14572b = arrayList;
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.write.work.selecttag.model;
 
-import b.a.q0.d1.z;
+import b.a.q0.c1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetWorksTags.DataReq;
 import tbclient.GetWorksTags.GetWorksTagsReqIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class GetSelectTagReqMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -2,7 +2,7 @@ package b.a.p0.a.n0.h;
 
 import android.app.Activity;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.n0;
+import b.a.p0.a.z2.n0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ public abstract class a implements b.a.p0.a.g1.k.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6794a;
+    public static final boolean f7123a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public abstract class a implements b.a.p0.a.g1.k.a {
                 return;
             }
         }
-        f6794a = k.f6397a;
+        f7123a = k.f6863a;
     }
 
     public a() {
@@ -52,15 +52,15 @@ public abstract class a implements b.a.p0.a.g1.k.a {
     public void a(boolean z, Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) && c.a() && !z) {
-            long currentTimeMillis = f6794a ? System.currentTimeMillis() : 0L;
-            boolean C = n0.C();
-            if (f6794a) {
+            long currentTimeMillis = f7123a ? System.currentTimeMillis() : 0L;
+            boolean B = n0.B();
+            if (f7123a) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str = "detect all process is on baground cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
             }
-            if (C) {
+            if (B) {
                 boolean n = e.n();
-                b.a.p0.a.e0.d.h("DiskCleanerLifecycleObserver", "all app process in background，run clean task");
+                b.a.p0.a.e0.d.k("DiskCleanerLifecycleObserver", "all app process in background，run clean task");
                 b.a.p0.a.n0.f.c().d().u(null, n, 16);
                 e.p(false);
             }

@@ -3,7 +3,7 @@ package b.a.l;
 import android.content.Context;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import b.a.l.v0.a;
+import b.a.l.w0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.MutiImgSingleVerticalLayout;
 import com.baidu.tbadk.TbPageContext;
@@ -29,7 +29,7 @@ public class y extends b.a.l.a<b.a.q0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ y f3297a;
+        public final /* synthetic */ y f3388a;
 
         public a(y yVar) {
             Interceptable interceptable = $ic;
@@ -46,19 +46,19 @@ public class y extends b.a.l.a<b.a.q0.s.q.a> {
                     return;
                 }
             }
-            this.f3297a = yVar;
+            this.f3388a = yVar;
         }
 
-        @Override // b.a.l.v0.a.b
-        public boolean a(a.C0090a c0090a) {
+        @Override // b.a.l.w0.a.b
+        public boolean a(a.C0092a c0092a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0090a)) == null) {
-                if (this.f3297a.k != null && this.f3297a.k.getThreadData() != null) {
-                    b.a.r0.b0.m.a(this.f3297a.k.getThreadData().f0());
-                    y yVar = this.f3297a;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0092a)) == null) {
+                if (this.f3388a.k != null && this.f3388a.k.getThreadData() != null) {
+                    b.a.r0.b0.m.a(this.f3388a.k.getThreadData().f0());
+                    y yVar = this.f3388a;
                     b.a.r0.b0.m.l(yVar.j.mTitle, yVar.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    y yVar2 = this.f3297a;
+                    y yVar2 = this.f3388a;
                     b.a.r0.b0.m.l(yVar2.j.mAbstract, yVar2.k.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
@@ -86,8 +86,8 @@ public class y extends b.a.l.a<b.a.q0.s.q.a> {
             }
         }
         this.l = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13375i instanceof MutiImgSingleVerticalLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13375i.getParent() == null) {
-            this.j = (MutiImgSingleVerticalLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13375i;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14155i instanceof MutiImgSingleVerticalLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14155i.getParent() == null) {
+            this.j = (MutiImgSingleVerticalLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14155i;
         } else {
             this.j = new MutiImgSingleVerticalLayout(context);
         }
@@ -109,10 +109,10 @@ public class y extends b.a.l.a<b.a.q0.s.q.a> {
     }
 
     @Override // b.a.l.a
-    public void k(b.a.r0.b0.c0<b.a.q0.s.q.a> c0Var) {
+    public void k(b.a.r0.b0.d0<b.a.q0.s.q.a> d0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c0Var) == null) {
-            this.j.setSubClickListener(c0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d0Var) == null) {
+            this.j.setSubClickListener(d0Var);
         }
     }
 

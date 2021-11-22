@@ -1,7 +1,7 @@
 package b.a.p0.a.r0;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.v2.q;
+import b.a.p0.a.z2.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,19 +18,19 @@ public class h implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i f7585e;
+    public final i f8100e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Runnable f7586f;
+    public final Runnable f8101f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f7587g;
+    public String f8102g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String[] f7588h;
+    public String[] f8103h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AtomicBoolean f7589i;
+    public AtomicBoolean f8104i;
     public List<h> j;
 
     public h(i iVar, Runnable runnable, String str, String[] strArr) {
@@ -48,12 +48,12 @@ public class h implements Runnable {
                 return;
             }
         }
-        this.f7589i = new AtomicBoolean(false);
+        this.f8104i = new AtomicBoolean(false);
         this.j = Collections.synchronizedList(new ArrayList());
-        this.f7585e = iVar;
-        this.f7586f = runnable;
-        this.f7587g = str;
-        this.f7588h = strArr;
+        this.f8100e = iVar;
+        this.f8101f = runnable;
+        this.f8102g = str;
+        this.f8103h = strArr;
     }
 
     public void a(h hVar) {
@@ -67,13 +67,13 @@ public class h implements Runnable {
     public String[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7588h : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8103h : (String[]) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7587g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8102g : (String) invokeV.objValue;
     }
 
     public boolean d() {
@@ -85,13 +85,13 @@ public class h implements Runnable {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7589i.get() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f8104i.get() : invokeV.booleanValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            q.j(this, this.f7587g);
+            q.k(this, this.f8102g);
         }
     }
 
@@ -105,14 +105,14 @@ public class h implements Runnable {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f7586f.run();
+            this.f8101f.run();
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f7589i.set(true);
+            this.f8104i.set(true);
         }
     }
 
@@ -123,7 +123,7 @@ public class h implements Runnable {
             try {
                 h();
             } finally {
-                this.f7585e.g(this);
+                this.f8100e.g(this);
             }
         }
     }

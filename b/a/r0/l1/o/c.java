@@ -22,17 +22,17 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f20312d;
+    public static c f21834d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f20313a;
+    public long f21835a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Long> f20314b;
+    public List<Long> f21836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final CustomMessageListener f20315c;
+    public final CustomMessageListener f21837c;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -40,7 +40,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f20316a;
+        public final /* synthetic */ c f21838a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2) {
@@ -60,7 +60,7 @@ public class c {
                     return;
                 }
             }
-            this.f20316a = cVar;
+            this.f21838a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,7 +68,7 @@ public class c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                this.f20316a.b();
+                this.f21838a.b();
             }
         }
     }
@@ -101,24 +101,24 @@ public class c {
                 return;
             }
         }
-        this.f20313a = 0L;
-        this.f20314b = new ArrayList();
-        this.f20315c = new a(this, 2005016);
-        MessageManager.getInstance().registerListener(this.f20315c);
+        this.f21835a = 0L;
+        this.f21836b = new ArrayList();
+        this.f21837c = new a(this, 2005016);
+        MessageManager.getInstance().registerListener(this.f21837c);
     }
 
     public static c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f20312d == null) {
+            if (f21834d == null) {
                 synchronized (c.class) {
-                    if (f20312d == null) {
-                        f20312d = new c();
+                    if (f21834d == null) {
+                        f21834d = new c();
                     }
                 }
             }
-            return f20312d;
+            return f21834d;
         }
         return (c) invokeV.objValue;
     }
@@ -127,17 +127,17 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             synchronized (this) {
-                if (this.f20313a != 0 && this.f20313a != j) {
-                    this.f20314b.clear();
-                    i.c("PushIdsCacheManager", null, 0, "addPushId", -1, "not equal original gid:" + j + "-" + this.f20313a);
+                if (this.f21835a != 0 && this.f21835a != j) {
+                    this.f21836b.clear();
+                    i.c("PushIdsCacheManager", null, 0, "addPushId", -1, "not equal original gid:" + j + "-" + this.f21835a);
                 }
-                this.f20313a = j;
-                for (Long l : this.f20314b) {
+                this.f21835a = j;
+                for (Long l : this.f21836b) {
                     if (l != null && l.longValue() == j2) {
                         return;
                     }
                 }
-                this.f20314b.add(Long.valueOf(j2));
+                this.f21836b.add(Long.valueOf(j2));
             }
         }
     }
@@ -146,8 +146,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                this.f20313a = 0L;
-                this.f20314b.clear();
+                this.f21835a = 0L;
+                this.f21836b.clear();
             }
         }
     }
@@ -157,7 +157,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
             synchronized (this) {
-                for (Long l : this.f20314b) {
+                for (Long l : this.f21836b) {
                     if (l != null && l.longValue() == j) {
                         return true;
                     }
@@ -171,13 +171,13 @@ public class c {
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20313a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21835a : invokeV.longValue;
     }
 
     public Long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b.a.r0.l1.k.b.o().r().get(this.f20313a) : (Long) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b.a.r0.l1.k.b.o().r().get(this.f21835a) : (Long) invokeV.objValue;
     }
 
     public synchronized List<Long> g() {
@@ -187,7 +187,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList();
-                for (Long l : this.f20314b) {
+                for (Long l : this.f21836b) {
                     if (l != null) {
                         arrayList.add(Long.valueOf(b.a.r0.l1.w.b.c(l.longValue())));
                     }
@@ -205,7 +205,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
                 str = "";
-                for (Long l : this.f20314b) {
+                for (Long l : this.f21836b) {
                     if (l != null && l.longValue() != 0) {
                         str = (str + l.longValue()) + ",";
                     }
@@ -222,8 +222,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this) {
-                if (this.f20313a > 0) {
-                    z = this.f20314b.size() > 0;
+                if (this.f21835a > 0) {
+                    z = this.f21836b.size() > 0;
                 }
             }
             return z;
@@ -240,13 +240,13 @@ public class c {
                     return;
                 }
                 try {
-                    this.f20313a = b.a.e.e.m.b.g(str, 0L);
+                    this.f21835a = b.a.e.f.m.b.g(str, 0L);
                     try {
                         String[] split = str2.split(",");
                         if (split != null && split.length > 0) {
                             for (int i2 = 0; i2 < split.length; i2++) {
                                 if (!TextUtils.isEmpty(split[i2])) {
-                                    this.f20314b.add(Long.valueOf(Long.parseLong(split[i2])));
+                                    this.f21836b.add(Long.valueOf(Long.parseLong(split[i2])));
                                 }
                             }
                         }
@@ -264,7 +264,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             synchronized (this) {
-                this.f20314b.clear();
+                this.f21836b.clear();
             }
         }
     }

@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.l.d;
-import b.a.e.e.p.l;
+import b.a.e.f.l.d;
+import b.a.e.f.p.l;
 import b.a.q0.a.t;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -42,7 +42,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserRedPackageActivity f53738e;
+        public final /* synthetic */ NewUserRedPackageActivity f54658e;
 
         public a(NewUserRedPackageActivity newUserRedPackageActivity) {
             Interceptable interceptable = $ic;
@@ -59,31 +59,31 @@ public class NewUserRedPackageActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f53738e = newUserRedPackageActivity;
+            this.f54658e = newUserRedPackageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() != this.f53738e.mCloseBtnImage.getId()) {
-                    if (view.getId() == this.f53738e.mBgImage.getId()) {
+                if (view.getId() != this.f54658e.mCloseBtnImage.getId()) {
+                    if (view.getId() == this.f54658e.mBgImage.getId()) {
                         TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 2));
                         if (TbadkCoreApplication.isLogin()) {
-                            if (this.f53738e.mData != null) {
-                                UrlManager.getInstance().dealOneLink(this.f53738e.getPageContext(), new String[]{this.f53738e.mData.clickUrl});
-                                this.f53738e.finish();
+                            if (this.f54658e.mData != null) {
+                                UrlManager.getInstance().dealOneLink(this.f54658e.getPageContext(), new String[]{this.f54658e.mData.clickUrl});
+                                this.f54658e.finish();
                                 return;
                             }
                             return;
                         }
-                        this.f53738e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f53738e.getActivity(), true, 25046)));
+                        this.f54658e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f54658e.getActivity(), true, 25046)));
                         return;
                     }
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 3));
-                this.f53738e.finish();
+                this.f54658e.finish();
             }
         }
     }
@@ -105,14 +105,14 @@ public class NewUserRedPackageActivity extends BaseActivity {
     }
 
     private void setData() {
-        b.a.e.l.d.a aVar;
+        b.a.e.m.d.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
         this.mData = newUserRedPackageData;
-        if (newUserRedPackageData == null || (aVar = (b.a.e.l.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
+        if (newUserRedPackageData == null || (aVar = (b.a.e.m.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
             return;
         }
         this.mBgImage.setImageBitmap(aVar.p());

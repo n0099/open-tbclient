@@ -24,7 +24,7 @@ public class h extends BaseBean<Void> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PwdRequest f59592a;
+    public PwdRequest f60514a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(Context context) {
@@ -44,7 +44,7 @@ public class h extends BaseBean<Void> {
                 return;
             }
         }
-        this.f59592a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f60514a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -61,14 +61,14 @@ public class h extends BaseBean<Void> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (this.f59592a == null) {
+            if (this.f60514a == null) {
                 return arrayList;
             }
             String seed = PasswordController.getSeed();
-            arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f59592a.mPayPass, seed)));
+            arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f60514a.mPayPass, seed)));
             arrayList.add(new RestNameValuePair("seed", SecurePay.getInstance().encryptProxy(seed)));
             arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
-            Map<String, String> map = this.f59592a.mExtData;
+            Map<String, String> map = this.f60514a.mExtData;
             if (map == null) {
                 return arrayList;
             }

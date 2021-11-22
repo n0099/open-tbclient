@@ -3,7 +3,8 @@ package b.a.p0.c.a;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import b.a.p0.a.k;
-import b.a.p0.n.i.a;
+import b.a.p0.a.n2.n;
+import b.a.p0.q.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.searchbox.http.callback.ResponseCallback;
@@ -23,7 +24,7 @@ public class c implements b.a.p0.a.p.d.d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9546a;
+    public static final boolean f10126a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +40,7 @@ public class c implements b.a.p0.a.p.d.d {
                 return;
             }
         }
-        f9546a = k.f6397a;
+        f10126a = k.f6863a;
     }
 
     public c() {
@@ -95,24 +96,24 @@ public class c implements b.a.p0.a.p.d.d {
     }
 
     @Override // b.a.p0.a.p.d.d
-    public boolean i(@NonNull b.a.p0.a.a2.e eVar, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, b.a.p0.a.v2.e1.b<String> bVar) {
+    public boolean i(@NonNull b.a.p0.a.d2.e eVar, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, b.a.p0.a.z2.g1.c<String> cVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{eVar, jSONObject, str, str2, callback, bVar})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{eVar, jSONObject, str, str2, callback, cVar})) == null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("ext");
             if (optJSONObject == null || !optJSONObject.optBoolean("enableBdtls", false)) {
                 return false;
             }
             String optString = optJSONObject.optString(LightappConstants.ACCESS_WALLET_SERVICE_PARAM_SERVICE);
             if (TextUtils.isEmpty(optString)) {
-                boolean z = f9546a;
-                if (bVar != null) {
-                    bVar.onCallback("serviceId is invalid");
+                boolean z = f10126a;
+                if (cVar != null) {
+                    cVar.onCallback("serviceId is invalid");
                     return true;
                 }
                 return true;
             }
-            b.a.p0.a.j2.k.y(str, eVar.M().F(), null);
+            n.D(str, eVar.X().G(), null, str2);
             new b.a.p0.c.a.k.d(eVar, jSONObject, str2, callback).o(optString);
             return true;
         }

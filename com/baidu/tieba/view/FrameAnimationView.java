@@ -7,9 +7,9 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.l.d;
-import b.a.e.e.m.e;
-import b.a.e.e.p.k;
+import b.a.e.f.l.d;
+import b.a.e.f.m.e;
+import b.a.e.f.p.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
@@ -39,7 +39,7 @@ public class FrameAnimationView extends TbImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrameAnimationView f55278e;
+        public final /* synthetic */ FrameAnimationView f56200e;
 
         public a(FrameAnimationView frameAnimationView) {
             Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class FrameAnimationView extends TbImageView {
                     return;
                 }
             }
-            this.f55278e = frameAnimationView;
+            this.f56200e = frameAnimationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.a().removeCallbacks(this.f55278e.a0);
-                if (this.f55278e.T != null) {
-                    this.f55278e.v();
+                e.a().removeCallbacks(this.f56200e.a0);
+                if (this.f56200e.T != null) {
+                    this.f56200e.v();
                 }
             }
         }
@@ -109,7 +109,7 @@ public class FrameAnimationView extends TbImageView {
             String frameUrl = getFrameUrl();
             this.P++;
             if (!k.isEmpty(frameUrl)) {
-                b.a.e.l.d.a aVar = (b.a.e.l.d.a) d.h().n(frameUrl, 10, new Object[0]);
+                b.a.e.m.d.a aVar = (b.a.e.m.d.a) d.h().n(frameUrl, 10, new Object[0]);
                 if (aVar != null) {
                     return aVar.p();
                 }

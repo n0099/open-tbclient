@@ -1,7 +1,7 @@
 package b.a.q0.s.q;
 
 import com.baidu.searchbox.launch.SmartLaunchStats;
-import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,6 +14,7 @@ import tbclient.GraffitiInfo;
 import tbclient.MemeInfo;
 import tbclient.NativeApp;
 import tbclient.PbContent;
+import tbclient.TiebaPlusInfo;
 import tbclient.TogetherHi;
 /* loaded from: classes4.dex */
 public class c1 {
@@ -35,12 +36,12 @@ public class c1 {
                     builder.big_src = jSONObject.optString("big_src");
                     builder.bsize = jSONObject.optString("bsize");
                     builder.btn_type = Integer.valueOf(jSONObject.optInt("btn_type"));
-                    builder.f73001c = jSONObject.optString("c");
+                    builder.f73920c = jSONObject.optString("c");
                     builder.cdn_src = jSONObject.optString("cdn_src");
                     builder.cdn_src_active = jSONObject.optString("cdn_src_active");
                     builder.count = Integer.valueOf(jSONObject.optInt("count"));
                     builder.during_time = Integer.valueOf(jSONObject.optInt("during_time"));
-                    builder.dynamic = jSONObject.optString(PraiseUBCHelper.SOURCE_DYNAMIC);
+                    builder.dynamic = jSONObject.optString("dynamic");
                     builder.e_type = Integer.valueOf(jSONObject.optInt("e_type"));
                     JSONObject optJSONObject = jSONObject.optJSONObject("graffiti_info");
                     if (optJSONObject != null) {
@@ -112,6 +113,29 @@ public class c1 {
                     builder.text = jSONObject.optString("text");
                     builder.uid = Long.valueOf(jSONObject.optLong("uid"));
                     builder.type = Integer.valueOf(jSONObject.optInt("type"));
+                    JSONObject optJSONObject5 = jSONObject.optJSONObject("tiebaplus_info");
+                    if (optJSONObject5 != null) {
+                        TiebaPlusInfo.Builder builder6 = new TiebaPlusInfo.Builder();
+                        builder6.app_company = optJSONObject5.optString("app_company");
+                        builder6.title = optJSONObject5.optString("title");
+                        builder6.desc = optJSONObject5.optString("desc");
+                        builder6.jump_url = optJSONObject5.optString("jump_url");
+                        builder6.download_url = optJSONObject5.optString("download_url");
+                        builder6.app_id = optJSONObject5.optString("app_id");
+                        builder6.app_icon = optJSONObject5.optString("app_icon");
+                        builder6.app_package = optJSONObject5.optString("app_package");
+                        builder6.app_version = optJSONObject5.optString("app_version");
+                        builder6.app_privacy = optJSONObject5.optString("app_privacy");
+                        builder6.app_power = optJSONObject5.optString("app_power");
+                        builder6.target_type = Integer.valueOf(optJSONObject5.optInt(GameGuideConfigInfo.KEY_TARGET_TYPE));
+                        builder6.h5_jump_type = Integer.valueOf(optJSONObject5.optInt("h5_jump_type"));
+                        builder6.h5_jump_number = optJSONObject5.optString("h5_jump_number");
+                        builder6.h5_jump_param = optJSONObject5.optString("h5_jump_param");
+                        builder6.jump_type = Integer.valueOf(optJSONObject5.optInt("jump_type"));
+                        builder6.item_id = optJSONObject5.optString("item_id");
+                        builder6.is_appoint = Integer.valueOf(optJSONObject5.optInt("is_appoint"));
+                        builder.tiebaplus_info = builder6.build(true);
+                    }
                     builder.url_type = Integer.valueOf(jSONObject.optInt("url_type"));
                     builder.voice_md5 = jSONObject.optString("voice_md5");
                     builder.width = Integer.valueOf(jSONObject.optInt("width"));

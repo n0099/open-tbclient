@@ -3,7 +3,7 @@ package b.a.p0.a.h0.r;
 import android.app.Application;
 import android.content.Context;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.h;
+import b.a.p0.a.z2.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,10 +21,10 @@ public class a extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5739b;
+    public static final boolean f6065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5740c;
+    public static final String f6066c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,8 +40,8 @@ public class a extends b {
                 return;
             }
         }
-        f5739b = k.f6397a;
-        f5740c = "swan_preset" + File.separator + "preset_list.json";
+        f6065b = k.f6863a;
+        f6066c = "swan_preset" + File.separator + "preset_list.json";
     }
 
     public a() {
@@ -67,16 +67,16 @@ public class a extends b {
                 return false;
             }
             Context appContext = AppRuntime.getAppContext();
-            String str = "swan_preset" + File.separator + cVar.f11076g + File.separator + cVar.q;
+            String str = "swan_preset" + File.separator + cVar.f11774g + File.separator + cVar.q;
             try {
-                File j = j(cVar.f11077h, cVar.f11076g, cVar.f11078i);
+                File j = j(cVar.f11775h, cVar.f11774g, cVar.f11776i);
                 if (j == null) {
-                    boolean z = f5739b;
+                    boolean z = f6065b;
                     return false;
                 }
                 return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
             } catch (IOException e2) {
-                if (f5739b) {
+                if (f6065b) {
                     e2.printStackTrace();
                 }
                 return false;
@@ -90,8 +90,8 @@ public class a extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Application b2 = b.a.p0.a.c1.a.b();
-            return h.b(b2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
+            Application c2 = b.a.p0.a.c1.a.c();
+            return h.b(c2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
         }
         return (String) invokeL.objValue;
     }
@@ -100,6 +100,6 @@ public class a extends b {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? h.b(b.a.p0.a.c1.a.b(), f5740c) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? h.b(b.a.p0.a.c1.a.c(), f6066c) : (String) invokeV.objValue;
     }
 }

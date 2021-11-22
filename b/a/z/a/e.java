@@ -12,7 +12,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f30020a = 1;
+    public static int f30889a = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class e {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || 7 - f30020a > 3) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || 7 - f30889a > 3) {
             return;
         }
         String str3 = "cyber-" + str;
@@ -40,7 +40,7 @@ public class e {
 
     public static void b(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || 7 - f30020a > 6) {
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || 7 - f30889a > 6) {
             return;
         }
         String str3 = "cyber-" + str;
@@ -48,7 +48,7 @@ public class e {
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - f30020a > 4) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - f30889a > 4) {
             return;
         }
         String str3 = "cyber-" + str;
@@ -56,7 +56,7 @@ public class e {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - f30020a > 5) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - f30889a > 5) {
             return;
         }
         String str3 = "cyber-" + str;
@@ -64,7 +64,7 @@ public class e {
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) || 7 - f30020a > 6) {
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) || 7 - f30889a > 6) {
             return;
         }
         String str3 = "cyber-" + str;

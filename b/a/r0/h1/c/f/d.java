@@ -1,8 +1,8 @@
 package b.a.r0.h1.c.f;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.n;
-import b.a.r0.b0.e0.k;
+import b.a.e.m.e.n;
+import b.a.r0.b0.f0.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,16 +16,16 @@ public class d implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f17033e;
+    public String f18501e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f17034f;
+    public boolean f18502f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f17035g;
+    public String f18503g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a[] f17036h;
+    public a[] f18504h;
 
     /* loaded from: classes4.dex */
     public static class a implements n {
@@ -33,19 +33,19 @@ public class d implements n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f17037e;
+        public String f18505e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f17038f;
+        public String f18506f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f17039g;
+        public String f18507g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f17040h;
+        public String f18508h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f17041i;
+        public int f18509i;
         public int j;
         public boolean k;
         public long l;
@@ -68,19 +68,19 @@ public class d implements n {
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17041i : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18509i : invokeV.intValue;
         }
 
         public String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17037e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18505e : (String) invokeV.objValue;
         }
 
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17038f : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18506f : (String) invokeV.objValue;
         }
 
         public int g() {
@@ -89,11 +89,11 @@ public class d implements n {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : invokeV.intValue;
         }
 
-        @Override // b.a.e.l.e.n
+        @Override // b.a.e.m.e.n
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? k.B0 : (BdUniqueId) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? k.D0 : (BdUniqueId) invokeV.objValue;
         }
 
         public long h() {
@@ -105,7 +105,7 @@ public class d implements n {
         public String i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17040h : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f18508h : (String) invokeV.objValue;
         }
 
         public long k() {
@@ -117,7 +117,7 @@ public class d implements n {
         public String l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f17039g : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f18507g : (String) invokeV.objValue;
         }
 
         public boolean n() {
@@ -140,7 +140,7 @@ public class d implements n {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-                this.f17041i = i2;
+                this.f18509i = i2;
                 return this;
             }
             return (a) invokeI.objValue;
@@ -150,7 +150,7 @@ public class d implements n {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-                this.f17037e = str;
+                this.f18505e = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -160,7 +160,7 @@ public class d implements n {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-                this.f17038f = str;
+                this.f18506f = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -194,7 +194,7 @@ public class d implements n {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-                this.f17040h = str;
+                this.f18508h = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -214,7 +214,7 @@ public class d implements n {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-                this.f17039g = str;
+                this.f18507g = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -234,7 +234,7 @@ public class d implements n {
                 return;
             }
         }
-        this.f17036h = new a[3];
+        this.f18504h = new a[3];
     }
 
     public String a() {
@@ -242,7 +242,7 @@ public class d implements n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (a aVar : this.f17036h) {
+            for (a aVar : this.f18504h) {
                 sb.append(aVar.h());
                 sb.append(',');
             }
@@ -252,10 +252,10 @@ public class d implements n {
         return (String) invokeV.objValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? k.B0 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? k.D0 : (BdUniqueId) invokeV.objValue;
     }
 }

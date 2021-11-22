@@ -2,12 +2,12 @@ package b.a.p0.a.x;
 
 import android.content.Context;
 import android.text.TextUtils;
-import b.a.p0.a.c2.e;
-import b.a.p0.a.c2.f.a0;
-import b.a.p0.a.e2.c.f;
-import b.a.p0.a.v2.e1.b;
-import b.a.p0.a.v2.p0;
-import b.a.p0.a.v2.w;
+import b.a.p0.a.f2.e;
+import b.a.p0.a.f2.f.z;
+import b.a.p0.a.h2.c.f;
+import b.a.p0.a.z2.g1.c;
+import b.a.p0.a.z2.p0;
+import b.a.p0.a.z2.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -24,26 +24,26 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a extends a0 {
+public class a extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.p0.a.x.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0449a implements b<Map<String, f>> {
+    public class C0464a implements c<Map<String, f>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8925e;
+        public final /* synthetic */ CallbackHandler f9269e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8926f;
+        public final /* synthetic */ String f9270f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f8927g;
+        public final /* synthetic */ a f9271g;
 
-        public C0449a(a aVar, CallbackHandler callbackHandler, String str) {
+        public C0464a(a aVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,21 +58,21 @@ public class a extends a0 {
                     return;
                 }
             }
-            this.f8927g = aVar;
-            this.f8925e = callbackHandler;
-            this.f8926f = str;
+            this.f9271g = aVar;
+            this.f9269e = callbackHandler;
+            this.f9270f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v2.e1.b
+        @Override // b.a.p0.a.z2.g1.c
         /* renamed from: a */
         public void onCallback(Map<String, f> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
                 if (map != null) {
-                    this.f8927g.l(this.f8926f, this.f8925e, map);
+                    this.f9271g.l(this.f9270f, this.f9269e, map);
                 } else {
-                    this.f8925e.handleSchemeDispatchCallback(this.f8926f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    this.f9269e.handleSchemeDispatchCallback(this.f9270f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 }
             }
         }
@@ -99,8 +99,8 @@ public class a extends a0 {
         }
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
@@ -123,7 +123,7 @@ public class a extends a0 {
     public final void k(String str, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, callbackHandler) == null) {
-            b.a.p0.a.n1.q.c.a.h(new C0449a(this, callbackHandler, str));
+            b.a.p0.a.p1.r.c.a.h(new C0464a(this, callbackHandler, str));
         }
     }
 
@@ -135,10 +135,10 @@ public class a extends a0 {
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 return;
             }
-            boolean z = fVar.f4907d;
+            boolean z = fVar.f6385d;
             int c2 = p0.c();
             long e2 = p0.e();
-            List<String> list = fVar.f4912i;
+            List<String> list = fVar.f6390i;
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
             try {
@@ -149,12 +149,12 @@ public class a extends a0 {
                 jSONObject.put("visitDuration", e2);
                 jSONObject.put("forbidden", z);
                 jSONObject.put("ext", jSONArray);
-                if (a0.f4160b) {
+                if (z.f5228b) {
                     String str3 = "launchCount:" + c2 + " visitDuration:" + e2 + " forbidden:" + z + " ext:" + jSONArray.toString();
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
             } catch (JSONException e3) {
-                if (a0.f4160b) {
+                if (z.f5228b) {
                     e3.printStackTrace();
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());

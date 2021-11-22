@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,8 +40,8 @@ public final class BridgeActivity extends Activity {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0062  */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0066  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0067  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x006b  */
     @Override // android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -57,7 +58,10 @@ public final class BridgeActivity extends Activity {
             if (getIntent() == null) {
                 setResult(444222000);
                 finish();
-            } else if (bundle == null || !bundle.getBoolean(FLAG_RESTART)) {
+                LogUtil.logActivity(this, "onCreate");
+                return;
+            }
+            if (bundle == null || !bundle.getBoolean(FLAG_RESTART)) {
                 try {
                     intent = (Intent) getIntent().getParcelableExtra("intent");
                     if (intent != null) {
@@ -68,6 +72,7 @@ public final class BridgeActivity extends Activity {
                             String str = "resultCode getIntExtra exception " + e2;
                             if (intent == null) {
                             }
+                            LogUtil.logActivity(this, "onCreate");
                         }
                     }
                 } catch (Exception e4) {
@@ -76,11 +81,12 @@ public final class BridgeActivity extends Activity {
                 }
                 if (intent == null) {
                     startActivityForResult(intent, i2);
-                    return;
+                } else {
+                    setResult(444222000);
+                    finish();
                 }
-                setResult(444222000);
-                finish();
             }
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 

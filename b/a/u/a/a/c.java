@@ -19,26 +19,26 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f28923g = "Flow";
+    public static String f29792g = "Flow";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28924a;
+    public int f29793a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28925b;
+    public int f29794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f28926c;
+    public final long f29795c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f28927d;
+    public long f29796d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f28928e;
+    public Context f29797e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, String> f28929f;
+    public Map<String, String> f29798f;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -46,13 +46,13 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f28930e;
+        public String f29799e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f28931f;
+        public String f29800f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f28932g;
+        public final /* synthetic */ c f29801g;
 
         public a(c cVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -69,16 +69,16 @@ public class c {
                     return;
                 }
             }
-            this.f28932g = cVar;
-            this.f28930e = str;
-            this.f28931f = str2;
+            this.f29801g = cVar;
+            this.f29799e = str;
+            this.f29800f = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28932g.f28929f.put(this.f28930e, this.f28931f);
+                this.f29801g.f29798f.put(this.f29799e, this.f29800f);
             }
         }
     }
@@ -113,12 +113,12 @@ public class c {
                 return;
             }
         }
-        this.f28927d = 0L;
-        this.f28928e = context;
-        this.f28924a = i2;
-        this.f28925b = i3;
-        this.f28926c = System.currentTimeMillis();
-        this.f28929f = new ConcurrentHashMap();
+        this.f29796d = 0L;
+        this.f29797e = context;
+        this.f29793a = i2;
+        this.f29794b = i3;
+        this.f29795c = System.currentTimeMillis();
+        this.f29798f = new ConcurrentHashMap();
     }
 
     public c b(String str, int i2) {
@@ -126,9 +126,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                b.a.u.a.a.a.h(this.f28928e).f().execute(new a(this, str, String.valueOf(i2)));
+                b.a.u.a.a.a.h(this.f29797e).f().execute(new a(this, str, String.valueOf(i2)));
             }
-            String str2 = f28923g;
+            String str2 = f29792g;
             b.a.u.a.h.e.a(str2, "flow addEvent id:" + str + ",value:" + i2);
             return this;
         }
@@ -140,9 +140,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                b.a.u.a.a.a.h(this.f28928e).f().execute(new a(this, str, String.valueOf(j)));
+                b.a.u.a.a.a.h(this.f29797e).f().execute(new a(this, str, String.valueOf(j)));
             }
-            String str2 = f28923g;
+            String str2 = f29792g;
             b.a.u.a.h.e.a(str2, "flow addEvent id:" + str + ",value:" + j);
             return this;
         }
@@ -154,9 +154,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && str2 != null) {
-                b.a.u.a.a.a.h(this.f28928e).f().execute(new a(this, str, str2));
+                b.a.u.a.a.a.h(this.f29797e).f().execute(new a(this, str, str2));
             }
-            String str3 = f28923g;
+            String str3 = f29792g;
             b.a.u.a.h.e.a(str3, "flow addEvent id:" + str + ",value:" + str2);
             return this;
         }
@@ -166,8 +166,8 @@ public class c {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f28927d = System.currentTimeMillis();
-            b.a.u.a.a.a.h(this.f28928e).e(this);
+            this.f29796d = System.currentTimeMillis();
+            b.a.u.a.a.a.h(this.f29797e).e(this);
         }
     }
 
@@ -177,7 +177,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                for (Map.Entry<String, String> entry : this.f28929f.entrySet()) {
+                for (Map.Entry<String, String> entry : this.f29798f.entrySet()) {
                     jSONObject.put(entry.getKey(), entry.getValue());
                 }
             } catch (JSONException e2) {
@@ -191,6 +191,6 @@ public class c {
     public Map<String, String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28929f : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29798f : (Map) invokeV.objValue;
     }
 }

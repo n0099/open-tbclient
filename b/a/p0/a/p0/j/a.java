@@ -5,10 +5,10 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.k;
-import b.a.p0.a.k2.g.h;
-import b.a.p0.a.v1.c.c;
-import b.a.p0.a.v1.c.f.e;
-import b.a.p0.t.d;
+import b.a.p0.a.o2.g.h;
+import b.a.p0.a.y1.c.c;
+import b.a.p0.a.y1.c.f.e;
+import b.a.p0.w.d;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.extcore.cores.SwanAppCores;
@@ -31,16 +31,16 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7300a;
+    public static final boolean f7724a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.p0.a.p0.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0346a implements FilenameFilter {
+    public static class C0358a implements FilenameFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0346a() {
+        public C0358a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class a {
                 return;
             }
         }
-        f7300a = k.f6397a;
+        f7724a = k.f6863a;
     }
 
     public static void a(Bundle bundle) {
@@ -121,7 +121,7 @@ public class a {
             return;
         }
         if (!ProcessUtils.isMainProcess()) {
-            b.a.p0.a.v1.c.a e2 = b.a.p0.a.v1.c.a.e();
+            b.a.p0.a.y1.c.a e2 = b.a.p0.a.y1.c.a.e();
             c cVar = new c(18, bundle);
             cVar.f(true);
             e2.h(cVar);
@@ -156,15 +156,15 @@ public class a {
                 }
                 arrayList.addAll(e());
                 arrayList.addAll(d(file, 3));
-                if (f7300a) {
+                if (f7724a) {
                     String str = "deleteOldExtensionCores dstFolder: " + file.getPath() + " ignoreVersions: " + Arrays.toString(arrayList.toArray());
                 }
                 for (File file2 : file.listFiles()) {
                     if (!g(file2, arrayList)) {
-                        if (f7300a) {
+                        if (f7724a) {
                             String str2 = "deleteOldExtensionCores deleteFolder: " + file2;
                         }
-                        d.K(file2);
+                        d.L(file2);
                     }
                 }
             }
@@ -184,7 +184,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, file, i2)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (i2 <= 0 || file == null || !file.exists() || !file.isDirectory() || (listFiles = file.listFiles(new C0346a())) == null) {
+            if (i2 <= 0 || file == null || !file.exists() || !file.isDirectory() || (listFiles = file.listFiles(new C0358a())) == null) {
                 return arrayList;
             }
             Arrays.sort(listFiles, new b());
@@ -193,7 +193,7 @@ public class a {
                 try {
                     arrayList.add(Long.valueOf(Long.parseLong(listFiles[i3].getName())));
                 } catch (NumberFormatException e2) {
-                    b.a.p0.a.e0.d.i("ExtCore-Utils", "get extension version fail", e2);
+                    b.a.p0.a.e0.d.l("ExtCore-Utils", "get extension version fail", e2);
                 }
             }
             return arrayList;
@@ -207,13 +207,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             ArrayList<Long> arrayList = new ArrayList<>();
-            for (b.a.p0.a.v1.c.f.c cVar : e.k().q()) {
+            for (b.a.p0.a.y1.c.f.c cVar : e.k().q()) {
                 SwanAppCores n = cVar.n();
-                if (n != null && cVar.H() && (extensionCore = n.getExtensionCore()) != null && !arrayList.contains(Long.valueOf(extensionCore.extensionCoreVersionCode))) {
+                if (n != null && cVar.S() && (extensionCore = n.getExtensionCore()) != null && !arrayList.contains(Long.valueOf(extensionCore.extensionCoreVersionCode))) {
                     arrayList.add(Long.valueOf(extensionCore.extensionCoreVersionCode));
                 }
             }
-            if (f7300a) {
+            if (f7724a) {
                 String str = "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray());
             }
             return arrayList;
@@ -226,9 +226,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) {
             if (i2 == 1) {
-                return b.a.p0.a.u1.a.a.y();
+                return b.a.p0.a.x1.a.a.z();
             }
-            return b.a.p0.a.u1.a.a.x();
+            return b.a.p0.a.x1.a.a.y();
         }
         return invokeI.booleanValue;
     }

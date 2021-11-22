@@ -1,9 +1,9 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.i.d.c.g;
-import b.i.d.c.n;
-import b.i.d.c.o1;
+import b.h.d.c.g;
+import b.h.d.c.n;
+import b.h.d.c.o1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.lang.Comparable;
 import java.util.Collection;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class RegularContiguousSet<C extends Comparable> extends ContiguousSet<C> {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
     public final Range<C> range;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class SerializedForm<C extends Comparable> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,16 +57,16 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public class a extends g<C> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final C f63544f;
+        public final C f64444f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ RegularContiguousSet f63545g;
+        public final /* synthetic */ RegularContiguousSet f64445g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(RegularContiguousSet regularContiguousSet, Comparable comparable) {
@@ -86,36 +86,36 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
                     return;
                 }
             }
-            this.f63545g = regularContiguousSet;
-            this.f63544f = (C) this.f63545g.last();
+            this.f64445g = regularContiguousSet;
+            this.f64444f = (C) this.f64445g.last();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.i.d.c.g
+        @Override // b.h.d.c.g
         /* renamed from: b */
         public C a(C c2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2)) == null) {
-                if (RegularContiguousSet.equalsOrThrow(c2, this.f63544f)) {
+                if (RegularContiguousSet.equalsOrThrow(c2, this.f64444f)) {
                     return null;
                 }
-                return this.f63545g.domain.next(c2);
+                return this.f64445g.domain.next(c2);
             }
             return (C) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public class b extends g<C> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final C f63546f;
+        public final C f64446f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ RegularContiguousSet f63547g;
+        public final /* synthetic */ RegularContiguousSet f64447g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(RegularContiguousSet regularContiguousSet, Comparable comparable) {
@@ -135,21 +135,21 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
                     return;
                 }
             }
-            this.f63547g = regularContiguousSet;
-            this.f63546f = (C) this.f63547g.first();
+            this.f64447g = regularContiguousSet;
+            this.f64446f = (C) this.f64447g.first();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.i.d.c.g
+        @Override // b.h.d.c.g
         /* renamed from: b */
         public C a(C c2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2)) == null) {
-                if (RegularContiguousSet.equalsOrThrow(c2, this.f63546f)) {
+                if (RegularContiguousSet.equalsOrThrow(c2, this.f64446f)) {
                     return null;
                 }
-                return this.f63547g.domain.previous(c2);
+                return this.f64447g.domain.previous(c2);
             }
             return (C) invokeL.objValue;
         }
@@ -259,7 +259,7 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
                         InterceptResult invokeI;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                            b.i.d.a.n.n(i2, size());
+                            b.h.d.a.n.n(i2, size());
                             RegularContiguousSet regularContiguousSet = this.this$0;
                             return (C) regularContiguousSet.domain.offset(regularContiguousSet.first(), i2);
                         }
@@ -325,8 +325,8 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, contiguousSet)) == null) {
-            b.i.d.a.n.p(contiguousSet);
-            b.i.d.a.n.d(this.domain.equals(contiguousSet.domain));
+            b.h.d.a.n.p(contiguousSet);
+            b.h.d.a.n.d(this.domain.equals(contiguousSet.domain));
             if (contiguousSet.isEmpty()) {
                 return contiguousSet;
             }

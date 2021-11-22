@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
-import b.a.e.e.p.l;
-import b.a.q0.d1.m0;
+import b.a.e.f.p.l;
+import b.a.q0.c1.m0;
 import b.a.r0.k2.s.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -35,7 +35,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a f45697e;
+    public c.a f46547e;
     public ImageUrlData mAssistUrlData;
     public c mTbGestureDetector;
     public String mUserId;
@@ -46,7 +46,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AbsFloorImageTextView f45698a;
+        public final /* synthetic */ AbsFloorImageTextView f46548a;
 
         public a(AbsFloorImageTextView absFloorImageTextView) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f45698a = absFloorImageTextView;
+            this.f46548a = absFloorImageTextView;
         }
 
         @Override // b.a.r0.k2.s.c.a
@@ -81,7 +81,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-                this.f45698a.jumpToPB();
+                this.f46548a.jumpToPB();
                 return true;
             }
             return invokeLL.booleanValue;
@@ -104,7 +104,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ AbsFloorImageTextView f45699h;
+        public final /* synthetic */ AbsFloorImageTextView f46549h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(AbsFloorImageTextView absFloorImageTextView, c.a aVar) {
@@ -124,7 +124,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f45699h = absFloorImageTextView;
+            this.f46549h = absFloorImageTextView;
         }
 
         @Override // b.a.r0.k2.s.c, android.view.GestureDetector.OnGestureListener
@@ -188,7 +188,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             }
         }
         a aVar = new a(this);
-        this.f45697e = aVar;
+        this.f46547e = aVar;
         this.mTbGestureDetector = new b(this, aVar);
     }
 

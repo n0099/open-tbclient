@@ -58,6 +58,7 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean mIsAd;
     public boolean mIsAlaLive;
     public boolean mIsShowTransmitShare;
+    public boolean mIsVoiceRoom;
     public String mPrePage;
     public int mPrivateThread;
     public boolean mShowMoreForumShare;

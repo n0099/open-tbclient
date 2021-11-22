@@ -283,7 +283,7 @@ public class NetRequestParam implements IHeaderMap {
     public static String encodeQuery(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) ? a.c(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) ? a.d(str) : (String) invokeL.objValue;
     }
 
     private Map<String, String> getJavaHeaderMap() {
@@ -352,6 +352,12 @@ public class NetRequestParam implements IHeaderMap {
             return hashMap;
         }
         return (Map) invokeL.objValue;
+    }
+
+    public static String transformJSONStringToQueryString(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) ? a.c(str) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.searchbox.v8engine.net.IHeaderMap

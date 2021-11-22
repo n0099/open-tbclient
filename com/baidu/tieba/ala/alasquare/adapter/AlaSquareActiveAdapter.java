@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alasquare.adapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import b.a.e.l.e.a;
+import b.a.e.m.e.a;
 import b.a.r0.w.f.a.b;
 import b.a.r0.w.f.i.c;
 import b.a.r0.w.f.i.d;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     public int n;
     public d o;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class SquareActiveViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public SquareActiveViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -67,7 +67,7 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b bVar, SquareActiveViewHolder squareActiveViewHolder) {
         InterceptResult invokeCommon;
@@ -80,7 +80,7 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
             cVar.j(bVar);
             b.a.r0.w.f.e.a.c().a(bVar.g("c12249", false));
             if (i2 == this.n) {
-                cVar.i().setAnimation(AnimationUtils.loadAnimation(this.f2419e, R.anim.list_anim));
+                cVar.i().setAnimation(AnimationUtils.loadAnimation(this.f2421e, R.anim.list_anim));
             }
             return squareActiveViewHolder.getView();
         }

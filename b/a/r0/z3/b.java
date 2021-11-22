@@ -1,116 +1,44 @@
 package b.a.r0.z3;
 
-import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes6.dex */
-public abstract class b {
+public class b {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseActivity f28273a;
+    public static long f29423a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f28274b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f28275c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f28276d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f28277e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f28278f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f28279g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f28280h;
-
-    public b(BaseActivity baseActivity, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f28274b = str;
-        this.f28275c = str2;
-        this.f28273a = baseActivity;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || k.isEmpty(this.f28279g)) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1673283493, "Lb/a/r0/z3/b;")) == null) {
             return;
         }
-        FileHelper.deleteFile(new File(this.f28279g));
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1673283493, "Lb/a/r0/z3/b;");
+        }
     }
 
-    public boolean b() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28280h : invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (System.currentTimeMillis() - f29423a < 1000) {
+                f29423a = System.currentTimeMillis();
+                return true;
+            }
+            f29423a = System.currentTimeMillis();
+            return false;
         }
-    }
-
-    public void d(int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
-            a();
-        }
-    }
-
-    public abstract void e();
-
-    public void f(VideoInfo videoInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, videoInfo) == null) {
-            a();
-        }
-    }
-
-    public void g(int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, str) == null) {
-            a();
-        }
-    }
-
-    public abstract void h();
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f28280h = z;
-        }
+        return invokeV.booleanValue;
     }
 }

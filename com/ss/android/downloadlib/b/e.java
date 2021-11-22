@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.a.a;
 /* loaded from: classes2.dex */
-public class e implements a.InterfaceC1983a {
+public class e implements a.InterfaceC2021a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f68713a;
+    public long f69633a;
 
     /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static e f68717a;
+        public static e f69637a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -38,19 +38,19 @@ public class e implements a.InterfaceC1983a {
                     return;
                 }
             }
-            f68717a = new e();
+            f69637a = new e();
         }
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC1983a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2021a
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f68713a = System.currentTimeMillis();
+            this.f69633a = System.currentTimeMillis();
         }
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC1983a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2021a
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -70,14 +70,14 @@ public class e implements a.InterfaceC1983a {
                 return;
             }
         }
-        this.f68713a = 0L;
+        this.f69633a = 0L;
         com.ss.android.socialbase.downloader.a.a.a().a(this);
     }
 
     public static e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f68717a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f69637a : (e) invokeV.objValue;
     }
 
     public void b(d dVar) {
@@ -99,13 +99,13 @@ public class e implements a.InterfaceC1983a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f68714a;
+            public final /* synthetic */ long f69634a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d f68715b;
+            public final /* synthetic */ d f69635b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ e f68716c;
+            public final /* synthetic */ e f69636c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -122,19 +122,19 @@ public class e implements a.InterfaceC1983a {
                         return;
                     }
                 }
-                this.f68716c = this;
-                this.f68714a = j;
-                this.f68715b = dVar;
+                this.f69636c = this;
+                this.f69634a = j;
+                this.f69635b = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (com.ss.android.socialbase.downloader.a.a.a().c() && System.currentTimeMillis() - this.f68716c.f68713a > this.f68714a) {
-                        this.f68715b.a(false);
+                    if (com.ss.android.socialbase.downloader.a.a.a().c() && System.currentTimeMillis() - this.f69636c.f69633a > this.f69634a) {
+                        this.f69635b.a(false);
                     } else {
-                        this.f68715b.a(true);
+                        this.f69635b.a(true);
                     }
                 }
             }

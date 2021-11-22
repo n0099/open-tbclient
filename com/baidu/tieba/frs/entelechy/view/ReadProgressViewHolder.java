@@ -4,11 +4,11 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
-import b.a.r0.x0.b1;
 import b.a.r0.x0.c1;
 import b.a.r0.x0.d1;
 import b.a.r0.x0.e1;
-import b.a.r0.x0.h1;
+import b.a.r0.x0.f1;
+import b.a.r0.x0.i1;
 import b.a.r0.x0.u;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,10 +27,10 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f48488a;
+    public static final int f49352a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f48489b;
+    public static final int f49353b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public View mRoot;
@@ -49,9 +49,9 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        UtilHelper.getDimenPixelSize(c1.M_H_X002);
-        f48488a = UtilHelper.getDimenPixelSize(c1.M_H_X003);
-        f48489b = UtilHelper.getDimenPixelSize(c1.M_H_X005);
+        UtilHelper.getDimenPixelSize(d1.M_H_X002);
+        f49352a = UtilHelper.getDimenPixelSize(d1.M_H_X003);
+        f49353b = UtilHelper.getDimenPixelSize(d1.M_H_X005);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -73,19 +73,19 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.mRoot = view;
-        TextView textView = (TextView) view.findViewById(e1.view_frs_read_progress);
+        TextView textView = (TextView) view.findViewById(f1.view_frs_read_progress);
         this.mTipView = textView;
-        int i4 = f48489b;
-        textView.setPadding(0, i4, 0, i4 - f48488a);
+        int i4 = f49353b;
+        textView.setPadding(0, i4, 0, i4 - f49352a);
         this.mContext = context;
     }
 
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setViewTextColor(this.mTipView, b1.CAM_X0304);
-            Drawable pureDrawable = WebPManager.getPureDrawable(d1.icon_pure_card_refresh16, SkinManager.getColor(b1.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
-            pureDrawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(c1.tbds42), UtilHelper.getDimenPixelSize(c1.tbds42));
+            SkinManager.setViewTextColor(this.mTipView, c1.CAM_X0304);
+            Drawable pureDrawable = WebPManager.getPureDrawable(e1.icon_pure_card_refresh16, SkinManager.getColor(c1.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
+            pureDrawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(d1.tbds42), UtilHelper.getDimenPixelSize(d1.tbds42));
             this.mTipView.setCompoundDrawables(pureDrawable, null, null, null);
         }
     }
@@ -95,7 +95,7 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uVar) == null) || uVar == null) {
             return;
         }
-        this.mTipView.setText(h1.read_here);
+        this.mTipView.setText(i1.read_here);
         changeSkinType();
     }
 }

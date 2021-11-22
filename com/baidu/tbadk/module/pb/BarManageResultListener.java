@@ -87,14 +87,14 @@ public class BarManageResultListener extends SimpleMessageListener {
         @NonNull
 
         /* renamed from: a  reason: collision with root package name */
-        public OptType f45979a;
+        public OptType f46829a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f45980b;
+        public boolean f46830b;
         @Nullable
 
         /* renamed from: c  reason: collision with root package name */
-        public String f45981c;
+        public String f46831c;
 
         public a(@NonNull OptType optType, boolean z, @Nullable String str) {
             Interceptable interceptable = $ic;
@@ -111,9 +111,9 @@ public class BarManageResultListener extends SimpleMessageListener {
                     return;
                 }
             }
-            this.f45979a = optType;
-            this.f45980b = z;
-            this.f45981c = str;
+            this.f46829a = optType;
+            this.f46830b = z;
+            this.f46831c = str;
         }
 
         public static a a(@NonNull OptType optType, boolean z, @Nullable String str) {
@@ -126,20 +126,20 @@ public class BarManageResultListener extends SimpleMessageListener {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45981c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46831c : (String) invokeV.objValue;
         }
 
         @NonNull
         public OptType c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45979a : (OptType) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46829a : (OptType) invokeV.objValue;
         }
 
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45980b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46830b : invokeV.booleanValue;
         }
     }
 

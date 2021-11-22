@@ -19,31 +19,31 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f19737a;
+    public f f21274a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f19738b;
+    public f f21275b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f19739c;
+    public boolean f21276c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MutableLiveData<d2> f19740d;
+    public MutableLiveData<d2> f21277d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Rect f19741e;
+    public Rect f21278e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19742f;
+    public boolean f21279f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<f> f19743g;
+    public LinkedList<f> f21280g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MutableLiveData<d2> f19744h;
+    public MutableLiveData<d2> f21281h;
 
     /* renamed from: i  reason: collision with root package name */
-    public MutableLiveData<d2> f19745i;
+    public MutableLiveData<d2> f21282i;
     public MutableLiveData<Boolean> j;
     public MutableLiveData<Boolean> k;
     public MutableLiveData<Boolean> l;
@@ -62,10 +62,10 @@ public class d {
                 return;
             }
         }
-        this.f19740d = new MutableLiveData<>();
-        this.f19743g = new LinkedList<>();
-        this.f19744h = new MutableLiveData<>();
-        this.f19745i = new MutableLiveData<>();
+        this.f21277d = new MutableLiveData<>();
+        this.f21280g = new LinkedList<>();
+        this.f21281h = new MutableLiveData<>();
+        this.f21282i = new MutableLiveData<>();
         this.j = new MutableLiveData<>();
         this.k = new MutableLiveData<>();
         new MutableLiveData();
@@ -82,13 +82,13 @@ public class d {
     public f b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19738b : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21275b : (f) invokeV.objValue;
     }
 
     public f c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19737a : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21274a : (f) invokeV.objValue;
     }
 
     public MutableLiveData<Boolean> d() {
@@ -106,43 +106,43 @@ public class d {
     public MutableLiveData<d2> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f19745i : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21282i : (MutableLiveData) invokeV.objValue;
     }
 
     public Rect g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19741e : (Rect) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21278e : (Rect) invokeV.objValue;
     }
 
     public MutableLiveData<d2> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f19744h : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f21281h : (MutableLiveData) invokeV.objValue;
     }
 
     public MutableLiveData<d2> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19740d : (MutableLiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f21277d : (MutableLiveData) invokeV.objValue;
     }
 
     public LinkedList<f> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f19743g : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f21280g : (LinkedList) invokeV.objValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f19739c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f21276c : invokeV.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f19742f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f21279f : invokeV.booleanValue;
     }
 
     public MutableLiveData<Boolean> m() {
@@ -161,9 +161,9 @@ public class d {
     public void o(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, fVar) == null) {
-            this.f19738b = fVar;
+            this.f21275b = fVar;
             if (fVar != null) {
-                this.f19740d.setValue(fVar.O());
+                this.f21277d.setValue(fVar.O());
                 if (ListUtils.isEmpty(fVar.f())) {
                     return;
                 }
@@ -175,17 +175,17 @@ public class d {
     public void p(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, fVar) == null) {
-            this.f19737a = fVar;
+            this.f21274a = fVar;
             o(fVar);
-            this.f19744h.setValue(null);
-            this.f19740d.setValue(fVar.O());
+            this.f21281h.setValue(null);
+            this.f21277d.setValue(fVar.O());
         }
     }
 
     public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.f19739c = z;
+            this.f21276c = z;
         }
     }
 
@@ -213,28 +213,28 @@ public class d {
     public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.f19742f = z;
+            this.f21279f = z;
         }
     }
 
     public void v(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, d2Var) == null) {
-            this.f19745i.setValue(d2Var);
+            this.f21282i.setValue(d2Var);
         }
     }
 
     public void w(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, rect) == null) {
-            this.f19741e = rect;
+            this.f21278e = rect;
         }
     }
 
     public void x(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, d2Var) == null) {
-            this.f19744h.setValue(d2Var);
+            this.f21281h.setValue(d2Var);
         }
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d extends b.a.q0.f1.n.a {
+public class d extends b.a.q0.e1.n.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static double K = 0.5d;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class d extends b.a.q0.f1.n.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f19168a;
+        public final /* synthetic */ d f20701a;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class d extends b.a.q0.f1.n.a {
                     return;
                 }
             }
-            this.f19168a = dVar;
+            this.f20701a = dVar;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.h
@@ -63,7 +63,7 @@ public class d extends b.a.q0.f1.n.a {
                 return;
             }
             Matrix imageMatrix = tbImageView.getImageMatrix();
-            b.a.e.l.d.a m = b.a.q0.c0.c.k().m(b.a.e.e.l.d.h().g(tbImageView.getUrl(), this.f19168a.r ? 17 : 18));
+            b.a.e.m.d.a m = b.a.q0.c0.c.k().m(b.a.e.f.l.d.h().g(tbImageView.getUrl(), this.f20701a.r ? 17 : 18));
             int i3 = 0;
             if (m != null) {
                 i3 = m.r();
@@ -105,7 +105,7 @@ public class d extends b.a.q0.f1.n.a {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(b.a.q0.f1.n.a aVar) {
+    public d(b.a.q0.e1.n.a aVar) {
         super(aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -116,7 +116,7 @@ public class d extends b.a.q0.f1.n.a {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((b.a.q0.f1.n.a) newInitContext.callArgs[0]);
+                super((b.a.q0.e1.n.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -126,18 +126,18 @@ public class d extends b.a.q0.f1.n.a {
         t();
         o(TbConfig.getPostLineSpace(), 1.0f);
         y(0);
-        l(b.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds30));
-        m(b.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds12));
-        i(b.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds48), b.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds48));
-        r(b.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.M_H_X004), b.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.M_H_X004));
-        j(b.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.M_H_X004));
-        this.G = b.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds749);
-        this.H = b.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds10);
-        b.a.e.e.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds26);
+        l(b.a.e.f.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds30));
+        m(b.a.e.f.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds12));
+        i(b.a.e.f.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds48), b.a.e.f.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds48));
+        r(b.a.e.f.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.M_H_X004), b.a.e.f.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.M_H_X004));
+        j(b.a.e.f.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.M_H_X004));
+        this.G = b.a.e.f.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds749);
+        this.H = b.a.e.f.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds10);
+        b.a.e.f.p.l.g(TbadkCoreApplication.getInst().getContext(), b.a.r0.k2.g.tbds26);
         this.I = new a(this);
     }
 
-    @Override // b.a.q0.f1.n.a
+    @Override // b.a.q0.e1.n.a
     public int[] e(int i2, int i3, int i4, int i5) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public class d extends b.a.q0.f1.n.a {
                 return null;
             }
             if (this.s) {
-                float f2 = b.a.q0.f1.n.a.J;
+                float f2 = b.a.q0.e1.n.a.J;
                 if (f2 > 1.0f) {
                     float f3 = i2;
                     if (f3 * f2 <= i4 * K) {

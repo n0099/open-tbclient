@@ -14,16 +14,16 @@ public abstract class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f29352a;
+    public final int f30221a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29353b;
+    public final int f30222b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f29354c;
+    public final int f30223c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f29355d;
+    public final int f30224d;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -31,28 +31,28 @@ public abstract class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f29356a;
+        public int f30225a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f29357b;
+        public long f30226b;
 
         /* renamed from: c  reason: collision with root package name */
-        public byte[] f29358c;
+        public byte[] f30227c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f29359d;
+        public int f30228d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f29360e;
+        public int f30229e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f29361f;
+        public boolean f30230f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f29362g;
+        public int f30231g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f29363h;
+        public int f30232h;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public abstract class b {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", a.class.getSimpleName(), Arrays.toString(this.f29358c), Integer.valueOf(this.f29362g), Boolean.valueOf(this.f29361f), Integer.valueOf(this.f29356a), Long.valueOf(this.f29357b), Integer.valueOf(this.f29363h), Integer.valueOf(this.f29359d), Integer.valueOf(this.f29360e)) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", a.class.getSimpleName(), Arrays.toString(this.f30227c), Integer.valueOf(this.f30231g), Boolean.valueOf(this.f30230f), Integer.valueOf(this.f30225a), Long.valueOf(this.f30226b), Integer.valueOf(this.f30232h), Integer.valueOf(this.f30228d), Integer.valueOf(this.f30229e)) : (String) invokeV.objValue;
         }
     }
 
@@ -90,18 +90,18 @@ public abstract class b {
                 return;
             }
         }
-        this.f29352a = i2;
-        this.f29353b = i3;
-        this.f29354c = i4 > 0 && i5 > 0 ? (i4 / i3) * i3 : 0;
-        this.f29355d = i5;
+        this.f30221a = i2;
+        this.f30222b = i3;
+        this.f30223c = i4 > 0 && i5 > 0 ? (i4 / i3) * i3 : 0;
+        this.f30224d = i5;
     }
 
     public int a(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            if (aVar.f29358c != null) {
-                return aVar.f29359d - aVar.f29360e;
+            if (aVar.f30227c != null) {
+                return aVar.f30228d - aVar.f30229e;
             }
             return 0;
         }
@@ -143,7 +143,7 @@ public abstract class b {
             a aVar = new a();
             c(bArr, 0, bArr.length, aVar);
             c(bArr, 0, -1, aVar);
-            int i2 = aVar.f29359d;
+            int i2 = aVar.f30228d;
             byte[] bArr2 = new byte[i2];
             l(bArr2, 0, i2, aVar);
             return bArr2;
@@ -163,7 +163,7 @@ public abstract class b {
             a aVar = new a();
             f(bArr, 0, bArr.length, aVar);
             f(bArr, 0, -1, aVar);
-            int i2 = aVar.f29359d - aVar.f29360e;
+            int i2 = aVar.f30228d - aVar.f30229e;
             byte[] bArr2 = new byte[i2];
             l(bArr2, 0, i2, aVar);
             return bArr2;
@@ -175,8 +175,8 @@ public abstract class b {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i2, aVar)) == null) {
-            byte[] bArr = aVar.f29358c;
-            return (bArr == null || bArr.length < aVar.f29359d + i2) ? m(aVar) : bArr;
+            byte[] bArr = aVar.f30227c;
+            return (bArr == null || bArr.length < aVar.f30228d + i2) ? m(aVar) : bArr;
         }
         return (byte[]) invokeIL.objValue;
     }
@@ -195,10 +195,10 @@ public abstract class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, bArr)) == null) {
             int length = bArr.length;
-            int i2 = this.f29352a;
-            long j = (((length + i2) - 1) / i2) * this.f29353b;
-            int i3 = this.f29354c;
-            return i3 > 0 ? j + ((((i3 + j) - 1) / i3) * this.f29355d) : j;
+            int i2 = this.f30221a;
+            long j = (((length + i2) - 1) / i2) * this.f30222b;
+            int i3 = this.f30223c;
+            return i3 > 0 ? j + ((((i3 + j) - 1) / i3) * this.f30224d) : j;
         }
         return invokeL.longValue;
     }
@@ -209,15 +209,15 @@ public abstract class b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), aVar})) == null) {
-            if (aVar.f29358c == null) {
-                return aVar.f29361f ? -1 : 0;
+            if (aVar.f30227c == null) {
+                return aVar.f30230f ? -1 : 0;
             }
             int min = Math.min(a(aVar), i3);
-            System.arraycopy(aVar.f29358c, aVar.f29360e, bArr, i2, min);
-            int i4 = aVar.f29360e + min;
-            aVar.f29360e = i4;
-            if (i4 >= aVar.f29359d) {
-                aVar.f29358c = null;
+            System.arraycopy(aVar.f30227c, aVar.f30229e, bArr, i2, min);
+            int i4 = aVar.f30229e + min;
+            aVar.f30229e = i4;
+            if (i4 >= aVar.f30228d) {
+                aVar.f30227c = null;
             }
             return min;
         }
@@ -228,17 +228,17 @@ public abstract class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, aVar)) == null) {
-            byte[] bArr = aVar.f29358c;
+            byte[] bArr = aVar.f30227c;
             if (bArr == null) {
-                aVar.f29358c = new byte[i()];
-                aVar.f29359d = 0;
-                aVar.f29360e = 0;
+                aVar.f30227c = new byte[i()];
+                aVar.f30228d = 0;
+                aVar.f30229e = 0;
             } else {
                 byte[] bArr2 = new byte[bArr.length * 2];
                 System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
-                aVar.f29358c = bArr2;
+                aVar.f30227c = bArr2;
             }
-            return aVar.f29358c;
+            return aVar.f30227c;
         }
         return (byte[]) invokeL.objValue;
     }

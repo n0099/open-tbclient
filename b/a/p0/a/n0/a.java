@@ -1,10 +1,11 @@
 package b.a.p0.a.n0;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import b.a.p0.a.e2.c.h;
+import b.a.p0.a.h2.c.h;
 import b.a.p0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.callback.ResponseCallback;
@@ -27,16 +28,16 @@ public abstract class a implements c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f6774a;
+    public static final boolean f7102a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.p0.a.n0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0305a extends ResponseCallback<JSONObject> {
+    public class C0317a extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0305a(a aVar) {
+        public C0317a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +59,7 @@ public abstract class a implements c {
         public void onSuccess(JSONObject jSONObject, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
-                boolean unused = a.f6774a;
+                boolean unused = a.f7102a;
             }
         }
 
@@ -69,7 +70,7 @@ public abstract class a implements c {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i2)) == null) {
-                boolean unused = a.f6774a;
+                boolean unused = a.f7102a;
                 if (response == null || response.body() == null) {
                     return null;
                 }
@@ -85,7 +86,7 @@ public abstract class a implements c {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) && a.f6774a) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) && a.f7102a) {
                 String str = "onFail: " + exc;
             }
         }
@@ -104,7 +105,7 @@ public abstract class a implements c {
                 return;
             }
         }
-        f6774a = k.f6397a;
+        f7102a = k.f6863a;
     }
 
     public a() {
@@ -125,13 +126,13 @@ public abstract class a implements c {
     public final ResponseCallback<JSONObject> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0305a(this) : (ResponseCallback) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0317a(this) : (ResponseCallback) invokeV.objValue;
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            b.a.p0.n.g.a.h().c(str);
+            b.a.p0.q.g.a.i().c(str);
         }
     }
 
@@ -140,25 +141,25 @@ public abstract class a implements c {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.isEmpty()) {
             return;
         }
-        boolean z = f6774a;
+        boolean z = f7102a;
         Set<String> d2 = e.d(list);
         HashSet<String> hashSet = new HashSet(list);
         if (d2 != null) {
             hashSet.removeAll(d2);
         }
-        b.a.p0.a.k2.h.d.j().g("aiapp_setting_", hashSet, false);
-        b.a.p0.a.k2.h.d.j().g("aiapp_", hashSet, false);
+        b.a.p0.a.o2.h.d.j().g("aiapp_setting_", hashSet, false);
+        b.a.p0.a.o2.h.d.j().g("aiapp_", hashSet, false);
         for (String str : hashSet) {
-            if (f6774a) {
+            if (f7102a) {
                 String str2 = "clear storage files: " + str;
             }
-            String v = b.a.p0.a.k2.b.v(str);
+            String v = b.a.p0.a.o2.b.v(str);
             if (!TextUtils.isEmpty(v)) {
-                b.a.p0.t.d.L(v);
+                b.a.p0.w.d.M(v);
             }
-            String x = b.a.p0.a.k2.b.x(str);
+            String x = b.a.p0.a.o2.b.x(str);
             if (!TextUtils.isEmpty(x)) {
-                b.a.p0.t.d.L(x);
+                b.a.p0.w.d.M(x);
             }
         }
     }
@@ -166,40 +167,41 @@ public abstract class a implements c {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            b.a.p0.n.g.a.h().g(str);
-            b.a.p0.n.g.a.h().e(b.a.p0.n.h.f.class, str);
+            b.a.p0.q.g.a.i().h(str);
+            b.a.p0.q.g.a.i().e(b.a.p0.q.i.g.class, str);
         }
     }
 
+    @SuppressLint({"BDThrowableCheck"})
     public void g(@Nullable List<String> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || list == null || list.isEmpty()) {
             return;
         }
-        boolean z = f6774a;
+        boolean z = f7102a;
         ArrayMap arrayMap = new ArrayMap();
         arrayMap.put("ma_ids", list);
         JSONObject jSONObject = new JSONObject();
         try {
-            h a2 = b.a.p0.a.c1.a.p().a();
+            h a2 = b.a.p0.a.c1.a.q().a();
             jSONObject.put("accredit", new JSONObject(arrayMap));
-            String t = b.a.p0.a.c1.a.n().t();
-            b.a.p0.m.a b2 = b.a.p0.m.b.b();
+            String v = b.a.p0.a.c1.a.o().v();
+            b.a.p0.p.a b2 = b.a.p0.p.b.b();
             if (b2 == null) {
-                if (!f6774a) {
-                    b.a.p0.a.e0.d.b("AbsDefaultPurger", "get network obj failed on resetAccredit");
+                if (!f7102a) {
+                    b.a.p0.a.e0.d.c("AbsDefaultPurger", "get network obj failed on resetAccredit");
                 } else {
                     throw new RuntimeException("SwanNetworkRuntime.getSwanNetwork return null , check inject");
                 }
             }
-            b.a.p0.m.e.a g2 = b.a.p0.m.e.a.g();
+            b.a.p0.p.e.a g2 = b.a.p0.p.e.a.g();
             if (!g2.c()) {
                 b2 = null;
             }
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) g2.postFormRequest().url(t)).addParam("data", jSONObject.toString()).userAgent(b2 != null ? b2.a() : "")).cookieManager(a2)).build().executeAsyncOnUIBack(c());
+            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) g2.postFormRequest().url(v)).addParam("data", jSONObject.toString()).userAgent(b2 != null ? b2.a() : "")).cookieManager(a2)).build().executeAsyncOnUIBack(c());
         } catch (JSONException e2) {
             e2.printStackTrace();
-            boolean z2 = f6774a;
+            boolean z2 = f7102a;
         }
     }
 }

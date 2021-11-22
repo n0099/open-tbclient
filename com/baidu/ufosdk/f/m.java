@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -271,7 +271,7 @@ public final class m {
         InputStream inputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            Bitmap bitmap = com.baidu.ufosdk.b.f56646g;
+            Bitmap bitmap = com.baidu.ufosdk.b.f57568g;
             if (bitmap != null) {
                 return bitmap;
             }

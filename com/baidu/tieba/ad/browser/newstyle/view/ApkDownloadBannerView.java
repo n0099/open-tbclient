@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.r.e.g.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ApkDownloadBannerView extends LinearLayout implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int POS_LEFT = 0;
@@ -31,29 +31,29 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f46667e;
+    public int f47531e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f46668f;
+    public View f47532f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BannerDownloadProgressBar f46669g;
+    public BannerDownloadProgressBar f47533g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BannerDownloadStateBar f46670h;
+    public BannerDownloadStateBar f47534h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BannerDownloadStateBar f46671i;
+    public BannerDownloadStateBar f47535i;
     public TextView j;
     public int k;
     public boolean l;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f46672a;
+        public static final /* synthetic */ int[] f47536a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -70,25 +70,25 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
                 }
             }
             int[] iArr = new int[DownloadStatus.values().length];
-            f46672a = iArr;
+            f47536a = iArr;
             try {
                 iArr[DownloadStatus.STATUS_NONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f46672a[DownloadStatus.STATUS_SUCCESS.ordinal()] = 2;
+                f47536a[DownloadStatus.STATUS_SUCCESS.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f46672a[DownloadStatus.STATUS_INSTALL_SUCCESS.ordinal()] = 3;
+                f47536a[DownloadStatus.STATUS_INSTALL_SUCCESS.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f46672a[DownloadStatus.STATUS_DOWNLOADING.ordinal()] = 4;
+                f47536a[DownloadStatus.STATUS_DOWNLOADING.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f46672a[DownloadStatus.STATUS_PAUSED.ordinal()] = 5;
+                f47536a[DownloadStatus.STATUS_PAUSED.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -118,16 +118,16 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f46668f = LayoutInflater.from(context).inflate(R.layout.ad_apk_download_banner_view, (ViewGroup) this, true);
+            this.f47532f = LayoutInflater.from(context).inflate(R.layout.ad_apk_download_banner_view, (ViewGroup) this, true);
             setOrientation(1);
             int e2 = l.e(getContext(), 22.0f);
             int e3 = l.e(getContext(), 11.0f);
             setPadding(e2, e3, e2, e3);
-            this.f46669g = (BannerDownloadProgressBar) this.f46668f.findViewById(R.id.apk_download_progress);
-            this.f46670h = (BannerDownloadStateBar) this.f46668f.findViewById(R.id.apk_download_state_left);
-            this.f46671i = (BannerDownloadStateBar) this.f46668f.findViewById(R.id.apk_download_state_right);
-            this.f46669g.setTextColor(Color.parseColor("#999999"));
-            TextView textView = (TextView) this.f46668f.findViewById(R.id.download_waring);
+            this.f47533g = (BannerDownloadProgressBar) this.f47532f.findViewById(R.id.apk_download_progress);
+            this.f47534h = (BannerDownloadStateBar) this.f47532f.findViewById(R.id.apk_download_state_left);
+            this.f47535i = (BannerDownloadStateBar) this.f47532f.findViewById(R.id.apk_download_state_right);
+            this.f47533g.setTextColor(Color.parseColor("#999999"));
+            TextView textView = (TextView) this.f47532f.findViewById(R.id.download_waring);
             this.j = textView;
             textView.setVisibility(this.l ? 0 : 8);
         }
@@ -137,7 +137,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadStatus)) == null) {
-            int i2 = a.f46672a[downloadStatus.ordinal()];
+            int i2 = a.f47536a[downloadStatus.ordinal()];
             if (i2 != 2) {
                 if (i2 != 3) {
                     if (i2 != 4) {
@@ -180,7 +180,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     public void onProgressChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f46669g.setProgress(i2);
+            this.f47533g.setProgress(i2);
         }
     }
 
@@ -188,16 +188,16 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     public void onStateAndProgressChanged(DownloadStatus downloadStatus, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadStatus, i2) == null) {
-            int i3 = a.f46672a[downloadStatus.ordinal()];
+            int i3 = a.f47536a[downloadStatus.ordinal()];
             if (i3 == 1) {
                 onProgressChanged(0);
-                this.f46669g.setText("");
+                this.f47533g.setText("");
             } else if (i3 == 2 || i3 == 3) {
-                onProgressChanged(this.f46667e);
-                this.f46669g.setText("");
+                onProgressChanged(this.f47531e);
+                this.f47533g.setText("");
             } else if (i3 != 4 && i3 != 5) {
                 onProgressChanged(0);
-                this.f46669g.setText("");
+                this.f47533g.setText("");
             } else {
                 onProgressChanged(i2);
             }
@@ -218,14 +218,14 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
             this.k = i2;
             if (i2 == 0) {
-                this.f46670h.setVisibility(0);
-                this.f46671i.setVisibility(8);
+                this.f47534h.setVisibility(0);
+                this.f47535i.setVisibility(8);
             } else if (i2 != 1) {
-                this.f46670h.setVisibility(0);
-                this.f46671i.setVisibility(8);
+                this.f47534h.setVisibility(0);
+                this.f47535i.setVisibility(8);
             } else {
-                this.f46670h.setVisibility(8);
-                this.f46671i.setVisibility(0);
+                this.f47534h.setVisibility(8);
+                this.f47535i.setVisibility(0);
             }
         }
     }
@@ -264,7 +264,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     public BannerDownloadStateBar getActionBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46670h.getVisibility() == 0 ? this.f46670h : this.f46671i : (BannerDownloadStateBar) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f47534h.getVisibility() == 0 ? this.f47534h : this.f47535i : (BannerDownloadStateBar) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -286,7 +286,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
                 return;
             }
         }
-        this.f46667e = 100;
+        this.f47531e = 100;
         this.k = 1;
         this.l = true;
         a(context);

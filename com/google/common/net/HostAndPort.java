@@ -1,9 +1,9 @@
 package com.google.common.net;
 
 import androidx.core.view.InputDeviceCompat;
-import b.i.d.a.k;
-import b.i.d.a.n;
-import b.i.d.a.q;
+import b.h.d.a.k;
+import b.h.d.a.n;
+import b.h.d.a.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class HostAndPort implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NO_PORT = -1;

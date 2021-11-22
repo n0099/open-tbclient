@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ArrayCompositeDisposable extends AtomicReferenceArray<Disposable> implements Disposable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2746389416410565408L;

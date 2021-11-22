@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class Anchor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f63083a;
+    public long f63983a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class CloudAnchorState {
         public static final /* synthetic */ CloudAnchorState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -138,7 +138,7 @@ public class Anchor {
                 return;
             }
         }
-        this.f63083a = 0L;
+        this.f63983a = 0L;
     }
 
     private native void nativeDetach(long j, long j2);
@@ -147,7 +147,7 @@ public class Anchor {
 
     private native int nativeGetCloudAnchorState(long j, long j2);
 
-    private native b.i.c.a.a nativeGetPose(long j, long j2);
+    private native b.h.c.a.a nativeGetPose(long j, long j2);
 
     private native int nativeGetTrackingState(long j, long j2);
 
@@ -156,13 +156,13 @@ public class Anchor {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == Anchor.class && ((Anchor) obj).f63083a == this.f63083a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == Anchor.class && ((Anchor) obj).f63983a == this.f63983a : invokeL.booleanValue;
     }
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j = this.f63083a;
+            long j = this.f63983a;
             if (j != 0) {
                 nativeReleaseAnchor(j);
             }
@@ -173,6 +173,6 @@ public class Anchor {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f63083a).hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f63983a).hashCode() : invokeV.intValue;
     }
 }

@@ -1,6 +1,6 @@
 package b.a.r0.h1.h.j;
 
-import b.a.r0.b0.e0.p;
+import b.a.r0.b0.f0.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ActiveCenter;
 /* loaded from: classes4.dex */
-public class g extends b.a.r0.b0.e0.b implements p {
+public class g extends b.a.r0.b0.f0.b implements q {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId W;
+    public static final BdUniqueId Y;
     public transient /* synthetic */ FieldHolder $fh;
-    public int U;
-    public ActiveCenterData V;
+    public int W;
+    public ActiveCenterData X;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public class g extends b.a.r0.b0.e0.b implements p {
                 return;
             }
         }
-        W = BdUniqueId.gen();
+        Y = BdUniqueId.gen();
     }
 
     public g() {
@@ -56,32 +56,32 @@ public class g extends b.a.r0.b0.e0.b implements p {
             return;
         }
         ActiveCenterData activeCenterData = new ActiveCenterData();
-        this.V = activeCenterData;
+        this.X = activeCenterData;
         activeCenterData.parseProto(activeCenter);
     }
 
-    @Override // b.a.r0.b0.e0.p
+    @Override // b.a.r0.b0.f0.q
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
         }
     }
 
-    @Override // b.a.r0.b0.e0.p
+    @Override // b.a.r0.b0.f0.q
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.U : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.W : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? W : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Y : (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // b.a.r0.b0.e0.p
+    @Override // b.a.r0.b0.f0.q
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class g extends b.a.r0.b0.e0.b implements p {
         return invokeV.booleanValue;
     }
 
-    @Override // b.a.r0.b0.e0.p
+    @Override // b.a.r0.b0.f0.q
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {

@@ -22,19 +22,19 @@ public class l1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f13389a;
+    public final long f14169a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13390b;
+    public String f14170b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13391c;
+    public int f14171c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f13392d;
+    public boolean f14172d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13393e;
+    public boolean f14173e;
 
     static {
         InterceptResult invokeClinit;
@@ -67,8 +67,8 @@ public class l1 {
                 return;
             }
         }
-        this.f13390b = "0";
-        this.f13389a = j;
+        this.f14170b = "0";
+        this.f14169a = j;
     }
 
     public static l1 g(@NonNull WriteData writeData, int i2) {
@@ -77,10 +77,10 @@ public class l1 {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, writeData, i2)) == null) {
             l1 l1Var = new l1(writeData.startPublishTime());
             if (!TextUtils.isEmpty(writeData.getForumId())) {
-                l1Var.f13390b = writeData.getForumId();
+                l1Var.f14170b = writeData.getForumId();
             }
-            l1Var.f13393e = writeData.isWork();
-            l1Var.f13391c = i2;
+            l1Var.f14173e = writeData.isWork();
+            l1Var.f14171c = i2;
             return l1Var;
         }
         return (l1) invokeLI.objValue;
@@ -89,32 +89,32 @@ public class l1 {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13391c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14171c : invokeV.intValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f13392d = false;
+            this.f14172d = false;
         }
     }
 
     public boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f13390b.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f14170b.equals(str) : invokeL.booleanValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13392d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14172d : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13393e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14173e : invokeV.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -124,7 +124,7 @@ public class l1 {
             if (this == obj) {
                 return true;
             }
-            return (obj instanceof l1) && this.f13389a == ((l1) obj).f13389a;
+            return (obj instanceof l1) && this.f14169a == ((l1) obj).f14169a;
         }
         return invokeL.booleanValue;
     }
@@ -132,12 +132,12 @@ public class l1 {
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f13392d = z;
-            if (this.f13389a > 0) {
+            this.f14172d = z;
+            if (this.f14169a > 0) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921526, this));
-                if (this.f13393e && this.f13391c == 93) {
+                if (this.f14173e && this.f14171c == 93) {
                     WorkPostNotifyFlutterData g2 = WorkPostNotifyFlutterData.g();
-                    g2.i(b.a.r0.l3.s0.g.j().i());
+                    g2.i(b.a.r0.m3.s0.g.j().i());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, g2));
                 }
             }
@@ -147,16 +147,16 @@ public class l1 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Objects.hash(Long.valueOf(this.f13389a)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Objects.hash(Long.valueOf(this.f14169a)) : invokeV.intValue;
     }
 
     public void update(@NonNull l1 l1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, l1Var) == null) {
-            if (!l1Var.f13392d) {
-                this.f13392d = false;
+            if (!l1Var.f14172d) {
+                this.f14172d = false;
             }
-            this.f13391c = l1Var.a();
+            this.f14171c = l1Var.a();
         }
     }
 }

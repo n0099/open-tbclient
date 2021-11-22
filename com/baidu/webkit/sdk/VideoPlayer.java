@@ -22,6 +22,7 @@ public abstract class VideoPlayer {
     public static final int DATA_ID_PLAYER_EXT = 16;
     public static final int DATA_ID_PROXY = 6;
     public static final int DATA_ID_REFERRER = 9;
+    public static final int DATA_ID_START_ON_PREPARE = 17;
     public static final int DATA_ID_USER_AGENT = 2;
     public static final int DATA_ID_VIDEO_TITLE = 1;
     public static final int DATA_ID_VIDEO_URL = 0;
@@ -46,6 +47,7 @@ public abstract class VideoPlayer {
     public static final int NOTIFY_EXIT_FULLSCREEN = 2;
     public static final int NOTIFY_SET_HTTP_PROXY_HEADER = 4;
     public static final int NOTIFY_SET_RATE = 6;
+    public static final int NOTIFY_SET_STATISTIC_INFO = 9;
     public static final int NOTIFY_SET_SURFACE = 3;
     public static final int NOTIFY_SET_VOLUME = 5;
     public static final int NOTIFY_SET_ZEUS_VIDEO_EXT = 8;
@@ -56,11 +58,11 @@ public abstract class VideoPlayer {
 
     /* loaded from: classes11.dex */
     public interface VideoPlayerListener {
-        void onEnded();
+        void onEnded(int i2);
 
-        void onError(int i2);
+        void onError(int i2, int i3, Object obj);
 
-        void onInfo(int i2, Object obj);
+        void onInfo(int i2, int i3, Object obj);
 
         void onPaused();
 

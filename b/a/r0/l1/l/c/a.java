@@ -21,48 +21,48 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Pattern f20256a;
+    public static Pattern f21778a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.r0.l1.l.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1004a {
+    public static class C1072a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f20257a;
+        public String f21779a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f20258b;
+        public String f21780b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f20259c;
+        public String f21781c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f20260d;
+        public String f21782d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f20261e;
+        public String f21783e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f20262f;
+        public String f21784f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f20263g;
+        public int f21785g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f20264h;
+        public long f21786h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f20265i;
+        public String f21787i;
         public int j;
         public long k;
         public long l;
         public long m;
         public String n;
 
-        public C1004a() {
+        public C1072a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,16 +90,16 @@ public class a {
                 return;
             }
         }
-        f20256a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+        f21778a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
     }
 
-    public static List<C1004a> a(String str, String str2, long j, long j2) {
+    public static List<C1072a> a(String str, String str2, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2)})) == null) ? b(str, str2, null, 0L, j, j2) : (List) invokeCommon.objValue;
     }
 
-    public static List<C1004a> b(String str, String str2, UserData userData, long j, long j2, long j3) {
+    public static List<C1072a> b(String str, String str2, UserData userData, long j, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, userData, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
@@ -121,31 +121,31 @@ public class a {
                     String optString4 = optJSONObject.optString("text");
                     optJSONObject.optLong("picId");
                     String optString5 = optJSONObject.optString("msg_src");
-                    C1004a c1004a = new C1004a();
+                    C1072a c1072a = new C1072a();
                     if (!TextUtils.isEmpty(optString2)) {
                         optString2 = optString2.trim();
-                        Matcher matcher = f20256a.matcher(optString2);
+                        Matcher matcher = f21778a.matcher(optString2);
                         if (matcher.find()) {
-                            c1004a.n = matcher.group(1);
+                            c1072a.n = matcher.group(1);
                         }
                     }
-                    c1004a.f20260d = optString2;
-                    c1004a.f20257a = optString;
-                    c1004a.f20258b = optString4;
-                    c1004a.f20259c = optString3;
-                    c1004a.f20261e = str2;
-                    c1004a.k = j2;
-                    c1004a.l = j3;
-                    c1004a.f20262f = optString5;
+                    c1072a.f21782d = optString2;
+                    c1072a.f21779a = optString;
+                    c1072a.f21780b = optString4;
+                    c1072a.f21781c = optString3;
+                    c1072a.f21783e = str2;
+                    c1072a.k = j2;
+                    c1072a.l = j3;
+                    c1072a.f21784f = optString5;
                     if (userType > i2) {
-                        c1004a.f20263g = userType;
+                        c1072a.f21785g = userType;
                     }
                     if (userData != null) {
-                        c1004a.f20264h = j;
-                        c1004a.f20265i = userData.getUserId();
-                        c1004a.j = userData.getUserType();
+                        c1072a.f21786h = j;
+                        c1072a.f21787i = userData.getUserId();
+                        c1072a.j = userData.getUserType();
                     }
-                    linkedList.add(c1004a);
+                    linkedList.add(c1072a);
                     i3++;
                     i2 = -1;
                 }

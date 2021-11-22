@@ -1,10 +1,11 @@
 package b.a.r0.h1.c.g;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.e0.j;
-import b.a.r0.b0.e0.k;
-import b.a.r0.b0.e0.l;
+import b.a.r0.b0.f0.j;
+import b.a.r0.b0.f0.k;
+import b.a.r0.b0.f0.l;
+import b.a.r0.b0.f0.m;
 import b.a.r0.h1.c.f.c;
 import b.a.r0.h1.h.k.d;
 import b.a.r0.h1.h.k.e;
@@ -31,7 +32,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final d f17042a;
+    public final d f18510a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,7 +47,7 @@ public class a {
                 return;
             }
         }
-        this.f17042a = new d();
+        this.f18510a = new d();
     }
 
     public static void a(DataRes.Builder builder) {
@@ -93,10 +94,10 @@ public class a {
                             }
                         } else {
                             d2 d2Var = new d2();
-                            d2Var.J3(true);
+                            d2Var.L3(true);
                             b.a.q0.b.f.a.e(d2Var);
-                            d2Var.Y2(concernData.thread_list);
-                            JSONObject b2 = b.a.r0.z2.l0.b.b(concernData.thread_list);
+                            d2Var.a3(concernData.thread_list);
+                            JSONObject b2 = b.a.r0.a3.l0.b.b(concernData.thread_list);
                             if (b2 != null) {
                                 arrayList.add(b2);
                             }
@@ -106,9 +107,9 @@ public class a {
                     }
                 }
                 b.a.q0.b.f.a.d(linkedList);
-                b.a.r0.z2.l0.b.f().h("CONCERN", arrayList);
-                d dVar = this.f17042a;
-                dVar.f17482a = linkedList;
+                b.a.r0.a3.l0.b.f().h("CONCERN", arrayList);
+                d dVar = this.f18510a;
+                dVar.f18951a = linkedList;
                 return dVar;
             }
             return null;
@@ -145,7 +146,7 @@ public class a {
                 }
             }
         }
-        this.f17042a.f17483b = ListUtils.getCount(list) - count;
+        this.f18510a.f18952b = ListUtils.getCount(list) - count;
     }
 
     public final void d(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i2) {
@@ -161,31 +162,33 @@ public class a {
 
     public List<n> e(d2 d2Var, int i2, ConcernData concernData) {
         InterceptResult invokeLIL;
-        b.a.r0.b0.e0.b kVar;
+        b.a.r0.b0.f0.b kVar;
         ThreadInfo threadInfo;
         boolean hadConcerned;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, d2Var, i2, concernData)) == null) {
             ArrayList arrayList = new ArrayList();
-            if ((k.Y(d2Var) || l.T(d2Var)) && d2Var.getType() != d2.C3) {
-                if (l.T(d2Var)) {
+            if ((k.Y(d2Var) || l.T(d2Var) || m.Y(d2Var)) && d2Var.getType() != d2.E3) {
+                if (m.Y(d2Var)) {
+                    kVar = new m(d2Var);
+                } else if (l.T(d2Var)) {
                     kVar = new l(d2Var);
                 } else {
                     kVar = new k();
-                    d2Var.e2();
-                    d2Var.w2();
-                    if (!d2Var.e2() && !d2Var.w2()) {
-                        d2Var.Z1();
+                    d2Var.g2();
+                    d2Var.y2();
+                    if (!d2Var.g2() && !d2Var.y2()) {
+                        d2Var.b2();
                     }
-                    kVar.f14748e = d2Var;
+                    kVar.f16235e = d2Var;
                 }
-                kVar.l = d2Var.s1();
+                kVar.l = d2Var.t1();
                 if (k.Y(d2Var)) {
                     kVar.N("1");
                 } else if (l.T(d2Var)) {
                     kVar.N("2");
                 }
-                kVar.F = true;
+                kVar.G = true;
                 if (b.a.q0.b.d.i() && kVar.getThreadData() != null && kVar.getThreadData().J() != null) {
                     if (!kVar.getThreadData().J().hadConcerned() && !ThreadCardUtils.isSelf(d2Var)) {
                         e.r(kVar);
@@ -193,19 +196,21 @@ public class a {
                     } else {
                         e.t(kVar);
                     }
+                } else if (kVar instanceof m) {
+                    e.t(kVar);
                 } else {
                     e.t(kVar);
                 }
-                kVar.f14748e.G1();
+                kVar.f16235e.I1();
                 if (kVar instanceof k) {
-                    if (d2Var.N1()) {
+                    if (d2Var.P1()) {
                         e.u(kVar);
-                    } else if (d2Var.d3() == 1) {
+                    } else if (d2Var.f3() == 1) {
                         e.w(kVar);
                         int[] g0 = d2Var.g0();
                         kVar.o = g0[0];
                         kVar.p = g0[1];
-                    } else if (d2Var.d3() >= 2) {
+                    } else if (d2Var.f3() >= 2) {
                         e.v(kVar);
                     } else {
                         e.x(kVar);
@@ -213,14 +218,17 @@ public class a {
                 } else if (kVar instanceof l) {
                     e.y(kVar);
                 }
-                if (d2Var.s0() != null) {
+                if (kVar instanceof m) {
                     e.z(kVar);
+                }
+                if (d2Var.s0() != null) {
+                    e.A(kVar);
                 }
                 if (!ListUtils.isEmpty(d2Var.A0()) || !ListUtils.isEmpty(d2Var.c0())) {
                     if (ListUtils.getCount(d2Var.A0()) + ListUtils.getCount(d2Var.c0()) == 1) {
-                        e.C(kVar);
+                        e.D(kVar);
                     } else {
-                        e.A(kVar);
+                        e.B(kVar);
                     }
                 }
                 e.q(kVar);
@@ -237,12 +245,12 @@ public class a {
                 }
                 if (d2Var.z1) {
                     k kVar2 = new k();
-                    kVar2.f14748e = d2Var;
+                    kVar2.f16235e = d2Var;
                     kVar2.position = i2;
                     arrayList.add(kVar2);
                 } else if (l.T(d2Var)) {
                     l lVar = new l(d2Var);
-                    lVar.l = d2Var.s1();
+                    lVar.l = d2Var.t1();
                     if (concernData != null) {
                         lVar.M(concernData.source.intValue());
                     }
@@ -251,24 +259,24 @@ public class a {
                     }
                 } else if (j.Y(d2Var)) {
                     j jVar = new j(d2Var);
-                    jVar.l = d2Var.s1();
+                    jVar.l = d2Var.t1();
                     jVar.N("3");
                     if (jVar.isValid()) {
                         arrayList.add(jVar);
                     }
-                } else if (b.a.r0.b0.e0.e.Y(d2Var) && d2Var.M1()) {
-                    b.a.r0.b0.e0.e eVar = new b.a.r0.b0.e0.e(d2Var);
+                } else if (b.a.r0.b0.f0.e.Y(d2Var) && d2Var.O1()) {
+                    b.a.r0.b0.f0.e eVar = new b.a.r0.b0.f0.e(d2Var);
                     eVar.position = i2;
                     arrayList.add(eVar);
                 } else {
                     k kVar3 = new k();
-                    kVar3.f14748e = d2Var;
-                    kVar3.N(d2Var.e2() ? "4" : "1");
+                    kVar3.f16235e = d2Var;
+                    kVar3.N(d2Var.g2() ? "4" : "1");
                     kVar3.position = i2;
                     if (concernData != null) {
                         kVar3.M(concernData.source.intValue());
                     }
-                    if (kVar3.f14748e != null && kVar3.isValid() && !StringUtils.isNull(kVar3.f14748e.f0()) && !"0".equals(kVar3.f14748e.s1())) {
+                    if (kVar3.f16235e != null && kVar3.isValid() && !StringUtils.isNull(kVar3.f16235e.f0()) && !"0".equals(kVar3.f16235e.t1())) {
                         arrayList.add(kVar3);
                     }
                 }

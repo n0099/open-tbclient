@@ -19,10 +19,10 @@ public class NativeAdContainer extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewStatusListener f67919a;
+    public ViewStatusListener f68840a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewStatus f67920b;
+    public ViewStatus f68841b;
 
     /* renamed from: com.qq.e.ads.nativ.widget.NativeAdContainer$1  reason: invalid class name */
     /* loaded from: classes2.dex */
@@ -30,7 +30,7 @@ public class NativeAdContainer extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f67921a;
+        public static final /* synthetic */ int[] f68842a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,13 +47,13 @@ public class NativeAdContainer extends FrameLayout {
                 }
             }
             int[] iArr = new int[ViewStatus.values().length];
-            f67921a = iArr;
+            f68842a = iArr;
             try {
                 iArr[1] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f67921a[2] = 2;
+                f68842a[2] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -68,7 +68,7 @@ public class NativeAdContainer extends FrameLayout {
         public static final ViewStatus INIT;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ ViewStatus[] f67922a;
+        public static final /* synthetic */ ViewStatus[] f68843a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -88,7 +88,7 @@ public class NativeAdContainer extends FrameLayout {
             ATTACHED = new ViewStatus("ATTACHED", 1);
             ViewStatus viewStatus = new ViewStatus("DETACHED", 2);
             DETACHED = viewStatus;
-            f67922a = new ViewStatus[]{INIT, ATTACHED, viewStatus};
+            f68843a = new ViewStatus[]{INIT, ATTACHED, viewStatus};
         }
 
         public ViewStatus(String str, int i2) {
@@ -119,7 +119,7 @@ public class NativeAdContainer extends FrameLayout {
         public static ViewStatus[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ViewStatus[]) f67922a.clone() : (ViewStatus[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ViewStatus[]) f68843a.clone() : (ViewStatus[]) invokeV.objValue;
         }
     }
 
@@ -156,7 +156,7 @@ public class NativeAdContainer extends FrameLayout {
                 return;
             }
         }
-        this.f67920b = ViewStatus.INIT;
+        this.f68841b = ViewStatus.INIT;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -178,7 +178,7 @@ public class NativeAdContainer extends FrameLayout {
                 return;
             }
         }
-        this.f67920b = ViewStatus.INIT;
+        this.f68841b = ViewStatus.INIT;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -200,7 +200,7 @@ public class NativeAdContainer extends FrameLayout {
                 return;
             }
         }
-        this.f67920b = ViewStatus.INIT;
+        this.f68841b = ViewStatus.INIT;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -208,7 +208,7 @@ public class NativeAdContainer extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            ViewStatusListener viewStatusListener = this.f67919a;
+            ViewStatusListener viewStatusListener = this.f68840a;
             if (viewStatusListener != null) {
                 viewStatusListener.onDispatchTouchEvent(motionEvent);
             }
@@ -223,8 +223,8 @@ public class NativeAdContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
             GDTLogger.d("NativeAdContainer onAttachedToWindow");
-            this.f67920b = ViewStatus.ATTACHED;
-            ViewStatusListener viewStatusListener = this.f67919a;
+            this.f68841b = ViewStatus.ATTACHED;
+            ViewStatusListener viewStatusListener = this.f68840a;
             if (viewStatusListener != null) {
                 viewStatusListener.onAttachToWindow();
             }
@@ -237,8 +237,8 @@ public class NativeAdContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDetachedFromWindow();
             GDTLogger.d("NativeAdContainer onDetachedFromWindow");
-            this.f67920b = ViewStatus.DETACHED;
-            ViewStatusListener viewStatusListener = this.f67919a;
+            this.f68841b = ViewStatus.DETACHED;
+            ViewStatusListener viewStatusListener = this.f68840a;
             if (viewStatusListener != null) {
                 viewStatusListener.onDetachFromWindow();
             }
@@ -251,7 +251,7 @@ public class NativeAdContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             super.onWindowFocusChanged(z);
             GDTLogger.d("onWindowFocusChanged: hasWindowFocus: " + z);
-            ViewStatusListener viewStatusListener = this.f67919a;
+            ViewStatusListener viewStatusListener = this.f68840a;
             if (viewStatusListener != null) {
                 viewStatusListener.onWindowFocusChanged(z);
             }
@@ -264,7 +264,7 @@ public class NativeAdContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
             GDTLogger.d("onWindowVisibilityChanged: visibility: " + i2);
-            ViewStatusListener viewStatusListener = this.f67919a;
+            ViewStatusListener viewStatusListener = this.f68840a;
             if (viewStatusListener != null) {
                 viewStatusListener.onWindowVisibilityChanged(i2);
             }
@@ -274,14 +274,14 @@ public class NativeAdContainer extends FrameLayout {
     public void setViewStatusListener(ViewStatusListener viewStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, viewStatusListener) == null) {
-            this.f67919a = viewStatusListener;
+            this.f68840a = viewStatusListener;
             if (viewStatusListener != null) {
-                int ordinal = this.f67920b.ordinal();
+                int ordinal = this.f68841b.ordinal();
                 if (ordinal == 1) {
-                    this.f67919a.onAttachToWindow();
+                    this.f68840a.onAttachToWindow();
                 } else if (ordinal != 2) {
                 } else {
-                    this.f67919a.onDetachFromWindow();
+                    this.f68840a.onDetachFromWindow();
                 }
             }
         }

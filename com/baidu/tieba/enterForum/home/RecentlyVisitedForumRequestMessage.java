@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.home;
 
-import b.a.e.e.m.b;
-import b.a.q0.d1.z;
+import b.a.e.f.m.b;
+import b.a.q0.c1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -17,7 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.GetHistoryForum.DataReq;
 import tbclient.GetHistoryForum.GetHistoryForumReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RecentlyVisitedForumRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

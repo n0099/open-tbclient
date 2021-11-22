@@ -28,24 +28,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class m implements b.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
+public class m implements b.a.q0.w0.a, View.OnClickListener, TbTabLayout.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<SelectForumActivity> f20897e;
+    public TbPageContext<SelectForumActivity> f22052e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f20898f;
+    public String f22053f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NavigationBar f20899g;
+    public NavigationBar f22054g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f20900h;
+    public ImageView f22055h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f20901i;
+    public LinearLayout f22056i;
     public TbTabLayout j;
     public BdBaseViewPager k;
     public SelectForumPagerAdapter l;
@@ -58,7 +58,7 @@ public class m implements b.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f20902e;
+        public final /* synthetic */ m f22057e;
 
         public a(m mVar) {
             Interceptable interceptable = $ic;
@@ -75,14 +75,14 @@ public class m implements b.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
                     return;
                 }
             }
-            this.f20902e = mVar;
+            this.f22057e = mVar;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f20902e.n = i2 == 0;
+                this.f22057e.n = i2 == 0;
             }
         }
 
@@ -116,13 +116,13 @@ public class m implements b.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
                 return;
             }
         }
-        this.f20897e = tbPageContext;
-        this.f20901i = linearLayout;
-        this.f20899g = navigationBar;
-        this.f20898f = "key_select_forum_tab_index";
+        this.f22052e = tbPageContext;
+        this.f22056i = linearLayout;
+        this.f22054g = navigationBar;
+        this.f22053f = "key_select_forum_tab_index";
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(currentAccount)) {
-            this.f20898f += currentAccount;
+            this.f22053f += currentAccount;
         }
         f();
         d();
@@ -147,9 +147,9 @@ public class m implements b.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(this.f20897e.getPageActivity()).inflate(R.layout.activity_select_forum_layout, (ViewGroup) this.f20901i, true);
-            this.j = (TbTabLayout) this.f20901i.findViewById(R.id.activity_select_forum_tab_layout);
-            this.k = (BdBaseViewPager) this.f20901i.findViewById(R.id.activity_select_forum_viewpager);
+            LayoutInflater.from(this.f22052e.getPageActivity()).inflate(R.layout.activity_select_forum_layout, (ViewGroup) this.f22056i, true);
+            this.j = (TbTabLayout) this.f22056i.findViewById(R.id.activity_select_forum_tab_layout);
+            this.k = (BdBaseViewPager) this.f22056i.findViewById(R.id.activity_select_forum_viewpager);
         }
     }
 
@@ -158,21 +158,21 @@ public class m implements b.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
             TiebaStatic.log(new StatisticItem("c13994").param("obj_type", fVar.e() + 1));
-            b.a.q0.s.e0.b.j().v(this.f20898f, fVar.e());
+            b.a.q0.s.e0.b.j().v(this.f22053f, fVar.e());
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f20899g.setCenterTextTitle(this.f20897e.getResources().getString(R.string.activity_select_forum_title));
-            ImageView imageView = (ImageView) this.f20899g.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-            this.f20900h = imageView;
+            this.f22054g.setCenterTextTitle(this.f22052e.getResources().getString(R.string.activity_select_forum_title));
+            ImageView imageView = (ImageView) this.f22054g.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+            this.f22055h = imageView;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
-            layoutParams.setMargins(0, 0, b.a.e.e.p.l.g(this.f20897e.getPageActivity(), R.dimen.ds10), 0);
-            this.f20900h.setLayoutParams(layoutParams);
-            this.f20900h.setOnClickListener(this);
-            this.f20900h.setVisibility(8);
+            layoutParams.setMargins(0, 0, b.a.e.f.p.l.g(this.f22052e.getPageActivity(), R.dimen.ds10), 0);
+            this.f22055h.setLayoutParams(layoutParams);
+            this.f22055h.setOnClickListener(this);
+            this.f22055h.setVisibility(8);
         }
     }
 
@@ -190,7 +190,7 @@ public class m implements b.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
         }
     }
 
-    @Override // b.a.q0.x0.a
+    @Override // b.a.q0.w0.a
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -200,11 +200,11 @@ public class m implements b.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            SelectForumPagerAdapter selectForumPagerAdapter = new SelectForumPagerAdapter(this.f20897e);
+            SelectForumPagerAdapter selectForumPagerAdapter = new SelectForumPagerAdapter(this.f22052e);
             this.l = selectForumPagerAdapter;
             this.k.setAdapter(selectForumPagerAdapter);
             this.j.setupWithViewPager(this.k);
-            j(b.a.q0.s.e0.b.j().k(this.f20898f, 0));
+            j(b.a.q0.s.e0.b.j().k(this.f22053f, 0));
             this.j.setOnTabSelectedListener(this);
             this.k.addOnPageChangeListener(new a(this));
         }
@@ -219,7 +219,7 @@ public class m implements b.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
         selectForumPagerAdapter.onDestroy();
     }
 
-    @Override // b.a.q0.x0.a
+    @Override // b.a.q0.w0.a
     public boolean isOnViewCancel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -229,7 +229,7 @@ public class m implements b.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
         return invokeV.booleanValue;
     }
 
-    @Override // b.a.q0.x0.a
+    @Override // b.a.q0.w0.a
     public boolean isOnViewTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -262,11 +262,11 @@ public class m implements b.a.q0.x0.a, View.OnClickListener, TbTabLayout.c {
         }
     }
 
-    @Override // b.a.q0.x0.a
+    @Override // b.a.q0.w0.a
     public void onViewChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f20900h, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22055h, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             this.j.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
             this.l.onViewChangeSkinType();
         }

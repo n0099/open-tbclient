@@ -26,23 +26,23 @@ public class c implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f12632a;
+    public long f13379a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12633b;
+    public long f13380b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, b.a.q0.h0.e.a> f12634c;
+    public Map<String, b.a.q0.h0.e.a> f13381c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f12635d;
+    public boolean f13382d;
 
     /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f12636a;
+        public static final c f13383a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -58,7 +58,7 @@ public class c implements b {
                     return;
                 }
             }
-            f12636a = new c();
+            f13383a = new c();
         }
     }
 
@@ -75,13 +75,13 @@ public class c implements b {
                 return;
             }
         }
-        this.f12634c = new HashMap();
+        this.f13381c = new HashMap();
     }
 
     public static final c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f12636a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f13383a : (c) invokeV.objValue;
     }
 
     @Override // b.a.q0.h0.e.b
@@ -89,7 +89,7 @@ public class c implements b {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<Map.Entry<String, b.a.q0.h0.e.a>> it = this.f12634c.entrySet().iterator();
+            Iterator<Map.Entry<String, b.a.q0.h0.e.a>> it = this.f13381c.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = true;
@@ -101,7 +101,7 @@ public class c implements b {
                     break;
                 }
             }
-            this.f12635d = z;
+            this.f13382d = z;
             if (z) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921551, Boolean.TRUE));
             }
@@ -113,7 +113,7 @@ public class c implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            return this.f12635d && currentTimeMillis > f() && currentTimeMillis < e();
+            return this.f13382d && currentTimeMillis > f() && currentTimeMillis < e();
         }
         return invokeV.booleanValue;
     }
@@ -121,19 +121,19 @@ public class c implements b {
     public b.a.q0.h0.e.a c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f12634c.get(str) : (b.a.q0.h0.e.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f13381c.get(str) : (b.a.q0.h0.e.a) invokeL.objValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12633b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13380b : invokeV.longValue;
     }
 
     public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12632a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13379a : invokeV.longValue;
     }
 
     public void g() {
@@ -146,7 +146,7 @@ public class c implements b {
             } else {
                 uniqueId = currentActivity instanceof BaseFragmentActivity ? ((BaseFragmentActivity) currentActivity).getUniqueId() : null;
             }
-            for (Map.Entry<String, b.a.q0.h0.e.a> entry : this.f12634c.entrySet()) {
+            for (Map.Entry<String, b.a.q0.h0.e.a> entry : this.f13381c.entrySet()) {
                 if (entry.getValue() != null) {
                     entry.getValue().q(uniqueId);
                     entry.getValue().p(this);
@@ -159,37 +159,37 @@ public class c implements b {
     public void h(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
-            this.f12632a = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
-            this.f12633b = jSONObject.optLong("end_time");
+            this.f13379a = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
+            this.f13380b = jSONObject.optLong("end_time");
             JSONObject optJSONObject = jSONObject.optJSONObject("feed");
             if (optJSONObject != null) {
                 b.a.q0.h0.e.a aVar = new b.a.q0.h0.e.a();
                 aVar.o(optJSONObject);
-                this.f12634c.put("homePage", aVar);
+                this.f13381c.put("homePage", aVar);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
             if (optJSONObject2 != null) {
                 b.a.q0.h0.e.a aVar2 = new b.a.q0.h0.e.a();
                 aVar2.o(optJSONObject2);
-                this.f12634c.put("enterForum", aVar2);
+                this.f13381c.put("enterForum", aVar2);
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("channel");
             if (optJSONObject3 != null) {
                 b.a.q0.h0.e.a aVar3 = new b.a.q0.h0.e.a();
                 aVar3.o(optJSONObject3);
-                this.f12634c.put("channel", aVar3);
+                this.f13381c.put("channel", aVar3);
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("news");
             if (optJSONObject4 != null) {
                 b.a.q0.h0.e.a aVar4 = new b.a.q0.h0.e.a();
                 aVar4.o(optJSONObject4);
-                this.f12634c.put("message", aVar4);
+                this.f13381c.put("message", aVar4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("personal");
             if (optJSONObject5 != null) {
                 b.a.q0.h0.e.a aVar5 = new b.a.q0.h0.e.a();
                 aVar5.o(optJSONObject5);
-                this.f12634c.put("person", aVar5);
+                this.f13381c.put("person", aVar5);
             }
         }
     }

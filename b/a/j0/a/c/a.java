@@ -28,40 +28,40 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile a f3004g = null;
+    public static volatile a f3097g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f3005h = 30000000;
+    public static int f3098h = 30000000;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f3006i = 50000000;
+    public static int f3099i = 50000000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LruCache<String, b.a.j0.a.c.c<?>> f3007a;
+    public final LruCache<String, b.a.j0.a.c.c<?>> f3100a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b.a.j0.a.c.d f3008b;
+    public final b.a.j0.a.c.d f3101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b.a.j0.a.c.d f3009c;
+    public final b.a.j0.a.c.d f3102c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, b.a.j0.a.c.d> f3010d;
+    public final Map<String, b.a.j0.a.c.d> f3103d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f3011e;
+    public final String f3104e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f3012f;
+    public final String f3105f;
 
     /* renamed from: b.a.j0.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0072a implements d<Bitmap> {
+    public class C0074a implements d<Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0072a(a aVar) {
+        public C0074a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,13 +126,13 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f3013a;
+        public final /* synthetic */ String f3106a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f3014b;
+        public final /* synthetic */ c f3107b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b.a.j0.a.c.d f3015c;
+        public final /* synthetic */ b.a.j0.a.c.d f3108c;
 
         public b(a aVar, String str, c cVar, b.a.j0.a.c.d dVar) {
             Interceptable interceptable = $ic;
@@ -149,9 +149,9 @@ public class a {
                     return;
                 }
             }
-            this.f3013a = str;
-            this.f3014b = cVar;
-            this.f3015c = dVar;
+            this.f3106a = str;
+            this.f3107b = cVar;
+            this.f3108c = dVar;
         }
 
         @Override // b.a.j0.a.c.d.e
@@ -164,18 +164,18 @@ public class a {
         @Override // b.a.j0.a.c.d.e
         public void b(String str, b.a.j0.a.c.c<File> cVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) && this.f3013a.equals(str)) {
-                this.f3014b.onCacheFailed();
-                this.f3015c.q(this);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) && this.f3106a.equals(str)) {
+                this.f3107b.onCacheFailed();
+                this.f3108c.q(this);
             }
         }
 
         @Override // b.a.j0.a.c.d.e
         public void c(String str, b.a.j0.a.c.c<File> cVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) && this.f3013a.equals(str)) {
-                this.f3014b.onCacheComplete();
-                this.f3015c.q(this);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) && this.f3106a.equals(str)) {
+                this.f3107b.onCacheComplete();
+                this.f3108c.q(this);
             }
         }
     }
@@ -224,13 +224,13 @@ public class a {
                 return;
             }
         }
-        this.f3007a = new LruCache<>(6);
+        this.f3100a = new LruCache<>(6);
         String d2 = i.d(context);
-        this.f3011e = d2 + MaterialLoader.IMAGE_CACHE_PATH;
-        this.f3012f = d2 + MaterialLoader.VIDEO_CACHE_PATH;
-        this.f3008b = b.a.j0.a.c.d.o(this.f3011e, f3005h);
-        this.f3009c = b.a.j0.a.c.d.o(this.f3012f, f3006i);
-        this.f3010d = new ConcurrentHashMap();
+        this.f3104e = d2 + MaterialLoader.IMAGE_CACHE_PATH;
+        this.f3105f = d2 + MaterialLoader.VIDEO_CACHE_PATH;
+        this.f3101b = b.a.j0.a.c.d.o(this.f3104e, f3098h);
+        this.f3102c = b.a.j0.a.c.d.o(this.f3105f, f3099i);
+        this.f3103d = new ConcurrentHashMap();
     }
 
     public static String a(String str) {
@@ -243,14 +243,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f3004g == null) {
+            if (f3097g == null) {
                 synchronized (a.class) {
-                    if (f3004g == null && context != null) {
-                        f3004g = new a(context.getApplicationContext());
+                    if (f3097g == null && context != null) {
+                        f3097g = new a(context.getApplicationContext());
                     }
                 }
             }
-            return f3004g;
+            return f3097g;
         }
         return (a) invokeL.objValue;
     }
@@ -270,9 +270,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, materialCacheType)) == null) {
             if (materialCacheType == MaterialLoader.MaterialCacheType.VIDEO) {
-                return this.f3009c;
+                return this.f3102c;
             }
-            return this.f3008b;
+            return this.f3101b;
         }
         return (b.a.j0.a.c.d) invokeL.objValue;
     }
@@ -296,7 +296,7 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, materialCacheType)) == null) {
             boolean z = g(a(str), materialCacheType) != null;
             b.a.j0.a.c.d c2 = c(materialCacheType);
-            return (z || c2.f3022e) ? z : new File(b(str, c2)).exists();
+            return (z || c2.f3115e) ? z : new File(b(str, c2)).exists();
         }
         return invokeLL.booleanValue;
     }
@@ -317,13 +317,13 @@ public class a {
     public final b.a.j0.a.c.c<?> i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.f3007a.get(str) : (b.a.j0.a.c.c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.f3100a.get(str) : (b.a.j0.a.c.c) invokeL.objValue;
     }
 
     public Bitmap j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? (Bitmap) k(str, MaterialLoader.MaterialCacheType.PICTURE, new C0072a(this)) : (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? (Bitmap) k(str, MaterialLoader.MaterialCacheType.PICTURE, new C0074a(this)) : (Bitmap) invokeL.objValue;
     }
 
     public final <T> T k(String str, MaterialLoader.MaterialCacheType materialCacheType, d<T> dVar) {
@@ -340,7 +340,7 @@ public class a {
                 }
                 return dVar.rawGet(g2.a());
             }
-            if (!c(materialCacheType).f3022e) {
+            if (!c(materialCacheType).f3115e) {
                 File file = new File(b(str, c(materialCacheType)));
                 if (file.exists()) {
                     return dVar.parseFromBytes(new b.a.j0.a.c.c(file).b());
@@ -354,7 +354,7 @@ public class a {
     public void l(String str, Bitmap bitmap, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048585, this, str, bitmap, z) == null) {
-            m(str, new b.a.j0.a.c.c<>(bitmap), this.f3008b, z, null);
+            m(str, new b.a.j0.a.c.c<>(bitmap), this.f3101b, z, null);
         }
     }
 
@@ -364,7 +364,7 @@ public class a {
             try {
                 String a2 = a(str);
                 if (z) {
-                    this.f3007a.put(a2, cVar);
+                    this.f3100a.put(a2, cVar);
                 }
                 File file = new File(dVar.k() + a2);
                 if (cVar2 != null) {
@@ -381,9 +381,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, bArr, materialCacheType, Boolean.valueOf(z), cVar}) == null) {
             b.a.j0.a.c.c<?> cVar2 = new b.a.j0.a.c.c<>(bArr);
-            b.a.j0.a.c.d dVar = this.f3008b;
+            b.a.j0.a.c.d dVar = this.f3101b;
             if (materialCacheType == MaterialLoader.MaterialCacheType.VIDEO) {
-                dVar = this.f3009c;
+                dVar = this.f3102c;
             }
             m(str, cVar2, dVar, z, cVar);
         }
@@ -393,10 +393,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, bArr, str2, Integer.valueOf(i2), Boolean.valueOf(z), cVar}) == null) {
             b.a.j0.a.c.c<?> cVar2 = new b.a.j0.a.c.c<>(bArr);
-            b.a.j0.a.c.d dVar = this.f3010d.get(str2);
+            b.a.j0.a.c.d dVar = this.f3103d.get(str2);
             if (dVar == null) {
                 dVar = b.a.j0.a.c.d.o(str2, i2);
-                this.f3010d.put(str2, dVar);
+                this.f3103d.put(str2, dVar);
             } else if (dVar.l() != i2) {
                 dVar.trimToSize(i2);
             }

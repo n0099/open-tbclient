@@ -153,7 +153,7 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ ChannelBaiduPay f34892a;
+                                public final /* synthetic */ ChannelBaiduPay f35721a;
 
                                 {
                                     Interceptable interceptable2 = $ic;
@@ -170,7 +170,7 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                                             return;
                                         }
                                     }
-                                    this.f34892a = this;
+                                    this.f35721a = this;
                                 }
 
                                 @Override // com.baidu.android.pay.PayCallBack
@@ -187,7 +187,7 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                                 public void onPayResult(int i2, String str3) {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str3) == null) {
-                                        this.f34892a.handlepayResult(i2, str3);
+                                        this.f35721a.handlepayResult(i2, str3);
                                     }
                                 }
                             }, hashMap, getPayContent.sdk_info, null);
@@ -199,7 +199,7 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ ChannelBaiduPay f34893a;
+                            public final /* synthetic */ ChannelBaiduPay f35722a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -216,7 +216,7 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                                         return;
                                     }
                                 }
-                                this.f34893a = this;
+                                this.f35722a = this;
                             }
 
                             @Override // com.baidu.android.pay.PayCallBack
@@ -233,7 +233,7 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                             public void onPayResult(int i2, String str3) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str3) == null) {
-                                    this.f34893a.handlepayResult(i2, str3);
+                                    this.f35722a.handlepayResult(i2, str3);
                                 }
                             }
                         }, hashMap);

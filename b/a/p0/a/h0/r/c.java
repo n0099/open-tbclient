@@ -1,13 +1,14 @@
 package b.a.p0.a.h0.r;
 
 import android.text.TextUtils;
+import b.a.p0.q.i.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class c extends b.a.p0.n.h.f {
+public class c extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String q;
@@ -26,7 +27,7 @@ public class c extends b.a.p0.n.h.f {
         }
     }
 
-    @Override // b.a.p0.n.h.e
+    @Override // b.a.p0.q.i.f
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -12,10 +12,10 @@ public class a extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f3651e;
+    public static a f3741e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f3652f;
+    public static Handler f3742f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,7 +44,7 @@ public class a extends HandlerThread {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (a.class) {
                 b();
-                handler = f3652f;
+                handler = f3742f;
             }
             return handler;
         }
@@ -53,11 +53,11 @@ public class a extends HandlerThread {
 
     public static void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && f3651e == null) {
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && f3741e == null) {
             a aVar = new a();
-            f3651e = aVar;
+            f3741e = aVar;
             aVar.start();
-            f3652f = new Handler(f3651e.getLooper());
+            f3742f = new Handler(f3741e.getLooper());
         }
     }
 }

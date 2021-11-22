@@ -7,6 +7,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
@@ -31,23 +32,23 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static f f23283f;
+    public static f f24614f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f23284a;
+    public c f24615a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f23285b;
+    public List<String> f24616b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23286c;
+    public int f24617c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f23287d;
+    public CustomMessageListener f24618d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f23288e;
+    public CustomMessageListener f24619e;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -55,7 +56,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f23289a;
+        public final /* synthetic */ f f24620a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(f fVar, int i2) {
@@ -75,7 +76,7 @@ public class f {
                     return;
                 }
             }
-            this.f23289a = fVar;
+            this.f24620a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -83,7 +84,7 @@ public class f {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001140 && (customResponsedMessage instanceof CancelDownloadMessage)) {
-                this.f23289a.d();
+                this.f24620a.d();
             }
         }
     }
@@ -94,7 +95,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f23290a;
+        public final /* synthetic */ f f24621a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(f fVar, int i2) {
@@ -114,7 +115,7 @@ public class f {
                     return;
                 }
             }
-            this.f23290a = fVar;
+            this.f24621a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,9 +123,9 @@ public class f {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001119 && (customResponsedMessage instanceof QueryDownloadMessage)) {
-                this.f23290a.f23285b = ((QueryDownloadMessage) customResponsedMessage).getData();
-                f fVar = this.f23290a;
-                fVar.g(fVar.f23285b);
+                this.f24621a.f24616b = ((QueryDownloadMessage) customResponsedMessage).getData();
+                f fVar = this.f24621a;
+                fVar.g(fVar.f24616b);
             }
         }
     }
@@ -135,7 +136,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f23291a;
+        public final /* synthetic */ f f24622a;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -152,7 +153,7 @@ public class f {
                     return;
                 }
             }
-            this.f23291a = fVar;
+            this.f24622a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -190,13 +191,13 @@ public class f {
                     list = new LinkedList<>();
                 }
                 for (DownloadData downloadData : b.a.q0.w.f.k().j()) {
-                    for (String str : this.f23291a.f23285b) {
+                    for (String str : this.f24622a.f24616b) {
                         if (downloadData.getType() == 11 && downloadData.getId().equals(str)) {
                             list.add(downloadData);
                         }
                     }
                 }
-                this.f23291a.h(list);
+                this.f24622a.h(list);
             }
         }
     }
@@ -214,7 +215,7 @@ public class f {
                 return;
             }
         }
-        f23283f = new f();
+        f24614f = new f();
     }
 
     public f() {
@@ -230,17 +231,17 @@ public class f {
                 return;
             }
         }
-        this.f23286c = 5;
-        this.f23287d = new a(this, 2001140);
-        this.f23288e = new b(this, 2001119);
-        MessageManager.getInstance().registerListener(this.f23288e);
-        MessageManager.getInstance().registerListener(this.f23287d);
+        this.f24617c = 5;
+        this.f24618d = new a(this, 2001140);
+        this.f24619e = new b(this, 2001119);
+        MessageManager.getInstance().registerListener(this.f24619e);
+        MessageManager.getInstance().registerListener(this.f24618d);
     }
 
     public static f f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f23283f : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f24614f : (f) invokeV.objValue;
     }
 
     public void d() {
@@ -261,7 +262,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             c cVar = new c(this);
-            this.f23284a = cVar;
+            this.f24615a = cVar;
             cVar.execute(list);
         }
     }
@@ -284,7 +285,7 @@ public class f {
 
     public void j(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) || b.a.e.e.p.k.isEmpty(str) || b.a.e.e.p.k.isEmpty(str3)) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) || b.a.e.f.p.k.isEmpty(str) || b.a.e.f.p.k.isEmpty(str3)) {
             return;
         }
         DownloadData downloadData = new DownloadData(str, str2, str3, new e());
@@ -297,11 +298,11 @@ public class f {
                 if (split2.length == 5) {
                     downloadData.setDescription(split2[1]);
                     downloadData.setCheck(split2[2]);
-                    downloadData.setWidth(b.a.e.e.m.b.e(split2[3], 200));
-                    downloadData.setHeight(b.a.e.e.m.b.e(split2[4].split(".png")[0], 200));
+                    downloadData.setWidth(b.a.e.f.m.b.e(split2[3], 200));
+                    downloadData.setHeight(b.a.e.f.m.b.e(split2[4].split(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX)[0], 200));
                 } else if (split2.length == 3) {
                     downloadData.setDescription(split2[1]);
-                    downloadData.setCheck(split2[2].split(".png")[0]);
+                    downloadData.setCheck(split2[2].split(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX)[0]);
                     downloadData.setWidth(200);
                     downloadData.setHeight(200);
                 } else {
@@ -327,6 +328,6 @@ public class f {
         sb.append(str);
         downloadData.setPath(sb.toString());
         BdLog.d("download:path:" + downloadData.getPath());
-        b.a.q0.w.f.k().m(downloadData, this.f23286c);
+        b.a.q0.w.f.k().m(downloadData, this.f24617c);
     }
 }

@@ -64,7 +64,7 @@ public class FunOpenIDSdk {
                 } else if (onGetOaidListener == null) {
                     isLogEnabled();
                 } else {
-                    j.f62902a.execute(new e(context, onGetOaidListener));
+                    j.f63802a.execute(new e(context, onGetOaidListener));
                 }
             }
         }
@@ -73,7 +73,7 @@ public class FunOpenIDSdk {
     public static String getSdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? SDK_VERSION : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? "1.3.5" : (String) invokeV.objValue;
     }
 
     public static String getVivoAppId() {

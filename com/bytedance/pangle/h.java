@@ -11,7 +11,7 @@ public final class h extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f61423a;
+    public int f62322a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(String str, int i2) {
@@ -31,7 +31,7 @@ public final class h extends Exception {
                 return;
             }
         }
-        this.f61423a = i2;
+        this.f62322a = i2;
     }
 
     @Override // java.lang.Throwable
@@ -42,7 +42,7 @@ public final class h extends Exception {
             String name = h.class.getName();
             String localizedMessage = getLocalizedMessage();
             if (localizedMessage != null) {
-                return name + ": " + localizedMessage + " errorCode: " + this.f61423a;
+                return name + ": " + localizedMessage + " errorCode: " + this.f62322a;
             }
             return name;
         }
@@ -68,6 +68,6 @@ public final class h extends Exception {
                 return;
             }
         }
-        this.f61423a = -1;
+        this.f62322a = -1;
     }
 }

@@ -3,7 +3,7 @@ package b.a.q0.s.g0.u;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
@@ -19,13 +19,13 @@ public abstract class b<T extends n, V extends BdBaseViewPagerAdapter.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f13081a;
+    public Context f13861a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a<T, V> f13082b;
+    public a<T, V> f13862b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f13083c;
+    public BdUniqueId f13863c;
 
     /* loaded from: classes4.dex */
     public interface a<T extends n, V extends BdBaseViewPagerAdapter.a> {
@@ -47,14 +47,14 @@ public abstract class b<T extends n, V extends BdBaseViewPagerAdapter.a> {
                 return;
             }
         }
-        this.f13081a = context;
-        this.f13083c = bdUniqueId;
+        this.f13861a = context;
+        this.f13863c = bdUniqueId;
     }
 
     public a<T, V> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13082b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13862b : (a) invokeV.objValue;
     }
 
     public abstract V b(ViewGroup viewGroup);
@@ -72,13 +72,13 @@ public abstract class b<T extends n, V extends BdBaseViewPagerAdapter.a> {
     public void f(a<T, V> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f13082b = aVar;
+            this.f13862b = aVar;
         }
     }
 
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13083c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13863c : (BdUniqueId) invokeV.objValue;
     }
 }

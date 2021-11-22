@@ -2,7 +2,7 @@ package b.a.q0.s.p;
 
 import android.net.Uri;
 import android.os.Bundle;
-import b.a.e.e.m.e;
+import b.a.e.f.m.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.SpeedRuntime;
 import com.baidu.tbadk.TbadkApplication;
@@ -19,22 +19,22 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f13195b;
+    public static a f13975b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Runnable f13196a;
+    public Runnable f13976a;
 
     /* renamed from: b.a.q0.s.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC0690a implements Runnable {
+    public class RunnableC0725a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13197e;
+        public final /* synthetic */ a f13977e;
 
-        public RunnableC0690a(a aVar) {
+        public RunnableC0725a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,14 +49,14 @@ public class a {
                     return;
                 }
             }
-            this.f13197e = aVar;
+            this.f13977e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13197e.d(0);
+                this.f13977e.d(0);
             }
         }
     }
@@ -74,21 +74,21 @@ public class a {
                 return;
             }
         }
-        this.f13196a = new RunnableC0690a(this);
+        this.f13976a = new RunnableC0725a(this);
     }
 
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f13195b == null) {
+            if (f13975b == null) {
                 synchronized (a.class) {
-                    if (f13195b == null) {
-                        f13195b = new a();
+                    if (f13975b == null) {
+                        f13975b = new a();
                     }
                 }
             }
-            return f13195b;
+            return f13975b;
         }
         return (a) invokeV.objValue;
     }
@@ -104,7 +104,7 @@ public class a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (a() || DeviceInfoUtil.isHonor()) {
                 d(1);
-                e.a().postDelayed(this.f13196a, 500L);
+                e.a().postDelayed(this.f13976a, 500L);
             }
         }
     }

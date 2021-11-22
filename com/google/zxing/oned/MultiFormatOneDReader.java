@@ -17,7 +17,7 @@ import com.google.zxing.oned.rss.expanded.RSSExpandedReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class MultiFormatOneDReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

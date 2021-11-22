@@ -99,10 +99,10 @@ public class a implements m {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ DownloadInfo f68737a;
+                    public final /* synthetic */ DownloadInfo f69657a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f68738b;
+                    public final /* synthetic */ a f69658b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -119,8 +119,8 @@ public class a implements m {
                                 return;
                             }
                         }
-                        this.f68738b = this;
-                        this.f68737a = downloadInfo;
+                        this.f69658b = this;
+                        this.f69657a = downloadInfo;
                     }
 
                     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
@@ -129,8 +129,8 @@ public class a implements m {
                         if (!(interceptable2 == null || interceptable2.invokeLL(1048576, this, str2, uri) == null) || uri == null) {
                             return;
                         }
-                        this.f68737a.safePutToDBJsonData("file_content_uri", uri.toString());
-                        com.ss.android.socialbase.downloader.downloader.c.x().a(this.f68737a);
+                        this.f69657a.safePutToDBJsonData("file_content_uri", uri.toString());
+                        com.ss.android.socialbase.downloader.downloader.c.x().a(this.f69657a);
                     }
                 });
             }

@@ -20,7 +20,7 @@ public class ad extends ai.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f70584a;
+    public Context f71504a;
 
     public ad(Context context) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class ad extends ai.a {
                 return;
             }
         }
-        this.f70584a = context;
+        this.f71504a = context;
     }
 
     @Override // com.xiaomi.push.ai.a
@@ -52,14 +52,14 @@ public class ad extends ai.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            com.xiaomi.push.service.aq a2 = com.xiaomi.push.service.aq.a(this.f70584a);
+            com.xiaomi.push.service.aq a2 = com.xiaomi.push.service.aq.a(this.f71504a);
             hx hxVar = new hx();
-            hxVar.a(com.xiaomi.push.service.ar.a(a2, hl.f71109a));
-            hxVar.b(com.xiaomi.push.service.ar.a(a2, hl.f71110b));
+            hxVar.a(com.xiaomi.push.service.ar.a(a2, hl.f72029a));
+            hxVar.b(com.xiaomi.push.service.ar.a(a2, hl.f72030b));
             ie ieVar = new ie("-1", false);
             ieVar.c(hp.p.f514a);
             ieVar.a(ip.a(hxVar));
-            an.a(this.f70584a).a((an) ieVar, hf.f71078i, (hs) null);
+            an.a(this.f71504a).a((an) ieVar, hf.f71998i, (hs) null);
         }
     }
 }

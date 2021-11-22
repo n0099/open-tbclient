@@ -160,7 +160,7 @@ public final class SpeedStatsStampTable {
     public static final int MAINACTIVITY_ONSTART_END_STAMP_KEY = 3040;
     public static final int MAINACTIVITY_ONSTART_START_STAMP_KEY = 3039;
     public static final int MAINACTIVITY_SUPER_CREATE_END_STAMP_KEY = 3013;
-    public static final int MAIN_PAGE_END_STAMP_KEY = 7000;
+    public static final int MAIN_PAGE_END_STAMP_KEY = 6000;
     public static final int MIGRATE_SP_END_STAMP_KEY = 1008;
     public static final int MULTI_DEX_INSTALL_END_STAMP_KEY = 1003;
     public static final int MULTI_DEX_TRICK_END_STAMP_KEY = 1005;
@@ -198,6 +198,7 @@ public final class SpeedStatsStampTable {
     public static final int SEARCHBOX_VIEW_ON_MEASURE_START_STAMP_KEY = 5001;
     public static final int SECOND_DRAW_DISPATCH_STAMP_KEY = 5054;
     public static final int SHAREP_GET_STAMP_KEY = 2011;
+    public static final int SPLASHACTIVITY_AD_WILL_CALLSHOW_STAMP_KEY = 3052;
     public static final int START_TRACK_CONFIG_REQUEST_END_STAMP_KEY = 3029;
     public static final int START_TRACK_CONFIG_REQUEST_START_STAMP_KEY = 3028;
     public static final int TAB_VIEW_PAGER_ON_LAYOUT_END_STAMP_KEY = 5014;

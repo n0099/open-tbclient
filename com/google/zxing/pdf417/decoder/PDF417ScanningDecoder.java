@@ -21,7 +21,7 @@ import com.google.zxing.pdf417.decoder.ec.ErrorCorrection;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Formatter;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class PDF417ScanningDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CODEWORD_SKEW_SIZE = 2;

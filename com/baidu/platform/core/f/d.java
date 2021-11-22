@@ -40,27 +40,27 @@ public class d extends e {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, suggestionSearchOption) == null) {
-            this.f42041a.a(IAdRequestParam.COST_NAME, suggestionSearchOption.mKeyword);
-            this.f42041a.a("region", suggestionSearchOption.mCity);
+            this.f42889a.a(IAdRequestParam.COST_NAME, suggestionSearchOption.mKeyword);
+            this.f42889a.a("region", suggestionSearchOption.mCity);
             if (suggestionSearchOption.mLocation != null) {
                 LatLng latLng = suggestionSearchOption.mLocation;
                 LatLng latLng2 = new LatLng(latLng.latitude, latLng.longitude);
                 if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                     latLng2 = CoordTrans.gcjToBaidu(latLng2);
                 }
-                com.baidu.platform.util.a aVar2 = this.f42041a;
+                com.baidu.platform.util.a aVar2 = this.f42889a;
                 aVar2.a("location", latLng2.latitude + "," + latLng2.longitude);
             }
             if (suggestionSearchOption.mCityLimit.booleanValue()) {
-                aVar = this.f42041a;
+                aVar = this.f42889a;
                 str = "true";
             } else {
-                aVar = this.f42041a;
+                aVar = this.f42889a;
                 str = "false";
             }
             aVar.a("city_limit", str);
-            this.f42041a.a("from", "android_map_sdk");
-            this.f42041a.a("output", "json");
+            this.f42889a.a("from", "android_map_sdk");
+            this.f42889a.a("output", "json");
         }
     }
 

@@ -2,9 +2,9 @@ package b.a.p0.a.h0.k;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import b.a.p0.a.k;
 import b.a.p0.a.l0.g;
-import b.a.p0.a.l0.j;
+import b.a.p0.a.l0.h;
+import b.a.p0.a.l0.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.swan.apps.jsbridge.SwanAppJsBridge;
@@ -20,28 +20,28 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f5406c;
+    public static final boolean f5687c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.p0.a.l0.a f5407a;
+    public b.a.p0.a.l0.a f5688a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j f5408b;
+    public k f5689b;
 
     /* loaded from: classes.dex */
-    public class a extends b.a.p0.a.l0.n.a {
+    public class a extends b.a.p0.a.l0.p.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f5409a;
+        public String f5690a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5410b;
+        public String f5691b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f5411c;
+        public final /* synthetic */ c f5692c;
 
         public a(@NonNull c cVar, @NonNull String str, String str2) {
             Interceptable interceptable = $ic;
@@ -58,22 +58,22 @@ public class c {
                     return;
                 }
             }
-            this.f5411c = cVar;
-            this.f5409a = str;
-            this.f5410b = str2;
-            if (c.f5406c) {
+            this.f5692c = cVar;
+            this.f5690a = str;
+            this.f5691b = str2;
+            if (c.f5687c) {
                 String str3 = "basePath: " + str + ", jsFile: " + str2;
             }
         }
 
-        @Override // b.a.p0.a.l0.n.b
+        @Override // b.a.p0.a.l0.p.b
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5410b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5691b : (String) invokeV.objValue;
         }
 
-        @Override // b.a.p0.a.l0.n.a, b.a.p0.a.l0.n.b
+        @Override // b.a.p0.a.l0.p.a, b.a.p0.a.l0.p.b
         @Nullable
         public V8EngineConfiguration.CodeCacheSetting b() {
             InterceptResult invokeV;
@@ -81,18 +81,18 @@ public class c {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.b() : (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
         }
 
-        @Override // b.a.p0.a.l0.n.a, b.a.p0.a.l0.n.b
+        @Override // b.a.p0.a.l0.p.a, b.a.p0.a.l0.p.b
         public void c(b.a.p0.a.l0.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                if (this.f5411c.f5408b != null) {
-                    this.f5411c.f5408b.a(aVar);
+                if (this.f5692c.f5689b != null) {
+                    this.f5692c.f5689b.a(aVar);
                 }
-                aVar.y0();
+                aVar.A0();
             }
         }
 
-        @Override // b.a.p0.a.l0.n.a, b.a.p0.a.l0.n.b
+        @Override // b.a.p0.a.l0.p.a, b.a.p0.a.l0.p.b
         public void d(b.a.p0.a.l0.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
@@ -100,11 +100,11 @@ public class c {
             }
         }
 
-        @Override // b.a.p0.a.l0.n.b
+        @Override // b.a.p0.a.l0.p.b
         public String getInitBasePath() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f5409a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f5690a : (String) invokeV.objValue;
         }
     }
 
@@ -121,7 +121,7 @@ public class c {
                 return;
             }
         }
-        f5406c = k.f6397a;
+        f5687c = b.a.p0.a.k.f6863a;
     }
 
     public c(@NonNull String str, @NonNull String str2) {
@@ -139,44 +139,44 @@ public class c {
                 return;
             }
         }
-        this.f5407a = b.a.p0.a.l0.f.c(c(), new a(this, str, str2), null);
-        this.f5407a.addJavascriptInterface(new b(this.f5407a), SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
+        this.f5688a = g.b(c(), new a(this, str, str2), null);
+        this.f5688a.addJavascriptInterface(new b(this.f5688a), SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
     }
 
-    public final g c() {
+    public final h c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            g.b bVar = new g.b();
+            h.b bVar = new h.b();
             bVar.c(3);
             bVar.b(b.a.p0.a.h0.k.a.b());
             return bVar.a();
         }
-        return (g) invokeV.objValue;
+        return (h) invokeV.objValue;
     }
 
     public b.a.p0.a.l0.a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5407a : (b.a.p0.a.l0.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5688a : (b.a.p0.a.l0.a) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b.a.p0.a.l0.a aVar = this.f5407a;
+            b.a.p0.a.l0.a aVar = this.f5688a;
             if (aVar != null) {
-                aVar.k0();
-                this.f5407a = null;
+                aVar.m0();
+                this.f5688a = null;
             }
-            this.f5408b = null;
+            this.f5689b = null;
         }
     }
 
-    public void f(j jVar) {
+    public void f(k kVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jVar) == null) {
-            this.f5408b = jVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) {
+            this.f5689b = kVar;
         }
     }
 }

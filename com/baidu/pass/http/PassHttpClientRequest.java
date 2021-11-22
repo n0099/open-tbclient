@@ -13,11 +13,11 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f41969a = "PassHttpClientRequest";
+    public static final String f42801a = "PassHttpClientRequest";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41970b;
+    public int f42802b;
     public volatile boolean cancelRequest;
     public Context context;
     public Method method;
@@ -40,7 +40,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
             }
         }
         this.cancelRequest = false;
-        this.f41970b = i2;
+        this.f42802b = i2;
         this.method = method;
         this.context = context;
         this.paramDTO = passHttpParamDTO;
@@ -66,7 +66,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
             try {
                 new b().a(this);
             } catch (Exception e2) {
-                Log.e(f41969a, "PassHttpClientRequestrun " + e2.getMessage());
+                Log.e(f42801a, "PassHttpClientRequestrun " + e2.getMessage());
                 HttpResponseHandler httpResponseHandler2 = this.responseHandler;
                 if (httpResponseHandler2 != null) {
                     httpResponseHandler2.b(e2, e2.getMessage());
@@ -87,7 +87,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passHttpClientRequest)) == null) {
             ReqPriority reqPriority = this.paramDTO.priority;
             ReqPriority reqPriority2 = passHttpClientRequest.paramDTO.priority;
-            return reqPriority == reqPriority2 ? this.f41970b - passHttpClientRequest.f41970b : reqPriority2.ordinal() - reqPriority.ordinal();
+            return reqPriority == reqPriority2 ? this.f42802b - passHttpClientRequest.f42802b : reqPriority2.ordinal() - reqPriority.ordinal();
         }
         return invokeL.intValue;
     }

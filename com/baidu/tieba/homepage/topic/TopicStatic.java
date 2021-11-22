@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.topic;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.l3.f0.a;
+import b.a.r0.m3.f0.a;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

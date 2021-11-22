@@ -1,7 +1,7 @@
 package b.a.r0.y1.c.j;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,19 +20,19 @@ public class i implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f27394e;
+    public boolean f28897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f27395f;
+    public String f28898f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f27396g;
+    public String f28899g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27397h;
+    public int f28900h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f27398i;
+    public String f28901i;
     public int j;
     public String k;
     public String l;
@@ -66,25 +66,25 @@ public class i implements n {
                 return;
             }
         }
-        this.f27394e = true;
+        this.f28897e = true;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27396g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28899g : (String) invokeV.objValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27397h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28900h : invokeV.intValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27395f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28898f : (String) invokeV.objValue;
     }
 
     public String g() {
@@ -93,7 +93,7 @@ public class i implements n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.l : (String) invokeV.objValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class i implements n {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27398i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28901i : (String) invokeV.objValue;
     }
 
     public int k() {
@@ -124,12 +124,12 @@ public class i implements n {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dataRes) == null) || dataRes == null || (vipUpgrade = dataRes.upgrade) == null) {
             return;
         }
-        this.f27398i = vipUpgrade.svip;
+        this.f28901i = vipUpgrade.svip;
         this.k = vipUpgrade.link;
-        this.f27396g = vipUpgrade.button;
-        this.f27395f = vipUpgrade.text;
+        this.f28899g = vipUpgrade.button;
+        this.f28898f = vipUpgrade.text;
         this.j = vipUpgrade.pay.intValue();
-        this.f27397h = dataRes.upgrade.normal.intValue();
+        this.f28900h = dataRes.upgrade.normal.intValue();
         VipUpgrade vipUpgrade2 = dataRes.upgrade;
         String str = vipUpgrade2.card_id;
         this.l = vipUpgrade2.expire;

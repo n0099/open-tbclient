@@ -11,7 +11,6 @@ import com.alibaba.fastjson.serializer.ObjectSerializer;
 import com.alibaba.fastjson.serializer.SerializeWriter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -234,7 +233,7 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
                     longValue *= 1000;
                 } else if ("yyyyMMddHHmmss".equals(str)) {
                     int i5 = (int) (longValue / 10000000000L);
-                    int i6 = (int) ((longValue / CoolPraiseView.BILLION) % 100);
+                    int i6 = (int) ((longValue / 100000000) % 100);
                     int i7 = (int) ((longValue / 1000000) % 100);
                     int i8 = (int) ((longValue / 10000) % 100);
                     int i9 = (int) ((longValue / 100) % 100);

@@ -1,9 +1,9 @@
 package b.a.p0.a.e0.f.f;
 
 import android.os.Bundle;
-import b.a.p0.a.a2.e;
-import b.a.p0.a.v2.f;
-import b.a.p0.a.v2.v;
+import b.a.p0.a.d2.e;
+import b.a.p0.a.z2.f;
+import b.a.p0.a.z2.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ public class d implements b.a.p0.a.e0.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4687a;
+    public static String f4657a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public d() {
@@ -34,26 +34,26 @@ public class d implements b.a.p0.a.e0.f.a {
     }
 
     public static void d() {
-        e i2;
+        e L;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (i2 = e.i()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (L = e.L()) == null) {
             return;
         }
-        f.j(i2.getActivity());
+        f.j(L.getActivity());
         System.exit(0);
     }
 
     public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f4687a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f4657a : (String) invokeV.objValue;
     }
 
     @Override // b.a.p0.a.e0.f.a
     public void a(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            f4687a = v.i(bundle, "extraWSUrl");
+            f4657a = v.i(bundle, "extraWSUrl");
             b.a.p0.a.e0.f.b.i(v.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
             b.a.p0.a.e0.f.b.j(v.i(bundle, "slavePreload"));
         }
@@ -63,7 +63,7 @@ public class d implements b.a.p0.a.e0.f.a {
     public void b(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            bundle.putString("extraWSUrl", f4687a);
+            bundle.putString("extraWSUrl", f4657a);
             bundle.putString("slavePreload", b.a.p0.a.e0.f.b.c());
             bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, b.a.p0.a.e0.f.b.a());
         }

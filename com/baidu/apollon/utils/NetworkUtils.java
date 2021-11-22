@@ -31,7 +31,7 @@ public final class NetworkUtils {
     public static final int NETWORK_WIFI = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f36320a = "NetworkUtils";
+    public static final String f37149a = "NetworkUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
     public NetworkUtils() {

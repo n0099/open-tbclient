@@ -1,9 +1,9 @@
 package b.a.r0.h1.j;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.c2;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.e0.j;
+import b.a.r0.b0.f0.j;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -32,8 +32,8 @@ public class a {
                     d2 d2Var = (d2) next;
                     d2Var.d2 = true;
                     int[] g0 = d2Var.g0();
-                    if (d2Var.getType() == d2.a3) {
-                        if (d2Var != null && d2Var.Y() != null && !StringUtils.isNull(d2Var.Y().f13506b)) {
+                    if (d2Var.getType() == d2.b3) {
+                        if (d2Var != null && d2Var.Y() != null && !StringUtils.isNull(d2Var.Y().f14288b)) {
                             c2 c2Var = new c2();
                             c2Var.w = d2Var;
                             c2Var.position = i2;
@@ -44,23 +44,23 @@ public class a {
                             c2 c2Var2 = new c2();
                             c2Var2.w = d2Var;
                             c2Var2.position = i2;
-                            c2Var2.f13254e = true;
+                            c2Var2.f14034e = true;
                             c2Var2.setSupportType(BaseCardInfo.SupportType.TOP);
                             arrayList2.add(c2Var2);
                         }
                         c2 c2Var3 = new c2();
                         c2Var3.w = d2Var;
                         c2Var3.position = i2;
-                        if (d2Var.N1()) {
+                        if (d2Var.P1()) {
                             c2Var3.j = true;
-                        } else if (d2Var.d3() == 1) {
-                            c2Var3.f13257h = true;
+                        } else if (d2Var.f3() == 1) {
+                            c2Var3.f14037h = true;
                             c2Var3.x = g0[0];
                             c2Var3.y = g0[1];
-                        } else if (d2Var.d3() >= 2) {
-                            c2Var3.f13258i = true;
+                        } else if (d2Var.f3() >= 2) {
+                            c2Var3.f14038i = true;
                         } else {
-                            c2Var3.f13255f = true;
+                            c2Var3.f14035f = true;
                         }
                         c2Var3.w.setSupportType(BaseCardInfo.SupportType.CONTENT);
                         c2Var3.setSupportType(BaseCardInfo.SupportType.CONTENT);
@@ -96,8 +96,8 @@ public class a {
                         c2Var7.position = i2;
                         c2Var7.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                         arrayList2.add(c2Var7);
-                    } else if (d2Var.getType() == d2.x3) {
-                        if (d2Var != null && d2Var.Y() != null && !StringUtils.isNull(d2Var.Y().f13506b)) {
+                    } else if (d2Var.getType() == d2.z3) {
+                        if (d2Var != null && d2Var.Y() != null && !StringUtils.isNull(d2Var.Y().f14288b)) {
                             c2 c2Var8 = new c2();
                             c2Var8.w = d2Var;
                             c2Var8.position = i2;
@@ -109,7 +109,7 @@ public class a {
                             c2Var9.w = d2Var;
                             c2Var9.position = i2;
                             c2Var9.setSupportType(BaseCardInfo.SupportType.TOP);
-                            c2Var9.f13254e = true;
+                            c2Var9.f14034e = true;
                             arrayList2.add(c2Var9);
                         }
                         c2 c2Var10 = new c2();
@@ -138,13 +138,13 @@ public class a {
                         c2Var13.position = i2;
                         c2Var13.setSupportType(BaseCardInfo.SupportType.BOTTOM);
                         arrayList2.add(c2Var13);
-                    } else if (d2Var.getType() == d2.p3 && d2Var.M1()) {
+                    } else if (d2Var.getType() == d2.r3 && d2Var.O1()) {
                         d2Var.position = i2;
                         d2Var.setSupportType(BaseCardInfo.SupportType.FULL);
                         arrayList2.add(d2Var);
                     } else if (j.Y(d2Var)) {
                         j jVar = new j(d2Var);
-                        jVar.l = d2Var.s1();
+                        jVar.l = d2Var.t1();
                         jVar.feedBackReasonMap = d2Var.k1;
                         jVar.setSupportType(BaseCardInfo.SupportType.FULL);
                         arrayList2.add(jVar);
@@ -185,9 +185,9 @@ public class a {
                 } else if (item instanceof d2) {
                     d2Var = (d2) item;
                 } else if (item instanceof j) {
-                    d2Var = ((j) item).f14748e;
+                    d2Var = ((j) item).f16235e;
                 }
-                if (d2Var != null && d2Var.s1().equals(str)) {
+                if (d2Var != null && d2Var.t1().equals(str)) {
                     if (!z) {
                         i2 = i4;
                     }

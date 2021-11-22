@@ -1,64 +1,133 @@
 package b.a.p0.w;
 
-import android.annotation.SuppressLint;
-import android.preference.PreferenceManager;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-import java.io.File;
 /* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f11656a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-612743526, "Lb/a/p0/w/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-612743526, "Lb/a/p0/w/a;");
-                return;
-            }
-        }
-        f11656a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
-        String str = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
-    }
-
-    public static boolean a() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            DisplayMetrics c2 = c();
+            if (c2 != null) {
+                return c2.densityDpi;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
-    public static boolean b() {
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            DisplayMetrics c2 = c();
+            if (c2 != null) {
+                return c2.heightPixels;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static DisplayMetrics c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(f11656a);
-            sb.append(File.separator);
-            sb.append("libzeuswebviewchromium.so");
-            return new File(sb.toString()).exists() && a();
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext == null) {
+                return null;
+            }
+            return appContext.getResources().getDisplayMetrics();
         }
-        return invokeV.booleanValue;
+        return (DisplayMetrics) invokeV.objValue;
     }
 
-    @SuppressLint({"ApplySharedPref"})
-    public static void c() {
+    public static int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).edit().putBoolean("swan_t7_success", false).commit();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            DisplayMetrics c2 = c();
+            if (c2 != null) {
+                return c2.widthPixels;
+            }
+            return 0;
         }
+        return invokeV.intValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        NetworkInfo activeNetworkInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) AppRuntime.getAppContext().getSystemService("connectivity");
+            if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isConnected()) {
+                return "no";
+            }
+            if (activeNetworkInfo.getType() == 1) {
+                return "WiFi";
+            }
+            if (activeNetworkInfo.getType() == 0) {
+                int subtype = activeNetworkInfo.getSubtype();
+                if (subtype != 20) {
+                    switch (subtype) {
+                        case 1:
+                        case 2:
+                        case 4:
+                        case 7:
+                        case 11:
+                            return "2G";
+                        case 3:
+                        case 5:
+                        case 6:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 12:
+                        case 14:
+                        case 15:
+                            return "3G";
+                        case 13:
+                            return "4G";
+                        default:
+                            return "unknown";
+                    }
+                }
+                return "5G";
+            }
+            return "unknown";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? "Android" : (String) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+            String str = Build.VERSION.RELEASE;
+            return TextUtils.isEmpty(str) ? XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT : str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
     }
 }

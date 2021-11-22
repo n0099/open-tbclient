@@ -103,7 +103,7 @@ public class a extends Fragment {
             String packageName = e2.getPackageName();
             if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
                 String lowerCase = Build.MANUFACTURER.toLowerCase();
-                if (lowerCase.contains(e.f69178c)) {
+                if (lowerCase.contains(e.f70098c)) {
                     Intent intent = new Intent();
                     intent.putExtra("packageName", packageName);
                     intent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.PermissionManagerActivity"));

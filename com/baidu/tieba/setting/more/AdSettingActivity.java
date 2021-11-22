@@ -41,7 +41,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public transient /* synthetic */ FieldHolder $fh;
     public b.a.e.c.g.a mMemberCloseAdListener;
     public int mMemberCloseAdSettingState;
-    public b.a.r0.c3.c.b mView;
+    public b.a.r0.d3.c.b mView;
     public b.a.q0.s.g0.a mWaitingDialog;
 
     /* loaded from: classes9.dex */
@@ -50,7 +50,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdSettingActivity f53837e;
+        public final /* synthetic */ AdSettingActivity f54757e;
 
         public a(AdSettingActivity adSettingActivity) {
             Interceptable interceptable = $ic;
@@ -67,14 +67,14 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
                     return;
                 }
             }
-            this.f53837e = adSettingActivity;
+            this.f54757e = adSettingActivity;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f53837e.getPageContext().getPageActivity(), 2, "", 20);
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f54757e.getPageContext().getPageActivity(), 2, "", 20);
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_SITE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
                 aVar.dismiss();
@@ -88,7 +88,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdSettingActivity f53838e;
+        public final /* synthetic */ AdSettingActivity f54758e;
 
         public b(AdSettingActivity adSettingActivity) {
             Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
                     return;
                 }
             }
-            this.f53838e = adSettingActivity;
+            this.f54758e = adSettingActivity;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -123,7 +123,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdSettingActivity f53839a;
+        public final /* synthetic */ AdSettingActivity f54759a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(AdSettingActivity adSettingActivity, int i2, int i3) {
@@ -144,7 +144,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
                     return;
                 }
             }
-            this.f53839a = adSettingActivity;
+            this.f54759a = adSettingActivity;
         }
 
         @Override // b.a.e.c.g.a
@@ -153,19 +153,19 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage != null && responsedMessage.getError() != 0) {
                     if (responsedMessage.getError() == 1990043) {
-                        this.f53839a.showMemberDialog();
+                        this.f54759a.showMemberDialog();
                     } else if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        this.f53839a.setMemberCloseAdFail();
+                        this.f54759a.setMemberCloseAdFail();
                         return;
                     } else {
-                        this.f53839a.showToast(responsedMessage.getErrorString());
+                        this.f54759a.showToast(responsedMessage.getErrorString());
                     }
-                    this.f53839a.setMemberCloseAdFail(false);
+                    this.f54759a.setMemberCloseAdFail(false);
                     return;
                 }
                 boolean z = responsedMessage instanceof MemberCloseAdHttpResponseMessage;
                 if (!z && !(responsedMessage instanceof MemberCloseAdSocketResponseMessage)) {
-                    this.f53839a.setMemberCloseAdFail();
+                    this.f54759a.setMemberCloseAdFail();
                     return;
                 }
                 CloseAdData closeAdData = null;
@@ -175,10 +175,10 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
                     closeAdData = ((MemberCloseAdSocketResponseMessage) responsedMessage).getData();
                 }
                 if (closeAdData == null) {
-                    this.f53839a.setMemberCloseAdFail();
+                    this.f54759a.setMemberCloseAdFail();
                     return;
                 }
-                this.f53839a.setMemberCloseAdSuccess(closeAdData.x());
+                this.f54759a.setMemberCloseAdSuccess(closeAdData.x());
             }
         }
     }
@@ -301,7 +301,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new b.a.r0.c3.c.b(this);
+            this.mView = new b.a.r0.d3.c.b(this);
             registerTask();
             registerListener(this.mMemberCloseAdListener);
         }
@@ -310,8 +310,8 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b.a.r0.l3.f0.a.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
-            b.a.r0.l3.f0.a.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
+            b.a.r0.m3.f0.a.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
+            b.a.r0.m3.f0.a.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
         }
     }
 

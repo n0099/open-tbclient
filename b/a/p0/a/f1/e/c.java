@@ -6,9 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.f1.e.c;
+import b.a.p0.a.z2.g1.f;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
 import com.baidu.swan.apps.favordata.SwanFavorItemData;
@@ -44,13 +47,13 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
             }
         }
 
-        @Override // b.a.p0.a.v2.e1.d
-        public /* bridge */ /* synthetic */ b.a.p0.a.v2.e1.d a() {
-            e1();
+        @Override // b.a.p0.a.z2.g1.f
+        public /* bridge */ /* synthetic */ f a() {
+            i1();
             return this;
         }
 
-        public a e1() {
+        public a i1() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (a) invokeV.objValue;
@@ -76,25 +79,37 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
         }
     }
 
-    public static String a1(String str, int i2, JSONObject jSONObject) {
+    public static String d1(String str, int i2, JSONObject jSONObject) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, str, i2, jSONObject)) == null) {
-            String str2 = i2 == 1 ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan";
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            Uri.Builder builder = new Uri.Builder();
-            builder.scheme(UnitedSchemeConstants.UNITED_SCHEME).authority(str2).appendPath(str).appendQueryParameter("_baiduboxapp", jSONObject.toString()).build();
-            return builder.toString();
-        }
-        return (String) invokeLIL.objValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, str, i2, jSONObject)) == null) ? e1(str, null, i2, jSONObject) : (String) invokeLIL.objValue;
     }
 
-    public static c b1(Bundle bundle) {
+    public static String e1(String str, String str2, int i2, JSONObject jSONObject) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, str, str2, i2, jSONObject)) == null) {
+            String str3 = i2 == 1 ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan";
+            Uri.Builder builder = new Uri.Builder();
+            builder.scheme(UnitedSchemeConstants.UNITED_SCHEME).authority(str3).appendPath(str);
+            if (!TextUtils.isEmpty(str2)) {
+                builder.appendEncodedPath(str2);
+            } else if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            if (jSONObject != null) {
+                builder.appendQueryParameter("_baiduboxapp", jSONObject.toString());
+            }
+            builder.build();
+            return builder.toString();
+        }
+        return (String) invokeLLIL.objValue;
+    }
+
+    public static c f1(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
             a aVar = new a();
             aVar.update(bundle);
             return aVar;
@@ -102,10 +117,10 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
         return (c) invokeL.objValue;
     }
 
-    public static Intent c1(Context context, c cVar) {
+    public static Intent g1(Context context, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cVar)) == null) {
             if (context == null || cVar == null) {
                 return null;
             }
@@ -115,16 +130,16 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
             if (context instanceof Application) {
                 intent.setFlags(268435456);
             }
-            intent.putExtras(cVar.C());
+            intent.putExtras(cVar.D());
             return intent;
         }
         return (Intent) invokeLL.objValue;
     }
 
-    public static String d1(String str, String str2, int i2) {
+    public static String h1(String str, String str2, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, str, str2, i2)) == null) {
             String str3 = i2 == 1 ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan";
             Uri.Builder builder = new Uri.Builder();
             JSONObject jSONObject = new JSONObject();
@@ -144,7 +159,7 @@ public abstract class c<SelfT extends c<SelfT>> extends e<SelfT> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanAppLaunchParams{appId='" + G() + ExtendedMessageFormat.QUOTE + ", from='" + S() + ExtendedMessageFormat.QUOTE + ", page='" + d0() + ExtendedMessageFormat.QUOTE + ", isDebug=" + l0() + ", extraData=" + O() + ", clickId='" + K() + ExtendedMessageFormat.QUOTE + ", launchScheme='" + V() + ExtendedMessageFormat.QUOTE + ", notInHistory='" + b0() + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SwanAppLaunchParams{appId='" + H() + ExtendedMessageFormat.QUOTE + ", from='" + T() + ExtendedMessageFormat.QUOTE + ", page='" + e0() + ExtendedMessageFormat.QUOTE + ", isDebug=" + n0() + ", extraData=" + P() + ", clickId='" + L() + ExtendedMessageFormat.QUOTE + ", launchScheme='" + W() + ExtendedMessageFormat.QUOTE + ", notInHistory='" + c0() + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
-import b.a.e.e.f.a;
-import b.a.e.e.f.b;
+import b.a.e.f.f.a;
+import b.a.e.f.f.b;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ public class KeepAliveSwitch extends a {
         }
     }
 
-    @Override // b.a.e.e.f.a
+    @Override // b.a.e.f.f.a
     public void addToManager() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -43,14 +43,14 @@ public class KeepAliveSwitch extends a {
         }
     }
 
-    @Override // b.a.e.e.f.a
+    @Override // b.a.e.f.f.a
     public void changeSettingByType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
         }
     }
 
-    @Override // b.a.e.e.f.a
+    @Override // b.a.e.f.f.a
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class KeepAliveSwitch extends a {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // b.a.e.e.f.a
+    @Override // b.a.e.f.f.a
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class KeepAliveSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // b.a.e.e.f.a
+    @Override // b.a.e.f.f.a
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class KeepAliveSwitch extends a {
         return invokeV.intValue;
     }
 
-    @Override // b.a.e.e.f.a
+    @Override // b.a.e.f.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? KEEP_ALIVE_KEY : (String) invokeV.objValue;
     }
 
-    @Override // b.a.e.e.f.a
+    @Override // b.a.e.f.f.a
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,6 +1,8 @@
 package b.a.r0.t1;
 
+import android.app.Application;
 import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -23,7 +25,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<b.a.r0.t1.k.a> f23778a;
+    public static final List<b.a.r0.t1.k.a> f25307a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,13 +41,13 @@ public class a {
                 return;
             }
         }
-        f23778a = new ArrayList();
+        f25307a = new ArrayList();
     }
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            b.a.r0.x1.a.j().C(context, "");
+            b.a.r0.x1.a.j().D(context, "");
         }
     }
 
@@ -66,14 +68,14 @@ public class a {
                     str2 = "";
                 }
                 if ("1".equals(str3)) {
-                    b.a.r0.x1.a.j().G(context, str2);
+                    b.a.r0.x1.a.j().H(context, str2);
                     return;
                 } else {
-                    b.a.r0.x1.a.j().C(context, "");
+                    b.a.r0.x1.a.j().D(context, "");
                     return;
                 }
             }
-            b.a.r0.x1.a.j().C(context, "");
+            b.a.r0.x1.a.j().D(context, "");
         }
     }
 
@@ -163,7 +165,7 @@ public class a {
                 str2 = str5;
             }
             if (!"1".equals(str3)) {
-                b.a.r0.x1.a.j().x(context, str, jSONObject.toString(), map);
+                b.a.r0.x1.a.j().y(context, str, jSONObject.toString(), map);
                 return;
             }
             JSONObject jSONObject2 = new JSONObject();
@@ -181,7 +183,7 @@ public class a {
             } catch (JSONException e5) {
                 e5.printStackTrace();
             }
-            b.a.r0.x1.a.j().w(context, jSONObject3.toString());
+            b.a.r0.x1.a.j().x(context, jSONObject3.toString());
         }
     }
 
@@ -200,20 +202,20 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         if (aVar != null) {
             try {
-                if (!TextUtils.isEmpty(aVar.f23800a)) {
-                    jSONObject.put("callback", aVar.f23800a);
+                if (!TextUtils.isEmpty(aVar.f25329a)) {
+                    jSONObject.put("callback", aVar.f25329a);
                     if (aVar2 != null) {
-                        f23778a.add(aVar2);
+                        f25307a.add(aVar2);
                     }
                 }
-                jSONObject.put("isTranslucent", aVar.f23801b);
-                if (!TextUtils.isEmpty(aVar.f23802c)) {
-                    jSONObject.put("from", aVar.f23802c);
+                jSONObject.put("isTranslucent", aVar.f25330b);
+                if (!TextUtils.isEmpty(aVar.f25331c)) {
+                    jSONObject.put("from", aVar.f25331c);
                 }
             } catch (JSONException unused) {
             }
         }
-        b.a.r0.x1.a.j().A(context, jSONObject.toString());
+        b.a.r0.x1.a.j().B(context, jSONObject.toString());
     }
 
     public static void f(Context context) {
@@ -226,28 +228,28 @@ public class a {
     public static void g(Context context, long j, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            b.a.r0.x1.a.j().u(context, j, i2);
+            b.a.r0.x1.a.j().v(context, j, i2);
         }
     }
 
     public static void h(Context context, String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65544, null, context, str, i2) == null) {
-            b.a.r0.x1.a.j().r(context, str, i2);
+            b.a.r0.x1.a.j().s(context, str, i2);
         }
     }
 
     public static void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            b.a.r0.x1.a.j().s(context);
+            b.a.r0.x1.a.j().t(context);
         }
     }
 
     public static void j(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, str2) == null) {
-            b.a.r0.x1.a.j().t(context, str, str2);
+            b.a.r0.x1.a.j().u(context, str, str2);
         }
     }
 
@@ -278,37 +280,37 @@ public class a {
         } catch (JSONException e3) {
             e3.printStackTrace();
         }
-        b.a.r0.x1.a.j().w(context, jSONObject2.toString());
+        b.a.r0.x1.a.j().x(context, jSONObject2.toString());
     }
 
     public static void l(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
-            b.a.r0.x1.a.j().y(context);
+            b.a.r0.x1.a.j().z(context);
         }
     }
 
     public static void m(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
-            b.a.r0.x1.a.j().z(context, str);
+            b.a.r0.x1.a.j().A(context, str);
         }
     }
 
     public static void n(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65550, null, context, str, str2) == null) {
-            b.a.r0.x1.a.j().B(context, str, str2);
+            b.a.r0.x1.a.j().C(context, str, str2);
         }
     }
 
     public static void o(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, null, jSONObject) == null) {
-            for (int i2 = 0; i2 < f23778a.size(); i2++) {
-                f23778a.get(i2).onCallback(jSONObject);
+            for (int i2 = 0; i2 < f25307a.size(); i2++) {
+                f25307a.get(i2).onCallback(jSONObject);
             }
-            f23778a.clear();
+            f25307a.clear();
         }
     }
 
@@ -328,6 +330,13 @@ public class a {
             HashMap hashMap = new HashMap();
             hashMap.put("uid", Long.valueOf(j));
             b.a.r0.x1.a.j().g(TbadkCoreApplication.getInst(), "shareSuccess", hashMap);
+        }
+    }
+
+    public static void r(Application application, String str, Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65554, null, application, str, uri) == null) {
+            b.a.r0.x1.a.j().r(application, str, uri);
         }
     }
 }

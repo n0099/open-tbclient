@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<a> f2781a = new AtomicReference<>();
+    public static final AtomicReference<a> f2874a = new AtomicReference<>();
 
     @IdRes
     int A();

@@ -34,8 +34,8 @@ public class a extends TBSpecificationButtonConfig {
             }
         }
         this.v = false;
-        this.f45529b = R.color.CAM_X0101;
-        this.f45531d = R.color.CAM_X0302;
+        this.f46379b = R.color.CAM_X0101;
+        this.f46381d = R.color.CAM_X0302;
     }
 
     @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
@@ -48,8 +48,8 @@ public class a extends TBSpecificationButtonConfig {
     public void p(@ColorRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f45531d = i2;
-            this.f45529b = R.color.CAM_X0101;
+            this.f46381d = i2;
+            this.f46379b = R.color.CAM_X0101;
             this.q = true;
             TBSpecificationButtonConfig.a aVar = this.t;
             if (aVar != null) {
@@ -64,9 +64,9 @@ public class a extends TBSpecificationButtonConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2)) == null) {
             if (!this.q) {
-                this.f45529b = SkinManager.getColor(this.r, R.color.CAM_X0101);
+                this.f46379b = SkinManager.getColor(this.r, R.color.CAM_X0101);
             }
-            int color = this.q ? SkinManager.getColor(this.r, this.f45531d) : this.f45531d;
+            int color = this.q ? SkinManager.getColor(this.r, this.f46381d) : this.f46381d;
             if (!this.v) {
                 this.u = new int[]{color, color};
             }

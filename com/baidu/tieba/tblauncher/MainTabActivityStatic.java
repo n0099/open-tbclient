@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.net.Uri;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.d4.i;
+import b.a.r0.e4.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -46,10 +46,10 @@ public class MainTabActivityStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f54427a;
+    public static int f55347a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f54428b;
+    public static boolean f55348b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -136,7 +136,7 @@ public class MainTabActivityStatic {
                             if (parse == null || StringUtils.isNull(parse.getQueryParameter("subTabIndex"))) {
                                 i2 = -1;
                             } else {
-                                int e2 = b.a.e.e.m.b.e(parse.getQueryParameter("subTabIndex"), 0);
+                                int e2 = b.a.e.f.m.b.e(parse.getQueryParameter("subTabIndex"), 0);
                                 i2 = e2 == 1 ? 18 : 17;
                                 try {
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921446, Integer.valueOf(e2)));
@@ -477,11 +477,11 @@ public class MainTabActivityStatic {
         }
         int b2 = b(newsRemindMessage);
         boolean c2 = c(newsRemindMessage);
-        if (b2 == f54427a && c2 == f54428b) {
+        if (b2 == f55347a && c2 == f55348b) {
             return;
         }
-        f54427a = b2;
-        f54428b = c2;
+        f55347a = b2;
+        f55348b = c2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(b2), Boolean.valueOf(c2))));
     }
 

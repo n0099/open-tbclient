@@ -11,13 +11,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f3074a;
+    public Bitmap f3167a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3075b;
+    public int f3168b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f3076c;
+    public c f3169c;
 
     public c(Bitmap bitmap, int i2) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class c {
                 return;
             }
         }
-        this.f3076c = null;
-        this.f3074a = bitmap;
-        this.f3075b = i2;
+        this.f3169c = null;
+        this.f3167a = bitmap;
+        this.f3168b = i2;
     }
 }

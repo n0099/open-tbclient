@@ -1,7 +1,7 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.d1.s0;
+import b.a.q0.c1.r0;
 import b.a.r0.q2.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -61,7 +61,7 @@ public class UtilityVideo implements TiebaUtilityVideoAuto.HostUtilityVideo {
         if (interceptable == null || interceptable.invokeL(1048579, this, videoBoolValue) == null) {
             boolean booleanValue = videoBoolValue.getResult().booleanValue();
             TbSingleton.getInstance().setVideoCardMute(booleanValue);
-            s0.f(new WeakReference(TbadkCoreApplication.getInst()), !booleanValue);
+            r0.f(new WeakReference(TbadkCoreApplication.getInst()), !booleanValue);
         }
     }
 

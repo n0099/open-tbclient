@@ -18,9 +18,9 @@ public interface a extends View.OnClickListener, CyberPlayerManager.OnPreparedLi
 
     void H();
 
-    boolean L(boolean z);
+    boolean I(boolean z);
 
-    void N(View.OnClickListener onClickListener);
+    void J(View.OnClickListener onClickListener);
 
     int getCurrentPosition();
 

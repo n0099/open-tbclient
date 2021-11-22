@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.App;
 /* loaded from: classes4.dex */
-public class a extends b.a.r0.b0.e0.d {
+public class a extends b.a.r0.b0.f0.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,10 +30,10 @@ public class a extends b.a.r0.b0.e0.d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, app) == null) || app == null) {
             return;
         }
-        if (this.f14753e == null) {
-            this.f14753e = new AdvertAppInfo();
+        if (this.f16240e == null) {
+            this.f16240e = new AdvertAppInfo();
         }
-        this.f14753e.W4(app);
-        this.position = this.f14753e.position;
+        this.f16240e.Y4(app);
+        this.position = this.f16240e.position;
     }
 }

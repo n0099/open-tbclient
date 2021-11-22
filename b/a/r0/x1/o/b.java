@@ -10,18 +10,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements YYPayService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements b.a.q0.p0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ YYPayService.YYPayResultCallback f27040a;
+        public final /* synthetic */ YYPayService.YYPayResultCallback f28572a;
 
         public a(b bVar, YYPayService.YYPayResultCallback yYPayResultCallback) {
             Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class b implements YYPayService {
                     return;
                 }
             }
-            this.f27040a = yYPayResultCallback;
+            this.f28572a = yYPayResultCallback;
         }
 
         @Override // b.a.q0.p0.b
@@ -47,19 +47,19 @@ public class b implements YYPayService {
             if (interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) {
                 if (gVar != null) {
                     YYPayService.YYPayResultMessage yYPayResultMessage = new YYPayService.YYPayResultMessage();
-                    yYPayResultMessage.setStatus(gVar.f12814g);
-                    yYPayResultMessage.setAppid(gVar.f12809b);
-                    yYPayResultMessage.setUid(gVar.f12815h.longValue());
-                    yYPayResultMessage.setUsedChannel(gVar.f12816i);
-                    yYPayResultMessage.setCurrencyType(gVar.f12811d);
-                    yYPayResultMessage.setAmount(gVar.f12808a.longValue());
-                    yYPayResultMessage.setCurrencyAmount(gVar.f12810c.longValue());
-                    yYPayResultMessage.setOrderId(gVar.f12813f);
-                    yYPayResultMessage.setExpand(gVar.f12812e);
-                    this.f27040a.onSuccess(yYPayResultMessage);
+                    yYPayResultMessage.setStatus(gVar.f13564g);
+                    yYPayResultMessage.setAppid(gVar.f13559b);
+                    yYPayResultMessage.setUid(gVar.f13565h.longValue());
+                    yYPayResultMessage.setUsedChannel(gVar.f13566i);
+                    yYPayResultMessage.setCurrencyType(gVar.f13561d);
+                    yYPayResultMessage.setAmount(gVar.f13558a.longValue());
+                    yYPayResultMessage.setCurrencyAmount(gVar.f13560c.longValue());
+                    yYPayResultMessage.setOrderId(gVar.f13563f);
+                    yYPayResultMessage.setExpand(gVar.f13562e);
+                    this.f28572a.onSuccess(yYPayResultMessage);
                     return;
                 }
-                this.f27040a.onSuccess(null);
+                this.f28572a.onSuccess(null);
             }
         }
 
@@ -67,7 +67,7 @@ public class b implements YYPayService {
         public void onFail(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f27040a.onFail(i2, str);
+                this.f28572a.onFail(i2, str);
             }
         }
     }

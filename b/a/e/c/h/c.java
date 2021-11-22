@@ -4,7 +4,7 @@ import android.util.SparseArray;
 import android.util.SparseIntArray;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.c.f.f;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.MessageManager;
@@ -30,29 +30,29 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static b.a.e.c.g.b<Message<?>> f1552h;
+    public static b.a.e.c.g.b<Message<?>> f1548h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageManager f1553a;
+    public MessageManager f1549a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<T> f1554b;
+    public final SparseArray<T> f1550b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final SparseArray<N> f1555c;
+    public final SparseArray<N> f1551c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final SparseArray<LinkedList<MessageListener<N>>> f1556d;
+    public final SparseArray<LinkedList<MessageListener<N>>> f1552d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.e.c.j.d f1557e;
+    public b.a.e.c.j.d f1553e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f1558f;
+    public boolean f1554f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseIntArray f1559g;
+    public final SparseIntArray f1555g;
 
     static {
         InterceptResult invokeClinit;
@@ -84,27 +84,27 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
                 return;
             }
         }
-        this.f1553a = null;
-        this.f1554b = new SparseArray<>();
-        this.f1555c = new SparseArray<>();
-        this.f1556d = new SparseArray<>();
-        this.f1557e = null;
-        this.f1558f = false;
-        this.f1559g = new SparseIntArray();
-        this.f1553a = messageManager;
+        this.f1549a = null;
+        this.f1550b = new SparseArray<>();
+        this.f1551c = new SparseArray<>();
+        this.f1552d = new SparseArray<>();
+        this.f1553e = null;
+        this.f1554f = false;
+        this.f1555g = new SparseIntArray();
+        this.f1549a = messageManager;
     }
 
     public static void q(b.a.e.c.g.b<Message<?>> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            f1552h = bVar;
+            f1548h = bVar;
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1558f = true;
+            this.f1554f = true;
         }
     }
 
@@ -129,12 +129,12 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             }
             if (t != null) {
                 M m2 = m(m, t);
-                if (this.f1557e != null) {
+                if (this.f1553e != null) {
                     if (t.getTimeOut() == null) {
-                        t.setTimeOut(this.f1557e.b());
+                        t.setTimeOut(this.f1553e.b());
                     }
                     if (t.getRetry() == 0) {
-                        t.setRetry(this.f1557e.a());
+                        t.setRetry(this.f1553e.a());
                     }
                 }
                 if (m2 != null) {
@@ -144,7 +144,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
                 BdLog.d("message is trapped:" + cmd);
                 return false;
             }
-            b.a.e.c.g.b<Message<?>> bVar = f1552h;
+            b.a.e.c.g.b<Message<?>> bVar = f1548h;
             if (bVar != null) {
                 bVar.a(m);
             }
@@ -165,19 +165,19 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             int cmd = n.getCmd();
             Message<?> orginalMessage = n.getOrginalMessage();
             BdUniqueId tag = orginalMessage != null ? orginalMessage.getTag() : null;
-            if (this.f1555c.indexOfKey(cmd) >= 0) {
-                this.f1555c.put(cmd, n);
+            if (this.f1551c.indexOfKey(cmd) >= 0) {
+                this.f1551c.put(cmd, n);
             }
-            LinkedList<MessageListener<N>> linkedList = this.f1556d.get(cmd);
+            LinkedList<MessageListener<N>> linkedList = this.f1552d.get(cmd);
             if (linkedList == null) {
                 return;
             }
-            this.f1558f = false;
+            this.f1554f = false;
             l(cmd);
             try {
                 try {
                     Iterator<MessageListener<N>> it = linkedList.iterator();
-                    while (it.hasNext() && !this.f1558f) {
+                    while (it.hasNext() && !this.f1554f) {
                         MessageListener<N> next = it.next();
                         if (next != null && (!next.isSelfListener() || next.getTag() == tag)) {
                             try {
@@ -202,7 +202,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             synchronized (this) {
-                t = this.f1554b.get(i2);
+                t = this.f1550b.get(i2);
             }
             return t;
         }
@@ -216,9 +216,9 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList<>();
-                int size = this.f1554b.size();
+                int size = this.f1550b.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    arrayList.add(this.f1554b.valueAt(i2));
+                    arrayList.add(this.f1550b.valueAt(i2));
                 }
             }
             return arrayList;
@@ -230,7 +230,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            LinkedList<MessageListener<N>> linkedList = this.f1556d.get(i2);
+            LinkedList<MessageListener<N>> linkedList = this.f1552d.get(i2);
             return linkedList != null && linkedList.size() > 0;
         }
         return invokeI.booleanValue;
@@ -242,7 +242,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
             synchronized (this) {
-                z = this.f1559g.get(i2, 0) != 0;
+                z = this.f1555g.get(i2, 0) != 0;
             }
             return z;
         }
@@ -253,7 +253,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
             synchronized (this) {
-                this.f1559g.put(i2, this.f1559g.get(i2, 0) + 1);
+                this.f1555g.put(i2, this.f1555g.get(i2, 0) + 1);
             }
         }
     }
@@ -275,13 +275,13 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             }
             FrameHelper.f(i2);
             b(i2);
-            LinkedList<MessageListener<N>> linkedList = this.f1556d.get(i2);
+            LinkedList<MessageListener<N>> linkedList = this.f1552d.get(i2);
             if (linkedList == null) {
                 linkedList = new LinkedList<>();
-                this.f1556d.put(i2, linkedList);
+                this.f1552d.put(i2, linkedList);
             }
             FrameHelper.insert(linkedList, messageListener);
-            N n = this.f1555c.get(i2);
+            N n = this.f1551c.get(i2);
             if (n != null) {
                 messageListener.onMessage(n);
             }
@@ -290,10 +290,10 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
 
     public void o(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || this.f1555c.indexOfKey(i2) >= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || this.f1551c.indexOfKey(i2) >= 0) {
             return;
         }
-        this.f1555c.put(i2, null);
+        this.f1551c.put(i2, null);
     }
 
     public synchronized void p(T t) {
@@ -305,7 +305,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
                 }
                 int cmd = t.getCmd();
                 FrameHelper.f(cmd);
-                this.f1554b.put(cmd, t);
+                this.f1550b.put(cmd, t);
             }
         }
     }
@@ -314,11 +314,11 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             synchronized (this) {
-                int i3 = this.f1559g.get(i2, 0);
+                int i3 = this.f1555g.get(i2, 0);
                 if (i3 <= 1) {
-                    this.f1559g.delete(i2);
+                    this.f1555g.delete(i2);
                 } else {
-                    this.f1559g.put(i2, i3 - 1);
+                    this.f1555g.put(i2, i3 - 1);
                 }
             }
         }
@@ -331,10 +331,10 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             if (bdUniqueId == null) {
                 return;
             }
-            int size = this.f1556d.size();
+            int size = this.f1552d.size();
             for (int i2 = 0; i2 < size; i2++) {
-                int keyAt = this.f1556d.keyAt(i2);
-                Iterator<MessageListener<N>> it = this.f1556d.valueAt(i2).iterator();
+                int keyAt = this.f1552d.keyAt(i2);
+                Iterator<MessageListener<N>> it = this.f1552d.valueAt(i2).iterator();
                 while (it.hasNext()) {
                     MessageListener<N> next = it.next();
                     if (next != null && next.getTag() == bdUniqueId) {
@@ -355,10 +355,10 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             }
             int cmd = messageListener.getCmd();
             if (cmd == 0) {
-                int size = this.f1556d.size();
+                int size = this.f1552d.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    LinkedList<MessageListener<N>> valueAt = this.f1556d.valueAt(i2);
-                    int keyAt = this.f1556d.keyAt(i2);
+                    LinkedList<MessageListener<N>> valueAt = this.f1552d.valueAt(i2);
+                    int keyAt = this.f1552d.keyAt(i2);
                     if (valueAt.contains(messageListener)) {
                         b(keyAt);
                         valueAt.remove(messageListener);
@@ -367,7 +367,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
                 return;
             }
             b(cmd);
-            LinkedList<MessageListener<N>> linkedList = this.f1556d.get(cmd);
+            LinkedList<MessageListener<N>> linkedList = this.f1552d.get(cmd);
             if (linkedList != null) {
                 linkedList.remove(messageListener);
             }
@@ -377,7 +377,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     public void u(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f1555c.remove(i2);
+            this.f1551c.remove(i2);
         }
     }
 
@@ -385,7 +385,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
             synchronized (this) {
-                this.f1554b.remove(i2);
+                this.f1550b.remove(i2);
             }
         }
     }

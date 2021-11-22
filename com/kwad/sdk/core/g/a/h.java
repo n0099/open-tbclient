@@ -33,31 +33,31 @@ public class h implements com.kwad.sdk.core.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64603a;
+    public int f65516a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64604b;
+    public String f65517b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64605c;
+    public int f65518c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Long f64606d;
+    public Long f65519d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Long f64607e;
+    public Long f65520e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Long f64608f;
+    public Long f65521f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Long f64609g;
+    public Long f65522g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f64610h;
+    public String f65523h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f64611i;
+    public String f65524i;
     public List<com.kwad.sdk.core.g.a.a> j;
     public long k;
     public String l;
@@ -81,16 +81,16 @@ public class h implements com.kwad.sdk.core.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f64612a;
+        public int f65525a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f64613b;
+        public int f65526b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f64614c;
+        public int f65527c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f64615d;
+        public int f65528d;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -107,11 +107,11 @@ public class h implements com.kwad.sdk.core.b {
                     return;
                 }
             }
-            this.f64612a = -1;
-            this.f64613b = -1;
-            this.f64614c = -1;
-            this.f64615d = -1;
-            this.f64612a = i2;
+            this.f65525a = -1;
+            this.f65526b = -1;
+            this.f65527c = -1;
+            this.f65528d = -1;
+            this.f65525a = i2;
         }
 
         private int a(int i2) {
@@ -165,12 +165,12 @@ public class h implements com.kwad.sdk.core.b {
                 if (context == null) {
                     return null;
                 }
-                int a2 = a(this.f64612a);
+                int a2 = a(this.f65525a);
                 AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
-                this.f64615d = audioManager.getStreamVolume(a2);
-                this.f64613b = audioManager.getStreamMaxVolume(a2);
+                this.f65528d = audioManager.getStreamVolume(a2);
+                this.f65526b = audioManager.getStreamMaxVolume(a2);
                 if (Build.VERSION.SDK_INT >= 28) {
-                    this.f64614c = audioManager.getStreamMinVolume(a2);
+                    this.f65527c = audioManager.getStreamMinVolume(a2);
                 }
                 return this;
             }
@@ -203,15 +203,15 @@ public class h implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             h hVar = new h();
-            hVar.f64603a = ap.c();
-            hVar.f64604b = AbiUtil.a();
-            hVar.f64605c = ap.a(KsAdSDKImpl.get().getContext());
-            hVar.f64606d = Long.valueOf(ap.b(KsAdSDKImpl.get().getContext()));
-            hVar.f64607e = Long.valueOf(ap.c(KsAdSDKImpl.get().getContext()));
-            hVar.f64608f = Long.valueOf(ap.a());
-            hVar.f64609g = Long.valueOf(ap.b());
-            hVar.f64610h = ap.h(KsAdSDKImpl.get().getContext());
-            hVar.f64611i = ap.j(KsAdSDKImpl.get().getContext());
+            hVar.f65516a = ap.c();
+            hVar.f65517b = AbiUtil.a();
+            hVar.f65518c = ap.a(KsAdSDKImpl.get().getContext());
+            hVar.f65519d = Long.valueOf(ap.b(KsAdSDKImpl.get().getContext()));
+            hVar.f65520e = Long.valueOf(ap.c(KsAdSDKImpl.get().getContext()));
+            hVar.f65521f = Long.valueOf(ap.a());
+            hVar.f65522g = Long.valueOf(ap.b());
+            hVar.f65523h = ap.h(KsAdSDKImpl.get().getContext());
+            hVar.f65524i = ap.j(KsAdSDKImpl.get().getContext());
             hVar.j = ba.a(KsAdSDKImpl.get().getContext(), 15);
             hVar.k = SystemClock.elapsedRealtime() / 1000;
             hVar.n = Build.TIME;
@@ -274,15 +274,15 @@ public class h implements com.kwad.sdk.core.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "cpuCount", this.f64603a);
-            q.a(jSONObject, "cpuAbi", this.f64604b);
-            q.a(jSONObject, "batteryPercent", this.f64605c);
-            q.a(jSONObject, "totalMemorySize", this.f64606d.longValue());
-            q.a(jSONObject, "availableMemorySize", this.f64607e.longValue());
-            q.a(jSONObject, "totalDiskSize", this.f64608f.longValue());
-            q.a(jSONObject, "availableDiskSize", this.f64609g.longValue());
-            q.a(jSONObject, BaseStatisContent.IMSI, this.f64610h);
-            q.a(jSONObject, "iccid", this.f64611i);
+            q.a(jSONObject, "cpuCount", this.f65516a);
+            q.a(jSONObject, "cpuAbi", this.f65517b);
+            q.a(jSONObject, "batteryPercent", this.f65518c);
+            q.a(jSONObject, "totalMemorySize", this.f65519d.longValue());
+            q.a(jSONObject, "availableMemorySize", this.f65520e.longValue());
+            q.a(jSONObject, "totalDiskSize", this.f65521f.longValue());
+            q.a(jSONObject, "availableDiskSize", this.f65522g.longValue());
+            q.a(jSONObject, BaseStatisContent.IMSI, this.f65523h);
+            q.a(jSONObject, "iccid", this.f65524i);
             q.a(jSONObject, "wifiList", this.j);
             q.a(jSONObject, "bootTime", this.k);
             q.a(jSONObject, "romName", this.l);

@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.w.l.g.d.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -30,37 +30,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AlaEffectPreviewView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47210e;
+    public int f48074e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47211f;
+    public int f48075f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f47212g;
+    public View f48076g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f47213h;
+    public ImageView f48077h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f47214i;
+    public TextView f48078i;
     public b.c j;
     public ObjectAnimator k;
     public LinearLayout l;
     public ImageView m;
 
-    /* loaded from: classes9.dex */
-    public class a extends b.a.e.e.l.c<b.a.e.l.d.a> {
+    /* loaded from: classes8.dex */
+    public class a extends b.a.e.f.l.c<b.a.e.m.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaEffectPreviewView f47215a;
+        public final /* synthetic */ AlaEffectPreviewView f48079a;
 
         public a(AlaEffectPreviewView alaEffectPreviewView) {
             Interceptable interceptable = $ic;
@@ -77,12 +77,12 @@ public class AlaEffectPreviewView extends LinearLayout {
                     return;
                 }
             }
-            this.f47215a = alaEffectPreviewView;
+            this.f48079a = alaEffectPreviewView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.l.c
-        public void onLoaded(b.a.e.l.d.a aVar, String str, int i2) {
+        @Override // b.a.e.f.l.c
+        public void onLoaded(b.a.e.m.d.a aVar, String str, int i2) {
             Bitmap p;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
@@ -112,11 +112,11 @@ public class AlaEffectPreviewView extends LinearLayout {
                     return;
                 }
                 try {
-                    Bitmap g2 = b.a.e.e.p.d.d().g(p, l.k(this.f47215a.getContext()), this.f47215a.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
+                    Bitmap g2 = b.a.e.f.p.d.d().g(p, l.k(this.f48079a.getContext()), this.f48079a.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
                     if (g2 != p) {
                         p.recycle();
                     }
-                    this.f47215a.f47213h.setImageBitmap(g2);
+                    this.f48079a.f48077h.setImageBitmap(g2);
                 } catch (OutOfMemoryError e4) {
                     BdLog.e(e4);
                     if (p != null) {
@@ -127,13 +127,13 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class b implements TimeInterpolator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaEffectPreviewView f47216a;
+        public final /* synthetic */ AlaEffectPreviewView f48080a;
 
         public b(AlaEffectPreviewView alaEffectPreviewView) {
             Interceptable interceptable = $ic;
@@ -150,7 +150,7 @@ public class AlaEffectPreviewView extends LinearLayout {
                     return;
                 }
             }
-            this.f47216a = alaEffectPreviewView;
+            this.f48080a = alaEffectPreviewView;
         }
 
         @Override // android.animation.TimeInterpolator
@@ -161,13 +161,13 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class c implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaEffectPreviewView f47217e;
+        public final /* synthetic */ AlaEffectPreviewView f48081e;
 
         public c(AlaEffectPreviewView alaEffectPreviewView) {
             Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public class AlaEffectPreviewView extends LinearLayout {
                     return;
                 }
             }
-            this.f47217e = alaEffectPreviewView;
+            this.f48081e = alaEffectPreviewView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -197,10 +197,10 @@ public class AlaEffectPreviewView extends LinearLayout {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.f47217e.j == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.f48081e.j == null) {
                 return;
             }
-            this.f47217e.j.a();
+            this.f48081e.j.a();
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -218,13 +218,13 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class d extends FloatEvaluator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaEffectPreviewView f47218a;
+        public final /* synthetic */ AlaEffectPreviewView f48082a;
 
         public d(AlaEffectPreviewView alaEffectPreviewView) {
             Interceptable interceptable = $ic;
@@ -241,7 +241,7 @@ public class AlaEffectPreviewView extends LinearLayout {
                     return;
                 }
             }
-            this.f47218a = alaEffectPreviewView;
+            this.f48082a = alaEffectPreviewView;
         }
 
         public /* synthetic */ d(AlaEffectPreviewView alaEffectPreviewView, a aVar) {
@@ -258,10 +258,10 @@ public class AlaEffectPreviewView extends LinearLayout {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), number, number2})) == null) {
                 float f4 = f2 * 3500.0f;
                 if (f4 <= 500.0f) {
-                    f3 = (this.f47218a.f47210e * ((f4 / 500.0f) - 1.0f)) + this.f47218a.f47211f;
+                    f3 = (this.f48082a.f48074e * ((f4 / 500.0f) - 1.0f)) + this.f48082a.f48075f;
                 } else {
                     float f5 = 3500.0f - f4;
-                    f3 = f5 <= 500.0f ? this.f47218a.f47211f + (this.f47218a.f47210e * (1.0f - (f5 / 500.0f))) : this.f47218a.f47211f;
+                    f3 = f5 <= 500.0f ? this.f48082a.f48075f + (this.f48082a.f48074e * (1.0f - (f5 / 500.0f))) : this.f48082a.f48075f;
                 }
                 return Float.valueOf(f3);
             }
@@ -293,9 +293,9 @@ public class AlaEffectPreviewView extends LinearLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f47212g = LinearLayout.inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
-            this.f47213h = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
-            this.f47214i = (TextView) findViewById(R.id.ala_im_user_enter_content);
+            this.f48076g = LinearLayout.inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
+            this.f48077h = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
+            this.f48078i = (TextView) findViewById(R.id.ala_im_user_enter_content);
             this.l = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
             this.m = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
         }
@@ -344,12 +344,12 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
         String str3 = alaEnterEffectData.icon_url;
         if (StringUtils.isNull(str3)) {
-            this.f47213h.setVisibility(8);
+            this.f48077h.setVisibility(8);
         } else {
-            this.f47213h.setVisibility(0);
-            b.a.e.e.l.d.h().m(str3, 10, new a(this), null);
+            this.f48077h.setVisibility(0);
+            b.a.e.f.l.d.h().m(str3, 10, new a(this), null);
         }
-        this.f47214i.setText(spannableStringBuilder);
+        this.f48078i.setText(spannableStringBuilder);
         String str4 = alaEnterEffectData.color;
         if (StringUtils.isNull(str4)) {
             str4 = "#B2FF5460";
@@ -382,10 +382,10 @@ public class AlaEffectPreviewView extends LinearLayout {
                 measure(0, 0);
             }
             int k = l.k(getContext());
-            this.f47210e = k;
-            this.f47211f = (k - getMeasuredWidth()) / 2;
-            View view = this.f47212g;
-            int i2 = this.f47210e;
+            this.f48074e = k;
+            this.f48075f = (k - getMeasuredWidth()) / 2;
+            View view = this.f48076g;
+            int i2 = this.f48074e;
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "TranslationX", i2, -i2);
             this.k = ofFloat;
             ofFloat.setDuration(3500L);

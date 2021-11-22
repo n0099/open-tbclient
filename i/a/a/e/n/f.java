@@ -9,7 +9,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
 import tv.athena.revenue.payui.activity.PayCommonWebActivity;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

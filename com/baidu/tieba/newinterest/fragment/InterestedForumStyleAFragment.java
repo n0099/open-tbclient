@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.b.d;
 import b.a.q0.s.g0.n.a;
 import b.a.q0.s.g0.n.c;
@@ -31,19 +31,19 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdTypeRecyclerView f52001e;
+    public BdTypeRecyclerView f52914e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBSpecificationBtn f52002f;
+    public TBSpecificationBtn f52915f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f52003g;
+    public TextView f52916g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f52004h;
+    public TextView f52917h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TBSpecificationBtn f52005i;
+    public TBSpecificationBtn f52918i;
     public View j;
     public LinearLayout k;
     public View l;
@@ -100,35 +100,35 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public final void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f52004h = (TextView) this.mRootView.findViewById(R.id.interested_desc);
-            this.f52003g = (TextView) this.mRootView.findViewById(R.id.interested_title);
+            this.f52917h = (TextView) this.mRootView.findViewById(R.id.interested_desc);
+            this.f52916g = (TextView) this.mRootView.findViewById(R.id.interested_title);
             a aVar = new a();
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.mRootView.findViewById(R.id.interest_forum_selected_btn);
-            this.f52005i = tBSpecificationBtn;
+            this.f52918i = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-            this.f52005i.setConfig(aVar);
-            this.f52005i.setText(getResources().getString(R.string.interested_forum_attention_hint));
-            this.f52005i.setEnabled(false);
+            this.f52918i.setConfig(aVar);
+            this.f52918i.setText(getResources().getString(R.string.interested_forum_attention_hint));
+            this.f52918i.setEnabled(false);
             c cVar = new c();
             TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.mRootView.findViewById(R.id.select_all_btn);
-            this.f52002f = tBSpecificationBtn2;
+            this.f52915f = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
             cVar.r(R.color.CAM_X0105);
-            this.f52002f.setConfig(cVar);
-            this.f52002f.setText(getString(R.string.interested_forum_unselect_all));
+            this.f52915f.setConfig(cVar);
+            this.f52915f.setText(getString(R.string.interested_forum_unselect_all));
             this.j = this.mRootView.findViewById(R.id.interest_forum_selected_btn_shade);
             this.k = (LinearLayout) this.mRootView.findViewById(R.id.interest_forum_selected_next_ll);
             this.l = this.mRootView.findViewById(R.id.interest_forum_selected_title_shade);
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.interested_forum_list_view);
-            this.f52001e = bdTypeRecyclerView;
+            this.f52914e = bdTypeRecyclerView;
             bdTypeRecyclerView.getRecycledViewPool().setMaxRecycledViews(1, 12);
-            ((DefaultItemAnimator) this.f52001e.getItemAnimator()).setSupportsChangeAnimations(false);
-            BdTypeRecyclerView bdTypeRecyclerView2 = this.f52001e;
+            ((DefaultItemAnimator) this.f52914e.getItemAnimator()).setSupportsChangeAnimations(false);
+            BdTypeRecyclerView bdTypeRecyclerView2 = this.f52914e;
             bdTypeRecyclerView2.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView2.getContext()));
-            View view = new View(this.f52001e.getContext());
+            View view = new View(this.f52914e.getContext());
             view.setLayoutParams(new LinearLayout.LayoutParams(-2, b(R.dimen.tbds78)));
-            this.f52001e.addHeaderView(view);
-            this.m = new b(this, this.f52001e, this.f52005i, this.f52002f, getPageContext(), new b.a.r0.g2.g.b(getUniqueId()), this.mScene);
+            this.f52914e.addHeaderView(view);
+            this.m = new b(this, this.f52914e, this.f52918i, this.f52915f, getPageContext(), new b.a.r0.g2.g.b(getUniqueId()), this.mScene);
         }
     }
 
@@ -137,11 +137,11 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f52003g);
+            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f52916g);
             d2.v(R.color.CAM_X0105);
             d2.z(R.dimen.T_X03);
             d2.A(R.string.F_X02);
-            b.a.q0.s.u.c d3 = b.a.q0.s.u.c.d(this.f52004h);
+            b.a.q0.s.u.c d3 = b.a.q0.s.u.c.d(this.f52917h);
             d3.v(R.color.CAM_X0108);
             d3.z(R.dimen.T_X07);
             d3.A(R.string.F_X01);
@@ -156,7 +156,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
                 b.a.q0.s.u.c.d(this.j).o(new int[]{R.color.CAM_X0206, R.color.CAM_X0612});
                 b.a.q0.s.u.c.d(this.l).o(new int[]{R.color.CAM_X0612, R.color.CAM_X0206});
             }
-            this.f52002f.changeSkinType();
+            this.f52915f.changeSkinType();
             b bVar = this.m;
             if (bVar != null) {
                 bVar.k(i2);

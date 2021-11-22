@@ -32,19 +32,19 @@ public class c extends com.baidu.wallet.lightapp.ability.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ILightappInvokerCallback f58600a;
+        public final /* synthetic */ ILightappInvokerCallback f59522a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f58601b;
+        public final /* synthetic */ int f59523b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f58602c;
+        public final /* synthetic */ String f59524c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Context f58603d;
+        public final /* synthetic */ Context f59525d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f58604e;
+        public final /* synthetic */ c f59526e;
 
         public AnonymousClass1(c cVar, ILightappInvokerCallback iLightappInvokerCallback, int i2, String str, Context context) {
             Interceptable interceptable = $ic;
@@ -61,11 +61,11 @@ public class c extends com.baidu.wallet.lightapp.ability.b {
                     return;
                 }
             }
-            this.f58604e = cVar;
-            this.f58600a = iLightappInvokerCallback;
-            this.f58601b = i2;
-            this.f58602c = str;
-            this.f58603d = context;
+            this.f59526e = cVar;
+            this.f59522a = iLightappInvokerCallback;
+            this.f59523b = i2;
+            this.f59524c = str;
+            this.f59525d = context;
         }
 
         @Override // com.baidu.wallet.base.controllers.IdCardDetectionController.IIdCardDetectionListener
@@ -73,10 +73,10 @@ public class c extends com.baidu.wallet.lightapp.ability.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 if (i2 == -1) {
-                    c cVar = this.f58604e;
-                    cVar.a(this.f58600a, this.f58602c, LightappConstants.ERRCODE_NO_PERMISSION, cVar.a(this.f58603d, "访问相机的权限"), "##callIDPotosFail");
+                    c cVar = this.f59526e;
+                    cVar.a(this.f59522a, this.f59524c, LightappConstants.ERRCODE_NO_PERMISSION, cVar.a(this.f59525d, "访问相机的权限"), "##callIDPotosFail");
                 } else if (-2 == i2) {
-                    this.f58604e.a(this.f58600a, this.f58602c, LightappConstants.ERRCODE_CANCEL, "取消", "##callIDPotosFail");
+                    this.f59526e.a(this.f59522a, this.f59524c, LightappConstants.ERRCODE_CANCEL, "取消", "##callIDPotosFail");
                 }
             }
         }
@@ -95,19 +95,19 @@ public class c extends com.baidu.wallet.lightapp.ability.b {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NativeAbilityCallIDPhotoModel f58605a;
+                    public final /* synthetic */ NativeAbilityCallIDPhotoModel f59527a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f58606b;
+                    public final /* synthetic */ String f59528b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f58607c;
+                    public final /* synthetic */ String f59529c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ ImageBase64Utils f58608d;
+                    public final /* synthetic */ ImageBase64Utils f59530d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass1 f58609e;
+                    public final /* synthetic */ AnonymousClass1 f59531e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -124,24 +124,24 @@ public class c extends com.baidu.wallet.lightapp.ability.b {
                                 return;
                             }
                         }
-                        this.f58609e = this;
-                        this.f58605a = nativeAbilityCallIDPhotoModel;
-                        this.f58606b = string;
-                        this.f58607c = string2;
-                        this.f58608d = imageBase64Utils;
+                        this.f59531e = this;
+                        this.f59527a = nativeAbilityCallIDPhotoModel;
+                        this.f59528b = string;
+                        this.f59529c = string2;
+                        this.f59530d = imageBase64Utils;
                     }
 
                     @Override // com.baidu.wallet.utils.ImageBase64Utils.ImageBase64Listener
                     public void onBase64Result(String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                            this.f58605a.cnt.front = str;
+                            this.f59527a.cnt.front = str;
                             ImageBase64Utils.ImageBase64Listener imageBase64Listener2 = new ImageBase64Utils.ImageBase64Listener(this) { // from class: com.baidu.wallet.lightapp.ability.a.c.1.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ C17931 f58610a;
+                                public final /* synthetic */ C18341 f59532a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -158,20 +158,20 @@ public class c extends com.baidu.wallet.lightapp.ability.b {
                                             return;
                                         }
                                     }
-                                    this.f58610a = this;
+                                    this.f59532a = this;
                                 }
 
                                 @Override // com.baidu.wallet.utils.ImageBase64Utils.ImageBase64Listener
                                 public void onBase64Result(String str2) {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeL(1048576, this, str2) == null) {
-                                        C17931 c17931 = this.f58610a;
-                                        NativeAbilityCallIDPhotoModel nativeAbilityCallIDPhotoModel2 = c17931.f58605a;
+                                        C18341 c18341 = this.f59532a;
+                                        NativeAbilityCallIDPhotoModel nativeAbilityCallIDPhotoModel2 = c18341.f59527a;
                                         nativeAbilityCallIDPhotoModel2.cnt.back = str2;
-                                        c17931.f58609e.f58600a.onResult(0, nativeAbilityCallIDPhotoModel2.toJson());
+                                        c18341.f59531e.f59522a.onResult(0, nativeAbilityCallIDPhotoModel2.toJson());
                                         try {
-                                            if (this.f58610a.f58606b != null) {
-                                                File file = new File(this.f58610a.f58606b);
+                                            if (this.f59532a.f59528b != null) {
+                                                File file = new File(this.f59532a.f59528b);
                                                 if (file.exists()) {
                                                     file.delete();
                                                 }
@@ -180,8 +180,8 @@ public class c extends com.baidu.wallet.lightapp.ability.b {
                                             th.printStackTrace();
                                         }
                                         try {
-                                            if (this.f58610a.f58607c != null) {
-                                                File file2 = new File(this.f58610a.f58607c);
+                                            if (this.f59532a.f59529c != null) {
+                                                File file2 = new File(this.f59532a.f59529c);
                                                 if (file2.exists()) {
                                                     file2.delete();
                                                 }
@@ -192,9 +192,9 @@ public class c extends com.baidu.wallet.lightapp.ability.b {
                                     }
                                 }
                             };
-                            ImageBase64Utils imageBase64Utils2 = this.f58608d;
-                            String str2 = this.f58607c;
-                            int i2 = this.f58609e.f58601b;
+                            ImageBase64Utils imageBase64Utils2 = this.f59530d;
+                            String str2 = this.f59529c;
+                            int i2 = this.f59531e.f59523b;
                             if (i2 <= 0) {
                                 i2 = 40;
                             }
@@ -202,7 +202,7 @@ public class c extends com.baidu.wallet.lightapp.ability.b {
                         }
                     }
                 };
-                int i2 = this.f58601b;
+                int i2 = this.f59523b;
                 if (i2 <= 0) {
                     i2 = 40;
                 }

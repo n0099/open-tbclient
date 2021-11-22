@@ -41,15 +41,15 @@ public class UserMuteAddAndDelStatic {
 
         /* renamed from: com.baidu.tieba.userconsume.usermute.UserMuteAddAndDelStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C1762a extends HttpMessageListener {
+        public class C1803a extends HttpMessageListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ UserMuteAddAndDelCustomMessage f54633a;
+            public final /* synthetic */ UserMuteAddAndDelCustomMessage f55553a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C1762a(a aVar, int i2, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
+            public C1803a(a aVar, int i2, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
                 super(i2);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -66,7 +66,7 @@ public class UserMuteAddAndDelStatic {
                         return;
                     }
                 }
-                this.f54633a = userMuteAddAndDelCustomMessage;
+                this.f55553a = userMuteAddAndDelCustomMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -77,7 +77,7 @@ public class UserMuteAddAndDelStatic {
                     UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) httpResponsedMessage;
                     if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016304));
-                        int i2 = this.f54633a.from;
+                        int i2 = this.f55553a.from;
                         if (i2 == 1) {
                             TiebaStatic.log("c10034");
                         } else if (i2 == 0) {
@@ -85,7 +85,7 @@ public class UserMuteAddAndDelStatic {
                         }
                     }
                     CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001427, userMuteAddResponseMessage);
-                    customResponsedMessage.setOrginalMessage(this.f54633a);
+                    customResponsedMessage.setOrginalMessage(this.f55553a);
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                 }
             }
@@ -97,7 +97,7 @@ public class UserMuteAddAndDelStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ UserMuteAddAndDelCustomMessage f54634a;
+            public final /* synthetic */ UserMuteAddAndDelCustomMessage f55554a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public b(a aVar, int i2, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
@@ -117,7 +117,7 @@ public class UserMuteAddAndDelStatic {
                         return;
                     }
                 }
-                this.f54634a = userMuteAddAndDelCustomMessage;
+                this.f55554a = userMuteAddAndDelCustomMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -130,7 +130,7 @@ public class UserMuteAddAndDelStatic {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016303));
                     }
                     CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001428, userMuteDelResponseMessage);
-                    customResponsedMessage.setOrginalMessage(this.f54634a);
+                    customResponsedMessage.setOrginalMessage(this.f55554a);
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                 }
             }
@@ -159,13 +159,13 @@ public class UserMuteAddAndDelStatic {
                     return null;
                 }
                 UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = (UserMuteAddAndDelCustomMessage) customMessage;
-                C1762a c1762a = new C1762a(this, CmdConfigHttp.CMD_USER_MUTE_ADD, userMuteAddAndDelCustomMessage);
+                C1803a c1803a = new C1803a(this, CmdConfigHttp.CMD_USER_MUTE_ADD, userMuteAddAndDelCustomMessage);
                 b bVar = new b(this, CmdConfigHttp.CMD_USER_MUTE_DEL, userMuteAddAndDelCustomMessage);
-                c1762a.setSelfListener(true);
-                c1762a.setTag(userMuteAddAndDelCustomMessage.mId);
+                c1803a.setSelfListener(true);
+                c1803a.setTag(userMuteAddAndDelCustomMessage.mId);
                 bVar.setSelfListener(true);
                 bVar.setTag(userMuteAddAndDelCustomMessage.mId);
-                MessageManager.getInstance().registerListener(c1762a);
+                MessageManager.getInstance().registerListener(c1803a);
                 MessageManager.getInstance().registerListener(bVar);
                 return null;
             }
@@ -276,7 +276,7 @@ public class UserMuteAddAndDelStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ UserMuteCheckCustomMessage f54635a;
+            public final /* synthetic */ UserMuteCheckCustomMessage f55555a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(d dVar, int i2, int i3, UserMuteCheckCustomMessage userMuteCheckCustomMessage) {
@@ -297,30 +297,30 @@ public class UserMuteAddAndDelStatic {
                         return;
                     }
                 }
-                this.f54635a = userMuteCheckCustomMessage;
+                this.f55555a = userMuteCheckCustomMessage;
             }
 
             @Override // b.a.e.c.g.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                    b.a.r0.w3.a aVar = new b.a.r0.w3.a();
+                    b.a.r0.x3.a aVar = new b.a.r0.x3.a();
                     if (responsedMessage instanceof UserMuteCheckSocketResponsedMessage) {
                         UserMuteCheckSocketResponsedMessage userMuteCheckSocketResponsedMessage = (UserMuteCheckSocketResponsedMessage) responsedMessage;
-                        aVar.f25388a = userMuteCheckSocketResponsedMessage.getResult();
-                        aVar.f25390c = userMuteCheckSocketResponsedMessage.getError();
-                        aVar.f25389b = userMuteCheckSocketResponsedMessage.getErrorString();
+                        aVar.f28643a = userMuteCheckSocketResponsedMessage.getResult();
+                        aVar.f28645c = userMuteCheckSocketResponsedMessage.getError();
+                        aVar.f28644b = userMuteCheckSocketResponsedMessage.getErrorString();
                         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001426, aVar);
-                        customResponsedMessage.setOrginalMessage(this.f54635a);
+                        customResponsedMessage.setOrginalMessage(this.f55555a);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                     }
                     if (responsedMessage instanceof UserMuteCheckHttpResponsedMessage) {
                         UserMuteCheckHttpResponsedMessage userMuteCheckHttpResponsedMessage = (UserMuteCheckHttpResponsedMessage) responsedMessage;
-                        aVar.f25388a = userMuteCheckHttpResponsedMessage.getResult();
-                        aVar.f25390c = userMuteCheckHttpResponsedMessage.getError();
-                        aVar.f25389b = userMuteCheckHttpResponsedMessage.getErrorString();
+                        aVar.f28643a = userMuteCheckHttpResponsedMessage.getResult();
+                        aVar.f28645c = userMuteCheckHttpResponsedMessage.getError();
+                        aVar.f28644b = userMuteCheckHttpResponsedMessage.getErrorString();
                         CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001426, aVar);
-                        customResponsedMessage2.setOrginalMessage(this.f54635a);
+                        customResponsedMessage2.setOrginalMessage(this.f55555a);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
                     }
                 }
@@ -437,8 +437,8 @@ public class UserMuteAddAndDelStatic {
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            b.a.r0.l3.f0.a.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
-            b.a.r0.l3.f0.a.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
+            b.a.r0.m3.f0.a.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
+            b.a.r0.m3.f0.a.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
         }
     }
 

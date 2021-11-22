@@ -34,7 +34,7 @@ public final class FastPayBeanFactory implements IBeanFactory {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static FastPayBeanFactory f58096a;
+        public static FastPayBeanFactory f59018a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +50,7 @@ public final class FastPayBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f58096a = new FastPayBeanFactory(null);
+            f59018a = new FastPayBeanFactory(null);
         }
     }
 
@@ -61,7 +61,7 @@ public final class FastPayBeanFactory implements IBeanFactory {
     public static FastPayBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f58096a : (FastPayBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f59018a : (FastPayBeanFactory) invokeV.objValue;
     }
 
     public FastPayBeanFactory() {

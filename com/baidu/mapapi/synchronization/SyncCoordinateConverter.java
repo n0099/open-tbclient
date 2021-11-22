@@ -17,10 +17,10 @@ public class SyncCoordinateConverter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f39869a;
+    public LatLng f40701a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CoordType f39870b;
+    public CoordType f40702b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
@@ -30,7 +30,7 @@ public class SyncCoordinateConverter {
         public static final CoordType COMMON;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ CoordType[] f39871a;
+        public static final /* synthetic */ CoordType[] f40703a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +49,7 @@ public class SyncCoordinateConverter {
             COMMON = new CoordType("COMMON", 0);
             CoordType coordType = new CoordType("BD09LL", 1);
             BD09LL = coordType;
-            f39871a = new CoordType[]{COMMON, coordType};
+            f40703a = new CoordType[]{COMMON, coordType};
         }
 
         public CoordType(String str, int i2) {
@@ -80,7 +80,7 @@ public class SyncCoordinateConverter {
         public static CoordType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CoordType[]) f39871a.clone() : (CoordType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CoordType[]) f40703a.clone() : (CoordType[]) invokeV.objValue;
         }
     }
 
@@ -132,20 +132,20 @@ public class SyncCoordinateConverter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f39869a == null) {
+            if (this.f40701a == null) {
                 return null;
             }
-            if (this.f39870b == null) {
-                this.f39870b = CoordType.BD09LL;
+            if (this.f40702b == null) {
+                this.f40702b = CoordType.BD09LL;
             }
-            int i2 = a.f39874a[this.f39870b.ordinal()];
+            int i2 = a.f40706a[this.f40702b.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     return null;
                 }
-                return b(this.f39869a);
+                return b(this.f40701a);
             }
-            return a(this.f39869a);
+            return a(this.f40701a);
         }
         return (LatLng) invokeV.objValue;
     }
@@ -154,7 +154,7 @@ public class SyncCoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng)) == null) {
-            this.f39869a = latLng;
+            this.f40701a = latLng;
             return this;
         }
         return (SyncCoordinateConverter) invokeL.objValue;
@@ -164,7 +164,7 @@ public class SyncCoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, coordType)) == null) {
-            this.f39870b = coordType;
+            this.f40702b = coordType;
             return this;
         }
         return (SyncCoordinateConverter) invokeL.objValue;

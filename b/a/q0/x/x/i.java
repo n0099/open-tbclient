@@ -1,7 +1,7 @@
 package b.a.q0.x.x;
 
 import android.content.Context;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import b.a.q0.x.m;
 import b.a.q0.x.n;
 import com.baidu.adp.framework.MessageManager;
@@ -33,13 +33,13 @@ public class i extends b.a.q0.x.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f14284a;
+    public boolean f15051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14285b;
+    public String f15052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f14286c;
+    public boolean f15053c;
 
     /* loaded from: classes4.dex */
     public class a implements b.a.q0.x.b {
@@ -47,13 +47,13 @@ public class i extends b.a.q0.x.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f14287e;
+        public final /* synthetic */ h f15054e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f14288f;
+        public final /* synthetic */ EditorTools f15055f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i f14289g;
+        public final /* synthetic */ i f15056g;
 
         public a(i iVar, h hVar, EditorTools editorTools) {
             Interceptable interceptable = $ic;
@@ -70,9 +70,9 @@ public class i extends b.a.q0.x.c {
                     return;
                 }
             }
-            this.f14289g = iVar;
-            this.f14287e = hVar;
-            this.f14288f = editorTools;
+            this.f15056g = iVar;
+            this.f15054e = hVar;
+            this.f15055f = editorTools;
         }
 
         @Override // b.a.q0.x.b
@@ -83,61 +83,61 @@ public class i extends b.a.q0.x.c {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
                 return;
             }
-            int i2 = aVar.f14195a;
+            int i2 = aVar.f14962a;
             if (i2 == 4) {
-                Object obj = aVar.f14197c;
+                Object obj = aVar.f14964c;
                 if (obj instanceof j) {
-                    this.f14287e.Z((j) obj);
-                    this.f14287e.Y(((j) aVar.f14197c).f14292c);
+                    this.f15054e.Z((j) obj);
+                    this.f15054e.Y(((j) aVar.f14964c).f15059c);
                 } else if (obj instanceof String) {
-                    this.f14287e.S((String) obj);
+                    this.f15054e.S((String) obj);
                 } else if (obj instanceof SpanGroupManager) {
-                    this.f14287e.S(obj.toString());
-                    this.f14287e.Y((SpanGroupManager) aVar.f14197c);
+                    this.f15054e.S(obj.toString());
+                    this.f15054e.Y((SpanGroupManager) aVar.f14964c);
                 }
-                this.f14289g.f14284a = false;
+                this.f15056g.f15051a = false;
             } else if (i2 == 16) {
-                if (this.f14289g.f14284a) {
-                    this.f14287e.getContext().showToast(R.string.over_limit_tip);
+                if (this.f15056g.f15051a) {
+                    this.f15054e.getContext().showToast(R.string.over_limit_tip);
                 }
-                if (this.f14289g.h(this.f14287e.getContext(), 11025)) {
-                    AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.f14287e.getContext().getPageActivity(), CyberPlayerManager.MEDIA_INFO_WEAK_NETWORK_BEST_RANK, true);
-                    if (this.f14287e.u() != null) {
-                        atListActivityConfig.setSelectedAtList(this.f14287e.u().u());
+                if (this.f15056g.h(this.f15054e.getContext(), 11025)) {
+                    AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.f15054e.getContext().getPageActivity(), CyberPlayerManager.MEDIA_INFO_WEAK_NETWORK_BEST_RANK, true);
+                    if (this.f15054e.u() != null) {
+                        atListActivityConfig.setSelectedAtList(this.f15054e.u().u());
                     }
-                    EditorTools editorTools = this.f14288f;
+                    EditorTools editorTools = this.f15055f;
                     if (editorTools != null) {
                         atListActivityConfig.setFromTid(editorTools.getTid());
-                        atListActivityConfig.setFromFid(String.valueOf(this.f14288f.getFid()));
+                        atListActivityConfig.setFromFid(String.valueOf(this.f15055f.getFid()));
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig));
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
                     statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-                    EditorTools editorTools2 = this.f14288f;
+                    EditorTools editorTools2 = this.f15055f;
                     if (editorTools2 != null) {
                         statisticItem.addParam("tid", editorTools2.getTid());
-                        statisticItem.addParam("fid", this.f14288f.getFid());
+                        statisticItem.addParam("fid", this.f15055f.getFid());
                     }
                     TiebaStatic.log(statisticItem);
                 }
             } else if (i2 == 7) {
-                this.f14287e.getContext().showToast(R.string.over_limit_tip);
-                this.f14289g.f14284a = true;
+                this.f15054e.getContext().showToast(R.string.over_limit_tip);
+                this.f15056g.f15051a = true;
             } else if (i2 == 8) {
-                if (this.f14289g.h(this.f14287e.getContext(), CyberPlayerManager.MEDIA_INFO_DISABLE_FILECACHE)) {
-                    this.f14287e.F();
+                if (this.f15056g.h(this.f15054e.getContext(), CyberPlayerManager.MEDIA_INFO_DISABLE_FILECACHE)) {
+                    this.f15054e.F();
                     TiebaStatic.log(TbadkCoreStatisticKey.SUBPB_CLICK_SEND);
                 }
             } else if (i2 == 10) {
-                Object obj2 = aVar.f14197c;
+                Object obj2 = aVar.f14964c;
                 if (obj2 instanceof VoiceData$VoiceModel) {
-                    this.f14287e.c0((VoiceData$VoiceModel) obj2);
-                    this.f14287e.v(null);
+                    this.f15054e.c0((VoiceData$VoiceModel) obj2);
+                    this.f15054e.v(null);
                 }
             } else if (i2 != 11) {
             } else {
-                this.f14287e.c0(null);
-                EditorTools editorTools3 = this.f14288f;
+                this.f15054e.c0(null);
+                EditorTools editorTools3 = this.f15055f;
                 if (editorTools3 == null || (findToolById = editorTools3.findToolById(6)) == null || (nVar = findToolById.k) == null) {
                     return;
                 }
@@ -161,9 +161,9 @@ public class i extends b.a.q0.x.c {
                 return;
             }
         }
-        this.f14284a = false;
-        this.f14286c = false;
-        this.f14286c = z;
+        this.f15051a = false;
+        this.f15053c = false;
+        this.f15053c = z;
     }
 
     @Override // b.a.q0.x.c
@@ -175,11 +175,11 @@ public class i extends b.a.q0.x.c {
             editorTools.setIsFromPb(true);
             editorTools.setBarMaxLauCount(5);
             editorTools.setBackgroundColorId(0);
-            editorTools.setBarLauncherType(this.f14286c ? 5 : 2);
+            editorTools.setBarLauncherType(this.f15053c ? 5 : 2);
             editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
             editorTools.showLinePositionTop(false);
             h hVar = new h(editorTools);
-            hVar.v = this.f14286c;
+            hVar.v = this.f15053c;
             return hVar;
         }
         return (b.a.q0.x.e) invokeL.objValue;
@@ -216,16 +216,16 @@ public class i extends b.a.q0.x.c {
                 findToolById.e(false);
                 findToolById.j = 1;
             }
-            if (!this.f14286c) {
-                if (b.a.r0.l3.r0.c.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
+            if (!this.f15053c) {
+                if (b.a.r0.m3.r0.c.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
                     mVar.j = 2;
                     a2.addTool(mVar);
                 }
                 a2.addTool(new b.a.q0.x.o.a(a2.getContext(), 4));
             }
-            f fVar = new f(a2.getContext(), this.f14286c, false, CyberPlayerManager.MEDIA_INFO_WEAK_NETWORK_BEST_RANK);
-            if (!k.isEmpty(this.f14285b)) {
-                fVar.k(this.f14285b);
+            f fVar = new f(a2.getContext(), this.f15053c, false, CyberPlayerManager.MEDIA_INFO_WEAK_NETWORK_BEST_RANK);
+            if (!k.isEmpty(this.f15052b)) {
+                fVar.k(this.f15052b);
             }
             a2.addTool(fVar);
             a2.build();
@@ -251,7 +251,7 @@ public class i extends b.a.q0.x.c {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f14285b = str;
+            this.f15052b = str;
         }
     }
 }

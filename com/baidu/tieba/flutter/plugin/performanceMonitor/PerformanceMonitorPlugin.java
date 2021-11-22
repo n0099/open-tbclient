@@ -2,11 +2,11 @@ package com.baidu.tieba.flutter.plugin.performanceMonitor;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import b.a.e.e.n.a;
+import b.a.e.f.n.a;
 import b.a.p.d.a;
 import b.a.q0.q0.j;
 import b.a.q0.q0.k;
-import b.a.r0.t0.a.g.e;
+import b.a.r0.t0.a.h.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -156,7 +156,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
                 }
             }
         };
-        b.a.p.d.a.b().c(new a.InterfaceC0108a(this) { // from class: com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugin.2
+        b.a.p.d.a.b().c(new a.InterfaceC0110a(this) { // from class: com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugin.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PerformanceMonitorPlugin this$0;
@@ -179,7 +179,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
                 this.this$0 = this;
             }
 
-            @Override // b.a.p.d.a.InterfaceC0108a
+            @Override // b.a.p.d.a.InterfaceC0110a
             public void report(String str, HashMap<String, Object> hashMap) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, hashMap) == null) {
@@ -228,7 +228,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
                 list = list2;
             } else {
                 double d6 = size;
-                b.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+                b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
                 statsItem.c("time", l);
                 statsItem.c(FpsConstants.REPORT_FPS, Double.valueOf(d2 / d6));
                 statsItem.c("cpu", Double.valueOf(d3 / d6));
@@ -257,7 +257,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
             } else if (OpenFlutter.FRAGMENT_MYTAB.equals(str)) {
                 str = "user_center_flt";
             }
-            b.a.e.e.n.a a2 = j.a();
+            b.a.e.f.n.a a2 = j.a();
             a2.b("action", "time");
             a2.c("ishttp", hashMap.get("isHttp"));
             a2.b("issuccess", hashMap.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
@@ -342,7 +342,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
             return;
         }
         HashMap params = mapParam.getParams();
-        b.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+        b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
         statsItem.b("action", "engine_perf");
         HashMap<String, String> hashMap = flutterEngineStartInfo;
         if (hashMap != null && !hashMap.isEmpty()) {
@@ -364,7 +364,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
         if (interceptable == null || interceptable.invokeL(1048579, this, fpsParam) == null) {
             String page = fpsParam.getPage();
             double doubleValue = fpsParam.getFps().doubleValue();
-            b.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+            b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
             statsItem.b("action", FpsTracer.UBC_KEY_FLUENCY);
             statsItem.b("page", page);
             statsItem.c(FpsConstants.REPORT_FPS, Double.valueOf(doubleValue));
@@ -400,13 +400,13 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
             return;
         }
         HashMap params = mapParam.getParams();
-        b.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+        b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
         statsItem.b("action", "image_perf");
         statsItem.c(UriUtil.LOCAL_RESOURCE_SCHEME, params.get("isBundleFile"));
         statsItem.c("try", params.get("tryTimes"));
         statsItem.c("ct", params.get("contentType"));
         statsItem.c("dc", params.get("dartCodecCost"));
-        statsItem.c(com.baidu.fsg.base.statistics.k.f37528h, params.get("loadingCost"));
+        statsItem.c(com.baidu.fsg.base.statistics.k.f38358h, params.get("loadingCost"));
         statsItem.c("trans", params.get("channelTransTime"));
         statsItem.c("cc", params.get("codecCost"));
         statsItem.c("tc", params.get("totalCost"));
@@ -428,7 +428,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
         } else if (OpenFlutter.FRAGMENT_MYTAB.equals(str)) {
             str = "user_center_flt";
         }
-        b.a.e.e.n.a a2 = j.a();
+        b.a.e.f.n.a a2 = j.a();
         a2.b("action", "time");
         a2.c("ishttp", params.get("isHttp"));
         a2.b("issuccess", params.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");

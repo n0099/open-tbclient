@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import b.a.q0.g0.g;
 import b.a.q0.s.g0.f;
 import b.a.q0.s.s.a;
@@ -50,19 +50,19 @@ public class a implements View.OnClickListener, c {
     public g B;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f23464e;
+    public TbPageContext f24795e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdTypeListView f23465f;
+    public BdTypeListView f24796f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.q0.s.g0.g f23466g;
+    public b.a.q0.s.g0.g f24797g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f23467h;
+    public RelativeLayout f24798h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NoNetworkView f23468i;
+    public NoNetworkView f24799i;
     public PbListView j;
     public View k;
     public RelativeLayout l;
@@ -83,11 +83,11 @@ public class a implements View.OnClickListener, c {
 
     /* renamed from: b.a.r0.s0.x.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1141a implements a.e {
+    public class C1203a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1141a(a aVar) {
+        public C1203a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -161,49 +161,49 @@ public class a implements View.OnClickListener, c {
         this.y = true;
         this.z = 0;
         this.A = "";
-        this.f23464e = tbPageContext;
-        this.f23467h = (RelativeLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.fragment_emotion_center_layout, (ViewGroup) null);
-        this.f23468i = new NoNetworkView(tbPageContext.getPageActivity());
-        this.f23468i.setLayoutParams(new RelativeLayout.LayoutParams(-1, -2));
+        this.f24795e = tbPageContext;
+        this.f24798h = (RelativeLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.fragment_emotion_center_layout, (ViewGroup) null);
+        this.f24799i = new NoNetworkView(tbPageContext.getPageActivity());
+        this.f24799i.setLayoutParams(new RelativeLayout.LayoutParams(-1, -2));
         if (j.z()) {
-            this.f23468i.setVisibility(8);
+            this.f24799i.setVisibility(8);
         }
-        this.f23467h.addView(this.f23468i);
-        BdTypeListView bdTypeListView = (BdTypeListView) this.f23467h.findViewById(R.id.emotion_center_list);
-        this.f23465f = bdTypeListView;
+        this.f24798h.addView(this.f24799i);
+        BdTypeListView bdTypeListView = (BdTypeListView) this.f24798h.findViewById(R.id.emotion_center_list);
+        this.f24796f = bdTypeListView;
         bdTypeListView.setDivider(null);
-        b.a.q0.s.g0.g gVar = new b.a.q0.s.g0.g(this.f23464e);
-        this.f23466g = gVar;
+        b.a.q0.s.g0.g gVar = new b.a.q0.s.g0.g(this.f24795e);
+        this.f24797g = gVar;
         gVar.U(bdUniqueId);
-        this.f23465f.setPullRefresh(this.f23466g);
+        this.f24796f.setPullRefresh(this.f24797g);
         PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
         this.j = pbListView;
         pbListView.a();
-        b.a.r0.s0.x.a aVar = new b.a.r0.s0.x.a(this.f23464e);
+        b.a.r0.s0.x.a aVar = new b.a.r0.s0.x.a(this.f24795e);
         this.o = aVar;
         aVar.c().setVisibility(8);
-        EmotionCenterForumView emotionCenterForumView = new EmotionCenterForumView(this.f23464e);
+        EmotionCenterForumView emotionCenterForumView = new EmotionCenterForumView(this.f24795e);
         this.p = emotionCenterForumView;
         emotionCenterForumView.setVisibility(8);
-        this.r = new b.a.r0.s0.x.b.a(this.f23464e, this.f23465f);
-        EmotionCenterChangeView emotionCenterChangeView = new EmotionCenterChangeView(this.f23464e);
+        this.r = new b.a.r0.s0.x.b.a(this.f24795e, this.f24796f);
+        EmotionCenterChangeView emotionCenterChangeView = new EmotionCenterChangeView(this.f24795e);
         this.q = emotionCenterChangeView;
         emotionCenterChangeView.setVisibility(8);
-        this.f23465f.addHeaderView(this.o.c());
-        this.f23465f.addHeaderView(this.p);
-        this.f23465f.addHeaderView(this.q);
-        this.k = this.f23467h.findViewById(R.id.emotion_add_layout);
-        this.l = (RelativeLayout) this.f23467h.findViewById(R.id.emotion_add_layout);
-        this.m = (TextView) this.f23467h.findViewById(R.id.add_emotion_tv);
-        this.n = (ImageView) this.f23467h.findViewById(R.id.icon_add);
+        this.f24796f.addHeaderView(this.o.c());
+        this.f24796f.addHeaderView(this.p);
+        this.f24796f.addHeaderView(this.q);
+        this.k = this.f24798h.findViewById(R.id.emotion_add_layout);
+        this.l = (RelativeLayout) this.f24798h.findViewById(R.id.emotion_add_layout);
+        this.m = (TextView) this.f24798h.findViewById(R.id.add_emotion_tv);
+        this.n = (ImageView) this.f24798h.findViewById(R.id.icon_add);
         this.k.setOnClickListener(this);
-        LinearLayout linearLayout = (LinearLayout) this.f23467h.findViewById(R.id.emotion_upload_status);
+        LinearLayout linearLayout = (LinearLayout) this.f24798h.findViewById(R.id.emotion_upload_status);
         this.u = linearLayout;
         linearLayout.setClickable(false);
         this.u.setOnClickListener(this);
         this.u.setVisibility(8);
-        this.v = (ImageView) this.f23467h.findViewById(R.id.uploading_status_img);
-        this.w = (TextView) this.f23467h.findViewById(R.id.add_emotion_upload_status);
+        this.v = (ImageView) this.f24798h.findViewById(R.id.uploading_status_img);
+        this.w = (TextView) this.f24798h.findViewById(R.id.add_emotion_upload_status);
         t();
     }
 
@@ -211,7 +211,7 @@ public class a implements View.OnClickListener, c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f23464e.getPageActivity(), 25021)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f24795e.getPageActivity(), 25021)));
         }
     }
 
@@ -220,14 +220,14 @@ public class a implements View.OnClickListener, c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.z == 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f23464e.getPageActivity(), true, 25021)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f24795e.getPageActivity(), true, 25021)));
             } else if (TextUtils.isEmpty(this.A)) {
             } else {
-                b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f23464e.getPageActivity());
+                b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f24795e.getPageActivity());
                 aVar.setMessage(this.A);
-                aVar.setPositiveButton(R.string.confirm, new C1141a(this));
+                aVar.setPositiveButton(R.string.confirm, new C1203a(this));
                 aVar.setNegativeButton(R.string.cancel, new b(this));
-                aVar.create(this.f23464e).show();
+                aVar.create(this.f24795e).show();
             }
         }
     }
@@ -242,7 +242,7 @@ public class a implements View.OnClickListener, c {
             ArrayList arrayList = new ArrayList();
             for (EmotionPackageData emotionPackageData : emotionCenterData.package_list) {
                 b.a.r0.s0.x.c.b bVar = new b.a.r0.s0.x.c.b();
-                bVar.f23454e = emotionPackageData;
+                bVar.f24785e = emotionPackageData;
                 arrayList.add(bVar);
             }
             this.r.a(arrayList);
@@ -253,7 +253,7 @@ public class a implements View.OnClickListener, c {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f23465f.completePullRefresh();
+            this.f24796f.completePullRefresh();
         }
     }
 
@@ -277,7 +277,7 @@ public class a implements View.OnClickListener, c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.x == null) {
-                this.x = AnimationUtils.loadAnimation(this.f23464e.getPageActivity(), R.anim.refresh_rotate);
+                this.x = AnimationUtils.loadAnimation(this.f24795e.getPageActivity(), R.anim.refresh_rotate);
                 this.x.setInterpolator(new LinearInterpolator());
                 this.x.setFillAfter(true);
             }
@@ -289,13 +289,13 @@ public class a implements View.OnClickListener, c {
     public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f23468i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f24799i : (View) invokeV.objValue;
     }
 
     public ViewGroup i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f23467h : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f24798h : (ViewGroup) invokeV.objValue;
     }
 
     public EmotionCenterChangeView j() {
@@ -311,7 +311,7 @@ public class a implements View.OnClickListener, c {
             if (pbListView != null) {
                 pbListView.f();
             }
-            this.f23465f.setNextPage(null);
+            this.f24796f.setNextPage(null);
         }
     }
 
@@ -321,7 +321,7 @@ public class a implements View.OnClickListener, c {
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (gVar = this.B) == null) {
             return;
         }
-        gVar.dettachView(this.f23467h);
+        gVar.dettachView(this.f24798h);
         this.B = null;
     }
 
@@ -330,12 +330,12 @@ public class a implements View.OnClickListener, c {
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             this.j.p(R.color.CAM_X0204);
             this.j.d(i2);
-            this.f23466g.C(i2);
+            this.f24797g.C(i2);
             this.r.c();
             SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
-            this.f23465f.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
-            SkinManager.setBackgroundColor(this.f23467h, R.color.CAM_X0201);
-            this.f23468i.onChangeSkinType(this.f23464e, i2);
+            this.f24796f.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
+            SkinManager.setBackgroundColor(this.f24798h, R.color.CAM_X0201);
+            this.f24799i.onChangeSkinType(this.f24795e, i2);
             EmotionCenterForumView emotionCenterForumView = this.p;
             if (emotionCenterForumView != null) {
                 emotionCenterForumView.onChangeSkin(i2);
@@ -387,13 +387,13 @@ public class a implements View.OnClickListener, c {
         }
         this.s = emotionCenterData;
         if (this.y) {
-            this.z = b.a.e.e.m.b.e(emotionCenterData.is_bazhu, 0);
+            this.z = b.a.e.f.m.b.e(emotionCenterData.is_bazhu, 0);
             this.A = emotionCenterData.bazhu_message;
             this.y = false;
         }
         if (emotionCenterData.banner != null) {
             this.o.c().setVisibility(0);
-            this.o.f(this.f23464e.getUniqueId());
+            this.o.f(this.f24795e.getUniqueId());
             this.o.e(new b.a.r0.s0.x.c.c(emotionCenterData.banner));
             this.o.g();
         }
@@ -406,7 +406,7 @@ public class a implements View.OnClickListener, c {
             arrayList.add(new b.a.r0.s0.x.c.a());
             for (EmotionPackageData emotionPackageData : emotionCenterData.package_list) {
                 b.a.r0.s0.x.c.b bVar = new b.a.r0.s0.x.c.b();
-                bVar.f23454e = emotionPackageData;
+                bVar.f24785e = emotionPackageData;
                 arrayList.add(bVar);
             }
             this.r.d(arrayList);
@@ -424,19 +424,19 @@ public class a implements View.OnClickListener, c {
                 }
                 if (this.z != 0) {
                     if (this.t == null) {
-                        b.a.r0.s0.x.d.a aVar = new b.a.r0.s0.x.d.a(this.f23464e.getPageActivity(), this.z);
+                        b.a.r0.s0.x.d.a aVar = new b.a.r0.s0.x.d.a(this.f24795e.getPageActivity(), this.z);
                         this.t = aVar;
                         aVar.d(this);
                     }
                     this.t.c(TbadkCoreApplication.getInst().getSkinType());
                     Rect rect = new Rect();
-                    this.f23464e.getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-                    this.t.showAtLocation(this.f23467h, 81, 0, this.f23464e.getPageActivity().getWindow().getDecorView().getHeight() - rect.bottom);
+                    this.f24795e.getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+                    this.t.showAtLocation(this.f24798h, 81, 0, this.f24795e.getPageActivity().getWindow().getDecorView().getHeight() - rect.bottom);
                     return;
                 }
                 a();
             } else if (view == this.u) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f23464e.getPageActivity(), this.z == 1, 25021)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f24795e.getPageActivity(), this.z == 1, 25021)));
             }
         }
     }
@@ -444,14 +444,14 @@ public class a implements View.OnClickListener, c {
     public void p(f.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, gVar) == null) {
-            this.f23466g.a(gVar);
+            this.f24797g.a(gVar);
         }
     }
 
     public void q(BdListView.p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, pVar) == null) {
-            this.f23465f.setOnSrollToBottomListener(pVar);
+            this.f24796f.setOnSrollToBottomListener(pVar);
         }
     }
 
@@ -480,7 +480,7 @@ public class a implements View.OnClickListener, c {
             return;
         }
         if (pbListView.b().getParent() == null) {
-            this.f23465f.setNextPage(this.j);
+            this.f24796f.setNextPage(this.j);
         }
         this.j.O();
         this.j.Q();
@@ -489,12 +489,12 @@ public class a implements View.OnClickListener, c {
     public void t() {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (tbPageContext = this.f23464e) == null || this.f23467h == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (tbPageContext = this.f24795e) == null || this.f24798h == null) {
             return;
         }
         g gVar = new g(tbPageContext.getPageActivity());
         this.B = gVar;
-        gVar.attachView(this.f23467h, false);
+        gVar.attachView(this.f24798h, false);
         this.B.onChangeSkinType();
     }
 
@@ -505,9 +505,9 @@ public class a implements View.OnClickListener, c {
             return;
         }
         if (pbListView.b().getParent() == null) {
-            this.f23465f.setNextPage(this.j);
+            this.f24796f.setNextPage(this.j);
         }
-        this.j.C(this.f23464e.getResources().getString(R.string.list_no_more));
+        this.j.C(this.f24795e.getResources().getString(R.string.list_no_more));
         this.j.f();
     }
 

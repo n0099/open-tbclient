@@ -66,7 +66,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LoadExternalWebViewActivity f42440a;
+            public final /* synthetic */ LoadExternalWebViewActivity f43386a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -83,7 +83,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f42440a = this;
+                this.f43386a = this;
             }
 
             @Override // com.baidu.sapi2.shell.result.WebAuthResult
@@ -91,7 +91,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     super.finishActivity();
-                    this.f42440a.finish();
+                    this.f43386a.finish();
                     CoreViewRouter.getInstance().release();
                 }
             }
@@ -101,7 +101,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                     super.finishActivity();
-                    this.f42440a.finish();
+                    this.f43386a.finish();
                     CoreViewRouter.getInstance().release();
                 }
             }
@@ -111,7 +111,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LoadExternalWebViewActivity f42442a;
+            public final /* synthetic */ LoadExternalWebViewActivity f43388a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -128,25 +128,25 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                         return;
                     }
                 }
-                this.f42442a = this;
+                this.f43388a = this;
             }
 
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
             public void onFailed(int i4, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, str) == null) {
-                    if ("business_from_one_key_login".equals(this.f42442a.v)) {
-                        new OneKeyLoginSdkCall().loadOneKeyLoginFail(this.f42442a.w, -103, null);
+                    if ("business_from_one_key_login".equals(this.f43388a.v)) {
+                        new OneKeyLoginSdkCall().loadOneKeyLoginFail(this.f43388a.w, -103, null);
                     }
-                    this.f42442a.webAuthResult.setResultCode(i4);
-                    this.f42442a.webAuthResult.setResultMsg(str);
+                    this.f43388a.webAuthResult.setResultCode(i4);
+                    this.f43388a.webAuthResult.setResultMsg(str);
                     WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
                     if (webAuthListener != null) {
-                        webAuthListener.onFailure(this.f42442a.webAuthResult);
+                        webAuthListener.onFailure(this.f43388a.webAuthResult);
                         CoreViewRouter.getInstance().release();
                     }
-                    this.f42442a.setResult(0);
-                    this.f42442a.finish();
+                    this.f43388a.setResult(0);
+                    this.f43388a.finish();
                 }
             }
 
@@ -154,25 +154,25 @@ public class LoadExternalWebViewActivity extends BaseActivity {
             public void onSuccess(AccountType accountType) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountType) == null) {
-                    if ("business_from_one_key_login".equals(this.f42442a.v)) {
+                    if ("business_from_one_key_login".equals(this.f43388a.v)) {
                         OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
                         oneKeyLoginResult.setResultCode(0);
-                        if (this.f42442a.w != null) {
-                            this.f42442a.w.onSuccess(oneKeyLoginResult);
+                        if (this.f43388a.w != null) {
+                            this.f43388a.w.onSuccess(oneKeyLoginResult);
                         }
                     }
                     WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
                     if (webAuthListener != null) {
-                        WebAuthResult webAuthResult = this.f42442a.webAuthResult;
+                        WebAuthResult webAuthResult = this.f43388a.webAuthResult;
                         webAuthResult.accountType = accountType;
                         webAuthResult.setResultCode(0);
-                        webAuthListener.onSuccess(this.f42442a.webAuthResult);
+                        webAuthListener.onSuccess(this.f43388a.webAuthResult);
                         CoreViewRouter.getInstance().release();
                     }
                     Intent intent = new Intent();
                     intent.putExtra("account_type", accountType.getType());
-                    this.f42442a.setResult(-1, intent);
-                    this.f42442a.finish();
+                    this.f43388a.setResult(-1, intent);
+                    this.f43388a.finish();
                 }
             }
         };
@@ -293,7 +293,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LoadExternalWebViewActivity f42443a;
+                public final /* synthetic */ LoadExternalWebViewActivity f43389a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -310,7 +310,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f42443a = this;
+                    this.f43389a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
@@ -318,7 +318,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        this.f42443a.a();
+                        this.f43389a.a();
                         return false;
                     }
                     return invokeV.booleanValue;
@@ -329,7 +329,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LoadExternalWebViewActivity f42444a;
+                public final /* synthetic */ LoadExternalWebViewActivity f43390a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -346,14 +346,14 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f42444a = this;
+                    this.f43390a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f42444a.finish();
+                        this.f43390a.finish();
                     }
                 }
             });
@@ -362,7 +362,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LoadExternalWebViewActivity f42445a;
+                public final /* synthetic */ LoadExternalWebViewActivity f43391a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -379,7 +379,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f42445a = this;
+                    this.f43391a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.LeftBtnVisibleCallback
@@ -387,9 +387,9 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
                         if (i2 == 0) {
-                            this.f42445a.setBtnVisibility(4, 4, 4);
+                            this.f43391a.setBtnVisibility(4, 4, 4);
                         } else {
-                            this.f42445a.setBtnVisibility(4, 0, 4);
+                            this.f43391a.setBtnVisibility(4, 0, 4);
                         }
                     }
                 }
@@ -399,7 +399,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LoadExternalWebViewActivity f42446a;
+                public final /* synthetic */ LoadExternalWebViewActivity f43392a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -416,7 +416,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f42446a = this;
+                    this.f43392a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.CoverWebBdussCallback
@@ -434,7 +434,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LoadExternalWebViewActivity f42447a;
+                public final /* synthetic */ LoadExternalWebViewActivity f43393a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -451,14 +451,14 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f42447a = this;
+                    this.f43393a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.SwitchAccountCallback
                 public void onAccountSwitch(SapiWebView.SwitchAccountCallback.Result result) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, result) == null) {
-                        Intent intent = new Intent(this.f42447a, LoginActivity.class);
+                        Intent intent = new Intent(this.f43393a, LoginActivity.class);
                         intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
                         int i2 = result.switchAccountType;
                         if (i2 == 1) {
@@ -475,7 +475,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                             }
                             intent.putExtra(LoginActivity.EXTRA_PARAM_ENCRYPTED_UID, result.encryptedUid);
                         }
-                        this.f42447a.startActivityForResult(intent, 2001);
+                        this.f43393a.startActivityForResult(intent, 2001);
                     }
                 }
             });
@@ -484,7 +484,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LoadExternalWebViewActivity f42448a;
+                public final /* synthetic */ LoadExternalWebViewActivity f43394a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -501,7 +501,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f42448a = this;
+                    this.f43394a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.AccountFreezeCallback
@@ -510,8 +510,8 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, accountFreezeResult) == null) {
                         Intent intent = new Intent();
                         intent.putExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE, LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_ACCOUNT_FREEZE);
-                        this.f42448a.setResult(-1, intent);
-                        this.f42448a.finish();
+                        this.f43394a.setResult(-1, intent);
+                        this.f43394a.finish();
                     }
                 }
             });
@@ -520,7 +520,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LoadExternalWebViewActivity f42449a;
+                public final /* synthetic */ LoadExternalWebViewActivity f43395a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -537,7 +537,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f42449a = this;
+                    this.f43395a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.PreFillUserNameCallback
@@ -547,7 +547,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                         Intent intent = new Intent();
                         intent.putExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE, LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_PRE_SET_UNAME);
                         intent.putExtra("username", preFillUserNameResult.userName);
-                        this.f42449a.setResult(-1, intent);
+                        this.f43395a.setResult(-1, intent);
                     }
                 }
             });
@@ -556,7 +556,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ LoadExternalWebViewActivity f42441a;
+                public final /* synthetic */ LoadExternalWebViewActivity f43387a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -573,7 +573,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f42441a = this;
+                    this.f43387a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.WebviewPageFinishCallback

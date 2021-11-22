@@ -2,8 +2,6 @@ package b.a.p0.a.p0.h.c;
 
 import android.text.TextUtils;
 import b.a.p0.a.e0.d;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,27 +11,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class a extends b.a.p0.a.p0.h.b<b.a.p0.a.p0.g.b.a> {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static boolean f7295d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(254746214, "Lb/a/p0/a/p0/h/c/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(254746214, "Lb/a/p0/a/p0/h/c/a;");
-                return;
-            }
-        }
-        b.a.p0.a.c1.a.Z().getSwitch("swan_extension_unzip_check", false);
-        f7295d = false;
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a() {
@@ -41,13 +19,13 @@ public class a extends b.a.p0.a.p0.h.b<b.a.p0.a.p0.g.b.a> {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 super((b.a.p0.a.p0.g.c.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
@@ -56,8 +34,8 @@ public class a extends b.a.p0.a.p0.h.b<b.a.p0.a.p0.g.b.a> {
     public static boolean r(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            d.h("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable extensionPath:" + str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            d.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable extensionPath:" + str);
             boolean z = false;
             if (TextUtils.isEmpty(str)) {
                 return false;
@@ -66,7 +44,7 @@ public class a extends b.a.p0.a.p0.h.b<b.a.p0.a.p0.g.b.a> {
             if (file.exists() && file.length() > 0) {
                 z = true;
             }
-            d.h("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable: " + z);
+            d.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable: " + z);
             return z;
         }
         return invokeL.booleanValue;
@@ -76,13 +54,6 @@ public class a extends b.a.p0.a.p0.h.b<b.a.p0.a.p0.g.b.a> {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d.h("ExtCore-SwanAppPresetControl", "isNeedUpdate sExtensionUnzipCheck=" + f7295d);
-            if (f7295d) {
-                return !r(h().extensionCorePath) || super.k();
-            }
-            return super.k();
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !r(h().extensionCorePath) || super.k() : invokeV.booleanValue;
     }
 }

@@ -13,16 +13,16 @@ public class n1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13404a;
+    public String f14184a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13405b;
+    public String f14185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13406c;
+    public String f14186c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13407d;
+    public String f14187d;
 
     public n1() {
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public class n1 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null) {
             return;
         }
-        this.f13404a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
-        this.f13405b = intent.getStringExtra("recom_source");
-        this.f13406c = intent.getStringExtra("recom_abtag");
-        this.f13407d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
+        this.f14184a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
+        this.f14185b = intent.getStringExtra("recom_source");
+        this.f14186c = intent.getStringExtra("recom_abtag");
+        this.f14187d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
     }
 
     public void b(d2 d2Var) {
@@ -54,10 +54,10 @@ public class n1 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var) == null) || d2Var == null) {
             return;
         }
-        this.f13404a = d2Var.Y0;
-        this.f13405b = d2Var.X0;
-        this.f13406c = d2Var.Z0;
-        this.f13407d = d2Var.a1;
+        this.f14184a = d2Var.Y0;
+        this.f14185b = d2Var.X0;
+        this.f14186c = d2Var.Z0;
+        this.f14187d = d2Var.a1;
     }
 
     public void c(Intent intent) {
@@ -65,10 +65,10 @@ public class n1 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) || intent == null) {
             return;
         }
-        intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.f13404a);
-        intent.putExtra("recom_source", this.f13405b);
-        intent.putExtra("recom_abtag", this.f13406c);
-        intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.f13407d);
+        intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.f14184a);
+        intent.putExtra("recom_source", this.f14185b);
+        intent.putExtra("recom_abtag", this.f14186c);
+        intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.f14187d);
     }
 
     public void d(b.a.r0.q2.p pVar) {
@@ -76,9 +76,9 @@ public class n1 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, pVar) == null) || pVar == null) {
             return;
         }
-        pVar.f22888g = this.f13404a;
-        pVar.f22887f = this.f13405b;
-        pVar.l = this.f13406c;
-        pVar.o = this.f13407d;
+        pVar.f24409g = this.f14184a;
+        pVar.f24408f = this.f14185b;
+        pVar.l = this.f14186c;
+        pVar.o = this.f14187d;
     }
 }

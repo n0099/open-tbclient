@@ -2,7 +2,7 @@ package com.baidu.tbadk.game;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.b;
+import b.a.e.f.m.b;
 import b.a.q0.k0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.GameCenterCoreUtils;

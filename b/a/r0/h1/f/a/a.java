@@ -19,7 +19,7 @@ public class a {
         if (interceptable == null || interceptable.invokeLLIL(65536, null, view, obj, i2, str) == null) {
             if (obj instanceof b.a.r0.h1.f.a.e.c) {
                 b.a.r0.h1.f.a.e.c cVar = (b.a.r0.h1.f.a.e.c) obj;
-                if (cVar.f17218e) {
+                if (cVar.f18686e) {
                     StatisticItem statisticItem = new StatisticItem("c13736");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                     statisticItem.eventStat();
@@ -27,7 +27,7 @@ public class a {
                 }
                 StatisticItem statisticItem2 = new StatisticItem("c13735");
                 statisticItem2.param("obj_locate", str);
-                statisticItem2.param("topic_id", cVar.f17214a);
+                statisticItem2.param("topic_id", cVar.f18682a);
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem2.eventStat();
             } else if (obj instanceof e) {
@@ -36,7 +36,7 @@ public class a {
                 statisticItem3.param("obj_type", str);
                 statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
                 if (d2Var != null) {
-                    statisticItem3.param("tid", d2Var.s1());
+                    statisticItem3.param("tid", d2Var.t1());
                     statisticItem3.param("fid", d2Var.T());
                 }
                 statisticItem3.eventStat();
@@ -46,7 +46,7 @@ public class a {
                 statisticItem4.param("obj_type", str);
                 statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
                 if (threadData != null) {
-                    statisticItem4.param("tid", threadData.s1());
+                    statisticItem4.param("tid", threadData.t1());
                     statisticItem4.param("fid", threadData.T());
                 }
                 statisticItem4.eventStat();
@@ -67,7 +67,7 @@ public class a {
                 threadData = obj instanceof b.a.q0.s.q.a ? ((b.a.q0.s.q.a) obj).getThreadData() : null;
             }
             if (threadData != null) {
-                statisticItem.param("tid", threadData.s1());
+                statisticItem.param("tid", threadData.t1());
                 statisticItem.param("fid", threadData.T());
             }
             statisticItem.eventStat();

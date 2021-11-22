@@ -1,7 +1,6 @@
 package b.a.w0.b;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import b.a.w0.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -28,19 +27,19 @@ public class a extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final byte[] f29347e;
+    public final byte[] f30216e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final byte[] f29348f;
+    public final byte[] f30217f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final byte[] f29349g;
+    public final byte[] f30218g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f29350h;
+    public final int f30219h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f29351i;
+    public final int f30220i;
 
     static {
         InterceptResult invokeClinit;
@@ -56,9 +55,9 @@ public class a extends b {
             }
         }
         j = new byte[]{13, 10};
-        k = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, ExifInterface.WEBP_VP8L_SIGNATURE};
+        k = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
         l = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
-        m = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, ExifInterface.START_CODE, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, ExifInterface.WEBP_VP8L_SIGNATURE, 48, 49, 50, 51};
+        m = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51};
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -124,40 +123,40 @@ public class a extends b {
     public void c(byte[] bArr, int i2, int i3, b.a aVar) {
         byte b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), aVar}) == null) || aVar.f29361f) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), aVar}) == null) || aVar.f30230f) {
             return;
         }
         if (i3 < 0) {
-            aVar.f29361f = true;
+            aVar.f30230f = true;
         }
         int i4 = 0;
         while (true) {
             if (i4 >= i3) {
                 break;
             }
-            byte[] h2 = h(this.f29350h, aVar);
+            byte[] h2 = h(this.f30219h, aVar);
             int i5 = i2 + 1;
             byte b3 = bArr[i2];
             if (b3 == 61) {
-                aVar.f29361f = true;
+                aVar.f30230f = true;
                 break;
             }
             if (b3 >= 0) {
                 byte[] bArr2 = m;
                 if (b3 < bArr2.length && (b2 = bArr2[b3]) >= 0) {
-                    int i6 = (aVar.f29363h + 1) % 4;
-                    aVar.f29363h = i6;
-                    int i7 = (aVar.f29356a << 6) + b2;
-                    aVar.f29356a = i7;
+                    int i6 = (aVar.f30232h + 1) % 4;
+                    aVar.f30232h = i6;
+                    int i7 = (aVar.f30225a << 6) + b2;
+                    aVar.f30225a = i7;
                     if (i6 == 0) {
-                        int i8 = aVar.f29359d;
+                        int i8 = aVar.f30228d;
                         int i9 = i8 + 1;
-                        aVar.f29359d = i9;
+                        aVar.f30228d = i9;
                         h2[i8] = (byte) ((i7 >> 16) & 255);
                         int i10 = i9 + 1;
-                        aVar.f29359d = i10;
+                        aVar.f30228d = i10;
                         h2[i9] = (byte) ((i7 >> 8) & 255);
-                        aVar.f29359d = i10 + 1;
+                        aVar.f30228d = i10 + 1;
                         h2[i10] = (byte) (i7 & 255);
                     }
                 }
@@ -165,29 +164,29 @@ public class a extends b {
             i4++;
             i2 = i5;
         }
-        if (!aVar.f29361f || aVar.f29363h == 0) {
+        if (!aVar.f30230f || aVar.f30232h == 0) {
             return;
         }
-        byte[] h3 = h(this.f29350h, aVar);
-        int i11 = aVar.f29363h;
+        byte[] h3 = h(this.f30219h, aVar);
+        int i11 = aVar.f30232h;
         if (i11 != 1) {
             if (i11 == 2) {
-                int i12 = aVar.f29356a >> 4;
-                aVar.f29356a = i12;
-                int i13 = aVar.f29359d;
-                aVar.f29359d = i13 + 1;
+                int i12 = aVar.f30225a >> 4;
+                aVar.f30225a = i12;
+                int i13 = aVar.f30228d;
+                aVar.f30228d = i13 + 1;
                 h3[i13] = (byte) (i12 & 255);
             } else if (i11 == 3) {
-                int i14 = aVar.f29356a >> 2;
-                aVar.f29356a = i14;
-                int i15 = aVar.f29359d;
+                int i14 = aVar.f30225a >> 2;
+                aVar.f30225a = i14;
+                int i15 = aVar.f30228d;
                 int i16 = i15 + 1;
-                aVar.f29359d = i16;
+                aVar.f30228d = i16;
                 h3[i15] = (byte) ((i14 >> 8) & 255);
-                aVar.f29359d = i16 + 1;
+                aVar.f30228d = i16 + 1;
                 h3[i16] = (byte) (i14 & 255);
             } else {
-                throw new IllegalStateException("Impossible modulus " + aVar.f29363h);
+                throw new IllegalStateException("Impossible modulus " + aVar.f30232h);
             }
         }
     }
@@ -195,44 +194,44 @@ public class a extends b {
     @Override // b.a.w0.b.b
     public void f(byte[] bArr, int i2, int i3, b.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), aVar}) == null) || aVar.f29361f) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), aVar}) == null) || aVar.f30230f) {
             return;
         }
         if (i3 >= 0) {
             int i4 = 0;
             while (i4 < i3) {
-                byte[] h2 = h(this.f29351i, aVar);
-                aVar.f29363h = (aVar.f29363h + 1) % 3;
+                byte[] h2 = h(this.f30220i, aVar);
+                aVar.f30232h = (aVar.f30232h + 1) % 3;
                 int i5 = i2 + 1;
                 int i6 = bArr[i2];
                 if (i6 < 0) {
                     i6 += 256;
                 }
-                int i7 = (aVar.f29356a << 8) + i6;
-                aVar.f29356a = i7;
-                if (aVar.f29363h == 0) {
-                    int i8 = aVar.f29359d;
+                int i7 = (aVar.f30225a << 8) + i6;
+                aVar.f30225a = i7;
+                if (aVar.f30232h == 0) {
+                    int i8 = aVar.f30228d;
                     int i9 = i8 + 1;
-                    aVar.f29359d = i9;
-                    byte[] bArr2 = this.f29347e;
+                    aVar.f30228d = i9;
+                    byte[] bArr2 = this.f30216e;
                     h2[i8] = bArr2[(i7 >> 18) & 63];
                     int i10 = i9 + 1;
-                    aVar.f29359d = i10;
+                    aVar.f30228d = i10;
                     h2[i9] = bArr2[(i7 >> 12) & 63];
                     int i11 = i10 + 1;
-                    aVar.f29359d = i11;
+                    aVar.f30228d = i11;
                     h2[i10] = bArr2[(i7 >> 6) & 63];
                     int i12 = i11 + 1;
-                    aVar.f29359d = i12;
+                    aVar.f30228d = i12;
                     h2[i11] = bArr2[i7 & 63];
-                    int i13 = aVar.f29362g + 4;
-                    aVar.f29362g = i13;
-                    int i14 = this.f29354c;
+                    int i13 = aVar.f30231g + 4;
+                    aVar.f30231g = i13;
+                    int i14 = this.f30223c;
                     if (i14 > 0 && i14 <= i13) {
-                        byte[] bArr3 = this.f29349g;
+                        byte[] bArr3 = this.f30218g;
                         System.arraycopy(bArr3, 0, h2, i12, bArr3.length);
-                        aVar.f29359d += this.f29349g.length;
-                        aVar.f29362g = 0;
+                        aVar.f30228d += this.f30218g.length;
+                        aVar.f30231g = 0;
                     }
                 }
                 i4++;
@@ -240,60 +239,60 @@ public class a extends b {
             }
             return;
         }
-        aVar.f29361f = true;
-        if (aVar.f29363h == 0 && this.f29354c == 0) {
+        aVar.f30230f = true;
+        if (aVar.f30232h == 0 && this.f30223c == 0) {
             return;
         }
-        byte[] h3 = h(this.f29351i, aVar);
-        int i15 = aVar.f29359d;
-        int i16 = aVar.f29363h;
+        byte[] h3 = h(this.f30220i, aVar);
+        int i15 = aVar.f30228d;
+        int i16 = aVar.f30232h;
         if (i16 != 0) {
             if (i16 == 1) {
                 int i17 = i15 + 1;
-                aVar.f29359d = i17;
-                byte[] bArr4 = this.f29347e;
-                int i18 = aVar.f29356a;
+                aVar.f30228d = i17;
+                byte[] bArr4 = this.f30216e;
+                int i18 = aVar.f30225a;
                 h3[i15] = bArr4[(i18 >> 2) & 63];
                 int i19 = i17 + 1;
-                aVar.f29359d = i19;
+                aVar.f30228d = i19;
                 h3[i17] = bArr4[(i18 << 4) & 63];
                 if (bArr4 == k) {
                     int i20 = i19 + 1;
-                    aVar.f29359d = i20;
+                    aVar.f30228d = i20;
                     h3[i19] = 61;
-                    aVar.f29359d = i20 + 1;
+                    aVar.f30228d = i20 + 1;
                     h3[i20] = 61;
                 }
             } else if (i16 == 2) {
                 int i21 = i15 + 1;
-                aVar.f29359d = i21;
-                byte[] bArr5 = this.f29347e;
-                int i22 = aVar.f29356a;
+                aVar.f30228d = i21;
+                byte[] bArr5 = this.f30216e;
+                int i22 = aVar.f30225a;
                 h3[i15] = bArr5[(i22 >> 10) & 63];
                 int i23 = i21 + 1;
-                aVar.f29359d = i23;
+                aVar.f30228d = i23;
                 h3[i21] = bArr5[(i22 >> 4) & 63];
                 int i24 = i23 + 1;
-                aVar.f29359d = i24;
+                aVar.f30228d = i24;
                 h3[i23] = bArr5[(i22 << 2) & 63];
                 if (bArr5 == k) {
-                    aVar.f29359d = i24 + 1;
+                    aVar.f30228d = i24 + 1;
                     h3[i24] = 61;
                 }
             } else {
-                throw new IllegalStateException("Impossible modulus " + aVar.f29363h);
+                throw new IllegalStateException("Impossible modulus " + aVar.f30232h);
             }
         }
-        int i25 = aVar.f29362g;
-        int i26 = aVar.f29359d;
+        int i25 = aVar.f30231g;
+        int i26 = aVar.f30228d;
         int i27 = i25 + (i26 - i15);
-        aVar.f29362g = i27;
-        if (this.f29354c <= 0 || i27 <= 0) {
+        aVar.f30231g = i27;
+        if (this.f30223c <= 0 || i27 <= 0) {
             return;
         }
-        byte[] bArr6 = this.f29349g;
+        byte[] bArr6 = this.f30218g;
         System.arraycopy(bArr6, 0, h3, i26, bArr6.length);
-        aVar.f29359d += this.f29349g.length;
+        aVar.f30228d += this.f30218g.length;
     }
 
     @Override // b.a.w0.b.b
@@ -302,7 +301,7 @@ public class a extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeB = interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b2)) == null) {
             if (b2 >= 0) {
-                byte[] bArr = this.f29348f;
+                byte[] bArr = this.f30217f;
                 if (b2 < bArr.length && bArr[b2] != -1) {
                     return true;
                 }
@@ -394,25 +393,25 @@ public class a extends b {
                 return;
             }
         }
-        this.f29348f = m;
+        this.f30217f = m;
         if (bArr != null) {
             if (b(bArr)) {
                 String d2 = d.d(bArr);
                 throw new IllegalArgumentException("lineSeparator must not contain base64 characters: [" + d2 + PreferencesUtil.RIGHT_MOUNT);
             } else if (i2 > 0) {
-                this.f29351i = bArr.length + 4;
+                this.f30220i = bArr.length + 4;
                 byte[] bArr2 = new byte[bArr.length];
-                this.f29349g = bArr2;
+                this.f30218g = bArr2;
                 System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
             } else {
-                this.f29351i = 4;
-                this.f29349g = null;
+                this.f30220i = 4;
+                this.f30218g = null;
             }
         } else {
-            this.f29351i = 4;
-            this.f29349g = null;
+            this.f30220i = 4;
+            this.f30218g = null;
         }
-        this.f29350h = this.f29351i - 1;
-        this.f29347e = z ? l : k;
+        this.f30219h = this.f30220i - 1;
+        this.f30216e = z ? l : k;
     }
 }

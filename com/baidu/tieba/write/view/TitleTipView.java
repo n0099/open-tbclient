@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.e.m.e;
+import b.a.e.f.m.e;
 import b.a.q0.s.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -24,19 +24,19 @@ public class TitleTipView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55920e;
+    public int f56842e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55921f;
+    public int f56843f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f55922g;
+    public LinearLayout f56844g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f55923h;
+    public ImageView f56845h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f55924i;
+    public ImageView f56846i;
     public TextView j;
     public View k;
     public View.OnClickListener l;
@@ -48,7 +48,7 @@ public class TitleTipView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TitleTipView f55925e;
+        public final /* synthetic */ TitleTipView f56847e;
 
         public a(TitleTipView titleTipView) {
             Interceptable interceptable = $ic;
@@ -65,14 +65,14 @@ public class TitleTipView extends RelativeLayout {
                     return;
                 }
             }
-            this.f55925e = titleTipView;
+            this.f56847e = titleTipView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f55925e.dismiss();
+                this.f56847e.dismiss();
             }
         }
     }
@@ -83,7 +83,7 @@ public class TitleTipView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TitleTipView f55926e;
+        public final /* synthetic */ TitleTipView f56848e;
 
         public b(TitleTipView titleTipView) {
             Interceptable interceptable = $ic;
@@ -100,14 +100,14 @@ public class TitleTipView extends RelativeLayout {
                     return;
                 }
             }
-            this.f55926e = titleTipView;
+            this.f56848e = titleTipView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f55926e.dismiss();
+                this.f56848e.dismiss();
             }
         }
     }
@@ -130,8 +130,8 @@ public class TitleTipView extends RelativeLayout {
                 return;
             }
         }
-        this.f55920e = 3;
-        this.f55921f = 5000;
+        this.f56842e = 3;
+        this.f56843f = 5000;
         this.l = new a(this);
         this.m = new b(this);
         a();
@@ -141,13 +141,13 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View.inflate(getContext(), R.layout.title_tip_layout, this);
-            this.f55922g = (LinearLayout) findViewById(R.id.tip_bg);
-            this.f55923h = (ImageView) findViewById(R.id.img_icon);
-            this.f55924i = (ImageView) findViewById(R.id.img_close);
+            this.f56844g = (LinearLayout) findViewById(R.id.tip_bg);
+            this.f56845h = (ImageView) findViewById(R.id.img_icon);
+            this.f56846i = (ImageView) findViewById(R.id.img_close);
             this.j = (TextView) findViewById(R.id.tv_tip);
             this.k = findViewById(R.id.tv_line);
             this.j.setText(R.string.add_title_tip);
-            this.f55924i.setOnClickListener(this.l);
+            this.f56846i.setOnClickListener(this.l);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -163,20 +163,20 @@ public class TitleTipView extends RelativeLayout {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f55920e != i2) {
-                c d2 = c.d(this.f55922g);
+            if (this.f56842e != i2) {
+                c d2 = c.d(this.f56844g);
                 d2.n(R.string.J_X05);
                 d2.l(R.dimen.L_X01);
                 d2.k(R.color.CAM_X0602);
                 d2.f(R.color.CAM_X0206);
                 c.d(this.k).f(R.color.CAM_X0203);
                 c.d(this.j).v(R.color.CAM_X0107);
-                this.f55924i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_home_delete16, SkinManager.getColor(R.color.CAM_X0107), null));
-                if (this.f55923h != null) {
-                    this.f55923h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.pic_post_fatiemijue, SkinManager.getColor(R.color.CAM_X0302), null));
+                this.f56846i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_home_delete16, SkinManager.getColor(R.color.CAM_X0107), null));
+                if (this.f56845h != null) {
+                    this.f56845h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.pic_post_fatiemijue, SkinManager.getColor(R.color.CAM_X0302), null));
                 }
             }
-            this.f55920e = i2;
+            this.f56842e = i2;
         }
     }
 
@@ -191,7 +191,7 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             setVisibility(0);
-            e.a().postDelayed(this.m, this.f55921f);
+            e.a().postDelayed(this.m, this.f56843f);
         }
     }
 
@@ -214,8 +214,8 @@ public class TitleTipView extends RelativeLayout {
                 return;
             }
         }
-        this.f55920e = 3;
-        this.f55921f = 5000;
+        this.f56842e = 3;
+        this.f56843f = 5000;
         this.l = new a(this);
         this.m = new b(this);
         a();
@@ -240,8 +240,8 @@ public class TitleTipView extends RelativeLayout {
                 return;
             }
         }
-        this.f55920e = 3;
-        this.f55921f = 5000;
+        this.f56842e = 3;
+        this.f56843f = 5000;
         this.l = new a(this);
         this.m = new b(this);
         a();

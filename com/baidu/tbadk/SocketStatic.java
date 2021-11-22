@@ -1,8 +1,8 @@
 package com.baidu.tbadk;
 
 import android.os.Build;
-import b.a.e.e.p.j;
-import b.a.q0.f0.a;
+import b.a.e.e.a;
+import b.a.e.f.p.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -65,16 +65,46 @@ public class SocketStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof NetWorkChangedMessage) && Build.VERSION.SDK_INT >= 24 && TbadkCoreApplication.getInst().isMainProcess(true) && j.z()) {
-                    if (BdSocketLinkService.isClose()) {
-                        a.b(0, 0, 0, 1, 6);
-                        BdSocketLinkService.setAvailable(true);
-                        BdSocketLinkService.startService(false, "net succ");
-                    }
-                    synchronized (ImgHttpClient.class) {
-                        ImgHttpClient.mHttpParams.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
-                        ImgHttpClient.proxyHost = null;
-                    }
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof NetWorkChangedMessage) && Build.VERSION.SDK_INT >= 24 && TbadkCoreApplication.getInst().isMainProcess(true)) {
+                    a.f().d("startSocketService", new Runnable(this) { // from class: com.baidu.tbadk.SocketStatic.1.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ AnonymousClass1 this$0;
+
+                        {
+                            Interceptable interceptable3 = $ic;
+                            if (interceptable3 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable3.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable3.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            Interceptable interceptable3 = $ic;
+                            if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && j.z()) {
+                                if (BdSocketLinkService.isClose()) {
+                                    b.a.q0.f0.a.b(0, 0, 0, 1, 6);
+                                    BdSocketLinkService.setAvailable(true);
+                                    BdSocketLinkService.startService(false, "net succ");
+                                }
+                                synchronized (ImgHttpClient.class) {
+                                    ImgHttpClient.mHttpParams.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
+                                    ImgHttpClient.proxyHost = null;
+                                }
+                            }
+                        }
+                    });
                 }
             }
         });

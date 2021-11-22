@@ -9,7 +9,7 @@ import b.a.e.a.f;
 import b.a.q0.b.d;
 import b.a.q0.s.s.i;
 import b.a.r0.k2.l;
-import b.a.r0.k2.r.s;
+import b.a.r0.k2.r.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.PopupDialog;
@@ -45,7 +45,7 @@ public class PbMoreDialog extends PopupDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbMoreDialog f52426e;
+        public final /* synthetic */ PbMoreDialog f53343e;
 
         public a(PbMoreDialog pbMoreDialog) {
             Interceptable interceptable = $ic;
@@ -62,15 +62,15 @@ public class PbMoreDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f52426e = pbMoreDialog;
+            this.f53343e = pbMoreDialog;
         }
 
         @Override // b.a.q0.s.s.i.e
         public void onItemClick(i iVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                this.f52426e.dismiss();
-                this.f52426e.A.onClick(view);
+                this.f53343e.dismiss();
+                this.f53343e.A.onClick(view);
             }
         }
     }
@@ -105,11 +105,11 @@ public class PbMoreDialog extends PopupDialog {
         }
     }
 
-    public void confirmFeedback(SparseArray<Object> sparseArray, int i2, boolean z, s sVar) {
+    public void confirmFeedback(SparseArray<Object> sparseArray, int i2, boolean z, t tVar) {
         TbPageContext<?> tbPageContext;
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{sparseArray, Integer.valueOf(i2), Boolean.valueOf(z), sVar}) == null) || sparseArray == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{sparseArray, Integer.valueOf(i2), Boolean.valueOf(z), tVar}) == null) || sparseArray == null) {
             return;
         }
         PostData postData = (PostData) sparseArray.get(b.a.r0.k2.i.tag_clip_board);
@@ -148,7 +148,7 @@ public class PbMoreDialog extends PopupDialog {
             int i7 = b.a.r0.k2.i.tag_forbid_user_portrait;
             sparseArray3.put(i7, sparseArray.get(i7));
             sparseArray3.put(b.a.r0.k2.i.tag_forbid_user_post_id, str);
-            if (!b.a.r0.k2.u.f.f1.a.i(sVar) && booleanValue2) {
+            if (!b.a.r0.k2.u.f.g1.a.i(tVar) && booleanValue2) {
                 sparseArray3.put(b.a.r0.k2.i.tag_user_mute_visible, Boolean.TRUE);
                 int i8 = b.a.r0.k2.i.tag_is_mem;
                 sparseArray3.put(i8, sparseArray.get(i8));
@@ -217,7 +217,7 @@ public class PbMoreDialog extends PopupDialog {
         }
         boolean booleanValue6 = sparseArray.get(b.a.r0.k2.i.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(b.a.r0.k2.i.tag_user_mute_visible)).booleanValue() : false;
         boolean booleanValue7 = sparseArray.get(b.a.r0.k2.i.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(b.a.r0.k2.i.tag_should_manage_visible)).booleanValue() : false;
-        if (!b.a.r0.k2.u.f.f1.a.i(sVar) && !booleanValue7 && booleanValue6) {
+        if (!b.a.r0.k2.u.f.g1.a.i(tVar) && !booleanValue7 && booleanValue6) {
             SparseArray sparseArray5 = new SparseArray();
             sparseArray5.put(b.a.r0.k2.i.tag_user_mute_visible, Boolean.TRUE);
             int i21 = b.a.r0.k2.i.tag_is_mem;
@@ -261,7 +261,7 @@ public class PbMoreDialog extends PopupDialog {
         getEmotionTextView().setVisibility(8);
         getMarkTextView().setVisibility(8);
         getSaveLocalTextView().setVisibility(8);
-        b.a.r0.k2.u.f.f1.a.l(this.w, postData, sVar);
+        b.a.r0.k2.u.f.g1.a.l(this.w, postData, tVar);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:110:0x045b  */
@@ -275,13 +275,13 @@ public class PbMoreDialog extends PopupDialog {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void confirmItems(SparseArray<Object> sparseArray, int i2, boolean z, boolean z2, s sVar) {
+    public void confirmItems(SparseArray<Object> sparseArray, int i2, boolean z, boolean z2, t tVar) {
         boolean z3;
         boolean booleanValue;
         TbPageContext<?> tbPageContext;
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{sparseArray, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), sVar}) == null) || sparseArray == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{sparseArray, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), tVar}) == null) || sparseArray == null) {
             return;
         }
         PostData postData = (PostData) sparseArray.get(b.a.r0.k2.i.tag_clip_board);
@@ -310,7 +310,7 @@ public class PbMoreDialog extends PopupDialog {
             int i7 = b.a.r0.k2.i.tag_forbid_user_portrait;
             sparseArray4.put(i7, sparseArray.get(i7));
             sparseArray4.put(b.a.r0.k2.i.tag_forbid_user_post_id, str);
-            if (!b.a.r0.k2.u.f.f1.a.i(sVar) && booleanValue3) {
+            if (!b.a.r0.k2.u.f.g1.a.i(tVar) && booleanValue3) {
                 sparseArray4.put(b.a.r0.k2.i.tag_user_mute_visible, Boolean.TRUE);
                 int i8 = b.a.r0.k2.i.tag_is_mem;
                 sparseArray4.put(i8, sparseArray.get(i8));
@@ -379,7 +379,7 @@ public class PbMoreDialog extends PopupDialog {
         }
         boolean booleanValue7 = sparseArray.get(b.a.r0.k2.i.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(b.a.r0.k2.i.tag_user_mute_visible)).booleanValue() : false;
         boolean booleanValue8 = sparseArray.get(b.a.r0.k2.i.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(b.a.r0.k2.i.tag_should_manage_visible)).booleanValue() : false;
-        if (!b.a.r0.k2.u.f.f1.a.i(sVar) && !booleanValue8 && booleanValue7) {
+        if (!b.a.r0.k2.u.f.g1.a.i(tVar) && !booleanValue8 && booleanValue7) {
             SparseArray sparseArray6 = new SparseArray();
             sparseArray6.put(b.a.r0.k2.i.tag_user_mute_visible, Boolean.TRUE);
             int i21 = b.a.r0.k2.i.tag_is_mem;
@@ -434,7 +434,7 @@ public class PbMoreDialog extends PopupDialog {
             z3 = ((Boolean) sparseArray.get(b.a.r0.k2.i.tag_richtext_emotion)).booleanValue();
             if (this.z.getPageActivity() instanceof NewSubPbActivity) {
                 NewSubPbActivity newSubPbActivity = (NewSubPbActivity) this.z.getPageActivity();
-                if (z3 && newSubPbActivity.getSubPbModel() != null && newSubPbActivity.getSubPbModel().j0() != null && newSubPbActivity.getSubPbModel().j0().l() != null && !newSubPbActivity.getSubPbModel().j0().l().Q1()) {
+                if (z3 && newSubPbActivity.getSubPbModel() != null && newSubPbActivity.getSubPbModel().j0() != null && newSubPbActivity.getSubPbModel().j0().l() != null && !newSubPbActivity.getSubPbModel().j0().l().S1()) {
                     z3 = true;
                 }
             }
@@ -460,7 +460,7 @@ public class PbMoreDialog extends PopupDialog {
                 getManageTextView().setVisibility(8);
                 getReportTextView().setVisibility(8);
             }
-            if (d.F()) {
+            if (d.I()) {
                 if (postData != null) {
                     SparseArray sparseArray7 = new SparseArray();
                     sparseArray7.put(b.a.r0.k2.i.tag_load_sub_data, postData);
@@ -494,7 +494,7 @@ public class PbMoreDialog extends PopupDialog {
                     getDisagreeTextView().setText(string);
                 }
             }
-            b.a.r0.k2.u.f.f1.a.l(this.w, postData, sVar);
+            b.a.r0.k2.u.f.g1.a.l(this.w, postData, tVar);
         }
         z3 = false;
         if (!(sparseArray.get(b.a.r0.k2.i.tag_richtext_image) instanceof Boolean)) {
@@ -509,16 +509,16 @@ public class PbMoreDialog extends PopupDialog {
         getDisagreeTextView().setVisibility(8);
         if (z2) {
         }
-        if (d.F()) {
+        if (d.I()) {
         }
-        b.a.r0.k2.u.f.f1.a.l(this.w, postData, sVar);
+        b.a.r0.k2.u.f.g1.a.l(this.w, postData, tVar);
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             a aVar = new a(this);
-            if (d.F()) {
+            if (d.I()) {
                 setDefaultContentView(null, new String[]{this.z.getString(l.action_reply), this.z.getString(l.action_share), this.z.getString(l.action_dislike), this.z.getString(l.no_interesting), this.z.getString(l.save_to_emotion), this.z.getString(l.save_to_local), this.z.getString(l.copy), this.z.getString(l.mark), this.z.getString(l.report_text), this.z.getString(l.delete), this.z.getString(l.mute), this.z.getString(l.block_user)}, aVar);
                 this.x = h(getItemView(0));
                 this.y = h(getItemView(1));

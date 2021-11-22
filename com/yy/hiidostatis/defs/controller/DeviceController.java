@@ -12,7 +12,6 @@ import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -102,7 +101,7 @@ public class DeviceController {
                 int intExtra = registerReceiver.getIntExtra("status", -1);
                 if (intExtra != 2 && intExtra != 5) {
                     z = false;
-                    float intExtra2 = (registerReceiver.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, -1) * 100) / registerReceiver.getIntExtra("scale", -1);
+                    float intExtra2 = (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra("scale", -1);
                     int intExtra3 = registerReceiver.getIntExtra("plugged", -1);
                     z2 = intExtra3 != 2;
                     boolean z3 = intExtra3 != 1;
@@ -168,7 +167,7 @@ public class DeviceController {
                     this.statisAPI.reportDevice(j, statisContent);
                 }
                 z = true;
-                float intExtra22 = (registerReceiver.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, -1) * 100) / registerReceiver.getIntExtra("scale", -1);
+                float intExtra22 = (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra("scale", -1);
                 int intExtra32 = registerReceiver.getIntExtra("plugged", -1);
                 if (intExtra32 != 2) {
                 }

@@ -18,7 +18,7 @@ import tbclient.ElectionInfo.ElectionInfoResIdl;
 import tbclient.ElectionList;
 import tbclient.ManagerElection;
 import tbclient.Myrecord;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

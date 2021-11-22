@@ -1,6 +1,5 @@
 package com.baidu.adp.framework;
 
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.c.d;
 import com.baidu.adp.lib.util.BdLog;
@@ -44,7 +43,7 @@ public class FrameHelper {
             }
             HTTP = new TYPE(HttpVersion.HTTP, 0);
             SOCKET = new TYPE("SOCKET", 1);
-            TYPE type = new TYPE(Key.CUSTOM, 2);
+            TYPE type = new TYPE("CUSTOM", 2);
             CUSTOM = type;
             $VALUES = new TYPE[]{HTTP, SOCKET, type};
         }

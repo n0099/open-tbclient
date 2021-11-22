@@ -6,10 +6,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import b.a.e.e.p.k;
-import b.a.q0.d1.u0;
+import b.a.e.f.p.k;
+import b.a.q0.c1.t0;
 import b.a.q0.s.s.a;
-import b.a.r0.z2.z;
+import b.a.r0.a3.z;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -118,11 +118,11 @@ public class c {
 
     /* renamed from: b.a.q0.m.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0669c implements UrlManager.UrlDealListener {
+    public static class C0705c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0669c() {
+        public C0705c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,7 +156,7 @@ public class c {
                 if (str2.startsWith("tel:")) {
                     UtilHelper.callPhone(tbPageContext.getPageActivity(), str2.substring(4));
                     return 0;
-                } else if (u0.h(str2) && str2.toLowerCase().endsWith(".apk")) {
+                } else if (t0.h(str2) && str2.toLowerCase().endsWith(".apk")) {
                     c.m(tbPageContext.getPageActivity(), str2);
                     return 0;
                 } else {
@@ -166,7 +166,7 @@ public class c {
                         String queryParameter = parse2.getQueryParameter("topic_id");
                         String queryParameter2 = parse2.getQueryParameter(IntentConfig.TOPIC_NAME);
                         String queryParameter3 = parse2.getQueryParameter(IntentConfig.IS_VIDEO_TOPIC);
-                        if (TextUtils.isEmpty(queryParameter) || !b.a.q0.t0.b.h(true)) {
+                        if (TextUtils.isEmpty(queryParameter) || !b.a.q0.s0.b.h(true)) {
                             return 3;
                         }
                         if (strArr != null && strArr.length > 1 && !StringUtils.isNull(strArr[1])) {
@@ -177,7 +177,7 @@ public class c {
                     } else if (str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
                         String substring = str2.substring(4);
                         if (str2.contains("body=")) {
-                            str = u0.c(str2, "body=");
+                            str = t0.c(str2, "body=");
                             int indexOf = substring.indexOf("?");
                             if (indexOf >= 1 && indexOf <= substring.length()) {
                                 str5 = substring.substring(0, indexOf);
@@ -217,10 +217,10 @@ public class c {
                             tbPageContext.getPageActivity().finish();
                             return 1;
                         } else if (str2.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str2.contains(UrlSchemaHelper.GOTO_TDOU_PAY_BUNDING_PHONE)) {
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, u0.c(str2, "bindid=")));
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, t0.c(str2, "bindid=")));
                             tbPageContext.getPageActivity().finish();
                             return 1;
-                        } else if (str2.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str2.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (i2 = u0.i(str2)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(i2.getString("path"))) {
+                        } else if (str2.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str2.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (i2 = t0.i(str2)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(i2.getString("path"))) {
                             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
                             return 0;
                         } else if (str2.startsWith(UrlSchemaHelper.SCHEME_TYPE_ACCOUNT_SAFE) && tbPageContext.getPageActivity() != null) {
@@ -233,7 +233,7 @@ public class c {
                             return 0;
                         } else if (str2.contains(UrlSchemaHelper.FROM_ENTER_FORUM) && tbPageContext.getPageActivity() != null) {
                             MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(1);
-                            String queryParameter4 = Uri.parse(str2).getQueryParameter(b.a.q0.a.g.D);
+                            String queryParameter4 = Uri.parse(str2).getQueryParameter(b.a.q0.a.g.E);
                             if (!k.isEmpty(queryParameter4)) {
                                 createNormalCfg.setSubTab(0, queryParameter4);
                             }
@@ -260,7 +260,7 @@ public class c {
                             return 3;
                         }
                     } else {
-                        b.a.q0.m.a.l(tbPageContext.getPageActivity(), str2);
+                        b.a.q0.m.a.m(tbPageContext.getPageActivity(), str2);
                         return 1;
                     }
                 }
@@ -275,16 +275,16 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f12716e;
+        public final /* synthetic */ TbPageContext f13466e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f12717f;
+        public final /* synthetic */ String f13467f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f12718g;
+        public final /* synthetic */ String f13468g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Bundle f12719h;
+        public final /* synthetic */ Bundle f13469h;
 
         public d(TbPageContext tbPageContext, String str, String str2, Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -301,10 +301,10 @@ public class c {
                     return;
                 }
             }
-            this.f12716e = tbPageContext;
-            this.f12717f = str;
-            this.f12718g = str2;
-            this.f12719h = bundle;
+            this.f13466e = tbPageContext;
+            this.f13467f = str;
+            this.f13468g = str2;
+            this.f13469h = bundle;
         }
 
         @Override // b.a.q0.s.s.a.e
@@ -312,7 +312,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                b.a.q0.m.a.n(this.f12716e.getPageActivity(), this.f12717f, this.f12718g, this.f12719h);
+                b.a.q0.m.a.o(this.f13466e.getPageActivity(), this.f13467f, this.f13468g, this.f13469h);
             }
         }
     }
@@ -567,7 +567,7 @@ public class c {
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
             MessageManager.getInstance().registerListener(2005016, new a(0));
             UrlManager.getInstance().setWebListener(new b());
-            SwitchManager.getInstance().addSwitchData(new b.a.e.e.f.b("switch_mbaidu_startup", 1, null));
+            SwitchManager.getInstance().addSwitchData(new b.a.e.f.f.b("switch_mbaidu_startup", 1, null));
             j();
             k();
             l();
@@ -626,7 +626,7 @@ public class c {
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            UrlManager.getInstance().addListener(new C0669c());
+            UrlManager.getInstance().addListener(new C0705c());
         }
     }
 
@@ -670,7 +670,7 @@ public class c {
             if (z) {
                 b.a.q0.t.h.a.d(tbPageContext, new d(tbPageContext, str2, i2, bundle), new e(), i2);
             } else {
-                b.a.q0.m.a.n(tbPageContext.getPageActivity(), str2, i2, bundle);
+                b.a.q0.m.a.o(tbPageContext.getPageActivity(), str2, i2, bundle);
             }
         }
     }

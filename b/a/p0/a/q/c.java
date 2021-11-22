@@ -1,113 +1,150 @@
 package b.a.p0.a.q;
 
-import b.a.p0.a.k;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import b.a.p0.a.f2.f.z;
+import b.a.p0.a.g1.f;
+import b.a.p0.a.h0.g.g;
+import b.a.p0.a.h2.c.i;
+import b.a.p0.a.h2.c.j.b;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class c {
+public class c extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f7332a;
+    /* loaded from: classes.dex */
+    public class a implements b.a.p0.a.z2.g1.c<i<b.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f7333b;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CallbackHandler f7877e;
 
-    /* renamed from: c  reason: collision with root package name */
-    public String f7334c;
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ UnitedSchemeEntity f7878f;
 
-    /* renamed from: d  reason: collision with root package name */
-    public int f7335d;
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ String f7879g;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f7336e;
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ g f7880h;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f7337f;
+        /* renamed from: i  reason: collision with root package name */
+        public final /* synthetic */ c f7881i;
 
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f7338g;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1065382004, "Lb/a/p0/a/q/c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(c cVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, g gVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, callbackHandler, unitedSchemeEntity, str, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1065382004, "Lb/a/p0/a/q/c;");
-                return;
+            this.f7881i = cVar;
+            this.f7877e = callbackHandler;
+            this.f7878f = unitedSchemeEntity;
+            this.f7879g = str;
+            this.f7880h = gVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // b.a.p0.a.z2.g1.c
+        /* renamed from: a */
+        public void onCallback(i<b.e> iVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
+                if (!b.a.p0.a.h2.c.d.h(iVar)) {
+                    b.a.p0.a.h2.c.d.p(iVar, this.f7877e, this.f7878f);
+                } else {
+                    this.f7881i.k(this.f7879g, this.f7880h, this.f7877e, this.f7878f);
+                }
             }
         }
-        boolean z = k.f6397a;
     }
 
-    public c(String str, String str2, String str3, int i2, int i3, int i4, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(b.a.p0.a.f2.e eVar) {
+        super(eVar, "/swanAPI/openAdLandingPage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            Object[] objArr = {eVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f7332a = str;
-        this.f7333b = str2;
-        this.f7334c = str3;
-        this.f7335d = i2;
-        this.f7336e = i3;
-        this.f7337f = i4;
-        this.f7338g = z;
     }
 
-    public b.a.p0.a.i1.g.c a() {
-        InterceptResult invokeV;
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("showMuteBtn", true);
-                jSONObject.put("showCenterPlayBtn", true);
-                b.a.p0.a.i1.g.c cVar = new b.a.p0.a.i1.g.c();
-                cVar.n = "SwanAdPlayer";
-                cVar.f4056f = "SwanAdPlayer";
-                cVar.s = true;
-                cVar.o = false;
-                cVar.B = !this.f7338g;
-                cVar.M = false;
-                cVar.p = this.f7332a;
-                cVar.C = this.f7333b;
-                cVar.f4057g = this.f7334c;
-                b.a.p0.a.l1.e.a.a aVar = new b.a.p0.a.l1.e.a.a(0, 0, this.f7335d, this.f7336e);
-                cVar.l = aVar;
-                aVar.j(true);
-                cVar.q = this.f7337f;
-                if (this.f7338g) {
-                    cVar.u = AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY;
-                }
-                return b.a.p0.a.i1.g.c.i(jSONObject, cVar);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
+            if (z.f5228b) {
+                String str = "handle entity: " + unitedSchemeEntity.toString();
+            }
+            String o = b.a.p0.a.f2.f.o0.a.o(unitedSchemeEntity, "params");
+            if (TextUtils.isEmpty(o)) {
+                b.a.p0.a.e0.d.i("AdLanding", "adLanding: url is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            g V = f.U().V();
+            if (V == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (TextUtils.equals(b.a.p0.a.f2.f.o0.a.n(unitedSchemeEntity, "params", "invokeFrom"), "boxjs")) {
+                k(o, V, callbackHandler, unitedSchemeEntity);
+                return true;
+            } else {
+                eVar.d0().g(context, "mapp_i_open_adlanding", new a(this, callbackHandler, unitedSchemeEntity, o, V));
+                return true;
             }
         }
-        return (b.a.p0.a.i1.g.c) invokeV.objValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void j(b.a.p0.a.m1.b bVar, g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, gVar) == null) {
+            b.a.p0.a.e0.d.i("AdLanding", "openAdLanding: page url=" + bVar.f7016g);
+            g.b i2 = gVar.i("adLanding");
+            i2.n(g.f5478g, g.f5480i);
+            i2.k("adLanding", bVar).b();
+        }
+    }
+
+    public void k(String str, g gVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, gVar, callbackHandler, unitedSchemeEntity) == null) {
+            j(b.a.p0.a.m1.b.e(str, str), gVar);
+            b.a.p0.a.e0.d.i("AdLanding", "open adLanding page success");
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+        }
     }
 }

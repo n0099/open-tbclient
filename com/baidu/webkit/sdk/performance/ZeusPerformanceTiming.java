@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
@@ -103,7 +104,6 @@ public class ZeusPerformanceTiming {
     public static final String KEY_WEBVIEW_ZWSETTINGS_CREATED = "p3";
     public static final String KEY_WEBVIEW_ZWSETTINGS_CREATED_THREAD = "p3_thread";
     public static final String KEY_ZEUS_WEBVIEW_LOAD_CLASS = "zeus_webview_load_class";
-    public static final int MONITOR_TYPE_STARTUP_TIMING = 12300;
     public static final int RECORD_FROM_FORCE_INIT = 2;
     public static final int RECORD_FROM_WEBVIEW_INIT = 1;
     public static final String SERVER_TYPE_T7_INIT = "t7_init";
@@ -115,6 +115,8 @@ public class ZeusPerformanceTiming {
     public static String mMainThreadStack;
     public static String mProviderHitSynchronizedStack;
     public static JSONObject mWebkitInitStatistics;
+    public static String mZeusDownFailDetail;
+    public static JSONArray mZeusDownloadInfo;
     public static int mZeusWebViewLoadClassTime;
     public static String sAppStartSource;
     public static ConcurrentHashMap<String, Long> sEndThreadTimeStamps;
@@ -225,7 +227,7 @@ public class ZeusPerformanceTiming {
 
     public static void forceInitT7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             mIsForceInitT7 = true;
         }
     }
@@ -234,7 +236,7 @@ public class ZeusPerformanceTiming {
         InterceptResult invokeV;
         StringBuilder sb;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             if (WebKitFactory.getContext() == null) {
                 return false;
             }
@@ -253,19 +255,19 @@ public class ZeusPerformanceTiming {
     public static long getCurrentThreadTimeMillis(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, null, j)) == null) ? j == 0 ? SystemClock.currentThreadTimeMillis() : j : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, null, j)) == null) ? j == 0 ? SystemClock.currentThreadTimeMillis() : j : invokeJ.longValue;
     }
 
     public static long getCurrentTimeMillis(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, null, j)) == null) ? j == 0 ? System.currentTimeMillis() : j : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) ? j == 0 ? System.currentTimeMillis() : j : invokeJ.longValue;
     }
 
     public static long getRecordedThreadTime(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             if (sStartThreadTimeStamps.containsKey(str) && sEndThreadTimeStamps.containsKey(str)) {
                 long longValue = sEndThreadTimeStamps.get(str).longValue();
                 long longValue2 = sStartThreadTimeStamps.get(str).longValue();
@@ -282,7 +284,7 @@ public class ZeusPerformanceTiming {
     public static long getRecordedTime(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             if (sStartTimeStamps.containsKey(str) && sEndTimeStamps.containsKey(str)) {
                 long longValue = sEndTimeStamps.get(str).longValue();
                 long longValue2 = sStartTimeStamps.get(str).longValue();
@@ -299,7 +301,7 @@ public class ZeusPerformanceTiming {
     public static String getSysInitTiming() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             StringBuilder sb = new StringBuilder();
             if (sStartTimeStamps.containsKey(KEY_INIT_SYS_WEBKIT) && sEndTimeStamps.containsKey(KEY_INIT_SYS_WEBKIT)) {
                 sb.append("initSysWebkit = ");
@@ -313,7 +315,7 @@ public class ZeusPerformanceTiming {
     public static long getTimeStampFromMap(Map<String, Long> map, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, map, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, map, str)) == null) {
             if (map == null || str == null || !map.containsKey(str)) {
                 return 0L;
             }
@@ -325,7 +327,7 @@ public class ZeusPerformanceTiming {
     public static String getWebViewInitTiming() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             StringBuilder sb = new StringBuilder();
             if (SessionMonitorEngine.getInstance().getWebViewTimeStamp() != null) {
                 sb.append("\n new App WebView  " + SessionMonitorEngine.getInstance().getWebViewTimeStamp().toString());
@@ -343,13 +345,13 @@ public class ZeusPerformanceTiming {
     public static List<Long> getWebViewInitTimings() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? sWebViewInitTimingList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? sWebViewInitTimingList : (List) invokeV.objValue;
     }
 
     public static String getZeusInitTiming() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
             StringBuilder sb = new StringBuilder();
             if (sStartTimeStamps.containsKey(KEY_INIT_WEBKIT) && sEndTimeStamps.containsKey(KEY_INIT_WEBKIT)) {
                 sb.append("initWebkit = ");
@@ -372,7 +374,7 @@ public class ZeusPerformanceTiming {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             if (sExcludedKeysStartup == null) {
                 str = KEY_T7_CHROMIUM_PROVIDER_INIT_STEP3;
                 ArrayList<String> arrayList = new ArrayList<>();
@@ -494,7 +496,7 @@ public class ZeusPerformanceTiming {
 
     public static void initOnAppStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
             mInitOnAppStart = getCurrentTimeMillis(mInitOnAppStart);
         }
     }
@@ -502,19 +504,19 @@ public class ZeusPerformanceTiming {
     public static long initOnAppStartTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? mInitOnAppStart : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? mInitOnAppStart : invokeV.longValue;
     }
 
     public static boolean initProviderInMainThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? mIsMainThread : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? mIsMainThread : invokeV.booleanValue;
     }
 
     public static String initProviderMainThreadStack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
             String str = mMainThreadStack;
             return str != null ? str : "";
         }
@@ -524,24 +526,24 @@ public class ZeusPerformanceTiming {
     public static long initWebkitStartTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? getTimeStampFromMap(sStartTimeStamps, KEY_INIT_WEBKIT) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? getTimeStampFromMap(sStartTimeStamps, KEY_INIT_WEBKIT) : invokeV.longValue;
     }
 
     public static boolean isGetProviderHitSynchronized() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? mIsGetProviderHitSynchronized : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? mIsGetProviderHitSynchronized : invokeV.booleanValue;
     }
 
     public static boolean isforceInitT7() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? mIsForceInitT7 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? mIsForceInitT7 : invokeV.booleanValue;
     }
 
     public static void makeTimingFormat(StringBuilder sb, String str, long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{sb, str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) || sb == null || str == null || j <= 0 || j2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{sb, str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) || sb == null || str == null || j <= 0 || j2 <= 0) {
             return;
         }
         sb.append('\n');
@@ -554,18 +556,18 @@ public class ZeusPerformanceTiming {
     public static long newWebViewThreadTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? getRecordedThreadTime(KEY_WEBVIEWCHROMIUM_CONSTRUCT) + getRecordedThreadTime(KEY_BROWSER_STARTUP) + getRecordedThreadTime("p2") + getRecordedThreadTime(KEY_WEBVIEW_ZWSETTINGS_CREATED) + getRecordedThreadTime(KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL) + getRecordedThreadTime(KEY_WEBVIEW_DEFAULT_SETTINGS) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? getRecordedThreadTime(KEY_WEBVIEWCHROMIUM_CONSTRUCT) + getRecordedThreadTime(KEY_BROWSER_STARTUP) + getRecordedThreadTime("p2") + getRecordedThreadTime(KEY_WEBVIEW_ZWSETTINGS_CREATED) + getRecordedThreadTime(KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL) + getRecordedThreadTime(KEY_WEBVIEW_DEFAULT_SETTINGS) : invokeV.longValue;
     }
 
     public static long newWebViewTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? getRecordedTime(KEY_WEBVIEWCHROMIUM_CONSTRUCT) + getRecordedTime(KEY_BROWSER_STARTUP) + getRecordedTime("p2") + getRecordedTime(KEY_WEBVIEW_ZWSETTINGS_CREATED) + getRecordedTime(KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL) + getRecordedTime(KEY_WEBVIEW_DEFAULT_SETTINGS) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) ? getRecordedTime(KEY_WEBVIEWCHROMIUM_CONSTRUCT) + getRecordedTime(KEY_BROWSER_STARTUP) + getRecordedTime("p2") + getRecordedTime(KEY_WEBVIEW_ZWSETTINGS_CREATED) + getRecordedTime(KEY_WEBVIEWCHROMIUM_INIT_FOR_REAL) + getRecordedTime(KEY_WEBVIEW_DEFAULT_SETTINGS) : invokeV.longValue;
     }
 
     public static void record(Stage stage, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65561, null, stage, str) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65562, null, stage, str) == null) || str == null) {
             return;
         }
         char c2 = 65535;
@@ -615,9 +617,41 @@ public class ZeusPerformanceTiming {
         sStartThreadTimeStamps.put(str, Long.valueOf(SystemClock.currentThreadTimeMillis()));
     }
 
+    public static void recordDownloadInitStatistics() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65563, null) == null) {
+            ZeusThreadPoolUtil.executeIgnoreZeus(new Runnable() { // from class: com.baidu.webkit.sdk.performance.ZeusPerformanceTiming.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                        }
+                    }
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        ZeusPerformanceTiming.uploadDownloadAndLazyInit();
+                    }
+                }
+            });
+        }
+    }
+
     public static void recordWebkitInitStatistics(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65562, null, i2) == null) || sUploaded) {
+        if (!(interceptable == null || interceptable.invokeI(65564, null, i2) == null) || sUploaded) {
             return;
         }
         sRecordType = i2 | sRecordType;
@@ -656,14 +690,21 @@ public class ZeusPerformanceTiming {
 
     public static void setAppStartSource(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65563, null, str) == null) && sAppStartSource == null) {
+        if ((interceptable == null || interceptable.invokeL(65565, null, str) == null) && sAppStartSource == null) {
             sAppStartSource = str;
+        }
+    }
+
+    public static void setDownloadFailDetail(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65566, null, str) == null) {
+            mZeusDownFailDetail = str;
         }
     }
 
     public static void setIsGetProviderHitSynchronized(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65564, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65567, null, z) == null) {
             mIsGetProviderHitSynchronized = z;
             if (z) {
                 mProviderHitSynchronizedStack = android.util.Log.getStackTraceString(new NullPointerException());
@@ -672,16 +713,23 @@ public class ZeusPerformanceTiming {
         }
     }
 
+    public static void setZeusDownloadInfo(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65568, null, jSONArray) == null) {
+            mZeusDownloadInfo = jSONArray;
+        }
+    }
+
     public static void setZeusWebkitInitStatistics(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65565, null, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(65569, null, jSONObject) == null) {
             mWebkitInitStatistics = jSONObject;
         }
     }
 
     public static void sumLoadClassTime(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65566, null, j) == null) && getTimeStampFromMap(sStartTimeStamps, KEY_NEW_WEBVIEW_METHOD) > 0 && getTimeStampFromMap(sEndTimeStamps, KEY_NEW_WEBVIEW_METHOD) == 0) {
+        if ((interceptable == null || interceptable.invokeJ(65570, null, j) == null) && getTimeStampFromMap(sStartTimeStamps, KEY_NEW_WEBVIEW_METHOD) > 0 && getTimeStampFromMap(sEndTimeStamps, KEY_NEW_WEBVIEW_METHOD) == 0) {
             mZeusWebViewLoadClassTime += (int) j;
         }
     }
@@ -689,18 +737,18 @@ public class ZeusPerformanceTiming {
     public static long unzipEndDiff() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) ? getTimeStampFromMap(sEndTimeStamps, KEY_UNZIP) - getTimeStampFromMap(sEndTimeStamps, KEY_NEW_ZEUS_CL) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? getTimeStampFromMap(sEndTimeStamps, KEY_UNZIP) - getTimeStampFromMap(sEndTimeStamps, KEY_NEW_ZEUS_CL) : invokeV.longValue;
     }
 
     public static long unzipStartDiff() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) ? getTimeStampFromMap(sStartTimeStamps, KEY_NEW_ZEUS_CL) - getTimeStampFromMap(sStartTimeStamps, KEY_UNZIP) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? getTimeStampFromMap(sStartTimeStamps, KEY_NEW_ZEUS_CL) - getTimeStampFromMap(sStartTimeStamps, KEY_UNZIP) : invokeV.longValue;
     }
 
     public static void upload() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65569, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65573, null) == null) {
             try {
                 sLogEnabled = getBooleanFromFile();
                 String zeusPerformanceTiming = getZeusPerformanceTiming();
@@ -716,9 +764,31 @@ public class ZeusPerformanceTiming {
         }
     }
 
+    public static void uploadDownloadAndLazyInit() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65574, null) == null) {
+            try {
+                if (mZeusDownloadInfo == null || mZeusDownloadInfo.length() <= 0) {
+                    return;
+                }
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("type", 12300);
+                jSONObject.put("webkit_download_and_lazy_init_statics", mZeusDownloadInfo);
+                if (mZeusDownFailDetail != null && mZeusDownFailDetail.length() > 0) {
+                    jSONObject.put("download_fail_detail", mZeusDownFailDetail);
+                }
+                String jSONObject2 = jSONObject.toString();
+                Log.i("ZeusPerformanceTiming", "cr_Ime uploadDownloadAndLazyInit : ".concat(String.valueOf(jSONObject2)));
+                SessionMonitorEngine.getInstance().recordImmediately(SERVER_TYPE_T7_INIT, jSONObject2);
+            } catch (Exception e2) {
+                Log.printStackTrace(e2);
+            }
+        }
+    }
+
     public static long zeusWebViewLoadClassTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) ? mZeusWebViewLoadClassTime : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) ? mZeusWebViewLoadClassTime : invokeV.longValue;
     }
 }

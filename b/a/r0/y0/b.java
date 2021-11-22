@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<d> f27239a;
+    public static final AtomicReference<d> f28742a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f27240b;
+    public static final d f28743b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,8 +35,8 @@ public class b implements d {
                 return;
             }
         }
-        f27239a = new AtomicReference<>(null);
-        f27240b = new b();
+        f28742a = new AtomicReference<>(null);
+        f28743b = new b();
     }
 
     public b() {
@@ -57,49 +57,49 @@ public class b implements d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            d dVar = f27239a.get();
-            return dVar == null ? f27240b : dVar;
+            d dVar = f28742a.get();
+            return dVar == null ? f28743b : dVar;
         }
         return (d) invokeV.objValue;
     }
 
     @Override // b.a.r0.y0.d
-    public b.a.e.l.e.a<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+    public b.a.e.m.e.a<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
             return null;
         }
-        return (b.a.e.l.e.a) invokeLL.objValue;
+        return (b.a.e.m.e.a) invokeLL.objValue;
     }
 
     @Override // b.a.r0.y0.d
-    public b.a.e.l.e.a<?, ?> b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+    public b.a.e.m.e.a<?, ?> b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, bdUniqueId)) == null) {
             return null;
         }
-        return (b.a.e.l.e.a) invokeLL.objValue;
+        return (b.a.e.m.e.a) invokeLL.objValue;
     }
 
     @Override // b.a.r0.y0.d
-    public b.a.e.l.e.a<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+    public b.a.e.m.e.a<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
             return null;
         }
-        return (b.a.e.l.e.a) invokeLL.objValue;
+        return (b.a.e.m.e.a) invokeLL.objValue;
     }
 
     @Override // b.a.r0.y0.d
-    public b.a.e.l.e.a<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+    public b.a.e.m.e.a<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, baseFragmentActivity, bdUniqueId)) == null) {
             return null;
         }
-        return (b.a.e.l.e.a) invokeLL.objValue;
+        return (b.a.e.m.e.a) invokeLL.objValue;
     }
 }

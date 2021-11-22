@@ -23,21 +23,21 @@ public abstract class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39200a;
+    public static String f40032a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f39201b;
+    public static int f40033b;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f39202g;
+    public static int f40034g;
     public static int p;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f39203h;
+    public String f40035h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39204i;
+    public int f40036i;
     public String j;
     public Map<String, Object> k;
     public String l;
@@ -58,9 +58,9 @@ public abstract class e {
                 return;
             }
         }
-        f39202g = a.f39169g;
-        f39200a = "10.0.0.172";
-        f39201b = 80;
+        f40034g = a.f40001g;
+        f40032a = "10.0.0.172";
+        f40033b = 80;
         p = 0;
     }
 
@@ -77,8 +77,8 @@ public abstract class e {
                 return;
             }
         }
-        this.f39203h = null;
-        this.f39204i = 1;
+        this.f40035h = null;
+        this.f40036i = 1;
         this.j = null;
         this.k = null;
         this.l = null;
@@ -106,27 +106,27 @@ public abstract class e {
                     if (defaultHost != null && !defaultHost.equals("") && !defaultHost.equals(StringUtil.NULL_STRING)) {
                         str2 = defaultHost;
                     }
-                    f39200a = str2;
-                    return a.f39166d;
+                    f40032a = str2;
+                    return a.f39998d;
                 } else if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
                     String defaultHost2 = Proxy.getDefaultHost();
                     if (defaultHost2 != null && !defaultHost2.equals("") && !defaultHost2.equals(StringUtil.NULL_STRING)) {
                         str = defaultHost2;
                     }
-                    f39200a = str;
-                    return a.f39166d;
+                    f40032a = str;
+                    return a.f39998d;
                 } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
-                    return a.f39167e;
+                    return a.f39999e;
                 }
             }
             String defaultHost3 = Proxy.getDefaultHost();
             if (defaultHost3 != null && defaultHost3.length() > 0) {
                 if (!"10.0.0.172".equals(defaultHost3.trim())) {
                 }
-                f39200a = str2;
-                return a.f39166d;
+                f40032a = str2;
+                return a.f39998d;
             }
-            return a.f39167e;
+            return a.f39999e;
         }
         return invokeLL.intValue;
     }
@@ -135,7 +135,7 @@ public abstract class e {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            f39202g = c();
+            f40034g = c();
         }
     }
 
@@ -147,19 +147,19 @@ public abstract class e {
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) serviceContext.getSystemService("connectivity");
                 if (connectivityManager == null) {
-                    return a.f39169g;
+                    return a.f40001g;
                 }
                 NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     if (activeNetworkInfo.getType() == 1) {
                         String defaultHost = Proxy.getDefaultHost();
-                        return (defaultHost == null || defaultHost.length() <= 0) ? a.f39168f : a.f39170h;
+                        return (defaultHost == null || defaultHost.length() <= 0) ? a.f40000f : a.f40002h;
                     }
                     return a(serviceContext, activeNetworkInfo);
                 }
-                return a.f39169g;
+                return a.f40001g;
             } catch (Exception unused) {
-                return a.f39169g;
+                return a.f40001g;
             }
         }
         return invokeV.intValue;

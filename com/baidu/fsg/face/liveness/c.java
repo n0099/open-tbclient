@@ -14,55 +14,55 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f38168a = 1;
+    public static final int f38998a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f38169b = 2;
+    public static final int f38999b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38170c;
+    public static final String f39000c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38171d;
+    public static final String f39001d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38172e;
+    public static final String f39002e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f38173f;
+    public Context f39003f;
 
     /* loaded from: classes7.dex */
     public class a extends com.baidu.fsg.face.base.c.a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f38174a = 1;
+        public static final int f39004a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f38175b = 2;
+        public static final int f39005b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f38176c = 5;
+        public static final int f39006c = 5;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int f38177d = -306;
+        public static final int f39007d = -306;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f38178e;
+        public String f39008e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f38179f;
+        public String f39009f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f38180g;
+        public boolean f39010g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f38181h;
+        public boolean f39011h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f38182i;
+        public boolean f39012i;
         public final /* synthetic */ c j;
 
         public a(c cVar) {
@@ -81,11 +81,11 @@ public class c {
                 }
             }
             this.j = cVar;
-            this.f38181h = true;
-            this.f38182i = false;
-            this.msgMap.put(1, c.f38170c);
-            this.msgMap.put(2, c.f38171d);
-            this.msgMap.put(-306, c.f38172e);
+            this.f39011h = true;
+            this.f39012i = false;
+            this.msgMap.put(1, c.f39000c);
+            this.msgMap.put(2, c.f39001d);
+            this.msgMap.put(-306, c.f39002e);
         }
     }
 
@@ -102,9 +102,9 @@ public class c {
                 return;
             }
         }
-        f38170c = ResUtils.string("error_msg_get_userinfo_failure");
-        f38171d = ResUtils.string("error_msg_upload_failure");
-        f38172e = ResUtils.string("error_msg_image_file_empty");
+        f39000c = ResUtils.string("error_msg_get_userinfo_failure");
+        f39001d = ResUtils.string("error_msg_upload_failure");
+        f39002e = ResUtils.string("error_msg_image_file_empty");
     }
 
     public c(Context context) {
@@ -122,7 +122,7 @@ public class c {
                 return;
             }
         }
-        this.f38173f = context;
+        this.f39003f = context;
     }
 
     public void a() {

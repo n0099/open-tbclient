@@ -36,7 +36,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBarActivity f53751e;
+        public final /* synthetic */ NavigationBarActivity f54671e;
 
         public a(NavigationBarActivity navigationBarActivity) {
             Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
                     return;
                 }
             }
-            this.f53751e = navigationBarActivity;
+            this.f54671e = navigationBarActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f53751e.finish();
+                this.f54671e.finish();
             }
         }
     }

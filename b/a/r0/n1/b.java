@@ -3,8 +3,9 @@ package b.a.r0.n1;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
-import b.a.e.e.p.l;
+import androidx.webkit.ProxyConfig;
+import b.a.e.f.p.k;
+import b.a.e.f.p.l;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -62,31 +63,31 @@ public class b {
     public int Q;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f21270a;
+    public ArrayList<String> f22766a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f21271b;
+    public HashMap<String, String> f22767b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, ImageUrlData> f21272c;
+    public Map<String, ImageUrlData> f22768c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<AlaInfoData> f21273d;
+    public ArrayList<AlaInfoData> f22769d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21274e;
+    public String f22770e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21275f;
+    public String f22771f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21276g;
+    public String f22772g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21277h;
+    public String f22773h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f21278i;
+    public String f22774i;
     public String j;
     public String k;
     public boolean l;
@@ -95,7 +96,7 @@ public class b {
     public int o;
     public boolean p;
     public boolean q;
-    public InterfaceC1046b r;
+    public InterfaceC1110b r;
     public AdvertAppInfo s;
     public String t;
     public String u;
@@ -111,22 +112,22 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f21279a;
+        public NetWork f22775a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f21280b;
+        public String f22776b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f21281c;
+        public String f22777c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f21282d;
+        public int f22778d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f21283e;
+        public int f22779e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f21284f;
+        public final /* synthetic */ b f22780f;
 
         public a(b bVar, String str, String str2, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -143,30 +144,30 @@ public class b {
                     return;
                 }
             }
-            this.f21284f = bVar;
-            this.f21279a = null;
-            this.f21280b = null;
-            this.f21281c = null;
-            this.f21282d = 0;
-            this.f21283e = 0;
-            this.f21281c = str2;
-            this.f21280b = str;
-            this.f21282d = i2;
-            this.f21283e = i3;
+            this.f22780f = bVar;
+            this.f22775a = null;
+            this.f22776b = null;
+            this.f22777c = null;
+            this.f22778d = 0;
+            this.f22779e = 0;
+            this.f22777c = str2;
+            this.f22776b = str;
+            this.f22778d = i2;
+            this.f22779e = i3;
         }
 
         public final void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21279a.addPostData("forum_id", this.f21284f.f21277h);
-                this.f21279a.addPostData("user_id", this.f21284f.t == null ? "0" : this.f21284f.t);
-                this.f21279a.addPostData(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
-                this.f21279a.addPostData("scr_w", String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
-                this.f21279a.addPostData("scr_h", String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
-                this.f21279a.addPostData("q_type", String.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1));
-                this.f21279a.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
-                this.f21279a.addPostData("page_name", "PB");
-                this.f21279a.addPostData("pic_index", String.valueOf(this.f21284f.f21270a.size()));
+                this.f22775a.addPostData("forum_id", this.f22780f.f22773h);
+                this.f22775a.addPostData("user_id", this.f22780f.t == null ? "0" : this.f22780f.t);
+                this.f22775a.addPostData(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
+                this.f22775a.addPostData("scr_w", String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
+                this.f22775a.addPostData("scr_h", String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
+                this.f22775a.addPostData("q_type", String.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1));
+                this.f22775a.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
+                this.f22775a.addPostData("page_name", "PB");
+                this.f22775a.addPostData("pic_index", String.valueOf(this.f22780f.f22766a.size()));
             }
         }
 
@@ -178,46 +179,46 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.IMAGE_PB_ADDRESS);
-                this.f21279a = netWork;
-                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f21284f.f21278i);
-                this.f21279a.addPostData("tid", this.f21280b);
-                String str = this.f21281c;
+                this.f22775a = netWork;
+                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f22780f.f22774i);
+                this.f22775a.addPostData("tid", this.f22776b);
+                String str = this.f22777c;
                 if (str != null) {
-                    this.f21279a.addPostData(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, str);
+                    this.f22775a.addPostData(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, str);
                 }
-                if (!TextUtils.isEmpty(this.f21284f.f21274e) && !"0".equals(this.f21284f.f21274e)) {
-                    this.f21279a.addPostData("post_id", this.f21284f.f21274e);
+                if (!TextUtils.isEmpty(this.f22780f.f22770e) && !"0".equals(this.f22780f.f22770e)) {
+                    this.f22775a.addPostData("post_id", this.f22780f.f22770e);
                 }
-                this.f21279a.addPostData("source", String.valueOf(this.f21284f.q ? 1 : 2));
-                this.f21284f.q = false;
-                this.f21279a.addPostData(UnitedSchemeConstants.UNITED_SCHEME_NEXT, String.valueOf(this.f21282d));
-                this.f21279a.addPostData("prev", String.valueOf(this.f21283e));
-                this.f21279a.addPostData("not_see_lz", String.valueOf(!this.f21284f.p ? 1 : 0));
-                this.f21279a.addPostData("is_top_agree", String.valueOf(this.f21284f.B ? 1 : 2));
-                if (!this.f21284f.m) {
-                    this.f21279a.addPostData(r.f40168a, String.valueOf(1));
+                this.f22775a.addPostData("source", String.valueOf(this.f22780f.q ? 1 : 2));
+                this.f22780f.q = false;
+                this.f22775a.addPostData(UnitedSchemeConstants.UNITED_SCHEME_NEXT, String.valueOf(this.f22778d));
+                this.f22775a.addPostData("prev", String.valueOf(this.f22779e));
+                this.f22775a.addPostData("not_see_lz", String.valueOf(!this.f22780f.p ? 1 : 0));
+                this.f22775a.addPostData("is_top_agree", String.valueOf(this.f22780f.B ? 1 : 2));
+                if (!this.f22780f.m) {
+                    this.f22775a.addPostData(r.f41000a, String.valueOf(1));
                 }
-                if (!StringUtils.isNull(this.f21284f.u, true)) {
-                    this.f21279a.addPostData("obj_type", this.f21284f.u);
+                if (!StringUtils.isNull(this.f22780f.u, true)) {
+                    this.f22775a.addPostData("obj_type", this.f22780f.u);
                 } else {
-                    this.f21279a.addPostData("obj_type", "other");
+                    this.f22775a.addPostData("obj_type", "other");
                 }
-                if (TextUtils.isEmpty(this.f21284f.x)) {
+                if (TextUtils.isEmpty(this.f22780f.x)) {
                     if (System.currentTimeMillis() - b.a.q0.s.e0.b.j().l("applist_intalled_apk_ids_timestamp", 0L) < 86400000) {
-                        this.f21284f.x = b.a.q0.s.e0.b.j().p("applist_intalled_apk_ids", "");
+                        this.f22780f.x = b.a.q0.s.e0.b.j().p("applist_intalled_apk_ids", "");
                     }
                 }
-                this.f21279a.addPostData("applist", this.f21284f.x);
+                this.f22775a.addPostData("applist", this.f22780f.x);
                 String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
                 if (!TextUtils.isEmpty(lastCachedOid)) {
-                    this.f21279a.addPostData("oaid", lastCachedOid);
+                    this.f22775a.addPostData("oaid", lastCachedOid);
                 }
-                this.f21279a.addPostData("app_transmit_data", b.a.q0.d1.g.a());
-                this.f21279a.addPostData("ad_ext_params", AdExtParam.a.b().a());
+                this.f22775a.addPostData("app_transmit_data", b.a.q0.c1.g.a());
+                this.f22775a.addPostData("ad_ext_params", AdExtParam.a.b().a());
                 b();
-                this.f21279a.getNetContext().getRequest().mNeedBackgroundLogin = false;
-                String postNetData = this.f21279a.postNetData();
-                if (this.f21279a.getNetContext().getResponse().isRequestSuccess()) {
+                this.f22775a.getNetContext().getRequest().mNeedBackgroundLogin = false;
+                String postNetData = this.f22775a.postNetData();
+                if (this.f22775a.getNetContext().getResponse().isRequestSuccess()) {
                     e eVar = new e();
                     eVar.l(postNetData, true);
                     return eVar;
@@ -231,11 +232,11 @@ public class b {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                NetWork netWork = this.f21279a;
+                NetWork netWork = this.f22775a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f21284f.n = null;
+                this.f22780f.n = null;
                 super.cancel(true);
             }
         }
@@ -243,7 +244,7 @@ public class b {
         public String d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21281c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22777c : (String) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -263,91 +264,91 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
                 super.onPostExecute(eVar);
-                if (this.f21284f.f21272c == null) {
+                if (this.f22780f.f22768c == null) {
                     return;
                 }
                 String str2 = null;
-                this.f21284f.n = null;
+                this.f22780f.n = null;
                 if (eVar == null) {
-                    if (this.f21284f.r != null) {
-                        NetWork netWork = this.f21279a;
+                    if (this.f22780f.r != null) {
+                        NetWork netWork = this.f22775a;
                         if (netWork != null) {
                             i3 = netWork.getServerErrorCode();
-                            if (this.f21281c == null) {
-                                str2 = this.f21279a.getErrorString();
+                            if (this.f22777c == null) {
+                                str2 = this.f22775a.getErrorString();
                             }
                         } else {
                             i3 = -1;
                         }
-                        this.f21284f.r.b(i3, str2);
+                        this.f22780f.r.b(i3, str2);
                         return;
                     }
                     return;
                 }
                 boolean isEmpty = ListUtils.isEmpty(eVar.g());
-                if (this.f21284f.z && !isEmpty) {
-                    this.f21284f.f21270a.clear();
-                    this.f21284f.f21272c.clear();
-                    this.f21284f.f21271b.clear();
+                if (this.f22780f.z && !isEmpty) {
+                    this.f22780f.f22766a.clear();
+                    this.f22780f.f22768c.clear();
+                    this.f22780f.f22767b.clear();
                 }
                 if (eVar.h() != 0) {
-                    this.f21284f.o = eVar.h();
+                    this.f22780f.o = eVar.h();
                 }
-                this.f21284f.s = eVar.a();
-                this.f21284f.Q = eVar.m;
-                b bVar = this.f21284f;
-                bVar.K = eVar.f21302i;
+                this.f22780f.s = eVar.a();
+                this.f22780f.Q = eVar.m;
+                b bVar = this.f22780f;
+                bVar.K = eVar.f22798i;
                 bVar.L = eVar.i();
-                b bVar2 = this.f21284f;
+                b bVar2 = this.f22780f;
                 bVar2.M = eVar.k;
                 bVar2.N = eVar.j;
                 bVar2.O = eVar.l == 1;
-                if (this.f21281c == null) {
-                    this.f21284f.f21270a.clear();
-                    this.f21284f.f21271b.clear();
+                if (this.f22777c == null) {
+                    this.f22780f.f22766a.clear();
+                    this.f22780f.f22767b.clear();
                 }
                 LinkedList<c> g2 = eVar.g();
                 int size = g2.size();
                 if (size <= 0) {
                     imageUrlData = null;
                     z = isEmpty;
-                    this.f21284f.l = true;
+                    this.f22780f.l = true;
                 } else {
                     int i4 = 0;
                     while (i4 < size) {
                         c cVar = g2.get(i4);
-                        String S = this.f21284f.S(cVar);
+                        String S = this.f22780f.S(cVar);
                         ImageUrlData imageUrlData2 = new ImageUrlData();
                         String f2 = cVar.f();
                         imageUrlData2.id = f2;
-                        if (StringHelper.equals(f2, this.f21284f.A)) {
-                            imageUrlData2.setSourceImageRectInScreen(this.f21284f.y);
+                        if (StringHelper.equals(f2, this.f22780f.A)) {
+                            imageUrlData2.setSourceImageRectInScreen(this.f22780f.y);
                         }
                         imageUrlData2.imageUrl = S;
-                        String str3 = S + "*" + cVar.k();
+                        String str3 = S + ProxyConfig.MATCH_ALL_SCHEMES + cVar.k();
                         imageUrlData2.mWidth = cVar.r();
                         imageUrlData2.mHeigth = cVar.e();
                         imageUrlData2.urlType = 10;
                         imageUrlData2.originalUrl = cVar.i();
                         boolean z3 = isEmpty;
                         imageUrlData2.originalSize = cVar.j();
-                        imageUrlData2.forumId = this.f21284f.f21277h;
-                        imageUrlData2.forumName = this.f21284f.f21278i;
-                        imageUrlData2.threadId = b.a.e.e.m.b.g(this.f21280b, -1L);
-                        imageUrlData2.nid = this.f21284f.f21276g;
-                        imageUrlData2.postId = b.a.e.e.m.b.g(cVar.c(), -1L);
+                        imageUrlData2.forumId = this.f22780f.f22773h;
+                        imageUrlData2.forumName = this.f22780f.f22774i;
+                        imageUrlData2.threadId = b.a.e.f.m.b.g(this.f22776b, -1L);
+                        imageUrlData2.nid = this.f22780f.f22772g;
+                        imageUrlData2.postId = b.a.e.f.m.b.g(cVar.c(), -1L);
                         imageUrlData2.userId = cVar.o();
                         imageUrlData2.userNameShow = StringUtils.isNull(cVar.q()) ? cVar.p() : cVar.q();
-                        imageUrlData2.mIsReserver = this.f21284f.m;
-                        imageUrlData2.mIsSeeHost = this.f21284f.p;
+                        imageUrlData2.mIsReserver = this.f22780f.m;
+                        imageUrlData2.mIsSeeHost = this.f22780f.p;
                         imageUrlData2.overAllIndex = cVar.k();
-                        imageUrlData2.mThreadType = this.f21284f.v;
+                        imageUrlData2.mThreadType = this.f22780f.v;
                         imageUrlData2.mPicType = cVar.l();
                         imageUrlData2.mTagName = cVar.n();
                         imageUrlData2.mIsShowOrigonButton = cVar.v();
                         imageUrlData2.isLongPic = cVar.u();
                         imageUrlData2.isBlockedPic = cVar.s();
-                        imageUrlData2.from = this.f21284f.u;
+                        imageUrlData2.from = this.f22780f.u;
                         if (cVar.m() != null) {
                             imageUrlData2.richTextArray = cVar.m().toString();
                         }
@@ -356,8 +357,8 @@ public class b {
                             AgreeData a2 = cVar.a();
                             imageUrlData2.agreeData = a2;
                             a2.isFromImageViewer = true;
-                            a2.mImageViewerFromPage = this.f21284f.u;
-                            imageUrlData2.agreeData.forumId = this.f21284f.f21277h;
+                            a2.mImageViewerFromPage = this.f22780f.u;
+                            imageUrlData2.agreeData.forumId = this.f22780f.f22773h;
                             imageUrlData2.agreeData.threadId = String.valueOf(imageUrlData2.threadId);
                             AgreeData agreeData2 = imageUrlData2.agreeData;
                             agreeData2.nid = imageUrlData2.nid;
@@ -375,17 +376,17 @@ public class b {
                                 agreeData4.isInThread = false;
                                 agreeData4.isInPost = true;
                             }
-                            imageUrlData2.agreeData.cardType = this.f21284f.F;
-                            imageUrlData2.agreeData.recomSource = this.f21284f.G;
-                            imageUrlData2.agreeData.recomAbTag = this.f21284f.H;
-                            imageUrlData2.agreeData.recomExtra = this.f21284f.J;
-                            imageUrlData2.agreeData.recomWeight = this.f21284f.I;
+                            imageUrlData2.agreeData.cardType = this.f22780f.F;
+                            imageUrlData2.agreeData.recomSource = this.f22780f.G;
+                            imageUrlData2.agreeData.recomAbTag = this.f22780f.H;
+                            imageUrlData2.agreeData.recomExtra = this.f22780f.J;
+                            imageUrlData2.agreeData.recomWeight = this.f22780f.I;
                         }
-                        if (this.f21284f.f21271b.containsKey(imageUrlData2.id)) {
-                            String str4 = (String) this.f21284f.f21271b.get(imageUrlData2.id);
-                            ImageUrlData imageUrlData3 = (ImageUrlData) this.f21284f.f21272c.get(str4);
+                        if (this.f22780f.f22767b.containsKey(imageUrlData2.id)) {
+                            String str4 = (String) this.f22780f.f22767b.get(imageUrlData2.id);
+                            ImageUrlData imageUrlData3 = (ImageUrlData) this.f22780f.f22768c.get(str4);
                             if (imageUrlData3 == null) {
-                                this.f21284f.f21272c.put(str4, imageUrlData2);
+                                this.f22780f.f22768c.put(str4, imageUrlData2);
                             } else {
                                 imageUrlData3.imageUrl = imageUrlData2.imageUrl;
                                 imageUrlData3.overAllIndex = imageUrlData2.overAllIndex;
@@ -397,29 +398,29 @@ public class b {
                                 imageUrlData3.isFirstPost = imageUrlData2.isFirstPost;
                                 imageUrlData3.userId = imageUrlData2.userId;
                                 imageUrlData3.userNameShow = imageUrlData2.userNameShow;
-                                imageUrlData3.forumId = this.f21284f.f21277h;
-                                imageUrlData3.forumName = this.f21284f.f21278i;
+                                imageUrlData3.forumId = this.f22780f.f22773h;
+                                imageUrlData3.forumName = this.f22780f.f22774i;
                                 imageUrlData3.mHeigth = imageUrlData2.mHeigth;
                                 imageUrlData3.mWidth = imageUrlData2.mWidth;
-                                if (StringHelper.equals(imageUrlData2.id, this.f21284f.A)) {
-                                    imageUrlData3.setSourceImageRectInScreen(this.f21284f.y);
+                                if (StringHelper.equals(imageUrlData2.id, this.f22780f.A)) {
+                                    imageUrlData3.setSourceImageRectInScreen(this.f22780f.y);
                                 }
                             }
                             str = null;
-                        } else if (!this.f21284f.C) {
+                        } else if (!this.f22780f.C) {
                             str = null;
-                            this.f21284f.f21272c.put(str3, imageUrlData2);
-                            if (this.f21284f.w) {
-                                this.f21284f.f21270a.add(i4, str3);
+                            this.f22780f.f22768c.put(str3, imageUrlData2);
+                            if (this.f22780f.w) {
+                                this.f22780f.f22766a.add(i4, str3);
                             } else {
-                                this.f21284f.f21270a.add(str3);
+                                this.f22780f.f22766a.add(str3);
                             }
-                            this.f21284f.f21271b.put(imageUrlData2.id, str3);
+                            this.f22780f.f22767b.put(imageUrlData2.id, str3);
                         } else {
-                            b bVar3 = this.f21284f;
-                            bVar3.o = bVar3.f21272c.size();
+                            b bVar3 = this.f22780f;
+                            bVar3.o = bVar3.f22768c.size();
                             str = null;
-                            this.f21284f.s = null;
+                            this.f22780f.s = null;
                         }
                         i4++;
                         isEmpty = z3;
@@ -429,30 +430,30 @@ public class b {
                     z = isEmpty;
                     c cVar2 = (c) ListUtils.getItem(g2, 0);
                     if (cVar2 != null) {
-                        this.f21284f.j = cVar2.f();
+                        this.f22780f.j = cVar2.f();
                     }
                     c cVar3 = (c) ListUtils.getItem(g2, size - 1);
                     imageUrlData = str5;
                     if (cVar3 != null) {
-                        this.f21284f.k = cVar3.f();
-                        b bVar4 = this.f21284f;
+                        this.f22780f.k = cVar3.f();
+                        b bVar4 = this.f22780f;
                         bVar4.l = ((long) bVar4.o) == cVar3.k();
                         imageUrlData = str5;
                     }
                 }
-                for (ImageUrlData imageUrlData4 : this.f21284f.f21272c.values()) {
+                for (ImageUrlData imageUrlData4 : this.f22780f.f22768c.values()) {
                     if (imageUrlData4.agreeData == null) {
                         long j = imageUrlData4.postId;
                         if (imageUrlData == null) {
-                            for (ImageUrlData imageUrlData5 : this.f21284f.f21272c.values()) {
+                            for (ImageUrlData imageUrlData5 : this.f22780f.f22768c.values()) {
                                 if (imageUrlData5.postId == j && (agreeData = imageUrlData5.agreeData) != null) {
                                     imageUrlData4.agreeData = agreeData;
                                     imageUrlData4.richTextArray = imageUrlData5.richTextArray;
                                     imageUrlData4.commentNum = imageUrlData5.commentNum;
                                     imageUrlData4.userId = imageUrlData5.userId;
                                     imageUrlData4.userNameShow = imageUrlData5.userNameShow;
-                                    imageUrlData4.forumId = this.f21284f.f21277h;
-                                    imageUrlData4.forumName = this.f21284f.f21278i;
+                                    imageUrlData4.forumId = this.f22780f.f22773h;
+                                    imageUrlData4.forumName = this.f22780f.f22774i;
                                     imageUrlData = imageUrlData5;
                                 }
                             }
@@ -462,40 +463,40 @@ public class b {
                             imageUrlData4.commentNum = imageUrlData.commentNum;
                             imageUrlData4.userId = imageUrlData.userId;
                             imageUrlData4.userNameShow = imageUrlData.userNameShow;
-                            imageUrlData4.forumId = this.f21284f.f21277h;
-                            imageUrlData4.forumName = this.f21284f.f21278i;
+                            imageUrlData4.forumId = this.f22780f.f22773h;
+                            imageUrlData4.forumName = this.f22780f.f22774i;
                         }
                     }
                 }
-                if (this.f21281c == null) {
-                    this.f21284f.f21275f = this.f21280b;
+                if (this.f22777c == null) {
+                    this.f22780f.f22771f = this.f22776b;
                     i2 = 0;
                     z2 = true;
                 } else {
                     i2 = -1;
                     z2 = false;
                 }
-                int position = this.f21284f.w ? ListUtils.getPosition(this.f21284f.f21270a, (String) this.f21284f.f21271b.get(this.f21281c)) - 1 : i2;
-                this.f21284f.D = eVar.e();
-                this.f21284f.E = eVar.j();
-                this.f21284f.P = eVar.f();
-                if (this.f21284f.f21273d == null) {
-                    this.f21284f.f21273d = new ArrayList();
+                int position = this.f22780f.w ? ListUtils.getPosition(this.f22780f.f22766a, (String) this.f22780f.f22767b.get(this.f22777c)) - 1 : i2;
+                this.f22780f.D = eVar.e();
+                this.f22780f.E = eVar.j();
+                this.f22780f.P = eVar.f();
+                if (this.f22780f.f22769d == null) {
+                    this.f22780f.f22769d = new ArrayList();
                     if (eVar.d() != null && eVar.g().size() > 0) {
-                        this.f21284f.f21273d.addAll(eVar.d());
+                        this.f22780f.f22769d.addAll(eVar.d());
                     }
                 }
-                if (this.f21284f.r != null) {
-                    this.f21284f.r.a(this.f21284f.f21270a, position, this.f21284f.o, false, null, z2, this.f21284f.s, z);
+                if (this.f22780f.r != null) {
+                    this.f22780f.r.a(this.f22780f.f22766a, position, this.f22780f.o, false, null, z2, this.f22780f.s, z);
                 }
-                this.f21284f.z = false;
+                this.f22780f.z = false;
             }
         }
     }
 
     /* renamed from: b.a.r0.n1.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1046b {
+    public interface InterfaceC1110b {
         void a(ArrayList<String> arrayList, int i2, int i3, boolean z, String str, boolean z2, AdvertAppInfo advertAppInfo, boolean z3);
 
         void b(int i2, String str);
@@ -516,7 +517,7 @@ public class b {
                 return;
             }
         }
-        this.f21271b = new HashMap<>();
+        this.f22767b = new HashMap<>();
         this.l = false;
         this.m = true;
         this.n = null;
@@ -527,20 +528,20 @@ public class b {
         this.s = null;
         this.w = false;
         this.C = false;
-        this.f21270a = arrayList;
-        this.f21272c = map;
+        this.f22766a = arrayList;
+        this.f22768c = map;
         if (arrayList == null) {
-            this.f21270a = new ArrayList<>();
+            this.f22766a = new ArrayList<>();
         }
-        Iterator<String> it = this.f21270a.iterator();
+        Iterator<String> it = this.f22766a.iterator();
         while (it.hasNext()) {
             String next = it.next();
-            this.f21271b.put(b.a.r0.n1.a.a(next), next);
+            this.f22767b.put(b.a.r0.n1.a.a(next), next);
         }
-        this.f21275f = str3;
-        this.f21276g = str4;
-        this.f21278i = str2;
-        this.f21277h = str;
+        this.f22771f = str3;
+        this.f22772g = str4;
+        this.f22774i = str2;
+        this.f22773h = str;
         this.k = str5;
         this.v = i2;
         this.l = str5 == null;
@@ -587,7 +588,7 @@ public class b {
     public ArrayList<AlaInfoData> T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21273d : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22769d : (ArrayList) invokeV.objValue;
     }
 
     public String U() {
@@ -603,7 +604,7 @@ public class b {
             if (this.l) {
                 return;
             }
-            i0(this.f21275f, this.k, 10, 0);
+            i0(this.f22771f, this.k, 10, 0);
         }
     }
 
@@ -611,11 +612,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.w = true;
-            String str = this.f21270a.get(0);
+            String str = this.f22766a.get(0);
             if (StringUtils.isNull(this.j)) {
                 this.j = b.a.r0.n1.a.a(str);
             }
-            i0(this.f21275f, this.j, 0, 10);
+            i0(this.f22771f, this.j, 0, 10);
         }
     }
 
@@ -659,17 +660,17 @@ public class b {
         }
     }
 
-    public void d0(InterfaceC1046b interfaceC1046b) {
+    public void d0(InterfaceC1110b interfaceC1110b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, interfaceC1046b) == null) {
-            this.r = interfaceC1046b;
+        if (interceptable == null || interceptable.invokeL(1048587, this, interfaceC1110b) == null) {
+            this.r = interfaceC1110b;
         }
     }
 
     public void e0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f21274e = str;
+            this.f22770e = str;
         }
     }
 

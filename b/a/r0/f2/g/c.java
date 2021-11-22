@@ -18,10 +18,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f16438a;
+    public static final String f17938a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f16439b;
+    public static final String f17939b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,14 +37,14 @@ public class c {
                 return;
             }
         }
-        f16438a = b.a.r0.f2.c.f16398c + "draft/";
-        f16439b = f16438a + "upload_draft";
+        f17938a = b.a.r0.f2.c.f17898c + "draft/";
+        f17939b = f17938a + "upload_draft";
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File file = new File(f16439b);
+            File file = new File(f17939b);
             if (file.exists()) {
                 file.delete();
             }
@@ -63,7 +63,7 @@ public class c {
         if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
             return (FaceGroupDraft) invokeV.objValue;
         }
-        File file = new File(f16439b);
+        File file = new File(f17939b);
         ?? r2 = 0;
         r2 = null;
         r2 = null;
@@ -85,7 +85,7 @@ public class c {
                         faceGroupDraft2 = (FaceGroupDraft) readObject;
                     }
                     objectInputStream2.close();
-                    b.a.e.e.m.a.c(objectInputStream2);
+                    b.a.e.f.m.a.c(objectInputStream2);
                     return faceGroupDraft2;
                 } catch (IOException e2) {
                     e = e2;
@@ -93,7 +93,7 @@ public class c {
                     objectInputStream = objectInputStream2;
                     faceGroupDraft = faceGroupDraft3;
                     e.printStackTrace();
-                    b.a.e.e.m.a.c(objectInputStream);
+                    b.a.e.f.m.a.c(objectInputStream);
                     r2 = faceGroupDraft;
                     return r2;
                 } catch (ClassNotFoundException e3) {
@@ -102,7 +102,7 @@ public class c {
                     objectInputStream = objectInputStream2;
                     faceGroupDraft = faceGroupDraft4;
                     e.printStackTrace();
-                    b.a.e.e.m.a.c(objectInputStream);
+                    b.a.e.f.m.a.c(objectInputStream);
                     r2 = faceGroupDraft;
                     return r2;
                 } catch (Throwable th) {
@@ -111,7 +111,7 @@ public class c {
                     objectInputStream = objectInputStream2;
                     faceGroupDraft = faceGroupDraft5;
                     th.printStackTrace();
-                    b.a.e.e.m.a.c(objectInputStream);
+                    b.a.e.f.m.a.c(objectInputStream);
                     r2 = faceGroupDraft;
                     return r2;
                 }
@@ -126,7 +126,7 @@ public class c {
                 faceGroupDraft = null;
             }
         } catch (Throwable th3) {
-            b.a.e.e.m.a.c(r2);
+            b.a.e.f.m.a.c(r2);
             throw th3;
         }
     }
@@ -138,14 +138,14 @@ public class c {
             ObjectOutputStream objectOutputStream2 = null;
             try {
                 try {
-                    File file = new File(f16438a);
+                    File file = new File(f17938a);
                     if (!file.exists()) {
                         file.mkdirs();
                     }
                     a();
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(f16439b));
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(f17939b));
                 } finally {
-                    b.a.e.e.m.a.d(objectOutputStream2);
+                    b.a.e.f.m.a.d(objectOutputStream2);
                 }
             } catch (FileNotFoundException e2) {
                 e = e2;
@@ -156,7 +156,7 @@ public class c {
             }
             try {
                 objectOutputStream.writeObject(faceGroupDraft);
-                b.a.e.e.m.a.d(objectOutputStream);
+                b.a.e.f.m.a.d(objectOutputStream);
             } catch (FileNotFoundException e4) {
                 e = e4;
                 objectOutputStream2 = objectOutputStream;

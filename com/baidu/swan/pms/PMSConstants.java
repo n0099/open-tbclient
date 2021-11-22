@@ -206,50 +206,6 @@ public class PMSConstants {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static String a(int i2, String str) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i2, str)) == null) {
-                if (i2 != 1020) {
-                    switch (i2) {
-                        case 1001:
-                            return "system error";
-                        case 1002:
-                            return "the request is prohibited";
-                        case 1003:
-                            return "invalid common params";
-                        case 1004:
-                            return "invalid query params";
-                        default:
-                            switch (i2) {
-                                case 1010:
-                                    return "the current package is the latest";
-                                case 1011:
-                                    return "the app is not exist";
-                                case 1012:
-                                    return "the package is not exist";
-                                case 1013:
-                                    return "please upgrade SDK version";
-                                case 1014:
-                                    return "the framework is not available";
-                                case 1015:
-                                    return "the host app is not support this app";
-                                default:
-                                    return "";
-                            }
-                    }
-                }
-                return str;
-            }
-            return (String) invokeIL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
         public static int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -260,19 +216,9 @@ public class PMSConstants {
         }
     }
 
-    public static boolean a(b.a.p0.n.a aVar) {
+    public static boolean a(b.a.p0.q.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
-            if (aVar == null || !aVar.f()) {
-                if (aVar != null) {
-                    aVar.I("swan_bdtls_pms_encrypt", false);
-                    return false;
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) ? aVar != null && aVar.x() : invokeL.booleanValue;
     }
 }

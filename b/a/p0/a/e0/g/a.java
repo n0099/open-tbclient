@@ -3,7 +3,6 @@ package b.a.p0.a.e0.g;
 import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
-import b.a.p0.a.a2.e;
 import b.a.p0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -27,23 +26,23 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f4688a;
+    public final String f4658a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4689b;
+    public int f4659b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Object> f4690c;
+    public Map<String, Object> f4660c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f4691d;
+    public b f4661d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BufferedWriter f4692e;
+    public BufferedWriter f4662e;
 
     /* renamed from: b.a.p0.a.e0.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0150a {
+    public static /* synthetic */ class C0153a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -55,7 +54,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f4693a;
+        public final /* synthetic */ a f4663a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -72,32 +71,32 @@ public class a {
                     return;
                 }
             }
-            this.f4693a = aVar;
+            this.f4663a = aVar;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.f4693a.f4690c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || this.f4663a.f4660c == null) {
                 return;
             }
-            this.f4693a.f4690c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
+            this.f4663a.f4660c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
             JSONObject jSONObject = new JSONObject();
-            for (Map.Entry entry : this.f4693a.f4690c.entrySet()) {
+            for (Map.Entry entry : this.f4663a.f4660c.entrySet()) {
                 try {
                     jSONObject.putOpt((String) entry.getKey(), entry.getValue());
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
             }
-            this.f4693a.e(jSONObject.toString());
-            b.a.p0.a.e0.d.g("PropertyLogcat", jSONObject.toString());
-            if (this.f4693a.f4691d != null) {
-                this.f4693a.f4691d.sendEmptyMessageDelayed(100, this.f4693a.f4689b);
+            this.f4663a.e(jSONObject.toString());
+            b.a.p0.a.e0.d.i("PropertyLogcat", jSONObject.toString());
+            if (this.f4663a.f4661d != null) {
+                this.f4663a.f4661d.sendEmptyMessageDelayed(100, this.f4663a.f4659b);
             }
         }
 
-        public /* synthetic */ b(a aVar, C0150a c0150a) {
+        public /* synthetic */ b(a aVar, C0153a c0153a) {
             this(aVar);
         }
     }
@@ -115,7 +114,7 @@ public class a {
                 return;
             }
         }
-        boolean z = k.f6397a;
+        boolean z = k.f6863a;
     }
 
     public a() {
@@ -131,29 +130,29 @@ public class a {
                 return;
             }
         }
-        this.f4688a = "performance_" + System.currentTimeMillis();
-        this.f4689b = 3000;
+        this.f4658a = "performance_" + System.currentTimeMillis();
+        this.f4659b = 3000;
     }
 
     public final void e(String str) {
         BufferedWriter bufferedWriter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bufferedWriter = this.f4692e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (bufferedWriter = this.f4662e) == null) {
             return;
         }
         try {
             bufferedWriter.write(str);
-            this.f4692e.write(10);
-            b.a.p0.a.e0.d.g("PropertyLogcat", "Export logcat success");
+            this.f4662e.write(10);
+            b.a.p0.a.e0.d.i("PropertyLogcat", "Export logcat success");
         } catch (IOException e2) {
-            b.a.p0.a.e0.d.c("PropertyLogcat", "Logcat write fail", e2);
+            b.a.p0.a.e0.d.d("PropertyLogcat", "Logcat write fail", e2);
         }
     }
 
     public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b.a.p0.a.k2.b.n(e.U(), this.f4688a, TbConfig.TMP_LOG_DIR_NAME) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b.a.p0.a.o2.b.n(b.a.p0.a.d2.e.f0(), this.f4658a, TbConfig.TMP_LOG_DIR_NAME) : (String) invokeV.objValue;
     }
 
     public void g(int i2) {
@@ -161,32 +160,32 @@ public class a {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 < 1000) {
             return;
         }
-        this.f4689b = i2;
+        this.f4659b = i2;
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f4690c == null) {
-                this.f4690c = b.a.p0.a.e0.g.b.h().i();
-                b.a.p0.a.e0.d.g("PropertyLogcat", "Start monitor logcat");
+            if (this.f4660c == null) {
+                this.f4660c = b.a.p0.a.e0.g.b.g().h();
+                b.a.p0.a.e0.d.i("PropertyLogcat", "Start monitor logcat");
             }
-            if (this.f4691d == null) {
-                this.f4691d = new b(this, null);
+            if (this.f4661d == null) {
+                this.f4661d = new b(this, null);
             }
-            if (this.f4692e == null) {
+            if (this.f4662e == null) {
                 File file = new File(f());
                 try {
                     if (!file.exists()) {
                         file.createNewFile();
                     }
-                    this.f4692e = new BufferedWriter(new FileWriter(file, true));
+                    this.f4662e = new BufferedWriter(new FileWriter(file, true));
                 } catch (IOException e2) {
-                    b.a.p0.a.e0.d.c("PropertyLogcat", "Create log file fail", e2);
+                    b.a.p0.a.e0.d.d("PropertyLogcat", "Create log file fail", e2);
                 }
             }
-            this.f4691d.removeMessages(100);
-            this.f4691d.sendEmptyMessage(100);
+            this.f4661d.removeMessages(100);
+            this.f4661d.sendEmptyMessage(100);
         }
     }
 
@@ -194,14 +193,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f4690c != null) {
-                b.a.p0.a.e0.g.b.h().j();
-                this.f4690c = null;
-                b.a.p0.a.e0.d.g("PropertyLogcat", "Stop monitor logcat");
+            if (this.f4660c != null) {
+                b.a.p0.a.e0.g.b.g().i();
+                this.f4660c = null;
+                b.a.p0.a.e0.d.i("PropertyLogcat", "Stop monitor logcat");
             }
-            b.a.p0.t.d.d(this.f4692e);
-            this.f4692e = null;
-            return b.a.p0.a.k2.b.I(f(), e.U());
+            b.a.p0.w.d.d(this.f4662e);
+            this.f4662e = null;
+            return b.a.p0.a.o2.b.I(f(), b.a.p0.a.d2.e.f0());
         }
         return (String) invokeV.objValue;
     }

@@ -1,9 +1,9 @@
 package b.a.r0.h1.l.b;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.n;
-import b.a.r0.b0.e0.k;
-import b.a.r0.b0.e0.l;
+import b.a.e.m.e.n;
+import b.a.r0.b0.f0.k;
+import b.a.r0.b0.f0.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,31 +22,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f17671a;
+    public TbPageContext f19140a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f17672b;
+    public BdTypeRecyclerView f19141b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<b.a.e.l.e.a> f17673c;
+    public LinkedList<b.a.e.m.e.a> f19142c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f17674d;
+    public g f19143d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f17675e;
+    public b f19144e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f17676f;
+    public e f19145f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f17677g;
+    public f f19146g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f17678h;
+    public d f19147h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f17679i;
+    public c f19148i;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
@@ -63,9 +63,9 @@ public class a {
                 return;
             }
         }
-        this.f17671a = tbPageContext;
-        this.f17672b = bdTypeRecyclerView;
-        this.f17673c = new LinkedList<>();
+        this.f19140a = tbPageContext;
+        this.f19141b = bdTypeRecyclerView;
+        this.f19142c = new LinkedList<>();
         b();
     }
 
@@ -73,7 +73,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.f17672b;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f19141b;
             if (bdTypeRecyclerView != null) {
                 return bdTypeRecyclerView.getData();
             }
@@ -85,32 +85,32 @@ public class a {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f17674d = new g(this.f17671a, k.C0);
-            this.f17675e = new b(this.f17671a, l.X);
-            this.f17676f = new e(this.f17671a, k.K0);
-            this.f17677g = new f(this.f17671a, k.I0);
-            this.f17678h = new d(this.f17671a, k.D0);
-            this.f17679i = new c(this.f17671a, k.J0);
-            this.f17674d.l0(this.f17672b);
-            this.f17675e.r0(this.f17672b);
-            this.f17676f.k0(this.f17672b);
-            this.f17677g.l0(this.f17672b);
-            this.f17678h.m0(this.f17672b);
-            this.f17679i.o0(this.f17672b);
-            this.f17673c.add(this.f17674d);
-            this.f17673c.add(this.f17675e);
-            this.f17673c.add(this.f17676f);
-            this.f17673c.add(this.f17677g);
-            this.f17673c.add(this.f17678h);
-            this.f17673c.add(this.f17679i);
-            this.f17672b.addAdapters(this.f17673c);
+            this.f19143d = new g(this.f19140a, k.E0);
+            this.f19144e = new b(this.f19140a, l.Z);
+            this.f19145f = new e(this.f19140a, k.N0);
+            this.f19146g = new f(this.f19140a, k.L0);
+            this.f19147h = new d(this.f19140a, k.F0);
+            this.f19148i = new c(this.f19140a, k.M0);
+            this.f19143d.l0(this.f19141b);
+            this.f19144e.r0(this.f19141b);
+            this.f19145f.k0(this.f19141b);
+            this.f19146g.l0(this.f19141b);
+            this.f19147h.m0(this.f19141b);
+            this.f19148i.o0(this.f19141b);
+            this.f19142c.add(this.f19143d);
+            this.f19142c.add(this.f19144e);
+            this.f19142c.add(this.f19145f);
+            this.f19142c.add(this.f19146g);
+            this.f19142c.add(this.f19147h);
+            this.f19142c.add(this.f19148i);
+            this.f19141b.addAdapters(this.f19142c);
         }
     }
 
     public void c() {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeRecyclerView = this.f17672b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeRecyclerView = this.f19141b) == null) {
             return;
         }
         bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
@@ -125,7 +125,7 @@ public class a {
     public void e() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bVar = this.f17675e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bVar = this.f19144e) == null) {
             return;
         }
         bVar.onPause();
@@ -134,18 +134,18 @@ public class a {
     public void f(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f17672b.setData(list);
+            this.f19141b.setData(list);
         }
     }
 
     public void g(NEGFeedBackView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            f fVar = this.f17677g;
+            f fVar = this.f19146g;
             if (fVar != null) {
                 fVar.j0(bVar);
             }
-            g gVar = this.f17674d;
+            g gVar = this.f19143d;
             if (gVar != null) {
                 gVar.j0(bVar);
             }
@@ -155,27 +155,27 @@ public class a {
     public void h(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            g gVar = this.f17674d;
+            g gVar = this.f19143d;
             if (gVar != null) {
                 gVar.k0(bdUniqueId);
             }
-            b bVar = this.f17675e;
+            b bVar = this.f19144e;
             if (bVar != null) {
                 bVar.p0(bdUniqueId);
             }
-            e eVar = this.f17676f;
+            e eVar = this.f19145f;
             if (eVar != null) {
                 eVar.j0(bdUniqueId);
             }
-            f fVar = this.f17677g;
+            f fVar = this.f19146g;
             if (fVar != null) {
                 fVar.k0(bdUniqueId);
             }
-            d dVar = this.f17678h;
+            d dVar = this.f19147h;
             if (dVar != null) {
                 dVar.l0(bdUniqueId);
             }
-            c cVar = this.f17679i;
+            c cVar = this.f19148i;
             if (cVar != null) {
                 cVar.m0(bdUniqueId);
             }
@@ -185,11 +185,11 @@ public class a {
     public void i(b.a.r0.h1.h.k.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
-            b bVar = this.f17675e;
+            b bVar = this.f19144e;
             if (bVar != null) {
                 bVar.q0(fVar);
             }
-            c cVar = this.f17679i;
+            c cVar = this.f19148i;
             if (cVar != null) {
                 cVar.n0(fVar);
             }

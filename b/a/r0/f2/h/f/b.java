@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -20,13 +20,13 @@ public class b extends b.a.r0.f2.h.f.g.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f16556a;
+    public View f18056a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f16557b;
+    public TextView f18057b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f16558c;
+    public ImageView f18058c;
 
     public b(View view, String str) {
         Interceptable interceptable = $ic;
@@ -43,32 +43,32 @@ public class b extends b.a.r0.f2.h.f.g.a {
                 return;
             }
         }
-        this.f16556a = view;
+        this.f18056a = view;
         TextView textView = (TextView) view.findViewById(R.id.emotion_empty_content);
-        this.f16557b = textView;
+        this.f18057b = textView;
         textView.setText(str);
-        this.f16558c = (ImageView) view.findViewById(R.id.emotion_empty_icon);
+        this.f18058c = (ImageView) view.findViewById(R.id.emotion_empty_icon);
         c();
     }
 
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16556a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18056a : (View) invokeV.objValue;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            TextView textView = this.f16557b;
+            TextView textView = this.f18057b;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i2);
             }
-            ImageView imageView = this.f16558c;
+            ImageView imageView = this.f18058c;
             if (imageView != null) {
                 SkinManager.setImageResource(imageView, R.drawable.new_pic_emotion_02, i2);
             }
-            View view = this.f16556a;
+            View view = this.f18056a;
             if (view != null) {
                 SkinManager.setBackgroundColor(view, R.color.CAM_X0201, i2);
             }
@@ -80,11 +80,11 @@ public class b extends b.a.r0.f2.h.f.g.a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int i2 = l.i(TbadkCoreApplication.getInst());
             int dimensionPixelSize = i2 <= 0 ? TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds200) : (int) (i2 * 0.11d);
-            ViewGroup.LayoutParams layoutParams = this.f16558c.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f18058c.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = dimensionPixelSize;
-                this.f16558c.setLayoutParams(marginLayoutParams);
+                this.f18058c.setLayoutParams(marginLayoutParams);
             }
         }
     }

@@ -32,13 +32,13 @@ public class StatusBarUtils {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f62182e;
+        public final /* synthetic */ View f63083e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f62183f;
+        public final /* synthetic */ ViewGroup.LayoutParams f63084f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f62184g;
+        public final /* synthetic */ Context f63085g;
 
         public a(View view, ViewGroup.LayoutParams layoutParams, Context context) {
             Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public class StatusBarUtils {
                     return;
                 }
             }
-            this.f62182e = view;
-            this.f62183f = layoutParams;
-            this.f62184g = context;
+            this.f63083e = view;
+            this.f63084f = layoutParams;
+            this.f63085g = context;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -66,11 +66,11 @@ public class StatusBarUtils {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || Build.VERSION.SDK_INT < 19) {
                 return;
             }
-            this.f62182e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-            this.f62183f.height = this.f62182e.getHeight() + StatusBarUtils.getStatusBarHeight(this.f62184g);
-            View view = this.f62182e;
-            view.setPadding(view.getPaddingLeft(), this.f62182e.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f62184g), this.f62182e.getPaddingRight(), this.f62182e.getPaddingBottom());
-            this.f62182e.setLayoutParams(this.f62183f);
+            this.f63083e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            this.f63084f.height = this.f63083e.getHeight() + StatusBarUtils.getStatusBarHeight(this.f63085g);
+            View view = this.f63083e;
+            view.setPadding(view.getPaddingLeft(), this.f63083e.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f63085g), this.f63083e.getPaddingRight(), this.f63083e.getPaddingBottom());
+            this.f63083e.setLayoutParams(this.f63084f);
         }
     }
 

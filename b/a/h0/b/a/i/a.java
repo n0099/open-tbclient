@@ -31,13 +31,13 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ContentProvider f2917a;
+    public ContentProvider f3010a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f2918b;
+    public final int f3011b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f2919c;
+    public final int f3012c;
 
     public a(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public abstract class a {
                 return;
             }
         }
-        this.f2918b = i2;
-        this.f2919c = i3;
+        this.f3011b = i2;
+        this.f3012c = i3;
     }
 
     public ContentProviderResult[] a(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
@@ -65,7 +65,7 @@ public abstract class a {
             int size = arrayList.size();
             ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
             for (int i2 = 0; i2 < size; i2++) {
-                contentProviderResultArr[i2] = arrayList.get(i2).apply(this.f2917a, contentProviderResultArr, i2);
+                contentProviderResultArr[i2] = arrayList.get(i2).apply(this.f3010a, contentProviderResultArr, i2);
             }
             return contentProviderResultArr;
         }
@@ -74,8 +74,8 @@ public abstract class a {
 
     public void b(ContentProvider contentProvider) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentProvider) == null) && this.f2917a == null) {
-            this.f2917a = contentProvider;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentProvider) == null) && this.f3010a == null) {
+            this.f3010a = contentProvider;
         }
     }
 
@@ -124,13 +124,13 @@ public abstract class a {
     public final int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2919c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f3012c : invokeV.intValue;
     }
 
     public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f2917a.getContext() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f3010a.getContext() : (Context) invokeV.objValue;
     }
 
     public abstract String getType(int i2, Uri uri);
@@ -138,7 +138,7 @@ public abstract class a {
     public final int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f2918b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f3011b : invokeV.intValue;
     }
 
     public void i(Configuration configuration) {

@@ -1,8 +1,6 @@
 package com.baidu.searchbox.dns.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.dns.a.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,10 +16,6 @@ public class DnsUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
     public static final String TAG = "SMART_HTTP_DNS";
-    public static String httpDnsDebugAddress;
-    public static String httpDnsDebugExtraQueryParams;
-    public static boolean iPv6Perfer;
-    public static boolean iPv6TestEnable;
     public static int stackType;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -101,16 +95,10 @@ public class DnsUtil {
         }
     }
 
-    public static boolean isIPv6TestArea() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.e().isIPv6TestArea() : invokeV.booleanValue;
-    }
-
     public static List<InetAddress> parseInetAddressList(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
             if (list == null || list.size() <= 0) {
                 return null;
             }
@@ -126,7 +114,7 @@ public class DnsUtil {
     public static List<String> parseRawAddressList(List<InetAddress> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
             if (list == null || list.size() <= 0) {
                 return null;
             }

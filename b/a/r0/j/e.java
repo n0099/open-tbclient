@@ -3,7 +3,7 @@ package b.a.r0.j;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.q.d2;
 import b.a.q0.s.q.x0;
 import b.a.r0.j.g;
@@ -34,13 +34,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f18240a;
+        public final /* synthetic */ TbPageContext f19574a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f18241b;
+        public final /* synthetic */ h f19575b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f18242c;
+        public final /* synthetic */ boolean f19576c;
 
         public a(TbPageContext tbPageContext, h hVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -57,37 +57,37 @@ public class e {
                     return;
                 }
             }
-            this.f18240a = tbPageContext;
-            this.f18241b = hVar;
-            this.f18242c = z;
+            this.f19574a = tbPageContext;
+            this.f19575b = hVar;
+            this.f19576c = z;
         }
 
         @Override // b.a.r0.j.j.h
         public void a(JSONArray jSONArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-                if (b.a.e.e.p.j.A()) {
-                    e.e(jSONArray, this.f18241b.a(), this.f18241b.b(), this.f18242c);
+                if (b.a.e.f.p.j.A()) {
+                    e.e(jSONArray, this.f19575b.a(), this.f19575b.b(), this.f19576c);
                 } else {
-                    l.L(this.f18240a.getContext(), R.string.neterror);
+                    l.L(this.f19574a.getContext(), R.string.neterror);
                 }
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements g.InterfaceC0930g {
+    public static class b implements g.InterfaceC0991g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f18243a;
+        public final /* synthetic */ TbPageContext f19577a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f18244b;
+        public final /* synthetic */ h f19578b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f18245c;
+        public final /* synthetic */ boolean f19579c;
 
         public b(TbPageContext tbPageContext, h hVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -104,19 +104,19 @@ public class e {
                     return;
                 }
             }
-            this.f18243a = tbPageContext;
-            this.f18244b = hVar;
-            this.f18245c = z;
+            this.f19577a = tbPageContext;
+            this.f19578b = hVar;
+            this.f19579c = z;
         }
 
-        @Override // b.a.r0.j.g.InterfaceC0930g
+        @Override // b.a.r0.j.g.InterfaceC0991g
         public void a(JSONArray jSONArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-                if (b.a.e.e.p.j.A()) {
-                    e.e(jSONArray, this.f18244b.a(), this.f18244b.b(), this.f18245c);
+                if (b.a.e.f.p.j.A()) {
+                    e.e(jSONArray, this.f19578b.a(), this.f19578b.b(), this.f19579c);
                 } else {
-                    l.L(this.f18243a.getContext(), R.string.neterror);
+                    l.L(this.f19577a.getContext(), R.string.neterror);
                 }
             }
         }
@@ -147,10 +147,10 @@ public class e {
         List<d2> g2 = b.a.r0.x0.b.f().g();
         for (int i3 = 0; i3 < g2.size(); i3++) {
             if (g2.get(i3) != null) {
-                jSONArray.put(g2.get(i3).s1());
+                jSONArray.put(g2.get(i3).t1());
                 if (z) {
                     jSONArray2.put("1");
-                } else if (!g2.get(i3).s2() && !g2.get(i3).I2()) {
+                } else if (!g2.get(i3).u2() && !g2.get(i3).K2()) {
                     jSONArray2.put("0");
                 } else {
                     jSONArray2.put("1");
@@ -196,10 +196,10 @@ public class e {
         List<d2> g2 = b.a.r0.x0.b.f().g();
         for (int i3 = 0; i3 < g2.size(); i3++) {
             if (g2.get(i3) != null) {
-                jSONArray.put(g2.get(i3).s1());
+                jSONArray.put(g2.get(i3).t1());
                 if (z) {
                     jSONArray2.put("1");
-                } else if (!g2.get(i3).s2() && !g2.get(i3).I2()) {
+                } else if (!g2.get(i3).u2() && !g2.get(i3).K2()) {
                     jSONArray2.put("0");
                 } else {
                     jSONArray2.put("1");

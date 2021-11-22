@@ -23,10 +23,10 @@ public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f30021a = -1;
+    public static volatile int f30890a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f30022b;
+    public static volatile String f30891b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -117,14 +117,14 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TextUtils.isEmpty(f30022b)) {
-                f30022b = g();
-                if (TextUtils.isEmpty(f30022b)) {
-                    f30022b = h();
+            if (TextUtils.isEmpty(f30891b)) {
+                f30891b = g();
+                if (TextUtils.isEmpty(f30891b)) {
+                    f30891b = h();
                 }
-                return f30022b;
+                return f30891b;
             }
-            return f30022b;
+            return f30891b;
         }
         return (String) invokeV.objValue;
     }
@@ -153,15 +153,15 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            if (f30021a < 0) {
+            if (f30890a < 0) {
                 Context a2 = c.a();
                 if (a2 == null || a2.getPackageName().equals(d())) {
-                    f30021a = 1;
+                    f30890a = 1;
                 } else {
-                    f30021a = 0;
+                    f30890a = 0;
                 }
             }
-            return f30021a == 1;
+            return f30890a == 1;
         }
         return invokeV.booleanValue;
     }

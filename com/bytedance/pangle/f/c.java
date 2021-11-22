@@ -52,10 +52,10 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<X509Certificate> f61386a;
+        public final List<X509Certificate> f62285a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<Integer> f61387b;
+        public final List<Integer> f62286b;
 
         public b(List<X509Certificate> list, List<Integer> list2) {
             Interceptable interceptable = $ic;
@@ -72,27 +72,27 @@ public final class c {
                     return;
                 }
             }
-            this.f61386a = list;
-            this.f61387b = list2;
+            this.f62285a = list;
+            this.f62286b = list2;
         }
     }
 
     /* renamed from: com.bytedance.pangle.f.c$c  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C1844c {
+    public static class C1883c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final X509Certificate[] f61388a;
+        public final X509Certificate[] f62287a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final b f61389b;
+        public final b f62288b;
 
         /* renamed from: c  reason: collision with root package name */
-        public byte[] f61390c;
+        public byte[] f62289c;
 
-        public C1844c(X509Certificate[] x509CertificateArr, b bVar) {
+        public C1883c(X509Certificate[] x509CertificateArr, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,29 +107,29 @@ public final class c {
                     return;
                 }
             }
-            this.f61388a = x509CertificateArr;
-            this.f61389b = bVar;
+            this.f62287a = x509CertificateArr;
+            this.f62288b = bVar;
         }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static C1844c a(String str) {
+    public static C1883c a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
-            return (C1844c) invokeL.objValue;
+            return (C1883c) invokeL.objValue;
         }
-        RandomAccessFile randomAccessFile = new RandomAccessFile(str, com.baidu.mapsdkplatform.comapi.map.r.f40168a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(str, com.baidu.mapsdkplatform.comapi.map.r.f41000a);
         try {
-            C1844c a2 = a(randomAccessFile, f.a(randomAccessFile, -262969152));
+            C1883c a2 = a(randomAccessFile, f.a(randomAccessFile, -262969152));
             randomAccessFile.close();
             return a2;
         } finally {
         }
     }
 
-    public static C1844c a(RandomAccessFile randomAccessFile, m mVar) {
+    public static C1883c a(RandomAccessFile randomAccessFile, m mVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, randomAccessFile, mVar)) == null) {
@@ -137,12 +137,12 @@ public final class c {
             try {
                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
                 try {
-                    ByteBuffer a2 = f.a(mVar.f61406a);
+                    ByteBuffer a2 = f.a(mVar.f62305a);
                     int i2 = 0;
-                    C1844c c1844c = null;
+                    C1883c c1883c = null;
                     while (a2.hasRemaining()) {
                         try {
-                            c1844c = a(f.a(a2), arrayMap, certificateFactory);
+                            c1883c = a(f.a(a2), arrayMap, certificateFactory);
                             i2++;
                         } catch (a unused) {
                         } catch (IOException e2) {
@@ -156,16 +156,16 @@ public final class c {
                             throw new SecurityException("Failed to parse/verify signer #" + i2 + " block", e);
                         }
                     }
-                    if (i2 <= 0 || c1844c == null) {
+                    if (i2 <= 0 || c1883c == null) {
                         throw new SecurityException("No signers found");
                     }
                     if (i2 == 1) {
                         if (!arrayMap.isEmpty()) {
                             f.a(arrayMap, randomAccessFile, mVar);
                             if (arrayMap.containsKey(3)) {
-                                c1844c.f61390c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
+                                c1883c.f62289c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
                             }
-                            return c1844c;
+                            return c1883c;
                         }
                         throw new SecurityException("No content digests found");
                     }
@@ -177,14 +177,14 @@ public final class c {
                 throw new RuntimeException("Failed to obtain X.509 CertificateFactory", e6);
             }
         }
-        return (C1844c) invokeLL.objValue;
+        return (C1883c) invokeLL.objValue;
     }
 
-    public static C1844c a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
+    public static C1883c a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer, map, certificateFactory)) != null) {
-            return (C1844c) invokeLLL.objValue;
+            return (C1883c) invokeLLL.objValue;
         }
         ByteBuffer a2 = f.a(byteBuffer);
         int i2 = byteBuffer.getInt();
@@ -311,7 +311,7 @@ public final class c {
         }
     }
 
-    public static C1844c a(ByteBuffer byteBuffer, List<X509Certificate> list, CertificateFactory certificateFactory) {
+    public static C1883c a(ByteBuffer byteBuffer, List<X509Certificate> list, CertificateFactory certificateFactory) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, byteBuffer, list, certificateFactory)) == null) {
@@ -324,7 +324,7 @@ public final class c {
                         if (bVar == null) {
                             bVar = a(a2, certificateFactory);
                             try {
-                                if (bVar.f61386a.size() > 0 && !Arrays.equals(bVar.f61386a.get(bVar.f61386a.size() - 1).getEncoded(), x509CertificateArr[0].getEncoded())) {
+                                if (bVar.f62285a.size() > 0 && !Arrays.equals(bVar.f62285a.get(bVar.f62285a.size() - 1).getEncoded(), x509CertificateArr[0].getEncoded())) {
                                     throw new SecurityException("Terminal certificate in Proof-of-rotation record does not match APK signing certificate");
                                 }
                             } catch (CertificateEncodingException e2) {
@@ -338,9 +338,9 @@ public final class c {
                     throw new IOException("Remaining buffer too short to contain additional attribute ID. Remaining: " + a2.remaining());
                 }
             }
-            return new C1844c(x509CertificateArr, bVar);
+            return new C1883c(x509CertificateArr, bVar);
         }
-        return (C1844c) invokeLLL.objValue;
+        return (C1883c) invokeLLL.objValue;
     }
 
     public static b a(ByteBuffer byteBuffer, CertificateFactory certificateFactory) {

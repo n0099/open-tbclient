@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message.chat;
 
-import b.a.e.e.m.b;
+import b.a.e.f.m.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

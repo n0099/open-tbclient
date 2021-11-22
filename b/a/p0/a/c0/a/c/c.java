@@ -3,7 +3,7 @@ package b.a.p0.a.c0.a.c;
 import android.graphics.Color;
 import androidx.annotation.NonNull;
 import b.a.p0.a.e0.d;
-import b.a.p0.a.v2.n0;
+import b.a.p0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,10 +17,11 @@ public class c extends b.a.p0.a.c0.a.d.b {
     public transient /* synthetic */ FieldHolder $fh;
     public double A;
     public int B;
-    public String C;
+    public int C;
     public String D;
     public String E;
     public String F;
+    public String G;
     public String x;
     public int y;
     public boolean z;
@@ -46,10 +47,10 @@ public class c extends b.a.p0.a.c0.a.d.b {
         }
         this.x = "";
         this.z = false;
-        this.C = "";
         this.D = "";
         this.E = "";
         this.F = "";
+        this.G = "";
     }
 
     private void j() {
@@ -62,19 +63,19 @@ public class c extends b.a.p0.a.c0.a.d.b {
             this.y = Color.parseColor(jSONObject.optString("color"));
             this.z = true;
         } catch (Exception unused) {
-            d.l("Component-Model-TextView", "text color occurs exception");
+            d.o("Component-Model-TextView", "text color occurs exception");
             this.z = false;
         }
         this.A = this.n.optDouble("fontSize", 0.0d);
         this.B = n0.g((float) this.n.optDouble("lineHeight", 0.0d));
-        n0.g((float) this.n.optDouble("lineSpace", 0.0d));
-        this.C = this.n.optString("textAlign");
-        this.D = this.n.optString("fontWeight");
-        this.E = this.n.optString("whiteSpace");
-        this.F = this.n.optString("lineBreak");
+        this.C = n0.g((float) this.n.optDouble("lineSpace", 0.0d));
+        this.D = this.n.optString("textAlign");
+        this.E = this.n.optString("fontWeight");
+        this.F = this.n.optString("whiteSpace");
+        this.G = this.n.optString("lineBreak");
     }
 
-    @Override // b.a.p0.a.c0.a.d.b, b.a.p0.a.c0.b.b, b.a.p0.a.l1.a
+    @Override // b.a.p0.a.c0.a.d.b, b.a.p0.a.c0.b.b, b.a.p0.a.m1.a
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {

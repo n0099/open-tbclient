@@ -1,6 +1,5 @@
 package com.alibaba.fastjson.asm;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.annotation.JSONType;
 import com.alibaba.fastjson.util.ASMUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -61,7 +60,7 @@ public class TypeCollector {
                 put("boolean", "Z");
                 put("byte", "B");
                 put("char", "C");
-                put("short", ExifInterface.LATITUDE_SOUTH);
+                put("short", "S");
                 put(ShaderParams.VALUE_TYPE_FLOAT, "F");
                 put("long", "J");
                 put("double", "D");

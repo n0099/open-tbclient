@@ -48,9 +48,9 @@ public class MsgMultiImageTextView extends e {
             return;
         }
         u(chatMessage);
-        List<a.C1004a> b2 = a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
-        this.t.setPosition(this.f19992f);
-        this.t.setOnItemViewLongClickListener(this.f19989c);
+        List<a.C1072a> b2 = a.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        this.t.setPosition(this.f21514f);
+        this.t.setOnItemViewLongClickListener(this.f21511c);
         this.t.setNeedNightMode(true);
         this.t.setType(1);
         this.t.setData(tbPageContext, b2, view);
@@ -59,7 +59,7 @@ public class MsgMultiImageTextView extends e {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f19994h = (TextView) c(R.id.tex_msgitem_time);
+            this.f21516h = (TextView) c(R.id.tex_msgitem_time);
             this.t = (MultiContentView) c(R.id.msg_content);
         }
     }

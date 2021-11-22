@@ -1,6 +1,5 @@
 package com.baidu.ar.vo.a;
 
-import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.ar.h.i;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,8 +54,8 @@ public class a {
                 if (jSONObject.has("pitch_angle")) {
                     bVar.V(jSONObject.getInt("pitch_angle"));
                 }
-                if (jSONObject.has(Key.ROTATION)) {
-                    bVar.aY(jSONObject.getString(Key.ROTATION));
+                if (jSONObject.has("rotation")) {
+                    bVar.aY(jSONObject.getString("rotation"));
                 }
                 if (jSONObject.has("immediately_place_model")) {
                     boolean z = true;

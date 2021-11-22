@@ -2,6 +2,7 @@ package b.a.h0.b.b;
 
 import androidx.core.view.InputDeviceCompat;
 import b.a.r0.e;
+import b.a.r0.x0.y;
 import b.a.r0.x1.p.h;
 import b.a.t0.g0;
 import com.baidu.pyramid.runtime.service.ServiceReference;
@@ -20,7 +21,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<ServiceReference, b<?>> f2920a;
+    public static final ConcurrentHashMap<ServiceReference, b<?>> f3013a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +37,7 @@ public class c {
                 return;
             }
         }
-        f2920a = new ConcurrentHashMap<>();
+        f3013a = new ConcurrentHashMap<>();
         d();
     }
 
@@ -44,7 +45,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, serviceReference)) == null) {
-            b<?> bVar = f2920a.get(serviceReference);
+            b<?> bVar = f3013a.get(serviceReference);
             if (bVar != null) {
                 return (T) bVar.getService();
             }
@@ -56,7 +57,7 @@ public class c {
     public static <T> void b(ServiceReference serviceReference, b<T> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, serviceReference, bVar) == null) {
-            f2920a.put(serviceReference, bVar);
+            f3013a.put(serviceReference, bVar);
         }
     }
 
@@ -76,6 +77,7 @@ public class c {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            c("Frs", "FrsService", y.class);
             c("HotTopic", "HotTopicRequest", e.class);
             c("live", "ab", b.a.r0.x1.g.a.class);
             c("live", "account", b.a.r0.x1.b.a.class);

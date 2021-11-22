@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AdInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -186,10 +186,10 @@ public class AdInfo implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             b b2 = b.b(a.d());
-            if (TextUtils.isEmpty(b2.f23927d)) {
+            if (TextUtils.isEmpty(b2.f25415d)) {
                 return true;
             }
-            return TextUtils.isEmpty(b2.f23926c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f23926c.equals(this.adVideoUrl);
+            return TextUtils.isEmpty(b2.f25414c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f25414c.equals(this.adVideoUrl);
         }
         return invokeV.booleanValue;
     }

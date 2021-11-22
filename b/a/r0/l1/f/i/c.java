@@ -35,13 +35,13 @@ public abstract class c extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20025e;
+    public Context f21547e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<ImMessageCenterShowItemData> f20026f;
+    public List<ImMessageCenterShowItemData> f21548f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f20027g;
+    public boolean f21549g;
 
     /* loaded from: classes5.dex */
     public class a {
@@ -49,31 +49,31 @@ public abstract class c extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ViewGroup f20028a;
+        public ViewGroup f21550a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f20029b;
+        public HeadImageView f21551b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f20030c;
+        public ImageView f21552c;
 
         /* renamed from: d  reason: collision with root package name */
-        public BarImageView f20031d;
+        public BarImageView f21553d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f20032e;
+        public TextView f21554e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f20033f;
+        public TextView f21555f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f20034g;
+        public TextView f21556g;
 
         /* renamed from: h  reason: collision with root package name */
-        public MessageRedDotView f20035h;
+        public MessageRedDotView f21557h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f20036i;
+        public View f21558i;
         public ImageView j;
         public ImageView k;
         public ImageView l;
@@ -93,13 +93,13 @@ public abstract class c extends BaseAdapter {
                     return;
                 }
             }
-            this.f20028a = null;
-            this.f20029b = null;
-            this.f20032e = null;
-            this.f20033f = null;
-            this.f20034g = null;
-            this.f20035h = null;
-            this.f20036i = null;
+            this.f21550a = null;
+            this.f21551b = null;
+            this.f21554e = null;
+            this.f21555f = null;
+            this.f21556g = null;
+            this.f21557h = null;
+            this.f21558i = null;
             this.j = null;
             this.k = null;
             this.l = null;
@@ -121,10 +121,10 @@ public abstract class c extends BaseAdapter {
                 return;
             }
         }
-        this.f20025e = null;
-        this.f20026f = null;
-        this.f20027g = false;
-        this.f20025e = context;
+        this.f21547e = null;
+        this.f21548f = null;
+        this.f21549g = false;
+        this.f21547e = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -134,11 +134,11 @@ public abstract class c extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<ImMessageCenterShowItemData> list = this.f20026f;
+            List<ImMessageCenterShowItemData> list = this.f21548f;
             if (list == null || list.size() == 0 || i2 < 0 || i2 >= getCount()) {
                 return null;
             }
-            return this.f20026f.get(i2);
+            return this.f21548f.get(i2);
         }
         return (ImMessageCenterShowItemData) invokeI.objValue;
     }
@@ -148,21 +148,21 @@ public abstract class c extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) {
             a aVar = new a(this);
-            aVar.f20028a = (ViewGroup) view.findViewById(R.id.chat_item);
-            aVar.f20030c = (ImageView) view.findViewById(R.id.svg_head);
-            aVar.f20029b = (HeadImageView) view.findViewById(R.id.chat_head);
-            aVar.f20031d = (BarImageView) view.findViewById(R.id.forum_head);
-            aVar.f20032e = (TextView) view.findViewById(R.id.chat_name);
-            aVar.f20033f = (TextView) view.findViewById(R.id.last_chat_content);
-            aVar.f20034g = (TextView) view.findViewById(R.id.chat_time);
-            aVar.f20036i = view.findViewById(R.id.line);
+            aVar.f21550a = (ViewGroup) view.findViewById(R.id.chat_item);
+            aVar.f21552c = (ImageView) view.findViewById(R.id.svg_head);
+            aVar.f21551b = (HeadImageView) view.findViewById(R.id.chat_head);
+            aVar.f21553d = (BarImageView) view.findViewById(R.id.forum_head);
+            aVar.f21554e = (TextView) view.findViewById(R.id.chat_name);
+            aVar.f21555f = (TextView) view.findViewById(R.id.last_chat_content);
+            aVar.f21556g = (TextView) view.findViewById(R.id.chat_time);
+            aVar.f21558i = view.findViewById(R.id.line);
             MessageRedDotView messageRedDotView = (MessageRedDotView) view.findViewById(R.id.new_message);
-            aVar.f20035h = messageRedDotView;
+            aVar.f21557h = messageRedDotView;
             messageRedDotView.setShadowEnabled(false);
             aVar.j = (ImageView) view.findViewById(R.id.iv_bell);
             aVar.k = (ImageView) view.findViewById(R.id.send_status);
             aVar.l = (ImageView) view.findViewById(R.id.select_status);
-            aVar.f20029b.setPlaceHolder(1);
+            aVar.f21551b.setPlaceHolder(1);
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -171,7 +171,7 @@ public abstract class c extends BaseAdapter {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20027g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21549g : invokeV.booleanValue;
     }
 
     public abstract boolean d(ImMessageCenterShowItemData imMessageCenterShowItemData);
@@ -207,7 +207,7 @@ public abstract class c extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List<ImMessageCenterShowItemData> list = this.f20026f;
+            List<ImMessageCenterShowItemData> list = this.f21548f;
             if (list != null) {
                 return list.size();
             }
@@ -230,13 +230,13 @@ public abstract class c extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i2, view, viewGroup)) == null) {
             a aVar = (view == null || !(view.getTag() instanceof a)) ? null : (a) view.getTag();
             if (aVar == null) {
-                view = LayoutInflater.from(this.f20025e).inflate(R.layout.chat_list_item, viewGroup, false);
+                view = LayoutInflater.from(this.f21547e).inflate(R.layout.chat_list_item, viewGroup, false);
                 aVar = b(view);
                 view.setTag(aVar);
             }
             SkinManager.setBackgroundResource(view, R.drawable.list_item_selector);
-            SkinManager.setBackgroundResource(aVar.f20036i, R.color.CAM_X0205);
-            aVar.f20028a.setVisibility(0);
+            SkinManager.setBackgroundResource(aVar.f21558i, R.color.CAM_X0205);
+            aVar.f21550a.setVisibility(0);
             ImMessageCenterShowItemData item = getItem(i2);
             if (item != null) {
                 i(aVar, item);
@@ -257,9 +257,9 @@ public abstract class c extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, aVar, imMessageCenterShowItemData) == null) {
             if (TextUtils.isEmpty(imMessageCenterShowItemData.getMsgContent())) {
-                aVar.f20033f.setText("");
+                aVar.f21555f.setText("");
             } else {
-                aVar.f20033f.setText(imMessageCenterShowItemData.getMsgContent());
+                aVar.f21555f.setText(imMessageCenterShowItemData.getMsgContent());
             }
         }
     }
@@ -269,25 +269,25 @@ public abstract class c extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeLL(1048588, this, aVar, imMessageCenterShowItemData) == null) || imMessageCenterShowItemData == null) {
             return;
         }
-        aVar.f20032e.setText(imMessageCenterShowItemData.getFriendNameShow());
+        aVar.f21554e.setText(imMessageCenterShowItemData.getFriendNameShow());
     }
 
     public void j(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, aVar, imMessageCenterShowItemData) == null) {
-            if (this.f20027g) {
+            if (this.f21549g) {
                 aVar.l.setVisibility(0);
                 if (imMessageCenterShowItemData.isSelected()) {
                     SkinManager.setBackgroundResource(aVar.l, R.drawable.btn_bgb_choice_s);
-                    SkinManager.setBackgroundColor(aVar.f20028a, R.color.CAM_X0205);
+                    SkinManager.setBackgroundColor(aVar.f21550a, R.color.CAM_X0205);
                     return;
                 }
                 SkinManager.setBackgroundResource(aVar.l, R.drawable.btn_bgb_choice_n);
-                SkinManager.setBackgroundColor(aVar.f20028a, R.color.CAM_X0205);
+                SkinManager.setBackgroundColor(aVar.f21550a, R.color.CAM_X0205);
                 return;
             }
             aVar.l.setVisibility(8);
-            TBSelector.setViewBackgroundColorWithPressedState(aVar.f20028a, R.color.CAM_X0205, R.color.CAM_X0204);
+            TBSelector.setViewBackgroundColorWithPressedState(aVar.f21550a, R.color.CAM_X0205, R.color.CAM_X0204);
         }
     }
 
@@ -319,7 +319,7 @@ public abstract class c extends BaseAdapter {
         }
         Date date = new Date();
         date.setTime(imMessageCenterShowItemData.getServerTime());
-        aVar.f20034g.setText(imMessageCenterShowItemData.getServerTime() != 0 ? StringHelper.getChatTimeString(date) : "");
+        aVar.f21556g.setText(imMessageCenterShowItemData.getServerTime() != 0 ? StringHelper.getChatTimeString(date) : "");
     }
 
     public void m(a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
@@ -332,28 +332,28 @@ public abstract class c extends BaseAdapter {
                 } else {
                     BasicNameValuePair p = p(imMessageCenterShowItemData, unReadCount, String.valueOf(unReadCount));
                     if (p != null && p.getName() != null && p.getName().length() > 0) {
-                        unReadCount = b.a.e.e.m.b.e(p.getName(), 0);
+                        unReadCount = b.a.e.f.m.b.e(p.getName(), 0);
                     }
                 }
-                aVar.f20035h.setThreeDotMode(2);
-                aVar.f20035h.refresh(unReadCount);
-                aVar.f20035h.setVisibility(0);
+                aVar.f21557h.setThreeDotMode(2);
+                aVar.f21557h.refresh(unReadCount);
+                aVar.f21557h.setVisibility(0);
             } else {
-                aVar.f20035h.setVisibility(8);
+                aVar.f21557h.setVisibility(8);
             }
-            SkinManager.setViewTextColor(aVar.f20032e, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(aVar.f20033f, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(aVar.f20034g, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(aVar.f21554e, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(aVar.f21555f, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(aVar.f21556g, R.color.CAM_X0109, 1);
         }
     }
 
     public void n(List<ImMessageCenterShowItemData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
-            if (this.f20026f == null) {
-                this.f20026f = new LinkedList();
+            if (this.f21548f == null) {
+                this.f21548f = new LinkedList();
             }
-            this.f20026f = list;
+            this.f21548f = list;
             notifyDataSetChanged();
         }
     }
@@ -361,7 +361,7 @@ public abstract class c extends BaseAdapter {
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.f20027g = z;
+            this.f21549g = z;
         }
     }
 

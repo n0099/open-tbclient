@@ -16,10 +16,10 @@ public abstract class c extends com.kwad.sdk.core.response.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f65005a;
+    public String f65918a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f65006b;
+    public JSONObject f65919b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public abstract class c extends com.kwad.sdk.core.response.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject json = toJson();
-            if (this.f65006b != null) {
+            if (this.f65919b != null) {
                 json.remove("mMergeJsonData");
-                ar.a(json, this.f65006b);
+                ar.a(json, this.f65919b);
             }
             return json;
         }
@@ -55,7 +55,7 @@ public abstract class c extends com.kwad.sdk.core.response.a.a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             super.afterParseJson(jSONObject);
             if (jSONObject != null) {
-                this.f65006b = jSONObject.optJSONObject("mMergeJsonData");
+                this.f65919b = jSONObject.optJSONObject("mMergeJsonData");
             }
         }
     }
@@ -65,7 +65,7 @@ public abstract class c extends com.kwad.sdk.core.response.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             super.afterToJson(jSONObject);
-            JSONObject jSONObject2 = this.f65006b;
+            JSONObject jSONObject2 = this.f65919b;
             if (jSONObject2 != null) {
                 q.a(jSONObject, "mMergeJsonData", jSONObject2);
             }

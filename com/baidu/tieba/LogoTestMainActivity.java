@@ -3,7 +3,8 @@ package com.baidu.tieba;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import b.a.e.e.m.e;
+import b.a.e.f.m.e;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +20,7 @@ public class LogoTestMainActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LogoTestMainActivity f46567e;
+        public final /* synthetic */ LogoTestMainActivity f47431e;
 
         public a(LogoTestMainActivity logoTestMainActivity) {
             Interceptable interceptable = $ic;
@@ -36,14 +37,14 @@ public class LogoTestMainActivity extends Activity {
                     return;
                 }
             }
-            this.f46567e = logoTestMainActivity;
+            this.f47431e = logoTestMainActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && b.a.r0.y0.a.i().w(this.f46567e)) {
-                this.f46567e.overridePendingTransition(0, 0);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && b.a.r0.y0.a.i().w(this.f47431e)) {
+                this.f47431e.overridePendingTransition(0, 0);
             }
         }
     }
@@ -84,6 +85,7 @@ public class LogoTestMainActivity extends Activity {
             super.onCreate(bundle);
             setContentView(R.layout.logo_activity);
             showMiniWindowIfNeed();
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 }

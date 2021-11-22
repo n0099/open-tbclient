@@ -22,19 +22,19 @@ public class VoteCountDownView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f55421e;
+    public Context f56343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f55422f;
+    public View f56344f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f55423g;
+    public View f56345g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f55424h;
+    public TextView f56346h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f55425i;
+    public TextView f56347i;
     public CountDownTimer j;
     public b k;
 
@@ -44,7 +44,7 @@ public class VoteCountDownView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VoteCountDownView f55426a;
+        public final /* synthetic */ VoteCountDownView f56348a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(VoteCountDownView voteCountDownView, long j, long j2) {
@@ -65,15 +65,15 @@ public class VoteCountDownView extends LinearLayout {
                     return;
                 }
             }
-            this.f55426a = voteCountDownView;
+            this.f56348a = voteCountDownView;
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f55426a.setContent(0L, 0L);
-                this.f55426a.b();
+                this.f56348a.setContent(0L, 0L);
+                this.f56348a.b();
             }
         }
 
@@ -82,7 +82,7 @@ public class VoteCountDownView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                 long j2 = j + 60000;
-                this.f55426a.setContent(j2 / 3600000, (j2 % 3600000) / 60000);
+                this.f56348a.setContent(j2 / 3600000, (j2 % 3600000) / 60000);
             }
         }
     }
@@ -125,17 +125,17 @@ public class VoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f55422f = findViewById(R.id.hour_num_container);
-            this.f55423g = findViewById(R.id.minute_num_container);
-            this.f55424h = (TextView) findViewById(R.id.hour_num_count_down_view);
-            this.f55425i = (TextView) findViewById(R.id.minute_num_count_down_view);
+            this.f56344f = findViewById(R.id.hour_num_container);
+            this.f56345g = findViewById(R.id.minute_num_container);
+            this.f56346h = (TextView) findViewById(R.id.hour_num_count_down_view);
+            this.f56347i = (TextView) findViewById(R.id.minute_num_count_down_view);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f55421e = getContext();
+            this.f56343e = getContext();
             setOrientation(0);
             setClipToPadding(false);
             setClipChildren(false);
@@ -167,18 +167,18 @@ public class VoteCountDownView extends LinearLayout {
     public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            SkinManager.setBackgroundResource(this.f55422f, R.drawable.bg_gradient_round, i2);
-            SkinManager.setBackgroundResource(this.f55423g, R.drawable.bg_gradient_round, i2);
-            SkinManager.setViewTextColor(this.f55424h, R.color.CAM_X0101, 1, i2);
-            SkinManager.setViewTextColor(this.f55424h, R.color.CAM_X0101, 1, i2);
+            SkinManager.setBackgroundResource(this.f56344f, R.drawable.bg_gradient_round, i2);
+            SkinManager.setBackgroundResource(this.f56345g, R.drawable.bg_gradient_round, i2);
+            SkinManager.setViewTextColor(this.f56346h, R.color.CAM_X0101, 1, i2);
+            SkinManager.setViewTextColor(this.f56346h, R.color.CAM_X0101, 1, i2);
         }
     }
 
     public void setContent(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.f55425i.setText(String.valueOf(j2));
-            this.f55424h.setText(String.valueOf(j));
+            this.f56347i.setText(String.valueOf(j2));
+            this.f56346h.setText(String.valueOf(j));
         }
     }
 

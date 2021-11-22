@@ -15,10 +15,10 @@ public class q1 extends x implements b.a.q0.k0.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f13422h;
+    public long f14202h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f13423i;
+    public String f14203i;
     public String j;
     public boolean k;
     public int l;
@@ -58,14 +58,14 @@ public class q1 extends x implements b.a.q0.k0.b.a {
     public void C(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f13423i = str;
+            this.f14203i = str;
         }
     }
 
     public void D(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f13422h = j;
+            this.f14202h = j;
         }
     }
 
@@ -86,13 +86,13 @@ public class q1 extends x implements b.a.q0.k0.b.a {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13423i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f14203i : (String) invokeV.objValue;
     }
 
     public long o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13422h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14202h : invokeV.longValue;
     }
 
     public String p() {
@@ -125,8 +125,8 @@ public class q1 extends x implements b.a.q0.k0.b.a {
             return;
         }
         try {
-            this.f13422h = recommendForumInfo.forum_id.longValue();
-            this.f13423i = recommendForumInfo.avatar;
+            this.f14202h = recommendForumInfo.forum_id.longValue();
+            this.f14203i = recommendForumInfo.avatar;
             this.j = recommendForumInfo.forum_name;
             boolean z = true;
             if (recommendForumInfo.is_like.intValue() != 1) {

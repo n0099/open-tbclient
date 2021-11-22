@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static y f43214c;
+    public static y f44160c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f43215a;
+    public SharedPreferences f44161a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f43216b;
+    public SharedPreferences.Editor f44162b;
 
     public y(Context context) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public final class y {
                 return;
             }
         }
-        SharedPreferences sharedPreferences = com.baidu.sofire.h.a.a(context).f43070a;
-        this.f43215a = sharedPreferences;
-        this.f43216b = sharedPreferences.edit();
+        SharedPreferences sharedPreferences = com.baidu.sofire.h.a.a(context).f44016a;
+        this.f44161a = sharedPreferences;
+        this.f44162b = sharedPreferences.edit();
     }
 
     public static synchronized y a(Context context) {
@@ -48,12 +48,12 @@ public final class y {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (y.class) {
                 if (context == null) {
-                    return f43214c;
+                    return f44160c;
                 }
-                if (f43214c == null) {
-                    f43214c = new y(context);
+                if (f44160c == null) {
+                    f44160c = new y(context);
                 }
-                return f43214c;
+                return f44160c;
             }
         }
         return (y) invokeL.objValue;
@@ -62,32 +62,32 @@ public final class y {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43215a.getBoolean("lt_sucf", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44161a.getBoolean("lt_sucf", false) : invokeV.booleanValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43215a.getBoolean("lt_sssf", true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44161a.getBoolean("lt_sssf", true) : invokeV.booleanValue;
     }
 
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43215a.getBoolean("lt_sbwnp", true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f44161a.getBoolean("lt_sbwnp", true) : invokeV.booleanValue;
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43215a.getBoolean("lt_sdcf", true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44161a.getBoolean("lt_sdcf", true) : invokeV.booleanValue;
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f43216b.putBoolean("lt_sssf", z);
-            this.f43216b.commit();
+            this.f44162b.putBoolean("lt_sssf", z);
+            this.f44162b.commit();
         }
     }
 }

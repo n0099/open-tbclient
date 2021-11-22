@@ -115,7 +115,7 @@ public class SendLogUtil {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && mCommon.isEmpty()) {
                 mCommon.put("cuid", Base64.encode(DeviceUtils.getInstance().getCUID(this.mContext)));
-                mCommon.put("sn", DeviceUtils.getInstance().getEncodedSN(this.mContext));
+                mCommon.put(IAdRequestParam.SN, DeviceUtils.getInstance().getEncodedSN(this.mContext));
                 mCommon.put("os", "android");
                 mCommon.put(IAdRequestParam.OSV, Build.VERSION.RELEASE);
                 mCommon.put("model", Build.MODEL);

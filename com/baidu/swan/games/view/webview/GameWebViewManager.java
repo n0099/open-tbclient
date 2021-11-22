@@ -10,11 +10,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.a2.e;
+import b.a.p0.a.a3.c;
+import b.a.p0.a.d2.e;
 import b.a.p0.a.k;
 import b.a.p0.a.p.e.f;
-import b.a.p0.a.w2.c;
-import b.a.p0.f.d;
+import b.a.p0.h.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.browser.sailor.BdSailorWebViewClient;
@@ -69,7 +69,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
         public void onPageFinished(BdSailorWebView bdSailorWebView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, bdSailorWebView, str) == null) {
-                this.this$0.h1();
+                this.this$0.l1();
             }
         }
 
@@ -90,13 +90,13 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
                 if (GameWebViewManager.F) {
                     String str2 = "shouldOverrideUrlLoading url: " + str;
                 }
-                boolean z = !b.a.p0.a.b2.a.b.h(str);
-                if (!z && (b.a.p0.a.b2.a.b.e(str) || b.a.p0.a.b2.a.b.f(str))) {
+                boolean z = !b.a.p0.a.e2.a.b.h(str);
+                if (!z && (b.a.p0.a.e2.a.b.e(str) || b.a.p0.a.e2.a.b.f(str))) {
                     try {
                         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                        e P = e.P();
-                        if (P != null) {
-                            P.x().startActivity(intent);
+                        e a0 = e.a0();
+                        if (a0 != null) {
+                            a0.x().startActivity(intent);
                             return true;
                         }
                     } catch (Exception e2) {
@@ -121,7 +121,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameWebViewManager f44776e;
+        public final /* synthetic */ GameWebViewManager f45584e;
 
         public a(GameWebViewManager gameWebViewManager) {
             Interceptable interceptable = $ic;
@@ -138,16 +138,16 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
                     return;
                 }
             }
-            this.f44776e = gameWebViewManager;
+            this.f45584e = gameWebViewManager;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44776e.B == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45584e.B == null) {
                 return;
             }
-            this.f44776e.B.onClick(view);
+            this.f45584e.B.onClick(view);
         }
     }
 
@@ -157,7 +157,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GameWebViewManager f44777e;
+        public final /* synthetic */ GameWebViewManager f45585e;
 
         public b(GameWebViewManager gameWebViewManager) {
             Interceptable interceptable = $ic;
@@ -174,15 +174,15 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
                     return;
                 }
             }
-            this.f44777e = gameWebViewManager;
+            this.f45585e = gameWebViewManager;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && SwanAppNetworkUtils.i(this.f44777e.f43606e) && b.a.p0.a.b2.a.b.h(this.f44777e.s().getUrl())) {
-                this.f44777e.s().reload();
-                this.f44777e.C.setVisibility(8);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && SwanAppNetworkUtils.i(this.f45585e.f44366e) && b.a.p0.a.e2.a.b.h(this.f45585e.t().getUrl())) {
+                this.f45585e.t().reload();
+                this.f45585e.C.setVisibility(8);
             }
         }
     }
@@ -200,7 +200,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
                 return;
             }
         }
-        F = k.f6397a;
+        F = k.f6863a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -221,69 +221,77 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
                 return;
             }
         }
-        l1();
-        g1();
-        W0(new GameWebViewClient(this, null));
-        o1(context);
+        p1();
+        k1();
+        a1(new GameWebViewClient(this, null));
+        s1(context);
     }
 
     @Override // b.a.p0.a.p.e.f
-    public void H() {
+    public void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b.a.p0.h.o0.b.a(this.A, b.a.p0.a.l1.e.a.a.a());
-            b.a.p0.h.o0.b.c(this);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void J0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void K0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            s().addJavascriptInterface(new GameWebViewJavascriptInterface(), "swan");
+            b.a.p0.j.p0.b.a(this.A, b.a.p0.a.m1.e.a.a.a());
+            b.a.p0.j.p0.b.c(this);
         }
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
     public void N0() {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
+    public void O0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            t().addJavascriptInterface(new GameWebViewJavascriptInterface(), "swan");
+        }
+    }
+
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
+    public void R0() {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void O0(SwanAppWebViewManager swanAppWebViewManager) {
+    public void S0(SwanAppWebViewManager swanAppWebViewManager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, swanAppWebViewManager) == null) {
         }
     }
 
+    @Override // b.a.p0.a.a3.c
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            destroy();
+        }
+    }
+
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, b.a.p0.a.p.e.d
-    public String b() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SwanGameWebView" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "SwanGameWebView" : (String) invokeV.objValue;
     }
 
     @Override // b.a.p0.a.p.e.f
-    public boolean d() {
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.A.getParent() != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.A.getParent() != null : invokeV.booleanValue;
     }
 
     @Override // b.a.p0.a.p.e.f
-    public void g(boolean z) {
+    public void h(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (imageView = this.E) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (imageView = this.E) == null) {
             return;
         }
         if (z) {
@@ -293,10 +301,18 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
         }
     }
 
-    public final void g1() {
+    @Override // b.a.p0.a.p.e.f
+    public void j(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            X0(new BdSailorWebViewClientExt(this) { // from class: com.baidu.swan.games.view.webview.GameWebViewManager.3
+        if (interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) {
+            this.B = onClickListener;
+        }
+    }
+
+    public final void k1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            b1(new BdSailorWebViewClientExt(this) { // from class: com.baidu.swan.games.view.webview.GameWebViewManager.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ GameWebViewManager this$0;
@@ -327,7 +343,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
                         if (GameWebViewManager.F) {
                             String str2 = "onSubFrameBeforeRequest url: " + str;
                         }
-                        return !b.a.p0.a.b2.a.b.h(str);
+                        return !b.a.p0.a.e2.a.b.h(str);
                     }
                     return invokeLL.booleanValue;
                 }
@@ -335,31 +351,45 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
         }
     }
 
-    public final void h1() {
+    public final void l1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.D.getVisibility() == 0) {
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.D.getVisibility() == 0) {
             this.D.clearAnimation();
             this.D.setVisibility(8);
         }
     }
 
-    @Override // b.a.p0.a.p.e.f
-    public void i(View.OnClickListener onClickListener) {
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, b.a.p0.a.p.e.d, b.a.p0.a.h0.l.a
+    public void loadUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) {
-            this.B = onClickListener;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            if (F) {
+                String str2 = "loadUrl:" + str;
+            }
+            if (b.a.p0.a.e2.a.b.h(str)) {
+                r1();
+                super.loadUrl(str);
+            }
         }
     }
 
-    public final void i1() {
+    @Override // b.a.p0.a.a3.c
+    public void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.E == null) {
-            this.E = new ImageView(this.f43606e.getBaseContext());
-            Resources resources = this.f43606e.getResources();
-            int dimension = (int) resources.getDimension(b.a.p0.f.c.swangame_webview_button_size);
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            t().onResume();
+        }
+    }
+
+    public final void m1() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.E == null) {
+            this.E = new ImageView(this.f44366e.getBaseContext());
+            Resources resources = this.f44366e.getResources();
+            int dimension = (int) resources.getDimension(b.a.p0.h.c.swangame_webview_button_size);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimension, dimension);
-            layoutParams.topMargin = (int) resources.getDimension(b.a.p0.f.c.swangame_webview_button_top_margin);
-            layoutParams.leftMargin = (int) resources.getDimension(b.a.p0.f.c.swangame_webview_button_left_margin);
+            layoutParams.topMargin = (int) resources.getDimension(b.a.p0.h.c.swangame_webview_button_top_margin);
+            layoutParams.leftMargin = (int) resources.getDimension(b.a.p0.h.c.swangame_webview_button_left_margin);
             this.E.setLayoutParams(layoutParams);
             this.E.setScaleType(ImageView.ScaleType.FIT_CENTER);
             this.E.setImageResource(d.swangame_webview_close_button);
@@ -369,13 +399,13 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
         }
     }
 
-    public final void j1() {
+    public final void n1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            NetworkErrorView networkErrorView = new NetworkErrorView(this.f43606e.getBaseContext());
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            NetworkErrorView networkErrorView = new NetworkErrorView(this.f44366e.getBaseContext());
             this.C = networkErrorView;
-            networkErrorView.setBackgroundColor(this.f43606e.getResources().getColor(b.a.p0.f.b.aiapps_game_white));
-            s().addView(this.C, -1, -1);
+            networkErrorView.setBackgroundColor(this.f44366e.getResources().getColor(b.a.p0.h.b.aiapps_game_white));
+            t().addView(this.C, -1, -1);
             this.C.setVisibility(8);
             b bVar = new b(this);
             this.C.setOnClickListener(bVar);
@@ -383,11 +413,11 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
         }
     }
 
-    public final void k1() {
+    public final void o1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.D = new ImageView(this.f43606e.getBaseContext());
-            int dimension = (int) this.f43606e.getResources().getDimension(b.a.p0.f.c.swangame_webview_loading_size);
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.D = new ImageView(this.f44366e.getBaseContext());
+            int dimension = (int) this.f44366e.getResources().getDimension(b.a.p0.h.c.swangame_webview_loading_size);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimension, dimension);
             layoutParams.gravity = 17;
             this.D.setScaleType(ImageView.ScaleType.FIT_CENTER);
@@ -396,90 +426,60 @@ public class GameWebViewManager extends SwanAppWebViewManager implements f<NgWeb
         }
     }
 
-    @Override // b.a.p0.a.w2.c
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            s().onResume();
-        }
-    }
-
-    public final void l1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f43606e.getBaseContext());
-            this.A = frameLayout;
-            frameLayout.addView(s(), -1, -1);
-            i1();
-            j1();
-            k1();
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, b.a.p0.a.p.e.d, b.a.p0.a.h0.l.a
-    public void loadUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            if (F) {
-                String str2 = "loadUrl:" + str;
-            }
-            if (b.a.p0.a.b2.a.b.h(str)) {
-                n1();
-                super.loadUrl(str);
-            }
-        }
-    }
-
-    public final void m1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            P0("var eles = document.querySelectorAll('video,audio');eles && eles.forEach(function (item, index) {item.pause();});");
-        }
-    }
-
-    public final void n1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.f43606e, b.a.p0.f.a.swangame_webview_loading);
-            this.D.setVisibility(0);
-            this.D.startAnimation(loadAnimation);
-        }
-    }
-
-    public final void o1(Context context) {
-        b.a.p0.a.p.d.b a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, context) == null) || (a2 = b.a.p0.a.a2.d.g().y().a().a()) == null) {
-            return;
-        }
-        a2.a(context);
-    }
-
-    @Override // b.a.p0.a.w2.c
+    @Override // b.a.p0.a.a3.c
     public void onViewBackground() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            m1();
-            s().onPause();
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            q1();
+            t().onPause();
         }
     }
 
-    @Override // b.a.p0.a.w2.c
-    public void onViewDestroy() {
+    public final void p1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            destroy();
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.f44366e.getBaseContext());
+            this.A = frameLayout;
+            frameLayout.addView(t(), -1, -1);
+            m1();
+            n1();
+            o1();
+        }
+    }
+
+    public final void q1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            T0("var eles = document.querySelectorAll('video,audio');eles && eles.forEach(function (item, index) {item.pause();});");
+        }
+    }
+
+    public final void r1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f44366e, b.a.p0.h.a.swangame_webview_loading);
+            this.D.setVisibility(0);
+            this.D.startAnimation(loadAnimation);
         }
     }
 
     @Override // b.a.p0.a.p.e.f
     public void removeFromParent() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            s().stopLoading();
-            s().clearView();
-            b.a.p0.h.o0.b.d(this.A);
-            b.a.p0.h.o0.b.e(this);
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            t().stopLoading();
+            t().clearView();
+            b.a.p0.j.p0.b.d(this.A);
+            b.a.p0.j.p0.b.e(this);
         }
+    }
+
+    public final void s1(Context context) {
+        b.a.p0.a.p.d.c a2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, context) == null) || (a2 = b.a.p0.a.d2.d.J().y().a().a()) == null) {
+            return;
+        }
+        a2.a(context);
     }
 }

@@ -17,31 +17,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f23924a;
+    public String f25412a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f23925b;
+    public String f25413b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23926c;
+    public String f25414c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f23927d;
+    public String f25415d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f23928e;
+    public String f25416e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f23929f;
+    public String f25417f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f23930g;
+    public int f25418g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f23931h;
+    public int f25419h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f23932i;
+    public int f25420i;
     public long j;
     public long k;
 
@@ -58,12 +58,12 @@ public class b {
                 return;
             }
         }
-        this.f23927d = "";
-        this.f23926c = "";
-        this.f23928e = "";
-        this.f23929f = "";
-        this.f23925b = "";
-        this.f23924a = "";
+        this.f25415d = "";
+        this.f25414c = "";
+        this.f25416e = "";
+        this.f25417f = "";
+        this.f25413b = "";
+        this.f25412a = "";
     }
 
     public static b a(AdInfo adInfo) {
@@ -74,17 +74,17 @@ public class b {
             if (adInfo == null) {
                 return bVar;
             }
-            bVar.f23924a = adInfo.adImgUrl;
-            bVar.f23925b = adInfo.redirectUrl;
+            bVar.f25412a = adInfo.adImgUrl;
+            bVar.f25413b = adInfo.redirectUrl;
             bVar.j = adInfo.startShowTime;
             bVar.k = adInfo.endShowTime;
-            bVar.f23927d = adInfo.videoLocalPath;
-            bVar.f23928e = adInfo.videoJumpUrl;
-            bVar.f23929f = adInfo.videoMd5;
-            bVar.f23930g = adInfo.videoDuration;
-            bVar.f23931h = adInfo.videoWidth;
-            bVar.f23932i = adInfo.videoHight;
-            bVar.f23926c = adInfo.adVideoUrl;
+            bVar.f25415d = adInfo.videoLocalPath;
+            bVar.f25416e = adInfo.videoJumpUrl;
+            bVar.f25417f = adInfo.videoMd5;
+            bVar.f25418g = adInfo.videoDuration;
+            bVar.f25419h = adInfo.videoWidth;
+            bVar.f25420i = adInfo.videoHight;
+            bVar.f25414c = adInfo.adVideoUrl;
             return bVar;
         }
         return (b) invokeL.objValue;
@@ -97,17 +97,17 @@ public class b {
             b bVar = new b();
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                bVar.f23924a = jSONObject.optString("adImgUrl");
-                bVar.f23925b = jSONObject.optString("redirectUrl");
-                bVar.f23927d = jSONObject.optString("videoLocalPath");
+                bVar.f25412a = jSONObject.optString("adImgUrl");
+                bVar.f25413b = jSONObject.optString("redirectUrl");
+                bVar.f25415d = jSONObject.optString("videoLocalPath");
                 bVar.j = jSONObject.optLong("startShowTime");
                 bVar.k = jSONObject.optLong("endShowTime");
-                bVar.f23928e = jSONObject.optString("videoJumpUrl");
-                bVar.f23929f = jSONObject.optString("videoMd5");
-                bVar.f23930g = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
-                bVar.f23931h = jSONObject.optInt("videoWidth");
-                bVar.f23932i = jSONObject.optInt("videoHeight");
-                bVar.f23926c = jSONObject.optString("adVideoUrl");
+                bVar.f25416e = jSONObject.optString("videoJumpUrl");
+                bVar.f25417f = jSONObject.optString("videoMd5");
+                bVar.f25418g = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
+                bVar.f25419h = jSONObject.optInt("videoWidth");
+                bVar.f25420i = jSONObject.optInt("videoHeight");
+                bVar.f25414c = jSONObject.optString("adVideoUrl");
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -125,7 +125,7 @@ public class b {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.f23927d) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.f25415d) : invokeV.booleanValue;
     }
 
     public String toString() {
@@ -134,17 +134,17 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("adImgUrl", this.f23924a);
-                jSONObject.put("redirectUrl", this.f23925b);
-                jSONObject.put("videoLocalPath", this.f23927d);
+                jSONObject.put("adImgUrl", this.f25412a);
+                jSONObject.put("redirectUrl", this.f25413b);
+                jSONObject.put("videoLocalPath", this.f25415d);
                 jSONObject.put("startShowTime", this.j);
                 jSONObject.put("endShowTime", this.k);
-                jSONObject.put("videoMd5", this.f23929f);
-                jSONObject.put("videoJumpUrl", this.f23928e);
-                jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.f23930g);
-                jSONObject.put("videoWidth", this.f23931h);
-                jSONObject.put("videoHeight", this.f23932i);
-                jSONObject.put("adVideoUrl", this.f23926c);
+                jSONObject.put("videoMd5", this.f25417f);
+                jSONObject.put("videoJumpUrl", this.f25416e);
+                jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.f25418g);
+                jSONObject.put("videoWidth", this.f25419h);
+                jSONObject.put("videoHeight", this.f25420i);
+                jSONObject.put("adVideoUrl", this.f25414c);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

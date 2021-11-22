@@ -21,7 +21,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35844a = "ApollonBaseActivity";
+    public static final String f36673a = "ApollonBaseActivity";
     public static LinkedList<ApollonBaseActivity> mActivityStack;
     public static int mLiveActivityNum;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, apollonBaseActivity) == null) {
             synchronized (ApollonBaseActivity.class) {
-                LogUtil.d(f35844a, "clearTasksTopOf. stack size = " + mActivityStack.size());
+                LogUtil.d(f36673a, "clearTasksTopOf. stack size = " + mActivityStack.size());
                 for (int size = mActivityStack.size() + (-1); size > 0; size--) {
                     ApollonBaseActivity apollonBaseActivity2 = mActivityStack.get(size);
                     if (apollonBaseActivity2 == apollonBaseActivity) {
@@ -124,7 +124,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i2) == null) {
             synchronized (ApollonBaseActivity.class) {
-                LogUtil.d(f35844a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
+                LogUtil.d(f36673a, "clearTasksWithFlag. stack size = " + mActivityStack.size());
                 Iterator<ApollonBaseActivity> it = mActivityStack.iterator();
                 while (it.hasNext()) {
                     ApollonBaseActivity next = it.next();
@@ -177,6 +177,7 @@ public class ApollonBaseActivity extends Activity implements NoProguard {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             addToTask(this);
+            com.baidu.mytransformapp.util.LogUtil.logActivity(this, "onCreate");
         }
     }
 

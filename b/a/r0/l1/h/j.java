@@ -22,7 +22,7 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static j f20152a;
+    public static j f21674a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public j() {
@@ -45,14 +45,14 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (j.class) {
-                if (f20152a == null) {
+                if (f21674a == null) {
                     synchronized (j.class) {
-                        if (f20152a == null) {
-                            f20152a = new j();
+                        if (f21674a == null) {
+                            f21674a = new j();
                         }
                     }
                 }
-                jVar = f20152a;
+                jVar = f21674a;
             }
             return jVar;
         }
@@ -99,7 +99,7 @@ public class j {
             if (e2 != null) {
                 while (e2.moveToNext()) {
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-                    imMessageCenterPojo.setPulled_msgId(b.a.e.e.m.b.g(e2.getString(e2.getColumnIndex("pull_msgid")), 0L));
+                    imMessageCenterPojo.setPulled_msgId(b.a.e.f.m.b.g(e2.getString(e2.getColumnIndex("pull_msgid")), 0L));
                     imMessageCenterPojo.setGid(e2.getString(e2.getColumnIndex("gid")));
                     imMessageCenterPojo.setGroup_name(e2.getString(e2.getColumnIndex("group_name")));
                     imMessageCenterPojo.setNameShow(e2.getString(e2.getColumnIndex("group_name_show")));
@@ -125,7 +125,7 @@ public class j {
                     linkedList.add(imMessageCenterPojo);
                 }
             }
-            b.a.e.e.p.m.a(e2);
+            b.a.e.f.p.m.a(e2);
             return linkedList;
         }
         return (LinkedList) invokeV.objValue;
@@ -140,7 +140,7 @@ public class j {
             if (e2 != null) {
                 while (e2.moveToNext()) {
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-                    imMessageCenterPojo.setPulled_msgId(b.a.e.e.m.b.g(e2.getString(e2.getColumnIndex("pull_msgid")), 0L));
+                    imMessageCenterPojo.setPulled_msgId(b.a.e.f.m.b.g(e2.getString(e2.getColumnIndex("pull_msgid")), 0L));
                     imMessageCenterPojo.setGid(e2.getString(e2.getColumnIndex("gid")));
                     imMessageCenterPojo.setGroup_name(e2.getString(e2.getColumnIndex("group_name")));
                     imMessageCenterPojo.setNameShow(e2.getString(e2.getColumnIndex("group_name_show")));
@@ -159,7 +159,7 @@ public class j {
                     linkedList.add(imMessageCenterPojo);
                 }
             }
-            b.a.e.e.p.m.a(e2);
+            b.a.e.f.p.m.a(e2);
             return linkedList;
         }
         return (LinkedList) invokeV.objValue;
@@ -185,7 +185,7 @@ public class j {
                             if (e2.moveToNext()) {
                                 imMessageCenterPojo = new ImMessageCenterPojo();
                                 try {
-                                    imMessageCenterPojo.setPulled_msgId(b.a.e.e.m.b.g(e2.getString(e2.getColumnIndex("pull_msgid")), 0L));
+                                    imMessageCenterPojo.setPulled_msgId(b.a.e.f.m.b.g(e2.getString(e2.getColumnIndex("pull_msgid")), 0L));
                                     imMessageCenterPojo.setGid(e2.getString(e2.getColumnIndex("gid")));
                                     imMessageCenterPojo.setGroup_name(e2.getString(e2.getColumnIndex("group_name")));
                                     imMessageCenterPojo.setNameShow(e2.getString(e2.getColumnIndex("group_name_show")));
@@ -214,7 +214,7 @@ public class j {
                                     cursor = e2;
                                     e.printStackTrace();
                                     TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getGroupInfo", new Object[0]);
-                                    b.a.e.e.p.m.a(cursor);
+                                    b.a.e.f.p.m.a(cursor);
                                     return imMessageCenterPojo;
                                 }
                             }
@@ -225,11 +225,11 @@ public class j {
                     } catch (Throwable th) {
                         th = th;
                         cursor = e2;
-                        b.a.e.e.p.m.a(cursor);
+                        b.a.e.f.p.m.a(cursor);
                         throw th;
                     }
                 }
-                b.a.e.e.p.m.a(e2);
+                b.a.e.f.p.m.a(e2);
                 return imMessageCenterPojo2;
             } catch (Exception e5) {
                 e = e5;
@@ -263,25 +263,25 @@ public class j {
                             e = e2;
                             e.printStackTrace();
                             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getShrinkData", new Object[0]);
-                            b.a.e.e.p.m.a(cursor);
+                            b.a.e.f.p.m.a(cursor);
                             return null;
                         }
                     } catch (Throwable th) {
                         th = th;
                         cursor2 = cursor;
-                        b.a.e.e.p.m.a(cursor2);
+                        b.a.e.f.p.m.a(cursor2);
                         throw th;
                     }
                 }
             }
-            b.a.e.e.p.m.a(cursor);
+            b.a.e.f.p.m.a(cursor);
             return linkedList;
         } catch (Exception e3) {
             e = e3;
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            b.a.e.e.p.m.a(cursor2);
+            b.a.e.f.p.m.a(cursor2);
             throw th;
         }
     }
@@ -375,7 +375,7 @@ public class j {
                         i2 = 0;
                     } catch (Throwable th) {
                         th = th;
-                        b.a.e.e.p.m.a(cursor);
+                        b.a.e.f.p.m.a(cursor);
                         throw th;
                     }
                     if (i2 != 0) {
@@ -384,7 +384,7 @@ public class j {
                             e = e3;
                             i2 = i2;
                             BdLog.e(e);
-                            b.a.e.e.p.m.a(i2);
+                            b.a.e.f.p.m.a(i2);
                             contentValues.put("last_msgId", Long.valueOf(imMessageCenterPojo.getLast_rid()));
                             if (imMessageCenterPojo.getLast_user_name() != null) {
                             }
@@ -411,11 +411,11 @@ public class j {
                             if (i4 > 0) {
                                 contentValues.put("unread_count", Integer.valueOf(i4));
                             }
-                            b.a.e.e.p.m.a(i2);
+                            b.a.e.f.p.m.a(i2);
                         }
                     }
                     contentValues.put("unread_count", Integer.valueOf(unread_count));
-                    b.a.e.e.p.m.a(i2);
+                    b.a.e.f.p.m.a(i2);
                 }
             } catch (Throwable th2) {
                 th = th2;
@@ -492,7 +492,7 @@ public class j {
                 cursor = null;
             } catch (Throwable th) {
                 th = th;
-                b.a.e.e.p.m.a(cursor2);
+                b.a.e.f.p.m.a(cursor2);
                 throw th;
             }
             if (cursor != null) {
@@ -501,7 +501,7 @@ public class j {
                     } catch (Exception e3) {
                         e = e3;
                         BdLog.e(e);
-                        b.a.e.e.p.m.a(cursor);
+                        b.a.e.f.p.m.a(cursor);
                         contentValues.put("last_msgId", Long.valueOf(imMessageCenterPojo.getLast_rid()));
                         if (imMessageCenterPojo.getLast_user_name() != null) {
                         }
@@ -523,17 +523,17 @@ public class j {
                         if (i3 > 0) {
                             contentValues.put("unread_count", Integer.valueOf(i3));
                         }
-                        b.a.e.e.p.m.a(cursor);
+                        b.a.e.f.p.m.a(cursor);
                     }
                 } catch (Throwable th2) {
                     th = th2;
                     cursor2 = cursor;
-                    b.a.e.e.p.m.a(cursor2);
+                    b.a.e.f.p.m.a(cursor2);
                     throw th;
                 }
             }
             contentValues.put("unread_count", Integer.valueOf(unread_count));
-            b.a.e.e.p.m.a(cursor);
+            b.a.e.f.p.m.a(cursor);
         }
         contentValues.put("last_msgId", Long.valueOf(imMessageCenterPojo.getLast_rid()));
         if (imMessageCenterPojo.getLast_user_name() != null) {

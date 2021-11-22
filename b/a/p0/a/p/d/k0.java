@@ -1,19 +1,21 @@
 package b.a.p0.a.p.d;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.content.Context;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public interface k0 {
-    void a(String str);
+    void a(Context context, JSONObject jSONObject);
 
-    void b();
+    void b(Context context, JSONObject jSONObject);
 
-    void c(String str);
+    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
 
-    void d(@NonNull SwanAppActivity swanAppActivity, int i2, @Nullable b.a.p0.a.f1.e.b bVar);
+    void d(Context context, String[] strArr, int i2);
 
-    void e(String str);
+    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
 
-    void f(String str);
+    void f(Context context, JSONObject jSONObject);
 }

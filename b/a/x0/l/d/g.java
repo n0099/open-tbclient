@@ -35,7 +35,7 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f29736a;
+    public static Object f30605a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -44,10 +44,10 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public FileOutputStream f29737a;
+        public FileOutputStream f30606a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f29738b;
+        public final /* synthetic */ String f30607b;
 
         public a(String str) throws FileNotFoundException {
             Interceptable interceptable = $ic;
@@ -64,8 +64,8 @@ public class g {
                     return;
                 }
             }
-            this.f29738b = str;
-            this.f29737a = new FileOutputStream(this.f29738b);
+            this.f30607b = str;
+            this.f30606a = new FileOutputStream(this.f30607b);
         }
 
         @Override // com.baidu.ugc.editvideo.editvideo.muxer.MultiAudioMixer.OnAudioMixListener
@@ -73,8 +73,8 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f29737a != null) {
-                        this.f29737a.close();
+                    if (this.f30606a != null) {
+                        this.f30606a.close();
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -87,8 +87,8 @@ public class g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 try {
-                    if (this.f29737a != null) {
-                        this.f29737a.close();
+                    if (this.f30606a != null) {
+                        this.f30606a.close();
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -100,7 +100,7 @@ public class g {
         public void onMixing(byte[] bArr) throws IOException {
             FileOutputStream fileOutputStream;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || (fileOutputStream = this.f29737a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || (fileOutputStream = this.f30606a) == null) {
                 return;
             }
             fileOutputStream.write(bArr);
@@ -108,22 +108,22 @@ public class g {
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements a.InterfaceC1439a {
+    public static class b implements a.InterfaceC1481a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a.InterfaceC1439a f29739a;
+        public final /* synthetic */ a.InterfaceC1481a f30608a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ StringBuilder f29740b;
+        public final /* synthetic */ StringBuilder f30609b;
 
-        public b(a.InterfaceC1439a interfaceC1439a, StringBuilder sb) {
+        public b(a.InterfaceC1481a interfaceC1481a, StringBuilder sb) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {interfaceC1439a, sb};
+                Object[] objArr = {interfaceC1481a, sb};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -133,21 +133,21 @@ public class g {
                     return;
                 }
             }
-            this.f29739a = interfaceC1439a;
-            this.f29740b = sb;
+            this.f30608a = interfaceC1481a;
+            this.f30609b = sb;
         }
 
-        @Override // b.a.x0.s.a.InterfaceC1439a
+        @Override // b.a.x0.s.a.InterfaceC1481a
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (g.f29736a) {
-                    g.f29736a.notifyAll();
+                synchronized (g.f30605a) {
+                    g.f30605a.notifyAll();
                 }
             }
         }
 
-        @Override // b.a.x0.s.a.InterfaceC1439a
+        @Override // b.a.x0.s.a.InterfaceC1481a
         public boolean onError(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
@@ -160,26 +160,26 @@ public class g {
                 sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
                 sb.append(obj != null ? obj.toString() : "");
                 String sb2 = sb.toString();
-                StringBuilder sb3 = this.f29740b;
+                StringBuilder sb3 = this.f30609b;
                 if (sb3 != null) {
                     sb3.append(sb2);
                 }
-                synchronized (g.f29736a) {
-                    g.f29736a.notifyAll();
+                synchronized (g.f30605a) {
+                    g.f30605a.notifyAll();
                 }
                 return false;
             }
             return invokeIIL.booleanValue;
         }
 
-        @Override // b.a.x0.s.a.InterfaceC1439a
+        @Override // b.a.x0.s.a.InterfaceC1481a
         public boolean onInfo(int i2, int i3, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, obj)) == null) {
-                a.InterfaceC1439a interfaceC1439a = this.f29739a;
-                if (interfaceC1439a != null) {
-                    interfaceC1439a.onInfo(i2, i3, obj);
+                a.InterfaceC1481a interfaceC1481a = this.f30608a;
+                if (interfaceC1481a != null) {
+                    interfaceC1481a.onInfo(i2, i3, obj);
                     return false;
                 }
                 return false;
@@ -201,7 +201,7 @@ public class g {
                 return;
             }
         }
-        f29736a = new Object();
+        f30605a = new Object();
     }
 
     public static void b(byte[] bArr, int i2, int i3) {
@@ -263,7 +263,7 @@ public class g {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void e(MediaExtractor mediaExtractor, MediaCodec mediaCodec, MediaCodec mediaCodec2, FileOutputStream fileOutputStream, int i2, long j, float f2, f.C1428f c1428f, f.C1428f c1428f2) {
+    public static void e(MediaExtractor mediaExtractor, MediaCodec mediaCodec, MediaCodec mediaCodec2, FileOutputStream fileOutputStream, int i2, long j, float f2, f.C1470f c1470f, f.C1470f c1470f2) {
         int i3;
         MediaCodec.BufferInfo bufferInfo;
         MediaCodec.BufferInfo bufferInfo2;
@@ -280,7 +280,7 @@ public class g {
         boolean z4;
         long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{mediaExtractor, mediaCodec, mediaCodec2, fileOutputStream, Integer.valueOf(i2), Long.valueOf(j), Float.valueOf(f2), c1428f, c1428f2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{mediaExtractor, mediaCodec, mediaCodec2, fileOutputStream, Integer.valueOf(i2), Long.valueOf(j), Float.valueOf(f2), c1470f, c1470f2}) == null) {
             MediaCodec mediaCodec4 = mediaCodec;
             long j3 = j;
             String str2 = "MultimediaMixer";
@@ -384,13 +384,13 @@ public class g {
                                                 ByteBuffer duplicate = byteBufferArr[i3].duplicate();
                                                 duplicate.position(bufferInfo.offset);
                                                 duplicate.limit(bufferInfo.offset + i7);
-                                                if (c1428f == null || c1428f2 == null) {
+                                                if (c1470f == null || c1470f2 == null) {
                                                     z4 = true;
                                                 } else {
-                                                    f.C1428f[] c1428fArr = new f.C1428f[2];
-                                                    c1428fArr[c2] = c1428f;
-                                                    c1428fArr[1] = c1428f2;
-                                                    z4 = f.i(c1428fArr);
+                                                    f.C1470f[] c1470fArr = new f.C1470f[2];
+                                                    c1470fArr[c2] = c1470f;
+                                                    c1470fArr[1] = c1470f2;
+                                                    z4 = f.i(c1470fArr);
                                                 }
                                                 int i8 = (f2 > 1.0f ? 1 : (f2 == 1.0f ? 0 : -1));
                                                 if ((i8 != 0 || !z4) && i7 > 0) {
@@ -401,11 +401,11 @@ public class g {
                                                         bArr = k(bArr, f2);
                                                     }
                                                     if (!z4) {
-                                                        if (c1428f2.a()) {
-                                                            bArr = f.c(c1428f2.f29733c / 8, c1428f.f29733c / 8, bArr);
+                                                        if (c1470f2.a()) {
+                                                            bArr = f.c(c1470f2.f30602c / 8, c1470f.f30602c / 8, bArr);
                                                         }
-                                                        if (c1428f2.b()) {
-                                                            bArr = f.d(c1428f2.f29732b, c1428f.f29732b, 2, bArr);
+                                                        if (c1470f2.b()) {
+                                                            bArr = f.d(c1470f2.f30601b, c1470f.f30601b, 2, bArr);
                                                             byteBuffer2.position(0);
                                                             byteBuffer2.put(bArr);
                                                         }
@@ -589,19 +589,19 @@ public class g {
         }
     }
 
-    public static boolean h(String str, String[] strArr, StringBuilder sb, a.InterfaceC1439a interfaceC1439a) {
+    public static boolean h(String str, String[] strArr, StringBuilder sb, a.InterfaceC1481a interfaceC1481a) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65544, null, str, strArr, sb, interfaceC1439a)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65544, null, str, strArr, sb, interfaceC1481a)) == null) {
             try {
-                f.C1428f e2 = f.e(strArr[0]);
+                f.C1470f e2 = f.e(strArr[0]);
                 if (e2 == null) {
                     return false;
                 }
-                f.j(strArr[0], strArr[1], str, e2.f29732b, new b(interfaceC1439a, sb));
+                f.j(strArr[0], strArr[1], str, e2.f30601b, new b(interfaceC1481a, sb));
                 try {
-                    synchronized (f29736a) {
-                        f29736a.wait();
+                    synchronized (f30605a) {
+                        f30605a.wait();
                     }
                 } catch (InterruptedException e3) {
                     e3.printStackTrace();
@@ -626,7 +626,7 @@ public class g {
 
     public static boolean i(String str, float[] fArr, long[] jArr, long[] jArr2, String[] strArr, StringBuilder sb) {
         InterceptResult invokeCommon;
-        f.C1428f c1428f;
+        f.C1470f c1470f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{str, fArr, jArr, jArr2, strArr, sb})) == null) {
             long[] jArr3 = jArr;
@@ -642,22 +642,22 @@ public class g {
                 long currentTimeMillis = System.currentTimeMillis();
                 File[] fileArr = new File[strArr.length];
                 try {
-                    f.C1428f e2 = f.e(strArr[0]);
+                    f.C1470f e2 = f.e(strArr[0]);
                     if (e2 == null) {
                         return false;
                     }
-                    f.C1428f c1428f2 = new f.C1428f();
+                    f.C1470f c1470f2 = new f.C1470f();
                     int i2 = 0;
                     boolean z = true;
                     while (i2 < strArr.length) {
                         if (i2 != 0) {
-                            c1428f = f.e(strArr[i2]);
-                            if (c1428f == null) {
+                            c1470f = f.e(strArr[i2]);
+                            if (c1470f == null) {
                                 return false;
                             }
-                            z = f.i(e2, c1428f);
+                            z = f.i(e2, c1470f);
                         } else {
-                            c1428f = c1428f2;
+                            c1470f = c1470f2;
                         }
                         boolean z2 = z;
                         long j = currentTimeMillis;
@@ -671,11 +671,11 @@ public class g {
                         String str5 = str3;
                         sb4.append(System.currentTimeMillis());
                         String sb5 = sb4.toString();
-                        if (bVar.a(sb5, z2, e2, c1428f, jArr3[i2], jArr4[i2], 0L) != null) {
-                            if (!z2 && i2 != 0 && c1428f.c()) {
+                        if (bVar.a(sb5, z2, e2, c1470f, jArr3[i2], jArr4[i2], 0L) != null) {
+                            if (!z2 && i2 != 0 && c1470f.c()) {
                                 String str6 = str2 + "resample_" + System.currentTimeMillis();
                                 long currentTimeMillis2 = System.currentTimeMillis();
-                                boolean n = f.n(sb5, str6, c1428f.f29731a, e2.f29731a);
+                                boolean n = f.n(sb5, str6, c1470f.f30600a, e2.f30600a);
                                 b.a.x0.t.c.d("result : " + n + " resample cost = " + (System.currentTimeMillis() - currentTimeMillis2));
                                 if (n) {
                                     sb5 = str6;
@@ -687,7 +687,7 @@ public class g {
                         jArr3 = jArr;
                         jArr4 = jArr2;
                         z = z2;
-                        c1428f2 = c1428f;
+                        c1470f2 = c1470f;
                         str3 = str5;
                         currentTimeMillis = j;
                         sb3 = str4;
@@ -700,8 +700,8 @@ public class g {
                     b.a.x0.t.c.c("MultimediaMixer", "mixsourcecosttime:" + (System.currentTimeMillis() - currentTimeMillis3));
                     long currentTimeMillis4 = System.currentTimeMillis();
                     b.a.x0.l.d.a aVar = new b.a.x0.l.d.a(str7);
-                    aVar.e(e2.f29731a);
-                    aVar.d(e2.f29732b);
+                    aVar.e(e2.f30600a);
+                    aVar.d(e2.f30601b);
                     aVar.c(str);
                     b.a.x0.t.c.c("MultimediaMixer", "aacEncodercostTime:" + (System.currentTimeMillis() - currentTimeMillis4));
                     b.a.x0.t.c.c("MultimediaMixer", "auidomixcosttime:" + (System.currentTimeMillis() - currentTimeMillis));
@@ -847,7 +847,7 @@ public class g {
         }
         MediaExtractor mediaExtractor2 = null;
         try {
-            f.C1428f e2 = f.e(str2);
+            f.C1470f e2 = f.e(str2);
             if (e2 == null) {
                 if (sb != null) {
                     sb.append("transCodeFormat-audioFormatData-null");
@@ -968,7 +968,7 @@ public class g {
                             fileOutputStream4 = fileOutputStream5;
                             mediaExtractor = mediaExtractor3;
                             try {
-                                e(mediaExtractor3, mediaCodec2, mediaCodec, fileOutputStream5, e2.f29731a, j2, f2, null, null);
+                                e(mediaExtractor3, mediaCodec2, mediaCodec, fileOutputStream5, e2.f30600a, j2, f2, null, null);
                                 mediaExtractor.release();
                                 if (mediaCodec != null) {
                                     mediaCodec.stop();
@@ -1130,7 +1130,7 @@ public class g {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean p(String str, String str2, long j, long j2, StringBuilder sb, float f2, f.C1428f c1428f, f.C1428f c1428f2) {
+    public static boolean p(String str, String str2, long j, long j2, StringBuilder sb, float f2, f.C1470f c1470f, f.C1470f c1470f2) {
         InterceptResult invokeCommon;
         Throwable th;
         FileOutputStream fileOutputStream;
@@ -1139,7 +1139,7 @@ public class g {
         MediaExtractor mediaExtractor;
         MediaFormat mediaFormat;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), sb, Float.valueOf(f2), c1428f, c1428f2})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), sb, Float.valueOf(f2), c1470f, c1470f2})) != null) {
             return invokeCommon.booleanValue;
         }
         if (TextUtils.isEmpty(str2)) {
@@ -1150,7 +1150,7 @@ public class g {
         }
         FileOutputStream fileOutputStream2 = 0;
         try {
-            f.C1428f e2 = f.e(str2);
+            f.C1470f e2 = f.e(str2);
             if (e2 == null) {
                 if (sb != null) {
                     sb.append("transCodeFormat-audioFormatData-null");
@@ -1270,7 +1270,7 @@ public class g {
                             fileOutputStream2 = fileOutputStream3;
                             mediaExtractor = mediaExtractor2;
                             try {
-                                e(mediaExtractor2, mediaCodec, d2, fileOutputStream3, e2.f29731a, j2, f2, c1428f, c1428f2);
+                                e(mediaExtractor2, mediaCodec, d2, fileOutputStream3, e2.f30600a, j2, f2, c1470f, c1470f2);
                                 mediaExtractor.release();
                                 if (d2 != null) {
                                     d2.stop();

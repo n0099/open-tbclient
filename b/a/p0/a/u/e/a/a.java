@@ -1,20 +1,13 @@
 package b.a.p0.a.u.e.a;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
-import b.a.p0.a.a2.e;
-import b.a.p0.a.p.c.i;
-import b.a.p0.a.p.d.n;
-import b.a.p0.a.s.a.f;
-import b.a.p0.a.v2.w;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a extends b.a.p0.a.u.c.d {
+public abstract class a extends b.a.p0.a.u.c.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,33 +31,10 @@ public class a extends b.a.p0.a.u.c.d {
         }
     }
 
-    public static boolean r(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            boolean h2 = f.f7771d.h();
-            if (h2) {
-                return h2;
-            }
-            n a0 = b.a.p0.a.c1.a.a0();
-            return a0 instanceof i ? ((i) a0).k(context) : h2;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public b.a.p0.a.u.h.b q() {
+    @Override // b.a.p0.a.u.c.d
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            boolean z = b.a.p0.a.u.c.d.f8000c;
-            if (e.P() == null) {
-                return new b.a.p0.a.u.h.b(1001, "SwanApp is null");
-            }
-            boolean r = r(getContext());
-            JSONObject jSONObject = new JSONObject();
-            w.f(jSONObject, "isBaiduAccount", Boolean.valueOf(r));
-            return new b.a.p0.a.u.h.b(0, jSONObject);
-        }
-        return (b.a.p0.a.u.h.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Account" : (String) invokeV.objValue;
     }
 }

@@ -16,7 +16,7 @@ import tbclient.Error;
 import tbclient.GetHistoryForum.DataRes;
 import tbclient.GetHistoryForum.GetHistoryForumResIdl;
 import tbclient.HistoryForumInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RecentlyVisitedForumSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

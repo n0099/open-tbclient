@@ -2,7 +2,7 @@ package b.a.y0.e.g;
 
 import android.content.Context;
 import b.a.y0.e.f.d;
-import b.m.a.a;
+import b.k.a.a;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,20 +18,20 @@ public class a extends d {
 
     /* renamed from: b.a.y0.e.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C1441a implements a.c {
+    public class C1483a implements a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtomicBoolean f30000a;
+        public final /* synthetic */ AtomicBoolean f30869a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Object f30001b;
+        public final /* synthetic */ Object f30870b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f30002c;
+        public final /* synthetic */ a f30871c;
 
-        public C1441a(a aVar, AtomicBoolean atomicBoolean, Object obj) {
+        public C1483a(a aVar, AtomicBoolean atomicBoolean, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,34 +46,34 @@ public class a extends d {
                     return;
                 }
             }
-            this.f30002c = aVar;
-            this.f30000a = atomicBoolean;
-            this.f30001b = obj;
+            this.f30871c = aVar;
+            this.f30869a = atomicBoolean;
+            this.f30870b = obj;
         }
 
-        @Override // b.m.a.a.c
+        @Override // b.k.a.a.c
         public void a(int i2, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, exc) == null) {
-                this.f30002c.f29999g = i2;
-                this.f30000a.set(true);
-                synchronized (this.f30001b) {
-                    this.f30001b.notifyAll();
+                this.f30871c.f30868g = i2;
+                this.f30869a.set(true);
+                synchronized (this.f30870b) {
+                    this.f30870b.notifyAll();
                 }
             }
         }
 
-        @Override // b.m.a.a.c
+        @Override // b.k.a.a.c
         public void b(String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-                this.f30002c.f29996d = str;
-                this.f30002c.f29994b = z;
-                this.f30002c.f29995c = true;
-                this.f30002c.f29999g = 0;
-                this.f30000a.set(true);
-                synchronized (this.f30001b) {
-                    this.f30001b.notifyAll();
+                this.f30871c.f30865d = str;
+                this.f30871c.f30863b = z;
+                this.f30871c.f30864c = true;
+                this.f30871c.f30868g = 0;
+                this.f30869a.set(true);
+                synchronized (this.f30870b) {
+                    this.f30870b.notifyAll();
                 }
             }
         }
@@ -97,10 +97,10 @@ public class a extends d {
                 return;
             }
         }
-        this.f29996d = "";
-        this.f29994b = false;
-        this.f29995c = false;
-        this.f29999g = -200;
+        this.f30865d = "";
+        this.f30863b = false;
+        this.f30864c = false;
+        this.f30868g = -200;
     }
 
     @Override // b.a.y0.e.f.c
@@ -108,19 +108,19 @@ public class a extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            o();
+            n();
             return this;
         }
         return (b.a.y0.e.f.c) invokeV.objValue;
     }
 
-    public b.a.y0.e.f.c o() {
+    public b.a.y0.e.f.c n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Object obj = new Object();
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            b.m.a.a.d(this.f29993a, new C1441a(this, atomicBoolean, obj));
+            b.k.a.a.d(this.f30862a, new C1483a(this, atomicBoolean, obj));
             synchronized (obj) {
                 if (!atomicBoolean.get()) {
                     try {

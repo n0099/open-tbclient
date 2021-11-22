@@ -14,10 +14,10 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f24615a;
+    public boolean f26132a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<SdkLiveInfoData> f24616b;
+    public ArrayList<SdkLiveInfoData> f26133b;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class j {
                 return;
             }
         }
-        this.f24615a = false;
+        this.f26132a = false;
     }
 
     public void a(JSONObject jSONObject, String str) {
@@ -40,18 +40,18 @@ public class j {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) || jSONObject == null) {
             return;
         }
-        this.f24615a = jSONObject.optInt("has_more") == 1;
+        this.f26132a = jSONObject.optInt("has_more") == 1;
         JSONArray optJSONArray = jSONObject.optJSONArray("live_list");
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return;
         }
-        this.f24616b = new ArrayList<>(optJSONArray.length());
+        this.f26133b = new ArrayList<>(optJSONArray.length());
         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
                 sdkLiveInfoData.fromJson(optJSONObject, str);
-                this.f24616b.add(sdkLiveInfoData);
+                this.f26133b.add(sdkLiveInfoData);
             }
         }
     }

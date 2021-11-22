@@ -33,11 +33,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes5.dex */
-public class j extends b.a.e.l.e.a<m, CardViewHolder<b.a.r0.w.l.h.a>> {
+public class j extends b.a.e.m.e.a<m, CardViewHolder<b.a.r0.w.l.h.a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
-    public b.a.r0.t3.d n;
+    public b.a.r0.u3.d n;
     public boolean o;
     public String p;
     public String q;
@@ -51,10 +51,10 @@ public class j extends b.a.e.l.e.a<m, CardViewHolder<b.a.r0.w.l.h.a>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f25152e;
+        public final /* synthetic */ m f26669e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f25153f;
+        public final /* synthetic */ j f26670f;
 
         public a(j jVar, m mVar) {
             Interceptable interceptable = $ic;
@@ -71,15 +71,15 @@ public class j extends b.a.e.l.e.a<m, CardViewHolder<b.a.r0.w.l.h.a>> {
                     return;
                 }
             }
-            this.f25153f = jVar;
-            this.f25152e = mVar;
+            this.f26670f = jVar;
+            this.f26669e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f25153f.m0(this.f25152e);
+                this.f26670f.m0(this.f26669e);
             }
         }
     }
@@ -120,10 +120,10 @@ public class j extends b.a.e.l.e.a<m, CardViewHolder<b.a.r0.w.l.h.a>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f25154a;
+        public final /* synthetic */ TbPageContext f26671a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ j f25155b;
+        public final /* synthetic */ j f26672b;
 
         public c(j jVar, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
@@ -140,27 +140,27 @@ public class j extends b.a.e.l.e.a<m, CardViewHolder<b.a.r0.w.l.h.a>> {
                     return;
                 }
             }
-            this.f25155b = jVar;
-            this.f25154a = tbPageContext;
+            this.f26672b = jVar;
+            this.f26671a = tbPageContext;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
         public void onPermissionsGranted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = this.f25155b.o ? this.f25155b.p : "0";
-                String str2 = this.f25155b.o ? this.f25155b.q : null;
-                String str3 = this.f25155b.o ? this.f25155b.r : null;
+                String str = this.f26672b.o ? this.f26672b.p : "0";
+                String str2 = this.f26672b.o ? this.f26672b.q : null;
+                String str3 = this.f26672b.o ? this.f26672b.r : null;
                 MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
-                b.a.e.e.i.a.n().j(false);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f25154a.getPageActivity(), str2, str, TbadkCoreApplication.getCurrentAccount(), str3)));
+                b.a.e.f.i.a.n().j(false);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(this.f26671a.getPageActivity(), str2, str, TbadkCoreApplication.getCurrentAccount(), str3)));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), m.f25189f);
+        super(tbPageContext.getPageActivity(), m.f26706f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -197,7 +197,7 @@ public class j extends b.a.e.l.e.a<m, CardViewHolder<b.a.r0.w.l.h.a>> {
         this.s = aVar.o();
         u0();
         aVar.u(8);
-        aVar.v(this.f2419e.getResources().getString(R.string.ala_person_center_publish_live));
+        aVar.v(this.f2421e.getResources().getString(R.string.ala_person_center_publish_live));
         aVar.k(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -213,7 +213,7 @@ public class j extends b.a.e.l.e.a<m, CardViewHolder<b.a.r0.w.l.h.a>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: n0 */
     public CardViewHolder<b.a.r0.w.l.h.a> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -222,7 +222,7 @@ public class j extends b.a.e.l.e.a<m, CardViewHolder<b.a.r0.w.l.h.a>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: o0 */
     public View Z(int i2, View view, ViewGroup viewGroup, m mVar, CardViewHolder<b.a.r0.w.l.h.a> cardViewHolder) {
         InterceptResult invokeCommon;
@@ -267,7 +267,7 @@ public class j extends b.a.e.l.e.a<m, CardViewHolder<b.a.r0.w.l.h.a>> {
                 aVar.create(this.m).show();
             } else if (ViewHelper.checkUpIsLogin(this.m.getPageActivity())) {
                 if (this.n == null) {
-                    this.n = new b.a.r0.t3.d(this.m);
+                    this.n = new b.a.r0.u3.d(this.m);
                 }
                 if (this.o) {
                     if (this.n.c()) {
@@ -277,7 +277,7 @@ public class j extends b.a.e.l.e.a<m, CardViewHolder<b.a.r0.w.l.h.a>> {
                     return;
                 }
                 if (!BdBaseApplication.getInst().isDebugMode() && (plugin2 = PluginCenter.getInstance().getPlugin("com.baidu.tieba.pluginAla")) != null && !plugin2.isLoaded()) {
-                    b.a.e.e.p.l.L(this.m.getPageActivity(), R.string.plugin_config_not_found);
+                    b.a.e.f.p.l.L(this.m.getPageActivity(), R.string.plugin_config_not_found);
                 } else {
                     p0(this.m);
                 }

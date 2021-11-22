@@ -15,31 +15,31 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13006a;
+    public String f13786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13007b;
+    public String f13787b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13008c;
+    public int f13788c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13009d;
+    public int f13789d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13010e;
+    public int f13790e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13011f;
+    public int f13791f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13012g;
+    public String f13792g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13013h;
+    public String f13793h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13014i;
+    public int f13794i;
     public final int j;
 
     public b(int i2) {
@@ -58,14 +58,14 @@ public final class b {
             }
         }
         this.j = i2;
-        this.f13011f = -1;
+        this.f13791f = -1;
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.f13006a;
+            String str = this.f13786a;
             if (str == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("fid");
             }
@@ -77,25 +77,25 @@ public final class b {
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13008c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13788c : invokeV.intValue;
     }
 
     public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13009d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13789d : invokeV.intValue;
     }
 
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13012g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13792g : (String) invokeV.objValue;
     }
 
     public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13014i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13794i : invokeV.intValue;
     }
 
     public boolean equals(Object obj) {
@@ -113,13 +113,13 @@ public final class b {
     public final int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13011f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13791f : invokeV.intValue;
     }
 
     public final int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13010e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13790e : invokeV.intValue;
     }
 
     public final int getType() {
@@ -131,7 +131,7 @@ public final class b {
     public final String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f13013h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f13793h : (String) invokeV.objValue;
     }
 
     public int hashCode() {
@@ -144,7 +144,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            String str = this.f13007b;
+            String str = this.f13787b;
             if (str == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("uid");
             }
@@ -156,44 +156,44 @@ public final class b {
     public final void j(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048588, this, str, str2, i2) == null) {
-            this.f13006a = str;
-            this.f13007b = str2;
-            this.f13008c = i2;
+            this.f13786a = str;
+            this.f13787b = str2;
+            this.f13788c = i2;
         }
     }
 
     public final void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f13012g = str;
+            this.f13792g = str;
         }
     }
 
     public final void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f13014i = i2;
+            this.f13794i = i2;
         }
     }
 
     public final void m(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f13011f = i2;
+            this.f13791f = i2;
         }
     }
 
     public final void n(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f13010e = i2;
+            this.f13790e = i2;
         }
     }
 
     public final void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f13013h = str;
+            this.f13793h = str;
         }
     }
 
@@ -224,7 +224,7 @@ public final class b {
                 return;
             }
         }
-        this.f13009d = i3;
+        this.f13789d = i3;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -246,6 +246,6 @@ public final class b {
                 return;
             }
         }
-        this.f13010e = i4;
+        this.f13790e = i4;
     }
 }

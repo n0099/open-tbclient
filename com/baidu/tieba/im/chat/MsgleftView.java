@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.l1.f.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -43,10 +43,10 @@ public class MsgleftView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f50190e;
+        public long f51102e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MsgleftView f50191f;
+        public final /* synthetic */ MsgleftView f51103f;
 
         public a(MsgleftView msgleftView) {
             Interceptable interceptable = $ic;
@@ -63,8 +63,8 @@ public class MsgleftView extends e {
                     return;
                 }
             }
-            this.f50191f = msgleftView;
-            this.f50190e = 0L;
+            this.f51103f = msgleftView;
+            this.f51102e = 0L;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -73,17 +73,17 @@ public class MsgleftView extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    this.f50190e = System.currentTimeMillis();
+                    this.f51102e = System.currentTimeMillis();
                 } else if (motionEvent.getAction() == 1) {
-                    if (System.currentTimeMillis() - this.f50190e > 200) {
-                        if (this.f50191f.y.get()) {
-                            MsgleftView msgleftView = this.f50191f;
-                            msgleftView.f19989c.onItemViewLongClick(view, 2, msgleftView.f19992f, 0L);
-                            this.f50191f.y.set(false);
+                    if (System.currentTimeMillis() - this.f51102e > 200) {
+                        if (this.f51103f.y.get()) {
+                            MsgleftView msgleftView = this.f51103f;
+                            msgleftView.f21511c.onItemViewLongClick(view, 2, msgleftView.f21514f, 0L);
+                            this.f51103f.y.set(false);
                         }
                     } else {
-                        MsgleftView msgleftView2 = this.f50191f;
-                        msgleftView2.f19988b.onItemViewClick(view, 2, msgleftView2.f19992f, 0L);
+                        MsgleftView msgleftView2 = this.f51103f;
+                        msgleftView2.f21510b.onItemViewClick(view, 2, msgleftView2.f21514f, 0L);
                     }
                 }
                 return false;
@@ -98,7 +98,7 @@ public class MsgleftView extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgleftView f50192e;
+        public final /* synthetic */ MsgleftView f51104e;
 
         public b(MsgleftView msgleftView) {
             Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class MsgleftView extends e {
                     return;
                 }
             }
-            this.f50192e = msgleftView;
+            this.f51104e = msgleftView;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -123,7 +123,7 @@ public class MsgleftView extends e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                this.f50192e.y.set(true);
+                this.f51104e.y.set(true);
                 return true;
             }
             return invokeL.booleanValue;
@@ -265,8 +265,8 @@ public class MsgleftView extends e {
         }
         if (chatMessage == null) {
             this.u.setText((CharSequence) null);
-            this.f19995i.setVisibility(0);
-            this.f19995i.setText(null);
+            this.f21517i.setVisibility(0);
+            this.f21517i.setText(null);
             j(8);
             this.p.getImage().setTag(null);
             this.j.setVisibility(8);
@@ -292,7 +292,7 @@ public class MsgleftView extends e {
             if (chatMessage.getUserInfo().getUserType() != 1 && chatMessage.getUserInfo().getUserType() != 3) {
                 this.t.startLoad(str, 12, false);
                 this.t.setContentDescription(chatMessage.getUserInfo().getName_show());
-                this.f19995i.setVisibility(8);
+                this.f21517i.setVisibility(8);
                 j(8);
                 this.j.setVisibility(8);
                 this.k.setVisibility(8);
@@ -325,7 +325,7 @@ public class MsgleftView extends e {
             }
             this.t.startLoad(str, 10, false);
             this.t.setContentDescription(chatMessage.getUserInfo().getName_show());
-            this.f19995i.setVisibility(8);
+            this.f21517i.setVisibility(8);
             j(8);
             this.j.setVisibility(8);
             this.k.setVisibility(8);

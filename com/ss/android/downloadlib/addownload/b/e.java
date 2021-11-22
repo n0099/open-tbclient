@@ -23,16 +23,16 @@ public class e implements com.ss.android.downloadad.api.a.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f68513a;
+    public long f69433a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DownloadModel f68514b;
+    public DownloadModel f69434b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DownloadEventConfig f68515c;
+    public DownloadEventConfig f69435c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DownloadController f68516d;
+    public DownloadController f69436d;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -52,35 +52,35 @@ public class e implements com.ss.android.downloadad.api.a.a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68514b.getDownloadUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69434b.getDownloadUrl() : (String) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68514b.getId() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69434b.getId() : invokeV.longValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68514b.isAd() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f69434b.isAd() : invokeV.booleanValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68514b.getLogExtra() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f69434b.getLogExtra() : (String) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68514b.getPackageName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f69434b.getPackageName() : (String) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
@@ -88,8 +88,8 @@ public class e implements com.ss.android.downloadad.api.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f68514b.getDeepLink() != null) {
-                return this.f68514b.getDeepLink().getOpenUrl();
+            if (this.f69434b.getDeepLink() != null) {
+                return this.f69434b.getDeepLink().getOpenUrl();
             }
             return null;
         }
@@ -100,7 +100,7 @@ public class e implements com.ss.android.downloadad.api.a.a {
     public JSONObject g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68514b.getExtra() : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f69434b.getExtra() : (JSONObject) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
@@ -108,10 +108,10 @@ public class e implements com.ss.android.downloadad.api.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f68516d.getDownloadMode() == 2) {
+            if (this.f69436d.getDownloadMode() == 2) {
                 return 2;
             }
-            return this.f68514b.getFunnelType();
+            return this.f69434b.getFunnelType();
         }
         return invokeV.intValue;
     }
@@ -120,70 +120,70 @@ public class e implements com.ss.android.downloadad.api.a.a {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f68515c.getRefer() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f69435c.getRefer() : (String) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f68515c.getClickButtonTag() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f69435c.getClickButtonTag() : (String) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public JSONObject k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f68515c.getParamsJson() : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f69435c.getParamsJson() : (JSONObject) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public long l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f68514b.getExtraValue() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f69434b.getExtraValue() : invokeV.longValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f68515c.isEnableV3Event() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f69435c.isEnableV3Event() : invokeV.booleanValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public List<String> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f68514b.getClickTrackUrl() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f69434b.getClickTrackUrl() : (List) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public Object o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f68515c.getExtraEventObject() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f69435c.getExtraEventObject() : invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public JSONObject p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f68515c.getExtraJson() : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f69435c.getExtraJson() : (JSONObject) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f68516d.enableNewActivity() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f69436d.enableNewActivity() : invokeV.booleanValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public JSONObject r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f68514b.getDownloadSettings() : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f69434b.getDownloadSettings() : (JSONObject) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
@@ -200,28 +200,28 @@ public class e implements com.ss.android.downloadad.api.a.a {
     public int t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f68515c.getDownloadScene() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f69435c.getDownloadScene() : invokeV.intValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public DownloadModel u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f68514b : (DownloadModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f69434b : (DownloadModel) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public DownloadEventConfig v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f68515c : (DownloadEventConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f69435c : (DownloadEventConfig) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public DownloadController w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f68516d : (DownloadController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f69436d : (DownloadController) invokeV.objValue;
     }
 
     public boolean x() {
@@ -229,10 +229,10 @@ public class e implements com.ss.android.downloadad.api.a.a {
         DownloadModel downloadModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (this.f68513a == 0 || (downloadModel = this.f68514b) == null || this.f68515c == null || this.f68516d == null) {
+            if (this.f69433a == 0 || (downloadModel = this.f69434b) == null || this.f69435c == null || this.f69436d == null) {
                 return true;
             }
-            return downloadModel.isAd() && this.f68513a <= 0;
+            return downloadModel.isAd() && this.f69433a <= 0;
         }
         return invokeV.booleanValue;
     }
@@ -244,11 +244,11 @@ public class e implements com.ss.android.downloadad.api.a.a {
             if (x()) {
                 return false;
             }
-            if (this.f68514b.isAd()) {
-                DownloadModel downloadModel = this.f68514b;
-                return (downloadModel instanceof AdDownloadModel) && !TextUtils.isEmpty(downloadModel.getLogExtra()) && (this.f68515c instanceof AdDownloadEventConfig) && (this.f68516d instanceof AdDownloadController);
+            if (this.f69434b.isAd()) {
+                DownloadModel downloadModel = this.f69434b;
+                return (downloadModel instanceof AdDownloadModel) && !TextUtils.isEmpty(downloadModel.getLogExtra()) && (this.f69435c instanceof AdDownloadEventConfig) && (this.f69436d instanceof AdDownloadController);
             }
-            return this.f68514b instanceof AdDownloadModel;
+            return this.f69434b instanceof AdDownloadModel;
         }
         return invokeV.booleanValue;
     }
@@ -268,9 +268,9 @@ public class e implements com.ss.android.downloadad.api.a.a {
                 return;
             }
         }
-        this.f68513a = j;
-        this.f68514b = downloadModel;
-        this.f68515c = downloadEventConfig;
-        this.f68516d = downloadController;
+        this.f69433a = j;
+        this.f69434b = downloadModel;
+        this.f69435c = downloadEventConfig;
+        this.f69436d = downloadController;
     }
 }

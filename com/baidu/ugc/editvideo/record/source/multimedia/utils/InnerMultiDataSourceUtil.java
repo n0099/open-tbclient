@@ -821,7 +821,7 @@ public class InnerMultiDataSourceUtil {
             } catch (IOException unused) {
                 exifInterface = null;
             }
-            if (exifInterface != null && (attributeInt = exifInterface.getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, -1)) != -1) {
+            if (exifInterface != null && (attributeInt = exifInterface.getAttributeInt("Orientation", -1)) != -1) {
                 if (attributeInt == 3) {
                     return 180;
                 }

@@ -9,22 +9,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.vivo.identifier.IdentifierIdClient;
 /* loaded from: classes.dex */
 public class c implements b.a.n0.n.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f3743a;
+    public b f3833a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3744b;
+    public String f3834b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f3745c;
+    public Context f3835c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f3746d;
+    public a f3836d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -45,10 +46,10 @@ public class c implements b.a.n0.n.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f3744b)) {
-                this.f3744b = this.f3743a.a(0, null);
+            if (TextUtils.isEmpty(this.f3834b)) {
+                this.f3834b = this.f3833a.a(0, null);
             }
-            return this.f3744b;
+            return this.f3834b;
         }
         return (String) invokeV.objValue;
     }
@@ -57,11 +58,11 @@ public class c implements b.a.n0.n.a {
     public void a(Context context, b.a.n0.n.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
-            this.f3743a = new b(context);
-            this.f3745c = context;
+            this.f3833a = new b(context);
+            this.f3835c = context;
             if (b()) {
-                this.f3746d = new a(this);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f3746d);
+                this.f3836d = new a(this);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f3836d);
             }
             if (bVar != null) {
                 bVar.a();
@@ -76,7 +77,7 @@ public class c implements b.a.n0.n.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, "persist.sys.identifierid.supported", "0");
+                str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0");
             } catch (Throwable unused) {
                 str = null;
             }

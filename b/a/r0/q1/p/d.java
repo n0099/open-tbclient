@@ -14,25 +14,25 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f22730a;
+    public String f24251a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22731b;
+    public String f24252b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f22732c;
+    public String f24253c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f22733d;
+    public int f24254d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f22734e;
+    public String f24255e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22735f;
+    public String f24256f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f22736g;
+    public String f24257g;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -52,10 +52,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f22732c)) {
+            if (TextUtils.isEmpty(this.f24253c)) {
                 return false;
             }
-            return this.f22733d == 2 ? (TextUtils.isEmpty(this.f22734e) || TextUtils.isEmpty(this.f22735f) || TextUtils.isEmpty(this.f22736g)) ? false : true : (TextUtils.isEmpty(this.f22730a) || TextUtils.isEmpty(this.f22731b)) ? false : true;
+            return this.f24254d == 2 ? (TextUtils.isEmpty(this.f24255e) || TextUtils.isEmpty(this.f24256f) || TextUtils.isEmpty(this.f24257g)) ? false : true : (TextUtils.isEmpty(this.f24251a) || TextUtils.isEmpty(this.f24252b)) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -66,16 +66,16 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f22730a = jSONObject.optString("pic");
-        this.f22731b = jSONObject.optString("picNight");
-        this.f22732c = jSONObject.optString("scheme");
+        this.f24251a = jSONObject.optString("pic");
+        this.f24252b = jSONObject.optString("picNight");
+        this.f24253c = jSONObject.optString("scheme");
         int optInt = jSONObject.optInt("type", 1);
-        this.f22733d = optInt;
+        this.f24254d = optInt;
         if (optInt != 2 || (optJSONObject = jSONObject.optJSONObject("extra")) == null) {
             return;
         }
-        this.f22734e = optJSONObject.optString("title");
-        this.f22735f = optJSONObject.optString("content");
-        this.f22736g = optJSONObject.optString("imageUrl");
+        this.f24255e = optJSONObject.optString("title");
+        this.f24256f = optJSONObject.optString("content");
+        this.f24257g = optJSONObject.optString("imageUrl");
     }
 }

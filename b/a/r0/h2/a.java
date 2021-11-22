@@ -14,7 +14,7 @@ public class a {
         if ((interceptable == null || interceptable.invokeLLI(65536, null, str, obj, i2) == null) && (obj instanceof b.a.r0.h2.d.b)) {
             StatisticItem statisticItem = new StatisticItem(str);
             statisticItem.param("obj_locate", i2);
-            statisticItem.param("topic_id", ((b.a.r0.h2.d.b) obj).f17725e);
+            statisticItem.param("topic_id", ((b.a.r0.h2.d.b) obj).f19194e);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             statisticItem.eventStat();
         }

@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ABTestConstants;
 import com.yy.hiidostatis.inner.util.ArdUtil;
 import com.yy.hiidostatis.inner.util.FileUtil;
 import com.yy.hiidostatis.inner.util.cipher.Coder;
@@ -164,7 +163,7 @@ public final class DeviceManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
             try {
-                return Coder.encryptMD5(UUID.randomUUID().toString() + System.currentTimeMillis() + System.nanoTime() + new Random().nextInt(ABTestConstants.MAX_FATAL_ALLOCATION_FAILURE_SIZE_DEFAULT));
+                return Coder.encryptMD5(UUID.randomUUID().toString() + System.currentTimeMillis() + System.nanoTime() + new Random().nextInt(10000000));
             } catch (Throwable unused) {
                 return UUID.randomUUID().toString().replace("-", "");
             }

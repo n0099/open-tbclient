@@ -2,7 +2,7 @@ package b.a.p0.a.n0.j.d;
 
 import android.text.TextUtils;
 import androidx.collection.ArraySet;
-import b.a.p0.a.a1.e;
+import b.a.p0.a.a1.d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ public class c implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String[] f6817a;
+    public String[] f7146a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class c implements a {
                 return;
             }
         }
-        this.f6817a = new String[]{b.a.p0.a.a1.e.i(), b.a.p0.a.a1.e.l(), b.a.p0.a.a1.e.r(), e.b.f(), b.a.p0.a.e0.f.f.b.f(), b.a.p0.a.e0.f.f.b.d(), b.a.p0.a.e0.f.c.a.c(), e.f.f(), e.f.d(), b.a.p0.a.x0.a.d.a.f8938d};
+        this.f7146a = new String[]{b.a.p0.a.a1.d.i(), b.a.p0.a.a1.d.l(), b.a.p0.a.a1.d.r(), d.b.f(), b.a.p0.a.e0.f.f.b.f(), b.a.p0.a.e0.f.f.b.d(), b.a.p0.a.e0.f.c.a.c(), d.f.f(), d.f.d(), b.a.p0.a.x0.a.d.a.f9282d};
     }
 
     @Override // b.a.p0.a.n0.j.d.a
@@ -38,13 +38,13 @@ public class c implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.f6817a) {
-                String J = b.a.p0.t.d.J(str);
-                if (!TextUtils.isEmpty(J)) {
-                    arraySet.add(J);
+            for (String str : this.f7146a) {
+                String K = b.a.p0.w.d.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
                 }
             }
-            b.a.p0.a.e0.d.h("SwanSandboxFileCollector", "recovery renameAllFiles:" + arraySet.toString());
+            b.a.p0.a.e0.d.k("SwanSandboxFileCollector", "recovery renameAllFiles:" + arraySet.toString());
             return arraySet;
         }
         return (ArraySet) invokeV.objValue;

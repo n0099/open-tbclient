@@ -12,7 +12,7 @@ public final class ab implements av.b.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f71394a;
+    public final /* synthetic */ XMPushService f72314a;
 
     public ab(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
@@ -29,18 +29,18 @@ public final class ab implements av.b.a {
                 return;
             }
         }
-        this.f71394a = xMPushService;
+        this.f72314a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.av.b.a
     public void a(av.c cVar, av.c cVar2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, cVar, cVar2, i2) == null) {
-            if (cVar2 == av.c.f71438c) {
-                p.a(this.f71394a);
-                p.b(this.f71394a);
-            } else if (cVar2 == av.c.f71436a) {
-                p.a(this.f71394a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
+            if (cVar2 == av.c.f72358c) {
+                p.a(this.f72314a);
+                p.b(this.f72314a);
+            } else if (cVar2 == av.c.f72356a) {
+                p.a(this.f72314a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
             }
         }
     }

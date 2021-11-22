@@ -29,10 +29,10 @@ public class f extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f70019a;
+    public static final String[] f70939a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f70020b;
+    public static f f70940b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +48,7 @@ public class f extends SQLiteOpenHelper {
                 return;
             }
         }
-        f70019a = new String[]{"key"};
+        f70939a = new String[]{"key"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -78,10 +78,10 @@ public class f extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (f.class) {
-                if (f70020b == null) {
-                    f70020b = new f(com.tencent.open.utils.f.a());
+                if (f70940b == null) {
+                    f70940b = new f(com.tencent.open.utils.f.a());
                 }
-                fVar = f70020b;
+                fVar = f70940b;
             }
             return fVar;
         }

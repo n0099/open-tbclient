@@ -18,7 +18,7 @@ public class ParcelItem implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f39619a;
+    public Bundle f40451a;
 
     static {
         InterceptResult invokeClinit;
@@ -63,13 +63,13 @@ public class ParcelItem implements Parcelable {
     public Bundle getBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39619a : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40451a : (Bundle) invokeV.objValue;
     }
 
     public void setBundle(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            this.f39619a = bundle;
+            this.f40451a = bundle;
         }
     }
 
@@ -77,7 +77,7 @@ public class ParcelItem implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
-            parcel.writeBundle(this.f39619a);
+            parcel.writeBundle(this.f40451a);
         }
     }
 }

@@ -101,7 +101,7 @@ public class PrefOperate {
     public static void setAppKey(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            CooperService.instance().getHeadObject().f41471f = str;
+            CooperService.instance().getHeadObject().f42303f = str;
         }
     }
 

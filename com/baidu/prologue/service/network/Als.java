@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.prologue.service.network.Request;
-import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
@@ -27,7 +26,7 @@ public class Als {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f42152a;
+    public static final boolean f43098a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -263,7 +262,7 @@ public class Als {
             SHOW = new Type("SHOW", 1, "3");
             DISCARD = new Type("DISCARD", 2, "5");
             CLOSE = new Type("CLOSE", 3, "7");
-            Type type = new Type("DEEP_LINK", 4, PraiseUBCHelper.PRAISE_FLOW_ID);
+            Type type = new Type("DEEP_LINK", 4, "706");
             DEEP_LINK = type;
             $VALUES = new Type[]{CLICK, SHOW, DISCARD, CLOSE, type};
         }
@@ -324,7 +323,7 @@ public class Als {
         @Override // b.a.f0.d.a.i
         public void a(Throwable th) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && Als.f42152a) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && Als.f43098a) {
                 String str = "Als get error response, " + th;
             }
         }
@@ -335,7 +334,7 @@ public class Als {
         public void onResponse(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                boolean unused = Als.f42152a;
+                boolean unused = Als.f43098a;
             }
         }
     }
@@ -362,7 +361,7 @@ public class Als {
         @Override // b.a.f0.d.a.i
         public void a(Throwable th) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && Als.f42152a) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && Als.f43098a) {
                 String str = "Als performance get error response, " + th;
             }
         }
@@ -373,7 +372,7 @@ public class Als {
         public void onResponse(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                boolean unused = Als.f42152a;
+                boolean unused = Als.f43098a;
             }
         }
     }
@@ -384,7 +383,7 @@ public class Als {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final JSONObject f42153a;
+        public final JSONObject f43099a;
 
         public c(@NonNull Type type) {
             Interceptable interceptable = $ic;
@@ -401,24 +400,24 @@ public class Als {
                     return;
                 }
             }
-            this.f42153a = new JSONObject();
+            this.f43099a = new JSONObject();
             d("da_type", type.value);
             c("origin_time", Long.valueOf(System.currentTimeMillis()));
             i(String.valueOf(f.a()));
-            j(b.a.f0.b.g.c.f2835b);
+            j(b.a.f0.b.g.c.f2928b);
         }
 
         public final <T> c b(String str, T t) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, t)) == null) {
-                if (Als.f42152a && this.f42153a.has(str)) {
+                if (Als.f43098a && this.f43099a.has(str)) {
                     throw new IllegalArgumentException("key " + str + " has been set!");
                 }
                 try {
-                    this.f42153a.put(str, t);
+                    this.f43099a.put(str, t);
                 } catch (JSONException unused) {
-                    if (Als.f42152a) {
+                    if (Als.f43098a) {
                         throw new IllegalArgumentException("Json put create invalid exception");
                     }
                 }
@@ -551,7 +550,7 @@ public class Als {
                 return;
             }
         }
-        f42152a = b.a.f0.a.b.a.f2781a.get() != null && b.a.f0.a.b.a.f2781a.get().s();
+        f43098a = b.a.f0.a.b.a.f2874a.get() != null && b.a.f0.a.b.a.f2874a.get().s();
     }
 
     public static void b(Request.c cVar, b.a.f0.a.b.a aVar) {
@@ -592,9 +591,9 @@ public class Als {
     public static void e(@NonNull c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cVar) == null) {
-            b.a.f0.a.b.a aVar = b.a.f0.a.b.a.f2781a.get();
+            b.a.f0.a.b.a aVar = b.a.f0.a.b.a.f2874a.get();
             if (aVar == null) {
-                if (f42152a) {
+                if (f43098a) {
                     throw new IllegalStateException("宿主App未初始化IAppContext");
                 }
                 return;
@@ -602,7 +601,7 @@ public class Als {
             Request.c cVar2 = new Request.c(aVar.o(), "https://als.baidu.com/clog/clog");
             b(cVar2, aVar);
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(cVar.f42153a);
+            jSONArray.put(cVar.f43099a);
             cVar2.j("ad", jSONArray.toString());
             cVar2.n();
             cVar2.l().e(new a());
@@ -612,9 +611,9 @@ public class Als {
     public static void f(String str, String str2, String str3, long j, long j2, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), str4}) == null) {
-            b.a.f0.a.b.a aVar = b.a.f0.a.b.a.f2781a.get();
+            b.a.f0.a.b.a aVar = b.a.f0.a.b.a.f2874a.get();
             if (aVar == null) {
-                if (f42152a) {
+                if (f43098a) {
                     throw new IllegalStateException("宿主App未初始化IAppContext");
                 }
                 return;

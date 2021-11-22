@@ -1125,7 +1125,7 @@ public class SapiJsInterpreters {
                             c2 = 65535;
                             break;
                         case 3872:
-                            if (str.equals(FastLoginFeature.SSOLoginType.YY)) {
+                            if (str.equals("yy")) {
                                 c2 = '\b';
                                 break;
                             }
@@ -5714,8 +5714,8 @@ public class SapiJsInterpreters {
             this.this$0 = sapiJsInterpreters;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:18:0x0055  */
-        /* JADX WARN: Removed duplicated region for block: B:22:0x0072  */
+        /* JADX WARN: Removed duplicated region for block: B:18:0x0056  */
+        /* JADX WARN: Removed duplicated region for block: B:22:0x0073  */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         /*
             Code decompiled incorrectly, please refer to instructions dump.

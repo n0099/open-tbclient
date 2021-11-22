@@ -192,8 +192,8 @@ public class AccountManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0048  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x007e  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0049  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x007f  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -212,7 +212,7 @@ public class AccountManagerImpl {
                 Utility.writeLoginFlag(context, "5N", "startLoginServiceRunnable begin, loginType = " + i2 + "，needLogout :" + z);
                 if (!z) {
                     LogUtils.d(TAG, "need logout before login");
-                    if (a.f28673e) {
+                    if (a.f29542e) {
                         BIMManager.imLogoutByLcp(mContext);
                         startLoginService(i2, str, str2, str3, str4, iLoginListener);
                         return;
@@ -374,7 +374,7 @@ public class AccountManagerImpl {
                 Utility.clearCache(mContext);
                 this.mToken = null;
             }
-            if (!a.f28673e) {
+            if (!a.f29542e) {
                 clearLoginParam(mContext);
                 clearUid(mContext);
                 disconnect(str);
@@ -885,7 +885,7 @@ public class AccountManagerImpl {
                 ConversationStudioManImpl.getInstance(mContext).clearAckCastList();
                 noticeStateChanged(3);
                 BIMManager.connectStatusNotify(0);
-                if (!a.f28673e) {
+                if (!a.f29542e) {
                     Utility.sendConnectionStateBroadCast(mContext, 0);
                 }
             } else {

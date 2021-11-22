@@ -21,16 +21,16 @@ public class EnvConfig {
     public static final String ENVIRONMENT_RD = "RD";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37302a = "https://jrws.baidu.com";
+    public static final String f38132a = "https://jrws.baidu.com";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37303b = "https://jrws.baidu.com";
+    public static final String f38133b = "https://jrws.baidu.com";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f37304c = "https://jrws.baidu.com";
+    public static String f38134c = "https://jrws.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static EnvConfig f37305d;
+    public static EnvConfig f38135d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -68,11 +68,11 @@ public class EnvConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (EnvConfig.class) {
-                EnvConfig envConfig2 = f37305d;
+                EnvConfig envConfig2 = f38135d;
                 if (envConfig2 == null && envConfig2 == null) {
-                    f37305d = new EnvConfig();
+                    f38135d = new EnvConfig();
                 }
-                envConfig = f37305d;
+                envConfig = f38135d;
             }
             return envConfig;
         }
@@ -82,7 +82,7 @@ public class EnvConfig {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            f37304c = "https://jrws.baidu.com";
+            f38134c = "https://jrws.baidu.com";
             DEFAULT_ENVIRONMENT = "ONLINE";
         }
     }
@@ -122,7 +122,7 @@ public class EnvConfig {
     public String getRimHttpsHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f37304c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f38134c : (String) invokeV.objValue;
     }
 
     public void initEnv() {

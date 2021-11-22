@@ -13,32 +13,32 @@ public final class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f35788a;
+    public static final h f36617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f35789b;
+    public static final h f36618b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final h f35790c;
+    public static final h f36619c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f35791d;
+    public static final h f36620d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h f35792e;
+    public static final h f36621e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h f35793f;
+    public static final h f36622f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final h f35794g;
+    public static final h f36623g;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final /* synthetic */ h[] f35795i;
+    public static final /* synthetic */ h[] f36624i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public short f35796h;
+    public short f36625h;
 
     static {
         InterceptResult invokeClinit;
@@ -53,15 +53,15 @@ public final class h {
                 return;
             }
         }
-        f35788a = new h("TYPE_INVALUE", 0, -1);
-        f35789b = new h("MSG_ID_HANDSHAKE", 1, 1);
-        f35790c = new h("MSG_ID_HEARTBEAT_SERVER", 2, 2);
-        f35791d = new h("MSG_ID_HEARTBEAT_CLIENT", 3, 4);
-        f35792e = new h("MSG_ID_PUSH_MSG", 4, 3);
-        f35793f = new h("MSG_ID_TINY_HEARTBEAT_CLIENT", 5, 5);
+        f36617a = new h("TYPE_INVALUE", 0, -1);
+        f36618b = new h("MSG_ID_HANDSHAKE", 1, 1);
+        f36619c = new h("MSG_ID_HEARTBEAT_SERVER", 2, 2);
+        f36620d = new h("MSG_ID_HEARTBEAT_CLIENT", 3, 4);
+        f36621e = new h("MSG_ID_PUSH_MSG", 4, 3);
+        f36622f = new h("MSG_ID_TINY_HEARTBEAT_CLIENT", 5, 5);
         h hVar = new h("MSG_ID_TINY_HEARTBEAT_SERVER", 6, 6);
-        f35794g = hVar;
-        f35795i = new h[]{f35788a, f35789b, f35790c, f35791d, f35792e, f35793f, hVar};
+        f36623g = hVar;
+        f36624i = new h[]{f36617a, f36618b, f36619c, f36620d, f36621e, f36622f, hVar};
     }
 
     public h(String str, int i2, int i3) {
@@ -82,7 +82,7 @@ public final class h {
                 return;
             }
         }
-        this.f35796h = (short) i3;
+        this.f36625h = (short) i3;
     }
 
     public static h a(short s) {
@@ -91,19 +91,19 @@ public final class h {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Short.valueOf(s)})) == null) {
             switch (s) {
                 case 1:
-                    return f35789b;
+                    return f36618b;
                 case 2:
-                    return f35790c;
+                    return f36619c;
                 case 3:
-                    return f35792e;
+                    return f36621e;
                 case 4:
-                    return f35791d;
+                    return f36620d;
                 case 5:
-                    return f35793f;
+                    return f36622f;
                 case 6:
-                    return f35794g;
+                    return f36623g;
                 default:
-                    return f35788a;
+                    return f36617a;
             }
         }
         return (h) invokeCommon.objValue;
@@ -112,12 +112,12 @@ public final class h {
     public static h[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) f35795i.clone() : (h[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) f36624i.clone() : (h[]) invokeV.objValue;
     }
 
     public short b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35796h : invokeV.shortValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36625h : invokeV.shortValue;
     }
 }

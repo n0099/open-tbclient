@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.PushManager;
+import com.heytap.mcssdk.mode.CommandMessage;
 import com.heytap.mcssdk.mode.MessageStat;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -76,7 +77,7 @@ public class StatUtil {
                 intent.setAction(PushManager.getReceiveSdkAction(context));
                 intent.setPackage(PushManager.getMcsPackageName(context));
                 intent.putExtra("appPackage", context.getPackageName());
-                intent.putExtra("type", 12291);
+                intent.putExtra("type", CommandMessage.COMMAND_STATISTIC);
                 intent.putExtra("count", list.size());
                 ArrayList<String> arrayList = new ArrayList<>();
                 for (MessageStat messageStat : list) {

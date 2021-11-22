@@ -23,11 +23,11 @@ public class f extends b.a.q0.s.q.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f17456f;
+    public static final BdUniqueId f18925f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<AlaLiveInfo> f17457e;
+    public List<AlaLiveInfo> f18926e;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class f extends b.a.q0.s.q.a {
                 return;
             }
         }
-        f17456f = BdUniqueId.gen();
+        f18925f = BdUniqueId.gen();
     }
 
     public f() {
@@ -58,13 +58,13 @@ public class f extends b.a.q0.s.q.a {
                 return;
             }
         }
-        this.f17457e = new ArrayList();
+        this.f18926e = new ArrayList();
     }
 
     public List<AlaLiveInfo> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17457e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18926e : (List) invokeV.objValue;
     }
 
     @Override // b.a.q0.s.q.a
@@ -87,11 +87,11 @@ public class f extends b.a.q0.s.q.a {
         return (d2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f17456f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f18925f : (BdUniqueId) invokeV.objValue;
     }
 
     public StatisticItem i() {
@@ -110,11 +110,11 @@ public class f extends b.a.q0.s.q.a {
     public void k(UserFollowLive userFollowLive) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, userFollowLive) == null) {
-            this.f17457e.clear();
+            this.f18926e.clear();
             if (userFollowLive == null || userFollowLive._switch.intValue() == 0 || ListUtils.isEmpty(userFollowLive.user_follow_live)) {
                 return;
             }
-            this.f17457e.addAll(userFollowLive.user_follow_live);
+            this.f18926e.addAll(userFollowLive.user_follow_live);
         }
     }
 }

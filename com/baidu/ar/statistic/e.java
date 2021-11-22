@@ -2,7 +2,7 @@ package com.baidu.ar.statistic;
 
 import android.content.Context;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface e {
     void a(Context context, a aVar);
 

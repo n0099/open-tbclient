@@ -17,19 +17,19 @@ public class a implements b.a.r0.q1.o.h.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2755e;
+    public int f2848e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2756f;
+    public String f2849f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2757g;
+    public String f2850g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2758h;
+    public String f2851h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f2759i;
+    public String f2852i;
     public int j;
     public String k;
     public String l;
@@ -58,7 +58,7 @@ public class a implements b.a.r0.q1.o.h.b {
                 return;
             }
         }
-        this.f2755e = 3;
+        this.f2848e = 3;
         this.u = new ArrayList<>();
         this.v = new ArrayList<>();
     }
@@ -66,7 +66,7 @@ public class a implements b.a.r0.q1.o.h.b {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2755e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2848e : invokeV.intValue;
     }
 
     public String b() {
@@ -84,7 +84,7 @@ public class a implements b.a.r0.q1.o.h.b {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2755e == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2848e == 2 : invokeV.booleanValue;
     }
 
     public boolean d() {
@@ -104,7 +104,7 @@ public class a implements b.a.r0.q1.o.h.b {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f2755e = i2;
+            this.f2848e = i2;
         }
     }
 
@@ -116,8 +116,8 @@ public class a implements b.a.r0.q1.o.h.b {
             if (this.w == null) {
                 b.a aVar = new b.a();
                 this.w = aVar;
-                aVar.f22626c = this.u;
-                aVar.f22627d = this.v;
+                aVar.f24147c = this.u;
+                aVar.f24148d = this.v;
             }
             return this.w;
         }

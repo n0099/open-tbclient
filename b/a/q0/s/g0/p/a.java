@@ -15,13 +15,13 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ItemData f13003a;
+    public ItemData f13783a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f13004b;
+    public final int f13784b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f13005c;
+    public final String f13785c;
 
     public a(ItemData itemData, int i2, String str) {
         Interceptable interceptable = $ic;
@@ -38,27 +38,27 @@ public final class a {
                 return;
             }
         }
-        this.f13003a = itemData;
-        this.f13004b = i2;
-        this.f13005c = str;
+        this.f13783a = itemData;
+        this.f13784b = i2;
+        this.f13785c = str;
     }
 
     public final ItemData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13003a : (ItemData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13783a : (ItemData) invokeV.objValue;
     }
 
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13004b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13784b : invokeV.intValue;
     }
 
     public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13005c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13785c : (String) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -68,7 +68,7 @@ public final class a {
             if (this != obj) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    return Intrinsics.areEqual(this.f13003a, aVar.f13003a) && this.f13004b == aVar.f13004b && Intrinsics.areEqual(this.f13005c, aVar.f13005c);
+                    return Intrinsics.areEqual(this.f13783a, aVar.f13783a) && this.f13784b == aVar.f13784b && Intrinsics.areEqual(this.f13785c, aVar.f13785c);
                 }
                 return false;
             }
@@ -81,9 +81,9 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ItemData itemData = this.f13003a;
-            int hashCode = (((itemData != null ? itemData.hashCode() : 0) * 31) + this.f13004b) * 31;
-            String str = this.f13005c;
+            ItemData itemData = this.f13783a;
+            int hashCode = (((itemData != null ? itemData.hashCode() : 0) * 31) + this.f13784b) * 31;
+            String str = this.f13785c;
             return hashCode + (str != null ? str.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -93,7 +93,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ItemCardViewButtonData(item=" + this.f13003a + ", position=" + this.f13004b + ", tid=" + this.f13005c + SmallTailInfo.EMOTION_SUFFIX;
+            return "ItemCardViewButtonData(item=" + this.f13783a + ", position=" + this.f13784b + ", tid=" + this.f13785c + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

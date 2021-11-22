@@ -36,7 +36,7 @@ public class s0 extends h {
     public int r;
     public String s;
     public int t;
-    public b.a.l.w0.a u;
+    public b.a.l.x0.a u;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -44,7 +44,7 @@ public class s0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s0 f3277e;
+        public final /* synthetic */ s0 f3368e;
 
         public a(s0 s0Var) {
             Interceptable interceptable = $ic;
@@ -61,28 +61,28 @@ public class s0 extends h {
                     return;
                 }
             }
-            this.f3277e = s0Var;
+            this.f3368e = s0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             s0 s0Var;
-            a.InterfaceC0088a interfaceC0088a;
+            a.InterfaceC0090a interfaceC0090a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0088a = (s0Var = this.f3277e).f3219i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0090a = (s0Var = this.f3368e).f3310i) == null) {
                 return;
             }
-            interfaceC0088a.a(s0Var.p);
+            interfaceC0090a.a(s0Var.p);
         }
     }
 
     /* loaded from: classes.dex */
-    public class b implements b.a.l.w0.a {
+    public class b implements b.a.l.x0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ s0 f3278a;
+        public final /* synthetic */ s0 f3369a;
 
         public b(s0 s0Var) {
             Interceptable interceptable = $ic;
@@ -99,16 +99,16 @@ public class s0 extends h {
                     return;
                 }
             }
-            this.f3278a = s0Var;
+            this.f3369a = s0Var;
         }
 
-        @Override // b.a.l.w0.a
+        @Override // b.a.l.x0.a
         public void a(b.a.q0.s.q.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f3278a.u == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f3369a.u == null) {
                 return;
             }
-            this.f3278a.u.a(this.f3278a.p);
+            this.f3369a.u.a(this.f3369a.p);
         }
     }
 
@@ -126,7 +126,7 @@ public class s0 extends h {
             }
         }
         v = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2;
-        w = b.a.e.e.p.l.k(TbadkCoreApplication.getInst());
+        w = b.a.e.f.p.l.k(TbadkCoreApplication.getInst());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -166,11 +166,11 @@ public class s0 extends h {
     }
 
     @Override // b.a.l.a
-    public void k(b.a.r0.b0.c0<b.a.q0.s.q.a> c0Var) {
+    public void k(b.a.r0.b0.d0<b.a.q0.s.q.a> d0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0Var) == null) {
-            super.k(c0Var);
-            this.q.setOnCardSubClickListener(c0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d0Var) == null) {
+            super.k(d0Var);
+            this.q.setOnCardSubClickListener(d0Var);
         }
     }
 
@@ -212,9 +212,9 @@ public class s0 extends h {
     public void onBindDataToView(b.a.q0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            int k = b.a.e.e.p.l.k(TbadkCoreApplication.getInst());
+            int k = b.a.e.f.p.l.k(TbadkCoreApplication.getInst());
             if (k != this.r) {
-                w = b.a.e.e.p.l.k(TbadkCoreApplication.getInst());
+                w = b.a.e.f.p.l.k(TbadkCoreApplication.getInst());
                 if (!"pb".equals(this.s)) {
                     this.l = w - v;
                 } else {
@@ -226,7 +226,7 @@ public class s0 extends h {
                 this.r = k;
             }
             this.p = aVar;
-            if (aVar != null && aVar.getThreadData() != null && this.p.getThreadData().y1 != null && !this.p.getThreadData().y1.m && !this.p.getThreadData().L4()) {
+            if (aVar != null && aVar.getThreadData() != null && this.p.getThreadData().y1 != null && !this.p.getThreadData().y1.m && !this.p.getThreadData().N4()) {
                 this.q.setVisibility(0);
                 this.q.onBindDataToView(aVar);
                 ViewGroup.LayoutParams layoutParams = this.q.getLayoutParams();
@@ -263,8 +263,8 @@ public class s0 extends h {
                     int i8 = this.l;
                     layoutParams.width = i8;
                     layoutParams2.width = i8;
-                    layoutParams.height = ((i8 / 16) * 9) - b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-                    layoutParams2.height = ((this.l / 16) * 9) - b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+                    layoutParams.height = ((i8 / 16) * 9) - b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+                    layoutParams2.height = ((this.l / 16) * 9) - b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
                     if (i4 != layoutParams.height || i3 != layoutParams.width) {
                         r1 = true;
                     }
@@ -289,14 +289,14 @@ public class s0 extends h {
         }
     }
 
-    public void w(a.InterfaceC0088a interfaceC0088a) {
+    public void w(a.InterfaceC0090a interfaceC0090a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0088a) == null) {
-            this.f3219i = interfaceC0088a;
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0090a) == null) {
+            this.f3310i = interfaceC0090a;
         }
     }
 
-    public void x(b.a.l.w0.a aVar) {
+    public void x(b.a.l.x0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             this.u = aVar;

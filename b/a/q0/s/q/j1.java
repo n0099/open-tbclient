@@ -11,31 +11,31 @@ public class j1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f13367a;
+    public View f14147a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f13368b;
+    public View f14148b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f13369c;
+    public View f14149c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f13370d;
+    public View f14150d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f13371e;
+    public View f14151e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f13372f;
+    public View f14152f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f13373g;
+    public View f14153g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f13374h;
+    public View f14154h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f13375i;
+    public View f14155i;
     public View j;
     public View k;
     public View l;
@@ -65,15 +65,15 @@ public class j1 {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f13367a = null;
-            this.f13368b = null;
-            this.f13369c = null;
-            this.f13370d = null;
-            this.f13371e = null;
-            this.f13372f = null;
-            this.f13373g = null;
-            this.f13374h = null;
-            this.f13375i = null;
+            this.f14147a = null;
+            this.f14148b = null;
+            this.f14149c = null;
+            this.f14150d = null;
+            this.f14151e = null;
+            this.f14152f = null;
+            this.f14153g = null;
+            this.f14154h = null;
+            this.f14155i = null;
             this.j = null;
             this.l = null;
             this.m = null;

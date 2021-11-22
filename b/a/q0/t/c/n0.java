@@ -14,22 +14,22 @@ public class n0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13823a;
+    public String f14591a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f13824b;
+    public long f14592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f13825c;
+    public long f14593c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f13826d;
+    public long f14594d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13827e;
+    public String f14595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13828f;
+    public String f14596f;
 
     public n0() {
         Interceptable interceptable = $ic;
@@ -48,52 +48,52 @@ public class n0 {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13825c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14593c : invokeV.longValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13828f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14596f : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13827e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14595e : (String) invokeV.objValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13826d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14594d : invokeV.longValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13824b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14592b : invokeV.longValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13823a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14591a : (String) invokeV.objValue;
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || b.a.e.e.p.k.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || b.a.e.f.p.k.isEmpty(str)) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f13823a = jSONObject.optString("splash_video_url");
-            this.f13824b = jSONObject.optLong("splash_video_start_time") * 1000;
-            this.f13825c = jSONObject.optLong("splash_video_end_time") * 1000;
-            this.f13826d = jSONObject.optLong("splash_video_interval_time") * 1000;
-            this.f13827e = jSONObject.optString("splash_video_h5_url");
-            this.f13828f = jSONObject.optString("splash_video_h5_text");
+            this.f14591a = jSONObject.optString("splash_video_url");
+            this.f14592b = jSONObject.optLong("splash_video_start_time") * 1000;
+            this.f14593c = jSONObject.optLong("splash_video_end_time") * 1000;
+            this.f14594d = jSONObject.optLong("splash_video_interval_time") * 1000;
+            this.f14595e = jSONObject.optString("splash_video_h5_url");
+            this.f14596f = jSONObject.optString("splash_video_h5_text");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

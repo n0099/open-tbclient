@@ -1,6 +1,6 @@
 package b.a.r0.k2.t;
 
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
@@ -35,7 +35,7 @@ public class d extends a<e, CustomDialogData> {
                 return;
             }
         }
-        V v = this.f18844h;
+        V v = this.f20381h;
         if (v instanceof e) {
             ((e) v).f(this);
         }
@@ -45,7 +45,7 @@ public class d extends a<e, CustomDialogData> {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? l.g(this.f18839c, R.dimen.ds90) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? l.g(this.f20376c, R.dimen.ds90) : invokeV.intValue;
     }
 
     @Override // b.a.r0.k2.t.f

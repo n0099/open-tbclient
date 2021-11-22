@@ -1,7 +1,7 @@
 package b.a.r0.g.f;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.l.e.p;
+import b.a.e.m.e.p;
 import b.a.r0.g.e.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -17,19 +17,19 @@ public class a extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public p f16616d;
+    public p f18130d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, String> f16617e;
+    public Map<String, String> f18131e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Object f16618f;
+    public Object f18132f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16619g;
+    public int f18133g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f16620h;
+    public int f18134h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext tbPageContext, int i2) {
@@ -55,58 +55,58 @@ public class a extends g {
     public Object d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16618f : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18132f : invokeV.objValue;
     }
 
     public p e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16616d : (p) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18130d : (p) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16619g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18133g : invokeV.intValue;
     }
 
     public Map<String, String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16617e : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18131e : (Map) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16620h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f18134h : invokeV.intValue;
     }
 
     public void i(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-            this.f16618f = obj;
+            this.f18132f = obj;
         }
     }
 
     public void j(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, pVar) == null) {
-            this.f16616d = pVar;
+            this.f18130d = pVar;
         }
     }
 
     public void k(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            this.f16617e = map;
+            this.f18131e = map;
         }
     }
 
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f16620h = i2;
+            this.f18134h = i2;
         }
     }
 }

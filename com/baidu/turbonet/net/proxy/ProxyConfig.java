@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ProxyConfig {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ProxyConfig f56619b;
+    public static final ProxyConfig f57541b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LibType f56620a;
+    public LibType f57542a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class LibType {
         public static final /* synthetic */ LibType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -93,7 +93,7 @@ public class ProxyConfig {
                 return;
             }
         }
-        f56619b = new ProxyConfig();
+        f57541b = new ProxyConfig();
     }
 
     public ProxyConfig() {
@@ -109,25 +109,25 @@ public class ProxyConfig {
                 return;
             }
         }
-        this.f56620a = LibType.TURBONET;
+        this.f57542a = LibType.TURBONET;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56620a == LibType.NATIVE : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57542a == LibType.NATIVE : invokeV.booleanValue;
     }
 
     public void b(LibType libType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, libType) == null) {
-            this.f56620a = libType;
+            this.f57542a = libType;
         }
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56620a == LibType.NATIVE ? Constant.TYPE_NATIVE : "TURBONET" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f57542a == LibType.NATIVE ? Constant.TYPE_NATIVE : "TURBONET" : (String) invokeV.objValue;
     }
 }

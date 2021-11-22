@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.n.h.f;
-import b.a.p0.n.h.g;
+import b.a.p0.q.i.g;
+import b.a.p0.q.i.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,6 +24,7 @@ public class PMSAppInfo implements Parcelable {
     public static final int ORIENTATION_UNKNOWN = -1;
     public static final int STATUS_NO_ERROR = 0;
     public static final int UN_FORBIDDEN = 0;
+    public static final int WEB_PERMIT_DOWNGRADE_ALLOW = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public int appCategory;
     public String appId;
@@ -53,6 +54,7 @@ public class PMSAppInfo implements Parcelable {
     public long pkgSize;
     public String pluginInfo;
     public String quickAppKey;
+    public int rank;
     public String resumeDate;
     public String serverExt;
     public String serviceCategory;
@@ -60,9 +62,11 @@ public class PMSAppInfo implements Parcelable {
     public String statusDetail;
     public String subjectInfo;
     public int type;
+    public String userActionApis;
     public long versionCode;
     public String versionName;
     public String webAction;
+    public int webPermit;
     public String webUrl;
     public String webViewDomains;
 
@@ -138,6 +142,7 @@ public class PMSAppInfo implements Parcelable {
         this.lastLaunchTime = 0L;
         this.launchCount = 0;
         this.installSrc = 0;
+        this.webPermit = 0;
     }
 
     public boolean checkValid() {
@@ -161,28 +166,28 @@ public class PMSAppInfo implements Parcelable {
         }
     }
 
-    public void copyMainPkgInfo(f fVar) {
+    public void copyMainPkgInfo(g gVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) || fVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) || gVar == null) {
             return;
         }
-        this.appId = fVar.f11076g;
-        this.versionCode = fVar.f11078i;
-        this.versionName = fVar.j;
-        this.type = fVar.o;
-        this.pkgSize = fVar.k;
+        this.appId = gVar.f11774g;
+        this.versionCode = gVar.f11776i;
+        this.versionName = gVar.j;
+        this.type = gVar.o;
+        this.pkgSize = gVar.k;
     }
 
-    public void copySubPkgInfo(g gVar) {
+    public void copySubPkgInfo(h hVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) || gVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) || hVar == null) {
             return;
         }
-        this.appId = gVar.o;
-        this.versionCode = gVar.f11078i;
-        this.versionName = gVar.j;
-        this.type = gVar.q;
-        this.pkgSize = gVar.k;
+        this.appId = hVar.o;
+        this.versionCode = hVar.f11776i;
+        this.versionName = hVar.j;
+        this.type = hVar.q;
+        this.pkgSize = hVar.k;
     }
 
     public void countLaunch(long j) {
@@ -270,7 +275,7 @@ public class PMSAppInfo implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return "{appId=" + this.appId + ", appKey=" + this.appKey + ", appSign=" + this.appSign + ", versionCode=" + this.versionCode + ", versionName=" + this.versionName + ", description=" + this.description + ", appStatus=" + this.appStatus + ", statusDetail=" + this.statusDetail + ", statusDesc=" + this.statusDesc + ", resumeDate=" + this.resumeDate + ", iconUrl=" + this.iconUrl + ", appName=" + this.appName + ", serviceCategory=" + this.serviceCategory + ", subjectInfo=" + this.subjectInfo + ", type=" + this.type + ", pkgSize=" + this.pkgSize + ", pendingErrCode=" + this.pendingErrCode + ", appCategory=" + this.appCategory + ", orientation=" + this.orientation + ", maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", webViewDomains=" + this.webViewDomains + ", webAction=" + this.webAction + ", domains=" + this.domains + ", bearInfo=" + this.bearInfo + ", serverExt=" + this.serverExt + ", payProtected=" + this.payProtected + ", customerService=" + this.customerService + ", globalNotice=" + this.globalNotice + ", globalPrivate=" + this.globalPrivate + ", paNumber=" + this.paNumber + ", pluginInfo=" + this.pluginInfo + ", brandsInfo=" + this.brandsInfo + ", lastLaunchTime=" + this.lastLaunchTime + ", launchCount=" + this.launchCount + ", installSrc=" + this.installSrc + ", quickAppKey=" + this.quickAppKey + ", webUrl=" + this.webUrl + ", csProtocolVersion=" + this.csProtocolVersion + "}";
+            return "{appId=" + this.appId + ", appKey=" + this.appKey + ", appSign=" + this.appSign + ", versionCode=" + this.versionCode + ", versionName=" + this.versionName + ", description=" + this.description + ", appStatus=" + this.appStatus + ", statusDetail=" + this.statusDetail + ", statusDesc=" + this.statusDesc + ", resumeDate=" + this.resumeDate + ", iconUrl=" + this.iconUrl + ", appName=" + this.appName + ", serviceCategory=" + this.serviceCategory + ", subjectInfo=" + this.subjectInfo + ", type=" + this.type + ", pkgSize=" + this.pkgSize + ", pendingErrCode=" + this.pendingErrCode + ", appCategory=" + this.appCategory + ", orientation=" + this.orientation + ", maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", webViewDomains=" + this.webViewDomains + ", webAction=" + this.webAction + ", domains=" + this.domains + ", bearInfo=" + this.bearInfo + ", serverExt=" + this.serverExt + ", payProtected=" + this.payProtected + ", customerService=" + this.customerService + ", globalNotice=" + this.globalNotice + ", globalPrivate=" + this.globalPrivate + ", paNumber=" + this.paNumber + ", pluginInfo=" + this.pluginInfo + ", brandsInfo=" + this.brandsInfo + ", lastLaunchTime=" + this.lastLaunchTime + ", launchCount=" + this.launchCount + ", installSrc=" + this.installSrc + ", quickAppKey=" + this.quickAppKey + ", webUrl=" + this.webUrl + ", webPermit=" + this.webPermit + ", csProtocolVersion=" + this.csProtocolVersion + ", userActionApis=" + this.userActionApis + "}";
         }
         return (String) invokeV.objValue;
     }
@@ -338,7 +343,10 @@ public class PMSAppInfo implements Parcelable {
             parcel.writeInt(this.installSrc);
             parcel.writeString(this.quickAppKey);
             parcel.writeString(this.webUrl);
+            parcel.writeInt(this.webPermit);
             parcel.writeInt(this.csProtocolVersion);
+            parcel.writeInt(this.rank);
+            parcel.writeString(this.userActionApis);
         }
     }
 
@@ -362,6 +370,7 @@ public class PMSAppInfo implements Parcelable {
         this.lastLaunchTime = 0L;
         this.launchCount = 0;
         this.installSrc = 0;
+        this.webPermit = 0;
         this.appId = parcel.readString();
         this.appKey = parcel.readString();
         this.appSign = parcel.readLong();
@@ -400,6 +409,9 @@ public class PMSAppInfo implements Parcelable {
         this.installSrc = parcel.readInt();
         this.quickAppKey = parcel.readString();
         this.webUrl = parcel.readString();
+        this.webPermit = parcel.readInt();
         this.csProtocolVersion = parcel.readInt();
+        this.rank = parcel.readInt();
+        this.userActionApis = parcel.readString();
     }
 }

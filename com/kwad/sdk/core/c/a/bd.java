@@ -34,7 +34,7 @@ public class bd implements com.kwad.sdk.core.d<t.a> {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f65413a = jSONObject.optInt("itemClickType");
+        aVar.f66326a = jSONObject.optInt("itemClickType");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,7 +46,7 @@ public class bd implements com.kwad.sdk.core.d<t.a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "itemClickType", aVar.f65413a);
+            com.kwad.sdk.utils.q.a(jSONObject, "itemClickType", aVar.f66326a);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

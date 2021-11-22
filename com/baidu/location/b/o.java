@@ -35,22 +35,22 @@ public class o extends com.baidu.location.e.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39055a;
+    public String f39887a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39056b;
+    public String f39888b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39057c;
+    public String f39889c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39058d;
+    public String f39890d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39059e;
+    public int f39891e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f39060f;
+    public Handler f39892f;
 
     static {
         InterceptResult invokeClinit;
@@ -80,13 +80,13 @@ public class o extends com.baidu.location.e.e {
                 return;
             }
         }
-        this.f39055a = null;
-        this.f39056b = null;
-        this.f39057c = null;
-        this.f39058d = null;
-        this.f39059e = 1;
-        this.f39060f = null;
-        this.f39060f = new Handler();
+        this.f39887a = null;
+        this.f39888b = null;
+        this.f39889c = null;
+        this.f39890d = null;
+        this.f39891e = 1;
+        this.f39892f = null;
+        this.f39892f = new Handler();
     }
 
     public static void a(File file, File file2) throws IOException {
@@ -208,7 +208,7 @@ public class o extends com.baidu.location.e.e {
     private Handler d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.f39060f : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.f39892f : (Handler) invokeV.objValue;
     }
 
     private void e() {
@@ -217,7 +217,7 @@ public class o extends com.baidu.location.e.e {
             try {
                 File file = new File(com.baidu.location.e.k.j() + "/grtcfrsa.dat");
                 if (!file.exists()) {
-                    File file2 = new File(com.baidu.location.e.j.f39213a);
+                    File file2 = new File(com.baidu.location.e.j.f40045a);
                     if (!file2.exists()) {
                         file2.mkdirs();
                     }
@@ -240,13 +240,13 @@ public class o extends com.baidu.location.e.e {
                 RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
                 randomAccessFile2.seek(200L);
                 randomAccessFile2.writeBoolean(true);
-                if (this.f39059e == 1) {
+                if (this.f39891e == 1) {
                     randomAccessFile2.writeBoolean(true);
                 } else {
                     randomAccessFile2.writeBoolean(false);
                 }
-                if (this.f39058d != null) {
-                    byte[] bytes2 = this.f39058d.getBytes();
+                if (this.f39890d != null) {
+                    byte[] bytes2 = this.f39890d.getBytes();
                     randomAccessFile2.writeInt(bytes2.length);
                     randomAccessFile2.write(bytes2);
                 } else if (Math.abs(com.baidu.location.f.getFrameVersion() - 7.93f) < 1.0E-8f) {
@@ -261,7 +261,7 @@ public class o extends com.baidu.location.e.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || this.f39055a == null) {
+        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || this.f39887a == null) {
             return;
         }
         new s(this).start();
@@ -272,13 +272,13 @@ public class o extends com.baidu.location.e.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            if (this.f39057c == null) {
+            if (this.f39889c == null) {
                 return true;
             }
-            if (new File(com.baidu.location.e.k.j() + File.separator + this.f39057c).exists()) {
+            if (new File(com.baidu.location.e.k.j() + File.separator + this.f39889c).exists()) {
                 return true;
             }
-            return a("http://" + this.f39055a + "/" + this.f39057c, this.f39057c);
+            return a("http://" + this.f39887a + "/" + this.f39889c, this.f39889c);
         }
         return invokeV.booleanValue;
     }
@@ -286,16 +286,16 @@ public class o extends com.baidu.location.e.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || this.f39056b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65550, this) == null) || this.f39888b == null) {
             return;
         }
-        File file = new File(com.baidu.location.e.k.j() + File.separator + this.f39056b);
+        File file = new File(com.baidu.location.e.k.j() + File.separator + this.f39888b);
         if (file.exists()) {
             return;
         }
-        if (a("http://" + this.f39055a + "/" + this.f39056b, this.f39056b)) {
+        if (a("http://" + this.f39887a + "/" + this.f39888b, this.f39888b)) {
             String a2 = com.baidu.location.e.k.a(file, "SHA-256");
-            String str = this.f39058d;
+            String str = this.f39890d;
             if (str == null || a2 == null || !com.baidu.location.e.k.b(a2, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
                 return;
             }
@@ -324,12 +324,12 @@ public class o extends com.baidu.location.e.e {
             stringBuffer.append(com.baidu.location.f.getFrameVersion());
             stringBuffer.append("&suit=");
             stringBuffer.append(2);
-            if (com.baidu.location.e.b.a().f39179c == null) {
+            if (com.baidu.location.e.b.a().f40011c == null) {
                 stringBuffer.append("&im=");
-                str = com.baidu.location.e.b.a().f39177a;
+                str = com.baidu.location.e.b.a().f40009a;
             } else {
                 stringBuffer.append("&cu=");
-                str = com.baidu.location.e.b.a().f39179c;
+                str = com.baidu.location.e.b.a().f40011c;
             }
             stringBuffer.append(str);
             stringBuffer.append("&mb=");
@@ -359,8 +359,8 @@ public class o extends com.baidu.location.e.e {
                 stringBuffer.append(str3);
             }
             stringBuffer.append("&pack=");
-            stringBuffer.append(com.baidu.location.e.b.f39172e);
-            this.f39203h = com.baidu.location.e.k.f() + "?&it=" + Jni.en1(stringBuffer.toString());
+            stringBuffer.append(com.baidu.location.e.b.f40004e);
+            this.f40035h = com.baidu.location.e.k.f() + "?&it=" + Jni.en1(stringBuffer.toString());
         }
     }
 
@@ -371,20 +371,20 @@ public class o extends com.baidu.location.e.e {
             try {
                 JSONObject jSONObject = new JSONObject(this.j);
                 if ("up".equals(jSONObject.getString(UriUtil.LOCAL_RESOURCE_SCHEME))) {
-                    this.f39055a = jSONObject.getString("upath");
+                    this.f39887a = jSONObject.getString("upath");
                     if (jSONObject.has("u1")) {
-                        this.f39056b = jSONObject.getString("u1");
+                        this.f39888b = jSONObject.getString("u1");
                     }
                     if (jSONObject.has("u2")) {
-                        this.f39057c = jSONObject.getString("u2");
+                        this.f39889c = jSONObject.getString("u2");
                     }
                     if (jSONObject.has("u1_rsa")) {
-                        this.f39058d = jSONObject.getString("u1_rsa");
+                        this.f39890d = jSONObject.getString("u1_rsa");
                     }
                     d().post(new r(this));
                 }
                 if (jSONObject.has("ison")) {
-                    this.f39059e = jSONObject.getInt("ison");
+                    this.f39891e = jSONObject.getInt("ison");
                 }
                 e();
             } catch (Exception unused) {

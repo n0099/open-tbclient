@@ -11,10 +11,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f8956a;
+    public int f9302a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JsObject f8957b;
+    public JsObject f9303b;
 
     public b(int i2, JsObject jsObject) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class b {
                 return;
             }
         }
-        this.f8956a = i2;
-        this.f8957b = jsObject;
+        this.f9302a = i2;
+        this.f9303b = jsObject;
     }
 }

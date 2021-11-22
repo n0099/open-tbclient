@@ -24,7 +24,7 @@ public class k0 extends c implements p<d2> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext f3239i;
+    public TbPageContext f3330i;
     public TbImageView j;
     public boolean k;
 
@@ -34,10 +34,10 @@ public class k0 extends c implements p<d2> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThemeCardInUserData f3240e;
+        public final /* synthetic */ ThemeCardInUserData f3331e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k0 f3241f;
+        public final /* synthetic */ k0 f3332f;
 
         public a(k0 k0Var, ThemeCardInUserData themeCardInUserData) {
             Interceptable interceptable = $ic;
@@ -54,15 +54,15 @@ public class k0 extends c implements p<d2> {
                     return;
                 }
             }
-            this.f3241f = k0Var;
-            this.f3240e = themeCardInUserData;
+            this.f3332f = k0Var;
+            this.f3331e = themeCardInUserData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.f3241f.f3239i.getPageActivity(), this.f3240e.getCardId())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.f3332f.f3330i.getPageActivity(), this.f3331e.getCardId())));
             }
         }
     }
@@ -83,12 +83,12 @@ public class k0 extends c implements p<d2> {
             }
         }
         this.k = true;
-        this.f3239i = tbPageContext;
+        this.f3330i = tbPageContext;
         g(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(b.a.e.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds180), b.a.e.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds50));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(b.a.e.f.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds180), b.a.e.f.p.l.g(tbPageContext.getPageActivity(), R.dimen.ds50));
         layoutParams.addRule(11);
-        layoutParams.topMargin = b.a.e.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
-        layoutParams.rightMargin = b.a.e.e.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
+        layoutParams.topMargin = b.a.e.f.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
+        layoutParams.rightMargin = b.a.e.f.p.l.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
         h(layoutParams);
         TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
         this.j = tbImageView;
@@ -105,7 +105,7 @@ public class k0 extends c implements p<d2> {
         if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !d2Var.W1) {
             if (this.k && (this.j.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-                layoutParams.rightMargin = b.a.e.e.p.l.g(this.f3239i.getPageActivity(), R.dimen.tbds106);
+                layoutParams.rightMargin = b.a.e.f.p.l.g(this.f3330i.getPageActivity(), R.dimen.tbds106);
                 this.j.setLayoutParams(layoutParams);
             }
             this.j.setVisibility(0);

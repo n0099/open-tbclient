@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
-import b.a.p0.a.a2.e;
+import b.a.p0.a.d2.e;
 import b.a.p0.a.h;
 import b.a.p0.a.p.d.n;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,10 +25,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f5174a;
+        public final /* synthetic */ Context f5356a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f5175b;
+        public final /* synthetic */ b f5357b;
 
         public a(Context context, b bVar) {
             Interceptable interceptable = $ic;
@@ -45,8 +45,8 @@ public class c {
                     return;
                 }
             }
-            this.f5174a = context;
-            this.f5175b = bVar;
+            this.f5356a = context;
+            this.f5357b = bVar;
         }
 
         @Override // b.a.p0.a.p.d.n.b
@@ -54,12 +54,12 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (!z) {
-                    b.a.p0.a.e0.d.b("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
-                    this.f5175b.a(false, this.f5174a.getString(h.aiapps_authenticate_fail));
+                    b.a.p0.a.e0.d.c("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
+                    this.f5357b.a(false, this.f5356a.getString(h.aiapps_authenticate_fail));
                     return;
                 }
-                b.a.p0.a.e0.d.b("DeveloperAuthenticateHelper", "Authentication Success");
-                this.f5175b.a(true, "");
+                b.a.p0.a.e0.d.c("DeveloperAuthenticateHelper", "Authentication Success");
+                this.f5357b.a(true, "");
             }
         }
 
@@ -68,17 +68,17 @@ public class c {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                b.a.p0.a.e0.d.c("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
+                b.a.p0.a.e0.d.d("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
                 String message = exc.getMessage();
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f5174a.getString(h.aiapps_authenticate_fail));
+                sb.append(this.f5356a.getString(h.aiapps_authenticate_fail));
                 if (TextUtils.isEmpty(message)) {
                     str = "";
                 } else {
                     str = StringUtils.LF + message;
                 }
                 sb.append(str);
-                this.f5175b.a(false, sb.toString());
+                this.f5357b.a(false, sb.toString());
             }
         }
     }
@@ -91,7 +91,7 @@ public class c {
     public static void a(@NonNull e eVar, @NonNull Context context, @NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65536, null, eVar, context, bVar) == null) {
-            b.a.p0.a.m.b.b(eVar.k(), new a(context, bVar));
+            b.a.p0.a.m.b.b(eVar.N(), new a(context, bVar));
         }
     }
 
@@ -101,7 +101,7 @@ public class c {
             SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(context);
             aVar.U(i2);
             aVar.x(str);
-            aVar.n(new b.a.p0.a.w2.h.a());
+            aVar.n(new b.a.p0.a.a3.h.a());
             aVar.O(h.aiapps_confirm, null);
             aVar.X();
         }

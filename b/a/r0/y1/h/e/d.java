@@ -20,10 +20,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f27739a;
+    public View f29242a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f27740b;
+    public TextView f29243b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.tail_tool_edit_item, (ViewGroup) null);
-            this.f27739a = inflate;
-            this.f27740b = (TextView) inflate.findViewById(R.id.tail_tool_edit_item_btn);
-            this.f27739a.setTag(this);
-            return this.f27739a;
+            this.f29242a = inflate;
+            this.f29243b = (TextView) inflate.findViewById(R.id.tail_tool_edit_item_btn);
+            this.f29242a.setTag(this);
+            return this.f29242a;
         }
         return (View) invokeL.objValue;
     }
@@ -56,15 +56,15 @@ public class d {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this.f27740b, R.drawable.tail_tool_add_button_bg);
-            SkinManager.setViewTextColor(this.f27740b, R.color.CAM_X0302, 1);
+            SkinManager.setBackgroundResource(this.f29243b, R.drawable.tail_tool_add_button_bg);
+            SkinManager.setViewTextColor(this.f29243b, R.color.CAM_X0302, 1);
         }
     }
 
     public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f27739a.setOnClickListener(onClickListener);
+            this.f29242a.setOnClickListener(onClickListener);
         }
     }
 }

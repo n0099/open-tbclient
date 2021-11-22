@@ -19,19 +19,19 @@ public class c extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f17596e;
+    public long f19065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d2 f17597f;
+    public d2 f19066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f17598g;
+    public long f19067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17599h;
+    public int f19068h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f17600i;
+    public int f19069i;
     public boolean j;
 
     static {
@@ -69,18 +69,18 @@ public class c extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, topicThread) == null) || topicThread == null) {
             return;
         }
-        this.f17596e = topicThread.feed_id.longValue();
+        this.f19065e = topicThread.feed_id.longValue();
         if (topicThread.thread_info != null) {
             d2 d2Var = new d2();
-            this.f17597f = d2Var;
-            d2Var.Y2(topicThread.thread_info);
-            this.f17597f.c3();
+            this.f19066f = d2Var;
+            d2Var.a3(topicThread.thread_info);
+            this.f19066f.e3();
         }
-        this.f17599h = topicThread.user_agree.intValue();
-        this.f17600i = topicThread.source.intValue();
+        this.f19068h = topicThread.user_agree.intValue();
+        this.f19069i = topicThread.source.intValue();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -92,14 +92,14 @@ public class c extends BaseCardInfo {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, topicThread) == null) || topicThread == null) {
             return;
         }
-        this.f17596e = topicThread.feed_id.longValue();
+        this.f19065e = topicThread.feed_id.longValue();
         if (topicThread.thread_info != null) {
             d2 d2Var = new d2();
-            this.f17597f = d2Var;
-            d2Var.Y2(topicThread.thread_info);
-            this.f17597f.c3();
+            this.f19066f = d2Var;
+            d2Var.a3(topicThread.thread_info);
+            this.f19066f.e3();
         }
-        this.f17599h = Integer.parseInt(topicThread.user_agree);
-        this.f17600i = topicThread.source.intValue();
+        this.f19068h = Integer.parseInt(topicThread.user_agree);
+        this.f19069i = topicThread.source.intValue();
     }
 }

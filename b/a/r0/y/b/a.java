@@ -5,37 +5,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Search.DataRes;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f27158a;
+    public long f28661a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f27159b;
+    public long f28662b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27160c;
+    public String f28663c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27161d;
+    public String f28664d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f27162e;
+    public long f28665e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27163f;
+    public int f28666f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27164g;
+    public int f28667g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27165h;
+    public int f28668h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27166i;
+    public int f28669i;
     public String j;
     public boolean k;
     public long l;
@@ -60,19 +60,19 @@ public class a {
             return;
         }
         Long l = dataRes.uid;
-        this.f27159b = l == null ? 0L : l.longValue();
-        this.f27160c = dataRes.portrait;
-        this.f27161d = dataRes.name_show;
+        this.f28662b = l == null ? 0L : l.longValue();
+        this.f28663c = dataRes.portrait;
+        this.f28664d = dataRes.name_show;
         Long l2 = dataRes.apply_id;
-        this.f27162e = l2 == null ? 0L : l2.longValue();
+        this.f28665e = l2 == null ? 0L : l2.longValue();
         Integer num = dataRes.vote_num;
-        this.f27163f = num == null ? 0 : num.intValue();
+        this.f28666f = num == null ? 0 : num.intValue();
         Integer num2 = dataRes.agree_num;
-        this.f27164g = num2 == null ? 0 : num2.intValue();
+        this.f28667g = num2 == null ? 0 : num2.intValue();
         Integer num3 = dataRes.thread_num;
-        this.f27165h = num3 == null ? 0 : num3.intValue();
+        this.f28668h = num3 == null ? 0 : num3.intValue();
         Integer num4 = dataRes.post_num;
-        this.f27166i = num4 == null ? 0 : num4.intValue();
+        this.f28669i = num4 == null ? 0 : num4.intValue();
         Boolean bool = dataRes.is_vote;
         this.k = bool != null ? bool.booleanValue() : false;
         Long l3 = dataRes.tid;

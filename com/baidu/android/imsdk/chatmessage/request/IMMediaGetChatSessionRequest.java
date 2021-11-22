@@ -139,7 +139,7 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:100:0x022e
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:100:0x022f
         	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
@@ -149,7 +149,7 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         /*
             r39 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.android.imsdk.chatmessage.request.IMMediaGetChatSessionRequest.$ic
-            if (r0 != 0) goto L28c
+            if (r0 != 0) goto L28d
         L4:
             r1 = r39
             java.lang.String r0 = new java.lang.String
@@ -170,272 +170,272 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
             java.util.HashMap r11 = new java.util.HashMap
             r11.<init>()
             r4 = 0
-            org.json.JSONObject r5 = new org.json.JSONObject     // Catch: org.json.JSONException -> L269
-            r5.<init>(r0)     // Catch: org.json.JSONException -> L269
+            org.json.JSONObject r5 = new org.json.JSONObject     // Catch: org.json.JSONException -> L26a
+            r5.<init>(r0)     // Catch: org.json.JSONException -> L26a
             java.lang.String r0 = "error_code"
-            int r6 = r5.optInt(r0, r4)     // Catch: org.json.JSONException -> L269
-            if (r6 != 0) goto L261
+            int r6 = r5.optInt(r0, r4)     // Catch: org.json.JSONException -> L26a
+            if (r6 != 0) goto L262
             java.lang.String r0 = "has_more"
-            int r7 = r5.optInt(r0, r4)     // Catch: org.json.JSONException -> L269
+            int r7 = r5.optInt(r0, r4)     // Catch: org.json.JSONException -> L26a
             java.lang.String r0 = "total_unread_num"
-            int r8 = r5.optInt(r0, r4)     // Catch: org.json.JSONException -> L25d
+            int r8 = r5.optInt(r0, r4)     // Catch: org.json.JSONException -> L25e
             java.lang.String r0 = "top_has_more"
-            int r12 = r5.optInt(r0)     // Catch: org.json.JSONException -> L257
+            int r12 = r5.optInt(r0)     // Catch: org.json.JSONException -> L258
             java.lang.String r0 = "sessions"
-            org.json.JSONArray r5 = r5.optJSONArray(r0)     // Catch: org.json.JSONException -> L24f
-            if (r5 == 0) goto L240
+            org.json.JSONArray r5 = r5.optJSONArray(r0)     // Catch: org.json.JSONException -> L250
+            if (r5 == 0) goto L241
             r13 = 0
-        L5d:
-            int r0 = r5.length()     // Catch: org.json.JSONException -> L24f
-            if (r13 >= r0) goto L240
-            org.json.JSONObject r14 = r5.getJSONObject(r13)     // Catch: org.json.JSONException -> L24f
+        L5e:
+            int r0 = r5.length()     // Catch: org.json.JSONException -> L250
+            if (r13 >= r0) goto L241
+            org.json.JSONObject r14 = r5.getJSONObject(r13)     // Catch: org.json.JSONException -> L250
             java.lang.String r0 = "chat_type"
-            int r15 = r14.optInt(r0)     // Catch: org.json.JSONException -> L24f
+            int r15 = r14.optInt(r0)     // Catch: org.json.JSONException -> L250
             java.lang.String r0 = "contacter_pass_uk"
-            java.lang.String r0 = r14.optString(r0)     // Catch: org.json.JSONException -> L24f
+            java.lang.String r0 = r14.optString(r0)     // Catch: org.json.JSONException -> L250
             r16 = 0
-            java.lang.String r0 = com.baidu.android.imsdk.utils.Utility.transBDUK(r0)     // Catch: org.json.JSONException -> L7e java.lang.NumberFormatException -> L81
-            long r18 = java.lang.Long.parseLong(r0)     // Catch: org.json.JSONException -> L7e java.lang.NumberFormatException -> L81
-            goto L8b
-        L7e:
+            java.lang.String r0 = com.baidu.android.imsdk.utils.Utility.transBDUK(r0)     // Catch: org.json.JSONException -> L7f java.lang.NumberFormatException -> L82
+            long r18 = java.lang.Long.parseLong(r0)     // Catch: org.json.JSONException -> L7f java.lang.NumberFormatException -> L82
+            goto L8c
+        L7f:
             r0 = move-exception
-            goto L26d
-        L81:
+            goto L26e
+        L82:
             r0 = move-exception
-            java.lang.String r2 = com.baidu.android.imsdk.utils.LogUtils.TAG     // Catch: org.json.JSONException -> L24f
+            java.lang.String r2 = com.baidu.android.imsdk.utils.LogUtils.TAG     // Catch: org.json.JSONException -> L250
             java.lang.String r4 = "IMMediaGetChatSessionRequest NumberFormatException"
-            com.baidu.android.imsdk.utils.LogUtils.e(r2, r4, r0)     // Catch: org.json.JSONException -> L237
+            com.baidu.android.imsdk.utils.LogUtils.e(r2, r4, r0)     // Catch: org.json.JSONException -> L238
             r18 = r16
-        L8b:
+        L8c:
             java.lang.String r0 = "contacter_pa_uid"
             r2 = r5
-            long r4 = r14.optLong(r0)     // Catch: org.json.JSONException -> L237
+            long r4 = r14.optLong(r0)     // Catch: org.json.JSONException -> L238
             java.lang.String r0 = "content_type"
-            int r0 = r14.optInt(r0)     // Catch: org.json.JSONException -> L237
+            int r0 = r14.optInt(r0)     // Catch: org.json.JSONException -> L238
             r20 = r2
             java.lang.String r2 = "content"
-            java.lang.String r2 = r14.optString(r2)     // Catch: org.json.JSONException -> L237
+            java.lang.String r2 = r14.optString(r2)     // Catch: org.json.JSONException -> L238
             r21 = r6
             java.lang.String r6 = "unread_num"
-            int r6 = r14.optInt(r6)     // Catch: org.json.JSONException -> L237
+            int r6 = r14.optInt(r6)     // Catch: org.json.JSONException -> L238
             r22 = r7
             java.lang.String r7 = "last_time"
             r23 = r8
-            long r7 = r14.optLong(r7)     // Catch: org.json.JSONException -> L225
+            long r7 = r14.optLong(r7)     // Catch: org.json.JSONException -> L226
             r24 = r12
             java.lang.String r12 = "contacter_im_uk"
-            long r32 = r14.optLong(r12)     // Catch: org.json.JSONException -> L21c
+            long r32 = r14.optLong(r12)     // Catch: org.json.JSONException -> L21d
             java.lang.String r12 = "is_top"
             r34 = r13
             r13 = 0
-            int r12 = r14.optInt(r12, r13)     // Catch: org.json.JSONException -> L21c
+            int r12 = r14.optInt(r12, r13)     // Catch: org.json.JSONException -> L21d
             java.lang.String r13 = "last_msg_bd_uid"
-            long r13 = r14.optLong(r13)     // Catch: org.json.JSONException -> L21c
+            long r13 = r14.optLong(r13)     // Catch: org.json.JSONException -> L21d
             r35 = r10
             r10 = 57
             r36 = r9
-            if (r15 != r10) goto Ld6
+            if (r15 != r10) goto Ld7
             r18 = r32
             r10 = 1
-            goto Ld7
-        Ld6:
-            r10 = 0
+            goto Ld8
         Ld7:
-            com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory r9 = com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory.getInstance()     // Catch: org.json.JSONException -> L216
+            r10 = 0
+        Ld8:
+            com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory r9 = com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory.getInstance()     // Catch: org.json.JSONException -> L217
             r37 = r4
-            android.content.Context r4 = r1.mContext     // Catch: org.json.JSONException -> L216
+            android.content.Context r4 = r1.mContext     // Catch: org.json.JSONException -> L217
             r5 = -1
-            com.baidu.android.imsdk.chatmessage.messages.ChatMsg r4 = r9.newChatMsg(r4, r10, r0, r5)     // Catch: org.json.JSONException -> L216
+            com.baidu.android.imsdk.chatmessage.messages.ChatMsg r4 = r9.newChatMsg(r4, r10, r0, r5)     // Catch: org.json.JSONException -> L217
             java.lang.String r5 = ""
-            if (r4 == 0) goto L11b
-            r4.setMsgType(r0)     // Catch: org.json.JSONException -> L10e
-            r4.setMsgContentFromServer(r2)     // Catch: org.json.JSONException -> L10e
+            if (r4 == 0) goto L11c
+            r4.setMsgType(r0)     // Catch: org.json.JSONException -> L10f
+            r4.setMsgContentFromServer(r2)     // Catch: org.json.JSONException -> L10f
             r0 = 57
-            if (r15 != r0) goto L105
-            android.content.Context r0 = r1.mContext     // Catch: org.json.JSONException -> L10e
-            com.baidu.android.imsdk.group.GroupMessageManagerImpl r0 = com.baidu.android.imsdk.group.GroupMessageManagerImpl.getInstance(r0)     // Catch: org.json.JSONException -> L10e
-            boolean r0 = r0.isValidGroup(r4)     // Catch: org.json.JSONException -> L10e
-            if (r0 != 0) goto L105
-        Lfe:
+            if (r15 != r0) goto L106
+            android.content.Context r0 = r1.mContext     // Catch: org.json.JSONException -> L10f
+            com.baidu.android.imsdk.group.GroupMessageManagerImpl r0 = com.baidu.android.imsdk.group.GroupMessageManagerImpl.getInstance(r0)     // Catch: org.json.JSONException -> L10f
+            boolean r0 = r0.isValidGroup(r4)     // Catch: org.json.JSONException -> L10f
+            if (r0 != 0) goto L106
+        Lff:
             r10 = r35
             r9 = r36
             r4 = 0
-            goto L208
-        L105:
-            java.lang.String r5 = r4.getRecommendDescription()     // Catch: org.json.JSONException -> L10e
-            java.lang.String r0 = r4.getExtLog()     // Catch: org.json.JSONException -> L10e
-            goto L11c
-        L10e:
+            goto L209
+        L106:
+            java.lang.String r5 = r4.getRecommendDescription()     // Catch: org.json.JSONException -> L10f
+            java.lang.String r0 = r4.getExtLog()     // Catch: org.json.JSONException -> L10f
+            goto L11d
+        L10f:
             r0 = move-exception
             r7 = r22
             r8 = r23
             r12 = r24
             r10 = r35
             r9 = r36
-            goto L23e
-        L11b:
-            r0 = r5
+            goto L23f
         L11c:
-            com.baidu.android.imsdk.chatmessage.ChatSession r2 = new com.baidu.android.imsdk.chatmessage.ChatSession     // Catch: org.json.JSONException -> L216
+            r0 = r5
+        L11d:
+            com.baidu.android.imsdk.chatmessage.ChatSession r2 = new com.baidu.android.imsdk.chatmessage.ChatSession     // Catch: org.json.JSONException -> L217
             java.lang.String r31 = ""
             r25 = r2
             r26 = r10
             r27 = r32
             r29 = r18
-            r25.<init>(r26, r27, r29, r31)     // Catch: org.json.JSONException -> L216
-            long r9 = (long) r6     // Catch: org.json.JSONException -> L216
-            r2.setNewMsgSum(r9)     // Catch: org.json.JSONException -> L216
-            r2.setLastMsgTime(r7)     // Catch: org.json.JSONException -> L216
-            r2.setLastOpenTime(r7)     // Catch: org.json.JSONException -> L216
-            r2.setLastMsg(r5)     // Catch: org.json.JSONException -> L216
-            r2.setMarkTop(r12)     // Catch: org.json.JSONException -> L216
-            r2.setMarkTopTime(r7)     // Catch: org.json.JSONException -> L216
+            r25.<init>(r26, r27, r29, r31)     // Catch: org.json.JSONException -> L217
+            long r9 = (long) r6     // Catch: org.json.JSONException -> L217
+            r2.setNewMsgSum(r9)     // Catch: org.json.JSONException -> L217
+            r2.setLastMsgTime(r7)     // Catch: org.json.JSONException -> L217
+            r2.setLastOpenTime(r7)     // Catch: org.json.JSONException -> L217
+            r2.setLastMsg(r5)     // Catch: org.json.JSONException -> L217
+            r2.setMarkTop(r12)     // Catch: org.json.JSONException -> L217
+            r2.setMarkTopTime(r7)     // Catch: org.json.JSONException -> L217
             r4 = 1
-            r2.setSessionFrom(r4)     // Catch: org.json.JSONException -> L216
-            r2.setIsClicked(r4)     // Catch: org.json.JSONException -> L216
-            r2.setExt(r0)     // Catch: org.json.JSONException -> L216
-            r2.setLastMsgUid(r13)     // Catch: org.json.JSONException -> L216
+            r2.setSessionFrom(r4)     // Catch: org.json.JSONException -> L217
+            r2.setIsClicked(r4)     // Catch: org.json.JSONException -> L217
+            r2.setExt(r0)     // Catch: org.json.JSONException -> L217
+            r2.setLastMsgUid(r13)     // Catch: org.json.JSONException -> L217
             r0 = 57
-            if (r15 != r0) goto L1cd
-            java.lang.String r0 = java.lang.String.valueOf(r32)     // Catch: org.json.JSONException -> L1bf
-            r11.put(r0, r2)     // Catch: org.json.JSONException -> L1bf
-            if (r6 <= 0) goto L1af
-            long r4 = r2.getContacterId()     // Catch: org.json.JSONException -> L10e
-            java.lang.String r0 = java.lang.Long.toString(r4)     // Catch: org.json.JSONException -> L10e
-            android.content.Context r4 = r1.mContext     // Catch: org.json.JSONException -> L10e
-            java.lang.String r4 = com.baidu.android.imsdk.account.AccountManager.getUid(r4)     // Catch: org.json.JSONException -> L10e
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: org.json.JSONException -> L10e
-            r5.<init>()     // Catch: org.json.JSONException -> L10e
+            if (r15 != r0) goto L1ce
+            java.lang.String r0 = java.lang.String.valueOf(r32)     // Catch: org.json.JSONException -> L1c0
+            r11.put(r0, r2)     // Catch: org.json.JSONException -> L1c0
+            if (r6 <= 0) goto L1b0
+            long r4 = r2.getContacterId()     // Catch: org.json.JSONException -> L10f
+            java.lang.String r0 = java.lang.Long.toString(r4)     // Catch: org.json.JSONException -> L10f
+            android.content.Context r4 = r1.mContext     // Catch: org.json.JSONException -> L10f
+            java.lang.String r4 = com.baidu.android.imsdk.account.AccountManager.getUid(r4)     // Catch: org.json.JSONException -> L10f
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: org.json.JSONException -> L10f
+            r5.<init>()     // Catch: org.json.JSONException -> L10f
             java.lang.String r6 = "userId: "
-            r5.append(r6)     // Catch: org.json.JSONException -> L10e
-            r5.append(r4)     // Catch: org.json.JSONException -> L10e
-            java.lang.String r5 = r5.toString()     // Catch: org.json.JSONException -> L10e
-            com.baidu.android.imsdk.utils.LogUtils.d(r3, r5)     // Catch: org.json.JSONException -> L10e
-            android.content.Context r5 = r1.mContext     // Catch: org.json.JSONException -> L10e
-            java.util.ArrayList r0 = com.baidu.android.imsdk.group.db.GroupMessageDAOImpl.getFansGroupAtUnread(r5, r0, r4)     // Catch: org.json.JSONException -> L10e
-            if (r0 == 0) goto L1a4
-            int r4 = r0.size()     // Catch: org.json.JSONException -> L10e
-            r2.setNewFansAtMsgSum(r4)     // Catch: org.json.JSONException -> L10e
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: org.json.JSONException -> L10e
-            r2.<init>()     // Catch: org.json.JSONException -> L10e
+            r5.append(r6)     // Catch: org.json.JSONException -> L10f
+            r5.append(r4)     // Catch: org.json.JSONException -> L10f
+            java.lang.String r5 = r5.toString()     // Catch: org.json.JSONException -> L10f
+            com.baidu.android.imsdk.utils.LogUtils.d(r3, r5)     // Catch: org.json.JSONException -> L10f
+            android.content.Context r5 = r1.mContext     // Catch: org.json.JSONException -> L10f
+            java.util.ArrayList r0 = com.baidu.android.imsdk.group.db.GroupMessageDAOImpl.getFansGroupAtUnread(r5, r0, r4)     // Catch: org.json.JSONException -> L10f
+            if (r0 == 0) goto L1a5
+            int r4 = r0.size()     // Catch: org.json.JSONException -> L10f
+            r2.setNewFansAtMsgSum(r4)     // Catch: org.json.JSONException -> L10f
+            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: org.json.JSONException -> L10f
+            r2.<init>()     // Catch: org.json.JSONException -> L10f
             java.lang.String r4 = "newFansAtSMsgSum: "
-            r2.append(r4)     // Catch: org.json.JSONException -> L10e
-            int r0 = r0.size()     // Catch: org.json.JSONException -> L10e
-            r2.append(r0)     // Catch: org.json.JSONException -> L10e
-            java.lang.String r0 = r2.toString()     // Catch: org.json.JSONException -> L10e
-            com.baidu.android.imsdk.utils.LogUtils.d(r3, r0)     // Catch: org.json.JSONException -> L10e
-            goto Lfe
-        L1a4:
+            r2.append(r4)     // Catch: org.json.JSONException -> L10f
+            int r0 = r0.size()     // Catch: org.json.JSONException -> L10f
+            r2.append(r0)     // Catch: org.json.JSONException -> L10f
+            java.lang.String r0 = r2.toString()     // Catch: org.json.JSONException -> L10f
+            com.baidu.android.imsdk.utils.LogUtils.d(r3, r0)     // Catch: org.json.JSONException -> L10f
+            goto Lff
+        L1a5:
             r4 = 0
-            r2.setNewFansAtMsgSum(r4)     // Catch: org.json.JSONException -> L1bd
+            r2.setNewFansAtMsgSum(r4)     // Catch: org.json.JSONException -> L1be
             java.lang.String r0 = "newFansAtSMsgSum: 0"
-            com.baidu.android.imsdk.utils.LogUtils.d(r3, r0)     // Catch: org.json.JSONException -> L10e
-            goto Lfe
-        L1af:
+            com.baidu.android.imsdk.utils.LogUtils.d(r3, r0)     // Catch: org.json.JSONException -> L10f
+            goto Lff
+        L1b0:
             r4 = 0
-            r2.setNewFansAtMsgSum(r4)     // Catch: org.json.JSONException -> L1bd
+            r2.setNewFansAtMsgSum(r4)     // Catch: org.json.JSONException -> L1be
             java.lang.String r0 = "newFansAtSMsgSum: 0, unread = 0"
-            com.baidu.android.imsdk.utils.LogUtils.d(r3, r0)     // Catch: org.json.JSONException -> L1bd
+            com.baidu.android.imsdk.utils.LogUtils.d(r3, r0)     // Catch: org.json.JSONException -> L1be
             r10 = r35
             r9 = r36
-            goto L208
-        L1bd:
+            goto L209
+        L1be:
             r0 = move-exception
-            goto L1c1
-        L1bf:
+            goto L1c2
+        L1c0:
             r0 = move-exception
             r4 = 0
-        L1c1:
+        L1c2:
             r7 = r22
             r8 = r23
             r12 = r24
             r10 = r35
             r9 = r36
-            goto L26d
-        L1cd:
+            goto L26e
+        L1ce:
             r4 = 0
             int r0 = (r37 > r16 ? 1 : (r37 == r16 ? 0 : -1))
-            if (r0 == 0) goto L1f0
+            if (r0 == 0) goto L1f1
             r5 = r37
-            r2.setPaid(r5)     // Catch: org.json.JSONException -> L1e3
-            java.lang.Long r0 = java.lang.Long.valueOf(r5)     // Catch: org.json.JSONException -> L1e3
+            r2.setPaid(r5)     // Catch: org.json.JSONException -> L1e4
+            java.lang.Long r0 = java.lang.Long.valueOf(r5)     // Catch: org.json.JSONException -> L1e4
             r9 = r36
-            r9.put(r0, r2)     // Catch: org.json.JSONException -> L1e1
-            goto L206
-        L1e1:
+            r9.put(r0, r2)     // Catch: org.json.JSONException -> L1e2
+            goto L207
+        L1e2:
             r0 = move-exception
-            goto L1e6
-        L1e3:
+            goto L1e7
+        L1e4:
             r0 = move-exception
             r9 = r36
-        L1e6:
+        L1e7:
             r7 = r22
             r8 = r23
             r12 = r24
             r10 = r35
-            goto L26d
-        L1f0:
+            goto L26e
+        L1f1:
             r9 = r36
             int r0 = (r18 > r16 ? 1 : (r18 == r16 ? 0 : -1))
-            if (r0 == 0) goto L206
-            java.lang.Long r0 = java.lang.Long.valueOf(r18)     // Catch: org.json.JSONException -> L202
+            if (r0 == 0) goto L207
+            java.lang.Long r0 = java.lang.Long.valueOf(r18)     // Catch: org.json.JSONException -> L203
             r10 = r35
-            r10.put(r0, r2)     // Catch: org.json.JSONException -> L200
-            goto L208
-        L200:
+            r10.put(r0, r2)     // Catch: org.json.JSONException -> L201
+            goto L209
+        L201:
             r0 = move-exception
-            goto L21e
-        L202:
+            goto L21f
+        L203:
             r0 = move-exception
             r10 = r35
-            goto L21e
-        L206:
+            goto L21f
+        L207:
             r10 = r35
-        L208:
+        L209:
             int r13 = r34 + 1
             r5 = r20
             r6 = r21
             r7 = r22
             r8 = r23
             r12 = r24
-            goto L5d
-        L216:
+            goto L5e
+        L217:
             r0 = move-exception
             r10 = r35
             r9 = r36
-            goto L21d
-        L21c:
-            r0 = move-exception
+            goto L21e
         L21d:
-            r4 = 0
+            r0 = move-exception
         L21e:
+            r4 = 0
+        L21f:
             r7 = r22
             r8 = r23
             r12 = r24
-            goto L26d
-        L225:
+            goto L26e
+        L226:
             r0 = move-exception
             r24 = r12
             r4 = 0
             r7 = r22
             r8 = r23
-            goto L26d
-        L22e:
+            goto L26e
+        L22f:
             r0 = move-exception
             r23 = r8
             r24 = r12
             r4 = 0
             r7 = r22
-            goto L26d
-        L237:
+            goto L26e
+        L238:
             r0 = move-exception
             r22 = r7
             r23 = r8
             r24 = r12
-        L23e:
+        L23f:
             r4 = 0
-            goto L26d
-        L240:
+            goto L26e
+        L241:
             r21 = r6
             r22 = r7
             r23 = r8
@@ -443,52 +443,52 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
             r7 = r22
             r8 = r23
             r12 = r24
-            goto L266
-        L24f:
+            goto L267
+        L250:
             r0 = move-exception
             r22 = r7
             r23 = r8
             r24 = r12
-            goto L26d
-        L257:
+            goto L26e
+        L258:
             r0 = move-exception
             r22 = r7
             r23 = r8
+            goto L26d
+        L25e:
+            r0 = move-exception
+            r22 = r7
             goto L26c
-        L25d:
-            r0 = move-exception
-            r22 = r7
-            goto L26b
-        L261:
+        L262:
             r21 = r6
             r7 = 0
             r8 = 0
             r12 = 0
-        L266:
+        L267:
             r5 = r21
-            goto L276
-        L269:
+            goto L277
+        L26a:
             r0 = move-exception
             r7 = 0
-        L26b:
-            r8 = 0
         L26c:
-            r12 = 0
+            r8 = 0
         L26d:
+            r12 = 0
+        L26e:
             java.lang.String r2 = "IMMediaGetChatSessionRequest JSONException"
             com.baidu.android.imsdk.utils.LogUtils.e(r3, r2, r0)
             r0 = 1010(0x3f2, float:1.415E-42)
             r5 = 1010(0x3f2, float:1.415E-42)
-        L276:
+        L277:
             android.content.Context r0 = r1.mContext
             com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl r0 = com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl.getInstance(r0)
             r2 = 1
-            if (r7 != r2) goto L281
+            if (r7 != r2) goto L282
             r6 = 1
-            goto L282
-        L281:
-            r6 = 0
+            goto L283
         L282:
+            r6 = 0
+        L283:
             java.lang.String r2 = r1.mKey
             r4 = r0
             r7 = r8
@@ -496,7 +496,7 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
             r12 = r2
             r4.onMediaGetChatSessionRequest(r5, r6, r7, r8, r9, r10, r11, r12)
             return
-        L28c:
+        L28d:
             r37 = r0
             r38 = 1048582(0x100006, float:1.469376E-39)
             com.baidu.titan.sdk.runtime.InterceptResult r0 = r37.invokeIL(r38, r39, r40, r41)

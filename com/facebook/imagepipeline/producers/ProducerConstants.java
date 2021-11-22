@@ -9,7 +9,6 @@ public class ProducerConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
     public static final String EXTRA_BITMAP_SIZE = "bitmapSize";
-    public static final String EXTRA_BYTES = "byteCount";
     public static final String EXTRA_CACHED_VALUE_FOUND = "cached_value_found";
     public static final String EXTRA_HAS_GOOD_QUALITY = "hasGoodQuality";
     public static final String EXTRA_IMAGE_FORMAT_NAME = "imageFormat";

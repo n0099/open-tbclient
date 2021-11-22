@@ -34,7 +34,7 @@ public abstract class Animation {
         public static final RepeatMode REVERSE;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ RepeatMode[] f39239a;
+        public static final /* synthetic */ RepeatMode[] f40071a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,7 +53,7 @@ public abstract class Animation {
             RESTART = new RepeatMode("RESTART", 0);
             RepeatMode repeatMode = new RepeatMode("REVERSE", 1);
             REVERSE = repeatMode;
-            f39239a = new RepeatMode[]{RESTART, repeatMode};
+            f40071a = new RepeatMode[]{RESTART, repeatMode};
         }
 
         public RepeatMode(String str, int i2) {
@@ -84,7 +84,7 @@ public abstract class Animation {
         public static RepeatMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RepeatMode[]) f39239a.clone() : (RepeatMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RepeatMode[]) f40071a.clone() : (RepeatMode[]) invokeV.objValue;
         }
     }
 

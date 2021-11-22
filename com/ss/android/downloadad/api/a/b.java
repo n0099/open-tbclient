@@ -2,7 +2,6 @@ package com.ss.android.downloadad.api.a;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +52,7 @@ public class b implements a {
     public long Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f68379a;
+    public boolean f69299a;
     public transient boolean aa;
     public boolean ab;
     public boolean ac;
@@ -62,28 +61,28 @@ public class b implements a {
     public boolean af;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f68380b;
+    public boolean f69300b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicBoolean f68381c;
+    public final AtomicBoolean f69301c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f68382d;
+    public final AtomicBoolean f69302d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f68383e;
+    public long f69303e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f68384f;
+    public long f69304f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f68385g;
+    public String f69305g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f68386h;
+    public int f69306h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f68387i;
+    public String f69307i;
     public String j;
     public String k;
     public String l;
@@ -115,7 +114,7 @@ public class b implements a {
                 return;
             }
         }
-        this.f68386h = 1;
+        this.f69306h = 1;
         this.t = true;
         this.x = false;
         this.y = 0;
@@ -124,10 +123,10 @@ public class b implements a {
         this.I = false;
         this.J = true;
         this.K = true;
-        this.f68379a = true;
-        this.f68380b = true;
-        this.f68381c = new AtomicBoolean(false);
-        this.f68382d = new AtomicBoolean(false);
+        this.f69299a = true;
+        this.f69300b = true;
+        this.f69301c = new AtomicBoolean(false);
+        this.f69302d = new AtomicBoolean(false);
         this.Q = 1;
         this.T = true;
         this.Z = -1L;
@@ -179,7 +178,7 @@ public class b implements a {
     public int G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68386h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f69306h : invokeV.intValue;
     }
 
     public long H() {
@@ -333,11 +332,11 @@ public class b implements a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("mId", this.f68383e);
-                jSONObject.put("mExtValue", this.f68384f);
-                jSONObject.put("mLogExtra", this.f68385g);
-                jSONObject.put("mDownloadStatus", this.f68386h);
-                jSONObject.put("mPackageName", this.f68387i);
+                jSONObject.put("mId", this.f69303e);
+                jSONObject.put("mExtValue", this.f69304f);
+                jSONObject.put("mLogExtra", this.f69305g);
+                jSONObject.put("mDownloadStatus", this.f69306h);
+                jSONObject.put("mPackageName", this.f69307i);
                 jSONObject.put("mIsAd", this.t);
                 jSONObject.put("mTimeStamp", this.u);
                 jSONObject.put("mExtras", this.v);
@@ -350,8 +349,8 @@ public class b implements a {
                 jSONObject.put("mEventRefer", this.M);
                 jSONObject.put("mDownloadUrl", this.j);
                 jSONObject.put("mEnableBackDialog", this.x);
-                jSONObject.put("hasSendInstallFinish", this.f68381c.get());
-                jSONObject.put("hasSendDownloadFailedFinally", this.f68382d.get());
+                jSONObject.put("hasSendInstallFinish", this.f69301c.get());
+                jSONObject.put("hasSendDownloadFailedFinally", this.f69302d.get());
                 jSONObject.put("mLastFailedErrCode", this.E);
                 jSONObject.put("mLastFailedErrMsg", this.F);
                 jSONObject.put("mOpenUrl", this.k);
@@ -374,14 +373,14 @@ public class b implements a {
                 jSONObject.put("clickDownloadSize", this.S);
                 jSONObject.put("installAfterCleanSpace", this.O);
                 jSONObject.put("funnelType", this.Q);
-                jSONObject.put(BaiduAppJsBridgeHandler.INPUT_PARAM_WEB_URL, this.l);
+                jSONObject.put("webUrl", this.l);
                 jSONObject.put("enableShowComplianceDialog", this.T);
                 jSONObject.put("isAutoDownloadOnCardShow", this.U);
                 int i2 = 1;
                 jSONObject.put("enable_new_activity", this.J ? 1 : 0);
                 jSONObject.put("enable_pause", this.K ? 1 : 0);
-                jSONObject.put("enable_ah", this.f68379a ? 1 : 0);
-                if (!this.f68380b) {
+                jSONObject.put("enable_ah", this.f69299a ? 1 : 0);
+                if (!this.f69300b) {
                     i2 = 0;
                 }
                 jSONObject.put("enable_am", i2);
@@ -396,7 +395,7 @@ public class b implements a {
     public AdDownloadModel af() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? new AdDownloadModel.Builder().setAdId(this.f68383e).setExtraValue(this.f68384f).setLogExtra(this.f68385g).setPackageName(this.f68387i).setExtra(this.v).setIsAd(this.t).setVersionCode(this.p).setVersionName(this.q).setDownloadUrl(this.j).setModelType(this.m).setMimeType(this.H).setAppName(this.r).setAppIcon(this.s).setDeepLink(new DeepLink(this.k, this.l, null)).build() : (AdDownloadModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? new AdDownloadModel.Builder().setAdId(this.f69303e).setExtraValue(this.f69304f).setLogExtra(this.f69305g).setPackageName(this.f69307i).setExtra(this.v).setIsAd(this.t).setVersionCode(this.p).setVersionName(this.q).setDownloadUrl(this.j).setModelType(this.m).setMimeType(this.H).setAppName(this.r).setAppIcon(this.s).setDeepLink(new DeepLink(this.k, this.l, null)).build() : (AdDownloadModel) invokeV.objValue;
     }
 
     public AdDownloadEventConfig ag() {
@@ -408,7 +407,7 @@ public class b implements a {
     public AdDownloadController ah() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? new AdDownloadController.Builder().setIsEnableBackDialog(this.x).setLinkMode(this.n).setDownloadMode(this.o).setEnableShowComplianceDialog(this.T).setEnableAH(this.f68379a).setEnableAM(this.f68380b).build() : (AdDownloadController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? new AdDownloadController.Builder().setIsEnableBackDialog(this.x).setLinkMode(this.n).setDownloadMode(this.o).setEnableShowComplianceDialog(this.T).setEnableAH(this.f69299a).setEnableAM(this.f69300b).build() : (AdDownloadController) invokeV.objValue;
     }
 
     public void b(int i2) {
@@ -435,7 +434,7 @@ public class b implements a {
     public void e(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048633, this, j) == null) {
-            this.f68384f = j;
+            this.f69304f = j;
         }
     }
 
@@ -496,7 +495,7 @@ public class b implements a {
     public long l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.f68384f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.f69304f : invokeV.longValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
@@ -601,14 +600,14 @@ public class b implements a {
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048684, this, z) == null) {
-            this.f68379a = z;
+            this.f69299a = z;
         }
     }
 
     public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048686, this, z) == null) {
-            this.f68380b = z;
+            this.f69300b = z;
         }
     }
 
@@ -671,14 +670,14 @@ public class b implements a {
     public void d(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048628, this, j) == null) {
-            this.f68383e = j;
+            this.f69303e = j;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
-            this.f68386h = i2;
+            this.f69306h = i2;
         }
     }
 
@@ -770,13 +769,13 @@ public class b implements a {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f68383e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f69303e : invokeV.longValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
-            this.f68385g = str;
+            this.f69305g = str;
         }
     }
 
@@ -784,14 +783,14 @@ public class b implements a {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.f68385g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.f69305g : (String) invokeV.objValue;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.f68387i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.f69307i : (String) invokeV.objValue;
     }
 
     public void f(String str) {
@@ -860,7 +859,7 @@ public class b implements a {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
-            this.f68387i = str;
+            this.f69307i = str;
         }
     }
 
@@ -1016,8 +1015,8 @@ public class b implements a {
                 bVar.g(jSONObject.optString("mEventRefer"));
                 bVar.h(jSONObject.optString("mDownloadUrl"));
                 bVar.c(jSONObject.optBoolean("mEnableBackDialog"));
-                bVar.f68381c.set(jSONObject.optBoolean("hasSendInstallFinish"));
-                bVar.f68382d.set(jSONObject.optBoolean("hasSendDownloadFailedFinally"));
+                bVar.f69301c.set(jSONObject.optBoolean("hasSendInstallFinish"));
+                bVar.f69302d.set(jSONObject.optBoolean("hasSendDownloadFailedFinally"));
                 bVar.d(jSONObject.optInt("mLastFailedErrCode"));
                 bVar.a(jSONObject.optString("mLastFailedErrMsg"));
                 bVar.i(jSONObject.optString("mOpenUrl"));
@@ -1040,7 +1039,7 @@ public class b implements a {
                 bVar.i(jSONObject.optBoolean("mIsPatchApplyHandled"));
                 bVar.f(jSONObject.optBoolean("installAfterCleanSpace"));
                 bVar.i(jSONObject.optInt("funnelType", 1));
-                bVar.e(jSONObject.optString(BaiduAppJsBridgeHandler.INPUT_PARAM_WEB_URL));
+                bVar.e(jSONObject.optString("webUrl"));
                 bVar.p(jSONObject.optBoolean("enableShowComplianceDialog", true));
                 bVar.q(jSONObject.optBoolean("isAutoDownloadOnCardShow"));
                 bVar.r(jSONObject.optInt("enable_new_activity", 1) == 1);
@@ -1102,7 +1101,7 @@ public class b implements a {
                 return;
             }
         }
-        this.f68386h = 1;
+        this.f69306h = 1;
         this.t = true;
         this.x = false;
         this.y = 0;
@@ -1111,17 +1110,17 @@ public class b implements a {
         this.I = false;
         this.J = true;
         this.K = true;
-        this.f68379a = true;
-        this.f68380b = true;
-        this.f68381c = new AtomicBoolean(false);
-        this.f68382d = new AtomicBoolean(false);
+        this.f69299a = true;
+        this.f69300b = true;
+        this.f69301c = new AtomicBoolean(false);
+        this.f69302d = new AtomicBoolean(false);
         this.Q = 1;
         this.T = true;
         this.Z = -1L;
-        this.f68383e = downloadModel.getId();
-        this.f68384f = downloadModel.getExtraValue();
-        this.f68385g = downloadModel.getLogExtra();
-        this.f68387i = downloadModel.getPackageName();
+        this.f69303e = downloadModel.getId();
+        this.f69304f = downloadModel.getExtraValue();
+        this.f69305g = downloadModel.getLogExtra();
+        this.f69307i = downloadModel.getPackageName();
         this.v = downloadModel.getExtra();
         this.t = downloadModel.isAd();
         this.p = downloadModel.getVersionCode();
@@ -1144,8 +1143,8 @@ public class b implements a {
         this.T = downloadController.enableShowComplianceDialog();
         this.U = downloadController.isAutoDownloadOnCardShow();
         this.J = downloadController.enableNewActivity();
-        this.f68379a = downloadController.enableAH();
-        this.f68380b = downloadController.enableAM();
+        this.f69299a = downloadController.enableAH();
+        this.f69300b = downloadController.enableAM();
         this.w = i2;
         long currentTimeMillis = System.currentTimeMillis();
         this.u = currentTimeMillis;

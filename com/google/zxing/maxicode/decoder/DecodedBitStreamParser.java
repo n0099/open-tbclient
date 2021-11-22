@@ -1,7 +1,6 @@
 package com.google.zxing.maxicode.decoder;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +15,7 @@ import com.google.zxing.common.DecoderResult;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.text.DecimalFormat;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class DecodedBitStreamParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char ECI = 65530;
@@ -112,7 +111,7 @@ public final class DecodedBitStreamParser {
     public static int getCountry(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? getInt(bArr, new byte[]{53, 54, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, ExifInterface.WEBP_VP8L_SIGNATURE, 48, 37, 38}) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) ? getInt(bArr, new byte[]{53, 54, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 37, 38}) : invokeL.intValue;
     }
 
     public static int getInt(byte[] bArr, byte[] bArr2) {
@@ -211,13 +210,13 @@ public final class DecodedBitStreamParser {
     public static int getPostCode2Length(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) ? getInt(bArr, new byte[]{39, 40, 41, ExifInterface.START_CODE, 31, 32}) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) ? getInt(bArr, new byte[]{39, 40, 41, 42, 31, 32}) : invokeL.intValue;
     }
 
     public static String getPostCode3(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) ? String.valueOf(new char[]{SETS[0].charAt(getInt(bArr, new byte[]{39, 40, 41, ExifInterface.START_CODE, 31, 32})), SETS[0].charAt(getInt(bArr, new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 25, 26})), SETS[0].charAt(getInt(bArr, new byte[]{27, 28, 29, 30, 19, 20})), SETS[0].charAt(getInt(bArr, new byte[]{21, 22, 23, 24, 13, 14})), SETS[0].charAt(getInt(bArr, new byte[]{15, 16, 17, 18, 7, 8})), SETS[0].charAt(getInt(bArr, new byte[]{9, 10, 11, StandardMessageCodec.LIST, 1, 2}))}) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) ? String.valueOf(new char[]{SETS[0].charAt(getInt(bArr, new byte[]{39, 40, 41, 42, 31, 32})), SETS[0].charAt(getInt(bArr, new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 25, 26})), SETS[0].charAt(getInt(bArr, new byte[]{27, 28, 29, 30, 19, 20})), SETS[0].charAt(getInt(bArr, new byte[]{21, 22, 23, 24, 13, 14})), SETS[0].charAt(getInt(bArr, new byte[]{15, 16, 17, 18, 7, 8})), SETS[0].charAt(getInt(bArr, new byte[]{9, 10, 11, StandardMessageCodec.LIST, 1, 2}))}) : (String) invokeL.objValue;
     }
 
     public static int getServiceClass(byte[] bArr) {

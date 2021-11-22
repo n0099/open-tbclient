@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
-import b.a.e.e.a.d;
-import b.a.e.e.l.b;
+import b.a.e.f.a.d;
+import b.a.e.f.l.b;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ public class DiskCancelWorker implements b.a {
         this.operate = null;
     }
 
-    @Override // b.a.e.e.l.b.a
+    @Override // b.a.e.f.l.b.a
     public void cancel() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.operate == null) {

@@ -33,7 +33,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 @TargetApi(17)
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class VideoKeyFrameModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VideoKeyFrameModel";
@@ -55,7 +55,7 @@ public class VideoKeyFrameModel {
     public VideoEffectData mVideoEffectData;
 
     /* renamed from: com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel$4  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ugc$editvideo$magicmusic$EffectType;
         public static /* synthetic */ Interceptable $ic;
@@ -83,14 +83,14 @@ public class VideoKeyFrameModel {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface OnAPeriodOfTimeFrameAvailableListener extends OnDecodeFrameAvailableListener {
         void onDecodeFrameEnd();
 
         void onDecodeFrameError();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface OnDecodeFrameAvailableListener {
         void onFrameAvailable(long j, Bitmap bitmap);
     }

@@ -149,7 +149,7 @@ public class b extends a {
             }
             this.p = jSONObject.optInt("reserve") != 0;
         } catch (Exception e2) {
-            if (b.a.p0.a.k.f6397a) {
+            if (b.a.p0.a.k.f6863a) {
                 e2.printStackTrace();
             }
         }
@@ -161,7 +161,7 @@ public class b extends a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.o : (List) invokeV.objValue;
     }
 
-    @Override // b.a.p0.a.a0.b.a, b.a.p0.a.c0.b.b, b.a.p0.a.l1.a
+    @Override // b.a.p0.a.a0.b.a, b.a.p0.a.c0.b.b, b.a.p0.a.m1.a
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

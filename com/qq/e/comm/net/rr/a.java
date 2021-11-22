@@ -3,7 +3,6 @@ package com.qq.e.comm.net.rr;
 import android.annotation.TargetApi;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -26,29 +25,29 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f68068a;
+    public static final byte[] f68989a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Cipher f68069b;
+    public static Cipher f68990b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Cipher f68070c;
+    public static Cipher f68991c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f68071d;
+    public static final String f68992d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final byte[] f68072e;
+    public static final byte[] f68993e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.qq.e.comm.net.rr.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1960a extends Exception {
+    public static class C2000a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1960a(String str, Throwable th) {
+        public C2000a(String str, Throwable th) {
             super(str, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -109,58 +108,58 @@ public class a {
                 return;
             }
         }
-        f68068a = new byte[]{91, ExifInterface.MARKER_SOF2};
-        f68071d = String.format("AES/%s/PKCS7Padding", "ECB");
-        f68072e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
+        f68989a = new byte[]{91, -62};
+        f68992d = String.format("AES/%s/PKCS7Padding", "ECB");
+        f68993e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
     }
 
-    public static byte[] a(byte[] bArr) throws C1960a {
+    public static byte[] a(byte[] bArr) throws C2000a {
         InterceptResult invokeL;
         Cipher cipher;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
             synchronized (a.class) {
-                cipher = f68070c;
+                cipher = f68991c;
                 if (cipher == null) {
                     try {
-                        cipher = Cipher.getInstance(f68071d);
-                        cipher.init(2, new SecretKeySpec(f68072e, "AES"));
-                        f68070c = cipher;
+                        cipher = Cipher.getInstance(f68992d);
+                        cipher.init(2, new SecretKeySpec(f68993e, "AES"));
+                        f68991c = cipher;
                     } catch (Exception e2) {
-                        throw new C1960a("Fail To Init Cipher", e2);
+                        throw new C2000a("Fail To Init Cipher", e2);
                     }
                 }
             }
             try {
                 return cipher.doFinal(bArr);
             } catch (Exception e3) {
-                throw new C1960a("Exception While dencrypt byte array", e3);
+                throw new C2000a("Exception While dencrypt byte array", e3);
             }
         }
         return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] b(byte[] bArr) throws C1960a {
+    public static byte[] b(byte[] bArr) throws C2000a {
         InterceptResult invokeL;
         Cipher cipher;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
             synchronized (a.class) {
-                cipher = f68069b;
+                cipher = f68990b;
                 if (cipher == null) {
                     try {
-                        cipher = Cipher.getInstance(f68071d);
-                        cipher.init(1, new SecretKeySpec(f68072e, "AES"));
-                        f68069b = cipher;
+                        cipher = Cipher.getInstance(f68992d);
+                        cipher.init(1, new SecretKeySpec(f68993e, "AES"));
+                        f68990b = cipher;
                     } catch (Exception e2) {
-                        throw new C1960a("Fail To Init Cipher", e2);
+                        throw new C2000a("Fail To Init Cipher", e2);
                     }
                 }
             }
             try {
                 return cipher.doFinal(bArr);
             } catch (Exception e3) {
-                throw new C1960a("Exception While encrypt byte array", e3);
+                throw new C2000a("Exception While encrypt byte array", e3);
             }
         }
         return (byte[]) invokeL.objValue;
@@ -173,7 +172,7 @@ public class a {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
             try {
-                dataOutputStream.write(f68068a);
+                dataOutputStream.write(f68989a);
                 dataOutputStream.writeByte(1);
                 dataOutputStream.writeByte(2);
                 dataOutputStream.write(b(f(bArr)));
@@ -197,7 +196,7 @@ public class a {
             try {
                 byte[] bArr2 = new byte[4];
                 new DataInputStream(new ByteArrayInputStream(bArr)).read(bArr2);
-                if (f68068a[0] == bArr2[0] && f68068a[1] == bArr2[1] && 1 == bArr2[2] && 2 == bArr2[3]) {
+                if (f68989a[0] == bArr2[0] && f68989a[1] == bArr2[1] && 1 == bArr2[2] && 2 == bArr2[3]) {
                     return e(a(Arrays.copyOfRange(bArr, 4, bArr.length)));
                 }
                 throw new b("S2SS Package Magic/Version FormatError", null);

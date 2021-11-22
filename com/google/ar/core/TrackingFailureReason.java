@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class TrackingFailureReason {
     public static final /* synthetic */ TrackingFailureReason[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

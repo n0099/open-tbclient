@@ -9,7 +9,8 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
+import b.a.q0.s.q.t0;
 import b.a.r0.q2.o;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
@@ -40,6 +41,7 @@ import com.baidu.tbadk.core.atomData.YoungsterIntroduceActivityConfig;
 import com.baidu.tbadk.core.atomData.YoungsterPasswordActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.tbadk.core.util.HeadIconRefreshHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -63,10 +65,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes9.dex */
 public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean isLoadData;
     public MoreDiscoveryModel mDiscoveryModel;
     public GetFriendAndStrangerSwitchModel mFriendAndStrangerSwitchModel;
     public GetImageWatermarkTypeModel mGetImageWatermarkTypeModel;
@@ -74,7 +79,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     public MoreModel mModel;
     public CustomMessageListener mModifyNicknameSucceedListener;
     public b.a.e.c.g.a mPersonInfoChangedListener;
-    public b.a.r0.c3.c.e mView;
+    public b.a.r0.d3.c.e mView;
+    public List<Integer> notNeedLoginFunctions;
     public g receiver;
 
     /* loaded from: classes9.dex */
@@ -83,7 +89,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MoreActivity f53847a;
+        public final /* synthetic */ MoreActivity f54767a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MoreActivity moreActivity, int i2, int i3) {
@@ -104,7 +110,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                     return;
                 }
             }
-            this.f53847a = moreActivity;
+            this.f54767a = moreActivity;
         }
 
         @Override // b.a.e.c.g.a
@@ -123,8 +129,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                         return;
                     }
                     String portrait = aVar.a().getPortrait();
-                    this.f53847a.mView.A(HeadIconRefreshHelper.headPortraitFilter(portrait), false);
-                    PersonChangeData w = this.f53847a.mModel.w();
+                    this.f54767a.mView.A(HeadIconRefreshHelper.headPortraitFilter(portrait), false);
+                    PersonChangeData w = this.f54767a.mModel.w();
                     if (w != null) {
                         w.setPhotoChanged(true);
                         w.setPortrait(portrait);
@@ -140,7 +146,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MoreActivity f53848a;
+        public final /* synthetic */ MoreActivity f54768a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(MoreActivity moreActivity, int i2) {
@@ -160,7 +166,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                     return;
                 }
             }
-            this.f53848a = moreActivity;
+            this.f54768a = moreActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -170,8 +176,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001505) {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 int error = httpResponsedMessage.getError();
-                if (statusCode == 200 && error == 0 && this.f53848a.mDiscoveryModel != null) {
-                    this.f53848a.mDiscoveryModel.C(false, true);
+                if (statusCode == 200 && error == 0 && this.f54768a.mDiscoveryModel != null) {
+                    this.f54768a.mDiscoveryModel.C(false, true);
                 }
             }
         }
@@ -183,7 +189,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MoreActivity f53849a;
+        public final /* synthetic */ MoreActivity f54769a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(MoreActivity moreActivity, int i2) {
@@ -203,7 +209,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                     return;
                 }
             }
-            this.f53849a = moreActivity;
+            this.f54769a = moreActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -214,20 +220,20 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof String) || TextUtils.isEmpty((String) data) || this.f53849a.mDiscoveryModel == null) {
+            if (!(data instanceof String) || TextUtils.isEmpty((String) data) || this.f54769a.mDiscoveryModel == null) {
                 return;
             }
-            this.f53849a.mDiscoveryModel.C(false, true);
+            this.f54769a.mDiscoveryModel.C(false, true);
         }
     }
 
     /* loaded from: classes9.dex */
-    public class d implements b.a.r0.c3.c.d {
+    public class d implements b.a.r0.d3.c.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MoreActivity f53850a;
+        public final /* synthetic */ MoreActivity f54770a;
 
         public d(MoreActivity moreActivity) {
             Interceptable interceptable = $ic;
@@ -244,61 +250,62 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                     return;
                 }
             }
-            this.f53850a = moreActivity;
+            this.f54770a = moreActivity;
         }
 
-        @Override // b.a.r0.c3.c.d
+        @Override // b.a.r0.d3.c.d
         public void a(int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (i2 == 0) {
-                    this.f53850a.goToBack();
-                } else if (i2 == 1) {
-                    this.f53850a.goToPersonInfo();
-                } else if (i2 == 15) {
-                    this.f53850a.goToInterestSetting();
-                } else if (i2 == 2) {
-                    if (!b.a.q0.g1.b.c.d()) {
-                        this.f53850a.goToAccountManager();
-                    } else {
-                        l.L(this.f53850a.getPageContext().getPageActivity(), R.string.youngster_settings_logout);
-                    }
-                } else if (i2 == 3) {
-                    this.f53850a.goToBrowseSetting();
-                } else if (i2 == 16) {
-                    this.f53850a.goToAdSetting();
-                } else if (i2 == 4) {
-                    this.f53850a.goToMessage();
-                } else if (i2 == 6) {
-                    this.f53850a.goToAbout();
-                } else if (i2 == 7) {
-                    this.f53850a.goToFeedBack();
-                } else if (i2 == 8) {
-                    this.f53850a.goToRecommend();
-                } else if (i2 == 5) {
-                    this.f53850a.sendMessage(new CustomMessage(2002001, new SystemHelpSettingActivityConfig(this.f53850a.getPageContext().getPageActivity())));
-                } else if (i2 == 9) {
-                    this.f53850a.goToSecretSettings();
-                } else if (i2 == 10) {
-                    if (!b.a.q0.g1.b.c.d()) {
-                        this.f53850a.mView.K();
-                    } else {
-                        l.L(this.f53850a.getPageContext().getPageActivity(), R.string.youngster_settings_logout);
-                    }
-                } else if (i2 == 12) {
-                    MessageManager.getInstance().runTask(2921330, null, this.f53850a);
-                } else if (i2 == 11) {
-                    TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", true);
-                    b.a.q0.f0.a.b(0, 0, 0, 2, 12);
-                    BdSocketLinkService.close("exit app");
-                    o.d().b();
-                    b.a.q0.s.b0.b.g(this.f53850a.getPageContext().getPageActivity(), 12, false);
-                } else if (i2 == 13) {
-                    this.f53850a.goToAccountSafe();
-                    TiebaStatic.log("c10017");
-                } else if (i2 == 17) {
-                    this.f53850a.goToYoungsterSetting();
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f54770a.isNeedLogin(i2)) {
+                return;
+            }
+            if (i2 == 0) {
+                this.f54770a.goToBack();
+            } else if (i2 == 1) {
+                this.f54770a.goToPersonInfo();
+            } else if (i2 == 15) {
+                this.f54770a.goToInterestSetting();
+            } else if (i2 == 2) {
+                if (!b.a.q0.f1.b.c.d()) {
+                    this.f54770a.goToAccountManager();
+                } else {
+                    l.L(this.f54770a.getPageContext().getPageActivity(), R.string.youngster_settings_logout);
                 }
+            } else if (i2 == 3) {
+                this.f54770a.goToBrowseSetting();
+            } else if (i2 == 16) {
+                this.f54770a.goToAdSetting();
+            } else if (i2 == 4) {
+                this.f54770a.goToMessage();
+            } else if (i2 == 6) {
+                this.f54770a.goToAbout();
+            } else if (i2 == 7) {
+                this.f54770a.goToFeedBack();
+            } else if (i2 == 8) {
+                this.f54770a.goToRecommend();
+            } else if (i2 == 5) {
+                this.f54770a.sendMessage(new CustomMessage(2002001, new SystemHelpSettingActivityConfig(this.f54770a.getPageContext().getPageActivity())));
+            } else if (i2 == 9) {
+                this.f54770a.goToSecretSettings();
+            } else if (i2 == 10) {
+                if (!b.a.q0.f1.b.c.d()) {
+                    this.f54770a.mView.M();
+                } else {
+                    l.L(this.f54770a.getPageContext().getPageActivity(), R.string.youngster_settings_logout);
+                }
+            } else if (i2 == 12) {
+                MessageManager.getInstance().runTask(2921330, null, this.f54770a);
+            } else if (i2 == 11) {
+                TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", true);
+                b.a.q0.f0.a.b(0, 0, 0, 2, 12);
+                BdSocketLinkService.close("exit app");
+                o.d().b();
+                b.a.q0.s.b0.b.g(this.f54770a.getPageContext().getPageActivity(), 12, false);
+            } else if (i2 == 13) {
+                this.f54770a.goToAccountSafe();
+                TiebaStatic.log("c10017");
+            } else if (i2 == 17) {
+                this.f54770a.goToYoungsterSetting();
             }
         }
     }
@@ -309,7 +316,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MoreActivity f53851a;
+        public final /* synthetic */ MoreActivity f54771a;
 
         public e(MoreActivity moreActivity) {
             Interceptable interceptable = $ic;
@@ -326,7 +333,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                     return;
                 }
             }
-            this.f53851a = moreActivity;
+            this.f54771a = moreActivity;
         }
 
         @Override // b.a.e.a.e
@@ -334,34 +341,34 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 PersonChangeData personChangeData = new PersonChangeData();
-                if (this.f53851a.mDiscoveryModel.getUser() != null) {
-                    personChangeData.setUserId(this.f53851a.mDiscoveryModel.getUser().getUserId());
-                    personChangeData.setName(this.f53851a.mDiscoveryModel.getUser().getUserName());
-                    personChangeData.setIntro(this.f53851a.mDiscoveryModel.getUser().getIntro());
-                    personChangeData.setPortrait(this.f53851a.mDiscoveryModel.getUser().getPortrait());
-                    personChangeData.setSex(this.f53851a.mDiscoveryModel.getUser().getSex());
-                    personChangeData.setNameShow(this.f53851a.mDiscoveryModel.getUser().getName_show());
-                    personChangeData.setMem(this.f53851a.mDiscoveryModel.getUser().getIsMem());
-                    personChangeData.setForumAge(this.f53851a.mDiscoveryModel.getUser().getTb_age());
-                    personChangeData.setCanModifyAvatar(this.f53851a.mDiscoveryModel.getUser().canModifyAvatar());
-                    personChangeData.setCantModifyAvatarDesc(this.f53851a.mDiscoveryModel.getUser().getCantModifyAvatarDesc());
-                    personChangeData.setTiebaId(this.f53851a.mDiscoveryModel.getUser().getmTiebaUid());
-                    if (this.f53851a.mDiscoveryModel.getUser().getBusinessAccountData() != null) {
-                        personChangeData.setIsBusinessAccount(this.f53851a.mDiscoveryModel.getUser().getBusinessAccountData().isBusinessAccount ? "1" : "0");
+                if (this.f54771a.mDiscoveryModel.getUser() != null) {
+                    personChangeData.setUserId(this.f54771a.mDiscoveryModel.getUser().getUserId());
+                    personChangeData.setName(this.f54771a.mDiscoveryModel.getUser().getUserName());
+                    personChangeData.setIntro(this.f54771a.mDiscoveryModel.getUser().getIntro());
+                    personChangeData.setPortrait(this.f54771a.mDiscoveryModel.getUser().getPortrait());
+                    personChangeData.setSex(this.f54771a.mDiscoveryModel.getUser().getSex());
+                    personChangeData.setNameShow(this.f54771a.mDiscoveryModel.getUser().getName_show());
+                    personChangeData.setMem(this.f54771a.mDiscoveryModel.getUser().getIsMem());
+                    personChangeData.setForumAge(this.f54771a.mDiscoveryModel.getUser().getTb_age());
+                    personChangeData.setCanModifyAvatar(this.f54771a.mDiscoveryModel.getUser().canModifyAvatar());
+                    personChangeData.setCantModifyAvatarDesc(this.f54771a.mDiscoveryModel.getUser().getCantModifyAvatarDesc());
+                    personChangeData.setTiebaId(this.f54771a.mDiscoveryModel.getUser().getmTiebaUid());
+                    if (this.f54771a.mDiscoveryModel.getUser().getBusinessAccountData() != null) {
+                        personChangeData.setIsBusinessAccount(this.f54771a.mDiscoveryModel.getUser().getBusinessAccountData().isBusinessAccount ? "1" : "0");
                     }
-                    if (this.f53851a.mDiscoveryModel.getUser().alaUserData != null) {
-                        personChangeData.setAlaId(this.f53851a.mDiscoveryModel.getUser().alaUserData.ala_id);
+                    if (this.f54771a.mDiscoveryModel.getUser().alaUserData != null) {
+                        personChangeData.setAlaId(this.f54771a.mDiscoveryModel.getUser().alaUserData.ala_id);
                     }
-                    if (this.f53851a.mDiscoveryModel.D() != null) {
-                        personChangeData.setNickNameLeftDays(this.f53851a.mDiscoveryModel.D().left_days.intValue());
+                    if (this.f54771a.mDiscoveryModel.D() != null) {
+                        personChangeData.setNickNameLeftDays(this.f54771a.mDiscoveryModel.D().left_days.intValue());
                     }
-                    if (this.f53851a.mDiscoveryModel.getUser().getBirthdayInfo() != null) {
-                        personChangeData.setUserAge(this.f53851a.mDiscoveryModel.getUser().getBirthdayInfo().f13378c);
-                        personChangeData.setBirthdayTime(this.f53851a.mDiscoveryModel.getUser().getBirthdayInfo().f13376a);
-                        personChangeData.setBirthdayShowStatus(this.f53851a.mDiscoveryModel.getUser().getBirthdayInfo().f13379d);
+                    if (this.f54771a.mDiscoveryModel.getUser().getBirthdayInfo() != null) {
+                        personChangeData.setUserAge(this.f54771a.mDiscoveryModel.getUser().getBirthdayInfo().f14158c);
+                        personChangeData.setBirthdayTime(this.f54771a.mDiscoveryModel.getUser().getBirthdayInfo().f14156a);
+                        personChangeData.setBirthdayShowStatus(this.f54771a.mDiscoveryModel.getUser().getBirthdayInfo().f14159d);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921061, personChangeData));
-                    this.f53851a.buildModel(personChangeData);
+                    this.f54771a.buildModel(personChangeData);
                 }
             }
         }
@@ -373,7 +380,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MoreActivity f53852a;
+        public final /* synthetic */ MoreActivity f54772a;
 
         public f(MoreActivity moreActivity) {
             Interceptable interceptable = $ic;
@@ -390,7 +397,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                     return;
                 }
             }
-            this.f53852a = moreActivity;
+            this.f54772a = moreActivity;
         }
 
         @Override // b.a.e.a.e
@@ -398,10 +405,10 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && obj != null && (obj instanceof MoreModel.TaskType)) {
                 if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
-                    MoreActivity moreActivity = this.f53852a;
+                    MoreActivity moreActivity = this.f54772a;
                     moreActivity.showToast(moreActivity.getPageContext().getString(R.string.image_cash_del_suc));
                 }
-                this.f53852a.closeLoadingDialog();
+                this.f54772a.closeLoadingDialog();
             }
         }
     }
@@ -434,7 +441,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                this.this$0.mView.I();
+                this.this$0.mView.K();
             }
         }
 
@@ -458,6 +465,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         }
         this.mModel = null;
         this.receiver = null;
+        this.isLoadData = false;
         this.mPersonInfoChangedListener = new a(this, CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         this.mGetMemberPayinfoListener = new b(this, CmdConfigHttp.GETPAYINFO_CMD);
         this.mModifyNicknameSucceedListener = new c(this, 2921033);
@@ -466,7 +474,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     /* JADX INFO: Access modifiers changed from: private */
     public void buildModel(PersonChangeData personChangeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, this, personChangeData) == null) {
+        if (interceptable == null || interceptable.invokeL(65555, this, personChangeData) == null) {
             if (personChangeData != null && personChangeData.getPortrait() != null) {
                 this.mView.A(HeadIconRefreshHelper.headPortraitFilter(personChangeData.getPortrait()), false);
             }
@@ -479,19 +487,19 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     private boolean checkPersonChangeDataIsValid(PersonChangeData personChangeData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, this, personChangeData)) == null) ? (personChangeData == null || (TextUtils.isEmpty(personChangeData.getUserId()) && TextUtils.isEmpty(personChangeData.getName()) && TextUtils.isEmpty(personChangeData.getPortrait()) && TextUtils.isEmpty(personChangeData.getmTiebaId()))) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65556, this, personChangeData)) == null) ? (personChangeData == null || (TextUtils.isEmpty(personChangeData.getUserId()) && TextUtils.isEmpty(personChangeData.getName()) && TextUtils.isEmpty(personChangeData.getPortrait()) && TextUtils.isEmpty(personChangeData.getmTiebaId()))) ? false : true : invokeL.booleanValue;
     }
 
-    private b.a.r0.c3.c.d getItemClickListener() {
+    private b.a.r0.d3.c.d getItemClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) ? new d(this) : (b.a.r0.c3.c.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) ? new d(this) : (b.a.r0.d3.c.d) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void goToAbout() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65558, this) == null) {
             sendMessage(new CustomMessage(2002001, new AboutActivityConfig(getPageContext().getPageActivity())));
         }
     }
@@ -499,7 +507,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     /* JADX INFO: Access modifiers changed from: private */
     public void goToAccountManager() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65558, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if ((currentAccount == null || currentAccount.length() <= 0) && b.a.q0.s.l.c.d() <= 0) {
                 TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), 11003)));
@@ -512,7 +520,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     /* JADX INFO: Access modifiers changed from: private */
     public void goToAccountSafe() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
             MessageManager.getInstance().runTask(2921329, null, this);
         }
     }
@@ -520,7 +528,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     /* JADX INFO: Access modifiers changed from: private */
     public void goToAdSetting() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
             sendMessage(new CustomMessage(2002001, new AdSettingActivityConfig(getPageContext().getPageActivity())));
         }
     }
@@ -528,7 +536,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     /* JADX INFO: Access modifiers changed from: private */
     public void goToBack() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
             passPersonInfoChange();
             finish();
         }
@@ -537,7 +545,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     /* JADX INFO: Access modifiers changed from: private */
     public void goToBrowseSetting() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65562, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
             sendMessage(new CustomMessage(2002001, new BrowseSettingActivityConfig(getPageContext().getPageActivity())));
         }
     }
@@ -545,7 +553,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     /* JADX INFO: Access modifiers changed from: private */
     public void goToFeedBack() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65564, this) == null) {
             BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
             UrlManager.getInstance().dealOneLink((TbPageContext<?>) getPageContext(), new String[]{TbConfig.URL_FEED_BACK}, true);
         }
@@ -554,7 +562,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     /* JADX INFO: Access modifiers changed from: private */
     public void goToInterestSetting() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65564, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65565, this) == null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InterestGuideActivityConfig(this)));
         }
     }
@@ -562,7 +570,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     /* JADX INFO: Access modifiers changed from: private */
     public void goToMessage() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65565, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65566, this) == null) {
             sendMessage(new CustomMessage(2002001, new MsgRemindActivityConfig(getPageContext().getPageActivity())));
         }
     }
@@ -572,7 +580,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         String currentAccount;
         MoreModel moreModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65566, this) == null) || (currentAccount = TbadkCoreApplication.getCurrentAccount()) == null || currentAccount.length() <= 0 || (moreModel = this.mModel) == null || !checkPersonChangeDataIsValid(moreModel.w())) {
+        if (!(interceptable == null || interceptable.invokeV(65567, this) == null) || (currentAccount = TbadkCoreApplication.getCurrentAccount()) == null || currentAccount.length() <= 0 || (moreModel = this.mModel) == null || !checkPersonChangeDataIsValid(moreModel.w())) {
             return;
         }
         sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(getPageContext().getPageActivity(), 101, this.mModel.w(), Boolean.FALSE)));
@@ -582,7 +590,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     public void goToRecommend() {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65567, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65568, this) == null) {
             String str2 = TbConfig.RECOMMEND_APP_ADDRESS;
             if (str2.indexOf("?") < 0) {
                 str2 = str2 + "?";
@@ -601,7 +609,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     /* JADX INFO: Access modifiers changed from: private */
     public void goToSecretSettings() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65568, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65569, this) == null) {
             sendMessage(new CustomMessage(2002001, new SecretSettingActivityConfig(getPageContext().getPageActivity())));
             TiebaStatic.log(new StatisticItem("c14001").param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
@@ -610,8 +618,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     /* JADX INFO: Access modifiers changed from: private */
     public void goToYoungsterSetting() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65569, this) == null) {
-            if (b.a.q0.g1.b.c.d()) {
+        if (interceptable == null || interceptable.invokeV(65570, this) == null) {
+            if (b.a.q0.f1.b.c.d()) {
                 YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(getPageContext().getPageActivity());
                 youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(2);
                 youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);
@@ -624,10 +632,23 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         }
     }
 
+    private void initData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65571, this) == null) {
+            ArrayList arrayList = new ArrayList();
+            this.notNeedLoginFunctions = arrayList;
+            arrayList.add(17);
+            this.notNeedLoginFunctions.add(17);
+            this.notNeedLoginFunctions.add(16);
+            this.notNeedLoginFunctions.add(6);
+            this.notNeedLoginFunctions.add(0);
+        }
+    }
+
     private void initModel(Bundle bundle) {
         PersonChangeData personChangeData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65570, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(65572, this, bundle) == null) {
             if (bundle != null) {
                 String string = bundle.getString("person_change_data");
                 personChangeData = !StringUtils.isNull(string) ? (PersonChangeData) OrmObject.objectWithJsonStr(string, PersonChangeData.class) : null;
@@ -640,17 +661,36 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 moreDiscoveryModel.setUniqueId(getUniqueId());
                 this.mDiscoveryModel.N(TbadkCoreApplication.getCurrentAccount());
                 this.mDiscoveryModel.setLoadDataCallBack(new e(this));
-                this.mDiscoveryModel.C(false, true);
+                if (TbadkCoreApplication.isLogin()) {
+                    this.isLoadData = true;
+                    this.mDiscoveryModel.C(false, true);
+                }
             }
             buildModel(personChangeData);
-            this.mFriendAndStrangerSwitchModel = new GetFriendAndStrangerSwitchModel(this);
-            this.mGetImageWatermarkTypeModel = new GetImageWatermarkTypeModel(this);
+            if (TbadkCoreApplication.isLogin()) {
+                this.isLoadData = true;
+                this.mFriendAndStrangerSwitchModel = new GetFriendAndStrangerSwitchModel(this);
+                this.mGetImageWatermarkTypeModel = new GetImageWatermarkTypeModel(this);
+            }
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean isNeedLogin(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65573, this, i2)) == null) {
+            if (this.notNeedLoginFunctions.contains(Integer.valueOf(i2))) {
+                return false;
+            }
+            return !DialogLoginHelper.checkUpIsLogin(new t0(this, "setting_page"));
+        }
+        return invokeI.booleanValue;
     }
 
     private void passPersonInfoChange() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65571, this) == null) && this.mModel.x()) {
+        if ((interceptable == null || interceptable.invokeV(65574, this) == null) && this.mModel.x()) {
             Intent intent = new Intent();
             intent.putExtra("person_change_data", this.mModel.w());
             setResult(-1, intent);
@@ -659,14 +699,14 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
     private void refreshPortrait() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65572, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65575, this) == null) {
             b.a.q0.a0.b.a().d();
         }
     }
 
     private void regReceiver() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65573, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65576, this) == null) {
             this.receiver = new g(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
@@ -677,7 +717,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     private void unregReceiver() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65574, this) == null) || (gVar = this.receiver) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65577, this) == null) || (gVar = this.receiver) == null) {
             return;
         }
         unregisterReceiver(gVar);
@@ -685,7 +725,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void OnSwitchStateChange(View view, BdSwitchView.SwitchState switchState) {
-        b.a.r0.c3.c.e eVar;
+        b.a.r0.d3.c.e eVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, switchState) == null) || view == null || (eVar = this.mView) == null) {
             return;
@@ -694,7 +734,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             if (BdSwitchView.SwitchState.ON == switchState) {
                 UtilHelper.showSkinChangeAnimation(this);
                 UtilHelper.setNavigationBarBackground(this, getResources().getColor(R.color.CAM_X0201_1));
-                this.mView.J(1);
+                this.mView.L(1);
             } else {
                 SkinManager.setDayOrDarkSkinTypeWithSystemMode(true, false);
             }
@@ -749,12 +789,13 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new b.a.r0.c3.c.e(this, getItemClickListener());
+            this.mView = new b.a.r0.d3.c.e(this, getItemClickListener());
             initModel(bundle);
             regReceiver();
             registerListener(this.mPersonInfoChangedListener);
             registerListener(this.mGetMemberPayinfoListener);
             registerListener(this.mModifyNicknameSucceedListener);
+            initData();
         }
     }
 
@@ -764,7 +805,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
             unregReceiver();
-            b.a.r0.c3.c.e eVar = this.mView;
+            b.a.r0.d3.c.e eVar = this.mView;
             if (eVar != null) {
                 eVar.t();
             }
@@ -799,9 +840,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            b.a.r0.c3.c.e eVar = this.mView;
+            b.a.r0.d3.c.e eVar = this.mView;
             if (eVar != null) {
-                eVar.I();
+                eVar.K();
                 this.mView.B();
             }
         }
@@ -813,6 +854,32 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             bundle.putSerializable("person_change_data", OrmObject.jsonStrWithObject(this.mModel.w()));
             super.onSaveInstanceState(bundle);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onUserChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            super.onUserChanged(z);
+            if (!z || this.isLoadData) {
+                return;
+            }
+            MoreDiscoveryModel moreDiscoveryModel = this.mDiscoveryModel;
+            if (moreDiscoveryModel != null) {
+                moreDiscoveryModel.C(false, true);
+            }
+            if (this.mFriendAndStrangerSwitchModel != null) {
+                this.mFriendAndStrangerSwitchModel = new GetFriendAndStrangerSwitchModel(this);
+            }
+            if (this.mGetImageWatermarkTypeModel != null) {
+                this.mGetImageWatermarkTypeModel = new GetImageWatermarkTypeModel(this);
+            }
+            b.a.r0.d3.c.e eVar = this.mView;
+            if (eVar != null) {
+                eVar.N();
+                this.mView.P();
+            }
         }
     }
 }

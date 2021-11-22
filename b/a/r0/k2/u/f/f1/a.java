@@ -1,368 +1,184 @@
 package b.a.r0.k2.u.f.f1;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
-import android.util.SparseArray;
-import android.widget.TextView;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import b.a.q0.s.s.a;
-import b.a.q0.s.s.f;
-import b.a.q0.s.s.i;
-import b.a.r0.k2.h;
-import b.a.r0.k2.l;
-import b.a.r0.k2.r.s;
-import b.a.r0.k2.u.f.q0;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
+import android.text.TextUtils;
+import b.a.e.m.e.n;
+import b.a.r0.k2.r.f;
+import b.a.r0.k2.u.f.t0;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.pb.pb.main.relatelist.RelateRecThreadListModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import tbclient.RelateRecThread.DataRes;
+import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(List<f> list, i iVar, PostData postData, PbModel pbModel) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, list, iVar, postData, pbModel)) == null) {
-            if (list != null && postData != null && pbModel != null && pbModel.P0() != null) {
-                b.a.r0.k2.r.f P0 = pbModel.P0();
-                if (P0.h0() && TbadkCoreApplication.isLogin() && !j(postData) && !P0.g0()) {
-                    f fVar = new f(9, TbadkCoreApplication.getInst().getString(l.block_user), iVar);
-                    list.add(fVar);
-                    b.a.r0.v3.a.e(fVar.f13556d, postData);
-                    return true;
+    /* renamed from: a  reason: collision with root package name */
+    public final List<n> f20801a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final RelateRecThreadListModel f20802b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public t0 f20803c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public PbModel f20804d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final b.a.q0.n.a f20805e;
+
+    /* renamed from: b.a.r0.k2.u.f.f1.a$a  reason: collision with other inner class name */
+    /* loaded from: classes5.dex */
+    public class C1037a implements b.a.q0.n.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ a f20806a;
+
+        public C1037a(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return false;
+            this.f20806a = aVar;
         }
-        return invokeLLLL.booleanValue;
-    }
 
-    public static List<f> b(List<f> list, AgreeData agreeData, SparseArray<Object> sparseArray, i iVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, list, agreeData, sparseArray, iVar)) == null) {
-            if (list == null) {
-                list = new ArrayList<>();
+        @Override // b.a.q0.n.a
+        public void onError(int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || this.f20806a.f20803c == null || this.f20806a.f20803c.K0() == null) {
+                return;
             }
-            ArrayList arrayList = new ArrayList();
-            if (agreeData.hasAgree) {
-                if (agreeData.agreeType == 2) {
-                    f fVar = new f(-1, q0.h(l.c_agreeed, new Object[0]), iVar);
-                    fVar.f13556d.setTag(sparseArray);
-                    arrayList.add(fVar);
-                    if (sparseArray == null || sparseArray.get(b.a.r0.k2.i.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(b.a.r0.k2.i.pb_dialog_item_isugc)).booleanValue()) {
-                        f fVar2 = new f(-2, q0.h(l.c_disagree, new Object[0]), iVar);
-                        fVar2.f13556d.setTag(sparseArray);
-                        arrayList.add(fVar2);
-                    }
-                } else {
-                    f fVar3 = new f(-1, q0.h(l.c_agree, new Object[0]), iVar);
-                    fVar3.f13556d.setTag(sparseArray);
-                    arrayList.add(fVar3);
-                    if (sparseArray == null || sparseArray.get(b.a.r0.k2.i.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(b.a.r0.k2.i.pb_dialog_item_isugc)).booleanValue()) {
-                        f fVar4 = new f(-2, q0.h(l.c_disagreeed, new Object[0]), iVar);
-                        fVar4.f13556d.setTag(sparseArray);
-                        arrayList.add(fVar4);
-                    }
-                }
-            } else {
-                f fVar5 = new f(-1, q0.h(l.c_agree, new Object[0]), iVar);
-                fVar5.f13556d.setTag(sparseArray);
-                arrayList.add(fVar5);
-                if (sparseArray == null || sparseArray.get(b.a.r0.k2.i.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(b.a.r0.k2.i.pb_dialog_item_isugc)).booleanValue()) {
-                    f fVar6 = new f(-2, q0.h(l.c_disagree, new Object[0]), iVar);
-                    fVar6.f13556d.setTag(sparseArray);
-                    arrayList.add(fVar6);
-                }
-            }
-            f fVar7 = new f(-3, q0.h(l.reply, new Object[0]), iVar);
-            fVar7.f13556d.setTag(sparseArray);
-            arrayList.add(fVar7);
-            f fVar8 = new f(-4, q0.h(l.share, new Object[0]), iVar);
-            fVar8.f13556d.setTag(sparseArray);
-            arrayList.add(fVar8);
-            list.addAll(0, arrayList);
-            return list;
+            this.f20806a.f20803c.K0().M();
         }
-        return (List) invokeLLLL.objValue;
-    }
 
-    public static List<f> c(List<f> list, AgreeData agreeData, SparseArray<Object> sparseArray, i iVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, list, agreeData, sparseArray, iVar)) == null) {
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            ArrayList arrayList = new ArrayList();
-            if (agreeData.hasAgree) {
-                if (agreeData.agreeType == 2) {
-                    if (sparseArray == null || sparseArray.get(b.a.r0.k2.i.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(b.a.r0.k2.i.pb_dialog_item_isugc)).booleanValue()) {
-                        f fVar = new f(-2, q0.h(l.action_dislike, new Object[0]), iVar);
-                        fVar.f13556d.setTag(sparseArray);
-                        arrayList.add(fVar);
-                    }
-                } else if (sparseArray == null || sparseArray.get(b.a.r0.k2.i.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(b.a.r0.k2.i.pb_dialog_item_isugc)).booleanValue()) {
-                    f fVar2 = new f(-2, q0.h(l.c_disagreeed, new Object[0]), iVar);
-                    fVar2.f13556d.setTag(sparseArray);
-                    arrayList.add(fVar2);
-                }
-            } else if (sparseArray == null || sparseArray.get(b.a.r0.k2.i.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(b.a.r0.k2.i.pb_dialog_item_isugc)).booleanValue()) {
-                f fVar3 = new f(-2, q0.h(l.action_dislike, new Object[0]), iVar);
-                fVar3.f13556d.setTag(sparseArray);
-                arrayList.add(fVar3);
-            }
-            f fVar4 = new f(-3, q0.h(l.reply, new Object[0]), iVar);
-            fVar4.f13556d.setTag(sparseArray);
-            arrayList.add(0, fVar4);
-            f fVar5 = new f(-4, q0.h(l.share, new Object[0]), iVar);
-            fVar5.f13556d.setTag(sparseArray);
-            arrayList.add(1, fVar5);
-            list.addAll(0, arrayList);
-            return list;
-        }
-        return (List) invokeLLLL.objValue;
-    }
-
-    public static void d(Activity activity, @Nullable b.a.e.a.f<?> fVar, a.e eVar, a.e eVar2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65539, null, activity, fVar, eVar, eVar2) == null) {
-            int i2 = l.del_post_confirm;
-            int i3 = l.dialog_ok;
-            int i4 = l.dialog_cancel;
-            b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(activity);
-            aVar.setMessageId(i2);
-            aVar.setPositiveButton(i3, eVar);
-            aVar.setNegativeButton(i4, eVar2);
-            aVar.setCancelable(true);
-            aVar.create(fVar);
-            aVar.show();
-        }
-    }
-
-    public static List<f> e(List<f> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (list == null) {
-                return list;
-            }
-            for (f fVar : list) {
-                fVar.k(g(fVar));
-            }
-            return list;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static SpannableStringBuilder f(PostData postData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, postData)) == null) {
-            if (postData == null) {
-                return null;
-            }
-            String tbRichText = postData.M() != null ? postData.M().toString() : "";
-            SpannableString n = n(postData.t().getName_show() + ZeusCrashHandler.NAME_SEPERATOR, SkinManager.getColor(b.a.r0.k2.f.CAM_X0109));
-            SpannableString n2 = n(tbRichText, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107));
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) n);
-            spannableStringBuilder.append((CharSequence) n2);
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeL.objValue;
-    }
-
-    public static Drawable g(f fVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, fVar)) == null) {
-            switch (fVar.e()) {
-                case -4:
-                    return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_share30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                case -3:
-                    return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_comment30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                case -2:
-                    if (q0.h(l.c_disagree, new Object[0]).equals(fVar.f())) {
-                        return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_dislike30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                    }
-                    return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_disliked30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                case -1:
-                    if (q0.h(l.c_agree, new Object[0]).equals(fVar.f())) {
-                        return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_like30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                    }
-                    return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_liked30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0301), null);
-                case 0:
-                default:
-                    return null;
-                case 1:
-                    return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_expression30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                case 2:
-                    return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_save30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                case 3:
-                    return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_copy30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                case 4:
-                    if (q0.h(l.mark, new Object[0]).equals(fVar.f())) {
-                        return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_collect30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                    }
-                    return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_collected30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0305), null);
-                case 5:
-                    if (q0.h(l.report_text, new Object[0]).equals(fVar.f())) {
-                        return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_report30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                    }
-                    if (q0.h(l.mute_option, new Object[0]).equals(fVar.f())) {
-                        return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_nospeakingset30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                    }
-                    return null;
-                case 6:
-                    if (q0.h(l.report_text, new Object[0]).equals(fVar.f())) {
-                        return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_report30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                    }
-                    if (q0.h(l.delete, new Object[0]).equals(fVar.f())) {
-                        return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_delete30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                    }
-                    return null;
-                case 7:
-                    return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_administration30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                case 8:
-                    return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_hide30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                case 9:
-                    return WebPManager.getPureDrawable(h.icon_pure_pb_block30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                case 10:
-                    if (q0.h(l.delete_post, new Object[0]).equals(fVar.f())) {
-                        return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_delete30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                    }
-                    if (q0.h(l.delete, new Object[0]).equals(fVar.f())) {
-                        return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_delete30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                    }
-                    return null;
-                case 11:
-                    return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_block30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                case 12:
-                    if (q0.h(l.mute, new Object[0]).equals(fVar.f())) {
-                        return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_nospeaking30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                    }
-                    if (q0.h(l.un_mute, new Object[0]).equals(fVar.f())) {
-                        return WebPManager.getPureDrawable(h.icon_pure_pb_recommend_nospeakinged30, SkinManager.getColor(b.a.r0.k2.f.CAM_X0107), null);
-                    }
-                    return null;
-            }
-        }
-        return (Drawable) invokeL.objValue;
-    }
-
-    public static boolean h(PbModel pbModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, pbModel)) == null) ? (pbModel == null || pbModel.P0() == null || !pbModel.P0().h0()) ? false : true : invokeL.booleanValue;
-    }
-
-    public static boolean i(s sVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, sVar)) == null) ? sVar != null && sVar.q() : invokeL.booleanValue;
-    }
-
-    public static boolean j(PostData postData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, postData)) == null) ? (postData == null || postData.t() == null || StringUtils.isNull(postData.t().getUserId()) || !postData.t().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true : invokeL.booleanValue;
-    }
-
-    public static List<f> k(List<f> list, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, list, z)) == null) {
-            if (list != null && !z) {
-                Iterator<f> it = list.iterator();
-                while (it.hasNext()) {
-                    f next = it.next();
-                    if (next.e() == 2 || next.e() == 1 || next.e() == 3) {
-                        it.remove();
-                    }
-                }
-            }
-            return list;
-        }
-        return (List) invokeLZ.objValue;
-    }
-
-    public static boolean l(TextView textView, PostData postData, s sVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, textView, postData, sVar)) == null) {
-            if (textView != null && sVar != null && postData != null) {
-                if (sVar.q() && TbadkCoreApplication.isLogin() && !j(postData) && !sVar.p()) {
-                    b.a.r0.v3.a.e(textView, postData);
-                    textView.setVisibility(0);
-                    return true;
-                }
-                textView.setVisibility(8);
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static int m(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i2)) == null) {
-            if (i2 != -4) {
-                if (i2 != -3) {
-                    if (i2 != -2) {
-                        if (i2 != -1) {
-                            switch (i2) {
-                                case 4:
-                                    return 5;
-                                case 5:
-                                    return 7;
-                                case 6:
-                                    return 6;
-                                case 7:
-                                    return 9;
-                                case 8:
-                                    return 8;
-                                default:
-                                    return 0;
-                            }
+        @Override // b.a.q0.n.a
+        public void onSuccess(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                if (this.f20806a.f20804d != null && (obj instanceof DataRes)) {
+                    DataRes dataRes = (DataRes) obj;
+                    f P0 = this.f20806a.f20804d.P0();
+                    String first_class = P0.l() != null ? P0.l().getFirst_class() : "";
+                    List<ThreadInfo> list = dataRes.recom_thread_info;
+                    if (ListUtils.isEmpty(list)) {
+                        if (this.f20806a.f20803c == null || this.f20806a.f20803c.K0() == null) {
+                            return;
                         }
-                        return 1;
+                        this.f20806a.f20803c.K0().u(P0.t());
+                        this.f20806a.f20803c.K0().M();
+                        if (P0.t()) {
+                            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_ICON_SHOW);
+                            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                            statisticItem.param("fid", P0.m());
+                            statisticItem.param("fname", P0.n());
+                            statisticItem.param("tid", P0.Q());
+                            TiebaStatic.log(statisticItem);
+                            return;
+                        }
+                        return;
                     }
-                    return 2;
+                    this.f20806a.f20801a.addAll(b.b(list, first_class, this.f20806a.f20804d.O0()));
+                    P0.L0(this.f20806a.f20801a);
+                    Integer num = dataRes.rec_type;
+                    P0.I0(num == null ? 0 : num.intValue());
                 }
-                return 3;
+                if (this.f20806a.f20803c != null && !ListUtils.isEmpty(this.f20806a.f20801a)) {
+                    this.f20806a.f20803c.m3();
+                }
+                if (this.f20806a.f20803c.K0() == null || !this.f20806a.f20803c.K0().n() || ListUtils.isEmpty(this.f20806a.f20801a)) {
+                    return;
+                }
+                this.f20806a.f20803c.K0().k();
             }
-            return 4;
         }
-        return invokeI.intValue;
     }
 
-    public static SpannableString n(String str, int i2) {
-        InterceptResult invokeLI;
+    public a(b.a.r0.k2.y.b bVar, BdUniqueId bdUniqueId, t0 t0Var, PbModel pbModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, str, i2)) == null) {
-            SpannableString spannableString = new SpannableString(str);
-            spannableString.setSpan(new ForegroundColorSpan(i2), 0, str.length(), 33);
-            return spannableString;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar, bdUniqueId, t0Var, pbModel};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (SpannableString) invokeLI.objValue;
+        this.f20801a = new ArrayList();
+        this.f20805e = new C1037a(this);
+        this.f20803c = t0Var;
+        this.f20804d = pbModel;
+        RelateRecThreadListModel relateRecThreadListModel = new RelateRecThreadListModel(bVar.getPageContext(), bdUniqueId);
+        this.f20802b = relateRecThreadListModel;
+        relateRecThreadListModel.D(this.f20805e);
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            PbModel pbModel = this.f20804d;
+            if (pbModel == null || TextUtils.isEmpty(pbModel.f1()) || this.f20804d.P0() == null || this.f20804d.P0().a0()) {
+                return false;
+            }
+            int c0 = this.f20804d.c0();
+            int O0 = this.f20804d.O0();
+            if (c0 == 1 || O0 == 2 || O0 == 3) {
+                String forumId = this.f20804d.getForumId();
+                if (TextUtils.isEmpty(forumId) && this.f20804d.P0().l() != null) {
+                    forumId = this.f20804d.P0().l().getId();
+                }
+                return this.f20802b.C(b.a.e.f.m.b.g(forumId, 0L), b.a.e.f.m.b.g(this.f20804d.f1(), 0L), c0, O0);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f20801a.clear();
+            this.f20802b.onDestroy();
+        }
+    }
+
+    public void f(t0 t0Var, PbModel pbModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t0Var, pbModel) == null) {
+            this.f20803c = t0Var;
+            this.f20804d = pbModel;
+        }
     }
 }

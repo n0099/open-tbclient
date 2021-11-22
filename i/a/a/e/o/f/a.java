@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class a<T> extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<T> f72394e;
+    public List<T> f73313e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f72395f;
+    public Context f73314f;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public abstract class a<T> extends BaseAdapter {
                 return;
             }
         }
-        this.f72394e = new ArrayList();
-        this.f72395f = context;
+        this.f73313e = new ArrayList();
+        this.f73314f = context;
     }
 
     public void a(List<T> list) {
@@ -50,7 +50,7 @@ public abstract class a<T> extends BaseAdapter {
     public List<T> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72394e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73313e : (List) invokeV.objValue;
     }
 
     public void c(List<T> list) {
@@ -66,9 +66,9 @@ public abstract class a<T> extends BaseAdapter {
             return;
         }
         if (z) {
-            this.f72394e.clear();
+            this.f73313e.clear();
         }
-        this.f72394e.addAll(list);
+        this.f73313e.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -76,7 +76,7 @@ public abstract class a<T> extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f72394e.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f73313e.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -84,10 +84,10 @@ public abstract class a<T> extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            if (this.f72394e.size() == 0) {
+            if (this.f73313e.size() == 0) {
                 return null;
             }
-            List<T> list = this.f72394e;
+            List<T> list = this.f73313e;
             return list.get(i2 % list.size());
         }
         return (T) invokeI.objValue;

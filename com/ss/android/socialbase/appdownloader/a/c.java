@@ -18,7 +18,7 @@ public class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final JSONObject f68900d;
+    public final JSONObject f69820d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Context context, com.ss.android.socialbase.downloader.g.a aVar, String str, JSONObject jSONObject) {
@@ -39,7 +39,7 @@ public class c extends a {
                 return;
             }
         }
-        this.f68900d = jSONObject;
+        this.f69820d = jSONObject;
     }
 
     public static void a(@NonNull Intent intent, JSONObject jSONObject, JSONObject jSONObject2) {
@@ -62,13 +62,13 @@ public class c extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String optString = this.f68900d.optString("action");
-            String optString2 = this.f68900d.optString("category");
-            int optInt = this.f68900d.optInt("flags", 1342210048);
-            String optString3 = this.f68900d.optString("path_extra_key");
-            String optString4 = this.f68900d.optString("path_data_key");
-            JSONObject optJSONObject = this.f68900d.optJSONObject("extra");
-            JSONObject optJSONObject2 = this.f68900d.optJSONObject("extra_type");
+            String optString = this.f69820d.optString("action");
+            String optString2 = this.f69820d.optString("category");
+            int optInt = this.f69820d.optInt("flags", 1342210048);
+            String optString3 = this.f69820d.optString("path_extra_key");
+            String optString4 = this.f69820d.optString("path_data_key");
+            JSONObject optJSONObject = this.f69820d.optJSONObject("extra");
+            JSONObject optJSONObject2 = this.f69820d.optJSONObject("extra_type");
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
@@ -78,13 +78,13 @@ public class c extends a {
             }
             if (!TextUtils.isEmpty(optString4)) {
                 try {
-                    intent.setData(Uri.parse(String.format(optString4, this.f68899c)));
+                    intent.setData(Uri.parse(String.format(optString4, this.f69819c)));
                 } catch (Throwable unused) {
                 }
             }
             intent.setFlags(optInt);
             if (!TextUtils.isEmpty(optString3)) {
-                intent.putExtra(optString3, this.f68899c);
+                intent.putExtra(optString3, this.f69819c);
             }
             a(intent, optJSONObject, optJSONObject2);
             return intent;

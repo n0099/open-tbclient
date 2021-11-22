@@ -76,7 +76,7 @@ public class a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ d f69952a;
+                    public final /* synthetic */ d f70872a;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -96,7 +96,7 @@ public class a {
                                 return;
                             }
                         }
-                        this.f69952a = dVar;
+                        this.f70872a = dVar;
                     }
 
                     @Override // android.os.Handler
@@ -105,11 +105,11 @@ public class a {
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                             int i2 = message.what;
                             if (i2 == 101) {
-                                this.f69952a.a(0, (ArrayList) message.obj);
+                                this.f70872a.a(0, (ArrayList) message.obj);
                             } else if (i2 != 102) {
                                 super.handleMessage(message);
                             } else {
-                                this.f69952a.a(message.arg1, (String) null);
+                                this.f70872a.a(message.arg1, (String) null);
                             }
                         }
                     }
@@ -118,13 +118,13 @@ public class a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f69953a;
+                    public final /* synthetic */ String f70873a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Handler f69954b;
+                    public final /* synthetic */ Handler f70874b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ Context f69955c;
+                    public final /* synthetic */ Context f70875c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -141,9 +141,9 @@ public class a {
                                 return;
                             }
                         }
-                        this.f69953a = str;
-                        this.f69954b = r7;
-                        this.f69955c = context;
+                        this.f70873a = str;
+                        this.f70874b = r7;
+                        this.f70875c = context;
                     }
 
                     @Override // java.lang.Runnable
@@ -154,7 +154,7 @@ public class a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
-                                Bitmap a3 = a.a(this.f69953a, 840);
+                                Bitmap a3 = a.a(this.f70873a, 840);
                                 if (a3 != null) {
                                     String str4 = null;
                                     if (f.a("Images") != null) {
@@ -164,9 +164,9 @@ public class a {
                                         File d2 = f.d();
                                         if (d2 == null) {
                                             SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() getCacheDir = null,return error");
-                                            Message obtainMessage = this.f69954b.obtainMessage();
+                                            Message obtainMessage = this.f70874b.obtainMessage();
                                             obtainMessage.arg1 = 102;
-                                            this.f69954b.sendMessage(obtainMessage);
+                                            this.f70874b.sendMessage(obtainMessage);
                                             return;
                                         }
                                         String absolutePath = d2.getAbsolutePath();
@@ -175,9 +175,9 @@ public class a {
                                         str2 = absolutePath;
                                         str3 = str5;
                                     }
-                                    String str6 = "share2qq_temp" + l.f(this.f69953a) + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
-                                    String str7 = this.f69953a;
-                                    if (!a.b(this.f69953a, 840, 840)) {
+                                    String str6 = "share2qq_temp" + l.f(this.f70873a) + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+                                    String str7 = this.f70873a;
+                                    if (!a.b(this.f70873a, 840, 840)) {
                                         SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() not out of bound,not compress!");
                                     } else {
                                         SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() out of bound,compress!");
@@ -193,7 +193,7 @@ public class a {
                                         str4 = str7;
                                     } else if (TextUtils.isEmpty(str2)) {
                                         String str8 = str3 + str6;
-                                        boolean a5 = l.a(this.f69955c, str7, str8);
+                                        boolean a5 = l.a(this.f70875c, str7, str8);
                                         SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() sd permission not denied. copy to app sepcific:" + str8 + ",isSuccess=" + a5);
                                         if (a5) {
                                             str4 = str8;
@@ -203,9 +203,9 @@ public class a {
                                     arrayList.add(str4);
                                     if (arrayList.size() >= 2 && (arrayList.get(0) != null || arrayList.get(1) != null)) {
                                         SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() return success ! destFilePath=[" + ((String) arrayList.get(0)) + "," + ((String) arrayList.get(1)) + PreferencesUtil.RIGHT_MOUNT);
-                                        Message obtainMessage2 = this.f69954b.obtainMessage(101);
+                                        Message obtainMessage2 = this.f70874b.obtainMessage(101);
                                         obtainMessage2.obj = arrayList;
-                                        this.f69954b.sendMessage(obtainMessage2);
+                                        this.f70874b.sendMessage(obtainMessage2);
                                         return;
                                     }
                                 }
@@ -213,9 +213,9 @@ public class a {
                                 SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage runnable exception e:", e2);
                             }
                             SLog.d("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() return failed!");
-                            Message obtainMessage3 = this.f69954b.obtainMessage(102);
+                            Message obtainMessage3 = this.f70874b.obtainMessage(102);
                             obtainMessage3.arg1 = 3;
-                            this.f69954b.sendMessage(obtainMessage3);
+                            this.f70874b.sendMessage(obtainMessage3);
                         }
                     }
                 }).start();

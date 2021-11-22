@@ -16,20 +16,20 @@ public abstract class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16709e;
+    public int f18223e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Context f16710f;
+    public final Context f18224f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<b.a.r0.g2.c.b> f16711g;
+    public List<b.a.r0.g2.c.b> f18225g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC0863a f16712h;
+    public InterfaceC0930a f18226h;
 
     /* renamed from: b.a.r0.g2.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0863a {
+    public interface InterfaceC0930a {
         void onSelectCountChanged(int i2);
     }
 
@@ -48,8 +48,8 @@ public abstract class a extends BaseAdapter {
                 return;
             }
         }
-        this.f16711g = list;
-        this.f16710f = context;
+        this.f18225g = list;
+        this.f18224f = context;
     }
 
     public List<b.a.r0.g2.c.b> a() {
@@ -57,7 +57,7 @@ public abstract class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (b.a.r0.g2.c.b bVar : this.f16711g) {
+            for (b.a.r0.g2.c.b bVar : this.f18225g) {
                 if (bVar.g()) {
                     arrayList.add(bVar);
                 }
@@ -67,17 +67,17 @@ public abstract class a extends BaseAdapter {
         return (List) invokeV.objValue;
     }
 
-    public void b(InterfaceC0863a interfaceC0863a) {
+    public void b(InterfaceC0930a interfaceC0930a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0863a) == null) {
-            this.f16712h = interfaceC0863a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0930a) == null) {
+            this.f18226h = interfaceC0930a;
         }
     }
 
     public void c(List<b.a.r0.g2.c.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f16711g = list;
+            this.f18225g = list;
         }
     }
 
@@ -85,9 +85,9 @@ public abstract class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             if (bVar.g()) {
-                this.f16709e++;
+                this.f18223e++;
             } else {
-                this.f16709e--;
+                this.f18223e--;
             }
         }
     }
@@ -97,7 +97,7 @@ public abstract class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<b.a.r0.g2.c.b> list = this.f16711g;
+            List<b.a.r0.g2.c.b> list = this.f18225g;
             if (list == null) {
                 return 0;
             }

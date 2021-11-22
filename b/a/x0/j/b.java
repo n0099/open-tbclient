@@ -34,8 +34,8 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             try {
-                if (b.a.x0.b.c().d() != null && b.a.x0.b.c().d().d() != null) {
-                    return b.a.x0.b.c().d().d().a(obj);
+                if (b.a.x0.b.c().d() != null && b.a.x0.b.c().d().c() != null) {
+                    return b.a.x0.b.c().d().c().a(obj);
                 }
                 return new Gson().toJson(obj);
             } catch (Exception e2) {
@@ -52,8 +52,8 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
             try {
-                if (b.a.x0.b.c().d() != null && b.a.x0.b.c().d().d() != null) {
-                    return (T) b.a.x0.b.c().d().d().b(str, cls);
+                if (b.a.x0.b.c().d() != null && b.a.x0.b.c().d().c() != null) {
+                    return (T) b.a.x0.b.c().d().c().b(str, cls);
                 }
                 return (T) new Gson().fromJson(str, (Class<Object>) cls);
             } catch (Exception e2) {
@@ -70,8 +70,8 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
             try {
-                if (b.a.x0.b.c().d() != null && b.a.x0.b.c().d().d() != null) {
-                    return (T) b.a.x0.b.c().d().d().c(str, type);
+                if (b.a.x0.b.c().d() != null && b.a.x0.b.c().d().c() != null) {
+                    return (T) b.a.x0.b.c().d().c().c(str, type);
                 }
                 return (T) new Gson().fromJson(str, type);
             } catch (Exception e2) {

@@ -15,7 +15,7 @@ public class a {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b.a.p0.a.c1.a.H().a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b.a.p0.a.c1.a.M().a() : invokeV.booleanValue;
     }
 
     public static void b() {

@@ -14,22 +14,22 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class TurbonetConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f56573a;
+    public JSONObject f57495a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56574b;
+    public String f57496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f56575c;
+    public boolean f57497c;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public @interface HttpCacheSetting {
     }
 
@@ -46,8 +46,8 @@ public class TurbonetConfig {
                 return;
             }
         }
-        this.f56575c = false;
-        this.f56573a = new JSONObject();
+        this.f57497c = false;
+        this.f57495a = new JSONObject();
     }
 
     public void a(String str) {
@@ -79,7 +79,7 @@ public class TurbonetConfig {
                     throw new IllegalArgumentException("Storage path must not be set");
                 }
             } else if (l() != null) {
-                this.f56575c = true;
+                this.f57497c = true;
             } else {
                 throw new IllegalArgumentException("Storage path must be set");
             }
@@ -114,25 +114,25 @@ public class TurbonetConfig {
     public JSONObject g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f56573a : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f57495a : (JSONObject) invokeV.objValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f56575c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f57497c : invokeV.booleanValue;
     }
 
     public void i(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, obj) == null) {
             try {
-                JSONObject optJSONObject = this.f56573a.optJSONObject(str);
+                JSONObject optJSONObject = this.f57495a.optJSONObject(str);
                 if (optJSONObject == null) {
                     optJSONObject = new JSONObject();
                 }
                 optJSONObject.put(str2, obj);
-                this.f56573a.put(str, optJSONObject);
+                this.f57495a.put(str, optJSONObject);
             } catch (JSONException e2) {
                 throw new IllegalStateException("JSON expcetion:", e2);
             }
@@ -154,7 +154,7 @@ public class TurbonetConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             if (new File(str).isDirectory()) {
-                this.f56574b = str;
+                this.f57496b = str;
                 return;
             }
             throw new IllegalArgumentException("Storage path must be set to existing directory");
@@ -164,6 +164,6 @@ public class TurbonetConfig {
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f56574b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f57496b : (String) invokeV.objValue;
     }
 }

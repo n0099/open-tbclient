@@ -13,7 +13,7 @@ public final class o extends u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f70223a;
+    public ArrayList<String> f71143a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o() {
@@ -38,14 +38,14 @@ public final class o extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("tags_list", this.f70223a);
+            aVar.a("tags_list", this.f71143a);
         }
     }
 
     public final ArrayList<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70223a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71143a : (ArrayList) invokeV.objValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -60,7 +60,7 @@ public final class o extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
-            this.f70223a = aVar.b("tags_list");
+            this.f71143a = aVar.b("tags_list");
         }
     }
 }

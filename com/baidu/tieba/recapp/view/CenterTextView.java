@@ -18,10 +18,10 @@ public class CenterTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public StaticLayout f53672e;
+    public StaticLayout f54592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextPaint f53673f;
+    public TextPaint f54593f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CenterTextView(Context context) {
@@ -47,10 +47,10 @@ public class CenterTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TextPaint textPaint = new TextPaint(1);
-            this.f53673f = textPaint;
+            this.f54593f = textPaint;
             textPaint.setTextSize(getTextSize());
-            this.f53673f.setColor(getCurrentTextColor());
-            this.f53672e = new StaticLayout(getText(), this.f53673f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.3f, 0.0f, false);
+            this.f54593f.setColor(getCurrentTextColor());
+            this.f54592e = new StaticLayout(getText(), this.f54593f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.3f, 0.0f, false);
         }
     }
 
@@ -58,7 +58,7 @@ public class CenterTextView extends TextView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.f53672e.draw(canvas);
+            this.f54592e.draw(canvas);
         }
     }
 

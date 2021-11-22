@@ -1,7 +1,7 @@
 package com.yxcorp.kuaishou.addfp.android;
 
 import android.content.Context;
-import b.r.a.a.c.b.c;
+import b.p.a.a.c.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,10 +15,10 @@ public class Orange {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f71576a = true;
+    public static boolean f72496a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Orange f71577b;
+    public static volatile Orange f72497b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,14 +56,14 @@ public class Orange {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f71577b == null) {
+            if (f72497b == null) {
                 synchronized (Orange.class) {
-                    if (f71577b == null) {
-                        f71577b = new Orange();
+                    if (f72497b == null) {
+                        f72497b = new Orange();
                     }
                 }
             }
-            return f71577b;
+            return f72497b;
         }
         return (Orange) invokeV.objValue;
     }
@@ -160,11 +160,11 @@ public class Orange {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             try {
                 System.loadLibrary("sgcore");
-                f71576a = false;
+                f72496a = false;
                 c.f("so loaded");
             } catch (Throwable th) {
                 c.f("so load failed");
-                f71576a = true;
+                f72496a = true;
                 c.c(th);
             }
         }
@@ -173,6 +173,6 @@ public class Orange {
     public final boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? f71576a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? f72496a : invokeV.booleanValue;
     }
 }

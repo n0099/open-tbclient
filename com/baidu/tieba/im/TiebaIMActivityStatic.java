@@ -3,9 +3,9 @@ package com.baidu.tieba.im;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.d1.i0;
-import b.a.q0.d1.l0;
-import b.a.q0.d1.u0;
+import b.a.q0.c1.i0;
+import b.a.q0.c1.l0;
+import b.a.q0.c1.t0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -340,12 +340,12 @@ public class TiebaIMActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f50188b == null || (tbPageContext = aVar.f50187a) == null) {
+            if (aVar.f51100b == null || (tbPageContext = aVar.f51099a) == null) {
                 return;
             }
             MsgMultiImageTextViewItemAdapter msgMultiImageTextViewItemAdapter = new MsgMultiImageTextViewItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_MULTI_PIC_TEXT);
             msgMultiImageTextViewItemAdapter.l0(true);
-            aVar.f50188b.add(msgMultiImageTextViewItemAdapter);
+            aVar.f51100b.add(msgMultiImageTextViewItemAdapter);
         }
     }
 
@@ -360,7 +360,7 @@ public class TiebaIMActivityStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LinkedList f50153a;
+            public final /* synthetic */ LinkedList f51065a;
 
             public a(h hVar, LinkedList linkedList) {
                 Interceptable interceptable = $ic;
@@ -377,26 +377,26 @@ public class TiebaIMActivityStatic {
                         return;
                     }
                 }
-                this.f50153a = linkedList;
+                this.f51065a = linkedList;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.a.q0.d1.i0
+            @Override // b.a.q0.c1.i0
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.r0.l1.h.l.t().a(this.f50153a) : (Void) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.r0.l1.h.l.t().a(this.f51065a) : (Void) invokeV.objValue;
             }
         }
 
         /* loaded from: classes9.dex */
-        public class b implements b.a.q0.d1.q<Void> {
+        public class b implements b.a.q0.c1.q<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomMessage f50154a;
+            public final /* synthetic */ CustomMessage f51066a;
 
             public b(h hVar, CustomMessage customMessage) {
                 Interceptable interceptable = $ic;
@@ -413,18 +413,18 @@ public class TiebaIMActivityStatic {
                         return;
                     }
                 }
-                this.f50154a = customMessage;
+                this.f51066a = customMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.a.q0.d1.q
+            @Override // b.a.q0.c1.q
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, r5) == null) || ((OfficalBarChatActivityConfig) this.f50154a.getData()).getUserData().getUserIdLong() == 0) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, r5) == null) || ((OfficalBarChatActivityConfig) this.f51066a.getData()).getUserData().getUserIdLong() == 0) {
                     return;
                 }
-                ((OfficalBarChatActivityConfig) this.f50154a.getData()).startActivity(OfficialBarChatActivity.class);
+                ((OfficalBarChatActivityConfig) this.f51066a.getData()).startActivity(OfficialBarChatActivity.class);
             }
         }
 
@@ -487,13 +487,13 @@ public class TiebaIMActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains(UrlSchemaHelper.GOTO_OFFICIAL_CHAT)) {
-                        String c2 = u0.c(str, "barid=");
-                        String c3 = u0.c(str, "barname=");
-                        String c4 = u0.c(str, "portrait=");
+                        String c2 = t0.c(str, "barid=");
+                        String c3 = t0.c(str, "barname=");
+                        String c4 = t0.c(str, "portrait=");
                         if (c2 == null || c2.length() <= 0) {
                             return 1;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), b.a.e.e.m.b.g(c2, 0L), c3, c4, 0)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), b.a.e.f.m.b.g(c2, 0L), c3, c4, 0)));
                         return 1;
                     } else if (str.contains(UrlSchemaHelper.SCHEMA_FORUM_BROADCAST_SINGLE_FEED)) {
                         Uri parse = Uri.parse(str);
@@ -512,10 +512,10 @@ public class TiebaIMActivityStatic {
                         String queryParameter4 = Uri.parse(str).getQueryParameter(TbTitleActivityConfig.FORUM_ID);
                         HashMap hashMap = new HashMap();
                         hashMap.put("forum_id", queryParameter4);
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new b.a.r0.l3.j0.n(tbPageContext.getPageActivity(), OpenFlutter.ACTIVITY_FORUM_DETAIL, hashMap)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new b.a.r0.m3.j0.n(tbPageContext.getPageActivity(), OpenFlutter.ACTIVITY_FORUM_DETAIL, hashMap)));
                         return 0;
                     } else if (str.contains(UrlSchemaHelper.SCHEMA_VIDEO_CREATE_CENTER)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new b.a.r0.l3.j0.n(tbPageContext.getPageActivity(), "CreateCenter", new HashMap())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new b.a.r0.m3.j0.n(tbPageContext.getPageActivity(), "CreateCenter", new HashMap())));
                         return 0;
                     }
                 }
@@ -667,16 +667,16 @@ public class TiebaIMActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f50188b == null || (tbPageContext = aVar.f50187a) == null) {
+            if (aVar.f51100b == null || (tbPageContext = aVar.f51099a) == null) {
                 return;
             }
             MsgPhotoLiveItemAdapter msgPhotoLiveItemAdapter = new MsgPhotoLiveItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_PHOTOLIVE);
             msgPhotoLiveItemAdapter.k0(true);
-            aVar.f50188b.add(msgPhotoLiveItemAdapter);
-            MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.f50187a, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
+            aVar.f51100b.add(msgPhotoLiveItemAdapter);
+            MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.f51099a, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
             msgActivityViewItemAdapter.k0(true);
             msgActivityViewItemAdapter.l0(true);
-            aVar.f50188b.add(msgActivityViewItemAdapter);
+            aVar.f51100b.add(msgActivityViewItemAdapter);
         }
     }
 
@@ -928,14 +928,14 @@ public class TiebaIMActivityStatic {
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, b.a.r0.l3.f0.a.a(RecommendDetailActivity.RECOMMEND_DETAIL_URL, 303025));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, b.a.r0.m3.f0.a.a(RecommendDetailActivity.RECOMMEND_DETAIL_URL, 303025));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setIsUseCurrentBDUSS(false);
             tbHttpMessageTask.setResponsedClass(RecommendDetailHttpResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            b.a.r0.l3.f0.a.f(303025, RecommendDetailSocketResponseMessage.class, false);
+            b.a.r0.m3.f0.a.f(303025, RecommendDetailSocketResponseMessage.class, false);
         }
     }
 
@@ -950,29 +950,29 @@ public class TiebaIMActivityStatic {
         return invokeV.booleanValue;
     }
 
-    public static b.a.q0.z0.a i(int i2, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+    public static b.a.q0.y0.a i(int i2, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65546, null, i2, cls)) == null) ? b.a.r0.l1.c.a(i2, cls) : (b.a.q0.z0.a) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65546, null, i2, cls)) == null) ? b.a.r0.l1.c.a(i2, cls) : (b.a.q0.y0.a) invokeIL.objValue;
     }
 
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, b.a.r0.l3.f0.a.a(TbConfig.GET_FORUM_DETAIL, 303021));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, b.a.r0.m3.f0.a.a(TbConfig.GET_FORUM_DETAIL, 303021));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setIsUseCurrentBDUSS(false);
             tbHttpMessageTask.setResponsedClass(ForumDetailHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            b.a.r0.l3.f0.a.f(303021, ForumDetailSocketResponse.class, false);
+            b.a.r0.m3.f0.a.f(303021, ForumDetailSocketResponse.class, false);
         }
     }
 
-    public static b.a.q0.z0.b k(int i2, Class<? extends SocketResponsedMessage> cls, boolean z) {
+    public static b.a.q0.y0.b k(int i2, Class<? extends SocketResponsedMessage> cls, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Integer.valueOf(i2), cls, Boolean.valueOf(z)})) == null) ? b.a.r0.l1.c.b(i2, cls, z) : (b.a.q0.z0.b) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Integer.valueOf(i2), cls, Boolean.valueOf(z)})) == null) ? b.a.r0.l1.c.b(i2, cls, z) : (b.a.q0.y0.b) invokeCommon.objValue;
     }
 }

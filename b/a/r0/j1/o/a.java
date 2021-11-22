@@ -27,7 +27,7 @@ public class a extends b.a.r0.b0.c<n> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RelateForumHorizonalListView x;
-    public List<b.a.e.l.e.n> y;
+    public List<b.a.e.m.e.n> y;
     public TbPageContext<?> z;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,7 +106,7 @@ public class a extends b.a.r0.b0.c<n> {
         }
     }
 
-    public final List<b.a.q0.f1.g.a> u(List<b.a.e.l.e.n> list) {
+    public final List<b.a.q0.e1.g.a> u(List<b.a.e.m.e.n> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
@@ -114,7 +114,7 @@ public class a extends b.a.r0.b0.c<n> {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (b.a.e.l.e.n nVar : list) {
+            for (b.a.e.m.e.n nVar : list) {
                 if (nVar instanceof RelateForumItemData) {
                     RelateForumItemData relateForumItemData = (RelateForumItemData) nVar;
                     long j = relateForumItemData.forumId;
@@ -122,11 +122,11 @@ public class a extends b.a.r0.b0.c<n> {
                     String str2 = relateForumItemData.forumAvatar;
                     boolean z = relateForumItemData.isLiked;
                     if (j >= 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                        b.a.q0.f1.g.a aVar = new b.a.q0.f1.g.a();
-                        aVar.f12325b = str2;
-                        aVar.f12327d = j;
-                        aVar.f12326c = str;
-                        aVar.f12328e = z;
+                        b.a.q0.e1.g.a aVar = new b.a.q0.e1.g.a();
+                        aVar.f13033b = str2;
+                        aVar.f13035d = j;
+                        aVar.f13034c = str;
+                        aVar.f13036e = z;
                         arrayList.add(aVar);
                     }
                 }
@@ -148,11 +148,11 @@ public class a extends b.a.r0.b0.c<n> {
                 return;
             }
             this.y.clear();
-            List<b.a.e.l.e.n> list = nVar.f18478e;
+            List<b.a.e.m.e.n> list = nVar.f19812e;
             if (list != null) {
                 this.y.addAll(list);
             }
-            List<b.a.q0.f1.g.a> u = u(this.y);
+            List<b.a.q0.e1.g.a> u = u(this.y);
             int count = ListUtils.getCount(u);
             if (count <= 0) {
                 i().setVisibility(8);

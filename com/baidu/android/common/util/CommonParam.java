@@ -14,10 +14,10 @@ public class CommonParam {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f34797a = false;
+    public static final boolean f35626a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34798b = "CommonParam";
+    public static final String f35627b = "CommonParam";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

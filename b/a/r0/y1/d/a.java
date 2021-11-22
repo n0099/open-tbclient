@@ -4,8 +4,8 @@ import android.content.Context;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import b.a.e.e.p.k;
-import b.a.e.e.p.l;
+import b.a.e.f.p.k;
+import b.a.e.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
@@ -27,31 +27,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f27488a;
+    public TbPageContext f28991a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f27489b;
+    public Context f28992b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f27490c;
+    public View f28993c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f27491d;
+    public NavigationBar f28994d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f27492e;
+    public NoNetworkView f28995e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f27493f;
+    public TextView f28996f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HeadImageView f27494g;
+    public HeadImageView f28997g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f27495h;
+    public TextView f28998h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f27496i;
+    public TextView f28999i;
     public TbImageView j;
     public EditText k;
     public TextView l;
@@ -78,27 +78,27 @@ public class a {
         }
         this.q = 3;
         TbPageContext<MemberExchangeActivity> pageContext = memberExchangeActivity.getPageContext();
-        this.f27488a = pageContext;
-        this.f27489b = pageContext.getPageActivity();
+        this.f28991a = pageContext;
+        this.f28992b = pageContext.getPageActivity();
         memberExchangeActivity.setContentView(R.layout.member_exchange_layout);
         View findViewById = memberExchangeActivity.findViewById(R.id.member_exchange_root);
-        this.f27490c = findViewById;
+        this.f28993c = findViewById;
         findViewById.setOnClickListener(memberExchangeActivity);
         NavigationBar navigationBar = (NavigationBar) memberExchangeActivity.findViewById(R.id.navigation_bar);
-        this.f27491d = navigationBar;
+        this.f28994d = navigationBar;
         navigationBar.setOnClickListener(memberExchangeActivity);
-        this.f27493f = this.f27491d.setCenterTextTitle(this.f27488a.getString(R.string.exchange_member));
-        this.f27492e = (NoNetworkView) memberExchangeActivity.findViewById(R.id.no_network_view);
-        this.f27491d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f27491d.showBottomLine();
+        this.f28996f = this.f28994d.setCenterTextTitle(this.f28991a.getString(R.string.exchange_member));
+        this.f28995e = (NoNetworkView) memberExchangeActivity.findViewById(R.id.no_network_view);
+        this.f28994d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f28994d.showBottomLine();
         HeadImageView headImageView = (HeadImageView) memberExchangeActivity.findViewById(R.id.member_header_image);
-        this.f27494g = headImageView;
+        this.f28997g = headImageView;
         headImageView.setIsRound(true);
-        this.f27495h = (TextView) memberExchangeActivity.findViewById(R.id.member_name);
-        this.f27496i = (TextView) memberExchangeActivity.findViewById(R.id.member_content);
+        this.f28998h = (TextView) memberExchangeActivity.findViewById(R.id.member_name);
+        this.f28999i = (TextView) memberExchangeActivity.findViewById(R.id.member_content);
         this.j = (TbImageView) memberExchangeActivity.findViewById(R.id.member_level);
         this.k = (EditText) memberExchangeActivity.findViewById(R.id.exchange_code);
-        l.x(this.f27488a.getPageActivity(), this.k);
+        l.x(this.f28991a.getPageActivity(), this.k);
         TextView textView = (TextView) memberExchangeActivity.findViewById(R.id.go_to_exchange);
         this.l = textView;
         textView.setOnClickListener(memberExchangeActivity);
@@ -120,8 +120,8 @@ public class a {
     public void a(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, str5) == null) {
-            this.f27494g.startLoad(str, 12, false);
-            this.f27495h.setText(str2);
+            this.f28997g.startLoad(str, 12, false);
+            this.f28998h.setText(str2);
             if (!k.isEmpty(str3)) {
                 this.j.setVisibility(0);
                 this.j.startLoad(str3, 10, false);
@@ -129,11 +129,11 @@ public class a {
                 this.j.setVisibility(8);
             }
             if (!k.isEmpty(str4)) {
-                TextView textView = this.f27496i;
-                textView.setText(this.f27488a.getString(R.string.vip_member_end_time_tips) + str4);
+                TextView textView = this.f28999i;
+                textView.setText(this.f28991a.getString(R.string.vip_member_end_time_tips) + str4);
                 return;
             }
-            this.f27496i.setText(str5);
+            this.f28999i.setText(str5);
         }
     }
 
@@ -147,10 +147,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             if (this.q != i2) {
-                this.f27491d.onChangeSkinType(this.f27488a, i2);
-                this.f27492e.onChangeSkinType(this.f27488a, i2);
-                SkinManager.setViewTextColor(this.f27495h, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.f27496i, R.color.CAM_X0109);
+                this.f28994d.onChangeSkinType(this.f28991a, i2);
+                this.f28995e.onChangeSkinType(this.f28991a, i2);
+                SkinManager.setViewTextColor(this.f28998h, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f28999i, R.color.CAM_X0109);
                 SkinManager.setViewTextColor(this.k, R.color.CAM_X0109);
                 this.k.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
                 SkinManager.setBackgroundResource(this.k, R.drawable.exchange_edit_text_bg);

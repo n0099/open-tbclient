@@ -1,8 +1,8 @@
 package b.a.r0.v.b.i;
 
 import android.content.Context;
-import b.a.e.e.p.k;
-import b.a.p0.a.c2.f.a0;
+import b.a.e.f.p.k;
+import b.a.p0.a.f2.f.z;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class g extends a0 {
+public class g extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(b.a.p0.a.c2.e eVar) {
+    public g(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swan/publishThread");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -82,8 +82,8 @@ public class g extends a0 {
         return invokeLL.booleanValue;
     }
 
-    @Override // b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {

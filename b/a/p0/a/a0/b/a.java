@@ -31,7 +31,7 @@ public class a extends b.a.p0.a.c0.b.b {
                 return;
             }
         }
-        boolean z = k.f6397a;
+        boolean z = k.f6863a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -57,11 +57,11 @@ public class a extends b.a.p0.a.c0.b.b {
         try {
             a(new JSONObject(str));
         } catch (JSONException e2) {
-            b.a.p0.a.e0.d.c("Canvas", "parsing CanvasBasicthis occurs exception", e2);
+            b.a.p0.a.e0.d.d("Canvas", "parsing CanvasBasicthis occurs exception", e2);
         }
     }
 
-    @Override // b.a.p0.a.c0.b.b, b.a.p0.a.l1.a
+    @Override // b.a.p0.a.c0.b.b, b.a.p0.a.m1.a
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -72,10 +72,10 @@ public class a extends b.a.p0.a.c0.b.b {
         }
     }
 
-    @Override // b.a.p0.a.c0.b.b, b.a.p0.a.l1.a
+    @Override // b.a.p0.a.c0.b.b, b.a.p0.a.m1.a
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f4056f) || TextUtils.isEmpty(this.f4057g)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f4196f) || TextUtils.isEmpty(this.f4197g)) ? false : true : invokeV.booleanValue;
     }
 }

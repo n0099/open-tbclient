@@ -32,12 +32,12 @@ public class d extends m {
                 return;
             }
         }
-        this.f14211d = R.drawable.icon_pure_post_image24;
-        this.f14212e = R.drawable.icon_pure_post_image24_selection;
-        this.f14213f = R.drawable.icon_post_image24_big;
-        this.f14214g = false;
-        this.f14215h = true;
-        this.f14216i = false;
+        this.f14978d = R.drawable.icon_pure_post_image24;
+        this.f14979e = R.drawable.icon_pure_post_image24_selection;
+        this.f14980f = R.drawable.icon_post_image24_big;
+        this.f14981g = false;
+        this.f14982h = true;
+        this.f14983i = false;
         this.n = new int[]{14};
     }
 }

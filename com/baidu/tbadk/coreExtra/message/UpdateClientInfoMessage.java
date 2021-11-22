@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.message;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.b;
+import b.a.e.f.m.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;

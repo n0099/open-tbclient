@@ -55,14 +55,14 @@ public class h extends b.a.r0.b0.b<b.a.r0.p2.e.j> implements View.OnClickListene
     public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f14736e != i2) {
+            if (this.f16223e != i2) {
                 SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.o, R.color.CAM_X0205);
                 SkinManager.setViewTextColor(this.q, R.color.CAM_X0109, 1);
                 SkinManager.setImageResource(this.r, R.drawable.pic_pop_key);
                 SkinManager.setViewTextColor(this.p, R.color.CAM_X0304, 1);
             }
-            this.f14736e = i2;
+            this.f16223e = i2;
         }
     }
 
@@ -103,7 +103,7 @@ public class h extends b.a.r0.b0.b<b.a.r0.p2.e.j> implements View.OnClickListene
             }
             View view = this.o;
             if (view != null) {
-                if (jVar.f22310e) {
+                if (jVar.f23787e) {
                     view.setVisibility(8);
                 } else {
                     view.setVisibility(0);

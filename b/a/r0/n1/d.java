@@ -22,6 +22,6 @@ public class d {
         } catch (UnsupportedEncodingException unused) {
             format = String.format("http://graph.baidu.com/details?image=%s&carousel=0&tn=tieba&promotion_name=shitu", str);
         }
-        b.a.q0.m.a.l(context, format);
+        b.a.q0.m.a.m(context, format);
     }
 }

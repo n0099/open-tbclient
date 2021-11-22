@@ -27,9 +27,9 @@ import androidx.annotation.ColorRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.a.b;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.u.a;
-import b.a.r0.l3.c;
+import b.a.r0.m3.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -397,7 +397,7 @@ public class SkinManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            return skinType == 1 ? "night" : skinType == 4 ? SKIN_TYPE_STR_DARK : "default";
+            return skinType == 1 ? SKIN_TYPE_STR_NIGHT : skinType == 4 ? SKIN_TYPE_STR_DARK : "default";
         }
         return (String) invokeV.objValue;
     }

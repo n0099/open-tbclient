@@ -15,11 +15,11 @@ public class bf {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f71460d = 300000;
+    public static int f72380d = 300000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f71461a;
+    public int f72381a;
 
     /* renamed from: a  reason: collision with other field name */
     public long f931a;
@@ -28,10 +28,10 @@ public class bf {
     public XMPushService f932a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f71462b;
+    public int f72382b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f71463c;
+    public int f72383c;
 
     static {
         InterceptResult invokeClinit;
@@ -63,10 +63,10 @@ public class bf {
                 return;
             }
         }
-        this.f71462b = 0;
-        this.f71463c = 0;
+        this.f72382b = 0;
+        this.f72383c = 0;
         this.f932a = xMPushService;
-        this.f71461a = 500;
+        this.f72381a = 500;
         this.f931a = 0L;
     }
 
@@ -74,11 +74,11 @@ public class bf {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (this.f71462b > 8) {
+            if (this.f72382b > 8) {
                 return 300000;
             }
             double random = (Math.random() * 2.0d) + 1.0d;
-            int i2 = this.f71462b;
+            int i2 = this.f72382b;
             if (i2 > 4) {
                 return (int) (random * 60000.0d);
             }
@@ -89,21 +89,21 @@ public class bf {
                 return 0;
             }
             if (System.currentTimeMillis() - this.f931a >= 310000) {
-                this.f71461a = 1000;
-                this.f71463c = 0;
+                this.f72381a = 1000;
+                this.f72383c = 0;
                 return 0;
             }
-            int i3 = this.f71461a;
-            int i4 = f71460d;
+            int i3 = this.f72381a;
+            int i4 = f72380d;
             if (i3 >= i4) {
                 return i3;
             }
-            int i5 = this.f71463c + 1;
-            this.f71463c = i5;
+            int i5 = this.f72383c + 1;
+            this.f72383c = i5;
             if (i5 >= 4) {
                 return i4;
             }
-            this.f71461a = (int) (i3 * 1.5d);
+            this.f72381a = (int) (i3 * 1.5d);
             return i3;
         }
         return invokeV.intValue;
@@ -115,7 +115,7 @@ public class bf {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f931a = System.currentTimeMillis();
             this.f932a.a(1);
-            this.f71462b = 0;
+            this.f72382b = 0;
         }
     }
 
@@ -126,7 +126,7 @@ public class bf {
                 com.xiaomi.channel.commonutils.logger.b.c("should not reconnect as no client or network.");
             } else if (z) {
                 if (!this.f932a.m567a(1)) {
-                    this.f71462b++;
+                    this.f72382b++;
                 }
                 this.f932a.a(1);
                 XMPushService xMPushService = this.f932a;
@@ -135,15 +135,15 @@ public class bf {
             } else if (this.f932a.m567a(1)) {
             } else {
                 int a2 = a();
-                this.f71462b++;
+                this.f72382b++;
                 com.xiaomi.channel.commonutils.logger.b.m73a("schedule reconnect in " + a2 + "ms");
                 XMPushService xMPushService2 = this.f932a;
                 xMPushService2.getClass();
                 xMPushService2.a(new XMPushService.d(xMPushService2), (long) a2);
-                if (this.f71462b == 2 && gx.m366a().m371a()) {
+                if (this.f72382b == 2 && gx.m366a().m371a()) {
                     ag.b();
                 }
-                if (this.f71462b == 3) {
+                if (this.f72382b == 3) {
                     ag.a();
                 }
             }

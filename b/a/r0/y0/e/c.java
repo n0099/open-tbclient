@@ -21,16 +21,16 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f27245b;
+    public static volatile c f28748b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f27246a;
+    public List<String> f28749a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class c {
             }
         }
         ArrayList arrayList = new ArrayList();
-        this.f27246a = arrayList;
+        this.f28749a = arrayList;
         arrayList.add("pb_banner");
-        this.f27246a.add("frs_feed");
+        this.f28749a.add("frs_feed");
     }
 
     public static boolean b() {
@@ -66,14 +66,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f27245b == null) {
+            if (f28748b == null) {
                 synchronized (b.class) {
-                    if (f27245b == null) {
-                        f27245b = new c();
+                    if (f28748b == null) {
+                        f28748b = new c();
                     }
                 }
             }
-            return f27245b;
+            return f28748b;
         }
         return (c) invokeV.objValue;
     }
@@ -103,7 +103,7 @@ public class c {
     public List<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27246a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28749a : (List) invokeV.objValue;
     }
 
     public String d(String str) {
@@ -212,7 +212,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
             if (jSONObject != null && d.k()) {
-                for (String str : this.f27246a) {
+                for (String str : this.f28749a) {
                     if (!TextUtils.isEmpty(str)) {
                         FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
                         JSONObject jSONObject2 = null;

@@ -25,13 +25,13 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<r> f27504e;
+    public List<r> f29007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MemberTaskCenterActivity f27505f;
+    public MemberTaskCenterActivity f29008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f27506g;
+    public View.OnClickListener f29009g;
 
     /* loaded from: classes6.dex */
     public class a {
@@ -39,16 +39,16 @@ public class b extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f27507a;
+        public TextView f29010a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f27508b;
+        public TextView f29011b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f27509c;
+        public TextView f29012c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f27510d;
+        public View f29013d;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -82,8 +82,8 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f27504e = new ArrayList();
-        this.f27505f = memberTaskCenterActivity;
+        this.f29007e = new ArrayList();
+        this.f29008f = memberTaskCenterActivity;
     }
 
     public final SpannableString a(String str, String str2) {
@@ -105,11 +105,11 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            List<r> list = this.f27504e;
+            List<r> list = this.f29007e;
             if (list == null || list.size() <= i2) {
                 return null;
             }
-            return this.f27504e.get(i2);
+            return this.f29007e.get(i2);
         }
         return (r) invokeI.objValue;
     }
@@ -117,9 +117,9 @@ public class b extends BaseAdapter {
     public void c(List<r> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f27504e.clear();
+            this.f29007e.clear();
             if (list != null) {
-                this.f27504e.addAll(list);
+                this.f29007e.addAll(list);
             }
         }
     }
@@ -127,7 +127,7 @@ public class b extends BaseAdapter {
     public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f27506g = onClickListener;
+            this.f29009g = onClickListener;
         }
     }
 
@@ -136,7 +136,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<r> list = this.f27504e;
+            List<r> list = this.f29007e;
             if (list != null) {
                 return list.size();
             }
@@ -164,32 +164,32 @@ public class b extends BaseAdapter {
             if (view != null && (view.getTag() instanceof a)) {
                 aVar = (a) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f27505f.getActivity()).inflate(R.layout.member_task_center_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f29008f.getActivity()).inflate(R.layout.member_task_center_item, (ViewGroup) null);
                 aVar = new a(this);
-                aVar.f27508b = (TextView) view.findViewById(R.id.task_intro);
-                aVar.f27507a = (TextView) view.findViewById(R.id.task_name);
-                aVar.f27509c = (TextView) view.findViewById(R.id.task_status);
-                aVar.f27510d = view.findViewById(R.id.divider_line);
+                aVar.f29011b = (TextView) view.findViewById(R.id.task_intro);
+                aVar.f29010a = (TextView) view.findViewById(R.id.task_name);
+                aVar.f29012c = (TextView) view.findViewById(R.id.task_status);
+                aVar.f29013d = view.findViewById(R.id.divider_line);
             }
             r item = getItem(i2);
             if (item != null) {
-                aVar.f27507a.setText(item.g());
-                aVar.f27508b.setText(a(String.valueOf(item.a()), item.b()));
+                aVar.f29010a.setText(item.g());
+                aVar.f29011b.setText(a(String.valueOf(item.a()), item.b()));
                 if (item.e()) {
-                    aVar.f27509c.setText(this.f27505f.getPageContext().getString(R.string.index_task_finish), TextView.BufferType.EDITABLE);
-                    aVar.f27509c.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
-                    aVar.f27509c.setBackgroundDrawable(null);
-                    aVar.f27509c.setOnClickListener(null);
+                    aVar.f29012c.setText(this.f29008f.getPageContext().getString(R.string.index_task_finish), TextView.BufferType.EDITABLE);
+                    aVar.f29012c.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
+                    aVar.f29012c.setBackgroundDrawable(null);
+                    aVar.f29012c.setOnClickListener(null);
                 } else {
-                    aVar.f27509c.setText(this.f27505f.getPageContext().getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
-                    SkinManager.setViewTextColor(aVar.f27509c, R.color.member_center_task_btn_textcolor);
-                    aVar.f27509c.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
-                    aVar.f27509c.setTag(item);
-                    aVar.f27509c.setOnClickListener(this.f27506g);
+                    aVar.f29012c.setText(this.f29008f.getPageContext().getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
+                    SkinManager.setViewTextColor(aVar.f29012c, R.color.member_center_task_btn_textcolor);
+                    aVar.f29012c.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
+                    aVar.f29012c.setTag(item);
+                    aVar.f29012c.setOnClickListener(this.f29009g);
                 }
-                SkinManager.setViewTextColor(aVar.f27508b, R.color.CAM_X0109);
-                SkinManager.setViewTextColor(aVar.f27507a, R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(aVar.f27510d, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(aVar.f29011b, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(aVar.f29010a, R.color.CAM_X0105);
+                SkinManager.setBackgroundColor(aVar.f29013d, R.color.CAM_X0204);
             }
             view.setTag(aVar);
             return view;

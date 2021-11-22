@@ -32,11 +32,11 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Integer> f61478a;
+    public static Map<String, Integer> f62377a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedHashMap<String, Integer> f61479b;
+    public LinkedHashMap<String, Integer> f62378b;
 
     static {
         InterceptResult invokeClinit;
@@ -51,13 +51,13 @@ public final class a {
                 return;
             }
         }
-        f61478a = new HashMap();
+        f62377a = new HashMap();
         List<String> a2 = i.a();
         if (a2 == null || a2.size() <= 0) {
             return;
         }
         for (String str : a2) {
-            f61478a.put(str, 0);
+            f62377a.put(str, 0);
         }
     }
 
@@ -75,7 +75,7 @@ public final class a {
             }
         }
         LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
-        this.f61479b = linkedHashMap;
+        this.f62378b = linkedHashMap;
         linkedHashMap.put(Zeus.getAppApplication().getApplicationInfo().sourceDir, 0);
     }
 
@@ -193,8 +193,8 @@ public final class a {
             } else {
                 a2 = a(assetManager, str);
             }
-            synchronized (this.f61479b) {
-                this.f61479b.put(str, 0);
+            synchronized (this.f62378b) {
+                this.f62378b.put(str, 0);
             }
             ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor updateAssetManager, newAssetManager=" + a2 + ", assets=" + i.b(a2));
             return a2;
@@ -211,7 +211,7 @@ public final class a {
             ArrayList<String> arrayList = new ArrayList();
             StringBuilder sb = new StringBuilder();
             for (String str2 : a2) {
-                if (!f61478a.containsKey(str2) && !this.f61479b.containsKey(str2) && !str2.equals(str)) {
+                if (!f62377a.containsKey(str2) && !this.f62378b.containsKey(str2) && !str2.equals(str)) {
                     arrayList.add(str2);
                 }
             }
@@ -223,9 +223,9 @@ public final class a {
                     assetManager2 = (AssetManager) AssetManager.class.newInstance();
                 }
                 ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager = ".concat(String.valueOf(assetManager2)));
-                synchronized (this.f61479b) {
-                    for (Map.Entry<String, Integer> entry : this.f61479b.entrySet()) {
-                        if (!f61478a.containsKey(entry.getKey())) {
+                synchronized (this.f62378b) {
+                    for (Map.Entry<String, Integer> entry : this.f62378b.entrySet()) {
+                        if (!f62377a.containsKey(entry.getKey())) {
                             sb.append(entry.getKey());
                             b(assetManager2, entry.getKey(), false);
                         }
@@ -233,7 +233,7 @@ public final class a {
                 }
                 if (!sb.toString().contains(Zeus.getAppApplication().getApplicationInfo().sourceDir)) {
                     b(assetManager2, Zeus.getAppApplication().getApplicationInfo().sourceDir, false);
-                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager lost host path : " + f61478a.containsKey(Zeus.getAppApplication().getApplicationInfo().sourceDir));
+                    ZeusLogger.e(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager lost host path : " + f62377a.containsKey(Zeus.getAppApplication().getApplicationInfo().sourceDir));
                 }
                 sb.append(str);
                 b(assetManager2, str, false);

@@ -25,7 +25,7 @@ public class BarInformationModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f51799e;
+    public final HttpMessageListener f52712e;
 
     /* loaded from: classes9.dex */
     public class a extends HttpMessageListener {
@@ -94,11 +94,11 @@ public class BarInformationModel extends BdBaseModel {
                 return;
             }
         }
-        this.f51799e = new a(this, CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
+        this.f52712e = new a(this, CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);
         registerTask();
-        this.f51799e.setTag(getUniqueId());
-        this.f51799e.setSelfListener(true);
-        registerListener(this.f51799e);
+        this.f52712e.setTag(getUniqueId());
+        this.f52712e.setSelfListener(true);
+        registerListener(this.f52712e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

@@ -11,7 +11,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class DnsIpData extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ADDRESS = "";
@@ -22,7 +22,7 @@ public final class DnsIpData extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 2, type = Message.Datatype.UINT32)
     public final List<Integer> data;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<DnsIpData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public final class DnsIpData extends Message {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

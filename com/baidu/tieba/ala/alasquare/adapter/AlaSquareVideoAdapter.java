@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import b.a.e.l.e.a;
+import b.a.e.m.e.a;
 import b.a.r0.w.f.a.g;
 import b.a.r0.w.f.i.g;
 import com.baidu.adp.lib.util.StringUtils;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
     public int r;
     public g.b s;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class SquareVideoViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public SquareVideoViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -92,7 +92,7 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.w.f.a.g gVar, SquareVideoViewHolder squareVideoViewHolder) {
         InterceptResult invokeCommon;
@@ -103,13 +103,13 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
                 return null;
             }
             if (gVar != null) {
-                gVar.f24517f = i2 + 1;
+                gVar.f26034f = i2 + 1;
             }
             gVar2.j(gVar);
             b.a.r0.w.f.e.a.c().a(gVar.i(g0(), false));
             j0(gVar);
             if (i2 == this.r) {
-                gVar2.i().setAnimation(AnimationUtils.loadAnimation(this.f2419e, R.anim.list_anim));
+                gVar2.i().setAnimation(AnimationUtils.loadAnimation(this.f2421e, R.anim.list_anim));
             }
             return gVar2.i();
         }
@@ -118,16 +118,16 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
 
     public final void j0(b.a.r0.w.f.a.g gVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) || gVar == null || gVar.f24516e == null || !TextUtils.equals("c12479", g0())) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) || gVar == null || gVar.f26033e == null || !TextUtils.equals("c12479", g0())) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c12461");
-        if (StringUtils.isNull(gVar.f24516e.X0)) {
+        if (StringUtils.isNull(gVar.f26033e.X0)) {
             statisticItem.param("obj_source", "0");
         } else {
             statisticItem.param("obj_source", "1");
         }
-        if (StringUtils.isNull(gVar.f24516e.Z0)) {
+        if (StringUtils.isNull(gVar.f26033e.Z0)) {
             statisticItem.param("obj_locate", "0");
         } else {
             statisticItem.param("obj_locate", "1");

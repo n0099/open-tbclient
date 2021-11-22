@@ -25,23 +25,23 @@ public final class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37315a = "WalletDownloadManager";
+    public static final String f38145a = "WalletDownloadManager";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37316b = "content://downloads/my_downloads/";
+    public static final String f38146b = "content://downloads/my_downloads/";
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f37317c;
+    public static b f38147c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final DownloadManager f37318d;
+    public final DownloadManager f38148d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HashMap<Long, C1610b> f37319e;
+    public final HashMap<Long, C1647b> f38149e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f37320f;
+    public Context f38150f;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -50,30 +50,30 @@ public final class b {
 
     /* renamed from: com.baidu.fsg.base.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public final class C1610b extends ContentObserver {
+    public final class C1647b extends ContentObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final c f37321a;
+        public final c f38151a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final HashSet<a> f37322b;
+        public final HashSet<a> f38152b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f37323c;
+        public long f38153c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f37324d;
+        public long f38154d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f37325e;
+        public int f38155e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f37326f;
+        public final /* synthetic */ b f38156f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1610b(b bVar, Context context, long j) {
+        public C1647b(b bVar, Context context, long j) {
             super(context != null ? new Handler(context.getMainLooper()) : new Handler());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -90,15 +90,15 @@ public final class b {
                     return;
                 }
             }
-            this.f37326f = bVar;
-            this.f37322b = new HashSet<>();
-            this.f37323c = 0L;
-            this.f37324d = 0L;
-            this.f37325e = 1;
-            this.f37321a = new c(j);
+            this.f38156f = bVar;
+            this.f38152b = new HashSet<>();
+            this.f38153c = 0L;
+            this.f38154d = 0L;
+            this.f38155e = 1;
+            this.f38151a = new c(j);
         }
 
-        public /* synthetic */ C1610b(b bVar, Context context, long j, com.baidu.fsg.base.a.a aVar) {
+        public /* synthetic */ C1647b(b bVar, Context context, long j, com.baidu.fsg.base.a.a aVar) {
             this(bVar, context, j);
         }
 
@@ -109,7 +109,7 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, aVar)) == null) {
                 synchronized (this) {
-                    add = this.f37322b.add(aVar);
+                    add = this.f38152b.add(aVar);
                 }
                 return add;
             }
@@ -121,7 +121,7 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
                 synchronized (this) {
-                    this.f37322b.clear();
+                    this.f38152b.clear();
                 }
             }
         }
@@ -133,7 +133,7 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, aVar)) == null) {
                 synchronized (this) {
-                    remove = this.f37322b.remove(aVar);
+                    remove = this.f38152b.remove(aVar);
                 }
                 return remove;
             }
@@ -143,7 +143,7 @@ public final class b {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37322b.isEmpty() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38152b.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // android.database.ContentObserver
@@ -153,28 +153,28 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                 super.onChange(z);
-                this.f37326f.a(this.f37321a);
+                this.f38156f.a(this.f38151a);
                 long currentTimeMillis = System.currentTimeMillis();
-                if ((this.f37325e == this.f37321a.c() && this.f37323c == this.f37321a.a()) || this.f37324d == currentTimeMillis) {
+                if ((this.f38155e == this.f38151a.c() && this.f38153c == this.f38151a.a()) || this.f38154d == currentTimeMillis) {
                     return;
                 }
-                if (2 == this.f37321a.c()) {
-                    cVar = this.f37321a;
-                    j = ((cVar.a() - this.f37323c) * 1000) / (currentTimeMillis - this.f37324d);
+                if (2 == this.f38151a.c()) {
+                    cVar = this.f38151a;
+                    j = ((cVar.a() - this.f38153c) * 1000) / (currentTimeMillis - this.f38154d);
                 } else {
-                    cVar = this.f37321a;
+                    cVar = this.f38151a;
                     j = 0;
                 }
                 cVar.b(j);
-                this.f37323c = this.f37321a.a();
-                this.f37325e = this.f37321a.c();
-                this.f37324d = currentTimeMillis;
+                this.f38153c = this.f38151a.a();
+                this.f38155e = this.f38151a.c();
+                this.f38154d = currentTimeMillis;
                 synchronized (this) {
-                    int size = this.f37322b.size();
+                    int size = this.f38152b.size();
                     a[] aVarArr = new a[size];
-                    this.f37322b.toArray(aVarArr);
+                    this.f38152b.toArray(aVarArr);
                     for (int i2 = 0; i2 < size; i2++) {
-                        aVarArr[i2].a(this.f37321a);
+                        aVarArr[i2].a(this.f38151a);
                     }
                 }
             }
@@ -196,20 +196,20 @@ public final class b {
                 return;
             }
         }
-        this.f37319e = new HashMap<>();
-        this.f37320f = null;
-        this.f37320f = context;
-        this.f37318d = (DownloadManager) context.getSystemService("download");
+        this.f38149e = new HashMap<>();
+        this.f38150f = null;
+        this.f38150f = context;
+        this.f38148d = (DownloadManager) context.getSystemService("download");
     }
 
     public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f37317c == null) {
-                f37317c = new b(context);
+            if (f38147c == null) {
+                f38147c = new b(context);
             }
-            return f37317c;
+            return f38147c;
         }
         return (b) invokeL.objValue;
     }
@@ -236,7 +236,7 @@ public final class b {
                 return -1L;
             }
             if (str3.startsWith("http://") || str3.startsWith("https://")) {
-                return this.f37318d.enqueue(b(str, str2, str3, z, z2, z3, str4));
+                return this.f38148d.enqueue(b(str, str2, str3, z, z2, z3, str4));
             }
             return -1L;
         }
@@ -251,7 +251,7 @@ public final class b {
                 return -1L;
             }
             if (str2.startsWith("http://") || str2.startsWith("https://")) {
-                return this.f37318d.enqueue(b(Environment.DIRECTORY_DOWNLOADS, str, str2, z, z2, z3, ".apk"));
+                return this.f38148d.enqueue(b(Environment.DIRECTORY_DOWNLOADS, str, str2, z, z2, z3, ".apk"));
             }
             return -1L;
         }
@@ -261,19 +261,19 @@ public final class b {
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f37318d.remove(j);
+            this.f38148d.remove(j);
         }
     }
 
     public void a(Context context, long j) {
-        C1610b c1610b;
+        C1647b c1647b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048579, this, context, j) == null) || j == -1 || (c1610b = this.f37319e.get(Long.valueOf(j))) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048579, this, context, j) == null) || j == -1 || (c1647b = this.f38149e.get(Long.valueOf(j))) == null) {
             return;
         }
-        c1610b.b();
-        context.getContentResolver().unregisterContentObserver(c1610b);
-        this.f37319e.remove(Uri.parse("content://downloads/my_downloads/" + j));
+        c1647b.b();
+        context.getContentResolver().unregisterContentObserver(c1647b);
+        this.f38149e.remove(Uri.parse("content://downloads/my_downloads/" + j));
     }
 
     public void a(Context context, long j, a aVar) {
@@ -281,13 +281,13 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), aVar}) == null) || aVar == null || -1 == j) {
             return;
         }
-        C1610b c1610b = this.f37319e.get(Long.valueOf(j));
-        if (c1610b == null) {
-            c1610b = new C1610b(this, context, j, null);
-            this.f37319e.put(Long.valueOf(j), c1610b);
-            context.getContentResolver().registerContentObserver(Uri.parse("content://downloads/my_downloads/" + j), true, c1610b);
+        C1647b c1647b = this.f38149e.get(Long.valueOf(j));
+        if (c1647b == null) {
+            c1647b = new C1647b(this, context, j, null);
+            this.f38149e.put(Long.valueOf(j), c1647b);
+            context.getContentResolver().registerContentObserver(Uri.parse("content://downloads/my_downloads/" + j), true, c1647b);
         }
-        c1610b.a(aVar);
+        c1647b.a(aVar);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -296,7 +296,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || -1 == cVar.b()) {
             return;
         }
-        Cursor query = this.f37318d.query(new DownloadManager.Query().setFilterById(cVar.b()));
+        Cursor query = this.f38148d.query(new DownloadManager.Query().setFilterById(cVar.b()));
         if (query != null) {
             try {
                 if (query.getCount() != 0 && query.moveToFirst()) {
@@ -341,15 +341,15 @@ public final class b {
     }
 
     public void b(Context context, long j, a aVar) {
-        C1610b c1610b;
+        C1647b c1647b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{context, Long.valueOf(j), aVar}) == null) || j == -1 || (c1610b = this.f37319e.get(Long.valueOf(j))) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{context, Long.valueOf(j), aVar}) == null) || j == -1 || (c1647b = this.f38149e.get(Long.valueOf(j))) == null) {
             return;
         }
-        c1610b.b(aVar);
-        if (c1610b.a()) {
-            context.getContentResolver().unregisterContentObserver(c1610b);
-            this.f37319e.remove(Uri.parse("content://downloads/my_downloads/" + j));
+        c1647b.b(aVar);
+        if (c1647b.a()) {
+            context.getContentResolver().unregisterContentObserver(c1647b);
+            this.f38149e.remove(Uri.parse("content://downloads/my_downloads/" + j));
         }
     }
 }

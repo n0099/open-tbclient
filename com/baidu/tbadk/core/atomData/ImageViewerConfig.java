@@ -6,8 +6,8 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.d1.g;
-import b.a.q0.g1.b.c;
+import b.a.q0.c1.g;
+import b.a.q0.f1.b.c;
 import b.a.q0.s.q.d2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -94,31 +94,31 @@ public class ImageViewerConfig extends IntentConfig {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<String> f45024a;
+        public ArrayList<String> f45873a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f45025b;
+        public int f45874b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f45026c;
+        public String f45875c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f45027d;
+        public String f45876d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f45028e;
+        public String f45877e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f45029f;
+        public boolean f45878f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f45030g;
+        public String f45879g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f45031h;
+        public boolean f45880h;
 
         /* renamed from: i  reason: collision with root package name */
-        public ConcurrentHashMap<String, ImageUrlData> f45032i;
+        public ConcurrentHashMap<String, ImageUrlData> f45881i;
         public boolean j;
         public boolean k;
         public boolean l;
@@ -145,9 +145,9 @@ public class ImageViewerConfig extends IntentConfig {
                     return;
                 }
             }
-            this.f45025b = 0;
-            this.f45027d = "";
-            this.f45028e = "";
+            this.f45874b = 0;
+            this.f45876d = "";
+            this.f45877e = "";
             this.l = false;
             this.p = true;
             this.s = true;
@@ -167,7 +167,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.f45025b = i2;
+                this.f45874b = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -177,7 +177,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f45029f = z;
+                this.f45878f = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -207,7 +207,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.f45031h = z;
+                this.f45880h = z;
                 return this;
             }
             return (b) invokeZ.objValue;
@@ -247,7 +247,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-                this.f45030g = str;
+                this.f45879g = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -298,7 +298,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-                this.f45028e = str;
+                this.f45877e = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -314,7 +314,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, concurrentHashMap)) == null) {
-                this.f45032i = concurrentHashMap;
+                this.f45881i = concurrentHashMap;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -324,7 +324,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, arrayList)) == null) {
-                this.f45024a = arrayList;
+                this.f45873a = arrayList;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -334,7 +334,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-                this.f45027d = str;
+                this.f45876d = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -344,7 +344,7 @@ public class ImageViewerConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-                this.f45026c = str;
+                this.f45875c = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -378,27 +378,27 @@ public class ImageViewerConfig extends IntentConfig {
             return;
         }
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
-        if (bVar.f45024a != null && bVar.f45024a.size() > 0) {
+        if (bVar.f45873a != null && bVar.f45873a.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
-            intent.putStringArrayListExtra("url", bVar.f45024a);
-            intent.putExtra("index", bVar.f45025b);
+            intent.putStringArrayListExtra("url", bVar.f45873a);
+            intent.putExtra("index", bVar.f45874b);
             intent.putExtra("is_pv", true);
             intent.putExtra(PV_TYPE, "pb");
-            intent.putExtra(PARAM_IS_CDN, bVar.f45029f);
-            intent.putExtra("fname", bVar.f45026c);
-            intent.putExtra("fid", bVar.f45027d);
-            intent.putExtra("tid", bVar.f45028e);
-            intent.putExtra(LAST_ID, bVar.f45030g);
-            intent.putExtra(REVERSE_MODE, bVar.f45031h);
-            intent.putExtra(ASSIST_URLS, bVar.f45032i);
+            intent.putExtra(PARAM_IS_CDN, bVar.f45878f);
+            intent.putExtra("fname", bVar.f45875c);
+            intent.putExtra("fid", bVar.f45876d);
+            intent.putExtra("tid", bVar.f45877e);
+            intent.putExtra(LAST_ID, bVar.f45879g);
+            intent.putExtra(REVERSE_MODE, bVar.f45880h);
+            intent.putExtra(ASSIST_URLS, bVar.f45881i);
             intent.putExtra(IS_SHOW_AD, bVar.j);
             intent.putExtra(NEED_BROADCAST, bVar.k);
             intent.putExtra(SEE_HOST, bVar.l);
-            int size = bVar.f45024a.size();
+            int size = bVar.f45873a.size();
             for (int i4 = 0; i4 < size; i4++) {
-                String str = (String) bVar.f45024a.get(i4);
+                String str = (String) bVar.f45873a.get(i4);
                 if (!StringUtils.isNull(str)) {
-                    ImageUrlData imageUrlData = bVar.f45032i != null ? (ImageUrlData) bVar.f45032i.get(str) : null;
+                    ImageUrlData imageUrlData = bVar.f45881i != null ? (ImageUrlData) bVar.f45881i.get(str) : null;
                     if (imageUrlData == null) {
                         imageUrlData = new ImageUrlData();
                         imageUrlData.imageUrl = str;
@@ -419,8 +419,8 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
         }
         if (bVar.m != null) {
-            intent.putExtra(IS_BJH, bVar.m.D2());
-            if (bVar.m.D2()) {
+            intent.putExtra(IS_BJH, bVar.m.F2());
+            if (bVar.m.F2()) {
                 intent.putExtra(PARAM_IS_CDN, true);
             }
             intent.putExtra("nid", bVar.m.F0());
@@ -429,7 +429,7 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra("ab_tag", bVar.m.Z0);
             intent.putExtra("weight", bVar.m.Y0);
             intent.putExtra("extra", bVar.m.a1);
-            if (bVar.m.F2()) {
+            if (bVar.m.H2()) {
                 intent.putExtra(IS_VIDEO_WORKS_INFO, true);
             }
         }

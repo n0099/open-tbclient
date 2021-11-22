@@ -23,14 +23,14 @@ public class aj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ByteBuffer f40963c;
+    public static final ByteBuffer f41795c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f40964a;
+    public a f41796a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f40965b;
+    public b f41797b;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -49,7 +49,7 @@ public class aj {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ aj f40967a;
+        public final /* synthetic */ aj f41799a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(aj ajVar, Throwable th) {
@@ -69,7 +69,7 @@ public class aj {
                     return;
                 }
             }
-            this.f40967a = ajVar;
+            this.f41799a = ajVar;
         }
     }
 
@@ -86,7 +86,7 @@ public class aj {
                 return;
             }
         }
-        f40963c = ByteBuffer.allocate(0);
+        f41795c = ByteBuffer.allocate(0);
     }
 
     public aj(URI uri, a aVar) throws c {
@@ -104,10 +104,10 @@ public class aj {
                 return;
             }
         }
-        this.f40964a = aVar;
+        this.f41796a = aVar;
         try {
             b bVar = new b(this, uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
-            this.f40965b = bVar;
+            this.f41797b = bVar;
             bVar.c();
         } catch (InterruptedException e2) {
             throw new c(this, e2);
@@ -141,13 +141,13 @@ public class aj {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f40965b.f() || this.f40965b.g() || this.f40965b.e()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f41797b.f() || this.f41797b.g() || this.f41797b.e()) ? false : true : invokeV.booleanValue;
     }
 
     public void a() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f40965b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f41797b) == null) {
             return;
         }
         bVar.d();
@@ -159,7 +159,7 @@ public class aj {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ aj f40966a;
+        public final /* synthetic */ aj f41798a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(aj ajVar, URI uri, int i2, Socket socket) throws InterruptedException {
@@ -180,7 +180,7 @@ public class aj {
                     return;
                 }
             }
-            this.f40966a = ajVar;
+            this.f41798a = ajVar;
             a(socket);
         }
 
@@ -191,8 +191,8 @@ public class aj {
                 if (bd.c().b()) {
                     bd.c().a("onOpen");
                 }
-                if (this.f40966a.f40964a != null) {
-                    this.f40966a.f40964a.a();
+                if (this.f41798a.f41796a != null) {
+                    this.f41798a.f41796a.a();
                 }
             }
         }
@@ -226,7 +226,7 @@ public class aj {
                 }
                 if (str2.equals("deploy")) {
                     try {
-                        this.f40966a.f40964a.a(((JSONObject) jSONObject.get("data")).toString());
+                        this.f41798a.f41796a.a(((JSONObject) jSONObject.get("data")).toString());
                         return;
                     } catch (Exception unused3) {
                         return;
@@ -253,8 +253,8 @@ public class aj {
                     case 801024:
                         bc.c().a("autotrace: connect confirm");
                         am.a().a(3);
-                        if (this.f40966a.f40964a != null) {
-                            this.f40966a.f40964a.b();
+                        if (this.f41798a.f41796a != null) {
+                            this.f41798a.f41796a.b();
                             return;
                         }
                         return;
@@ -274,8 +274,8 @@ public class aj {
                 c3.a("autotrace: connect closed, server:" + z + " reason:" + str);
                 am a2 = am.a();
                 a2.a(5, "remote:" + z + "|reason:" + str);
-                if (this.f40966a.f40964a != null) {
-                    this.f40966a.f40964a.a(z);
+                if (this.f41798a.f41796a != null) {
+                    this.f41798a.f41796a.a(z);
                 }
             }
         }
@@ -291,9 +291,9 @@ public class aj {
 
     public void a(JSONObject jSONObject) throws NotYetConnectedException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || this.f40965b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || this.f41797b == null) {
             return;
         }
-        this.f40965b.a(jSONObject.toString().getBytes());
+        this.f41797b.a(jSONObject.toString().getBytes());
     }
 }

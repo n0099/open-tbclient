@@ -5,6 +5,7 @@ import android.media.MediaFormat;
 import android.os.SystemClock;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -378,7 +379,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
             }
             synchronized (this.dimensionLock) {
                 if (this.hasDecodedFirstFrame && (this.width != integer || this.height != integer2)) {
-                    stopOnOutputThread(new RuntimeException("Unexpected size change. Configured " + this.width + "*" + this.height + ". New " + integer + "*" + integer2));
+                    stopOnOutputThread(new RuntimeException("Unexpected size change. Configured " + this.width + ProxyConfig.MATCH_ALL_SCHEMES + this.height + ". New " + integer + ProxyConfig.MATCH_ALL_SCHEMES + integer2));
                     return;
                 }
                 this.width = integer;

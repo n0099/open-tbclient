@@ -29,7 +29,7 @@ public class BaiduLBSPay {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduLBSPay f34817a;
+        public static BaiduLBSPay f35646a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -45,7 +45,7 @@ public class BaiduLBSPay {
                     return;
                 }
             }
-            f34817a = new BaiduLBSPay(null);
+            f35646a = new BaiduLBSPay(null);
         }
     }
 
@@ -56,7 +56,7 @@ public class BaiduLBSPay {
     public static BaiduLBSPay getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f34817a : (BaiduLBSPay) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f35646a : (BaiduLBSPay) invokeV.objValue;
     }
 
     public void doCallFrontCashierPay(Activity activity, GetPayOrderListener getPayOrderListener, LBSPayBack lBSPayBack, Map<String, String> map, String str) {

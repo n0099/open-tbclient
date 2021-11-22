@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class AugmentedFace extends TrackableBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class RegionType {
         public static final /* synthetic */ RegionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -100,7 +100,7 @@ public class AugmentedFace extends TrackableBase {
         a();
     }
 
-    private native b.i.c.a.a nativeGetCenterPose(long j, long j2);
+    private native b.h.c.a.a nativeGetCenterPose(long j, long j2);
 
     private native ByteBuffer nativeGetMeshNormalsByteBuffer(long j, long j2);
 
@@ -110,15 +110,15 @@ public class AugmentedFace extends TrackableBase {
 
     private native ByteBuffer nativeGetMeshVerticesByteBuffer(long j, long j2);
 
-    private native b.i.c.a.a nativeGetRegionPose(long j, long j2, int i2);
+    private native b.h.c.a.a nativeGetRegionPose(long j, long j2, int i2);
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Session.a(nativeGetMeshVerticesByteBuffer(this.f63127b.f63102a, this.f63126a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshNormalsByteBuffer(this.f63127b.f63102a, this.f63126a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f63127b.f63102a, this.f63126a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f63127b.f63102a, this.f63126a)).asCharBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshVerticesByteBuffer(this.f64027b.f64002a, this.f64026a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshNormalsByteBuffer(this.f64027b.f64002a, this.f64026a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f64027b.f64002a, this.f64026a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f64027b.f64002a, this.f64026a)).asCharBuffer().asReadOnlyBuffer();
         }
     }
 

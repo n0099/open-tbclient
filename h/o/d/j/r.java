@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class r<E> extends w<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,13 +35,13 @@ public final class r<E> extends w<E> {
     public final long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f0.f72119a.d(this, t.l) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f0.f73038a.d(this, t.l) : invokeV.longValue;
     }
 
     public final long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f0.f72119a.d(this, x.k) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f0.f73038a.d(this, x.k) : invokeV.longValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
@@ -54,14 +54,14 @@ public final class r<E> extends w<E> {
     public final void j(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            f0.f72119a.i(this, t.l, j);
+            f0.f73038a.i(this, t.l, j);
         }
     }
 
     public final void k(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            f0.f72119a.i(this, x.k, j);
+            f0.f73038a.i(this, x.k, j);
         }
     }
 
@@ -71,7 +71,7 @@ public final class r<E> extends w<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e2)) == null) {
             if (e2 != null) {
-                E[] eArr = this.f72118f;
+                E[] eArr = this.f73037f;
                 long j = this.producerIndex;
                 long a2 = a(j);
                 if (e(eArr, a2) != null) {
@@ -100,7 +100,7 @@ public final class r<E> extends w<E> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             long j = this.consumerIndex;
             long a2 = a(j);
-            E[] eArr = this.f72118f;
+            E[] eArr = this.f73037f;
             E e2 = e(eArr, a2);
             if (e2 == null) {
                 return null;

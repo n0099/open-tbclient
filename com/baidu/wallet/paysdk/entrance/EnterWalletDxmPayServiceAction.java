@@ -120,13 +120,13 @@ public class EnterWalletDxmPayServiceAction implements RouterAction {
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ String f59683a;
+                                    public final /* synthetic */ String f60605a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ RouterCallback f59684b;
+                                    public final /* synthetic */ RouterCallback f60606b;
 
                                     /* renamed from: c  reason: collision with root package name */
-                                    public final /* synthetic */ EnterWalletDxmPayServiceAction f59685c;
+                                    public final /* synthetic */ EnterWalletDxmPayServiceAction f60607c;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -143,16 +143,16 @@ public class EnterWalletDxmPayServiceAction implements RouterAction {
                                                 return;
                                             }
                                         }
-                                        this.f59685c = this;
-                                        this.f59683a = optString;
-                                        this.f59684b = routerCallback;
+                                        this.f60607c = this;
+                                        this.f60605a = optString;
+                                        this.f60606b = routerCallback;
                                     }
 
                                     @Override // com.baidu.wallet.paysdk.fingerprint.c
                                     public void a(int i2, String str2) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                                            this.f59685c.a(this.f59683a, i2, str2, this.f59684b);
+                                            this.f60607c.a(this.f60605a, i2, str2, this.f60606b);
                                         }
                                     }
                                 });
@@ -162,13 +162,13 @@ public class EnterWalletDxmPayServiceAction implements RouterAction {
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ String f59686a;
+                                    public final /* synthetic */ String f60608a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ RouterCallback f59687b;
+                                    public final /* synthetic */ RouterCallback f60609b;
 
                                     /* renamed from: c  reason: collision with root package name */
-                                    public final /* synthetic */ EnterWalletDxmPayServiceAction f59688c;
+                                    public final /* synthetic */ EnterWalletDxmPayServiceAction f60610c;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -185,16 +185,16 @@ public class EnterWalletDxmPayServiceAction implements RouterAction {
                                                 return;
                                             }
                                         }
-                                        this.f59688c = this;
-                                        this.f59686a = optString;
-                                        this.f59687b = routerCallback;
+                                        this.f60610c = this;
+                                        this.f60608a = optString;
+                                        this.f60609b = routerCallback;
                                     }
 
                                     @Override // com.baidu.wallet.paysdk.fingerprint.c
                                     public void a(int i2, String str2) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                                            this.f59688c.a(this.f59686a, i2, str2, this.f59687b);
+                                            this.f60610c.a(this.f60608a, i2, str2, this.f60609b);
                                         }
                                     }
                                 });
@@ -204,13 +204,13 @@ public class EnterWalletDxmPayServiceAction implements RouterAction {
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ String f59689a;
+                                    public final /* synthetic */ String f60611a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ RouterCallback f59690b;
+                                    public final /* synthetic */ RouterCallback f60612b;
 
                                     /* renamed from: c  reason: collision with root package name */
-                                    public final /* synthetic */ EnterWalletDxmPayServiceAction f59691c;
+                                    public final /* synthetic */ EnterWalletDxmPayServiceAction f60613c;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -227,9 +227,9 @@ public class EnterWalletDxmPayServiceAction implements RouterAction {
                                                 return;
                                             }
                                         }
-                                        this.f59691c = this;
-                                        this.f59689a = optString;
-                                        this.f59690b = routerCallback;
+                                        this.f60613c = this;
+                                        this.f60611a = optString;
+                                        this.f60612b = routerCallback;
                                     }
 
                                     @Override // com.baidu.wallet.paysdk.fingerprint.c
@@ -237,9 +237,9 @@ public class EnterWalletDxmPayServiceAction implements RouterAction {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
                                             if (i2 == 0) {
-                                                this.f59691c.c(this.f59689a, i2, str2, this.f59690b);
+                                                this.f60613c.c(this.f60611a, i2, str2, this.f60612b);
                                             } else {
-                                                this.f59691c.a(i2, str2, this.f59690b);
+                                                this.f60613c.a(i2, str2, this.f60612b);
                                             }
                                         }
                                     }
@@ -259,13 +259,13 @@ public class EnterWalletDxmPayServiceAction implements RouterAction {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ String f59680a;
+                            public final /* synthetic */ String f60602a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ RouterCallback f59681b;
+                            public final /* synthetic */ RouterCallback f60603b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ EnterWalletDxmPayServiceAction f59682c;
+                            public final /* synthetic */ EnterWalletDxmPayServiceAction f60604c;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -282,16 +282,16 @@ public class EnterWalletDxmPayServiceAction implements RouterAction {
                                         return;
                                     }
                                 }
-                                this.f59682c = this;
-                                this.f59680a = optString;
-                                this.f59681b = routerCallback;
+                                this.f60604c = this;
+                                this.f60602a = optString;
+                                this.f60603b = routerCallback;
                             }
 
                             @Override // com.baidu.wallet.paysdk.securitycenter.a
                             public void a(int i2, String str2) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                                    this.f59682c.b(this.f59680a, i2, str2, this.f59681b);
+                                    this.f60604c.b(this.f60602a, i2, str2, this.f60603b);
                                 }
                             }
                         });

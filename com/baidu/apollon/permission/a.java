@@ -17,16 +17,16 @@ public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f36045a = 0;
+    public static final int f36874a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f36046b = 1;
+    public static final int f36875b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f36047c = 3;
+    public static final int f36876c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f36048d;
+    public static final b f36877d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.apollon.permission.a$1  reason: invalid class name */
@@ -38,12 +38,12 @@ public final class a {
 
     /* renamed from: com.baidu.apollon.permission.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1576a extends b {
+    public static class C1613a extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1576a() {
+        public C1613a() {
             super(null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -67,7 +67,7 @@ public final class a {
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? com.baidu.apollon.permission.b.a(str) : (String) invokeL.objValue;
         }
 
-        public /* synthetic */ C1576a(AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C1613a(AnonymousClass1 anonymousClass1) {
             this();
         }
 
@@ -151,9 +151,9 @@ public final class a {
             }
         }
         if (Build.VERSION.SDK_INT >= 23) {
-            f36048d = new C1576a(null);
+            f36877d = new C1613a(null);
         } else {
-            f36048d = new b(null);
+            f36877d = new b(null);
         }
     }
 
@@ -174,18 +174,18 @@ public final class a {
     public static String a(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f36048d.a(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f36877d.a(str) : (String) invokeL.objValue;
     }
 
     public static int a(@NonNull Context context, @NonNull String str, int i2, @NonNull String str2) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, context, str, i2, str2)) == null) ? f36048d.a(context, str, i2, str2) : invokeLLIL.intValue;
+        return (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, context, str, i2, str2)) == null) ? f36877d.a(context, str, i2, str2) : invokeLLIL.intValue;
     }
 
     public static int a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) ? f36048d.a(context, str, str2) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) ? f36877d.a(context, str, str2) : invokeLLL.intValue;
     }
 }

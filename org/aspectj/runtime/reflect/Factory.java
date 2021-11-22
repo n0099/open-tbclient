@@ -1,6 +1,7 @@
 package org.aspectj.runtime.reflect;
 
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -100,7 +101,7 @@ public final class Factory {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, classLoader)) == null) {
-            if (str.equals("*")) {
+            if (str.equals(ProxyConfig.MATCH_ALL_SCHEMES)) {
                 return null;
             }
             Class cls = (Class) prims.get(str);

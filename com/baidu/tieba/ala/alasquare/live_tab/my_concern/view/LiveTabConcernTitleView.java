@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class LiveTabConcernTitleView extends b<g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder m;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,10 +101,10 @@ public class LiveTabConcernTitleView extends b<g> {
     public void j(g gVar) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f24835f) || (viewHolder = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f26352f) || (viewHolder = this.m) == null) {
             return;
         }
-        viewHolder.mTitle.setText(gVar.f24835f);
+        viewHolder.mTitle.setText(gVar.f26352f);
     }
 
     @Override // android.view.View.OnClickListener

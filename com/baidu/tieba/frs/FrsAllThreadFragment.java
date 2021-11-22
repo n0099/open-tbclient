@@ -8,8 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import b.a.q0.m0.c;
-import b.a.r0.x0.e1;
-import b.a.r0.x0.p0;
+import b.a.r0.x0.f1;
+import b.a.r0.x0.q0;
 import b.a.r0.x0.t;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -26,18 +26,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class FrsAllThreadFragment extends BaseFragment implements p0 {
+public class FrsAllThreadFragment extends BaseFragment implements q0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f48187e;
+    public View f49051e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f48188f;
+    public RecyclerView f49052f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f48189g;
+    public String f49053g;
 
     public FrsAllThreadFragment() {
         Interceptable interceptable = $ic;
@@ -56,25 +56,25 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public final void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f48189g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f49053g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
-    @Override // b.a.r0.x0.p0
+    @Override // b.a.r0.x0.q0
     public void changeToSpecialFrs(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
         }
     }
 
-    @Override // b.a.r0.x0.p0
+    @Override // b.a.r0.x0.q0
     public void forceRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             scrollToTop();
             t tVar = new t();
-            tVar.f26328a = 1;
-            tVar.f26329b = true;
+            tVar.f27908a = 1;
+            tVar.f27909b = true;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
         }
     }
@@ -82,9 +82,9 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public final void g() {
         View view;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (view = this.f48187e) != null && (view.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.f48187e.getParent()).removeView(this.f48187e);
-            this.f48187e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (view = this.f49051e) != null && (view.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.f49051e.getParent()).removeView(this.f49051e);
+            this.f49051e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
@@ -107,10 +107,10 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
             Bundle arguments = getArguments();
             if (arguments != null) {
-                this.f48189g = arguments.getString("forum_id", "");
+                this.f49053g = arguments.getString("forum_id", "");
             }
             g();
-            return this.f48187e;
+            return this.f49051e;
         }
         return (View) invokeLLL.objValue;
     }
@@ -127,11 +127,11 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
         }
     }
 
-    @Override // b.a.r0.x0.p0
+    @Override // b.a.r0.x0.q0
     public void scrollToTop() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (recyclerView = this.f48188f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (recyclerView = this.f49052f) == null) {
             return;
         }
         recyclerView.scrollToPosition(0);
@@ -140,8 +140,8 @@ public class FrsAllThreadFragment extends BaseFragment implements p0 {
     public void setView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
-            this.f48187e = view;
-            this.f48188f = (RecyclerView) view.findViewById(e1.frs_lv_thread);
+            this.f49051e = view;
+            this.f49052f = (RecyclerView) view.findViewById(f1.frs_lv_thread);
             g();
         }
     }

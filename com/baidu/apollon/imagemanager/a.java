@@ -19,41 +19,41 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f36029a = 52428800;
+    public static final long f36858a = 52428800;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final InterfaceC1575a f36030b;
+    public final InterfaceC1612a f36859b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f36031c;
+    public final String f36860c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f36032d;
+    public File f36861d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f36033e;
+    public long f36862e;
 
     /* renamed from: com.baidu.apollon.imagemanager.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1575a {
+    public interface InterfaceC1612a {
         List<File> a(File file);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a(Context context, String str, InterfaceC1575a interfaceC1575a) {
-        this(context, str, "", interfaceC1575a);
+    public a(Context context, String str, InterfaceC1612a interfaceC1612a) {
+        this(context, str, "", interfaceC1612a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, interfaceC1575a};
+            Object[] objArr = {context, str, interfaceC1612a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (InterfaceC1575a) objArr2[3]);
+                this((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (InterfaceC1612a) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -85,17 +85,17 @@ public class a {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || this.f36033e >= 0) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || this.f36862e >= 0) {
             return;
         }
-        this.f36033e = 52428800 - c();
+        this.f36862e = 52428800 - c();
     }
 
     private long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            File[] listFiles = this.f36032d.listFiles();
+            File[] listFiles = this.f36861d.listFiles();
             long j = 0;
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
@@ -107,12 +107,12 @@ public class a {
         return invokeV.longValue;
     }
 
-    public a(Context context, String str, String str2, InterfaceC1575a interfaceC1575a) {
+    public a(Context context, String str, String str2, InterfaceC1612a interfaceC1612a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, interfaceC1575a};
+            Object[] objArr = {context, str, str2, interfaceC1612a};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -122,29 +122,29 @@ public class a {
                 return;
             }
         }
-        this.f36033e = Long.MIN_VALUE;
-        this.f36031c = str2;
+        this.f36862e = Long.MIN_VALUE;
+        this.f36860c = str2;
         if (CheckUtils.isExternalStorageWriteable(context)) {
             File externalFilesDir = context.getExternalFilesDir(null);
             if (externalFilesDir != null) {
-                this.f36032d = new File(externalFilesDir, str);
+                this.f36861d = new File(externalFilesDir, str);
             } else {
-                this.f36032d = new File(context.getCacheDir(), str);
+                this.f36861d = new File(context.getCacheDir(), str);
             }
         } else {
-            this.f36032d = new File(context.getCacheDir(), str);
+            this.f36861d = new File(context.getCacheDir(), str);
         }
-        if (!this.f36032d.exists()) {
-            this.f36032d.mkdirs();
+        if (!this.f36861d.exists()) {
+            this.f36861d.mkdirs();
         }
-        this.f36030b = interfaceC1575a;
+        this.f36859b = interfaceC1612a;
     }
 
     private String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str)) == null) {
-            return String.valueOf(str.hashCode()) + this.f36031c;
+            return String.valueOf(str.hashCode()) + this.f36860c;
         }
         return (String) invokeL.objValue;
     }
@@ -161,7 +161,7 @@ public class a {
     }
 
     public void a(String str, byte[] bArr) {
-        InterfaceC1575a interfaceC1575a;
+        InterfaceC1612a interfaceC1612a;
         List<File> a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
@@ -169,14 +169,14 @@ public class a {
             a(a3.getParentFile());
             a(bArr, a3);
             b();
-            long length = this.f36033e - a(str).length();
-            if (length < 0 && (interfaceC1575a = this.f36030b) != null && (a2 = interfaceC1575a.a(this.f36032d)) != null) {
+            long length = this.f36862e - a(str).length();
+            if (length < 0 && (interfaceC1612a = this.f36859b) != null && (a2 = interfaceC1612a.a(this.f36861d)) != null) {
                 for (File file : a2) {
                     length += file.length();
                     file.delete();
                 }
             }
-            this.f36033e = length;
+            this.f36862e = length;
         }
     }
 
@@ -184,7 +184,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            File file = new File(this.f36032d, b(str));
+            File file = new File(this.f36861d, b(str));
             if (file.exists()) {
                 file.setLastModified(System.currentTimeMillis());
             }
@@ -196,7 +196,7 @@ public class a {
     public void a() {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (listFiles = this.f36032d.listFiles()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (listFiles = this.f36861d.listFiles()) == null) {
             return;
         }
         for (File file : listFiles) {

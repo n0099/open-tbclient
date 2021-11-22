@@ -18,10 +18,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f12765a;
+    public String f13515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ArrayList<String> f12766b;
+    public final ArrayList<String> f13516b;
 
     public c(BdUniqueId bdUniqueId, String str, Intent intent) {
         Interceptable interceptable = $ic;
@@ -38,51 +38,51 @@ public class c {
                 return;
             }
         }
-        this.f12766b = new ArrayList<>();
-        this.f12765a = str;
+        this.f13516b = new ArrayList<>();
+        this.f13515a = str;
         f(intent);
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12765a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13515a : (String) invokeV.objValue;
     }
 
     public ArrayList<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbPageExtraHelper.c(this.f12766b, this.f12765a) : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbPageExtraHelper.c(this.f13516b, this.f13515a) : (ArrayList) invokeV.objValue;
     }
 
     public ArrayList<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12766b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13516b : (ArrayList) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ListUtils.getItem(this.f12766b, ListUtils.getCount(this.f12766b) - 1) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ListUtils.getItem(this.f13516b, ListUtils.getCount(this.f13516b) - 1) : (String) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? StringUtils.isNull(this.f12765a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? StringUtils.isNull(this.f13515a) : invokeV.booleanValue;
     }
 
     public void f(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, intent) == null) {
-            this.f12766b.clear();
+            this.f13516b.clear();
             if (intent != null) {
                 ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("tb_page_extar_source_list");
                 if (ListUtils.isEmpty(stringArrayListExtra)) {
                     return;
                 }
-                this.f12766b.addAll(stringArrayListExtra);
+                this.f13516b.addAll(stringArrayListExtra);
             }
         }
     }

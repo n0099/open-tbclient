@@ -24,10 +24,10 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f65095a;
+    public static final AtomicBoolean f66008a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AtomicBoolean f65096b;
+    public static AtomicBoolean f66009b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +43,7 @@ public class e {
                 return;
             }
         }
-        f65095a = new AtomicBoolean(false);
+        f66008a = new AtomicBoolean(false);
     }
 
     public static void a(Context context) {
@@ -62,23 +62,23 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            AtomicBoolean atomicBoolean = f65096b;
+            AtomicBoolean atomicBoolean = f66009b;
             if (atomicBoolean != null) {
                 return atomicBoolean.get();
             }
-            f65096b = new AtomicBoolean(true);
-            if (com.kwad.sdk.d.f65520a == 2) {
+            f66009b = new AtomicBoolean(true);
+            if (com.kwad.sdk.d.f66433a == 2) {
                 try {
                     if (Class.forName("com.kwai.video.player.KsMediaMeta") != null) {
-                        f65096b = new AtomicBoolean(true);
+                        f66009b = new AtomicBoolean(true);
                         return true;
                     }
                 } catch (Throwable th) {
                     com.kwad.sdk.core.d.a.b(th);
-                    f65096b = new AtomicBoolean(false);
+                    f66009b = new AtomicBoolean(false);
                 }
             }
-            return f65096b.get();
+            return f66009b.get();
         }
         return invokeV.booleanValue;
     }
@@ -86,7 +86,7 @@ public class e {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f65095a.get() || KsAdSDKImpl.get().getIsExternal() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f66008a.get() || KsAdSDKImpl.get().getIsExternal() : invokeV.booleanValue;
     }
 
     public static void c(Context context) {
@@ -120,17 +120,17 @@ public class e {
             }
             com.kwai.sodler.a.b.a(context);
             com.kwai.sodler.lib.b.b bVar = new com.kwai.sodler.lib.b.b();
-            bVar.f67109c = x;
-            bVar.f67111e = true;
-            bVar.f67107a = str;
-            bVar.f67108b = "3.2";
-            bVar.f67113g = true;
+            bVar.f68022c = x;
+            bVar.f68024e = true;
+            bVar.f68020a = str;
+            bVar.f68021b = "3.2";
+            bVar.f68026g = true;
             com.kwai.sodler.a.b.a(str, bVar, new b.a(context) { // from class: com.kwad.sdk.core.video.a.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f65097a;
+                public final /* synthetic */ Context f66010a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -147,7 +147,7 @@ public class e {
                             return;
                         }
                     }
-                    this.f65097a = context;
+                    this.f66010a = context;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -156,7 +156,7 @@ public class e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, hVar) == null) {
                         super.a(hVar);
-                        e.f65095a.set(false);
+                        e.f66008a.set(false);
                     }
                 }
 
@@ -165,7 +165,7 @@ public class e {
                 public void a(h hVar, PluginError pluginError) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048580, this, hVar, pluginError) == null) {
-                        e.f65095a.set(false);
+                        e.f66008a.set(false);
                     }
                 }
 
@@ -174,8 +174,8 @@ public class e {
                 public void a(h hVar, g gVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048581, this, hVar, gVar) == null) {
-                        e.f65095a.set(true);
-                        e.c(this.f65097a);
+                        e.f66008a.set(true);
+                        e.c(this.f66010a);
                         e.e();
                     }
                 }

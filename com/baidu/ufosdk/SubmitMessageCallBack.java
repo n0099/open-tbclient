@@ -1,5 +1,5 @@
 package com.baidu.ufosdk;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public interface SubmitMessageCallBack {
     void onSubmitMessageAfterCallback(String str, String str2);
 

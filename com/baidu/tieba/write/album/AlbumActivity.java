@@ -6,7 +6,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.d4.k.e;
+import b.a.r0.e4.k.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -186,7 +186,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onResume();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.I();
+                eVar.K();
             }
         }
     }
@@ -198,7 +198,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onSaveInstanceState(bundle);
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.J(bundle);
+                eVar.L(bundle);
             }
         }
     }
@@ -210,7 +210,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onStart();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.K();
+                eVar.M();
             }
         }
     }
@@ -222,7 +222,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onStop();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.M();
+                eVar.N();
             }
         }
     }

@@ -13,7 +13,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f29922a;
+    public static boolean f30791a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public class c {
     public static void b(String str) {
         String[] h2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && f29922a && (h2 = h(str)) != null && h2.length == 2) {
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && f30791a && (h2 = h(str)) != null && h2.length == 2) {
             String str2 = h2[0];
             String str3 = h2[1];
         }
@@ -54,7 +54,7 @@ public class c {
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f29922a) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f30791a) {
             a(str2);
         }
     }
@@ -62,7 +62,7 @@ public class c {
     public static void d(String str) {
         String[] h2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f29922a && (h2 = h(str)) != null && h2.length == 2) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f30791a && (h2 = h(str)) != null && h2.length == 2) {
             String str2 = h2[0];
             String str3 = h2[1];
         }
@@ -70,21 +70,21 @@ public class c {
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) && f29922a) {
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) && f30791a) {
             a(str2);
         }
     }
 
     public static void f(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, th) == null) && f29922a) {
+        if ((interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, th) == null) && f30791a) {
             a(str2);
         }
     }
 
     public static void g(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, th) == null) && f29922a && th != null) {
+        if ((interceptable == null || interceptable.invokeL(65543, null, th) == null) && f30791a && th != null) {
             th.printStackTrace();
         }
     }
@@ -104,7 +104,7 @@ public class c {
     public static void i(String str) {
         String[] h2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && f29922a && (h2 = h(str)) != null && h2.length == 2) {
+        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && f30791a && (h2 = h(str)) != null && h2.length == 2) {
             String str2 = h2[0];
             String str3 = h2[1];
         }
@@ -112,21 +112,21 @@ public class c {
 
     public static void j(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && f29922a) {
+        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && f30791a) {
             a(str2);
         }
     }
 
     public static void k(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && f29922a) {
+        if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && f30791a) {
             a(str2);
         }
     }
 
     public static void l(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && f29922a) {
+        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && f30791a) {
             a(str2);
         }
     }

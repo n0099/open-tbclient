@@ -5,8 +5,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.h3.b.b;
-import b.a.r0.k3.c;
+import b.a.r0.i3.b.b;
+import b.a.r0.l3.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class LogoBaseActivity extends BaseFragmentActivity implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class LogoBaseActivity extends BaseFragmentActivity implements b {
         }
     }
 
-    @Override // b.a.r0.h3.b.b
+    @Override // b.a.r0.i3.b.b
     public boolean isFromHotSplash() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

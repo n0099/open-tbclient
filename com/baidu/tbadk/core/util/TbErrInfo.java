@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.res.Resources;
-import b.a.e.e.p.f;
+import b.a.e.f.p.f;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;

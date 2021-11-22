@@ -15,10 +15,10 @@ public class p2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f13420a;
+    public int f14200a;
 
     /* renamed from: b  reason: collision with root package name */
-    public o2 f13421b;
+    public o2 f14201b;
 
     public p2() {
         Interceptable interceptable = $ic;
@@ -33,20 +33,20 @@ public class p2 {
                 return;
             }
         }
-        this.f13420a = 0;
-        this.f13421b = new o2();
+        this.f14200a = 0;
+        this.f14201b = new o2();
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13420a != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14200a != 0 : invokeV.booleanValue;
     }
 
     public o2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13421b : (o2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14201b : (o2) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -55,8 +55,8 @@ public class p2 {
             return;
         }
         try {
-            this.f13420a = jSONObject.optInt("activity_show");
-            this.f13421b.d(jSONObject.optJSONObject("yule_activity"));
+            this.f14200a = jSONObject.optInt("activity_show");
+            this.f14201b.d(jSONObject.optJSONObject("yule_activity"));
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -67,7 +67,7 @@ public class p2 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, yule) == null) || yule == null) {
             return;
         }
-        this.f13420a = yule.activity_show.intValue();
-        this.f13421b.e(yule.yule_activity);
+        this.f14200a = yule.activity_show.intValue();
+        this.f14201b.e(yule.yule_activity);
     }
 }

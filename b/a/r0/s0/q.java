@@ -22,11 +22,11 @@ public class q extends b.a.q0.x.p.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static q f23368f;
+    public static q f24699f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<b.a.q0.x.p.c> f23369e;
+    public LinkedList<b.a.q0.x.p.c> f24700e;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -34,7 +34,7 @@ public class q extends b.a.q0.x.p.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ q f23370a;
+        public final /* synthetic */ q f24701a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(q qVar, int i2) {
@@ -54,7 +54,7 @@ public class q extends b.a.q0.x.p.a {
                     return;
                 }
             }
-            this.f23370a = qVar;
+            this.f24701a = qVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,17 +64,17 @@ public class q extends b.a.q0.x.p.a {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001444) {
                 Object data = customResponsedMessage.getData();
                 if (data == null || !(data instanceof SingleBarEmotionRecommendData)) {
-                    this.f23370a.g(null);
+                    this.f24701a.g(null);
                     return;
                 }
                 SingleBarEmotionRecommendData singleBarEmotionRecommendData = (SingleBarEmotionRecommendData) data;
                 LinkedList linkedList = new LinkedList();
                 if (singleBarEmotionRecommendData == null || TextUtils.isEmpty(singleBarEmotionRecommendData.pkg_id) || TextUtils.isEmpty(singleBarEmotionRecommendData.cover)) {
-                    this.f23370a.g(null);
+                    this.f24701a.g(null);
                     return;
                 }
                 linkedList.add(singleBarEmotionRecommendData);
-                this.f23370a.g(linkedList);
+                this.f24701a.g(linkedList);
             }
         }
     }
@@ -127,26 +127,26 @@ public class q extends b.a.q0.x.p.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f23368f == null) {
+            if (f24699f == null) {
                 synchronized (q.class) {
-                    if (f23368f == null) {
-                        f23368f = new q();
+                    if (f24699f == null) {
+                        f24699f = new q();
                     }
                 }
             }
-            return f23368f;
+            return f24699f;
         }
         return (q) invokeV.objValue;
     }
 
     @Override // b.a.q0.x.p.a
-    public void b(a.InterfaceC0714a interfaceC0714a) {
+    public void b(a.InterfaceC0750a interfaceC0750a) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, interfaceC0714a) == null) && FileHelper.checkSD() && this.f23369e != null) {
-            for (int i2 = 0; i2 < this.f23369e.size(); i2++) {
-                p pVar = (p) this.f23369e.get(i2);
-                if (pVar.t() && b.a.r0.f2.c.i().g(pVar.f()) == null && interfaceC0714a != null) {
-                    interfaceC0714a.a(pVar);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, interfaceC0750a) == null) && FileHelper.checkSD() && this.f24700e != null) {
+            for (int i2 = 0; i2 < this.f24700e.size(); i2++) {
+                p pVar = (p) this.f24700e.get(i2);
+                if (pVar.t() && b.a.r0.f2.c.i().g(pVar.f()) == null && interfaceC0750a != null) {
+                    interfaceC0750a.a(pVar);
                 }
             }
         }
@@ -176,8 +176,8 @@ public class q extends b.a.q0.x.p.a {
             synchronized (this) {
                 if (list != null) {
                     if (!list.isEmpty()) {
-                        if (this.f23369e != null) {
-                            this.f23369e = null;
+                        if (this.f24700e != null) {
+                            this.f24700e = null;
                         }
                         LinkedList<b.a.q0.x.p.c> linkedList = new LinkedList<>();
                         boolean z = false;
@@ -188,14 +188,14 @@ public class q extends b.a.q0.x.p.a {
                                 z = pVar.u(bVar, new b(this));
                             }
                         }
-                        this.f23369e = linkedList;
+                        this.f24700e = linkedList;
                         if (z) {
                             MessageManager.getInstance().runTask(2004603, (Class) null);
                         }
                     }
                 }
-                if (this.f23369e != null) {
-                    this.f23369e = null;
+                if (this.f24700e != null) {
+                    this.f24700e = null;
                     MessageManager.getInstance().runTask(2004603, (Class) null);
                 }
             }

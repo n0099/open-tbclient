@@ -13,10 +13,10 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f14914a;
+    public int f16406a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14915b;
+    public String f16407b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -35,13 +35,13 @@ public class e {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14915b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16407b : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14914a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16406a : invokeV.intValue;
     }
 
     public void c(PresentNumInfo presentNumInfo) {
@@ -49,7 +49,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, presentNumInfo) == null) || presentNumInfo == null) {
             return;
         }
-        this.f14914a = presentNumInfo.num.intValue();
-        this.f14915b = presentNumInfo.name;
+        this.f16406a = presentNumInfo.num.intValue();
+        this.f16407b = presentNumInfo.name;
     }
 }

@@ -16,13 +16,13 @@ public class o2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13413a;
+    public String f14193a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13414b;
+    public String f14194b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13415c;
+    public String f14195c;
 
     public o2() {
         Interceptable interceptable = $ic;
@@ -41,19 +41,19 @@ public class o2 {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13414b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14194b : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13415c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14195c : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13413a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14193a : (String) invokeV.objValue;
     }
 
     public void d(JSONObject jSONObject) {
@@ -64,9 +64,9 @@ public class o2 {
         try {
             jSONObject.optLong("activity_id");
             jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
-            this.f13413a = jSONObject.optString("activity_url");
-            this.f13414b = jSONObject.optString("activity_all_icon");
-            this.f13415c = jSONObject.optString("activity_half_icon");
+            this.f14193a = jSONObject.optString("activity_url");
+            this.f14194b = jSONObject.optString("activity_all_icon");
+            this.f14195c = jSONObject.optString("activity_half_icon");
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }
@@ -79,8 +79,8 @@ public class o2 {
         }
         yuleActivity.activity_id.longValue();
         yuleActivity.activity_type.intValue();
-        this.f13413a = yuleActivity.activity_url;
-        this.f13414b = yuleActivity.activity_all_icon;
-        this.f13415c = yuleActivity.activity_half_icon;
+        this.f14193a = yuleActivity.activity_url;
+        this.f14194b = yuleActivity.activity_all_icon;
+        this.f14195c = yuleActivity.activity_half_icon;
     }
 }

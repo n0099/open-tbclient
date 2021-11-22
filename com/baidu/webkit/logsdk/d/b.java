@@ -12,16 +12,16 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f61081a;
+    public byte[] f62001a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61082b;
+    public int f62002b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61083c;
+    public int f62003c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f61084d;
+    public byte[] f62004d;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public final class b {
                 return;
             }
         }
-        this.f61084d = str.getBytes();
+        this.f62004d = str.getBytes();
     }
 
     public static String a(String str, String str2) {
@@ -49,23 +49,23 @@ public final class b {
             try {
                 b bVar = new b(str2);
                 byte[] decode = Base64.decode(str.getBytes(), 0);
-                byte[] bArr = bVar.f61084d;
-                bVar.f61082b = 0;
-                bVar.f61083c = 0;
-                if (bVar.f61081a == null) {
-                    bVar.f61081a = new byte[256];
+                byte[] bArr = bVar.f62004d;
+                bVar.f62002b = 0;
+                bVar.f62003c = 0;
+                if (bVar.f62001a == null) {
+                    bVar.f62001a = new byte[256];
                 }
                 for (int i2 = 0; i2 < 256; i2++) {
-                    bVar.f61081a[i2] = (byte) i2;
+                    bVar.f62001a[i2] = (byte) i2;
                 }
                 int i3 = 0;
                 int i4 = 0;
                 for (int i5 = 0; i5 < 256; i5++) {
-                    i4 = ((bArr[i3] & 255) + bVar.f61081a[i5] + i4) & 255;
-                    byte b2 = bVar.f61081a[i5];
-                    byte[] bArr2 = bVar.f61081a;
+                    i4 = ((bArr[i3] & 255) + bVar.f62001a[i5] + i4) & 255;
+                    byte b2 = bVar.f62001a[i5];
+                    byte[] bArr2 = bVar.f62001a;
                     bArr2[i5] = bArr2[i4];
-                    bVar.f61081a[i4] = b2;
+                    bVar.f62001a[i4] = b2;
                     i3 = (i3 + 1) % bArr.length;
                 }
                 int length = decode.length;
@@ -79,15 +79,15 @@ public final class b {
                     sb.append(i6);
                 } else if (i6 <= length) {
                     for (int i7 = 0; i7 < length2; i7++) {
-                        int i8 = (bVar.f61082b + 1) & 255;
-                        bVar.f61082b = i8;
-                        int i9 = (bVar.f61081a[i8] + bVar.f61083c) & 255;
-                        bVar.f61083c = i9;
-                        byte b3 = bVar.f61081a[i8];
-                        bVar.f61081a[i8] = bVar.f61081a[i9];
-                        bVar.f61081a[i9] = b3;
+                        int i8 = (bVar.f62002b + 1) & 255;
+                        bVar.f62002b = i8;
+                        int i9 = (bVar.f62001a[i8] + bVar.f62003c) & 255;
+                        bVar.f62003c = i9;
+                        byte b3 = bVar.f62001a[i8];
+                        bVar.f62001a[i8] = bVar.f62001a[i9];
+                        bVar.f62001a[i9] = b3;
                         int i10 = i7 + 0;
-                        bArr3[i10] = (byte) (bVar.f61081a[(bVar.f61081a[i8] + bVar.f61081a[i9]) & 255] ^ decode[i10]);
+                        bArr3[i10] = (byte) (bVar.f62001a[(bVar.f62001a[i8] + bVar.f62001a[i9]) & 255] ^ decode[i10]);
                     }
                     return new String(bArr3);
                 } else {

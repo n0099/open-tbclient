@@ -14,17 +14,17 @@ public class k extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f24617h;
+    public static final BdUniqueId f26134h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.w.f.a.e f24618e;
+    public b.a.r0.w.f.a.e f26135e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.r0.w.f.a.e f24619f;
+    public b.a.r0.w.f.a.e f26136f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f24620g;
+    public boolean f26137g;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class k extends BaseCardInfo {
                 return;
             }
         }
-        f24617h = BdUniqueId.gen();
+        f26134h = BdUniqueId.gen();
     }
 
     public k() {
@@ -55,13 +55,13 @@ public class k extends BaseCardInfo {
                 return;
             }
         }
-        this.f24620g = false;
+        this.f26137g = false;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f24617h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f26134h : (BdUniqueId) invokeV.objValue;
     }
 }

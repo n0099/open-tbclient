@@ -17,25 +17,25 @@ public interface cq {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f41253a;
+        public static final a f42085a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f41254b;
+        public static final a f42086b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f41255c;
+        public static final a f42087c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f41256d;
+        public static final a f42088d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f41257e;
+        public static final a f42089e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f41258f;
+        public static final a f42090f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final /* synthetic */ a[] f41259g;
+        public static final /* synthetic */ a[] f42091g;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,14 +51,14 @@ public interface cq {
                     return;
                 }
             }
-            f41253a = new a("CONTINUOUS", 0);
-            f41254b = new a("TEXT", 1);
-            f41255c = new a("BINARY", 2);
-            f41256d = new a("PING", 3);
-            f41257e = new a("PONG", 4);
+            f42085a = new a("CONTINUOUS", 0);
+            f42086b = new a("TEXT", 1);
+            f42087c = new a("BINARY", 2);
+            f42088d = new a("PING", 3);
+            f42089e = new a("PONG", 4);
             a aVar = new a("CLOSING", 5);
-            f41258f = aVar;
-            f41259g = new a[]{f41253a, f41254b, f41255c, f41256d, f41257e, aVar};
+            f42090f = aVar;
+            f42091g = new a[]{f42085a, f42086b, f42087c, f42088d, f42089e, aVar};
         }
 
         public a(String str, int i2) {
@@ -89,7 +89,7 @@ public interface cq {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f41259g.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f42091g.clone() : (a[]) invokeV.objValue;
         }
     }
 

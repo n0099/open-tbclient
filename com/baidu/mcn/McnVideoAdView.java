@@ -13,8 +13,8 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.r0.z2.z;
+import b.a.e.f.p.l;
+import b.a.r0.a3.z;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -36,19 +36,19 @@ public class McnVideoAdView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f40450e;
+    public Context f41282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f40451f;
+    public TbImageView f41283f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f40452g;
+    public TextView f41284g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f40453h;
+    public TextView f41285h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Animation f40454i;
+    public Animation f41286i;
     public Animation j;
     public float k;
     public float l;
@@ -65,7 +65,7 @@ public class McnVideoAdView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ McnVideoAdView f40455a;
+        public final /* synthetic */ McnVideoAdView f41287a;
 
         public a(McnVideoAdView mcnVideoAdView) {
             Interceptable interceptable = $ic;
@@ -82,14 +82,14 @@ public class McnVideoAdView extends FrameLayout {
                     return;
                 }
             }
-            this.f40455a = mcnVideoAdView;
+            this.f41287a = mcnVideoAdView;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f40455a.g();
+                this.f41287a.g();
             }
         }
 
@@ -114,7 +114,7 @@ public class McnVideoAdView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ McnVideoAdView f40456e;
+        public final /* synthetic */ McnVideoAdView f41288e;
 
         public b(McnVideoAdView mcnVideoAdView) {
             Interceptable interceptable = $ic;
@@ -131,17 +131,17 @@ public class McnVideoAdView extends FrameLayout {
                     return;
                 }
             }
-            this.f40456e = mcnVideoAdView;
+            this.f41288e = mcnVideoAdView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f40456e.r == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41288e.r == null) {
                 return;
             }
-            this.f40456e.r.requestDisallowInterceptTouchEvent(false);
-            this.f40456e.r = null;
+            this.f41288e.r.requestDisallowInterceptTouchEvent(false);
+            this.f41288e.r = null;
         }
     }
 
@@ -193,7 +193,7 @@ public class McnVideoAdView extends FrameLayout {
         this.m = false;
         this.n = false;
         this.q = new Handler();
-        this.f40450e = context;
+        this.f41282e = context;
         f();
     }
 
@@ -203,14 +203,14 @@ public class McnVideoAdView extends FrameLayout {
             return;
         }
         this.o = aVar;
-        this.f40451f.startLoad(aVar.f29946a, 10, false);
-        if (!StringUtils.isNull(aVar.f29947b)) {
-            this.f40452g.setText(aVar.f29947b);
+        this.f41283f.startLoad(aVar.f30815a, 10, false);
+        if (!StringUtils.isNull(aVar.f30816b)) {
+            this.f41284g.setText(aVar.f30816b);
         }
-        if (StringUtils.isNull(aVar.f29948c)) {
+        if (StringUtils.isNull(aVar.f30817c)) {
             return;
         }
-        this.f40453h.setText(aVar.f29948c);
+        this.f41285h.setText(aVar.f30817c);
     }
 
     public final void d() {
@@ -234,7 +234,7 @@ public class McnVideoAdView extends FrameLayout {
         b.a.y.a aVar;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (context = this.f40450e) == null || (aVar = this.o) == null || (str = aVar.f29949d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (context = this.f41282e) == null || (aVar = this.o) == null || (str = aVar.f30818d) == null) {
             return;
         }
         z.d(context, str, null, null);
@@ -247,16 +247,16 @@ public class McnVideoAdView extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.f40450e).inflate(R.layout.mcn_video_ad_layout, this);
-            this.f40451f = (TbImageView) findViewById(R.id.id_mcn_video_ad_image);
-            this.f40452g = (TextView) findViewById(R.id.id_mcn_video_ad_title);
-            this.f40453h = (TextView) findViewById(R.id.id_mcn_video_ad_jump_btn);
-            this.f40451f.setConrers(5);
-            this.f40451f.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
-            this.f40451f.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
-            this.f40451f.setRadius(l.g(this.f40450e, R.dimen.tbds20));
-            this.f40454i = AnimationUtils.loadAnimation(this.f40450e, R.anim.mcn_video_ad_open_anim);
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.f40450e, R.anim.mcn_video_ad_close_anim);
+            LayoutInflater.from(this.f41282e).inflate(R.layout.mcn_video_ad_layout, this);
+            this.f41283f = (TbImageView) findViewById(R.id.id_mcn_video_ad_image);
+            this.f41284g = (TextView) findViewById(R.id.id_mcn_video_ad_title);
+            this.f41285h = (TextView) findViewById(R.id.id_mcn_video_ad_jump_btn);
+            this.f41283f.setConrers(5);
+            this.f41283f.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
+            this.f41283f.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
+            this.f41283f.setRadius(l.g(this.f41282e, R.dimen.tbds20));
+            this.f41286i = AnimationUtils.loadAnimation(this.f41282e, R.anim.mcn_video_ad_open_anim);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f41282e, R.anim.mcn_video_ad_close_anim);
             this.j = loadAnimation;
             loadAnimation.setAnimationListener(new a(this));
         }
@@ -346,9 +346,9 @@ public class McnVideoAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, aVar, viewGroup) == null) {
             showMcnVideoAdWithOutAnim(aVar, viewGroup);
-            if (this.f40454i != null) {
+            if (this.f41286i != null) {
                 clearAnimation();
-                startAnimation(this.f40454i);
+                startAnimation(this.f41286i);
             }
         }
     }
@@ -401,7 +401,7 @@ public class McnVideoAdView extends FrameLayout {
         this.m = false;
         this.n = false;
         this.q = new Handler();
-        this.f40450e = context;
+        this.f41282e = context;
         f();
     }
 
@@ -427,7 +427,7 @@ public class McnVideoAdView extends FrameLayout {
         this.m = false;
         this.n = false;
         this.q = new Handler();
-        this.f40450e = context;
+        this.f41282e = context;
         f();
     }
 }

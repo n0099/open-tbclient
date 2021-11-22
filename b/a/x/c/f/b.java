@@ -25,25 +25,25 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f29452a;
+    public HandlerThread f30321a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f29453b;
+    public Handler f30322b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.x.b.a f29454c;
+    public b.a.x.b.a f30323c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f29455d;
+    public g f30324d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f29456e;
+    public e f30325e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f29457f;
+    public volatile boolean f30326f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29458g;
+    public boolean f30327g;
 
     /* loaded from: classes6.dex */
     public class a {
@@ -51,10 +51,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<c> f29459a;
+        public ArrayList<c> f30328a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d f29460b;
+        public d f30329b;
 
         public a(b bVar, ArrayList<c> arrayList, d dVar) {
             Interceptable interceptable = $ic;
@@ -71,22 +71,22 @@ public class b {
                     return;
                 }
             }
-            this.f29459a = arrayList;
-            this.f29460b = dVar;
+            this.f30328a = arrayList;
+            this.f30329b = dVar;
         }
     }
 
     /* renamed from: b.a.x.c.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class HandlerC1419b extends Handler {
+    public class HandlerC1461b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f29461a;
+        public final /* synthetic */ b f30330a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC1419b(b bVar, Looper looper) {
+        public HandlerC1461b(b bVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -103,7 +103,7 @@ public class b {
                     return;
                 }
             }
-            this.f29461a = bVar;
+            this.f30330a = bVar;
         }
 
         @Override // android.os.Handler
@@ -113,28 +113,28 @@ public class b {
                 switch (message.what) {
                     case 1001:
                         a aVar = (a) message.obj;
-                        this.f29461a.n(aVar.f29459a, aVar.f29460b);
+                        this.f30330a.n(aVar.f30328a, aVar.f30329b);
                         return;
                     case 1002:
-                        this.f29461a.o();
+                        this.f30330a.o();
                         return;
                     case 1003:
-                        this.f29461a.r((ArrayList) message.obj);
+                        this.f30330a.r((ArrayList) message.obj);
                         return;
                     case 1004:
-                        this.f29461a.q((b.a.x.b.e.c) message.obj);
+                        this.f30330a.q((b.a.x.b.e.c) message.obj);
                         return;
                     case 1005:
-                        this.f29461a.k((message.arg1 << 32) | (message.arg2 & 4294967295L));
+                        this.f30330a.k((message.arg1 << 32) | (message.arg2 & 4294967295L));
                         return;
                     case 1006:
-                        this.f29461a.p();
+                        this.f30330a.p();
                         return;
                     case 1007:
-                        this.f29461a.m();
+                        this.f30330a.m();
                         return;
                     case 1008:
-                        this.f29461a.l();
+                        this.f30330a.l();
                         return;
                     default:
                         return;
@@ -171,8 +171,8 @@ public class b {
                 return;
             }
         }
-        this.f29457f = false;
-        this.f29458g = false;
+        this.f30326f = false;
+        this.f30327g = false;
     }
 
     public void i(long j) {
@@ -180,17 +180,17 @@ public class b {
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             int i2 = (int) (j >> 32);
             int i3 = (int) j;
-            if (this.f29453b == null || !this.f29457f) {
+            if (this.f30322b == null || !this.f30326f) {
                 return;
             }
-            Handler handler = this.f29453b;
+            Handler handler = this.f30322b;
             handler.sendMessage(handler.obtainMessage(1005, i2, i3));
-            synchronized (this.f29454c) {
+            synchronized (this.f30323c) {
                 try {
-                    if (this.f29458g) {
-                        this.f29454c.wait(12L);
+                    if (this.f30327g) {
+                        this.f30323c.wait(12L);
                     } else {
-                        this.f29454c.wait(2L);
+                        this.f30323c.wait(2L);
                     }
                 } catch (InterruptedException unused) {
                     Thread.currentThread().interrupt();
@@ -203,7 +203,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            g gVar = this.f29455d;
+            g gVar = this.f30324d;
             if (gVar != null) {
                 return gVar.d();
             }
@@ -215,25 +215,25 @@ public class b {
     public final void k(long j) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || Build.VERSION.SDK_INT < 18 || (gVar = this.f29455d) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || Build.VERSION.SDK_INT < 18 || (gVar = this.f30324d) == null) {
             return;
         }
         gVar.c(false);
-        this.f29454c.a(j);
+        this.f30323c.a(j);
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Handler handler = this.f29453b;
+            Handler handler = this.f30322b;
             if (handler != null) {
                 handler.removeCallbacksAndMessages(null);
-                this.f29453b = null;
+                this.f30322b = null;
             }
-            HandlerThread handlerThread = this.f29452a;
+            HandlerThread handlerThread = this.f30321a;
             if (handlerThread != null) {
                 handlerThread.quit();
-                this.f29452a = null;
+                this.f30321a = null;
             }
         }
     }
@@ -241,33 +241,33 @@ public class b {
     public final void m() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || Build.VERSION.SDK_INT < 18 || (gVar = this.f29455d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || Build.VERSION.SDK_INT < 18 || (gVar = this.f30324d) == null) {
             return;
         }
         gVar.i();
-        this.f29455d.e();
-        this.f29455d = null;
-        this.f29456e = null;
-        this.f29454c.c();
-        this.f29454c = null;
+        this.f30324d.e();
+        this.f30324d = null;
+        this.f30325e = null;
+        this.f30323c.c();
+        this.f30323c = null;
     }
 
     public final void n(ArrayList<c> arrayList, d dVar) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, arrayList, dVar) == null) || Build.VERSION.SDK_INT < 18 || (gVar = this.f29455d) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, arrayList, dVar) == null) || Build.VERSION.SDK_INT < 18 || (gVar = this.f30324d) == null) {
             return;
         }
-        gVar.l(dVar, this.f29456e);
-        if (this.f29454c == null) {
-            this.f29454c = new b.a.x.b.a(this.f29455d.k(), arrayList);
+        gVar.l(dVar, this.f30325e);
+        if (this.f30323c == null) {
+            this.f30323c = new b.a.x.b.a(this.f30324d.k(), arrayList);
         }
     }
 
     public final void o() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || Build.VERSION.SDK_INT < 18 || (gVar = this.f29455d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || Build.VERSION.SDK_INT < 18 || (gVar = this.f30324d) == null) {
             return;
         }
         gVar.h();
@@ -276,7 +276,7 @@ public class b {
     public final void p() {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || Build.VERSION.SDK_INT < 18 || (gVar = this.f29455d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || Build.VERSION.SDK_INT < 18 || (gVar = this.f30324d) == null) {
             return;
         }
         gVar.c(true);
@@ -287,7 +287,7 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) || Build.VERSION.SDK_INT < 18) {
             return;
         }
-        this.f29454c.d(cVar);
+        this.f30323c.d(cVar);
     }
 
     public final void r(ArrayList<c> arrayList) {
@@ -295,31 +295,31 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, arrayList) == null) || Build.VERSION.SDK_INT < 18) {
             return;
         }
-        this.f29454c.e(arrayList);
+        this.f30323c.e(arrayList);
     }
 
     public final void s(e eVar, b.a.x.c.g.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, eVar, cVar) == null) {
             HandlerThread handlerThread = new HandlerThread("VideoRecorderThread");
-            this.f29452a = handlerThread;
+            this.f30321a = handlerThread;
             handlerThread.start();
-            this.f29453b = new HandlerC1419b(this, this.f29452a.getLooper());
+            this.f30322b = new HandlerC1461b(this, this.f30321a.getLooper());
             if (Build.VERSION.SDK_INT >= 18) {
                 try {
-                    this.f29455d = new g();
+                    this.f30324d = new g();
                 } catch (VerifyError unused) {
-                    if (this.f29455d == null) {
+                    if (this.f30324d == null) {
                         return;
                     }
                 }
-                this.f29455d.f(cVar);
-                this.f29456e = eVar;
+                this.f30324d.f(cVar);
+                this.f30325e = eVar;
             }
             if (Build.HARDWARE.toLowerCase().startsWith("kirin")) {
-                this.f29458g = true;
+                this.f30327g = true;
             } else {
-                this.f29458g = false;
+                this.f30327g = false;
             }
         }
     }
@@ -328,7 +328,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            HandlerThread handlerThread = this.f29452a;
+            HandlerThread handlerThread = this.f30321a;
             return handlerThread != null && handlerThread.isAlive();
         }
         return invokeV.booleanValue;
@@ -336,21 +336,21 @@ public class b {
 
     public void u() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.f29453b != null && this.f29457f) {
-            this.f29453b.removeMessages(1005);
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.f30322b != null && this.f30326f) {
+            this.f30322b.removeMessages(1005);
         }
     }
 
     public void v() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (handler = this.f29453b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (handler = this.f30322b) == null) {
             return;
         }
         handler.removeCallbacksAndMessages(null);
-        Handler handler2 = this.f29453b;
+        Handler handler2 = this.f30322b;
         handler2.sendMessage(handler2.obtainMessage(1007));
-        Handler handler3 = this.f29453b;
+        Handler handler3 = this.f30322b;
         handler3.sendMessage(handler3.obtainMessage(1008));
     }
 
@@ -363,9 +363,9 @@ public class b {
             }
             s(eVar, cVar);
             a aVar = new a(this, arrayList, dVar);
-            Handler handler = this.f29453b;
+            Handler handler = this.f30322b;
             handler.sendMessage(handler.obtainMessage(1001, aVar));
-            this.f29457f = true;
+            this.f30326f = true;
             return true;
         }
         return invokeLLLL.booleanValue;
@@ -374,7 +374,7 @@ public class b {
     public void x() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (handler = this.f29453b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (handler = this.f30322b) == null) {
             return;
         }
         handler.sendMessage(handler.obtainMessage(1002));
@@ -382,10 +382,10 @@ public class b {
 
     public void y() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.f29453b != null && this.f29457f) {
-            this.f29457f = false;
-            this.f29453b.removeMessages(1005);
-            Handler handler = this.f29453b;
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.f30322b != null && this.f30326f) {
+            this.f30326f = false;
+            this.f30322b.removeMessages(1005);
+            Handler handler = this.f30322b;
             handler.sendMessage(handler.obtainMessage(1006));
         }
     }
@@ -393,7 +393,7 @@ public class b {
     public void z(ArrayList<c> arrayList) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, arrayList) == null) || (handler = this.f29453b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, arrayList) == null) || (handler = this.f30322b) == null) {
             return;
         }
         handler.sendMessage(handler.obtainMessage(1003, arrayList));

@@ -39,11 +39,11 @@ public abstract class b {
         }
         this.Z = 15;
         this.aa = 1;
-        this.ab = G();
-        this.ac = H();
+        this.ab = E();
+        this.ac = F();
     }
 
-    private synchronized void K() {
+    private synchronized void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             synchronized (this) {
@@ -59,7 +59,7 @@ public abstract class b {
                     if (c(next) < this.aa) {
                         it.remove();
                         this.ac.add(next);
-                        J().execute(next);
+                        H().execute(next);
                     }
                     if (this.ac.size() >= this.Z) {
                         return;
@@ -84,24 +84,24 @@ public abstract class b {
         return invokeL.intValue;
     }
 
-    public abstract Queue<a> G();
+    public abstract Queue<a> E();
 
-    public abstract Queue<a> H();
+    public abstract Queue<a> F();
 
-    public String I() {
+    public String G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "Searchbox Dispatcher #" : (String) invokeV.objValue;
     }
 
-    public synchronized ExecutorService J() {
+    public synchronized ExecutorService H() {
         InterceptResult invokeV;
         ExecutorService executorService;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
                 if (this.ad == null) {
-                    this.ad = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), c(I(), false));
+                    this.ad = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), c(G(), false));
                 }
                 executorService = this.ad;
             }
@@ -116,7 +116,7 @@ public abstract class b {
             synchronized (this) {
                 if (this.ac.size() < this.Z && c(aVar) < this.aa) {
                     this.ac.add(aVar);
-                    J().execute(aVar);
+                    H().execute(aVar);
                 } else {
                     this.ab.add(aVar);
                 }
@@ -129,7 +129,7 @@ public abstract class b {
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             synchronized (this) {
                 this.ac.remove(aVar);
-                K();
+                I();
             }
         }
     }

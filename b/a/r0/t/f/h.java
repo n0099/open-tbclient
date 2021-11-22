@@ -2,7 +2,7 @@ package b.a.r0.t.f;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import b.a.e.e.p.m;
+import b.a.e.f.p.m;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +13,14 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile SQLiteDatabase f23588a;
+    public static volatile SQLiteDatabase f25105a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static synchronized void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
             synchronized (h.class) {
-                m.b(f23588a);
+                m.b(f25105a);
             }
         }
     }
@@ -37,11 +37,11 @@ public class h {
                 if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                     return null;
                 }
-                if (f23588a != null && f23588a.isOpen()) {
-                    return f23588a;
+                if (f25105a != null && f25105a.isOpen()) {
+                    return f25105a;
                 }
-                f23588a = new g(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
-                return f23588a;
+                f25105a = new g(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
+                return f25105a;
             }
         }
         return (SQLiteDatabase) invokeV.objValue;

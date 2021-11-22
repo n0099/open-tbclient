@@ -1,5 +1,7 @@
 package kotlin.reflect;
 
+import androidx.webkit.ProxyConfig;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import kotlin.Metadata;
 import kotlin.NoWhenBranchMatchedException;
@@ -19,7 +21,7 @@ public final class KTypeProjection {
     public final KType type;
     public final KVariance variance;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\r\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u000f\u0010\u000eJ\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\u0004\u0010\u0005J\u0017\u0010\u0006\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\u0006\u0010\u0005J\u0017\u0010\u0007\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\u0007\u0010\u0005R\u0013\u0010\n\u001a\u00020\u00038F@\u0006¢\u0006\u0006\u001a\u0004\b\b\u0010\tR\u001c\u0010\u000b\u001a\u00020\u00038\u0000@\u0001X\u0081\u0004¢\u0006\f\n\u0004\b\u000b\u0010\f\u0012\u0004\b\r\u0010\u000e¨\u0006\u0010"}, d2 = {"Lkotlin/reflect/KTypeProjection$Companion;", "Lkotlin/reflect/KType;", "type", "Lkotlin/reflect/KTypeProjection;", "contravariant", "(Lkotlin/reflect/KType;)Lkotlin/reflect/KTypeProjection;", "covariant", "invariant", "getSTAR", "()Lkotlin/reflect/KTypeProjection;", "STAR", "star", "Lkotlin/reflect/KTypeProjection;", "getStar$annotations", "()V", "<init>", "kotlin-stdlib"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\r\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u000f\u0010\u000eJ\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\u0004\u0010\u0005J\u0017\u0010\u0006\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\u0006\u0010\u0005J\u0017\u0010\u0007\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0007¢\u0006\u0004\b\u0007\u0010\u0005R\u0013\u0010\n\u001a\u00020\u00038F@\u0006¢\u0006\u0006\u001a\u0004\b\b\u0010\tR\u001c\u0010\u000b\u001a\u00020\u00038\u0000@\u0001X\u0081\u0004¢\u0006\f\n\u0004\b\u000b\u0010\f\u0012\u0004\b\r\u0010\u000e¨\u0006\u0010"}, d2 = {"Lkotlin/reflect/KTypeProjection$Companion;", "Lkotlin/reflect/KType;", "type", "Lkotlin/reflect/KTypeProjection;", "contravariant", "(Lkotlin/reflect/KType;)Lkotlin/reflect/KTypeProjection;", "covariant", "invariant", "getSTAR", "()Lkotlin/reflect/KTypeProjection;", "STAR", AccountConstants.LOGIN_TYPE_NATIVE_SRC_STAR, "Lkotlin/reflect/KTypeProjection;", "getStar$annotations", "()V", "<init>", "kotlin-stdlib"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes3.dex */
     public static final class Companion {
         public Companion() {
@@ -151,7 +153,7 @@ public final class KTypeProjection {
     public String toString() {
         KVariance kVariance = this.variance;
         if (kVariance == null) {
-            return "*";
+            return ProxyConfig.MATCH_ALL_SCHEMES;
         }
         int i2 = WhenMappings.$EnumSwitchMapping$0[kVariance.ordinal()];
         if (i2 != 1) {

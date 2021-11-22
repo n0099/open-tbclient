@@ -44,29 +44,29 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f57261a;
+    public static final String f58183a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public MistView f57262b;
+    public MistView f58184b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f57263c;
+    public View f58185c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f57264d;
+    public View f58186d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BankCardProcessing f57265e;
+    public BankCardProcessing f58187e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f57266f;
+    public byte[] f58188f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f57267g;
+    public byte[] f58189g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AtomicInteger f57268h;
+    public AtomicInteger f58190h;
 
     static {
         InterceptResult invokeClinit;
@@ -81,7 +81,7 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
                 return;
             }
         }
-        f57261a = BankCardDetectionActivity.class.getSimpleName();
+        f58183a = BankCardDetectionActivity.class.getSimpleName();
     }
 
     public BankCardDetectionActivity() {
@@ -97,9 +97,9 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
                 return;
             }
         }
-        this.f57263c = null;
-        this.f57264d = null;
-        this.f57268h = new AtomicInteger(0);
+        this.f58185c = null;
+        this.f58186d = null;
+        this.f58190h = new AtomicInteger(0);
     }
 
     private byte[] a(Bitmap bitmap) {
@@ -124,13 +124,13 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
     @Override // com.dxmpay.wallet.base.camera.IImageProcess
     public void destroyProcessor() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f57265e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f58187e == null) {
             return;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2 + 1;
-            if (2 <= i2 || 1 == this.f57268h.intValue()) {
+            if (2 <= i2 || 1 == this.f58190h.intValue()) {
                 break;
             }
             try {
@@ -140,13 +140,13 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
             }
             i2 = i3;
         }
-        if (1 == this.f57268h.intValue()) {
-            this.f57268h.set(3);
-            this.f57265e.release();
-            this.f57265e = null;
+        if (1 == this.f58190h.intValue()) {
+            this.f58190h.set(3);
+            this.f58187e.release();
+            this.f58187e = null;
             return;
         }
-        String str = "destroyProcessor() Classifyer state=" + this.f57268h.intValue();
+        String str = "destroyProcessor() Classifyer state=" + this.f58190h.intValue();
     }
 
     public int dip2pixel(float f2) {
@@ -161,7 +161,7 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             MistView mistView = (MistView) View.inflate(this, ResUtils.layout(getActivity(), "wallet_bankcard_detection_activity"), null);
-            this.f57262b = mistView;
+            this.f58184b = mistView;
             return mistView;
         }
         return (View) invokeV.objValue;
@@ -209,13 +209,13 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
             try {
                 BankCardProcessing.init(CameraBaseActivity.getToken());
                 BankCardProcessing bankCardProcessing = BankCardProcessing.getInstance();
-                this.f57265e = bankCardProcessing;
+                this.f58187e = bankCardProcessing;
                 if (bankCardProcessing.init(getAssets(), PathUtils.model_path, PathUtils.mean_path, PathUtils.dtc_model_path_fst, PathUtils.dtc_mean_path_fst, PathUtils.dtc_model_path_scd, PathUtils.dtc_mean_path_scd, PathUtils.captcha_path) < 0) {
-                    LogUtil.e(f57261a, "Model initialization failure.", null);
-                    this.f57265e = null;
+                    LogUtil.e(f58183a, "Model initialization failure.", null);
+                    this.f58187e = null;
                     return false;
                 }
-                this.f57268h.set(1);
+                this.f58190h.set(1);
                 return true;
             } catch (AlgorithmOnMainThreadException e2) {
                 e2.printStackTrace();
@@ -266,20 +266,20 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
         }
     }
 
-    @Override // com.dxmpay.wallet.base.camera.CameraBaseActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.base.camera.CameraBaseActivity, com.dxmpay.wallet.core.BaseActivity, com.dxmpay.wallet.core.SDKBaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onCreate(bundle);
             String str = "onCreate(" + bundle + SmallTailInfo.EMOTION_SUFFIX;
-            this.f57263c = findViewById(ResUtils.id(getActivity(), "focus_view"));
-            this.f57264d = findViewById(ResUtils.id(getActivity(), "flash_light_switch"));
+            this.f58185c = findViewById(ResUtils.id(getActivity(), "focus_view"));
+            this.f58186d = findViewById(ResUtils.id(getActivity(), "flash_light_switch"));
             if (CameraCtrl.isSupprtFlashLight(getPackageManager())) {
-                this.f57264d.setOnClickListener(this);
-                this.f57264d.setVisibility(0);
-                AccessibilityUtils.setContentDescription(this.f57264d, "打开闪光灯");
+                this.f58186d.setOnClickListener(this);
+                this.f58186d.setVisibility(0);
+                AccessibilityUtils.setContentDescription(this.f58186d, "打开闪光灯");
             } else {
-                this.f57264d.setVisibility(4);
+                this.f58186d.setVisibility(4);
             }
             findViewById(ResUtils.id(getActivity(), "title_back")).setOnClickListener(this);
             findViewById(ResUtils.id(getActivity(), "manal_input_prompt")).setOnClickListener(this);
@@ -304,10 +304,10 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BCResult f57269a;
+                public final /* synthetic */ BCResult f58191a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BankCardDetectionActivity f57270b;
+                public final /* synthetic */ BankCardDetectionActivity f58192b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -324,8 +324,8 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
                             return;
                         }
                     }
-                    this.f57270b = this;
-                    this.f57269a = bCResult;
+                    this.f58192b = this;
+                    this.f58191a = bCResult;
                 }
 
                 @Override // java.lang.Runnable
@@ -334,14 +334,14 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         EventBus eventBus = EventBus.getInstance();
                         eventBus.getClass();
-                        eventBus.postStickyEvent(new EventBus.Event(eventBus, "BankCardResult", this.f57269a));
-                        this.f57270b.startActivityForResult(new Intent(this.f57270b.getActivity(), BankCardResultActivity.class), 132);
-                        this.f57270b.overridePendingTransition(0, 0);
+                        eventBus.postStickyEvent(new EventBus.Event(eventBus, "BankCardResult", this.f58191a));
+                        this.f58192b.startActivityForResult(new Intent(this.f58192b.getActivity(), BankCardResultActivity.class), 132);
+                        this.f58192b.overridePendingTransition(0, 0);
                     }
                 }
             });
-            this.f57267g = a(bCResult.getDstRGBImage(false));
-            new a(getActivity(), bCResult.cardNumberToString(), this.f57267g, this.f57266f).execBean();
+            this.f58189g = a(bCResult.getDstRGBImage(false));
+            new a(getActivity(), bCResult.cardNumberToString(), this.f58189g, this.f58188f).execBean();
         }
     }
 
@@ -350,19 +350,19 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), rect, bArr2})) == null) {
-            if (1 != this.f57268h.intValue()) {
+            if (1 != this.f58190h.intValue()) {
                 return null;
             }
-            this.f57268h.set(2);
+            this.f58190h.set(2);
             Yuv.rotateCrop(bArr, i2, i3, rect, 270, bArr2);
-            BCResult runBankCardProcess = this.f57265e.runBankCardProcess(bArr2, rect.width(), rect.height(), 1, 1, rect.height() - 1, rect.width() - 1, 1, false);
-            this.f57268h.set(1);
+            BCResult runBankCardProcess = this.f58187e.runBankCardProcess(bArr2, rect.width(), rect.height(), 1, 1, rect.height() - 1, rect.width() - 1, 1, false);
+            this.f58190h.set(1);
             if (runBankCardProcess == null || !runBankCardProcess.bFlag) {
                 return null;
             }
             Bitmap createBitmap = Bitmap.createBitmap(rect.height(), rect.width(), Bitmap.Config.ARGB_8888);
             Yuv.rotateCropBmp(bArr, i2, i3, rect.left, rect.top, 270, createBitmap);
-            this.f57266f = a(createBitmap);
+            this.f58188f = a(createBitmap);
             createBitmap.recycle();
             return new BCResult[]{runBankCardProcess};
         }
@@ -383,16 +383,16 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
     public void relayoutUi() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            ViewGroup.LayoutParams layoutParams = this.f57263c.getLayoutParams();
-            int width = this.f57263c.getWidth();
+            ViewGroup.LayoutParams layoutParams = this.f58185c.getLayoutParams();
+            int width = this.f58185c.getWidth();
             layoutParams.width = width;
             layoutParams.height = Math.round(width * getFocusDataYXRatioal() * this.mScaleCoefficient);
-            this.f57263c.setLayoutParams(layoutParams);
-            this.f57263c.requestLayout();
+            this.f58185c.setLayoutParams(layoutParams);
+            this.f58185c.requestLayout();
             int[] iArr = new int[2];
             int[] iArr2 = new int[2];
             this.mPreviewView.getLocationOnScreen(iArr2);
-            this.f57263c.getLocationOnScreen(iArr);
+            this.f58185c.getLocationOnScreen(iArr);
             Rect rect = this.mFocusViewRect;
             int i2 = iArr[0] - iArr2[0];
             rect.left = i2;
@@ -400,7 +400,7 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
             int i3 = iArr[1] - iArr2[1];
             rect.top = i3;
             rect.bottom = i3 + layoutParams.height;
-            this.f57262b.getFocusFrame().set(this.mFocusViewRect);
+            this.f58184b.getFocusFrame().set(this.mFocusViewRect);
         }
     }
 
@@ -414,10 +414,10 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
     @Override // com.dxmpay.wallet.base.camera.CameraBaseActivity
     public void updateFlashLightUi(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || this.f57264d == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || this.f58186d == null) {
             return;
         }
-        this.f57264d.setBackgroundResource(ResUtils.drawable(getActivity(), z ? "dxm_wallet_base_camera_flashlight_on_btn" : "dxm_wallet_base_camera_flashlight_off_btn"));
-        AccessibilityUtils.setContentDescription(this.f57264d, z ? "关闭闪光灯" : "打开闪光灯");
+        this.f58186d.setBackgroundResource(ResUtils.drawable(getActivity(), z ? "dxm_wallet_base_camera_flashlight_on_btn" : "dxm_wallet_base_camera_flashlight_off_btn"));
+        AccessibilityUtils.setContentDescription(this.f58186d, z ? "关闭闪光灯" : "打开闪光灯");
     }
 }

@@ -5,11 +5,11 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.a.e;
 import b.a.e.a.f;
+import b.a.q0.c1.i0;
+import b.a.q0.c1.l0;
+import b.a.q0.c1.q;
+import b.a.q0.c1.r;
 import b.a.q0.d0.a;
-import b.a.q0.d1.i0;
-import b.a.q0.d1.l0;
-import b.a.q0.d1.q;
-import b.a.q0.d1.r;
 import b.a.q0.s.s.a;
 import b.a.q0.t.c.w;
 import b.a.r0.l1.f.h;
@@ -503,10 +503,10 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 this.mDatas.getChatMessages().remove(i3);
                 if (i3 == size - 1 && (cacheInfo = getCacheInfo()) != null) {
                     MemoryModifyLastMsgMessage.a aVar = new MemoryModifyLastMsgMessage.a();
-                    aVar.f50493b = cacheInfo.customGroupType;
-                    aVar.f50492a = cacheInfo.id;
-                    aVar.f50494c = chatMessage2;
-                    aVar.f50495d = 2;
+                    aVar.f51405b = cacheInfo.customGroupType;
+                    aVar.f51404a = cacheInfo.id;
+                    aVar.f51406c = chatMessage2;
+                    aVar.f51407d = 2;
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new MemoryModifyLastMsgMessage(aVar));
                 }
             }
@@ -616,7 +616,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         }
         for (ChatMessage chatMessage : list) {
             if (chatMessage.getMsgType() == 4) {
-                h.f20024a = r.e();
+                h.f21546a = r.e();
             }
             long userId = chatMessage.getUserId();
             String portrait = chatMessage.getUserInfo().getPortrait();
@@ -671,7 +671,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             userData.setPortrait(TbadkCoreApplication.getCurrentPortrait());
             genChatMessage.setUserInfo(userData);
             try {
-                j = b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
+                j = b.a.e.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
             } catch (Exception unused) {
                 j = 0;
             }
@@ -812,7 +812,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             if (loadDraftResponsedMessage.getData() == null) {
                 return;
             }
-            String str = loadDraftResponsedMessage.getData().f50481a;
+            String str = loadDraftResponsedMessage.getData().f51393a;
             this.mLoadDataMode = 8;
             e eVar = this.mLoadDataCallBack;
             if (eVar != null) {
@@ -831,9 +831,9 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     return true;
                 }
                 long j = this.mId;
-                if (j == 0 || j == b.a.e.e.m.b.g(loadHistoryResponsedMessage.getData().f50486a, 0L)) {
-                    List<ChatMessage> list = loadHistoryResponsedMessage.getData().f50487b;
-                    boolean z = loadHistoryResponsedMessage.getData().f50488c;
+                if (j == 0 || j == b.a.e.f.m.b.g(loadHistoryResponsedMessage.getData().f51398a, 0L)) {
+                    List<ChatMessage> list = loadHistoryResponsedMessage.getData().f51399b;
+                    boolean z = loadHistoryResponsedMessage.getData().f51400c;
                     int mergeList = mergeList(this.mDatas.getChatMessages(), list);
                     if (mergeList > 0) {
                         this.mDatas.setIsNewAdd(true);
@@ -1134,7 +1134,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX WARN: Can't rename method to resolve collision */
-                    @Override // b.a.q0.d1.i0
+                    @Override // b.a.q0.c1.i0
                     public Boolean doInBackground() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
@@ -1166,7 +1166,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // b.a.q0.d1.q
+                    @Override // b.a.q0.c1.q
                     public void onReturnDataInUI(Boolean bool) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
@@ -1209,7 +1209,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX WARN: Can't rename method to resolve collision */
-                    @Override // b.a.q0.d1.i0
+                    @Override // b.a.q0.c1.i0
                     public Boolean doInBackground() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
@@ -1241,7 +1241,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // b.a.q0.d1.q
+                    @Override // b.a.q0.c1.q
                     public void onReturnDataInUI(Boolean bool) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
@@ -1284,7 +1284,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX WARN: Can't rename method to resolve collision */
-                    @Override // b.a.q0.d1.i0
+                    @Override // b.a.q0.c1.i0
                     public Boolean doInBackground() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
@@ -1316,7 +1316,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // b.a.q0.d1.q
+                    @Override // b.a.q0.c1.q
                     public void onReturnDataInUI(Boolean bool) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
@@ -1380,7 +1380,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // b.a.q0.d1.i0
+                @Override // b.a.q0.c1.i0
                 public Boolean doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -1414,7 +1414,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // b.a.q0.d1.q
+                @Override // b.a.q0.c1.q
                 public void onReturnDataInUI(Boolean bool) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
@@ -1457,7 +1457,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // b.a.q0.d1.i0
+                @Override // b.a.q0.c1.i0
                 public Boolean doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -1491,7 +1491,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // b.a.q0.d1.q
+                @Override // b.a.q0.c1.q
                 public void onReturnDataInUI(Boolean bool) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
@@ -1534,7 +1534,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // b.a.q0.d1.i0
+                @Override // b.a.q0.c1.i0
                 public Boolean doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -1568,7 +1568,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // b.a.q0.d1.q
+                @Override // b.a.q0.c1.q
                 public void onReturnDataInUI(Boolean bool) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {

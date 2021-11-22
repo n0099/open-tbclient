@@ -17,7 +17,7 @@ public class j0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f28820a;
+    public static final boolean f29689a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class j0 {
                 return;
             }
         }
-        f28820a = b0.m();
+        f29689a = b0.m();
     }
 
     @SuppressLint({"MissingPermission"})
@@ -49,7 +49,7 @@ public class j0 {
             try {
                 networkInfo = connectivityManager.getActiveNetworkInfo();
             } catch (Exception e2) {
-                if (f28820a) {
+                if (f29689a) {
                     String str = "get network info error! " + Log.getStackTraceString(e2);
                 }
             }

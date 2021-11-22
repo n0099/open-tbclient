@@ -1,0 +1,95 @@
+package b.h.b.a.a0.q;
+
+import androidx.annotation.Nullable;
+import b.h.b.a.a0.m;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public final class k {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+
+    /* renamed from: a  reason: collision with root package name */
+    public final String f32411a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final m.a f32412b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final int f32413c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final byte[] f32414d;
+
+    public k(boolean z, @Nullable String str, int i2, byte[] bArr, int i3, int i4, @Nullable byte[] bArr2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), str, Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4), bArr2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        b.h.b.a.i0.a.a((bArr2 == null) ^ (i2 == 0));
+        this.f32411a = str;
+        this.f32413c = i2;
+        this.f32414d = bArr2;
+        this.f32412b = new m.a(a(str), bArr, i3, i4);
+    }
+
+    public static int a(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
+                return 1;
+            }
+            char c2 = 65535;
+            switch (str.hashCode()) {
+                case 3046605:
+                    if (str.equals("cbc1")) {
+                        c2 = 2;
+                        break;
+                    }
+                    break;
+                case 3046671:
+                    if (str.equals("cbcs")) {
+                        c2 = 3;
+                        break;
+                    }
+                    break;
+                case 3049879:
+                    if (str.equals("cenc")) {
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+                case 3049895:
+                    if (str.equals("cens")) {
+                        c2 = 1;
+                        break;
+                    }
+                    break;
+            }
+            if (c2 == 0 || c2 == 1) {
+                return 1;
+            }
+            if (c2 == 2 || c2 == 3) {
+                return 2;
+            }
+            String str2 = "Unsupported protection scheme type '" + str + "'. Assuming AES-CTR crypto mode.";
+            return 1;
+        }
+        return invokeL.intValue;
+    }
+}

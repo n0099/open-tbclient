@@ -89,16 +89,16 @@ public interface IYYPayResultView extends i.a.a.e.o.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Result f73123a;
+        public Result f74044a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CurrencyChargeMessage f73124b;
+        public CurrencyChargeMessage f74045b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f73125c;
+        public int f74046c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f73126d;
+        public String f74047d;
 
         public b(Result result, CurrencyChargeMessage currencyChargeMessage) {
             Interceptable interceptable = $ic;
@@ -115,21 +115,21 @@ public interface IYYPayResultView extends i.a.a.e.o.a {
                     return;
                 }
             }
-            this.f73123a = result;
-            this.f73124b = currencyChargeMessage;
+            this.f74044a = result;
+            this.f74045b = currencyChargeMessage;
         }
 
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f73125c = i2;
+                this.f74046c = i2;
             }
         }
 
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f73126d = str;
+                this.f74047d = str;
             }
         }
     }
@@ -140,10 +140,10 @@ public interface IYYPayResultView extends i.a.a.e.o.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public b f73127a;
+        public b f74048a;
 
         /* renamed from: b  reason: collision with root package name */
-        public AbsViewEventHandler f73128b;
+        public AbsViewEventHandler f74049b;
 
         public c() {
             Interceptable interceptable = $ic;

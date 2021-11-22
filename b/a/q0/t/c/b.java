@@ -15,28 +15,28 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13741a;
+    public boolean f14509a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13742b;
+    public String f14510b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13743c;
+    public String f14511c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13744d;
+    public String f14512d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13745e;
+    public boolean f14513e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13746f;
+    public String f14514f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13747g;
+    public boolean f14515g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13748h;
+    public String f14516h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -55,49 +55,49 @@ public class b {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13744d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14512d : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13742b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14510b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13746f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14514f : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13743c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14511c : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13748h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14516h : (String) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13747g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14515g : invokeV.booleanValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13741a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f14509a : invokeV.booleanValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13745e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14513e : invokeV.booleanValue;
     }
 
     public void i(JSONObject jSONObject) {
@@ -106,25 +106,25 @@ public class b {
             return;
         }
         j(jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH) == 1);
-        this.f13742b = jSONObject.optString("feed_text");
+        this.f14510b = jSONObject.optString("feed_text");
         jSONObject.optString("enter_forum_text");
-        this.f13743c = jSONObject.optString("my_tab_text");
+        this.f14511c = jSONObject.optString("my_tab_text");
         long optLong = jSONObject.optLong("dot_timestamp");
         String str = "";
         if (optLong != 0) {
             str = optLong + "";
         }
-        this.f13744d = str;
-        this.f13745e = jSONObject.optInt("user_satisfy") == 1;
-        this.f13746f = jSONObject.optString("h5_url");
-        this.f13747g = jSONObject.optInt("person_item_switch") == 1;
-        this.f13748h = jSONObject.optString("person_item_text");
+        this.f14512d = str;
+        this.f14513e = jSONObject.optInt("user_satisfy") == 1;
+        this.f14514f = jSONObject.optString("h5_url");
+        this.f14515g = jSONObject.optInt("person_item_switch") == 1;
+        this.f14516h = jSONObject.optString("person_item_text");
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f13741a = z;
+            this.f14509a = z;
         }
     }
 }

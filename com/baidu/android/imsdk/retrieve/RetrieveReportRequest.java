@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.filter.FilterValue;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -149,7 +150,7 @@ public class RetrieveReportRequest extends BaseHttpRequest {
                 jSONObject.put("version", String.valueOf(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext)));
                 jSONObject.put("status", this.mStatus);
                 if (!TextUtils.isEmpty(this.mOrigin)) {
-                    jSONObject.put("origin", this.mOrigin);
+                    jSONObject.put(FilterValue.DEFAULT_FILTER_VALUE, this.mOrigin);
                 }
                 if (!TextUtils.isEmpty(this.mFileMeta)) {
                     jSONObject.put("filemeta", this.mFileMeta);

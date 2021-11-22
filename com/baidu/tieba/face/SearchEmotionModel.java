@@ -1,7 +1,7 @@
 package com.baidu.tieba.face;
 
 import android.text.TextUtils;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -25,10 +25,10 @@ public class SearchEmotionModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f47789e;
+    public b f48653e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f47790f;
+    public final HttpMessageListener f48654f;
 
     /* loaded from: classes9.dex */
     public class a extends HttpMessageListener {
@@ -36,7 +36,7 @@ public class SearchEmotionModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SearchEmotionModel f47791a;
+        public final /* synthetic */ SearchEmotionModel f48655a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SearchEmotionModel searchEmotionModel, int i2) {
@@ -56,26 +56,26 @@ public class SearchEmotionModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f47791a = searchEmotionModel;
+            this.f48655a = searchEmotionModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003330 && (httpResponsedMessage instanceof SearchEmotionResponseMessage) && this.f47791a.f47789e != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003330 && (httpResponsedMessage instanceof SearchEmotionResponseMessage) && this.f48655a.f48653e != null) {
                 SearchEmotionResponseMessage searchEmotionResponseMessage = (SearchEmotionResponseMessage) httpResponsedMessage;
                 if (searchEmotionResponseMessage.getData() != null) {
                     if (httpResponsedMessage.getOrginalMessage() == null || !(httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
                         return;
                     }
-                    this.f47791a.f47789e.a((String) httpResponsedMessage.getOrginalMessage().getExtra(), searchEmotionResponseMessage.getData());
+                    this.f48655a.f48653e.a((String) httpResponsedMessage.getOrginalMessage().getExtra(), searchEmotionResponseMessage.getData());
                     return;
                 }
                 if (!TextUtils.isEmpty(searchEmotionResponseMessage.getErrorString())) {
                     l.M(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
                 }
-                this.f47791a.f47789e.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
+                this.f48655a.f48653e.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
             }
         }
     }
@@ -100,12 +100,12 @@ public class SearchEmotionModel extends BdBaseModel {
                 return;
             }
         }
-        this.f47790f = new a(this, CmdConfigHttp.CMD_SEARCH_PB_EMOTION);
+        this.f48654f = new a(this, CmdConfigHttp.CMD_SEARCH_PB_EMOTION);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f47790f.setTag(getUniqueId());
-        this.f47790f.setSelfListener(true);
-        registerListener(this.f47790f);
+        this.f48654f.setTag(getUniqueId());
+        this.f48654f.setSelfListener(true);
+        registerListener(this.f48654f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -114,7 +114,7 @@ public class SearchEmotionModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             MessageManager.getInstance().unRegisterListener(getUniqueId());
-            this.f47789e = null;
+            this.f48653e = null;
             return true;
         }
         return invokeV.booleanValue;
@@ -144,7 +144,7 @@ public class SearchEmotionModel extends BdBaseModel {
         if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), bVar}) == null) || bVar == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f47789e = bVar;
+        this.f48653e = bVar;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SEARCH_PB_EMOTION);
         httpMessage.addParam(TiebaStatic.Params.H5_FORUM_NAME, str);
         httpMessage.addParam("pn", i2);

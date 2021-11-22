@@ -42,7 +42,7 @@ public class a extends b.a.p0.a.y0.a<b.a.p0.a.y0.e.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, cVar) == null) {
             d(cVar, command.what, null, false);
-            cVar.w0();
+            cVar.x0();
         }
     }
 }

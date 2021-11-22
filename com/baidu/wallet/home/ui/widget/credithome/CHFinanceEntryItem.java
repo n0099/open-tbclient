@@ -23,13 +23,13 @@ public class CHFinanceEntryItem extends BaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f58419a;
+    public NetImageView f59341a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f58420b;
+    public MaskTextView f59342b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f58421c;
+    public MaskTextView f59343c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -126,9 +126,9 @@ public class CHFinanceEntryItem extends BaseItemView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entryType) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), EntryType.ENTRY_TYPE_NORMAL.equals(entryType) ? "wallet_home_ch_finance_entry_normal_item" : "wallet_home_ch_finance_entry_large_item"), this);
             setGravity(13);
-            this.f58419a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_fe_logo"));
-            this.f58420b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_title"));
-            this.f58421c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_desc"));
+            this.f59341a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_fe_logo"));
+            this.f59342b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_title"));
+            this.f59343c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_desc"));
         }
     }
 
@@ -137,9 +137,9 @@ public class CHFinanceEntryItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f58419a, getData().logo);
-        this.f58420b.setMaskText(getData().name);
-        this.f58421c.setMaskText(getData().value1);
+        setNetImageViewUrl(this.f59341a, getData().logo);
+        this.f59342b.setMaskText(getData().name);
+        this.f59343c.setMaskText(getData().value1);
         handlePoint();
     }
 

@@ -46,19 +46,19 @@ public class l extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FaceShopData f23323e;
+    public FaceShopData f24654e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final FaceShopActivity f23324f;
+    public final FaceShopActivity f24655f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f23325g;
+    public final int f24656g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f23326h;
+    public final int f24657h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f23327i;
+    public final int f24658i;
     public final int j;
     public int k;
     public FacePackageDownloadModel l;
@@ -71,7 +71,7 @@ public class l extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f23328e;
+        public final /* synthetic */ l f24659e;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class l extends BaseAdapter {
                     return;
                 }
             }
-            this.f23328e = lVar;
+            this.f24659e = lVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -100,20 +100,20 @@ public class l extends BaseAdapter {
                     if (eVar == null) {
                         return;
                     }
-                    int i2 = eVar.f23343a;
+                    int i2 = eVar.f24674a;
                     if (!TbadkCoreApplication.isLogin()) {
-                        this.f23328e.k = eVar.f23343a;
-                        TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, new LoginActivityConfig(this.f23328e.f23324f.getPageContext().getPageActivity(), true, 11003)));
+                        this.f24659e.k = eVar.f24674a;
+                        TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, new LoginActivityConfig(this.f24659e.f24655f.getPageContext().getPageActivity(), true, 11003)));
                         return;
                     }
-                    int i3 = eVar.f23344b;
+                    int i3 = eVar.f24675b;
                     if (i3 == 2) {
-                        this.f23328e.i(i2);
+                        this.f24659e.i(i2);
                     } else if (i3 == 3) {
-                        this.f23328e.j(i2);
+                        this.f24659e.j(i2);
                     } else if (i3 != 4) {
                     } else {
-                        this.f23328e.g(i2);
+                        this.f24659e.g(i2);
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -128,10 +128,10 @@ public class l extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FacePackageData f23329a;
+        public final /* synthetic */ FacePackageData f24660a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f23330b;
+        public final /* synthetic */ l f24661b;
 
         public b(l lVar, FacePackageData facePackageData) {
             Interceptable interceptable = $ic;
@@ -148,8 +148,8 @@ public class l extends BaseAdapter {
                     return;
                 }
             }
-            this.f23330b = lVar;
-            this.f23329a = facePackageData;
+            this.f24661b = lVar;
+            this.f24660a = facePackageData;
         }
 
         @Override // b.a.e.a.e
@@ -157,20 +157,20 @@ public class l extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (obj == null || !(obj instanceof FacePackageDownloadData)) {
-                    UtilHelper.showToast(this.f23330b.f23324f.getPageContext().getContext(), R.string.neterror);
+                    UtilHelper.showToast(this.f24661b.f24655f.getPageContext().getContext(), R.string.neterror);
                     return;
                 }
                 FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
                 if (facePackageDownloadData.errno == 0 && facePackageDownloadData.usermsg != null) {
-                    this.f23329a.pack_url = facePackageDownloadData.pack_url;
+                    this.f24660a.pack_url = facePackageDownloadData.pack_url;
                     f f2 = f.f();
-                    String valueOf = String.valueOf(this.f23329a.pid);
-                    FacePackageData facePackageData = this.f23329a;
+                    String valueOf = String.valueOf(this.f24660a.pid);
+                    FacePackageData facePackageData = this.f24660a;
                     f2.j(valueOf, facePackageData.pname, facePackageData.pack_url);
                 } else if (facePackageDownloadData.usermsg != null) {
-                    UtilHelper.showToast(this.f23330b.f23324f.getPageContext().getContext(), facePackageDownloadData.usermsg);
+                    UtilHelper.showToast(this.f24661b.f24655f.getPageContext().getContext(), facePackageDownloadData.usermsg);
                 } else {
-                    UtilHelper.showToast(this.f23330b.f23324f.getPageContext().getContext(), R.string.neterror);
+                    UtilHelper.showToast(this.f24661b.f24655f.getPageContext().getContext(), R.string.neterror);
                 }
             }
         }
@@ -182,13 +182,13 @@ public class l extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FacePackageData f23331a;
+        public final /* synthetic */ FacePackageData f24662a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f23332b;
+        public final /* synthetic */ int f24663b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ l f23333c;
+        public final /* synthetic */ l f24664c;
 
         public c(l lVar, FacePackageData facePackageData, int i2) {
             Interceptable interceptable = $ic;
@@ -205,18 +205,18 @@ public class l extends BaseAdapter {
                     return;
                 }
             }
-            this.f23333c = lVar;
-            this.f23331a = facePackageData;
-            this.f23332b = i2;
+            this.f24664c = lVar;
+            this.f24662a = facePackageData;
+            this.f24663b = i2;
         }
 
         @Override // b.a.e.a.e
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.f23333c.f23324f.hideProgressBar();
+                this.f24664c.f24655f.hideProgressBar();
                 if (obj == null || !(obj instanceof FaceBuyData)) {
-                    UtilHelper.showToast(this.f23333c.f23324f.getPageContext().getContext(), R.string.neterror);
+                    UtilHelper.showToast(this.f24664c.f24655f.getPageContext().getContext(), R.string.neterror);
                     return;
                 }
                 FaceBuyData faceBuyData = (FaceBuyData) obj;
@@ -225,24 +225,24 @@ public class l extends BaseAdapter {
                     String str = buyInfo.buy_url;
                     String str2 = buyInfo.return_url;
                     if (buyInfo.buy_status == 2) {
-                        UtilHelper.showToast(this.f23333c.f23324f.getPageContext().getContext(), R.string.has_buy_book);
-                        FacePackageData facePackageData = this.f23331a;
+                        UtilHelper.showToast(this.f24664c.f24655f.getPageContext().getContext(), R.string.has_buy_book);
+                        FacePackageData facePackageData = this.f24662a;
                         facePackageData.buy_status = 1;
                         facePackageData.can_download = 1;
-                        this.f23333c.notifyDataSetChanged();
+                        this.f24664c.notifyDataSetChanged();
                         return;
                     }
-                    this.f23331a.orderId = buyInfo.order_id;
-                    IntentConfig intentConfig = new IntentConfig(this.f23333c.f23324f);
+                    this.f24662a.orderId = buyInfo.order_id;
+                    IntentConfig intentConfig = new IntentConfig(this.f24664c.f24655f);
                     intentConfig.getIntent().putExtra(WebViewActivityConfig.TAG_URL, str);
                     intentConfig.getIntent().putExtra("tag_hook_url", str2);
-                    intentConfig.getIntent().putExtra(WebViewActivityConfig.TAG_TITLE, this.f23333c.f23324f.getString(R.string.buy_book));
-                    intentConfig.getIntent().putExtra("tag_position", this.f23332b);
+                    intentConfig.getIntent().putExtra(WebViewActivityConfig.TAG_TITLE, this.f24664c.f24655f.getString(R.string.buy_book));
+                    intentConfig.getIntent().putExtra("tag_position", this.f24663b);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2902013, intentConfig));
                 } else if (faceBuyData.usermsg != null) {
-                    UtilHelper.showToast(this.f23333c.f23324f.getPageContext().getContext(), faceBuyData.usermsg);
+                    UtilHelper.showToast(this.f24664c.f24655f.getPageContext().getContext(), faceBuyData.usermsg);
                 } else {
-                    UtilHelper.showToast(this.f23333c.f23324f.getPageContext().getContext(), R.string.neterror);
+                    UtilHelper.showToast(this.f24664c.f24655f.getPageContext().getContext(), R.string.neterror);
                 }
             }
         }
@@ -254,31 +254,31 @@ public class l extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f23334a;
+        public TbImageView f24665a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f23335b;
+        public TextView f24666b;
 
         /* renamed from: c  reason: collision with root package name */
-        public FrameLayout f23336c;
+        public FrameLayout f24667c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f23337d;
+        public TextView f24668d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f23338e;
+        public TextView f24669e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ImageView f23339f;
+        public ImageView f24670f;
 
         /* renamed from: g  reason: collision with root package name */
-        public FrameLayout f23340g;
+        public FrameLayout f24671g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f23341h;
+        public TextView f24672h;
 
         /* renamed from: i  reason: collision with root package name */
-        public TbImageView f23342i;
+        public TbImageView f24673i;
         public TbImageView j;
         public String k;
         public int l;
@@ -311,10 +311,10 @@ public class l extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f23343a;
+        public int f24674a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f23344b;
+        public int f24675b;
 
         public e(l lVar) {
             Interceptable interceptable = $ic;
@@ -354,19 +354,19 @@ public class l extends BaseAdapter {
         }
         this.k = -1;
         this.n = new a(this);
-        this.f23324f = faceShopActivity;
-        int k = b.a.e.e.p.l.k(faceShopActivity.getPageContext().getPageActivity());
+        this.f24655f = faceShopActivity;
+        int k = b.a.e.f.p.l.k(faceShopActivity.getPageContext().getPageActivity());
         o = k;
         int dimensionPixelSize = k - (faceShopActivity.getResources().getDimensionPixelSize(R.dimen.ds22) * 2);
-        this.f23325g = dimensionPixelSize;
-        this.f23326h = (int) (dimensionPixelSize * 0.38495576f);
-        Bitmap resBitmap = BitmapHelper.getResBitmap(this.f23324f.getPageContext().getContext(), R.drawable.bg_content_download_down);
+        this.f24656g = dimensionPixelSize;
+        this.f24657h = (int) (dimensionPixelSize * 0.38495576f);
+        Bitmap resBitmap = BitmapHelper.getResBitmap(this.f24655f.getPageContext().getContext(), R.drawable.bg_content_download_down);
         if (resBitmap != null) {
-            this.f23327i = resBitmap.getWidth();
+            this.f24658i = resBitmap.getWidth();
         } else {
-            this.f23327i = 0;
+            this.f24658i = 0;
         }
-        Bitmap resBitmap2 = BitmapHelper.getResBitmap(this.f23324f.getPageContext().getContext(), R.drawable.bg_content_download_up);
+        Bitmap resBitmap2 = BitmapHelper.getResBitmap(this.f24655f.getPageContext().getContext(), R.drawable.bg_content_download_up);
         if (resBitmap2 != null) {
             this.j = resBitmap2.getWidth();
         } else {
@@ -382,25 +382,25 @@ public class l extends BaseAdapter {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, viewGroup)) == null) {
             if (i2 == 1) {
                 d dVar = new d(this, null);
-                View inflate = LayoutInflater.from(this.f23324f.getPageContext().getPageActivity()).inflate(R.layout.face_shop_list_tem, (ViewGroup) null);
-                dVar.f23335b = (TextView) inflate.findViewById(R.id.title);
-                dVar.f23334a = (TbImageView) inflate.findViewById(R.id.image);
-                dVar.f23336c = (FrameLayout) inflate.findViewById(R.id.btn);
-                dVar.f23337d = (TextView) inflate.findViewById(R.id.btn_text);
-                dVar.f23338e = (TextView) inflate.findViewById(R.id.downloaded);
-                dVar.f23340g = (FrameLayout) inflate.findViewById(R.id.downloading);
-                dVar.f23339f = (ImageView) inflate.findViewById(R.id.downloading_up);
-                dVar.f23341h = (TextView) inflate.findViewById(R.id.intro);
+                View inflate = LayoutInflater.from(this.f24655f.getPageContext().getPageActivity()).inflate(R.layout.face_shop_list_tem, (ViewGroup) null);
+                dVar.f24666b = (TextView) inflate.findViewById(R.id.title);
+                dVar.f24665a = (TbImageView) inflate.findViewById(R.id.image);
+                dVar.f24667c = (FrameLayout) inflate.findViewById(R.id.btn);
+                dVar.f24668d = (TextView) inflate.findViewById(R.id.btn_text);
+                dVar.f24669e = (TextView) inflate.findViewById(R.id.downloaded);
+                dVar.f24671g = (FrameLayout) inflate.findViewById(R.id.downloading);
+                dVar.f24670f = (ImageView) inflate.findViewById(R.id.downloading_up);
+                dVar.f24672h = (TextView) inflate.findViewById(R.id.intro);
                 TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.icon);
-                dVar.f23342i = tbImageView;
+                dVar.f24673i = tbImageView;
                 tbImageView.setDefaultResource(0);
-                dVar.f23342i.setDefaultBgResource(0);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.f23325g, this.f23326h);
-                layoutParams.setMargins(0, 0, 0, this.f23324f.getResources().getDimensionPixelSize(R.dimen.ds8));
-                dVar.f23334a.setLayoutParams(layoutParams);
-                dVar.f23337d.setClickable(false);
-                dVar.f23336c.setClickable(true);
-                dVar.f23336c.setOnClickListener(this.n);
+                dVar.f24673i.setDefaultBgResource(0);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.f24656g, this.f24657h);
+                layoutParams.setMargins(0, 0, 0, this.f24655f.getResources().getDimensionPixelSize(R.dimen.ds8));
+                dVar.f24665a.setLayoutParams(layoutParams);
+                dVar.f24668d.setClickable(false);
+                dVar.f24667c.setClickable(true);
+                dVar.f24667c.setOnClickListener(this.n);
                 dVar.j = (TbImageView) inflate.findViewById(R.id.title_tag);
                 inflate.setTag(dVar);
                 return inflate;
@@ -412,7 +412,7 @@ public class l extends BaseAdapter {
 
     public final void d(int i2, d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, dVar) == null) || this.f23323e == null || dVar == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, dVar) == null) || this.f24654e == null || dVar == null) {
             return;
         }
         try {
@@ -421,23 +421,23 @@ public class l extends BaseAdapter {
                 return;
             }
             dVar.m = i2;
-            dVar.f23335b.setText(facePackageData.pname);
-            dVar.f23341h.setText(facePackageData.pdesc);
-            dVar.f23334a.setTag(facePackageData.banner_url);
-            dVar.f23334a.startLoad(facePackageData.banner_url, 10, this.f23325g, this.f23326h, false);
+            dVar.f24666b.setText(facePackageData.pname);
+            dVar.f24672h.setText(facePackageData.pdesc);
+            dVar.f24665a.setTag(facePackageData.banner_url);
+            dVar.f24665a.startLoad(facePackageData.banner_url, 10, this.f24656g, this.f24657h, false);
             if (facePackageData.new_icon != null && facePackageData.new_icon.length() > 0) {
-                dVar.f23342i.setTag(facePackageData.new_icon);
-                dVar.f23342i.startLoad(facePackageData.new_icon, 21, false);
-                dVar.f23342i.setVisibility(0);
+                dVar.f24673i.setTag(facePackageData.new_icon);
+                dVar.f24673i.startLoad(facePackageData.new_icon, 21, false);
+                dVar.f24673i.setVisibility(0);
             } else {
-                dVar.f23342i.setVisibility(8);
+                dVar.f24673i.setVisibility(8);
             }
             dVar.k = facePackageData.price;
             r(facePackageData, dVar);
             e eVar = new e(this, null);
-            eVar.f23344b = dVar.l;
-            eVar.f23343a = i2;
-            dVar.f23336c.setTag(eVar);
+            eVar.f24675b = dVar.l;
+            eVar.f24674a = i2;
+            dVar.f24667c.setTag(eVar);
             if (!TextUtils.isEmpty(facePackageData.tag_url)) {
                 dVar.j.setVisibility(0);
                 dVar.j.setTag(facePackageData.tag_url);
@@ -461,10 +461,10 @@ public class l extends BaseAdapter {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) || dVar == null) {
             return;
         }
-        dVar.f23337d.setVisibility(8);
-        dVar.f23336c.setVisibility(8);
-        dVar.f23338e.setVisibility(8);
-        dVar.f23340g.setVisibility(8);
+        dVar.f24668d.setVisibility(8);
+        dVar.f24667c.setVisibility(8);
+        dVar.f24669e.setVisibility(8);
+        dVar.f24671g.setVisibility(8);
     }
 
     public void g(int i2) {
@@ -472,12 +472,12 @@ public class l extends BaseAdapter {
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             TiebaStatic.log("emotion_package_list_buy");
             FacePackageData facePackageData = (FacePackageData) getItem(i2);
-            if (this.f23323e == null) {
+            if (this.f24654e == null) {
                 return;
             }
-            this.f23324f.showProgressBar();
+            this.f24655f.showProgressBar();
             String valueOf = String.valueOf(facePackageData.pid);
-            FaceBuyModel faceBuyModel = new FaceBuyModel(this.f23324f.getPageContext().getContext());
+            FaceBuyModel faceBuyModel = new FaceBuyModel(this.f24655f.getPageContext().getContext());
             this.m = faceBuyModel;
             faceBuyModel.setLoadDataCallBack(new c(this, facePackageData, i2));
             this.m.D(valueOf);
@@ -490,7 +490,7 @@ public class l extends BaseAdapter {
         ArrayList<FacePackageData> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            FaceShopData faceShopData = this.f23323e;
+            FaceShopData faceShopData = this.f24654e;
             if (faceShopData == null || (arrayList = faceShopData.pack_list) == null) {
                 return 0;
             }
@@ -505,7 +505,7 @@ public class l extends BaseAdapter {
         ArrayList<FacePackageData> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            FaceShopData faceShopData = this.f23323e;
+            FaceShopData faceShopData = this.f24654e;
             if (faceShopData == null || (arrayList = faceShopData.pack_list) == null || i2 < 0 || i2 >= arrayList.size()) {
                 return null;
             }
@@ -530,7 +530,7 @@ public class l extends BaseAdapter {
         ArrayList<FacePackageData> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            FaceShopData faceShopData = this.f23323e;
+            FaceShopData faceShopData = this.f24654e;
             return (faceShopData == null || (arrayList = faceShopData.pack_list) == null || arrayList.get(i2) == null) ? 2 : 1;
         }
         return invokeI.intValue;
@@ -547,7 +547,7 @@ public class l extends BaseAdapter {
                 view = c(itemViewType, viewGroup);
             }
             d dVar = (d) view.getTag();
-            b.a.q0.s.c layoutMode = this.f23324f.getLayoutMode();
+            b.a.q0.s.c layoutMode = this.f24655f.getLayoutMode();
             layoutMode.k(skinType == 1);
             layoutMode.j(view);
             d(i2, dVar);
@@ -590,7 +590,7 @@ public class l extends BaseAdapter {
         }
         facePackageData.downloading = 1;
         notifyDataSetChanged();
-        FacePackageDownloadModel facePackageDownloadModel = new FacePackageDownloadModel(this.f23324f.getPageContext().getContext());
+        FacePackageDownloadModel facePackageDownloadModel = new FacePackageDownloadModel(this.f24655f.getPageContext().getContext());
         this.l = facePackageDownloadModel;
         facePackageDownloadModel.D(String.valueOf(facePackageData.pid));
         this.l.setLoadDataCallBack(new b(this, facePackageData));
@@ -617,13 +617,13 @@ public class l extends BaseAdapter {
         f(dVar);
         int i2 = dVar.l;
         if (i2 == 1) {
-            dVar.f23338e.setVisibility(0);
+            dVar.f24669e.setVisibility(0);
         } else if (i2 == 2 || i2 == 3 || i2 == 4) {
-            dVar.f23336c.setVisibility(0);
-            dVar.f23337d.setVisibility(0);
+            dVar.f24667c.setVisibility(0);
+            dVar.f24668d.setVisibility(0);
         } else if (i2 != 5) {
         } else {
-            dVar.f23340g.setVisibility(0);
+            dVar.f24671g.setVisibility(0);
         }
     }
 
@@ -648,16 +648,16 @@ public class l extends BaseAdapter {
     public final void m(d dVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048592, this, dVar, i2) == null) {
-            dVar.f23337d.setText(dVar.k);
-            dVar.f23337d.setBackgroundResource(0);
-            SkinManager.setBackgroundResource(dVar.f23336c, R.drawable.faceshop_list_btn_selector);
+            dVar.f24668d.setText(dVar.k);
+            dVar.f24668d.setBackgroundResource(0);
+            SkinManager.setBackgroundResource(dVar.f24667c, R.drawable.faceshop_list_btn_selector);
         }
     }
 
     public void n(FaceShopData faceShopData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, faceShopData) == null) {
-            this.f23323e = faceShopData;
+            this.f24654e = faceShopData;
             notifyDataSetChanged();
         }
     }
@@ -665,9 +665,9 @@ public class l extends BaseAdapter {
     public final void o(d dVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048594, this, dVar, i2) == null) {
-            dVar.f23337d.setText((CharSequence) null);
-            SkinManager.setBackgroundResource(dVar.f23336c, R.drawable.btn_all_blue);
-            SkinManager.setBackgroundResource(dVar.f23337d, R.drawable.icon_content_download);
+            dVar.f24668d.setText((CharSequence) null);
+            SkinManager.setBackgroundResource(dVar.f24667c, R.drawable.btn_all_blue);
+            SkinManager.setBackgroundResource(dVar.f24668d, R.drawable.icon_content_download);
         }
     }
 
@@ -675,28 +675,28 @@ public class l extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048595, this, dVar, i2) == null) {
             f(dVar);
-            dVar.f23340g.setVisibility(0);
+            dVar.f24671g.setVisibility(0);
             FacePackageData facePackageData = (FacePackageData) getItem(dVar.m);
             if (facePackageData == null) {
                 return;
             }
-            int i3 = (int) (this.f23327i * (((float) facePackageData.downloadNow) / ((float) facePackageData.downloadTotal)));
+            int i3 = (int) (this.f24658i * (((float) facePackageData.downloadNow) / ((float) facePackageData.downloadTotal)));
             int i4 = this.j;
             if (i3 < i4) {
                 i3 = i4;
             }
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) dVar.f23339f.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) dVar.f24670f.getLayoutParams();
             layoutParams.width = i3;
-            dVar.f23339f.setLayoutParams(layoutParams);
+            dVar.f24670f.setLayoutParams(layoutParams);
         }
     }
 
     public final void q(d dVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048596, this, dVar, i2) == null) {
-            dVar.f23337d.setText(dVar.k);
-            dVar.f23337d.setBackgroundResource(0);
-            SkinManager.setBackgroundResource(dVar.f23336c, R.drawable.btn_all_white);
+            dVar.f24668d.setText(dVar.k);
+            dVar.f24668d.setBackgroundResource(0);
+            SkinManager.setBackgroundResource(dVar.f24667c, R.drawable.btn_all_white);
         }
     }
 

@@ -66,7 +66,7 @@ public class DefaultCacheKeyFactory implements CacheKeyFactory {
     }
 
     @Override // com.facebook.imagepipeline.cache.CacheKeyFactory
-    public CacheKey getBitmapCacheKey(ImageRequest imageRequest, @Nullable Object obj) {
+    public CacheKey getBitmapCacheKey(ImageRequest imageRequest, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, imageRequest, obj)) == null) ? new BitmapMemoryCacheKey(getCacheKeySourceUri(imageRequest.getSourceUri()).toString(), imageRequest.getResizeOptions(), imageRequest.getRotationOptions(), imageRequest.getImageDecodeOptions(), null, null, obj) : (CacheKey) invokeLL.objValue;
@@ -86,7 +86,7 @@ public class DefaultCacheKeyFactory implements CacheKeyFactory {
     }
 
     @Override // com.facebook.imagepipeline.cache.CacheKeyFactory
-    public CacheKey getPostprocessedBitmapCacheKey(ImageRequest imageRequest, @Nullable Object obj) {
+    public CacheKey getPostprocessedBitmapCacheKey(ImageRequest imageRequest, Object obj) {
         InterceptResult invokeLL;
         CacheKey cacheKey;
         String str;

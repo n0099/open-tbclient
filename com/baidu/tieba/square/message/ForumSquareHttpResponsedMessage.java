@@ -1,6 +1,6 @@
 package com.baidu.tieba.square.message;
 
-import b.a.r0.i3.f.d;
+import b.a.r0.j3.f.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;

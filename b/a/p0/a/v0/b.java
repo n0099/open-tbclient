@@ -2,11 +2,9 @@ package b.a.p0.a.v0;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.a2.e;
-import b.a.p0.a.f1.e.b;
-import b.a.p0.a.k2.g.h;
+import b.a.p0.a.d2.e;
+import b.a.p0.a.o2.g.h;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,16 +19,16 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f8447a;
+    public boolean f9143a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8448b;
+    public boolean f9144b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8449c;
+    public String f9145c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f8450d;
+    public JSONObject f9146d;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -50,11 +48,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (b.a.p0.a.a2.d.g().l() == 0) {
-                return c(this.f8450d, "bbasp_guide_");
-            }
-            if (b.a.p0.a.a2.d.g().l() == 1) {
-                return c(this.f8450d, "bbaspg_guide_");
+            if (b.a.p0.a.d2.d.J().l() == 0) {
+                return c(this.f9146d, "bbasp_guide_");
             }
             return false;
         }
@@ -65,13 +60,13 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONArray optJSONArray = this.f8450d.optJSONArray("custom_guide_list");
+            JSONArray optJSONArray = this.f9146d.optJSONArray("custom_guide_list");
             if (optJSONArray != null && optJSONArray.length() != 0) {
                 int length = optJSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     String optString = optJSONObject.optString("appid", "");
-                    if (e.U() == null || TextUtils.equals(e.U(), optString)) {
+                    if (e.f0() == null || TextUtils.equals(e.f0(), optString)) {
                         return c(optJSONObject, "");
                     }
                 }
@@ -83,7 +78,6 @@ public class b {
 
     public final boolean c(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
-        boolean i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
             boolean z = false;
@@ -99,11 +93,7 @@ public class b {
                 int optInt = jSONObject.optInt(str + "shown_count", 0);
                 int optInt2 = jSONObject.optInt(str + "image_index", 0);
                 boolean z2 = System.currentTimeMillis() - optLong > longValue * 3600000;
-                if (b.a.p0.a.a2.d.g().l() == 1) {
-                    i2 = j();
-                } else {
-                    i2 = i(jSONObject.optJSONArray("scenes"));
-                }
+                boolean i2 = i(jSONObject.optJSONArray("scenes"));
                 if (optInt < intValue && z2 && i2) {
                     z = true;
                 }
@@ -122,9 +112,6 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String string = h.a().getString("swan_guide_toast", "");
-            if (b.a.p0.a.a2.d.g() != null && b.a.p0.a.a2.d.g().l() == 1) {
-                string = h.a().getString("swan_game_guide_toast", "");
-            }
             if (TextUtils.isEmpty(string)) {
                 return null;
             }
@@ -141,10 +128,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f8447a) {
+            if (this.f9143a) {
                 return "special";
             }
-            if (this.f8448b) {
+            if (this.f9144b) {
                 return "normal";
             }
             return null;
@@ -155,7 +142,7 @@ public class b {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f8449c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f9145c : (String) invokeV.objValue;
     }
 
     public final int g(JSONObject jSONObject, int i2, String str) {
@@ -169,7 +156,7 @@ public class b {
             if (i2 >= optJSONArray.length()) {
                 i2 = 0;
             }
-            this.f8449c = optJSONArray.optString(i2);
+            this.f9145c = optJSONArray.optString(i2);
             return i2;
         }
         return invokeLIL.intValue;
@@ -179,18 +166,18 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            this.f8447a = false;
-            this.f8448b = false;
-            this.f8449c = null;
+            this.f9143a = false;
+            this.f9144b = false;
+            this.f9145c = null;
             JSONObject d2 = d();
-            this.f8450d = d2;
+            this.f9146d = d2;
             if (d2 != null && d2.length() != 0) {
                 boolean b2 = b();
-                this.f8447a = b2;
+                this.f9143a = b2;
                 if (b2) {
                     return this;
                 }
-                this.f8448b = a();
+                this.f9144b = a();
             }
             return this;
         }
@@ -204,10 +191,10 @@ public class b {
             if (jSONArray == null || jSONArray.length() <= 0) {
                 return true;
             }
-            String S = b.a.p0.a.a2.d.g().r().K().S();
+            String T = b.a.p0.a.d2.d.J().r().V().T();
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
-                if (TextUtils.equals(S, jSONArray.optString(i2))) {
+                if (TextUtils.equals(T, jSONArray.optString(i2))) {
                     return true;
                 }
             }
@@ -216,40 +203,9 @@ public class b {
         return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x004c, code lost:
-        if (r0.startsWith("120") != false) goto L18;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean j() {
+    public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            b.a K = b.a.p0.a.a2.d.g().r().K();
-            String S = K.S();
-            boolean z = false;
-            boolean z2 = TextUtils.isEmpty(S) || S.startsWith("120");
-            String string = K.O().getString(UBCCloudControlProcessor.UBC_KEY);
-            if (!TextUtils.isEmpty(string)) {
-                try {
-                    String optString = new JSONObject(string).optString("pre_source");
-                    if (!TextUtils.isEmpty(optString)) {
-                    }
-                    z = z2;
-                    z2 = z;
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            return !z2;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f8448b || this.f8447a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f9144b || this.f9143a : invokeV.booleanValue;
     }
 }

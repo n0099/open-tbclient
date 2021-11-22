@@ -23,23 +23,23 @@ public class t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static t f61995a;
+    public static t f62894a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ConnectivityManager f61996b;
+    public final ConnectivityManager f62895b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Network f61997c;
+    public Network f62896c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConnectivityManager.NetworkCallback f61998d;
+    public ConnectivityManager.NetworkCallback f62897d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f61999e;
+    public boolean f62898e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f62000f;
+    public volatile boolean f62899f;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -76,8 +76,8 @@ public class t {
                 return;
             }
         }
-        this.f62000f = false;
-        this.f61996b = (ConnectivityManager) context.getSystemService("connectivity");
+        this.f62899f = false;
+        this.f62895b = (ConnectivityManager) context.getSystemService("connectivity");
     }
 
     public static String c(String str) {
@@ -107,14 +107,14 @@ public class t {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
                 if (Build.VERSION.SDK_INT < 21) {
-                    this.f62000f = false;
-                    this.f61996b.stopUsingNetworkFeature(0, "enableHIPRI");
+                    this.f62899f = false;
+                    this.f62895b.stopUsingNetworkFeature(0, "enableHIPRI");
                     return;
                 }
-                if (this.f61996b != null && this.f61998d != null) {
-                    this.f61996b.unregisterNetworkCallback(this.f61998d);
-                    this.f61998d = null;
-                    this.f61997c = null;
+                if (this.f62895b != null && this.f62897d != null) {
+                    this.f62895b.unregisterNetworkCallback(this.f62897d);
+                    this.f62897d = null;
+                    this.f62896c = null;
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -127,9 +127,9 @@ public class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return this.f61997c != null;
+                return this.f62896c != null;
             }
-            return this.f62000f;
+            return this.f62899f;
         }
         return invokeV.booleanValue;
     }
@@ -138,14 +138,14 @@ public class t {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f61995a == null) {
+            if (f62894a == null) {
                 synchronized (t.class) {
-                    if (f61995a == null) {
-                        f61995a = new t(context);
+                    if (f62894a == null) {
+                        f62894a = new t(context);
                     }
                 }
             }
-            return f61995a;
+            return f62894a;
         }
         return (t) invokeL.objValue;
     }
@@ -178,18 +178,18 @@ public class t {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        Network network = this.f61997c;
-        if (network != null && !this.f61999e && (networkInfo = this.f61996b.getNetworkInfo(network)) != null && networkInfo.isAvailable()) {
-            aVar.a(this.f61997c);
+        Network network = this.f62896c;
+        if (network != null && !this.f62898e && (networkInfo = this.f62895b.getNetworkInfo(network)) != null && networkInfo.isAvailable()) {
+            aVar.a(this.f62896c);
             return;
         }
-        ConnectivityManager.NetworkCallback networkCallback = this.f61998d;
+        ConnectivityManager.NetworkCallback networkCallback = this.f62897d;
         if (networkCallback != null) {
             try {
-                this.f61996b.unregisterNetworkCallback(networkCallback);
+                this.f62895b.unregisterNetworkCallback(networkCallback);
             } catch (Exception e2) {
                 e2.printStackTrace();
-                this.f61998d = null;
+                this.f62897d = null;
             }
         }
         NetworkRequest build = new NetworkRequest.Builder().addCapability(12).addTransportType(0).build();
@@ -198,10 +198,10 @@ public class t {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f62001a;
+            public final /* synthetic */ a f62900a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ t f62002b;
+            public final /* synthetic */ t f62901b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -218,17 +218,17 @@ public class t {
                         return;
                     }
                 }
-                this.f62002b = this;
-                this.f62001a = aVar;
+                this.f62901b = this;
+                this.f62900a = aVar;
             }
 
             @Override // android.net.ConnectivityManager.NetworkCallback
             public void onAvailable(Network network2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, network2) == null) {
-                    this.f62002b.f61997c = network2;
-                    this.f62001a.a(network2);
-                    this.f62002b.f61999e = false;
+                    this.f62901b.f62896c = network2;
+                    this.f62900a.a(network2);
+                    this.f62901b.f62898e = false;
                 }
             }
 
@@ -236,22 +236,22 @@ public class t {
             public void onLost(Network network2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, network2) == null) {
-                    this.f62002b.f61999e = true;
+                    this.f62901b.f62898e = true;
                 }
             }
         };
-        this.f61998d = networkCallback2;
-        this.f61996b.requestNetwork(build, networkCallback2);
+        this.f62897d = networkCallback2;
+        this.f62895b.requestNetwork(build, networkCallback2);
     }
 
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f61996b.startUsingNetworkFeature(0, "enableHIPRI");
+            this.f62895b.startUsingNetworkFeature(0, "enableHIPRI");
             for (int i2 = 0; i2 < 30; i2++) {
                 try {
-                    if (this.f61996b.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) == 0) {
+                    if (this.f62895b.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) == 0) {
                         break;
                     }
                     Thread.sleep(1000L);
@@ -259,9 +259,9 @@ public class t {
                     c.a("WifiNetworkUtils", "check hipri failed");
                 }
             }
-            this.f62000f = this.f61996b.requestRouteToHost(5, b(c(str)));
-            c.a("WifiNetworkUtils", "切换数据网络结果 >>> " + this.f62000f);
-            return this.f62000f;
+            this.f62899f = this.f62895b.requestRouteToHost(5, b(c(str)));
+            c.a("WifiNetworkUtils", "切换数据网络结果 >>> " + this.f62899f);
+            return this.f62899f;
         }
         return invokeL.booleanValue;
     }
@@ -271,7 +271,7 @@ public class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
             try {
-                return (this.f61997c == null || Build.VERSION.SDK_INT < 21) ? "" : this.f61997c.getSocketFactory().createSocket(str, i2).getLocalAddress().getHostAddress();
+                return (this.f62896c == null || Build.VERSION.SDK_INT < 21) ? "" : this.f62896c.getSocketFactory().createSocket(str, i2).getLocalAddress().getHostAddress();
             } catch (Exception unused) {
                 c.a("WifiNetworkUtils", "获取eip失败");
                 return "";

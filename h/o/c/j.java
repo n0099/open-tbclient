@@ -18,7 +18,7 @@ public final class j extends h.g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final j f72056a;
+    public static final j f72975a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -27,30 +27,30 @@ public final class j extends h.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f72057e;
+        public final AtomicInteger f72976e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final PriorityBlockingQueue<b> f72058f;
+        public final PriorityBlockingQueue<b> f72977f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final h.u.a f72059g;
+        public final h.u.a f72978g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final AtomicInteger f72060h;
+        public final AtomicInteger f72979h;
 
         /* renamed from: h.o.c.j$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C2065a implements h.n.a {
+        public class C2101a implements h.n.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f72061e;
+            public final /* synthetic */ b f72980e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f72062f;
+            public final /* synthetic */ a f72981f;
 
-            public C2065a(a aVar, b bVar) {
+            public C2101a(a aVar, b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,15 +65,15 @@ public final class j extends h.g {
                         return;
                     }
                 }
-                this.f72062f = aVar;
-                this.f72061e = bVar;
+                this.f72981f = aVar;
+                this.f72980e = bVar;
             }
 
             @Override // h.n.a
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f72062f.f72058f.remove(this.f72061e);
+                    this.f72981f.f72977f.remove(this.f72980e);
                 }
             }
         }
@@ -91,10 +91,10 @@ public final class j extends h.g {
                     return;
                 }
             }
-            this.f72057e = new AtomicInteger();
-            this.f72058f = new PriorityBlockingQueue<>();
-            this.f72059g = new h.u.a();
-            this.f72060h = new AtomicInteger();
+            this.f72976e = new AtomicInteger();
+            this.f72977f = new PriorityBlockingQueue<>();
+            this.f72978g = new h.u.a();
+            this.f72979h = new AtomicInteger();
         }
 
         @Override // h.g.a
@@ -119,21 +119,21 @@ public final class j extends h.g {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, aVar, j)) == null) {
-                if (this.f72059g.isUnsubscribed()) {
+                if (this.f72978g.isUnsubscribed()) {
                     return h.u.e.c();
                 }
-                b bVar = new b(aVar, Long.valueOf(j), this.f72057e.incrementAndGet());
-                this.f72058f.add(bVar);
-                if (this.f72060h.getAndIncrement() == 0) {
+                b bVar = new b(aVar, Long.valueOf(j), this.f72976e.incrementAndGet());
+                this.f72977f.add(bVar);
+                if (this.f72979h.getAndIncrement() == 0) {
                     do {
-                        b poll = this.f72058f.poll();
+                        b poll = this.f72977f.poll();
                         if (poll != null) {
-                            poll.f72063e.call();
+                            poll.f72982e.call();
                         }
-                    } while (this.f72060h.decrementAndGet() > 0);
+                    } while (this.f72979h.decrementAndGet() > 0);
                     return h.u.e.c();
                 }
-                return h.u.e.a(new C2065a(this, bVar));
+                return h.u.e.a(new C2101a(this, bVar));
             }
             return (k) invokeLJ.objValue;
         }
@@ -142,14 +142,14 @@ public final class j extends h.g {
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72059g.isUnsubscribed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f72978g.isUnsubscribed() : invokeV.booleanValue;
         }
 
         @Override // h.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f72059g.unsubscribe();
+                this.f72978g.unsubscribe();
             }
         }
     }
@@ -160,13 +160,13 @@ public final class j extends h.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.n.a f72063e;
+        public final h.n.a f72982e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Long f72064f;
+        public final Long f72983f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f72065g;
+        public final int f72984g;
 
         public b(h.n.a aVar, Long l, int i2) {
             Interceptable interceptable = $ic;
@@ -183,9 +183,9 @@ public final class j extends h.g {
                     return;
                 }
             }
-            this.f72063e = aVar;
-            this.f72064f = l;
-            this.f72065g = i2;
+            this.f72982e = aVar;
+            this.f72983f = l;
+            this.f72984g = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -195,8 +195,8 @@ public final class j extends h.g {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                int compareTo = this.f72064f.compareTo(bVar.f72064f);
-                return compareTo == 0 ? j.a(this.f72065g, bVar.f72065g) : compareTo;
+                int compareTo = this.f72983f.compareTo(bVar.f72983f);
+                return compareTo == 0 ? j.a(this.f72984g, bVar.f72984g) : compareTo;
             }
             return invokeL.intValue;
         }
@@ -215,7 +215,7 @@ public final class j extends h.g {
                 return;
             }
         }
-        f72056a = new j();
+        f72975a = new j();
     }
 
     public j() {

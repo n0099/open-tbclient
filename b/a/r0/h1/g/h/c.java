@@ -1,6 +1,6 @@
 package b.a.r0.h1.g.h;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.d2;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class c {
             ArrayList arrayList = new ArrayList(list.size());
             for (ThreadInfo threadInfo : list) {
                 d2 d2Var = new d2();
-                d2Var.Y2(threadInfo);
+                d2Var.a3(threadInfo);
                 d2Var.h2 = true;
                 arrayList.add(d2Var);
             }

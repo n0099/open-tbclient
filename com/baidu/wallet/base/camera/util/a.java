@@ -16,18 +16,18 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f57360a;
+    public int f58282a;
 
     /* renamed from: com.baidu.wallet.base.camera.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class C1781a implements FileFilter {
+    public class C1822a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Pattern f57361a;
+        public Pattern f58283a;
 
-        public C1781a() {
+        public C1822a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,14 +40,14 @@ public class a {
                     return;
                 }
             }
-            this.f57361a = Pattern.compile("cpu\\d{1,2}");
+            this.f58283a = Pattern.compile("cpu\\d{1,2}");
         }
 
         @Override // java.io.FileFilter
         public boolean accept(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? this.f57361a.matcher(file.getName()).matches() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? this.f58283a.matcher(file.getName()).matches() : invokeL.booleanValue;
         }
     }
 
@@ -56,7 +56,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f57362a;
+        public static a f58284a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -72,7 +72,7 @@ public class a {
                     return;
                 }
             }
-            f57362a = new a();
+            f58284a = new a();
         }
 
         public b() {
@@ -103,22 +103,22 @@ public class a {
                 return;
             }
         }
-        this.f57360a = -1;
+        this.f58282a = -1;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (-1 == b.f57362a.f57360a) {
+            if (-1 == b.f58284a.f58282a) {
                 try {
-                    b.f57362a.f57360a = new File("/sys/devices/system/cpu/").listFiles(new C1781a()).length;
+                    b.f58284a.f58282a = new File("/sys/devices/system/cpu/").listFiles(new C1822a()).length;
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    b.f57362a.f57360a = 1;
+                    b.f58284a.f58282a = 1;
                 }
             }
-            return b.f57362a.f57360a;
+            return b.f58284a.f58282a;
         }
         return invokeV.intValue;
     }

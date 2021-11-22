@@ -32,31 +32,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3634a;
+    public Context f3724a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f3635b;
+    public byte[] f3725b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpURLConnection f3636c;
+    public HttpURLConnection f3726c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3637d;
+    public String f3727d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3638e;
+    public String f3728e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3639f;
+    public int f3729f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3640g;
+    public int f3730g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f3641h;
+    public boolean f3731h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f3642i;
+    public boolean f3732i;
 
     public b(Context context, Handler handler) {
         Interceptable interceptable = $ic;
@@ -73,12 +73,12 @@ public class b {
                 return;
             }
         }
-        this.f3635b = new byte[1024];
-        this.f3639f = 10000;
-        this.f3640g = 10000;
-        this.f3641h = false;
-        this.f3642i = false;
-        this.f3634a = context;
+        this.f3725b = new byte[1024];
+        this.f3729f = 10000;
+        this.f3730g = 10000;
+        this.f3731h = false;
+        this.f3732i = false;
+        this.f3724a = context;
     }
 
     public final InputStream a(byte[] bArr, Map<String, String> map, String str) {
@@ -90,34 +90,34 @@ public class b {
         BufferedOutputStream bufferedOutputStream = null;
         try {
             try {
-                if (b.a.n0.l.c.k(this.f3634a) == 0) {
+                if (b.a.n0.l.c.k(this.f3724a) == 0) {
                     return null;
                 }
                 HttpURLConnection c2 = c(map);
-                this.f3636c = c2;
+                this.f3726c = c2;
                 if (c2 == null) {
                     return null;
                 }
                 if (bArr == null) {
                     if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(c2.getContentEncoding())) {
-                        this.f3641h = true;
+                        this.f3731h = true;
                     } else {
-                        this.f3641h = false;
+                        this.f3731h = false;
                     }
-                    this.f3636c.getResponseCode();
-                    return this.f3636c.getInputStream();
+                    this.f3726c.getResponseCode();
+                    return this.f3726c.getInputStream();
                 }
-                BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(this.f3636c.getOutputStream());
+                BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(this.f3726c.getOutputStream());
                 try {
                     bufferedOutputStream2.write(bArr);
                     bufferedOutputStream2.flush();
-                    if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(this.f3636c.getContentEncoding())) {
-                        this.f3641h = true;
+                    if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(this.f3726c.getContentEncoding())) {
+                        this.f3731h = true;
                     } else {
-                        this.f3641h = false;
+                        this.f3731h = false;
                     }
-                    this.f3636c.getResponseCode();
-                    InputStream inputStream = this.f3636c.getInputStream();
+                    this.f3726c.getResponseCode();
+                    InputStream inputStream = this.f3726c.getInputStream();
                     try {
                         bufferedOutputStream2.close();
                     } catch (Throwable th) {
@@ -160,10 +160,10 @@ public class b {
                 if (inputStream != null) {
                     inputStream.close();
                 }
-                HttpURLConnection httpURLConnection = this.f3636c;
+                HttpURLConnection httpURLConnection = this.f3726c;
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
-                    this.f3636c = null;
+                    this.f3726c = null;
                 }
                 return null;
             }
@@ -172,10 +172,10 @@ public class b {
                 if (inputStream != null) {
                     inputStream.close();
                 }
-                HttpURLConnection httpURLConnection2 = this.f3636c;
+                HttpURLConnection httpURLConnection2 = this.f3726c;
                 if (httpURLConnection2 != null) {
                     httpURLConnection2.disconnect();
-                    this.f3636c = null;
+                    this.f3726c = null;
                 }
                 return f2;
             } catch (Throwable th) {
@@ -183,10 +183,10 @@ public class b {
                 if (inputStream != null) {
                     inputStream.close();
                 }
-                HttpURLConnection httpURLConnection3 = this.f3636c;
+                HttpURLConnection httpURLConnection3 = this.f3726c;
                 if (httpURLConnection3 != null) {
                     httpURLConnection3.disconnect();
-                    this.f3636c = null;
+                    this.f3726c = null;
                 }
                 throw th;
             }
@@ -202,15 +202,15 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
             String str = null;
-            if (this.f3642i || TextUtils.isEmpty(this.f3637d) || TextUtils.isEmpty(this.f3638e)) {
+            if (this.f3732i || TextUtils.isEmpty(this.f3727d) || TextUtils.isEmpty(this.f3728e)) {
                 return null;
             }
-            if (!this.f3637d.equals("POST") && !this.f3637d.equals("GET")) {
-                this.f3637d = "POST";
+            if (!this.f3727d.equals("POST") && !this.f3727d.equals("GET")) {
+                this.f3727d = "POST";
             }
-            URL url = new URL(this.f3638e);
+            URL url = new URL(this.f3728e);
             int i2 = 80;
-            if (2 != b.a.n0.l.c.k(this.f3634a)) {
+            if (2 != b.a.n0.l.c.k(this.f3724a)) {
                 if (Build.VERSION.SDK_INT >= 13) {
                     str = System.getProperties().getProperty("http.proxyHost");
                     String property = System.getProperties().getProperty("http.proxyPort");
@@ -223,8 +223,8 @@ public class b {
                     }
                     i2 = -1;
                 } else {
-                    str = Proxy.getHost(this.f3634a);
-                    i2 = Proxy.getPort(this.f3634a);
+                    str = Proxy.getHost(this.f3724a);
+                    i2 = Proxy.getPort(this.f3724a);
                 }
             }
             if (str != null && i2 > 0) {
@@ -232,21 +232,21 @@ public class b {
             } else {
                 httpURLConnection = (HttpURLConnection) url.openConnection();
             }
-            if (this.f3638e.startsWith("https")) {
+            if (this.f3728e.startsWith("https")) {
                 c.b((HttpsURLConnection) httpURLConnection);
             }
-            httpURLConnection.setRequestMethod(this.f3637d);
+            httpURLConnection.setRequestMethod(this.f3727d);
             httpURLConnection.setDoInput(true);
-            if ("POST".equals(this.f3637d)) {
+            if ("POST".equals(this.f3727d)) {
                 httpURLConnection.setDoOutput(true);
             }
             httpURLConnection.setInstanceFollowRedirects(true);
-            httpURLConnection.setConnectTimeout(this.f3639f);
-            httpURLConnection.setReadTimeout(this.f3640g);
-            httpURLConnection.setRequestProperty("x-device-id", g.b(b.a.n0.l.d.f(this.f3634a)));
+            httpURLConnection.setConnectTimeout(this.f3729f);
+            httpURLConnection.setReadTimeout(this.f3730g);
+            httpURLConnection.setRequestProperty("x-device-id", g.b(b.a.n0.l.d.f(this.f3724a)));
             httpURLConnection.setRequestProperty("Pragma", "no-cache");
-            String str2 = b.a.n0.a.f3491b;
-            String h2 = b.a.n0.l.c.h(this.f3634a);
+            String str2 = b.a.n0.a.f3581b;
+            String h2 = b.a.n0.l.c.h(this.f3724a);
             httpURLConnection.setRequestProperty("User-Agent", "sso/" + str2 + "/" + h2 + "/1.0.7");
             httpURLConnection.setRequestProperty("Accept", "*/*");
             httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -256,7 +256,7 @@ public class b {
             sb.append("1.0.7");
             httpURLConnection.setRequestProperty("x-sdk-ver", sb.toString());
             httpURLConnection.setRequestProperty("x-plu-ver", "sso/1.0.7");
-            httpURLConnection.setRequestProperty("x-app-ver", this.f3634a.getPackageName() + "/" + b.a.n0.l.c.h(this.f3634a));
+            httpURLConnection.setRequestProperty("x-app-ver", this.f3724a.getPackageName() + "/" + b.a.n0.l.c.h(this.f3724a));
             StringBuilder sb2 = new StringBuilder();
             sb2.append("android/");
             sb2.append(b.a.n0.l.c.g());
@@ -274,8 +274,8 @@ public class b {
     public final void d(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            this.f3637d = str;
-            this.f3638e = str2;
+            this.f3727d = str;
+            this.f3728e = str2;
         }
     }
 
@@ -287,9 +287,9 @@ public class b {
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         while (true) {
-            int read = inputStream.read(this.f3635b);
+            int read = inputStream.read(this.f3725b);
             if (read != -1) {
-                byteArrayOutputStream.write(this.f3635b, 0, read);
+                byteArrayOutputStream.write(this.f3725b, 0, read);
             } else {
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.close();
@@ -306,7 +306,7 @@ public class b {
             if (inputStream == null || (e2 = e(inputStream)) == null) {
                 return null;
             }
-            if (this.f3641h) {
+            if (this.f3731h) {
                 e2 = f.d(e2);
             }
             return e2 == null ? "" : new String(e2);

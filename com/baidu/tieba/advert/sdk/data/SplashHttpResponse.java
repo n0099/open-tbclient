@@ -1,7 +1,7 @@
 package com.baidu.tieba.advert.sdk.data;
 
 import android.text.TextUtils;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import b.a.r0.u.a.f.b;
 import b.a.r0.u.a.j.a;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SplashHttpResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
             b b2 = b.b(a.d());
             if (!this.adInfo.shouldDownloadVideo()) {
                 AdInfo adInfo = this.adInfo;
-                adInfo.videoLocalPath = b2.f23927d;
+                adInfo.videoLocalPath = b2.f25415d;
                 a.g(adInfo);
             } else if (j.z() && j.H()) {
                 b.a.r0.u.a.i.a searchTask = searchTask(this.adInfo.adVideoUrl);

@@ -53,7 +53,7 @@ public abstract class ServiceWorkerControllerCompat {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ServiceWorkerControllerCompat() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {

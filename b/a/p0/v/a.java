@@ -1,39 +1,75 @@
 package b.a.p0.v;
 
-import android.graphics.Bitmap;
-import android.media.MediaPlayer;
-import android.view.View;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.text.TextUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface a {
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b.a.p0.v.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0626a {
-        void a(b bVar);
-
-        void b(b bVar, int i2, int i3);
-
-        void c(b bVar, int i2, int i3, int i4);
+    public static NetworkInfo a(Context context) {
+        InterceptResult invokeL;
+        ConnectivityManager connectivityManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext == null || (connectivityManager = (ConnectivityManager) appContext.getSystemService("connectivity")) == null) {
+                return null;
+            }
+            return connectivityManager.getActiveNetworkInfo();
+        }
+        return (NetworkInfo) invokeL.objValue;
     }
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(MediaPlayer mediaPlayer);
-
-        a b();
+    public static String b(int i2, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, str)) == null) {
+            switch (i2) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                case 16:
+                    return "2g";
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 17:
+                    return "3g";
+                case 13:
+                case 18:
+                case 19:
+                    return "4g";
+                case 20:
+                    return "5g";
+                default:
+                    return (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) ? "unknown" : "4g";
+            }
+        }
+        return (String) invokeIL.objValue;
     }
 
-    void addRenderCallback(InterfaceC0626a interfaceC0626a);
-
-    Bitmap getBitmap();
-
-    View getView();
-
-    void release();
-
-    void removeRenderCallback(InterfaceC0626a interfaceC0626a);
-
-    void setAspectRatio(int i2);
-
-    void setVideoSize(int i2, int i3);
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            NetworkInfo a2 = a(AppRuntime.getAppContext());
+            return (a2 == null || !a2.isConnected()) ? "no" : a2.getType() == 1 ? "wifi" : a2.getType() == 0 ? b(a2.getSubtype(), a2.getSubtypeName()) : "unknown";
+        }
+        return (String) invokeV.objValue;
+    }
 }

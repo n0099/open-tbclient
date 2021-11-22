@@ -3,7 +3,7 @@ package b.a.r0.h1.j.g;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.r0.b0.c0;
+import b.a.r0.b0.d0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class c extends b.a.e.l.e.a<b.a.r0.b0.e0.j, CardViewHolder<b.a.r0.b0.k>> {
+public class c extends b.a.e.m.e.a<b.a.r0.b0.f0.j, CardViewHolder<b.a.r0.b0.k>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId m;
@@ -23,15 +23,15 @@ public class c extends b.a.e.l.e.a<b.a.r0.b0.e0.j, CardViewHolder<b.a.r0.b0.k>> 
     public String o;
     public b.a.r0.b0.k p;
     public NEGFeedBackView.b q;
-    public c0<b.a.r0.b0.e0.j> r;
+    public d0<b.a.r0.b0.f0.j> r;
 
     /* loaded from: classes4.dex */
-    public class a extends c0<b.a.r0.b0.e0.j> {
+    public class a extends d0<b.a.r0.b0.f0.j> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f17525b;
+        public final /* synthetic */ c f18994b;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -48,27 +48,27 @@ public class c extends b.a.e.l.e.a<b.a.r0.b0.e0.j, CardViewHolder<b.a.r0.b0.k>> 
                     return;
                 }
             }
-            this.f17525b = cVar;
+            this.f18994b = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.r0.b0.c0
+        @Override // b.a.r0.b0.d0
         /* renamed from: d */
-        public void a(View view, b.a.r0.b0.e0.j jVar) {
+        public void a(View view, b.a.r0.b0.f0.j jVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) {
                 int i2 = 2;
-                if (this.f17525b.p.A == view) {
+                if (this.f18994b.p.A == view) {
                     i2 = 1;
-                } else if (view == this.f17525b.p.p.getCommentContainer()) {
+                } else if (view == this.f18994b.p.p.getCommentContainer()) {
                     i2 = 5;
-                } else if (view == this.f17525b.p.q.getCommentContainer() || ((this.f17525b.p.Q() == null || view.getId() != this.f17525b.p.Q().getId()) && (this.f17525b.p.S() == null || view.getId() != this.f17525b.p.S().getId()))) {
+                } else if (view == this.f18994b.p.q.getCommentContainer() || ((this.f18994b.p.Q() == null || view.getId() != this.f18994b.p.Q().getId()) && (this.f18994b.p.S() == null || view.getId() != this.f18994b.p.S().getId()))) {
                     i2 = 0;
                 }
                 if (i2 != 0) {
-                    b.a.r0.h1.h.m.a.c(jVar.f14748e, this.f17525b.m, jVar.q(), i2);
+                    b.a.r0.h1.h.m.a.c(jVar.f16235e, this.f18994b.m, jVar.q(), i2);
                 }
-                b.a.r0.h1.j.c.e(view, jVar, this.f17525b.o);
+                b.a.r0.h1.j.c.e(view, jVar, this.f18994b.o);
             }
         }
     }
@@ -99,7 +99,7 @@ public class c extends b.a.e.l.e.a<b.a.r0.b0.e0.j, CardViewHolder<b.a.r0.b0.k>> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public CardViewHolder<b.a.r0.b0.k> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -110,7 +110,7 @@ public class c extends b.a.e.l.e.a<b.a.r0.b0.e0.j, CardViewHolder<b.a.r0.b0.k>> 
             kVar.A(2);
             BdUniqueId bdUniqueId = this.m;
             if (bdUniqueId != null) {
-                this.p.d0(bdUniqueId);
+                this.p.e0(bdUniqueId);
             }
             return new CardViewHolder<>(this.p);
         }
@@ -118,20 +118,20 @@ public class c extends b.a.e.l.e.a<b.a.r0.b0.e0.j, CardViewHolder<b.a.r0.b0.k>> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: j0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.b0.e0.j jVar, CardViewHolder<b.a.r0.b0.k> cardViewHolder) {
+    public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.b0.f0.j jVar, CardViewHolder<b.a.r0.b0.k> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, jVar, cardViewHolder})) == null) {
             jVar.K(jVar.position + 1);
-            jVar.f14748e.T1 = jVar.q();
+            jVar.f16235e.T1 = jVar.q();
             b.a.r0.b0.k cardView = cardViewHolder.getCardView();
-            cardView.f0(i2 + 1);
+            cardView.g0(i2 + 1);
             cardView.j(jVar);
             cardView.l(this.r);
             cardView.z(this.q);
-            b.a.r0.h1.h.m.a.f(jVar.f14748e, this.m, jVar.q());
+            b.a.r0.h1.h.m.a.f(jVar.f16235e, this.m, jVar.q());
             b.a.r0.h1.j.c.f(jVar, this.o);
             return cardViewHolder.getView();
         }

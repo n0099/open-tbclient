@@ -16,29 +16,29 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC1421a f29537a;
+    public InterfaceC1463a f30406a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29538b;
+    public int f30407b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f29539c;
+    public a f30408c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a.x0.h.c f29540d;
+    public b.a.x0.h.c f30409d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f29541e;
+    public volatile boolean f30410e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f29542f;
+    public volatile boolean f30411f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f29543g;
+    public String f30412g;
 
     /* renamed from: b.a.x0.h.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1421a {
+    public interface InterfaceC1463a {
         void a(a aVar);
 
         void b(a aVar);
@@ -74,13 +74,13 @@ public abstract class a {
             if (str2 == null) {
                 str2 = "";
             }
-            if (TextUtils.isEmpty(this.f29543g)) {
+            if (TextUtils.isEmpty(this.f30412g)) {
                 sb = new StringBuilder();
                 fileNameWithOutExtention = FileUtils.removeExtention(str);
             } else {
                 fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
                 sb = new StringBuilder();
-                sb.append(this.f29543g);
+                sb.append(this.f30412g);
             }
             sb.append(fileNameWithOutExtention);
             sb.append(str2);
@@ -94,47 +94,47 @@ public abstract class a {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f29538b = i2;
+            this.f30407b = i2;
         }
     }
 
     public abstract void d(b.a.x0.h.c cVar);
 
-    public void e(InterfaceC1421a interfaceC1421a) {
+    public void e(InterfaceC1463a interfaceC1463a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1421a) == null) {
-            this.f29537a = interfaceC1421a;
+        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1463a) == null) {
+            this.f30406a = interfaceC1463a;
         }
     }
 
     public void f(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f29539c = aVar;
+            this.f30408c = aVar;
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f29542f) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f30411f) {
             return;
         }
-        this.f29541e = true;
-        InterfaceC1421a interfaceC1421a = this.f29537a;
-        if (interfaceC1421a != null) {
-            interfaceC1421a.d(getClass().getName() + str, this);
+        this.f30410e = true;
+        InterfaceC1463a interfaceC1463a = this.f30406a;
+        if (interfaceC1463a != null) {
+            interfaceC1463a.d(getClass().getName() + str, this);
         }
     }
 
     public abstract void h();
 
     public void i(int i2) {
-        InterfaceC1421a interfaceC1421a;
+        InterfaceC1463a interfaceC1463a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (interfaceC1421a = this.f29537a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (interfaceC1463a = this.f30406a) == null) {
             return;
         }
-        interfaceC1421a.c(this.f29538b, i2);
+        interfaceC1463a.c(this.f30407b, i2);
     }
 
     public boolean j(b.a.x0.h.c cVar) {
@@ -156,19 +156,19 @@ public abstract class a {
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f29538b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f30407b : invokeV.intValue;
     }
 
     public void l(b.a.x0.h.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
-            this.f29540d = cVar;
-            InterfaceC1421a interfaceC1421a = this.f29537a;
-            if (interfaceC1421a != null) {
-                interfaceC1421a.c(this.f29538b, 100);
-                this.f29537a.b(this);
+            this.f30409d = cVar;
+            InterfaceC1463a interfaceC1463a = this.f30406a;
+            if (interfaceC1463a != null) {
+                interfaceC1463a.c(this.f30407b, 100);
+                this.f30406a.b(this);
             }
-            a aVar = this.f29539c;
+            a aVar = this.f30408c;
             if (aVar != null) {
                 aVar.d(cVar);
             }
@@ -178,21 +178,21 @@ public abstract class a {
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f29539c == null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f30408c == null : invokeV.booleanValue;
     }
 
     public b.a.x0.h.c n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f29540d : (b.a.x0.h.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f30409d : (b.a.x0.h.c) invokeV.objValue;
     }
 
     public void o() {
-        InterfaceC1421a interfaceC1421a;
+        InterfaceC1463a interfaceC1463a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (interfaceC1421a = this.f29537a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (interfaceC1463a = this.f30406a) == null) {
             return;
         }
-        interfaceC1421a.a(this);
+        interfaceC1463a.a(this);
     }
 }

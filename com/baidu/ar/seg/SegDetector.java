@@ -247,13 +247,13 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                     int i2 = this.vP.oU;
                     if (i2 == 2) {
                         int[] iArr = new int[2];
-                        return aVar.f36466tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
+                        return aVar.f37295tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
                     } else if (i2 == 4) {
-                        return aVar.f36466tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
+                        return aVar.f37295tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
                     } else if (i2 != 5) {
                         return -1;
                     } else {
-                        return aVar.f36466tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
+                        return aVar.f37295tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
                     }
                 }
                 return invokeL2.intValue;
@@ -397,8 +397,8 @@ public class SegDetector extends com.baidu.ar.b.a.a {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Not initialized variable reg: 10, insn: 0x0207: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r10 I:??[OBJECT, ARRAY]), block:B:37:0x0206 */
-            /* JADX WARN: Not initialized variable reg: 23, insn: 0x0212: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r23 I:??[OBJECT, ARRAY]), block:B:42:0x0211 */
+            /* JADX WARN: Not initialized variable reg: 10, insn: 0x0208: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r10 I:??[OBJECT, ARRAY]), block:B:37:0x0207 */
+            /* JADX WARN: Not initialized variable reg: 23, insn: 0x0213: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r23 I:??[OBJECT, ARRAY]), block:B:42:0x0212 */
             @Override // com.baidu.ar.b.b.c
             /* renamed from: k */
             public b e(FramePixels framePixels2) {

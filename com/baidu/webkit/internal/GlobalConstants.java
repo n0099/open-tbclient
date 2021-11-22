@@ -33,9 +33,10 @@ public class GlobalConstants implements INoProGuard {
     public static final String SEARCHBOX_PACKAGE_NAME = "com.baidu.searchbox";
     public static final boolean TEST_HOOKS_ENABLED = false;
     public static final boolean USE_ZEUS_MANAGER = false;
+    public static final boolean USING_7Z_COMPRESS = false;
     public static final boolean ZEUS_DEBUG_MODE = false;
     public static final String ZEUS_LIB_LOCAL_RELATIVE_PATH = "/zeus/libs/";
-    public static final String ZEUS_VERSION_NAME = "10.23.2.4";
+    public static final String ZEUS_VERSION_NAME = "10.31.2.10";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

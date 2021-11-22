@@ -32,7 +32,7 @@ public final class LbsPayBeanFactory implements IBeanFactory {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static LbsPayBeanFactory f34885a;
+        public static LbsPayBeanFactory f35714a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,7 +48,7 @@ public final class LbsPayBeanFactory implements IBeanFactory {
                     return;
                 }
             }
-            f34885a = new LbsPayBeanFactory(null);
+            f35714a = new LbsPayBeanFactory(null);
         }
     }
 
@@ -59,7 +59,7 @@ public final class LbsPayBeanFactory implements IBeanFactory {
     public static LbsPayBeanFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f34885a : (LbsPayBeanFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f35714a : (LbsPayBeanFactory) invokeV.objValue;
     }
 
     public LbsPayBeanFactory() {

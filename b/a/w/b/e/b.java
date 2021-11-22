@@ -19,31 +19,31 @@ public class b {
     public float D;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29230a;
+    public String f30099a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29231b;
+    public String f30100b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29232c;
+    public String f30101c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29233d;
+    public String f30102d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f29234e;
+    public int f30103e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29235f;
+    public int f30104f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29236g;
+    public int f30105g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29237h;
+    public int f30106h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f29238i;
+    public int f30107i;
     public int j;
     public int k;
     public String l;
@@ -67,7 +67,7 @@ public class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f29239a;
+        public static final b f30108a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -83,7 +83,7 @@ public class b {
                     return;
                 }
             }
-            f29239a = new b();
+            f30108a = new b();
         }
     }
 
@@ -106,7 +106,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (E == null) {
-                E = a.f29239a;
+                E = a.f30108a;
             }
             return E;
         }
@@ -139,11 +139,11 @@ public class b {
     public void d(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
-            this.f29234e = i2;
-            this.f29235f = i3;
-            this.f29236g = i4;
-            this.f29237h = i5;
-            this.f29238i = i6;
+            this.f30103e = i2;
+            this.f30104f = i3;
+            this.f30105g = i4;
+            this.f30106h = i5;
+            this.f30107i = i6;
             this.j = i7;
             this.k = i8;
         }

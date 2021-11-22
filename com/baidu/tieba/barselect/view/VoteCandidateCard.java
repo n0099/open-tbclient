@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.r0.y.b.d;
 import b.a.r0.y.b.f;
 import b.a.r0.y.e.a;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class VoteCandidateCard extends CardBasicLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static int MINE_VOTE = -1;
@@ -36,19 +36,19 @@ public class VoteCandidateCard extends CardBasicLayout {
     public LinearLayout A;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47374e;
+    public Context f48238e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f47375f;
+    public TextView f48239f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f47376g;
+    public View f48240g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f47377h;
+    public TextView f48241h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f47378i;
+    public TextView f48242i;
     public CandidateInfoLayout j;
     public NewAnounceLayout k;
     public VoteAreaLayout l;
@@ -106,7 +106,7 @@ public class VoteCandidateCard extends CardBasicLayout {
     private void setRankVisible(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
-            this.f47375f.setVisibility(i2);
+            this.f48239f.setVisibility(i2);
             this.t.setVisibility(i2);
         }
     }
@@ -114,10 +114,10 @@ public class VoteCandidateCard extends CardBasicLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f47376g = findViewById(R.id.mine_vote_content);
-            this.f47377h = (TextView) findViewById(R.id.mine_vote_title);
-            this.f47378i = (TextView) findViewById(R.id.mine_vote_num);
-            this.f47375f = (TextView) findViewById(R.id.tv_voted_rank);
+            this.f48240g = findViewById(R.id.mine_vote_content);
+            this.f48241h = (TextView) findViewById(R.id.mine_vote_title);
+            this.f48242i = (TextView) findViewById(R.id.mine_vote_num);
+            this.f48239f = (TextView) findViewById(R.id.tv_voted_rank);
             this.j = (CandidateInfoLayout) findViewById(R.id.candidate_info_layout);
             this.k = (NewAnounceLayout) findViewById(R.id.announce_layout);
             this.l = (VoteAreaLayout) findViewById(R.id.vote_area_layout);
@@ -140,7 +140,7 @@ public class VoteCandidateCard extends CardBasicLayout {
     public final void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f47374e = getContext();
+            this.f48238e = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(1);
@@ -161,19 +161,19 @@ public class VoteCandidateCard extends CardBasicLayout {
             this.l.onSkinChange(i2);
             SkinManager.setBackgroundColor(this.q, R.color.CAM_X0204, i2);
             int i3 = this.status;
-            if (i3 == a.f27223d) {
+            if (i3 == a.f28726d) {
                 SkinManager.setBackgroundResource(this.u, R.drawable.bar_select_bg_shadow_and_radius, i2);
-                SkinManager.setViewTextColor(this.f47378i, R.color.CAM_X0105, 1, i2);
-                SkinManager.setViewTextColor(this.f47377h, R.color.CAM_X0105, 1, i2);
-            } else if (i3 == a.f27222c) {
+                SkinManager.setViewTextColor(this.f48242i, R.color.CAM_X0105, 1, i2);
+                SkinManager.setViewTextColor(this.f48241h, R.color.CAM_X0105, 1, i2);
+            } else if (i3 == a.f28725c) {
                 SkinManager.setBackgroundResource(this.u, R.drawable.bg_bazhu_shadow_and_radius, i2);
-            } else if (i3 == a.f27221b) {
+            } else if (i3 == a.f28724b) {
                 if (this.w == 1) {
                     SkinManager.setBackgroundResource(this.u, R.drawable.bar_select_bg_top_round, i2);
                 } else {
                     SkinManager.setBackgroundColor(this.u, R.color.CAM_X0201, i2);
                 }
-            } else if (i3 == a.f27220a) {
+            } else if (i3 == a.f28723a) {
                 SkinManager.setBackgroundColor(this.u, R.color.CAM_X0201, i2);
                 SkinManager.setViewTextColor(this.x, R.color.CAM_X0105, 1, i2);
                 SkinManager.setBackgroundColor(this.A, R.color.CAM_X0201, i2);
@@ -189,11 +189,11 @@ public class VoteCandidateCard extends CardBasicLayout {
             }
             int i4 = this.mElectionData.i();
             if (i4 == 2) {
-                SkinManager.setViewTextColor(this.f47375f, R.color.CAM_X0305, 1, i2);
+                SkinManager.setViewTextColor(this.f48239f, R.color.CAM_X0305, 1, i2);
             } else if (i4 == 3) {
-                SkinManager.setViewTextColor(this.f47375f, R.color.CAM_X0312, 1, i2);
+                SkinManager.setViewTextColor(this.f48239f, R.color.CAM_X0312, 1, i2);
             } else {
-                SkinManager.setViewTextColor(this.f47375f, R.color.CAM_X0105, 1, i2);
+                SkinManager.setViewTextColor(this.f48239f, R.color.CAM_X0105, 1, i2);
             }
         }
     }
@@ -206,10 +206,10 @@ public class VoteCandidateCard extends CardBasicLayout {
             super.setData(i2, fVar);
             this.w = i2;
             if (this.mData != null && this.mElectionData != null && (i3 = this.status) >= 0) {
-                if (i3 == a.f27223d) {
+                if (i3 == a.f28726d) {
                     this.u.setBackgroundResource(R.drawable.bar_select_bg_shadow_and_radius);
-                    this.f47376g.setVisibility(0);
-                    TextView textView = this.f47378i;
+                    this.f48240g.setVisibility(0);
+                    TextView textView = this.f48242i;
                     textView.setText("当前排名" + this.mElectionData.i());
                     setRankVisible(8);
                     this.s.setVisibility(8);
@@ -217,7 +217,7 @@ public class VoteCandidateCard extends CardBasicLayout {
                     this.m.setVisibility(8);
                     this.l.setData(i2, fVar);
                     this.A.setVisibility(8);
-                } else if (i3 == a.f27220a) {
+                } else if (i3 == a.f28723a) {
                     if (i2 == 0) {
                         this.s.setVisibility(8);
                     } else {
@@ -225,7 +225,7 @@ public class VoteCandidateCard extends CardBasicLayout {
                         this.r.setVisibility(8);
                     }
                     this.u.setBackgroundColor(getResources().getColor(R.color.CAM_X0201));
-                    this.f47376g.setVisibility(8);
+                    this.f48240g.setVisibility(8);
                     setRankVisible(8);
                     if (this.mElectionData.f() == 2 && this.z.getFirstNotAllowPosition() == -1) {
                         this.z.setFirstNotAllowPosition(i2);
@@ -244,7 +244,7 @@ public class VoteCandidateCard extends CardBasicLayout {
                         this.l.setData(i2, fVar);
                     }
                     this.m.setVisibility(8);
-                } else if (i3 == a.f27222c) {
+                } else if (i3 == a.f28725c) {
                     int g2 = l.g(getContext(), R.dimen.tbds22);
                     int g3 = l.g(getContext(), R.dimen.tbds10);
                     int g4 = l.g(getContext(), R.dimen.tbds20);
@@ -254,7 +254,7 @@ public class VoteCandidateCard extends CardBasicLayout {
                     layoutParams.setMargins(g5, 0, g5, g4);
                     this.u.setLayoutParams(layoutParams);
                     this.u.setPadding(g3, 0, g3, g5);
-                    this.f47376g.setVisibility(8);
+                    this.f48240g.setVisibility(8);
                     this.s.setVisibility(8);
                     setRankVisible(8);
                     this.l.setVisibility(8);
@@ -262,7 +262,7 @@ public class VoteCandidateCard extends CardBasicLayout {
                     this.m.setData(i2, fVar);
                     this.v.setPadding(0, g2, 0, 0);
                     this.A.setVisibility(8);
-                } else if (i3 == a.f27221b) {
+                } else if (i3 == a.f28724b) {
                     if (i2 == 1) {
                         this.u.setBackgroundResource(R.drawable.bar_select_bg_top_round);
                         this.s.setVisibility(8);
@@ -272,21 +272,21 @@ public class VoteCandidateCard extends CardBasicLayout {
                         this.r.setVisibility(0);
                     }
                     setRankVisible(0);
-                    this.f47376g.setVisibility(8);
+                    this.f48240g.setVisibility(8);
                     int i4 = this.mElectionData.i();
                     if (i4 < 10) {
-                        TextView textView2 = this.f47375f;
+                        TextView textView2 = this.f48239f;
                         textView2.setText("0" + i4);
                     } else {
-                        TextView textView3 = this.f47375f;
+                        TextView textView3 = this.f48239f;
                         textView3.setText("" + i4);
                     }
                     if (i4 == 2) {
-                        this.f47375f.setTextColor(getResources().getColor(R.color.common_color_10263));
+                        this.f48239f.setTextColor(getResources().getColor(R.color.common_color_10263));
                     } else if (i4 == 3) {
-                        this.f47375f.setTextColor(getResources().getColor(R.color.common_color_10266));
+                        this.f48239f.setTextColor(getResources().getColor(R.color.common_color_10266));
                     } else {
-                        this.f47375f.setTextColor(getResources().getColor(R.color.CAM_X0105));
+                        this.f48239f.setTextColor(getResources().getColor(R.color.CAM_X0105));
                     }
                     this.l.setVisibility(8);
                     this.m.setVisibility(0);

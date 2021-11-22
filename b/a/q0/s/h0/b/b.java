@@ -1,6 +1,6 @@
 package b.a.q0.s.h0.b;
 
-import b.a.e.e.p.q;
+import b.a.e.f.p.q;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,27 +37,27 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             a aVar = new a();
             if (str == null) {
-                aVar.f13098c = 6;
-                aVar.f13099d = a.a(6);
+                aVar.f13878c = 6;
+                aVar.f13879d = a.a(6);
                 return aVar;
             }
             if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-                aVar.f13098c = 7;
-                aVar.f13099d = a.a(7);
+                aVar.f13878c = 7;
+                aVar.f13879d = a.a(7);
                 return aVar;
             }
             String b2 = q.b(FileHelper.GetStreamFromTmpFile(str));
             if (b2 == null) {
-                aVar.f13098c = 5;
-                aVar.f13099d = a.a(5);
+                aVar.f13878c = 5;
+                aVar.f13879d = a.a(5);
             } else {
                 String filePath = FileHelper.getFilePath(b2, 1, true);
                 if (FileHelper.renameTo(str, filePath)) {
-                    aVar.f13097b = filePath;
-                    aVar.f13096a = b2;
+                    aVar.f13877b = filePath;
+                    aVar.f13876a = b2;
                 } else {
-                    aVar.f13098c = 1;
-                    aVar.f13099d = a.a(1);
+                    aVar.f13878c = 1;
+                    aVar.f13879d = a.a(1);
                 }
             }
             return aVar;

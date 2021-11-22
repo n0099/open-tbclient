@@ -15,16 +15,16 @@ public class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RectF f3804a;
+    public RectF f3898a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f3805b;
+    public float f3899b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f3806c;
+    public float f3900c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f3807d;
+    public boolean f3901d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -43,25 +43,25 @@ public class c extends a {
     @Override // b.a.p0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || this.f3804a == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || this.f3898a == null) {
             return;
         }
-        if (!this.f3807d && Math.abs(this.f3806c) >= 360.0f) {
+        if (!this.f3901d && Math.abs(this.f3900c) >= 360.0f) {
             Path path = bVar.j;
-            RectF rectF = this.f3804a;
+            RectF rectF = this.f3898a;
             float f2 = rectF.bottom;
             float f3 = rectF.top;
             path.addCircle((rectF.right + rectF.left) / 2.0f, (f2 + f3) / 2.0f, (f2 - f3) / 2.0f, Path.Direction.CW);
-            bVar.j.arcTo(this.f3804a, 0.0f, this.f3805b);
+            bVar.j.arcTo(this.f3898a, 0.0f, this.f3899b);
             return;
         }
-        float f4 = this.f3806c % 360.0f;
-        if (f4 < 0.0f && !this.f3807d) {
+        float f4 = this.f3900c % 360.0f;
+        if (f4 < 0.0f && !this.f3901d) {
             f4 += 360.0f;
-        } else if (f4 > 0.0f && this.f3807d) {
+        } else if (f4 > 0.0f && this.f3901d) {
             f4 -= 360.0f;
         }
-        bVar.j.arcTo(this.f3804a, this.f3805b, f4);
+        bVar.j.arcTo(this.f3898a, this.f3899b, f4);
     }
 
     @Override // b.a.p0.a.a0.a.j.a
@@ -69,17 +69,17 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             if (jSONArray.length() > 4) {
-                int g2 = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
-                int g3 = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
-                int g4 = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(2));
+                int g2 = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(0));
+                int g3 = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(1));
+                int g4 = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(2));
                 float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
                 float degrees2 = (float) Math.toDegrees((float) jSONArray.optDouble(4));
-                this.f3804a = new RectF(g2 - g4, g3 - g4, g2 + g4, g3 + g4);
-                this.f3805b = degrees;
-                this.f3806c = degrees2 - degrees;
+                this.f3898a = new RectF(g2 - g4, g3 - g4, g2 + g4, g3 + g4);
+                this.f3899b = degrees;
+                this.f3900c = degrees2 - degrees;
             }
             if (jSONArray.length() > 5) {
-                this.f3807d = jSONArray.optBoolean(5);
+                this.f3901d = jSONArray.optBoolean(5);
             }
         }
     }

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.View;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

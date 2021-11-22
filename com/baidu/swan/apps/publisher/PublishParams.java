@@ -3,7 +3,7 @@ package com.baidu.swan.apps.publisher;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.a2.e;
+import b.a.p0.a.d2.e;
 import b.a.p0.a.f1.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
@@ -335,17 +335,17 @@ public final class PublishParams implements Parcelable {
         this(str, str2, str3, i2, i3, str4, i4, str5, i5, str6, str7, str8, i6, f2, list, r18, r19);
         String str11;
         String str12;
-        b.a M;
-        b.a M2;
+        b.a X;
+        b.a X2;
         if ((i7 & 32768) != 0) {
-            e i8 = e.i();
-            str11 = (i8 == null || (M2 = i8.M()) == null) ? null : M2.G();
+            e L = e.L();
+            str11 = (L == null || (X2 = L.X()) == null) ? null : X2.H();
         } else {
             str11 = str9;
         }
         if ((i7 & 65536) != 0) {
-            e i9 = e.i();
-            str12 = (i9 == null || (M = i9.M()) == null) ? null : M.s1();
+            e L2 = e.L();
+            str12 = (L2 == null || (X = L2.X()) == null) ? null : X.v1();
         } else {
             str12 = str10;
         }

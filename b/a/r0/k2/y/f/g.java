@@ -3,9 +3,9 @@ package b.a.r0.k2.y.f;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.e.p.l;
-import b.a.e.l.e.n;
-import b.a.e.l.e.w;
+import b.a.e.f.p.l;
+import b.a.e.m.e.n;
+import b.a.e.m.e.w;
 import b.a.l.l0;
 import b.a.l.s;
 import b.a.q0.s.q.c2;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class g extends b.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
+public class g extends b.a.e.m.e.a<c2, ThreadCardViewHolder<d2>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId m;
@@ -39,7 +39,7 @@ public class g extends b.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f19788e;
+        public final /* synthetic */ s f21325e;
 
         public a(g gVar, s sVar) {
             Interceptable interceptable = $ic;
@@ -56,10 +56,10 @@ public class g extends b.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
                     return;
                 }
             }
-            this.f19788e = sVar;
+            this.f21325e = sVar;
         }
 
-        @Override // b.a.e.l.e.w
+        @Override // b.a.e.m.e.w
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             c2 c2Var;
             d2 d2Var;
@@ -68,7 +68,7 @@ public class g extends b.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
                 int a2 = b.a.q0.s.g0.p.c.a(c2Var.w.s0().button_link_type.intValue(), c2Var.w.s0().apk_detail != null ? c2Var.w.s0().apk_detail.pkg_source.intValue() : 0);
                 ItemData itemData = new ItemData();
                 itemData.parseProto(c2Var.w.s0());
-                ItemCardHelper.q(this.f19788e.t(), c2Var.w.s0().item_id.longValue(), this.f19788e.s(itemData), c2Var.w.s1(), a2, "", 2);
+                ItemCardHelper.q(this.f21325e.t(), c2Var.w.s0().item_id.longValue(), this.f21325e.s(itemData), c2Var.w.t1(), a2, "", 2);
                 ItemClickJumpUtil.itemClickJump(c2Var.w.s0().forum_name, String.valueOf(c2Var.w.s0().item_id), 3, 3);
             }
         }
@@ -98,7 +98,7 @@ public class g extends b.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public ThreadCardViewHolder<d2> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -121,7 +121,7 @@ public class g extends b.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, c2 c2Var, ThreadCardViewHolder<d2> threadCardViewHolder) {
         InterceptResult invokeCommon;

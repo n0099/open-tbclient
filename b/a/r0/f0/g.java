@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DimenRes;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -39,31 +39,31 @@ public class g {
     public Runnable K;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f16341a;
+    public Handler f17841a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.e.e.g.c f16342b;
+    public b.a.e.f.g.c f17842b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TbPageContext f16343c;
+    public TbPageContext f17843c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f16344d;
+    public View f17844d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f16345e;
+    public boolean f17845e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16346f;
+    public String f17846f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f16347g;
+    public String f17847g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f16348h;
+    public boolean f17848h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f16349i;
+    public int f17849i;
     public int j;
     public boolean k;
     public int l;
@@ -88,18 +88,18 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f16350e;
+        public final /* synthetic */ g f17850e;
 
         /* renamed from: b.a.r0.f0.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0835a implements b.a.e.e.g.b {
+        public class C0900a implements b.a.e.f.g.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f16351a;
+            public final /* synthetic */ a f17851a;
 
-            public C0835a(a aVar) {
+            public C0900a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,93 +114,93 @@ public class g {
                         return;
                     }
                 }
-                this.f16351a = aVar;
+                this.f17851a = aVar;
             }
 
-            @Override // b.a.e.e.g.b
+            @Override // b.a.e.f.g.b
             public int a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16351a.f16350e.w : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17851a.f17850e.w : invokeV.intValue;
             }
 
-            @Override // b.a.e.e.g.b
+            @Override // b.a.e.f.g.b
             public int b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16351a.f16350e.v : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17851a.f17850e.v : invokeV.intValue;
             }
 
-            @Override // b.a.e.e.g.b
+            @Override // b.a.e.f.g.b
             public View c(LayoutInflater layoutInflater) {
                 InterceptResult invokeL;
                 Drawable drawable;
                 int i2;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
-                    TextView textView = new TextView(this.f16351a.f16350e.f16343c.getPageActivity());
-                    textView.setText(this.f16351a.f16350e.f16346f);
-                    if (this.f16351a.f16350e.G != 0) {
-                        textView.setGravity(this.f16351a.f16350e.G);
+                    TextView textView = new TextView(this.f17851a.f17850e.f17843c.getPageActivity());
+                    textView.setText(this.f17851a.f17850e.f17846f);
+                    if (this.f17851a.f17850e.G != 0) {
+                        textView.setGravity(this.f17851a.f17850e.G);
                     } else {
                         textView.setGravity(17);
                     }
-                    if (this.f16351a.f16350e.E != 0) {
-                        SkinManager.setViewTextColor(textView, this.f16351a.f16350e.E);
+                    if (this.f17851a.f17850e.E != 0) {
+                        SkinManager.setViewTextColor(textView, this.f17851a.f17850e.E);
                     } else {
                         SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
                     }
-                    textView.setTextSize(0, this.f16351a.f16350e.F != 0 ? this.f16351a.f16350e.f16343c.getResources().getDimensionPixelSize(this.f16351a.f16350e.F) : this.f16351a.f16350e.f16343c.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                    if (this.f16351a.f16350e.B != 0) {
-                        textView.setHeight(this.f16351a.f16350e.B);
+                    textView.setTextSize(0, this.f17851a.f17850e.F != 0 ? this.f17851a.f17850e.f17843c.getResources().getDimensionPixelSize(this.f17851a.f17850e.F) : this.f17851a.f17850e.f17843c.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                    if (this.f17851a.f17850e.B != 0) {
+                        textView.setHeight(this.f17851a.f17850e.B);
                     } else {
-                        textView.setHeight(this.f16351a.f16350e.f16343c.getResources().getDimensionPixelSize(R.dimen.ds76));
+                        textView.setHeight(this.f17851a.f17850e.f17843c.getResources().getDimensionPixelSize(R.dimen.ds76));
                     }
-                    if (this.f16351a.f16350e.C != 0) {
-                        textView.setWidth(this.f16351a.f16350e.C);
+                    if (this.f17851a.f17850e.C != 0) {
+                        textView.setWidth(this.f17851a.f17850e.C);
                     }
-                    textView.setPadding(this.f16351a.f16350e.r, this.f16351a.f16350e.s, this.f16351a.f16350e.t, this.f16351a.f16350e.u);
-                    textView.setLines(this.f16351a.f16350e.A);
-                    if (this.f16351a.f16350e.D) {
+                    textView.setPadding(this.f17851a.f17850e.r, this.f17851a.f17850e.s, this.f17851a.f17850e.t, this.f17851a.f17850e.u);
+                    textView.setLines(this.f17851a.f17850e.A);
+                    if (this.f17851a.f17850e.D) {
                         textView.setEllipsize(TextUtils.TruncateAt.END);
                     }
-                    if (this.f16351a.f16350e.H != 0) {
-                        if (this.f16351a.f16350e.I) {
-                            if (this.f16351a.f16350e.E != 0) {
-                                i2 = this.f16351a.f16350e.E;
+                    if (this.f17851a.f17850e.H != 0) {
+                        if (this.f17851a.f17850e.I) {
+                            if (this.f17851a.f17850e.E != 0) {
+                                i2 = this.f17851a.f17850e.E;
                             } else {
                                 i2 = R.color.CAM_X0101;
                             }
-                            drawable = WebPManager.getPureDrawable(this.f16351a.f16350e.H, SkinManager.getColor(i2), WebPManager.ResourceStateType.NORMAL);
+                            drawable = WebPManager.getPureDrawable(this.f17851a.f17850e.H, SkinManager.getColor(i2), WebPManager.ResourceStateType.NORMAL);
                         } else {
-                            drawable = SkinManager.getDrawable(this.f16351a.f16350e.H);
+                            drawable = SkinManager.getDrawable(this.f17851a.f17850e.H);
                         }
                         int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
                         drawable.setBounds(0, 0, g2, g2);
                         textView.setCompoundDrawablePadding(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds16));
                         textView.setCompoundDrawables(drawable, null, null, null);
                     }
-                    SkinManager.setBackgroundResource(textView, this.f16351a.f16350e.f16349i);
-                    if (this.f16351a.f16350e.x != null) {
-                        textView.setOnClickListener(this.f16351a.f16350e.x);
+                    SkinManager.setBackgroundResource(textView, this.f17851a.f17850e.f17849i);
+                    if (this.f17851a.f17850e.x != null) {
+                        textView.setOnClickListener(this.f17851a.f17850e.x);
                     }
                     return textView;
                 }
                 return (View) invokeL.objValue;
             }
 
-            @Override // b.a.e.e.g.b
+            @Override // b.a.e.f.g.b
             public int getXOffset() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f16351a.f16350e.p : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17851a.f17850e.p : invokeV.intValue;
             }
 
-            @Override // b.a.e.e.g.b
+            @Override // b.a.e.f.g.b
             public int getYOffset() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f16351a.f16350e.q : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17851a.f17850e.q : invokeV.intValue;
             }
         }
 
@@ -219,28 +219,28 @@ public class g {
                     return;
                 }
             }
-            this.f16350e = gVar;
+            this.f17850e = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f16350e.f16342b == null && !StringUtils.isNull(this.f16350e.f16346f)) {
-                if (!this.f16350e.y || this.f16350e.H()) {
-                    b.a.e.e.g.d dVar = new b.a.e.e.g.d();
-                    dVar.j(this.f16350e.f16344d);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f17850e.f17842b == null && !StringUtils.isNull(this.f17850e.f17846f)) {
+                if (!this.f17850e.y || this.f17850e.H()) {
+                    b.a.e.f.g.d dVar = new b.a.e.f.g.d();
+                    dVar.j(this.f17850e.f17844d);
                     dVar.c(0);
                     dVar.i(true);
                     dVar.h(true);
-                    dVar.a(new C0835a(this));
-                    this.f16350e.f16342b = dVar.b();
-                    this.f16350e.f16342b.k(false);
-                    this.f16350e.f16342b.l(this.f16350e.z);
-                    this.f16350e.f16342b.n(this.f16350e.f16343c.getPageActivity(), this.f16350e.o);
-                    this.f16350e.f16345e = true;
-                    this.f16350e.K();
-                    this.f16350e.f16348h = true;
-                    this.f16350e.f16341a.postDelayed(this.f16350e.K, this.f16350e.n);
+                    dVar.a(new C0900a(this));
+                    this.f17850e.f17842b = dVar.b();
+                    this.f17850e.f17842b.k(false);
+                    this.f17850e.f17842b.l(this.f17850e.z);
+                    this.f17850e.f17842b.n(this.f17850e.f17843c.getPageActivity(), this.f17850e.o);
+                    this.f17850e.f17845e = true;
+                    this.f17850e.K();
+                    this.f17850e.f17848h = true;
+                    this.f17850e.f17841a.postDelayed(this.f17850e.K, this.f17850e.n);
                 }
             }
         }
@@ -252,7 +252,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f16352e;
+        public final /* synthetic */ g f17852e;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -269,14 +269,14 @@ public class g {
                     return;
                 }
             }
-            this.f16352e = gVar;
+            this.f17852e = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f16352e.I();
+                this.f17852e.I();
             }
         }
     }
@@ -296,9 +296,9 @@ public class g {
                 return;
             }
         }
-        this.f16341a = null;
-        this.f16342b = null;
-        this.f16349i = R.drawable.pic_sign_tip;
+        this.f17841a = null;
+        this.f17842b = null;
+        this.f17849i = R.drawable.pic_sign_tip;
         this.j = 0;
         this.k = false;
         this.l = 1;
@@ -325,20 +325,20 @@ public class g {
         this.I = false;
         this.J = new a(this);
         this.K = new b(this);
-        this.f16343c = tbPageContext;
-        this.f16344d = view;
+        this.f17843c = tbPageContext;
+        this.f17844d = view;
         this.r = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.s = this.f16343c.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.t = this.f16343c.getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.u = this.f16343c.getResources().getDimensionPixelSize(R.dimen.ds10);
+        this.s = this.f17843c.getResources().getDimensionPixelSize(R.dimen.ds24);
+        this.t = this.f17843c.getResources().getDimensionPixelSize(R.dimen.ds24);
+        this.u = this.f17843c.getResources().getDimensionPixelSize(R.dimen.ds10);
     }
 
     public boolean H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View view = this.f16344d;
-            return view != null && view.getVisibility() == 0 && ((double) this.f16344d.getAlpha()) >= 0.4d;
+            View view = this.f17844d;
+            return view != null && view.getVisibility() == 0 && ((double) this.f17844d.getAlpha()) >= 0.4d;
         }
         return invokeV.booleanValue;
     }
@@ -346,24 +346,24 @@ public class g {
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b.a.e.e.g.c cVar = this.f16342b;
+            b.a.e.f.g.c cVar = this.f17842b;
             if (cVar != null) {
                 cVar.d();
-                this.f16342b = null;
+                this.f17842b = null;
             }
-            Handler handler = this.f16341a;
+            Handler handler = this.f17841a;
             if (handler != null) {
                 handler.removeCallbacks(this.J);
-                this.f16341a.removeCallbacks(this.K);
+                this.f17841a.removeCallbacks(this.K);
             }
-            this.f16348h = false;
+            this.f17848h = false;
         }
     }
 
     public boolean J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16348h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17848h : invokeV.booleanValue;
     }
 
     public final void K() {
@@ -371,7 +371,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.k) {
             return;
         }
-        b.a.q0.s.e0.b.j().v(this.f16347g, this.j + 1);
+        b.a.q0.s.e0.b.j().v(this.f17847g, this.j + 1);
     }
 
     public void L(int i2) {
@@ -406,7 +406,7 @@ public class g {
     public void P(@DimenRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.B = this.f16343c.getResources().getDimensionPixelSize(i2);
+            this.B = this.f17843c.getResources().getDimensionPixelSize(i2);
         }
     }
 
@@ -532,7 +532,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeI(1048601, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f16349i = i2;
+        this.f17849i = i2;
     }
 
     public void h0(boolean z) {
@@ -545,7 +545,7 @@ public class g {
     public void i0(@DimenRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.C = this.f16343c.getResources().getDimensionPixelSize(i2);
+            this.C = this.f17843c.getResources().getDimensionPixelSize(i2);
         }
     }
 
@@ -568,11 +568,11 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(1048606, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        this.f16346f = str;
-        if (this.f16341a == null) {
-            this.f16341a = new Handler();
+        this.f17846f = str;
+        if (this.f17841a == null) {
+            this.f17841a = new Handler();
         }
-        this.f16341a.postDelayed(this.J, this.m);
+        this.f17841a.postDelayed(this.J, this.m);
     }
 
     public void m0(String str, String str2) {
@@ -593,23 +593,23 @@ public class g {
         View view;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048609, this, new Object[]{str, str2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (this.f16345e || StringUtils.isNull(str) || StringUtils.isNull(str2) || (view = this.f16344d) == null || view.getVisibility() != 0) {
+            if (this.f17845e || StringUtils.isNull(str) || StringUtils.isNull(str2) || (view = this.f17844d) == null || view.getVisibility() != 0) {
                 return false;
             }
-            this.f16346f = str;
-            this.f16347g = str2;
+            this.f17846f = str;
+            this.f17847g = str2;
             this.k = z2;
             int k = b.a.q0.s.e0.b.j().k(str2, 0);
             this.j = k;
             if (k < this.l || this.k) {
                 if (z) {
                     K();
-                    this.f16345e = true;
+                    this.f17845e = true;
                 }
-                if (this.f16341a == null) {
-                    this.f16341a = new Handler();
+                if (this.f17841a == null) {
+                    this.f17841a = new Handler();
                 }
-                this.f16341a.postDelayed(this.J, this.m);
+                this.f17841a.postDelayed(this.J, this.m);
                 return true;
             }
             return false;

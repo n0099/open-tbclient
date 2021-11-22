@@ -35,16 +35,16 @@ public class g extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Socket f29032c;
+    public Socket f29901c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InputStream f29033d;
+    public InputStream f29902d;
 
     /* renamed from: e  reason: collision with root package name */
-    public OutputStream f29034e;
+    public OutputStream f29903e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f29035f;
+    public String f29904f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(Context context, String str) {
@@ -64,28 +64,28 @@ public class g extends d {
                 return;
             }
         }
-        this.f29035f = str;
+        this.f29904f = str;
     }
 
     @Override // b.a.u.a.c.d
     public InputStream b() throws EOFException, IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new DataInputStream(this.f29033d) : (InputStream) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new DataInputStream(this.f29902d) : (InputStream) invokeV.objValue;
     }
 
     @Override // b.a.u.a.c.d
     public void c(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            this.f28990b = eVar;
+            this.f29859b = eVar;
             if (eVar != null) {
-                this.f29033d = eVar.f28994d;
-                this.f29034e = eVar.f28995e;
+                this.f29902d = eVar.f29863d;
+                this.f29903e = eVar.f29864e;
                 return;
             }
-            this.f29033d = null;
-            this.f29034e = null;
+            this.f29902d = null;
+            this.f29903e = null;
         }
     }
 
@@ -93,7 +93,7 @@ public class g extends d {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? k(this.f28990b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? k(this.f29859b) : invokeV.booleanValue;
     }
 
     @Override // b.a.u.a.c.d
@@ -107,11 +107,11 @@ public class g extends d {
     public void f(b bVar) throws IOException {
         OutputStream outputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || this.f29032c == null || (outputStream = this.f29034e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || this.f29901c == null || (outputStream = this.f29903e) == null) {
             return;
         }
-        outputStream.write(bVar.f28980a);
-        this.f29034e.flush();
+        outputStream.write(bVar.f29849a);
+        this.f29903e.flush();
     }
 
     public final e g(String str, int i2) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
@@ -119,18 +119,18 @@ public class g extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
             b.a.u.a.h.e.d("TcpMessageHandler", "---------------ip:" + str + "  port:" + i2 + "-----------------");
-            this.f29032c = h(str, i2);
+            this.f29901c = h(str, i2);
             e eVar = new e();
-            Socket socket = this.f29032c;
+            Socket socket = this.f29901c;
             if (socket == null) {
                 return eVar;
             }
-            eVar.f28993c = socket;
-            eVar.f28994d = socket.getInputStream();
-            eVar.f28995e = this.f29032c.getOutputStream();
+            eVar.f29862c = socket;
+            eVar.f29863d = socket.getInputStream();
+            eVar.f29864e = this.f29901c.getOutputStream();
             Boolean bool = Boolean.TRUE;
-            eVar.f28991a = bool;
-            eVar.f28992b = bool;
+            eVar.f29860a = bool;
+            eVar.f29861b = bool;
             return eVar;
         }
         return (e) invokeLI.objValue;
@@ -140,7 +140,7 @@ public class g extends d {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i2)) == null) {
-            if (this.f29035f.equals(b.c.f36147d)) {
+            if (this.f29904f.equals(b.c.f36976d)) {
                 return j(str, i2);
             }
             return i(str, i2);
@@ -160,7 +160,7 @@ public class g extends d {
         SSLCertificateSocketFactory sSLCertificateSocketFactory;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i2)) == null) {
-            SSLSessionCache sSLSessionCache = new SSLSessionCache(this.f28989a);
+            SSLSessionCache sSLSessionCache = new SSLSessionCache(this.f29858a);
             if (str.contains("baidu.com")) {
                 b.a.u.a.h.e.a("TcpMessageHandler", "localdns begin...,domain:" + str);
                 try {
@@ -211,19 +211,19 @@ public class g extends d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, eVar)) == null) {
-            if (eVar != null && eVar.f28991a.booleanValue()) {
+            if (eVar != null && eVar.f29860a.booleanValue()) {
                 try {
-                    if (eVar.f28993c != null) {
-                        eVar.f28993c.close();
-                        eVar.f28993c = null;
+                    if (eVar.f29862c != null) {
+                        eVar.f29862c.close();
+                        eVar.f29862c = null;
                     }
-                    if (eVar.f28994d != null) {
-                        eVar.f28994d.close();
-                        eVar.f28994d = null;
+                    if (eVar.f29863d != null) {
+                        eVar.f29863d.close();
+                        eVar.f29863d = null;
                     }
-                    if (eVar.f28995e != null) {
-                        eVar.f28995e.close();
-                        eVar.f28995e = null;
+                    if (eVar.f29864e != null) {
+                        eVar.f29864e.close();
+                        eVar.f29864e = null;
                         return true;
                     }
                     return true;

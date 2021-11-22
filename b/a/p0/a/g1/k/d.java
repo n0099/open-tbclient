@@ -22,17 +22,17 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f5151c;
+    public static final boolean f5303c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final d f5152d;
+    public static final d f5304d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f5153a;
+    public final AtomicBoolean f5305a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<b.a.p0.a.g1.k.a> f5154b;
+    public final List<b.a.p0.a.g1.k.a> f5306b;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -53,8 +53,8 @@ public class d {
                 return;
             }
         }
-        f5151c = k.f6397a;
-        f5152d = new d();
+        f5303c = k.f6863a;
+        f5304d = new d();
     }
 
     public d() {
@@ -70,20 +70,20 @@ public class d {
                 return;
             }
         }
-        this.f5153a = new AtomicBoolean(false);
-        b.a.h0.a.b.d<b.a.p0.a.g1.k.a> dVar = new c().f5150a;
-        this.f5154b = dVar == null ? null : dVar.getList();
+        this.f5305a = new AtomicBoolean(false);
+        b.a.h0.a.b.d<b.a.p0.a.g1.k.a> dVar = new c().f5302a;
+        this.f5306b = dVar == null ? null : dVar.getList();
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f5152d : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f5304d : (d) invokeV.objValue;
     }
 
     public void b(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.f5153a.getAndSet(true) && c()) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.f5305a.getAndSet(true) && c()) {
             Context applicationContext = context.getApplicationContext();
             if (applicationContext instanceof Application) {
                 ((Application) applicationContext).registerActivityLifecycleCallbacks(new b(this, null));
@@ -100,12 +100,12 @@ public class d {
     public void d(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            if (f5151c) {
+            if (f5303c) {
                 String str = ProcessUtils.getCurProcessName() + " to foreground";
             }
-            if (this.f5154b != null) {
+            if (this.f5306b != null) {
                 LifecycleProcessType current = LifecycleProcessType.getCurrent();
-                for (b.a.p0.a.g1.k.a aVar : this.f5154b) {
+                for (b.a.p0.a.g1.k.a aVar : this.f5306b) {
                     if (current == aVar.b()) {
                         aVar.a(true, activity);
                     }
@@ -117,12 +117,12 @@ public class d {
     public void e(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (f5151c) {
+            if (f5303c) {
                 String str = ProcessUtils.getCurProcessName() + " to background";
             }
-            if (this.f5154b != null) {
+            if (this.f5306b != null) {
                 LifecycleProcessType current = LifecycleProcessType.getCurrent();
-                for (b.a.p0.a.g1.k.a aVar : this.f5154b) {
+                for (b.a.p0.a.g1.k.a aVar : this.f5306b) {
                     if (current == aVar.b()) {
                         aVar.a(false, activity);
                     }
@@ -137,10 +137,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f5155e;
+        public int f5307e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f5156f;
+        public final /* synthetic */ d f5308f;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -157,18 +157,18 @@ public class d {
                     return;
                 }
             }
-            this.f5156f = dVar;
-            this.f5155e = 0;
+            this.f5308f = dVar;
+            this.f5307e = 0;
         }
 
         @Override // b.a.p0.a.g1.a, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-                int i2 = this.f5155e + 1;
-                this.f5155e = i2;
+                int i2 = this.f5307e + 1;
+                this.f5307e = i2;
                 if (i2 == 1) {
-                    this.f5156f.d(activity);
+                    this.f5308f.d(activity);
                 }
             }
         }
@@ -177,10 +177,10 @@ public class d {
         public void onActivityStopped(@NonNull Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                int i2 = this.f5155e - 1;
-                this.f5155e = i2;
+                int i2 = this.f5307e - 1;
+                this.f5307e = i2;
                 if (i2 == 0) {
-                    this.f5156f.e(activity);
+                    this.f5308f.e(activity);
                 }
             }
         }

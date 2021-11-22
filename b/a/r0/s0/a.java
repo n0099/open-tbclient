@@ -26,7 +26,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f23265a;
+    public static a f24596a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class a {
                 return;
             }
         }
-        f23265a = new a();
+        f24596a = new a();
     }
 
     public a() {
@@ -62,7 +62,7 @@ public class a {
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f23265a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f24596a : (a) invokeV.objValue;
     }
 
     public final boolean a(String str) {
@@ -111,7 +111,7 @@ public class a {
                         mainDBDatabaseManager.i(th, "EmotionsDBManager.getMyEmotion");
                         return null;
                     } finally {
-                        b.a.e.e.p.m.a(cursor);
+                        b.a.e.f.p.m.a(cursor);
                     }
                 }
             } catch (Throwable th2) {
@@ -140,7 +140,7 @@ public class a {
                     mainDBDatabaseManager.i(th, "EmotionsDBManager.hasEmotionByPckID");
                     return false;
                 } finally {
-                    b.a.e.e.p.m.a(cursor);
+                    b.a.e.f.p.m.a(cursor);
                 }
             }
         }
@@ -152,29 +152,29 @@ public class a {
         List<b.a.r0.f2.f.b> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
-            if (aVar == null || (list = aVar.f16431e) == null || list.size() == 0) {
+            if (aVar == null || (list = aVar.f17931e) == null || list.size() == 0) {
                 return 0;
             }
-            String str = ".emotions/" + aVar.f16427a;
+            String str = ".emotions/" + aVar.f17927a;
             g k = g.k();
-            List<b.a.r0.f2.f.b> list2 = aVar.f16431e;
+            List<b.a.r0.f2.f.b> list2 = aVar.f17931e;
             int i2 = 0;
             for (int i3 = 0; i3 < list2.size(); i3++) {
                 b.a.r0.f2.f.b bVar = list2.get(i3);
-                if (a(str + "/" + bVar.f16434g)) {
-                    if (a(str + "/" + bVar.f16435h)) {
+                if (a(str + "/" + bVar.f17934g)) {
+                    if (a(str + "/" + bVar.f17935h)) {
                         StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-                        sb.append(aVar.f16427a + "_" + bVar.f16433f);
+                        sb.append(aVar.f17927a + "_" + bVar.f17933f);
                         sb.append(",");
                         sb.append(bVar.j);
                         sb.append(",");
-                        sb.append(bVar.f16436i);
+                        sb.append(bVar.f17936i);
                         sb.append(",");
-                        String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + b.a.e.e.p.q.c(sb.toString() + "7S6wbXjEKL9N").toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
-                        boolean isGif = FileHelper.isGif(str, bVar.f16434g);
-                        b.g(aVar.f16427a, bVar.f16435h, b.c(str2, true, false));
-                        b.g(aVar.f16427a, bVar.f16434g, b.c(str2, false, isGif));
-                        if (k.d(str2, aVar.f16427a, i3 + 1)) {
+                        String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + b.a.e.f.p.q.c(sb.toString() + "7S6wbXjEKL9N").toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
+                        boolean isGif = FileHelper.isGif(str, bVar.f17934g);
+                        b.g(aVar.f17927a, bVar.f17935h, b.c(str2, true, false));
+                        b.g(aVar.f17927a, bVar.f17934g, b.c(str2, false, isGif));
+                        if (k.d(str2, aVar.f17927a, i3 + 1)) {
                             i2++;
                         }
                     }

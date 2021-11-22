@@ -62,13 +62,13 @@ public class l extends b.a.q0.g0.c {
     public final void g() {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbImageView = this.f12560c) != null && (tbImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12560c.getLayoutParams();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbImageView = this.f13323c) != null && (tbImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13323c.getLayoutParams();
             int i2 = j;
             layoutParams.width = i2;
             layoutParams.height = i2;
             layoutParams.topMargin = k;
-            this.f12560c.setLayoutParams(layoutParams);
+            this.f13323c.setLayoutParams(layoutParams);
         }
     }
 }

@@ -21,10 +21,10 @@ public class ClientConfigModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.q0.q.a f44986e;
+    public b.a.q0.q.a f45834e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final b.a.e.c.g.a f44987f;
+    public final b.a.e.c.g.a f45835f;
 
     /* loaded from: classes8.dex */
     public class a extends b.a.e.c.g.a {
@@ -32,7 +32,7 @@ public class ClientConfigModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ClientConfigModel f44988a;
+        public final /* synthetic */ ClientConfigModel f45836a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ClientConfigModel clientConfigModel, int i2, int i3) {
@@ -53,24 +53,24 @@ public class ClientConfigModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f44988a = clientConfigModel;
+            this.f45836a = clientConfigModel;
         }
 
         @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (!this.f44988a.z(responsedMessage)) {
-                    if (this.f44988a.f44986e != null) {
-                        this.f44988a.f44986e.onError("");
+                if (!this.f45836a.z(responsedMessage)) {
+                    if (this.f45836a.f45834e != null) {
+                        this.f45836a.f45834e.onError("");
                     }
                 } else if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
-                        this.f44988a.A(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+                        this.f45836a.A(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                     } else if (responsedMessage instanceof ClientConfigSocketResponse) {
-                        this.f44988a.A(((ClientConfigSocketResponse) responsedMessage).getData());
-                    } else if (this.f44988a.f44986e != null) {
-                        this.f44988a.f44986e.onError("");
+                        this.f45836a.A(((ClientConfigSocketResponse) responsedMessage).getData());
+                    } else if (this.f45836a.f45834e != null) {
+                        this.f45836a.f45834e.onError("");
                     }
                 } else {
                     String errorString = responsedMessage.getErrorString();
@@ -78,8 +78,8 @@ public class ClientConfigModel extends BdBaseModel {
                     if (StringUtils.isNull(errorString)) {
                         errorString = string;
                     }
-                    if (this.f44988a.f44986e != null) {
-                        this.f44988a.f44986e.onError(errorString);
+                    if (this.f45836a.f45834e != null) {
+                        this.f45836a.f45834e.onError(errorString);
                     }
                 }
             }
@@ -105,8 +105,8 @@ public class ClientConfigModel extends BdBaseModel {
             }
         }
         a aVar2 = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.f44987f = aVar2;
-        this.f44986e = aVar;
+        this.f45835f = aVar2;
+        this.f45834e = aVar;
         registerListener(aVar2);
     }
 
@@ -114,13 +114,13 @@ public class ClientConfigModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
             if (dataRes == null) {
-                if (this.f44986e != null) {
-                    this.f44986e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
+                if (this.f45834e != null) {
+                    this.f45834e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
                     return;
                 }
                 return;
             }
-            b.a.q0.q.a aVar = this.f44986e;
+            b.a.q0.q.a aVar = this.f45834e;
             if (aVar != null) {
                 aVar.a(dataRes);
             }

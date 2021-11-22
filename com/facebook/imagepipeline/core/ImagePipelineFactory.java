@@ -15,11 +15,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.cache.disk.FileCache;
 import com.facebook.common.internal.AndroidPredicates;
-import com.facebook.common.internal.Objects;
 import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.Suppliers;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.PooledByteBuffer;
-import com.facebook.common.references.CloseableReference;
 import com.facebook.imageformat.ImageFormatChecker;
 import com.facebook.imagepipeline.animated.factory.AnimatedFactory;
 import com.facebook.imagepipeline.animated.factory.AnimatedFactoryProvider;
@@ -32,16 +31,13 @@ import com.facebook.imagepipeline.cache.CountingMemoryCache;
 import com.facebook.imagepipeline.cache.EncodedCountingMemoryCacheFactory;
 import com.facebook.imagepipeline.cache.EncodedMemoryCacheFactory;
 import com.facebook.imagepipeline.cache.InstrumentedMemoryCache;
-import com.facebook.imagepipeline.cache.MemoryCache;
 import com.facebook.imagepipeline.decoder.DefaultImageDecoder;
 import com.facebook.imagepipeline.decoder.ImageDecoder;
 import com.facebook.imagepipeline.drawable.DrawableFactory;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.platform.PlatformDecoder;
 import com.facebook.imagepipeline.platform.PlatformDecoderFactory;
-import com.facebook.imagepipeline.producers.ExperimentalThreadHandoffProducerQueueImpl;
 import com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue;
-import com.facebook.imagepipeline.producers.ThreadHandoffProducerQueueImpl;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.facebook.imagepipeline.transcoder.ImageTranscoderFactory;
 import com.facebook.imagepipeline.transcoder.MultiImageTranscoderFactory;
@@ -53,8 +49,6 @@ import javax.annotation.concurrent.NotThreadSafe;
 public class ImagePipelineFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
-    public static boolean sForceSinglePipelineInstance;
-    public static ImagePipeline sImagePipeline;
     public static ImagePipelineFactory sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public AnimatedFactory mAnimatedFactory;
@@ -94,7 +88,6 @@ public class ImagePipelineFactory {
     }
 
     public ImagePipelineFactory(ImagePipelineConfig imagePipelineConfig) {
-        ThreadHandoffProducerQueue threadHandoffProducerQueueImpl;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,32 +105,19 @@ public class ImagePipelineFactory {
         if (FrescoSystrace.isTracing()) {
             FrescoSystrace.beginSection("ImagePipelineConfig()");
         }
-        ImagePipelineConfig imagePipelineConfig2 = (ImagePipelineConfig) Preconditions.checkNotNull(imagePipelineConfig);
-        this.mConfig = imagePipelineConfig2;
-        if (imagePipelineConfig2.getExperiments().isExperimentalThreadHandoffQueueEnabled()) {
-            threadHandoffProducerQueueImpl = new ExperimentalThreadHandoffProducerQueueImpl(imagePipelineConfig.getExecutorSupplier().forLightweightBackgroundTasks());
-        } else {
-            threadHandoffProducerQueueImpl = new ThreadHandoffProducerQueueImpl(imagePipelineConfig.getExecutorSupplier().forLightweightBackgroundTasks());
-        }
-        this.mThreadHandoffProducerQueue = threadHandoffProducerQueueImpl;
-        CloseableReference.setDisableCloseableReferencesForBitmaps(imagePipelineConfig.getExperiments().getBitmapCloseableRefType());
+        this.mConfig = (ImagePipelineConfig) Preconditions.checkNotNull(imagePipelineConfig);
+        this.mThreadHandoffProducerQueue = new ThreadHandoffProducerQueue(imagePipelineConfig.getExecutorSupplier().forLightweightBackgroundTasks());
         this.mCloseableReferenceFactory = new CloseableReferenceFactory(imagePipelineConfig.getCloseableReferenceLeakTracker());
         if (FrescoSystrace.isTracing()) {
             FrescoSystrace.endSection();
         }
     }
 
-    private ImagePipeline createImagePipeline() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new ImagePipeline(getProducerSequenceFactory(), this.mConfig.getRequestListeners(), this.mConfig.getRequestListener2s(), this.mConfig.getIsPrefetchEnabledSupplier(), getBitmapMemoryCache(), getEncodedMemoryCache(), getMainBufferedDiskCache(), getSmallImageBufferedDiskCache(), this.mConfig.getCacheKeyFactory(), this.mThreadHandoffProducerQueue, this.mConfig.getExperiments().getSuppressBitmapPrefetchingSupplier(), this.mConfig.getExperiments().isLazyDataSource(), this.mConfig.getCallerContextVerifier(), this.mConfig) : (ImagePipeline) invokeV.objValue;
-    }
-
     @Nullable
     private AnimatedFactory getAnimatedFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             if (this.mAnimatedFactory == null) {
                 this.mAnimatedFactory = AnimatedFactoryProvider.getAnimatedFactory(getPlatformBitmapFactory(), this.mConfig.getExecutorSupplier(), getBitmapCountingMemoryCache(), this.mConfig.getExperiments().shouldDownscaleFrameToDrawableDimensions());
             }
@@ -150,7 +130,7 @@ public class ImagePipelineFactory {
         InterceptResult invokeV;
         ImageDecoder imageDecoder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             if (this.mImageDecoder == null) {
                 if (this.mConfig.getImageDecoder() != null) {
                     this.mImageDecoder = this.mConfig.getImageDecoder();
@@ -179,12 +159,12 @@ public class ImagePipelineFactory {
     private ImageTranscoderFactory getImageTranscoderFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (this.mImageTranscoderFactory == null) {
                 if (this.mConfig.getImageTranscoderFactory() == null && this.mConfig.getImageTranscoderType() == null && this.mConfig.getExperiments().isNativeCodeDisabled()) {
                     this.mImageTranscoderFactory = new SimpleImageTranscoderFactory(this.mConfig.getExperiments().getMaxBitmapSize());
                 } else {
-                    this.mImageTranscoderFactory = new MultiImageTranscoderFactory(this.mConfig.getExperiments().getMaxBitmapSize(), this.mConfig.getExperiments().getUseDownsamplingRatioForResizing(), this.mConfig.getImageTranscoderFactory(), this.mConfig.getImageTranscoderType(), this.mConfig.getExperiments().isEnsureTranscoderLibraryLoaded());
+                    this.mImageTranscoderFactory = new MultiImageTranscoderFactory(this.mConfig.getExperiments().getMaxBitmapSize(), this.mConfig.getExperiments().getUseDownsamplingRatioForResizing(), this.mConfig.getImageTranscoderFactory(), this.mConfig.getImageTranscoderType());
                 }
             }
             return this.mImageTranscoderFactory;
@@ -195,15 +175,15 @@ public class ImagePipelineFactory {
     public static ImagePipelineFactory getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (ImagePipelineFactory) Preconditions.checkNotNull(sInstance, "ImagePipelineFactory was not initialized!") : (ImagePipelineFactory) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (ImagePipelineFactory) Preconditions.checkNotNull(sInstance, "ImagePipelineFactory was not initialized!") : (ImagePipelineFactory) invokeV.objValue;
     }
 
     private ProducerFactory getProducerFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
             if (this.mProducerFactory == null) {
-                this.mProducerFactory = this.mConfig.getExperiments().getProducerFactoryMethod().createProducerFactory(this.mConfig.getContext(), this.mConfig.getPoolFactory().getSmallByteArrayPool(), getImageDecoder(), this.mConfig.getProgressiveJpegConfig(), this.mConfig.isDownsampleEnabled(), this.mConfig.isResizeAndRotateEnabledForNetwork(), this.mConfig.getExperiments().isDecodeCancellationEnabled(), this.mConfig.getExecutorSupplier(), this.mConfig.getPoolFactory().getPooledByteBufferFactory(this.mConfig.getMemoryChunkType()), getBitmapMemoryCache(), getEncodedMemoryCache(), getMainBufferedDiskCache(), getSmallImageBufferedDiskCache(), this.mConfig.getCacheKeyFactory(), getPlatformBitmapFactory(), this.mConfig.getExperiments().getBitmapPrepareToDrawMinSizeBytes(), this.mConfig.getExperiments().getBitmapPrepareToDrawMaxSizeBytes(), this.mConfig.getExperiments().getBitmapPrepareToDrawForPrefetch(), this.mConfig.getExperiments().getMaxBitmapSize(), getCloseableReferenceFactory(), this.mConfig.getExperiments().shouldKeepCancelledFetchAsLowPriority(), this.mConfig.getExperiments().getTrackedKeysSize());
+                this.mProducerFactory = this.mConfig.getExperiments().getProducerFactoryMethod().createProducerFactory(this.mConfig.getContext(), this.mConfig.getPoolFactory().getSmallByteArrayPool(), getImageDecoder(), this.mConfig.getProgressiveJpegConfig(), this.mConfig.isDownsampleEnabled(), this.mConfig.isResizeAndRotateEnabledForNetwork(), this.mConfig.getExperiments().isDecodeCancellationEnabled(), this.mConfig.getExecutorSupplier(), this.mConfig.getPoolFactory().getPooledByteBufferFactory(this.mConfig.getMemoryChunkType()), getBitmapMemoryCache(), getEncodedMemoryCache(), getMainBufferedDiskCache(), getSmallImageBufferedDiskCache(), this.mConfig.getCacheKeyFactory(), getPlatformBitmapFactory(), this.mConfig.getExperiments().getBitmapPrepareToDrawMinSizeBytes(), this.mConfig.getExperiments().getBitmapPrepareToDrawMaxSizeBytes(), this.mConfig.getExperiments().getBitmapPrepareToDrawForPrefetch(), this.mConfig.getExperiments().getMaxBitmapSize(), getCloseableReferenceFactory());
             }
             return this.mProducerFactory;
         }
@@ -213,10 +193,10 @@ public class ImagePipelineFactory {
     private ProducerSequenceFactory getProducerSequenceFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             boolean z = Build.VERSION.SDK_INT >= 24 && this.mConfig.getExperiments().getUseBitmapPrepareToDraw();
             if (this.mProducerSequenceFactory == null) {
-                this.mProducerSequenceFactory = new ProducerSequenceFactory(this.mConfig.getContext().getApplicationContext().getContentResolver(), getProducerFactory(), this.mConfig.getNetworkFetcher(), this.mConfig.isResizeAndRotateEnabledForNetwork(), this.mConfig.getExperiments().isWebpSupportEnabled(), this.mThreadHandoffProducerQueue, this.mConfig.isDownsampleEnabled(), z, this.mConfig.getExperiments().isPartialImageCachingEnabled(), this.mConfig.isDiskCacheEnabled(), getImageTranscoderFactory(), this.mConfig.getExperiments().isEncodedMemoryCacheProbingEnabled(), this.mConfig.getExperiments().isDiskCacheProbingEnabled());
+                this.mProducerSequenceFactory = new ProducerSequenceFactory(this.mConfig.getContext().getApplicationContext().getContentResolver(), getProducerFactory(), this.mConfig.getNetworkFetcher(), this.mConfig.isResizeAndRotateEnabledForNetwork(), this.mConfig.getExperiments().isWebpSupportEnabled(), this.mThreadHandoffProducerQueue, this.mConfig.isDownsampleEnabled(), z, this.mConfig.getExperiments().isPartialImageCachingEnabled(), this.mConfig.isDiskCacheEnabled(), getImageTranscoderFactory());
             }
             return this.mProducerSequenceFactory;
         }
@@ -226,7 +206,7 @@ public class ImagePipelineFactory {
     private BufferedDiskCache getSmallImageBufferedDiskCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             if (this.mSmallImageBufferedDiskCache == null) {
                 this.mSmallImageBufferedDiskCache = new BufferedDiskCache(getSmallImageFileCache(), this.mConfig.getPoolFactory().getPooledByteBufferFactory(this.mConfig.getMemoryChunkType()), this.mConfig.getPoolFactory().getPooledByteStreams(), this.mConfig.getExecutorSupplier().forLocalStorageRead(), this.mConfig.getExecutorSupplier().forLocalStorageWrite(), this.mConfig.getImageCacheStatsTracker());
             }
@@ -239,7 +219,7 @@ public class ImagePipelineFactory {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (ImagePipelineFactory.class) {
                 z = sInstance != null;
             }
@@ -250,7 +230,7 @@ public class ImagePipelineFactory {
 
     public static synchronized void initialize(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
             synchronized (ImagePipelineFactory.class) {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("ImagePipelineFactory#initialize");
@@ -265,14 +245,14 @@ public class ImagePipelineFactory {
 
     public static void setInstance(ImagePipelineFactory imagePipelineFactory) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, imagePipelineFactory) == null) {
+        if (interceptable == null || interceptable.invokeL(65548, null, imagePipelineFactory) == null) {
             sInstance = imagePipelineFactory;
         }
     }
 
     public static synchronized void shutDown() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
             synchronized (ImagePipelineFactory.class) {
                 if (sInstance != null) {
                     sInstance.getBitmapMemoryCache().removeAll(AndroidPredicates.True());
@@ -302,7 +282,7 @@ public class ImagePipelineFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.mBitmapCountingMemoryCache == null) {
-                this.mBitmapCountingMemoryCache = BitmapCountingMemoryCacheFactory.get(this.mConfig.getBitmapMemoryCacheParamsSupplier(), this.mConfig.getMemoryTrimmableRegistry(), this.mConfig.getBitmapMemoryCacheTrimStrategy(), this.mConfig.getBitmapMemoryCacheEntryStateObserver());
+                this.mBitmapCountingMemoryCache = BitmapCountingMemoryCacheFactory.get(this.mConfig.getBitmapMemoryCacheParamsSupplier(), this.mConfig.getMemoryTrimmableRegistry(), this.mConfig.getBitmapMemoryCacheTrimStrategy());
             }
             return this.mBitmapCountingMemoryCache;
         }
@@ -311,16 +291,10 @@ public class ImagePipelineFactory {
 
     public InstrumentedMemoryCache<CacheKey, CloseableImage> getBitmapMemoryCache() {
         InterceptResult invokeV;
-        MemoryCache<CacheKey, CloseableImage> bitmapCountingMemoryCache;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.mBitmapMemoryCache == null) {
-                if (this.mConfig.getBitmapCacheOverride() != null) {
-                    bitmapCountingMemoryCache = this.mConfig.getBitmapCacheOverride();
-                } else {
-                    bitmapCountingMemoryCache = getBitmapCountingMemoryCache();
-                }
-                this.mBitmapMemoryCache = BitmapMemoryCacheFactory.get(bitmapCountingMemoryCache, this.mConfig.getImageCacheStatsTracker());
+                this.mBitmapMemoryCache = BitmapMemoryCacheFactory.get(getBitmapCountingMemoryCache(), this.mConfig.getImageCacheStatsTracker());
             }
             return this.mBitmapMemoryCache;
         }
@@ -347,16 +321,10 @@ public class ImagePipelineFactory {
 
     public InstrumentedMemoryCache<CacheKey, PooledByteBuffer> getEncodedMemoryCache() {
         InterceptResult invokeV;
-        MemoryCache<CacheKey, PooledByteBuffer> encodedCountingMemoryCache;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.mEncodedMemoryCache == null) {
-                if (this.mConfig.getEncodedMemoryCacheOverride() != null) {
-                    encodedCountingMemoryCache = this.mConfig.getEncodedMemoryCacheOverride();
-                } else {
-                    encodedCountingMemoryCache = getEncodedCountingMemoryCache();
-                }
-                this.mEncodedMemoryCache = EncodedMemoryCacheFactory.get(encodedCountingMemoryCache, this.mConfig.getImageCacheStatsTracker());
+                this.mEncodedMemoryCache = EncodedMemoryCacheFactory.get(getEncodedCountingMemoryCache(), this.mConfig.getImageCacheStatsTracker());
             }
             return this.mEncodedMemoryCache;
         }
@@ -367,16 +335,8 @@ public class ImagePipelineFactory {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (sForceSinglePipelineInstance) {
-                if (sImagePipeline == null) {
-                    ImagePipeline createImagePipeline = createImagePipeline();
-                    sImagePipeline = createImagePipeline;
-                    this.mImagePipeline = createImagePipeline;
-                }
-                return sImagePipeline;
-            }
             if (this.mImagePipeline == null) {
-                this.mImagePipeline = createImagePipeline();
+                this.mImagePipeline = new ImagePipeline(getProducerSequenceFactory(), this.mConfig.getRequestListeners(), this.mConfig.getIsPrefetchEnabledSupplier(), getBitmapMemoryCache(), getEncodedMemoryCache(), getMainBufferedDiskCache(), getSmallImageBufferedDiskCache(), this.mConfig.getCacheKeyFactory(), this.mThreadHandoffProducerQueue, Suppliers.of(Boolean.FALSE), this.mConfig.getExperiments().isLazyDataSource());
             }
             return this.mImagePipeline;
         }
@@ -443,29 +403,9 @@ public class ImagePipelineFactory {
         return (FileCache) invokeV.objValue;
     }
 
-    @Nullable
-    public String reportData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? Objects.toStringHelper("ImagePipelineFactory").add("bitmapCountingMemoryCache", this.mBitmapCountingMemoryCache.reportData()).add("encodedCountingMemoryCache", this.mEncodedCountingMemoryCache.reportData()).toString() : (String) invokeV.objValue;
-    }
-
-    public static synchronized void initialize(ImagePipelineConfig imagePipelineConfig, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65549, null, imagePipelineConfig, z) == null) {
-            synchronized (ImagePipelineFactory.class) {
-                if (sInstance != null) {
-                    FLog.w(TAG, "ImagePipelineFactory has already been initialized! `ImagePipelineFactory.initialize(...)` should only be called once to avoid unexpected behavior.");
-                }
-                sForceSinglePipelineInstance = z;
-                sInstance = new ImagePipelineFactory(imagePipelineConfig);
-            }
-        }
-    }
-
     public static synchronized void initialize(ImagePipelineConfig imagePipelineConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, imagePipelineConfig) == null) {
+        if (interceptable == null || interceptable.invokeL(65547, null, imagePipelineConfig) == null) {
             synchronized (ImagePipelineFactory.class) {
                 if (sInstance != null) {
                     FLog.w(TAG, "ImagePipelineFactory has already been initialized! `ImagePipelineFactory.initialize(...)` should only be called once to avoid unexpected behavior.");

@@ -47,7 +47,7 @@ public class w implements b.a.p0.a.p.d.n {
     public void b(Activity activity, Bundle bundle, b.a.p0.a.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, aVar) == null) {
-            a.N(activity, false, bundle, aVar);
+            a.M(activity, false, bundle, aVar);
         }
     }
 
@@ -70,7 +70,7 @@ public class w implements b.a.p0.a.p.d.n {
     public boolean e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? a.G(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? a.F(context) : invokeL.booleanValue;
     }
 
     @Override // b.a.p0.a.p.d.n
@@ -106,7 +106,7 @@ public class w implements b.a.p0.a.p.d.n {
     public void j(b.a.p0.a.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            new b.a.p0.b.p.d.a().h(aVar);
+            new b.a.p0.b.p.b.a().h(aVar);
         }
     }
 }

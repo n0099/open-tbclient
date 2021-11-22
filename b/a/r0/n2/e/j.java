@@ -11,28 +11,28 @@ public class j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f21462a;
+    public boolean f22958a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21463b;
+    public String f22959b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21464c;
+    public String f22960c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21465d;
+    public String f22961d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f21466e;
+    public Drawable f22962e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f21467f;
+    public Drawable f22963f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Drawable f21468g;
+    public Drawable f22964g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f21469h;
+    public boolean f22965h;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -47,6 +47,6 @@ public class j {
                 return;
             }
         }
-        this.f21462a = false;
+        this.f22958a = false;
     }
 }

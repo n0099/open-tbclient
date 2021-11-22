@@ -21,10 +21,10 @@ public class d extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<e> f14910e;
+    public List<e> f16402e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f14911f;
+    public Context f16403f;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -38,10 +38,10 @@ public class d extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f14912a;
+        public TextView f16404a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f14913b;
+        public View f16405b;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class d extends BaseAdapter {
                 return;
             }
         }
-        this.f14911f = context;
+        this.f16403f = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -89,10 +89,10 @@ public class d extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (this.f14910e == null || i2 < 0 || i2 >= getCount() - 1) {
+            if (this.f16402e == null || i2 < 0 || i2 >= getCount() - 1) {
                 return null;
             }
-            return this.f14910e.get(i2);
+            return this.f16402e.get(i2);
         }
         return (e) invokeI.objValue;
     }
@@ -100,7 +100,7 @@ public class d extends BaseAdapter {
     public void b(List<e> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f14910e = list;
+            this.f16402e = list;
             notifyDataSetChanged();
         }
     }
@@ -110,7 +110,7 @@ public class d extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<e> list = this.f14910e;
+            List<e> list = this.f16402e;
             if (list == null) {
                 return 1;
             }
@@ -142,29 +142,29 @@ public class d extends BaseAdapter {
             if (view != null && view.getTag() != null) {
                 bVar = (b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f14911f).inflate(R.layout.gift_num_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f16403f).inflate(R.layout.gift_num_item, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.f14912a = (TextView) view.findViewById(R.id.text);
-                bVar.f14913b = view.findViewById(R.id.divider);
+                bVar.f16404a = (TextView) view.findViewById(R.id.text);
+                bVar.f16405b = view.findViewById(R.id.divider);
                 view.setTag(bVar);
             }
             SkinManager.setBackgroundResource(view, R.drawable.list_item_selector);
-            SkinManager.setViewTextColor(bVar.f14912a, R.color.CAM_X0105, 1);
-            SkinManager.setBackgroundColor(bVar.f14913b, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.f16404a, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundColor(bVar.f16405b, R.color.CAM_X0204);
             e item = getItem(i2);
             if (getItemViewType(i2) == 1) {
-                bVar.f14912a.setText(R.string.custom_num);
-                bVar.f14913b.setVisibility(4);
+                bVar.f16404a.setText(R.string.custom_num);
+                bVar.f16405b.setVisibility(4);
             } else {
                 if (item != null) {
                     int b2 = item.b() > 0 ? item.b() : 1;
                     String a2 = item.a() != null ? item.a() : "";
-                    TextView textView = bVar.f14912a;
+                    TextView textView = bVar.f16404a;
                     textView.setText(b2 + a2);
-                    bVar.f14913b.setVisibility(0);
+                    bVar.f16405b.setVisibility(0);
                 } else {
-                    bVar.f14912a.setText("");
-                    bVar.f14913b.setVisibility(0);
+                    bVar.f16404a.setText("");
+                    bVar.f16405b.setVisibility(0);
                 }
             }
             return view;

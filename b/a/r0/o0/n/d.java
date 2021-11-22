@@ -1,7 +1,7 @@
 package b.a.r0.o0.n;
 
 import android.view.View;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import b.a.q0.s.q.q1;
 import b.a.q0.s.q.r1;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -21,19 +21,19 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f21943a;
+    public TbPageContext<?> f23442a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecommendForumLayout f21944b;
+    public RecommendForumLayout f23443b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f21945c;
+    public View.OnClickListener f23444c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PullLeftRefreshLayout.f f21946d;
+    public PullLeftRefreshLayout.f f23445d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.q0.n.f f21947e;
+    public b.a.q0.n.f f23446e;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -41,7 +41,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f21948e;
+        public final /* synthetic */ d f23447e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class d {
                     return;
                 }
             }
-            this.f21948e = dVar;
+            this.f23447e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.r0.o0.b.a(this.f21948e.f21943a, null);
+                b.a.r0.o0.b.a(this.f23447e.f23442a, null);
             }
         }
     }
@@ -76,7 +76,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d f21949a;
+        public final /* synthetic */ d f23448a;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -93,14 +93,14 @@ public class d {
                     return;
                 }
             }
-            this.f21949a = dVar;
+            this.f23448a = dVar;
         }
 
         @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.f
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.r0.o0.b.a(this.f21949a.f21943a, null);
+                b.a.r0.o0.b.a(this.f23448a.f23442a, null);
             }
         }
     }
@@ -111,7 +111,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f21950e;
+        public final /* synthetic */ d f23449e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -128,7 +128,7 @@ public class d {
                     return;
                 }
             }
-            this.f21950e = dVar;
+            this.f23449e = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -147,12 +147,12 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, q1Var, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
                 if (q1Var == null) {
-                    b.a.r0.o0.b.a(this.f21950e.f21943a, null);
+                    b.a.r0.o0.b.a(this.f23449e.f23442a, null);
                     return;
                 }
                 String p = q1Var.p();
                 if (k.isForumName(p)) {
-                    this.f21950e.f21943a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f21950e.f21943a.getPageActivity()).createNormalCfg(p, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
+                    this.f23449e.f23442a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f23449e.f23442a.getPageActivity()).createNormalCfg(p, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
                 }
             }
         }
@@ -173,31 +173,31 @@ public class d {
                 return;
             }
         }
-        this.f21945c = new a(this);
-        this.f21946d = new b(this);
-        this.f21947e = new c(this);
-        this.f21943a = tbPageContext;
+        this.f23444c = new a(this);
+        this.f23445d = new b(this);
+        this.f23446e = new c(this);
+        this.f23442a = tbPageContext;
         RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
-        this.f21944b = recommendForumLayout;
+        this.f23443b = recommendForumLayout;
         recommendForumLayout.setShowMore(true);
-        this.f21944b.setSquareEntranceAtStart(true);
-        this.f21944b.setTabName(null);
-        this.f21944b.setFrom(0);
-        this.f21944b.setOnClickRightArrowListener(this.f21945c);
-        this.f21944b.setOnRullOkCallbackr(this.f21946d);
-        this.f21944b.setOnItemCoverListener(this.f21947e);
+        this.f23443b.setSquareEntranceAtStart(true);
+        this.f23443b.setTabName(null);
+        this.f23443b.setFrom(0);
+        this.f23443b.setOnClickRightArrowListener(this.f23444c);
+        this.f23443b.setOnRullOkCallbackr(this.f23445d);
+        this.f23443b.setOnItemCoverListener(this.f23446e);
     }
 
     public void b(r1 r1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, r1Var) == null) {
-            this.f21944b.bindData(r1Var);
+            this.f23443b.bindData(r1Var);
         }
     }
 
     public RecommendForumLayout c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21944b : (RecommendForumLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23443b : (RecommendForumLayout) invokeV.objValue;
     }
 }

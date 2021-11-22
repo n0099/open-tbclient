@@ -3,8 +3,8 @@ package b.a.r0.w.k.a;
 import android.view.View;
 import android.view.ViewGroup;
 import b.a.q0.s.q.d2;
-import b.a.r0.b0.a0;
-import b.a.r0.l3.g;
+import b.a.r0.b0.b0;
+import b.a.r0.m3.g;
 import b.a.r0.x0.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements a0 {
+public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements b0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String x;
@@ -47,13 +47,13 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements a0 {
         this.x = "";
     }
 
-    @Override // b.a.r0.x0.k, b.a.e.l.e.a
+    @Override // b.a.r0.x0.k, b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         u0(i2, view, viewGroup, (g) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
         return view;
     }
 
-    @Override // b.a.r0.b0.a0
+    @Override // b.a.r0.b0.b0
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -61,7 +61,7 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements a0 {
         }
     }
 
-    @Override // b.a.r0.b0.a0
+    @Override // b.a.r0.b0.b0
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
@@ -69,7 +69,7 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements a0 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: t0 */
     public FrsPageAlaInsertRecLiveHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -95,9 +95,9 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements a0 {
             if (gVar != null) {
                 FrsViewData frsViewData = this.n;
                 int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-                List<d2> list = gVar.f20557e;
+                List<d2> list = gVar.f22407e;
                 if (list != null && list.get(0) != null) {
-                    gVar.f20557e.get(0).T1 = (i2 + 1) - topThreadSize;
+                    gVar.f22407e.get(0).T1 = (i2 + 1) - topThreadSize;
                 }
                 frsPageAlaInsertRecLiveHolder.mView.a(this.x);
                 frsPageAlaInsertRecLiveHolder.mView.j(gVar);

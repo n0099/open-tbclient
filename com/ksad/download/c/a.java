@@ -22,27 +22,27 @@ public class a extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f63776a;
+    public d f64689a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, Integer> f63777b;
+    public final Map<String, Integer> f64690b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Service f63778c;
+    public Service f64691c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HandlerC1885a f63779d;
+    public final HandlerC1925a f64692d;
 
     /* renamed from: com.ksad.download.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class HandlerC1885a extends Handler {
+    public static class HandlerC1925a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<a> f63780a;
+        public final WeakReference<a> f64693a;
 
-        public HandlerC1885a(a aVar) {
+        public HandlerC1925a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,18 +57,18 @@ public class a extends c {
                     return;
                 }
             }
-            this.f63780a = new WeakReference<>(aVar);
+            this.f64693a = new WeakReference<>(aVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             a aVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (aVar = this.f63780a.get()) != null && message.what == 1) {
-                if (aVar.f63776a == null || !aVar.f63776a.d()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (aVar = this.f64693a.get()) != null && message.what == 1) {
+                if (aVar.f64689a == null || !aVar.f64689a.d()) {
                     sendEmptyMessageDelayed(1, 30000L);
                 } else {
-                    aVar.f63778c.stopSelf();
+                    aVar.f64691c.stopSelf();
                 }
             }
         }
@@ -87,8 +87,8 @@ public class a extends c {
                 return;
             }
         }
-        this.f63777b = new ConcurrentHashMap();
-        this.f63779d = new HandlerC1885a(this);
+        this.f64690b = new ConcurrentHashMap();
+        this.f64692d = new HandlerC1925a(this);
     }
 
     private void a(Intent intent) {
@@ -100,15 +100,15 @@ public class a extends c {
             int intExtra = intent.getIntExtra("download_service_type_tag", 0);
             String stringExtra = intent.getStringExtra("download_service_id_tag");
             DownloadTask.DownloadRequest downloadRequest = (DownloadTask.DownloadRequest) intent.getSerializableExtra("download_service_args_tag");
-            Integer num = this.f63777b.get(stringExtra);
+            Integer num = this.f64690b.get(stringExtra);
             if (intExtra == 1) {
-                this.f63777b.put(stringExtra, Integer.valueOf(this.f63776a.a(downloadRequest, (com.ksad.download.c) null)));
+                this.f64690b.put(stringExtra, Integer.valueOf(this.f64689a.a(downloadRequest, (com.ksad.download.c) null)));
             } else if (intExtra == 2) {
-                this.f63776a.d(num.intValue());
+                this.f64689a.d(num.intValue());
             } else if (intExtra == 3) {
-                this.f63776a.e(num.intValue());
+                this.f64689a.e(num.intValue());
             } else if (intExtra == 4) {
-                this.f63776a.c(num.intValue());
+                this.f64689a.c(num.intValue());
             }
         } catch (Exception unused) {
         }
@@ -120,9 +120,9 @@ public class a extends c {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, service) == null) || service == null) {
             return;
         }
-        this.f63778c = service;
-        this.f63776a = d.a();
-        this.f63779d.sendEmptyMessageDelayed(1, 30000L);
+        this.f64691c = service;
+        this.f64689a = d.a();
+        this.f64692d.sendEmptyMessageDelayed(1, 30000L);
     }
 
     @Override // com.kwad.sdk.c.c, com.kwad.sdk.api.proxy.IServiceProxy

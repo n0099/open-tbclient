@@ -2,8 +2,8 @@ package com.baidu.tieba.personPolymeric.view;
 
 import android.content.Context;
 import android.view.ViewGroup;
-import b.a.e.e.k.b;
-import b.a.e.e.p.l;
+import b.a.e.f.k.b;
+import b.a.e.f.p.l;
 import b.a.r0.p2.e.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -21,7 +21,7 @@ public class PersonCommonForumCardView extends FlowLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f53246i;
+    public Context f54163i;
     public List<f> j;
     public List<PersonCommonForumItemView> k;
     public b<PersonCommonForumItemView> l;
@@ -45,7 +45,7 @@ public class PersonCommonForumCardView extends FlowLayout {
             }
         }
         this.k = new ArrayList();
-        this.f53246i = context;
+        this.f54163i = context;
     }
 
     public final void f() {
@@ -57,7 +57,7 @@ public class PersonCommonForumCardView extends FlowLayout {
             if (fVar != null) {
                 PersonCommonForumItemView b2 = this.l.b();
                 b2.setData(fVar);
-                addView(b2, new ViewGroup.LayoutParams(((l.k(this.f53246i) - l.g(this.f53246i, R.dimen.tbds88)) - l.g(this.f53246i, R.dimen.tbds96)) / 2, -2));
+                addView(b2, new ViewGroup.LayoutParams(((l.k(this.f54163i) - l.g(this.f54163i, R.dimen.tbds88)) - l.g(this.f54163i, R.dimen.tbds96)) / 2, -2));
                 this.k.add(b2);
             }
         }

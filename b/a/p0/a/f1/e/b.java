@@ -7,10 +7,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.c2.f.p0.j;
 import b.a.p0.a.f1.e.b;
+import b.a.p0.a.f2.f.o0.j;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.o0;
+import b.a.p0.a.z2.g1.f;
+import b.a.p0.a.z2.o0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.swan.apps.model.SwanAppBearInfo;
@@ -33,11 +34,11 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f5048i;
+    public static final boolean f4823i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f5049h;
+    public long f4824h;
 
     /* loaded from: classes.dex */
     public static final class a extends b<a> {
@@ -58,31 +59,31 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
             }
         }
 
-        public a G1() {
+        public a J1() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (a) invokeV.objValue;
         }
 
         @Override // b.a.p0.a.f1.e.b, b.a.p0.a.f1.e.e
-        public /* bridge */ /* synthetic */ e O0(int i2) {
-            return super.O0(i2);
+        public /* bridge */ /* synthetic */ e Q0(int i2) {
+            return super.Q0(i2);
         }
 
-        @Override // b.a.p0.a.v2.e1.d
-        public /* bridge */ /* synthetic */ b.a.p0.a.v2.e1.d a() {
-            G1();
+        @Override // b.a.p0.a.z2.g1.f
+        public /* bridge */ /* synthetic */ f a() {
+            J1();
             return this;
-        }
-
-        @Override // b.a.p0.a.f1.e.b, b.a.p0.a.f1.e.e
-        public /* bridge */ /* synthetic */ e t0(String str) {
-            return super.t0(str);
         }
 
         @Override // b.a.p0.a.f1.e.b, b.a.p0.a.f1.e.f.c
         public /* bridge */ /* synthetic */ b.a.p0.a.f1.e.f.c update(Bundle bundle) {
             return super.update(bundle);
+        }
+
+        @Override // b.a.p0.a.f1.e.b, b.a.p0.a.f1.e.e
+        public /* bridge */ /* synthetic */ e v0(String str) {
+            return super.v0(str);
         }
     }
 
@@ -99,7 +100,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
                 return;
             }
         }
-        f5048i = k.f6397a;
+        f4823i = k.f6863a;
     }
 
     public b() {
@@ -116,17 +117,17 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         }
     }
 
-    public static b a1(@NonNull Intent intent) {
+    public static b d1(@NonNull Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
-            boolean z = f5048i;
+            boolean z = f4823i;
             return new a().update(intent);
         }
         return (b) invokeL.objValue;
     }
 
-    public static String i1(String str, SwanAppConfigData swanAppConfigData) {
+    public static String l1(String str, SwanAppConfigData swanAppConfigData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, swanAppConfigData)) == null) {
@@ -134,10 +135,10 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
                 return null;
             }
             String f2 = o0.f(str);
-            if (b.a.p0.a.t1.b.a.e(f2)) {
-                return o0.i(str, b.a.p0.a.c2.g.a.f4513b);
+            if (b.a.p0.a.w1.c.a.k(f2)) {
+                return o0.i(str, b.a.p0.a.f2.g.a.f5230b);
             }
-            if (swanAppConfigData.o(j.b(f2))) {
+            if (swanAppConfigData.p(j.b(f2))) {
                 return str;
             }
             return null;
@@ -145,20 +146,20 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         return (String) invokeLL.objValue;
     }
 
-    public static String j1(b bVar, SwanAppConfigData swanAppConfigData) {
+    public static String m1(b bVar, SwanAppConfigData swanAppConfigData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar, swanAppConfigData)) == null) ? i1(u1(bVar.d0()), swanAppConfigData) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar, swanAppConfigData)) == null) ? l1(x1(bVar.e0()), swanAppConfigData) : (String) invokeLL.objValue;
     }
 
-    public static String k1(String str, SwanAppConfigData swanAppConfigData) {
+    public static String n1(String str, SwanAppConfigData swanAppConfigData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, swanAppConfigData)) == null) {
             if (!TextUtils.isEmpty(str) && swanAppConfigData != null) {
-                return i1(u1(l1(str)), swanAppConfigData);
+                return l1(x1(o1(str)), swanAppConfigData);
             }
-            if (f5048i) {
+            if (f4823i) {
                 String str2 = "getPageInfo ret null - " + str;
                 return null;
             }
@@ -167,7 +168,7 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         return (String) invokeLL.objValue;
     }
 
-    public static String l1(String str) {
+    public static String o1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
@@ -177,22 +178,22 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
             Uri parse = Uri.parse(str);
             String j = o0.j(parse);
             if (TextUtils.isEmpty(j)) {
-                boolean z = f5048i;
+                boolean z = f4823i;
                 return null;
             }
             String n = o0.n(j, parse, true);
             if (TextUtils.isEmpty(n)) {
-                boolean z2 = f5048i;
+                boolean z2 = f4823i;
                 return null;
             }
-            String i2 = o0.i(parse.getEncodedQuery(), b.a.p0.a.c2.g.a.f4513b);
-            if (f5048i) {
+            String i2 = o0.i(parse.getEncodedQuery(), b.a.p0.a.f2.g.a.f5230b);
+            if (f4823i) {
                 String str2 = "query: " + i2;
             }
             if (!TextUtils.isEmpty(i2)) {
                 n = n + "?" + i2;
             }
-            if (f5048i) {
+            if (f4823i) {
                 String str3 = "launch path - " + n;
             }
             return n;
@@ -200,37 +201,47 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         return (String) invokeL.objValue;
     }
 
-    public static String u1(String str) {
+    public static String x1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? (TextUtils.isEmpty(str) || !str.startsWith(File.separator)) ? str : str.substring(1) : (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.p0.a.f1.e.e
-    /* renamed from: A1 */
-    public SelfT O0(int i2) {
-        InterceptResult invokeI;
+    public SelfT A1(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            PMSAppInfo e0 = e0();
-            if (e0 != null) {
-                e0.setOrientation(i2);
-                return (SelfT) super.O0(i2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.appKey = str;
             }
-            return (SelfT) a();
+            return (SelfT) super.w0(str);
         }
-        return (SelfT) invokeI.objValue;
+        return (SelfT) invokeL.objValue;
     }
 
     public SelfT B1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            PMSAppInfo e0 = e0();
-            if (e0 != null) {
-                e0.serviceCategory = str;
-                return (SelfT) super.S0(str);
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.appName = str;
+            }
+            return (SelfT) super.x0(str);
+        }
+        return (SelfT) invokeL.objValue;
+    }
+
+    public SelfT C1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            super.E0(str);
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.iconUrl = str;
+                return (SelfT) super.E0(str);
             }
             return (SelfT) a();
         }
@@ -238,28 +249,45 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
     }
 
     @Override // b.a.p0.a.f1.e.f.c
-    public Bundle C() {
+    public Bundle D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Bundle C = super.C();
-            b.a.p0.a.e0.f.b.g(C);
-            String G = G();
-            if (!TextUtils.isEmpty(G)) {
-                C.putString("mAppId", G);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Bundle D = super.D();
+            b.a.p0.a.e0.f.b.g(D);
+            String H = H();
+            if (!TextUtils.isEmpty(H)) {
+                D.putString("mAppId", H);
             }
-            return C;
+            return D;
         }
         return (Bundle) invokeV.objValue;
     }
 
-    public SelfT C1(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // b.a.p0.a.f1.e.e
+    /* renamed from: D1 */
+    public SelfT Q0(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.setOrientation(i2);
+                return (SelfT) super.Q0(i2);
+            }
+            return (SelfT) a();
+        }
+        return (SelfT) invokeI.objValue;
+    }
+
+    public SelfT E1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            PMSAppInfo e0 = e0();
-            if (e0 != null) {
-                e0.subjectInfo = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.serviceCategory = str;
                 return (SelfT) super.U0(str);
             }
             return (SelfT) a();
@@ -267,30 +295,55 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         return (SelfT) invokeL.objValue;
     }
 
-    public SelfT D1(long j) {
+    public SelfT F1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.subjectInfo = str;
+                return (SelfT) super.W0(str);
+            }
+            return (SelfT) a();
+        }
+        return (SelfT) invokeL.objValue;
+    }
+
+    public SelfT G1(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-            if (this.f5049h < 1 && j > 0) {
-                this.f5049h = j;
-                return (SelfT) super.V0(j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+            if (this.f4824h < 1 && j > 0) {
+                this.f4824h = j;
+                return (SelfT) super.Y0(j);
             }
             return (SelfT) a();
         }
         return (SelfT) invokeJ.objValue;
     }
 
-    public SelfT E1(String str) {
+    @Override // b.a.p0.a.f1.e.e
+    public String H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            PMSAppInfo f0 = f0();
+            return (f0 == null || TextUtils.isEmpty(f0.appId)) ? super.H() : f0.appId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public SelfT H1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            PMSAppInfo e0 = e0();
-            if (!TextUtils.isEmpty(str) && e0 != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            PMSAppInfo f0 = f0();
+            if (!TextUtils.isEmpty(str) && f0 != null) {
                 try {
-                    e0.versionCode = Integer.parseInt(str);
-                    return (SelfT) super.Y0(str);
+                    f0.versionCode = Integer.parseInt(str);
+                    return (SelfT) super.b1(str);
                 } catch (NumberFormatException e2) {
-                    if (f5048i) {
+                    if (f4823i) {
                         e2.printStackTrace();
                     }
                 }
@@ -300,139 +353,142 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         return (SelfT) invokeL.objValue;
     }
 
-    public String F1() {
+    @Override // b.a.p0.a.f1.e.e
+    public String I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "SwanAppLaunchInfo{mAppId='" + G() + ExtendedMessageFormat.QUOTE + ", mAppKey='" + H() + ExtendedMessageFormat.QUOTE + ", mAppTitle='" + J() + ExtendedMessageFormat.QUOTE + ", pmsAppInfo is null='" + j0() + ExtendedMessageFormat.QUOTE + ", launchFrom='" + S() + ExtendedMessageFormat.QUOTE + ", launchScheme='" + V() + ExtendedMessageFormat.QUOTE + ", page='" + d0() + ExtendedMessageFormat.QUOTE + ", mErrorCode=" + c1() + ", mErrorDetail='" + d1() + ExtendedMessageFormat.QUOTE + ", mErrorMsg='" + e1() + ExtendedMessageFormat.QUOTE + ", mResumeDate='" + o1() + ExtendedMessageFormat.QUOTE + ", maxSwanVersion='" + Y() + ExtendedMessageFormat.QUOTE + ", minSwanVersion='" + Z() + ExtendedMessageFormat.QUOTE + ", mVersion='" + s1() + ExtendedMessageFormat.QUOTE + ", mType=" + getType() + ", extraData=" + O() + ", isDebug=" + l0() + ", isLocalDebug=" + n0() + ", targetSwanVersion='" + i0() + ExtendedMessageFormat.QUOTE + ", swanCoreVersion=" + h0() + ", appFrameType=" + F() + ", consoleSwitch=" + k0() + ", orientation=" + c0() + ", versionCode='" + t1() + ExtendedMessageFormat.QUOTE + ", launchFlags=" + R() + ", swanAppStartTime=" + r1() + ", extStartTimestamp=" + M() + ", remoteDebug='" + f0() + ExtendedMessageFormat.QUOTE + ", extJSonObject=" + L() + ", launchId=" + U() + ExtendedMessageFormat.END_FE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            PMSAppInfo f0 = f0();
+            return (f0 == null || TextUtils.isEmpty(f0.appKey)) ? super.I() : f0.appKey;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // b.a.p0.a.f1.e.e
-    public String G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            PMSAppInfo e0 = e0();
-            return (e0 == null || TextUtils.isEmpty(e0.appId)) ? super.G() : e0.appId;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // b.a.p0.a.f1.e.e
-    public String H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            PMSAppInfo e0 = e0();
-            return (e0 == null || TextUtils.isEmpty(e0.appKey)) ? super.H() : e0.appKey;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // b.a.p0.a.f1.e.e
-    public String J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            PMSAppInfo e0 = e0();
-            return (e0 == null || TextUtils.isEmpty(e0.appName)) ? super.J() : e0.appName;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // b.a.p0.a.f1.e.e
-    public String P() {
+    public String I1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            PMSAppInfo e0 = e0();
-            return (e0 == null || TextUtils.isEmpty(e0.iconUrl)) ? super.P() : e0.iconUrl;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            PMSAppInfo e0 = e0();
-            return e0 == null ? "" : e0.description;
+            return "SwanAppLaunchInfo{mAppId='" + H() + ExtendedMessageFormat.QUOTE + ", mAppKey='" + I() + ExtendedMessageFormat.QUOTE + ", mAppTitle='" + K() + ExtendedMessageFormat.QUOTE + ", pmsAppInfo is null='" + l0() + ExtendedMessageFormat.QUOTE + ", launchFrom='" + T() + ExtendedMessageFormat.QUOTE + ", launchScheme='" + W() + ExtendedMessageFormat.QUOTE + ", page='" + e0() + ExtendedMessageFormat.QUOTE + ", mErrorCode=" + f1() + ", mErrorDetail='" + g1() + ExtendedMessageFormat.QUOTE + ", mErrorMsg='" + h1() + ExtendedMessageFormat.QUOTE + ", mResumeDate='" + r1() + ExtendedMessageFormat.QUOTE + ", maxSwanVersion='" + Z() + ExtendedMessageFormat.QUOTE + ", minSwanVersion='" + a0() + ExtendedMessageFormat.QUOTE + ", mVersion='" + v1() + ExtendedMessageFormat.QUOTE + ", mType=" + getType() + ", extraData=" + P() + ", isDebug=" + n0() + ", isLocalDebug=" + p0() + ", targetSwanVersion='" + k0() + ExtendedMessageFormat.QUOTE + ", swanCoreVersion=" + j0() + ", appFrameType=" + G() + ", consoleSwitch=" + m0() + ", orientation=" + d0() + ", versionCode='" + w1() + ExtendedMessageFormat.QUOTE + ", launchFlags=" + S() + ", swanAppStartTime=" + u1() + ", extStartTimestamp=" + N() + ", remoteDebug='" + g0() + ExtendedMessageFormat.QUOTE + ", extJSonObject=" + M() + ", launchId=" + V() + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
 
     @Override // b.a.p0.a.f1.e.e
-    public int c0() {
+    public String K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            PMSAppInfo f0 = f0();
+            return (f0 == null || TextUtils.isEmpty(f0.appName)) ? super.K() : f0.appName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.a.f1.e.e
+    public String Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            PMSAppInfo e0 = e0();
-            int orientation = e0 == null ? -1 : e0.getOrientation();
-            return -1 < orientation ? orientation : super.c0();
+            PMSAppInfo f0 = f0();
+            return (f0 == null || TextUtils.isEmpty(f0.iconUrl)) ? super.Q() : f0.iconUrl;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public int c1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            PMSAppInfo e0 = e0();
-            if (e0 == null) {
-                return 0;
-            }
-            return e0.appStatus;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d1() {
+    @Override // b.a.p0.a.f1.e.e
+    public int d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            PMSAppInfo e0 = e0();
-            return e0 == null ? "" : e0.statusDetail;
+            PMSAppInfo f0 = f0();
+            int orientation = f0 == null ? -1 : f0.getOrientation();
+            return -1 < orientation ? orientation : super.d0();
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     public String e1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            PMSAppInfo e0 = e0();
-            return e0 == null ? "" : e0.statusDesc;
+            PMSAppInfo f0 = f0();
+            return f0 == null ? "" : f0.description;
         }
         return (String) invokeV.objValue;
     }
 
-    public long f1() {
+    public int f1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            PMSAppInfo e0 = e0();
-            if (e0 == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return 0;
+            }
+            return f0.appStatus;
+        }
+        return invokeV.intValue;
+    }
+
+    public String g1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            PMSAppInfo f0 = f0();
+            return f0 == null ? "" : f0.statusDetail;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.a.f1.e.e
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return 0;
+            }
+            return f0.type;
+        }
+        return invokeV.intValue;
+    }
+
+    public String h1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            PMSAppInfo f0 = f0();
+            return f0 == null ? "" : f0.statusDesc;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long i1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
                 return 0L;
             }
-            return e0.pkgSize;
+            return f0.pkgSize;
         }
         return invokeV.longValue;
     }
 
-    public JSONObject g1() {
+    public JSONObject j1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            String V = V();
-            if (V != null) {
-                String queryParameter = Uri.parse(V).getQueryParameter("_swaninfo");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            String W = W();
+            if (W != null) {
+                String queryParameter = Uri.parse(W).getQueryParameter("_swaninfo");
                 if (!TextUtils.isEmpty(queryParameter)) {
                     try {
                         return new JSONObject(queryParameter).optJSONObject("baidusearch");
                     } catch (JSONException e2) {
-                        if (f5048i) {
+                        if (f4823i) {
                             e2.printStackTrace();
                         }
                     }
@@ -443,30 +499,16 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         return (JSONObject) invokeV.objValue;
     }
 
-    @Override // b.a.p0.a.f1.e.e
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            PMSAppInfo e0 = e0();
-            if (e0 == null) {
-                return 0;
-            }
-            return e0.type;
-        }
-        return invokeV.intValue;
-    }
-
     @SuppressLint({"KotlinPropertyAccess"})
-    public SwanAppBearInfo h1() {
+    public SwanAppBearInfo k1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            PMSAppInfo e0 = e0();
-            if (e0 == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
                 return null;
             }
-            String str = e0.bearInfo;
+            String str = f0.bearInfo;
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -475,71 +517,45 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
         return (SwanAppBearInfo) invokeV.objValue;
     }
 
-    public int m1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            PMSAppInfo e0 = e0();
-            return e0 == null ? PMSConstants.PayProtected.NO_PAY_PROTECTED.type : e0.payProtected;
-        }
-        return invokeV.intValue;
-    }
-
-    public String n1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            PMSAppInfo e0 = e0();
-            if (e0 == null) {
-                return null;
-            }
-            return e0.quickAppKey;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String o1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            PMSAppInfo e0 = e0();
-            return e0 == null ? "" : e0.resumeDate;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String p1() {
+    public int p1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            PMSAppInfo e0 = e0();
-            return e0 == null ? "" : e0.serviceCategory;
+            PMSAppInfo f0 = f0();
+            return f0 == null ? PMSConstants.PayProtected.NO_PAY_PROTECTED.type : f0.payProtected;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     public String q1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            PMSAppInfo e0 = e0();
-            return e0 == null ? "" : e0.subjectInfo;
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return null;
+            }
+            return f0.quickAppKey;
         }
         return (String) invokeV.objValue;
     }
 
-    public long r1() {
+    public String r1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f5049h : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            PMSAppInfo f0 = f0();
+            return f0 == null ? "" : f0.resumeDate;
+        }
+        return (String) invokeV.objValue;
     }
 
     public String s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            PMSAppInfo e0 = e0();
-            return e0 == null ? "" : String.valueOf(e0.versionCode);
+            PMSAppInfo f0 = f0();
+            return f0 == null ? "" : f0.serviceCategory;
         }
         return (String) invokeV.objValue;
     }
@@ -547,21 +563,47 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
     public String t1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            PMSAppInfo e0 = e0();
-            return e0 == null ? "" : e0.versionName;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            PMSAppInfo f0 = f0();
+            return f0 == null ? "" : f0.subjectInfo;
         }
         return (String) invokeV.objValue;
     }
 
-    public SelfT v1(String str) {
+    public long u1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f4824h : invokeV.longValue;
+    }
+
+    public String v1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            PMSAppInfo f0 = f0();
+            return f0 == null ? "" : String.valueOf(f0.versionCode);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String w1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            PMSAppInfo f0 = f0();
+            return f0 == null ? "" : f0.versionName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public SelfT y1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) {
-            PMSAppInfo e0 = e0();
-            if (e0 != null) {
-                e0.description = str;
-                return (SelfT) super.r0(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, str)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.description = str;
+                return (SelfT) super.t0(str);
             }
             return (SelfT) a();
         }
@@ -570,57 +612,16 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // b.a.p0.a.f1.e.e
-    /* renamed from: w1 */
-    public SelfT t0(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) {
-            super.t0(str);
-            PMSAppInfo e0 = e0();
-            if (e0 != null) {
-                e0.appId = str;
-                return (SelfT) super.t0(str);
-            }
-            return (SelfT) a();
-        }
-        return (SelfT) invokeL.objValue;
-    }
-
-    public SelfT x1(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, str)) == null) {
-            PMSAppInfo e0 = e0();
-            if (e0 != null) {
-                e0.appKey = str;
-            }
-            return (SelfT) super.u0(str);
-        }
-        return (SelfT) invokeL.objValue;
-    }
-
-    public SelfT y1(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, str)) == null) {
-            PMSAppInfo e0 = e0();
-            if (e0 != null) {
-                e0.appName = str;
-            }
-            return (SelfT) super.v0(str);
-        }
-        return (SelfT) invokeL.objValue;
-    }
-
-    public SelfT z1(String str) {
+    /* renamed from: z1 */
+    public SelfT v0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, str)) == null) {
-            super.C0(str);
-            PMSAppInfo e0 = e0();
-            if (e0 != null) {
-                e0.iconUrl = str;
-                return (SelfT) super.C0(str);
+            super.v0(str);
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.appId = str;
+                return (SelfT) super.v0(str);
             }
             return (SelfT) a();
         }
@@ -636,8 +637,8 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
             }
             update(intent.getExtras());
             if (d.a(intent)) {
-                G0("1250000000000000");
-                w("box_cold_launch", -1L);
+                I0("1250000000000000");
+                x("box_cold_launch", -1L);
             }
             return (SelfT) a();
         }
@@ -654,10 +655,10 @@ public abstract class b<SelfT extends b<SelfT>> extends e<SelfT> {
                 return (SelfT) a();
             }
             b.a.p0.a.e0.f.b.h(bundle);
-            b.a.p0.a.r1.j.e().h(bundle);
+            b.a.p0.a.u1.j.e().h(bundle);
             super.update(bundle);
             if (TextUtils.isEmpty(bundle.getString("mPage"))) {
-                A("mPage");
+                B("mPage");
             }
             return (SelfT) a();
         }

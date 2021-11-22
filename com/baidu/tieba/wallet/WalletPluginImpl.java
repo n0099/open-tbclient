@@ -120,9 +120,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                         str3 = null;
                     }
                     e eVar = new e();
-                    eVar.f12796a = this.val$tag;
-                    eVar.f12797b = i2;
-                    eVar.f12798c = str3;
+                    eVar.f13546a = this.val$tag;
+                    eVar.f13547b = i2;
+                    eVar.f13548c = str3;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                 }
             }
@@ -172,8 +172,8 @@ public class WalletPluginImpl implements IWalletPlugin {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
                         e eVar = new e();
-                        eVar.f12797b = i2;
-                        eVar.f12798c = str2;
+                        eVar.f13547b = i2;
+                        eVar.f13548c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921335, eVar));
                     }
                 }
@@ -226,9 +226,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
                         e eVar = new e();
-                        eVar.f12796a = this.val$tag;
-                        eVar.f12797b = i2;
-                        eVar.f12798c = str2;
+                        eVar.f13546a = this.val$tag;
+                        eVar.f13547b = i2;
+                        eVar.f13548c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                     }
                 }
@@ -510,9 +510,9 @@ public class WalletPluginImpl implements IWalletPlugin {
                         }
                         int i3 = i2 == 9000 ? 0 : i2 == 8000 ? 1 : i2 == 6001 ? 2 : 6;
                         e eVar = new e();
-                        eVar.f12796a = this.val$tag;
-                        eVar.f12797b = i3;
-                        eVar.f12798c = str2;
+                        eVar.f13546a = this.val$tag;
+                        eVar.f13547b = i3;
+                        eVar.f13548c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
                     }
                 }

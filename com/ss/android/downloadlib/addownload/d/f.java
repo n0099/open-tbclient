@@ -14,11 +14,11 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f68629a;
+    public static f f69549a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<d> f68630b;
+    public List<d> f69550b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -34,25 +34,25 @@ public class f {
             }
         }
         ArrayList arrayList = new ArrayList();
-        this.f68630b = arrayList;
+        this.f69550b = arrayList;
         arrayList.add(new e());
-        this.f68630b.add(new g());
-        this.f68630b.add(new b());
-        this.f68630b.add(new a());
+        this.f69550b.add(new g());
+        this.f69550b.add(new b());
+        this.f69550b.add(new a());
     }
 
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f68629a == null) {
+            if (f69549a == null) {
                 synchronized (f.class) {
-                    if (f68629a == null) {
-                        f68629a = new f();
+                    if (f69549a == null) {
+                        f69549a = new f();
                     }
                 }
             }
-            return f68629a;
+            return f69549a;
         }
         return (f) invokeV.objValue;
     }
@@ -60,12 +60,12 @@ public class f {
     public void a(com.ss.android.downloadad.api.a.b bVar, int i2, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, bVar, i2, cVar) == null) {
-            List<d> list = this.f68630b;
+            List<d> list = this.f69550b;
             if (list != null && list.size() != 0 && bVar != null) {
                 DownloadInfo a2 = com.ss.android.downloadlib.g.a((Context) null).a(bVar.a());
                 if (a2 != null && "application/vnd.android.package-archive".equals(a2.getMimeType())) {
                     boolean z = com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("pause_optimise_switch", 0) == 1;
-                    for (d dVar : this.f68630b) {
+                    for (d dVar : this.f69550b) {
                         if (z || (dVar instanceof g)) {
                             if (dVar.a(bVar, i2, cVar)) {
                                 return;

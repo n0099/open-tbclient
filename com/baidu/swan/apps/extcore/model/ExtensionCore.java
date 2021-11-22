@@ -2,7 +2,7 @@ package com.baidu.swan.apps.extcore.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import b.a.p0.a.v2.l0;
+import b.a.p0.a.z2.l0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;

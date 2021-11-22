@@ -7,7 +7,7 @@ import android.graphics.Matrix;
 import android.util.Base64;
 import android.view.View;
 import androidx.annotation.NonNull;
-import b.a.p0.a.v2.n0;
+import b.a.p0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -49,7 +49,7 @@ public class c extends a {
             this.q = n0.g((float) jSONObject.optDouble("width"));
             this.r = n0.g((float) jSONObject.optDouble("height"));
         } catch (Exception e2) {
-            b.a.p0.a.e0.d.c("canvasGetImageData", "CanvasGetImageData meets json exception", e2);
+            b.a.p0.a.e0.d.d("canvasGetImageData", "CanvasGetImageData meets json exception", e2);
         }
     }
 
@@ -110,7 +110,7 @@ public class c extends a {
                 i3 = k.getWidth();
                 i2 = k.getHeight();
             } else {
-                b.a.p0.a.e0.d.a("canvasGetImageData", "canvas size is invalid.");
+                b.a.p0.a.e0.d.b("canvasGetImageData", "canvas size is invalid.");
                 str = "";
                 i2 = 0;
             }
@@ -120,7 +120,7 @@ public class c extends a {
                 jSONObject.put("height", i2);
                 jSONObject.put("data", str);
             } catch (Exception e2) {
-                b.a.p0.a.e0.d.c("canvasGetImageData", "CanvasGetImageData meets json exception", e2);
+                b.a.p0.a.e0.d.d("canvasGetImageData", "CanvasGetImageData meets json exception", e2);
             }
             return jSONObject;
         }
@@ -132,7 +132,7 @@ public class c extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) {
-            float l = 1.0f / n0.l(b.a.p0.a.c1.a.b());
+            float l = 1.0f / n0.l(b.a.p0.a.c1.a.c());
             Matrix matrix = new Matrix();
             matrix.postScale(l, l);
             return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);

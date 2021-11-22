@@ -13,7 +13,7 @@ import com.google.zxing.common.BitArray;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonEncoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class Encoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AZTEC_LAYERS = 0;

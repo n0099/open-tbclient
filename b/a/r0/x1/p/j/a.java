@@ -26,26 +26,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static boolean r;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f27058e;
+    public boolean f28590e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27059f;
+    public boolean f28591f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f27060g;
+    public String f28592g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashMap<Class, IPlayerContext> f27061h;
+    public HashMap<Class, IPlayerContext> f28593h;
 
     /* renamed from: i  reason: collision with root package name */
-    public IVideoPlayerCallback f27062i;
+    public IVideoPlayerCallback f28594i;
     public List<LivePlayer.OnInfoListener> j;
     public List<LivePlayer.OnProgressChangeListener> k;
     public String l;
@@ -56,27 +56,27 @@ public class a {
     public Button q;
 
     /* renamed from: b.a.r0.x1.p.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C1330a implements OrientationHelper.IOrientationChange {
+    /* loaded from: classes6.dex */
+    public class C1399a implements OrientationHelper.IOrientationChange {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Activity f27063a;
+        public Activity f28595a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f27064b;
+        public boolean f28596b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f27065c;
+        public boolean f28597c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f27066d;
+        public long f28598d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f27067e;
+        public final /* synthetic */ a f28599e;
 
-        public C1330a(a aVar, Activity activity) {
+        public C1399a(a aVar, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,48 +91,48 @@ public class a {
                     return;
                 }
             }
-            this.f27067e = aVar;
-            this.f27066d = 0L;
-            this.f27063a = activity;
+            this.f28599e = aVar;
+            this.f28598d = 0L;
+            this.f28595a = activity;
         }
 
         @Override // com.baidu.searchbox.player.helper.OrientationHelper.IOrientationChange
         public void onOrientationChanged(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || !this.f27067e.o || a.r || OrientationHelper.isSystemOrientationLocked(this.f27063a)) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || !this.f28599e.o || a.r || OrientationHelper.isSystemOrientationLocked(this.f28595a)) {
                 return;
             }
-            if (!this.f27067e.d()) {
-                this.f27064b = false;
+            if (!this.f28599e.d()) {
+                this.f28596b = false;
                 if (OrientationHelper.isPortrait(i2)) {
-                    this.f27065c = true;
+                    this.f28597c = true;
                 }
-                if (!this.f27065c || System.currentTimeMillis() - this.f27066d <= 1000) {
+                if (!this.f28597c || System.currentTimeMillis() - this.f28598d <= 1000) {
                     return;
                 }
                 if (OrientationHelper.isReverseLandscape(i2)) {
-                    this.f27064b = true;
-                    BdActivityUtils.requestLandscape(this.f27063a, true);
+                    this.f28596b = true;
+                    BdActivityUtils.requestLandscape(this.f28595a, true);
                     return;
                 } else if (OrientationHelper.isLandscape(i2)) {
-                    this.f27064b = true;
-                    BdActivityUtils.requestLandscape(this.f27063a, false);
+                    this.f28596b = true;
+                    BdActivityUtils.requestLandscape(this.f28595a, false);
                     return;
                 } else {
                     return;
                 }
             }
-            this.f27065c = false;
+            this.f28597c = false;
             if (OrientationHelper.isReverseLandscape(i2)) {
-                this.f27064b = true;
-                BdActivityUtils.requestLandscape(this.f27063a, true);
+                this.f28596b = true;
+                BdActivityUtils.requestLandscape(this.f28595a, true);
             } else if (OrientationHelper.isLandscape(i2)) {
-                this.f27064b = true;
-                BdActivityUtils.requestLandscape(this.f27063a, false);
-            } else if (OrientationHelper.isPortrait(i2) && this.f27064b && System.currentTimeMillis() - this.f27066d > 1000) {
-                this.f27066d = System.currentTimeMillis();
-                this.f27064b = false;
-                BdActivityUtils.requestPortrait(this.f27063a);
+                this.f28596b = true;
+                BdActivityUtils.requestLandscape(this.f28595a, false);
+            } else if (OrientationHelper.isPortrait(i2) && this.f28596b && System.currentTimeMillis() - this.f28598d > 1000) {
+                this.f28598d = System.currentTimeMillis();
+                this.f28596b = false;
+                BdActivityUtils.requestPortrait(this.f28595a);
             }
         }
     }
@@ -165,10 +165,10 @@ public class a {
                 return;
             }
         }
-        this.f27058e = false;
-        this.f27059f = false;
-        this.f27060g = "lp_bdrtc";
-        this.f27061h = new HashMap<>();
+        this.f28590e = false;
+        this.f28591f = false;
+        this.f28592g = "lp_bdrtc";
+        this.f28593h = new HashMap<>();
         this.j = new ArrayList();
         this.k = new ArrayList();
         this.l = PlayerConstant.HALF_MODE;
@@ -179,7 +179,7 @@ public class a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            boolean z = this.f27059f;
+            boolean z = this.f28591f;
         }
     }
 
@@ -218,8 +218,8 @@ public class a {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f27059f = i2 >= 3;
-            this.f27058e = i2 >= 2;
+            this.f28591f = i2 >= 3;
+            this.f28590e = i2 >= 2;
         }
     }
 
@@ -231,7 +231,7 @@ public class a {
             this.n = orientationHelper;
             if (orientationHelper.canDetectOrientation()) {
                 this.n.enableSensor();
-                this.n.setListener(new C1330a(this, (Activity) context));
+                this.n.setListener(new C1399a(this, (Activity) context));
             }
         }
     }
@@ -295,7 +295,7 @@ public class a {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            boolean z = this.f27058e;
+            boolean z = this.f28590e;
         }
     }
 
@@ -311,7 +311,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, cls)) == null) {
             a("getPlayerContext " + cls);
-            T t = (T) this.f27061h.get(cls);
+            T t = (T) this.f28593h.get(cls);
             if (t != null) {
                 return t;
             }
@@ -361,7 +361,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, cls, iPlayerContext) == null) {
             a("registerContext " + iPlayerContext);
-            this.f27061h.put(cls, iPlayerContext);
+            this.f28593h.put(cls, iPlayerContext);
         }
     }
 
@@ -412,7 +412,7 @@ public class a {
     public void setPlayerListener(IVideoPlayerCallback iVideoPlayerCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, iVideoPlayerCallback) == null) {
-            this.f27062i = iVideoPlayerCallback;
+            this.f28594i = iVideoPlayerCallback;
         }
     }
 

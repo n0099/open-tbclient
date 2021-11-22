@@ -4,11 +4,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import b.a.p0.a.a2.d;
+import b.a.p0.a.d2.d;
 import b.a.p0.a.k;
-import b.a.p0.g.c.a;
-import b.a.p0.g.c.d.b;
-import b.a.p0.g.c.d.e;
+import b.a.p0.i.b.a;
+import b.a.p0.i.b.d.b;
+import b.a.p0.i.b.d.e;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -38,7 +38,7 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        DEBUG = k.f6397a;
+        DEBUG = k.f6863a;
     }
 
     public AppDownloadNetworkStateReceiver() {
@@ -62,25 +62,25 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
             return;
         }
         boolean z = DEBUG;
-        if (b.a().b() && SwanAppNetworkUtils.f() == SwanAppNetworkUtils.NetType.WIFI) {
+        if (SwanAppNetworkUtils.NetType.WIFI == SwanAppNetworkUtils.f() && b.a().b()) {
             if (ProcessUtils.isMainProcess()) {
                 a.n().D();
                 return;
             }
-            b.a.p0.a.v1.c.e.a z2 = d.g().z();
+            b.a.p0.a.y1.c.e.a z2 = d.J().z();
             if (z2 != null) {
                 Bundle bundle = new Bundle();
                 bundle.putString(KEY_OPERATION, "resumeAllDownload");
-                z2.K(bundle, e.class);
+                z2.V(bundle, e.class);
             }
         } else if (ProcessUtils.isMainProcess()) {
             a.n().u();
         } else {
-            b.a.p0.a.v1.c.e.a z3 = d.g().z();
+            b.a.p0.a.y1.c.e.a z3 = d.J().z();
             if (z3 != null) {
                 Bundle bundle2 = new Bundle();
                 bundle2.putString(KEY_OPERATION, "pauseAllDownload");
-                z3.K(bundle2, e.class);
+                z3.V(bundle2, e.class);
             }
         }
     }

@@ -2,8 +2,8 @@ package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.b;
-import b.a.e.e.p.k;
+import b.a.e.f.m.b;
+import b.a.e.f.p.k;
 import b.a.r0.l1.s.a;
 import b.a.r0.l1.w.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
@@ -622,7 +622,7 @@ public class CommonMsgPojo extends OrmObject implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else if (chatMessage instanceof PersonalChatMessage) {
-                this.gid = String.valueOf(a.f20346i);
+                this.gid = String.valueOf(a.f21868i);
             } else if (chatMessage instanceof OfficialChatMessage) {
                 this.gid = String.valueOf(a.j);
             }

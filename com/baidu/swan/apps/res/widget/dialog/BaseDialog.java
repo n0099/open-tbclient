@@ -6,7 +6,7 @@ import android.content.DialogInterface;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
-import b.a.p0.a.z1.b.a;
+import b.a.p0.a.c2.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ public class BaseDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f44145e;
+    public boolean f44943e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseDialog(@NonNull Context context) {
@@ -38,13 +38,13 @@ public class BaseDialog extends Dialog {
                 return;
             }
         }
-        this.f44145e = a.f9227b;
+        this.f44943e = a.f4338b;
     }
 
     public void setEnableImmersion(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f44145e = a.f9227b && z;
+            this.f44943e = a.f4338b && z;
         }
     }
 
@@ -52,15 +52,15 @@ public class BaseDialog extends Dialog {
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f44145e) {
-                a.i(this);
+            if (this.f44943e) {
+                a.k(this);
             }
-            boolean e2 = a.e(this);
-            if (e2) {
+            boolean f2 = a.f(this);
+            if (f2) {
                 getWindow().setFlags(8, 8);
             }
             super.show();
-            if (e2) {
+            if (f2) {
                 getWindow().clearFlags(8);
             }
         }
@@ -85,7 +85,7 @@ public class BaseDialog extends Dialog {
                 return;
             }
         }
-        this.f44145e = a.f9227b;
+        this.f44943e = a.f4338b;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -107,6 +107,6 @@ public class BaseDialog extends Dialog {
                 return;
             }
         }
-        this.f44145e = a.f9227b;
+        this.f44943e = a.f4338b;
     }
 }

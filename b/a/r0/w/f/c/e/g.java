@@ -14,7 +14,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SdkLiveInfoData f24608a;
+    public SdkLiveInfoData f26125a;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f24608a != null && b.a.e.e.m.b.g(this.f24608a.liveId, 0L) > 0;
+            return this.f26125a != null && b.a.e.f.m.b.g(this.f26125a.liveId, 0L) > 0;
         }
         return invokeV.booleanValue;
     }
@@ -46,7 +46,7 @@ public class g {
             return;
         }
         SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
-        this.f24608a = sdkLiveInfoData;
+        this.f26125a = sdkLiveInfoData;
         sdkLiveInfoData.fromJson(optJSONObject, str);
     }
 }

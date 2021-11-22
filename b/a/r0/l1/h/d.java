@@ -27,7 +27,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f20123a;
+    public static d f21645a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public d() {
@@ -48,10 +48,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f20123a == null) {
-                f20123a = new d();
+            if (f21645a == null) {
+                f21645a = new d();
             }
-            return f20123a;
+            return f21645a;
         }
         return (d) invokeV.objValue;
     }
@@ -144,10 +144,10 @@ public class d {
                     TiebaStatic.printDBExceptionLog(e3, "GroupNewsDao.getAllByCmd", new Object[0]);
                     e3.printStackTrace();
                 }
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
                 return m(linkedList);
             } catch (Throwable th) {
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
                 throw th;
             }
         }
@@ -186,13 +186,13 @@ public class d {
                                 e2 = e3;
                                 e2.printStackTrace();
                                 TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getByNoticeId", new Object[0]);
-                                b.a.e.e.p.m.a(cursor);
+                                b.a.e.f.p.m.a(cursor);
                                 return groupNewsPojo;
                             }
                         } catch (Throwable th) {
                             th = th;
                             cursor2 = cursor;
-                            b.a.e.e.p.m.a(cursor2);
+                            b.a.e.f.p.m.a(cursor2);
                             throw th;
                         }
                     } catch (Exception e4) {
@@ -201,7 +201,7 @@ public class d {
                     }
                 }
             }
-            b.a.e.e.p.m.a(cursor);
+            b.a.e.f.p.m.a(cursor);
             return groupNewsPojo2;
         } catch (Exception e5) {
             groupNewsPojo = null;
@@ -209,7 +209,7 @@ public class d {
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            b.a.e.e.p.m.a(cursor2);
+            b.a.e.f.p.m.a(cursor2);
             throw th;
         }
     }
@@ -233,7 +233,7 @@ public class d {
                 }
                 return i2;
             } finally {
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
             }
         }
         return invokeL.intValue;
@@ -260,7 +260,7 @@ public class d {
                 }
                 return i3;
             } finally {
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
             }
         }
         return invokeLI.intValue;
@@ -311,7 +311,7 @@ public class d {
                     stringBuffer.append(") VALUES(?,?,?,?,?,?,?)");
                     SQLiteStatement a2 = h.d().a(stringBuffer.toString());
                     if (a2 == null) {
-                        b.a.e.e.p.m.c(a2);
+                        b.a.e.f.p.m.c(a2);
                         return -1L;
                     }
                     a2.clearBindings();
@@ -323,15 +323,15 @@ public class d {
                     f.b(a2, 6, groupNewsPojo.getNotice_id());
                     a2.bindLong(7, groupNewsPojo.getTime());
                     long executeInsert = a2.executeInsert();
-                    b.a.e.e.p.m.c(a2);
+                    b.a.e.f.p.m.c(a2);
                     return executeInsert;
                 } catch (Exception e2) {
                     TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.insertByStatement", new Object[0]);
-                    b.a.e.e.p.m.c(null);
+                    b.a.e.f.p.m.c(null);
                     return -1L;
                 }
             } catch (Throwable th) {
-                b.a.e.e.p.m.c(null);
+                b.a.e.f.p.m.c(null);
                 throw th;
             }
         }
@@ -405,23 +405,23 @@ public class d {
             }
             try {
                 String string = e2.moveToNext() ? e2.getString(e2.getColumnIndex("notice_id")) : null;
-                b.a.e.e.p.m.a(e2);
+                b.a.e.f.p.m.a(e2);
                 if (string != null) {
                     h.d().delete("tb_group_news", "notice_id<?", new String[]{string});
                 }
-                b.a.e.e.p.m.a(e2);
+                b.a.e.f.p.m.a(e2);
                 return true;
             } catch (Exception e4) {
                 e = e4;
                 cursor = e2;
                 e.printStackTrace();
                 TiebaStatic.printDBExceptionLog(e, "shrink", new Object[0]);
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
                 return false;
             } catch (Throwable th2) {
                 th = th2;
                 cursor = e2;
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
                 throw th;
             }
         }

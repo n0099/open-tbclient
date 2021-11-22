@@ -48,166 +48,6 @@ public class WebViewClient {
     public transient /* synthetic */ FieldHolder $fh;
     public List<g> mUrlHandlers;
 
-    /* loaded from: classes11.dex */
-    public static class FirstScreenImageInfo {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean bHaveImageInScreen;
-        public int nErrorOccurredCount;
-        public int nImageCount;
-        public long nMaxTimeStamp;
-        public int nPaintHeightForMaxImage;
-        public int nPaintWidthForMaxImage;
-        public int nPosXForMaxImage;
-        public int nPosYForMaxImage;
-        public long nTimeStampForMaxImage;
-        public String url;
-
-        public FirstScreenImageInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public int getErrorOccurredCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.nErrorOccurredCount : invokeV.intValue;
-        }
-
-        public boolean getHaveImageInScreen() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bHaveImageInScreen : invokeV.booleanValue;
-        }
-
-        public int getImageCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.nImageCount : invokeV.intValue;
-        }
-
-        public long getMaxTimeStamp() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.nMaxTimeStamp : invokeV.longValue;
-        }
-
-        public int getPaintHeightForMaxImage() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.nPaintHeightForMaxImage : invokeV.intValue;
-        }
-
-        public int getPaintWidthForMaxImage() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.nPaintWidthForMaxImage : invokeV.intValue;
-        }
-
-        public int getPosXForMaxImage() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.nPosXForMaxImage : invokeV.intValue;
-        }
-
-        public int getPosYForMaxImage() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.nPosYForMaxImage : invokeV.intValue;
-        }
-
-        public long getTimeStampForMaxImage() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.nTimeStampForMaxImage : invokeV.longValue;
-        }
-
-        public String getUrl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.url : (String) invokeV.objValue;
-        }
-
-        public void setErrorOccurredCount(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-                this.nErrorOccurredCount = i2;
-            }
-        }
-
-        public void setHaveImageInScreen(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-                this.bHaveImageInScreen = z;
-            }
-        }
-
-        public void setImageCount(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-                this.nImageCount = i2;
-            }
-        }
-
-        public void setMaxTimeStamp(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-                this.nMaxTimeStamp = j;
-            }
-        }
-
-        public void setPaintHeightForMaxImage(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-                this.nPaintHeightForMaxImage = i2;
-            }
-        }
-
-        public void setPaintWidthForMaxImage(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-                this.nPaintWidthForMaxImage = i2;
-            }
-        }
-
-        public void setPosXForMaxImage(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-                this.nPosXForMaxImage = i2;
-            }
-        }
-
-        public void setPosYForMaxImage(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-                this.nPosYForMaxImage = i2;
-            }
-        }
-
-        public void setTimeStampForMaxImage(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-                this.nTimeStampForMaxImage = j;
-            }
-        }
-
-        public void setUrl(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-                this.url = str;
-            }
-        }
-    }
-
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes11.dex */
     public static final class InteractionType {
@@ -652,9 +492,9 @@ public class WebViewClient {
         }
     }
 
-    public void onFirstScreenImagePaint(WebView webView, FirstScreenImageInfo firstScreenImageInfo) {
+    public void onFirstScreenImagePaintFinished(WebView webView, FirstScreenImageInfomation firstScreenImageInfomation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, webView, firstScreenImageInfo) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048595, this, webView, firstScreenImageInfomation) == null) {
         }
     }
 
@@ -758,174 +598,186 @@ public class WebViewClient {
         }
     }
 
+    public void onJsCodeCacheFinished(JsCodeCacheResult jsCodeCacheResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048612, this, jsCodeCacheResult) == null) {
+        }
+    }
+
     public void onJsJumpDid(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048612, this, webView, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048613, this, webView, str) == null) {
         }
     }
 
     public void onKeywordExtension(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048613, this, webView, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048614, this, webView, str, str2) == null) {
         }
     }
 
     public void onLoadResource(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048614, this, webView, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048615, this, webView, str) == null) {
         }
     }
 
     public void onMagicFilterAbortResourceRequest(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048615, this, str, str2, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048616, this, str, str2, z) == null) {
         }
     }
 
     public void onMagicFilterHideElement(WebView webView, String str, int i2, int i3, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{webView, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{webView, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
         }
     }
 
     public void onMainActionsCollected(WebView webView, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{webView, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{webView, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
         }
     }
 
     public void onMainResourceHttpcodeDid(WebView webView, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048618, this, webView, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048619, this, webView, i2, str) == null) {
         }
     }
 
     public void onMainResourceIdDid(WebView webView, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048619, this, webView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048620, this, webView, i2) == null) {
         }
     }
 
     public void onMainResourceNetcodeDid(WebView webView, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048620, this, webView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048621, this, webView, i2) == null) {
         }
     }
 
     public void onMainResourceResponseDid(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048621, this, webView, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048622, this, webView, str) == null) {
         }
     }
 
     public void onManifestChanged(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, webView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048623, this, webView) == null) {
         }
     }
 
     public void onNavigationAnimationFinish(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, webView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048624, this, webView) == null) {
         }
     }
 
     public void onNavigationAnimationFinish(WebView webView, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
         }
     }
 
     public void onNavigationAnimationStart(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, webView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048626, this, webView) == null) {
         }
     }
 
     public void onNavigationAnimationStart(WebView webView, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048626, this, webView, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048627, this, webView, z) == null) {
         }
     }
 
     public void onNewHistoryItem(WebView webView, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048627, this, webView, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048628, this, webView, str, i2) == null) {
+        }
+    }
+
+    public void onNotifyVideoInfo(VideoSniffingInfo videoSniffingInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048629, this, videoSniffingInfo) == null) {
         }
     }
 
     public void onPageCanBeScaled(WebView webView, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048628, this, webView, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048630, this, webView, z) == null) {
         }
     }
 
     public void onPageCommitVisible(WebView webView, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048629, this, webView, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048631, this, webView, str, z) == null) {
         }
     }
 
     public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048630, this, webView, str) == null) && webView != null && webView.getContext().getPackageName().contains("com.baidu.searchbox")) {
+        if ((interceptable == null || interceptable.invokeLL(1048632, this, webView, str) == null) && webView != null && webView.getContext().getPackageName().contains("com.baidu.searchbox")) {
             webView.getSecureProcessor().c();
         }
     }
 
     public void onPageLoadTime(WebView webView, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{webView, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{webView, str, Long.valueOf(j)}) == null) {
         }
     }
 
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048632, this, webView, str, bitmap) == null) && webView != null && webView.getContext().getPackageName().contains("com.baidu.searchbox")) {
+        if ((interceptable == null || interceptable.invokeLLL(1048634, this, webView, str, bitmap) == null) && webView != null && webView.getContext().getPackageName().contains("com.baidu.searchbox")) {
             webView.getSecureProcessor().c();
         }
     }
 
     public void onPageSwitching(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, webView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048635, this, webView) == null) {
         }
     }
 
     public void onPageWithHSTSDid(String str, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
         }
     }
 
     public void onPausePlugin() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048637, this) == null) {
         }
     }
 
     public void onPlayPlugin() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
         }
     }
 
     public void onPreloadUrlFound(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048637, this, webView, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048639, this, webView, str) == null) {
         }
     }
 
     public void onProceededAfterSslError(WebView webView, SslError sslError) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048638, this, webView, sslError) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048640, this, webView, sslError) == null) {
         }
     }
 
     public String onProcessWebSearchUrl(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048639, this, webView, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048641, this, webView, str)) == null) {
             return null;
         }
         return (String) invokeLL.objValue;
@@ -933,14 +785,14 @@ public class WebViewClient {
 
     public void onReceivedClientCertRequest(WebView webView, ClientCertRequest clientCertRequest) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048640, this, webView, clientCertRequest) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048642, this, webView, clientCertRequest) == null) {
             clientCertRequest.cancel();
         }
     }
 
     public void onReceivedClientCertRequest(WebView webView, ClientCertRequest clientCertRequest, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048641, this, webView, clientCertRequest, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048643, this, webView, clientCertRequest, str) == null) {
             onReceivedClientCertRequest(webView, clientCertRequest);
         }
     }
@@ -948,44 +800,44 @@ public class WebViewClient {
     @Deprecated
     public void onReceivedError(WebView webView, int i2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048642, this, webView, i2, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLILL(1048644, this, webView, i2, str, str2) == null) {
         }
     }
 
     public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048643, this, webView, webResourceRequest, webResourceError) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048645, this, webView, webResourceRequest, webResourceError) == null) {
         }
     }
 
     public void onReceivedHttpAuthRequest(WebView webView, HttpAuthHandler httpAuthHandler, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048644, this, webView, httpAuthHandler, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048646, this, webView, httpAuthHandler, str, str2) == null) {
             httpAuthHandler.cancel();
         }
     }
 
     public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048645, this, webView, webResourceRequest, webResourceResponse) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048647, this, webView, webResourceRequest, webResourceResponse) == null) {
         }
     }
 
     public void onReceivedImageDataCompleted(String str, String str2, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048646, this, str, str2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048648, this, str, str2, bArr) == null) {
         }
     }
 
     public void onReceivedLoginRequest(WebView webView, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048647, this, webView, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048649, this, webView, str, str2, str3) == null) {
         }
     }
 
     public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048648, this, webView, sslErrorHandler, sslError) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048650, this, webView, sslErrorHandler, sslError) == null) {
             sslErrorHandler.cancel();
         }
     }
@@ -993,7 +845,7 @@ public class WebViewClient {
     public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048649, this, webView, renderProcessGoneDetail)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048651, this, webView, renderProcessGoneDetail)) == null) {
             return false;
         }
         return invokeLL.booleanValue;
@@ -1001,56 +853,56 @@ public class WebViewClient {
 
     public void onResourceLoaded(WebView webView, String str, long j, String str2, String str3, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048650, this, new Object[]{webView, str, Long.valueOf(j), str2, str3, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048652, this, new Object[]{webView, str, Long.valueOf(j), str2, str3, Integer.valueOf(i2)}) == null) {
         }
     }
 
     public void onRestoreFromCache(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048651, this, webView, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048653, this, webView, str) == null) {
         }
     }
 
     public void onRestoreFromPageCacheDid(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048652, this, webView, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048654, this, webView, str) == null) {
         }
     }
 
     public void onResumePlugin() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048653, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048655, this) == null) {
         }
     }
 
     public void onScaleChanged(WebView webView, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048654, this, new Object[]{webView, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048656, this, new Object[]{webView, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
         }
     }
 
     public void onSearchLandingPageClicked(WebView webView, String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048655, this, new Object[]{webView, str, str2, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048657, this, new Object[]{webView, str, str2, Long.valueOf(j)}) == null) {
         }
     }
 
     public void onSecurityCheckResult(WebView webView, String str, SecurityInfo securityInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048656, this, webView, str, securityInfo) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048658, this, webView, str, securityInfo) == null) {
         }
     }
 
     public void onStartFirstNavigation(WebView webView, String str, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048657, this, new Object[]{webView, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048659, this, new Object[]{webView, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
         }
     }
 
     public boolean onSubFrameBeforeRequest(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048658, this, webView, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048660, this, webView, str)) == null) {
             return false;
         }
         return invokeLL.booleanValue;
@@ -1058,14 +910,14 @@ public class WebViewClient {
 
     public void onSubjectsCollected(WebView webView, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048659, this, new Object[]{webView, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048661, this, new Object[]{webView, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
         }
     }
 
     public boolean onSupportsForceZoomScale(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048660, this, webView)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048662, this, webView)) == null) {
             return false;
         }
         return invokeL.booleanValue;
@@ -1074,7 +926,7 @@ public class WebViewClient {
     public boolean onTextCopied(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048661, this, webView)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048663, this, webView)) == null) {
             return false;
         }
         return invokeL.booleanValue;
@@ -1082,45 +934,45 @@ public class WebViewClient {
 
     public void onThemeColorChanged(WebView webView, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048662, this, webView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048664, this, webView, i2) == null) {
         }
     }
 
     @Deprecated
     public void onTooManyRedirects(WebView webView, Message message, Message message2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048663, this, webView, message, message2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048665, this, webView, message, message2) == null) {
             message.sendToTarget();
         }
     }
 
     public void onUnhandledKeyEvent(WebView webView, KeyEvent keyEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048664, this, webView, keyEvent) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048666, this, webView, keyEvent) == null) {
         }
     }
 
     public void onUpdateTextFieldNextPreStatus(WebView webView, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048665, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048667, this, new Object[]{webView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
         }
     }
 
     public void onUrlRedirectedDid(WebView webView, String str, String str2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048666, this, webView, str, str2, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(1048668, this, webView, str, str2, i2) == null) {
         }
     }
 
     public void onUserInteraction(WebView webView, String str, InteractionType interactionType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048667, this, webView, str, interactionType) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048669, this, webView, str, interactionType) == null) {
         }
     }
 
     public void removeUrlHander(g gVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048668, this, gVar) == null) || gVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048670, this, gVar) == null) || gVar == null) {
             return;
         }
         this.mUrlHandlers.remove(gVar);
@@ -1129,14 +981,14 @@ public class WebViewClient {
     public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048669, this, webView, webResourceRequest)) == null) ? shouldInterceptRequest(webView, webResourceRequest.getUrl().toString()) : (WebResourceResponse) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048671, this, webView, webResourceRequest)) == null) ? shouldInterceptRequest(webView, webResourceRequest.getUrl().toString()) : (WebResourceResponse) invokeLL.objValue;
     }
 
     @Deprecated
     public WebResourceResponse shouldInterceptRequest(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048670, this, webView, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048672, this, webView, str)) == null) {
             return null;
         }
         return (WebResourceResponse) invokeLL.objValue;
@@ -1145,7 +997,7 @@ public class WebViewClient {
     public boolean shouldKeywordExtension(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048671, this, webView, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048673, this, webView, str)) == null) {
             return true;
         }
         return invokeLL.booleanValue;
@@ -1154,7 +1006,7 @@ public class WebViewClient {
     public boolean shouldLoadInNewWebView(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048672, this, webView, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048674, this, webView, str)) == null) {
             return false;
         }
         return invokeLL.booleanValue;
@@ -1163,7 +1015,7 @@ public class WebViewClient {
     public boolean shouldOpenFlash(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048673, this, webView, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048675, this, webView, str)) == null) {
             return false;
         }
         return invokeLL.booleanValue;
@@ -1172,7 +1024,7 @@ public class WebViewClient {
     public boolean shouldOverrideKeyEvent(WebView webView, KeyEvent keyEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048674, this, webView, keyEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048676, this, webView, keyEvent)) == null) {
             return false;
         }
         return invokeLL.booleanValue;
@@ -1181,7 +1033,7 @@ public class WebViewClient {
     public boolean shouldOverrideSpecialUrlLoading(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048675, this, webView, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048677, this, webView, str)) == null) {
             return false;
         }
         return invokeLL.booleanValue;
@@ -1190,14 +1042,14 @@ public class WebViewClient {
     public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048676, this, webView, webResourceRequest)) == null) ? shouldOverrideUrlLoading(webView, webResourceRequest.getUrl().toString()) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048678, this, webView, webResourceRequest)) == null) ? shouldOverrideUrlLoading(webView, webResourceRequest.getUrl().toString()) : invokeLL.booleanValue;
     }
 
     @Deprecated
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048677, this, webView, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048679, this, webView, str)) == null) {
             for (g gVar : this.mUrlHandlers) {
                 if (gVar.a(webView.getContext(), str)) {
                     return true;
@@ -1210,14 +1062,14 @@ public class WebViewClient {
 
     public void shouldPageRollBack(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048678, this, webView, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048680, this, webView, str) == null) {
         }
     }
 
     public boolean shouldShowSubject(WebView webView, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048679, this, webView, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048681, this, webView, str, str2, str3)) == null) {
             return false;
         }
         return invokeLLLL.booleanValue;

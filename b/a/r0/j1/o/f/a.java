@@ -24,43 +24,43 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f18550a;
+    public ImageView f19884a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f18551b;
+    public View f19885b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f18552c;
+    public TextView f19886c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f18553d;
+    public View f19887d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SlidingTabLayout f18554e;
+    public SlidingTabLayout f19888e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f18555f;
+    public Context f19889f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f18556g;
+    public Animation f19890g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Animation f18557h;
+    public Animation f19891h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f18558i;
+    public boolean f19892i;
     public Animation.AnimationListener j;
 
     /* renamed from: b.a.r0.j1.o.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class animation.Animation$AnimationListenerC0939a implements Animation.AnimationListener {
+    public class animation.Animation$AnimationListenerC1000a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f18559a;
+        public final /* synthetic */ a f19893a;
 
-        public animation.Animation$AnimationListenerC0939a(a aVar) {
+        public animation.Animation$AnimationListenerC1000a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,21 +75,21 @@ public class a {
                     return;
                 }
             }
-            this.f18559a = aVar;
+            this.f19893a = aVar;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.f18559a.f18552c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.f19893a.f19886c == null) {
                 return;
             }
-            if (animation == this.f18559a.f18556g) {
-                this.f18559a.f18552c.setVisibility(0);
-                this.f18559a.f18552c.setClickable(true);
-            } else if (animation == this.f18559a.f18557h) {
-                this.f18559a.f18552c.setVisibility(8);
-                this.f18559a.f18552c.setClickable(false);
+            if (animation == this.f19893a.f19890g) {
+                this.f19893a.f19886c.setVisibility(0);
+                this.f19893a.f19886c.setClickable(true);
+            } else if (animation == this.f19893a.f19891h) {
+                this.f19893a.f19886c.setVisibility(8);
+                this.f19893a.f19886c.setClickable(false);
             }
         }
 
@@ -123,36 +123,36 @@ public class a {
                 return;
             }
         }
-        this.f18558i = true;
-        this.j = new animation.Animation$AnimationListenerC0939a(this);
-        this.f18555f = context;
-        this.f18551b = view;
-        this.f18552c = (TextView) view.findViewById(e.topic_tab_widget_switch);
-        this.f18553d = view.findViewById(e.topic_tab_widget_line);
+        this.f19892i = true;
+        this.j = new animation.Animation$AnimationListenerC1000a(this);
+        this.f19889f = context;
+        this.f19885b = view;
+        this.f19886c = (TextView) view.findViewById(e.topic_tab_widget_switch);
+        this.f19887d = view.findViewById(e.topic_tab_widget_line);
         ImageView imageView = (ImageView) view.findViewById(e.topic_tab_widget_more);
-        this.f18550a = imageView;
+        this.f19884a = imageView;
         imageView.setContentDescription("展开");
-        this.f18554e = (SlidingTabLayout) view.findViewById(e.topic_tab_widget_sliding_tab);
+        this.f19888e = (SlidingTabLayout) view.findViewById(e.topic_tab_widget_sliding_tab);
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f18558i = true;
-            TextView textView = this.f18552c;
+            this.f19892i = true;
+            TextView textView = this.f19886c;
             if (textView != null) {
                 textView.clearAnimation();
-                this.f18552c.startAnimation(f());
+                this.f19886c.startAnimation(f());
             }
             if (1 != TbadkCoreApplication.getInst().getSkinType() && 4 != TbadkCoreApplication.getInst().getSkinType()) {
-                this.f18550a.setImageResource(d.icon_topic_triangle_down_normal);
-                this.f18550a.setBackgroundResource(d.rec_topic_btn_more_selector);
+                this.f19884a.setImageResource(d.icon_topic_triangle_down_normal);
+                this.f19884a.setBackgroundResource(d.rec_topic_btn_more_selector);
             } else {
-                this.f18550a.setImageResource(d.icon_topic_triangle_down_normal_1);
-                this.f18550a.setBackgroundResource(d.rec_topic_btn_more_selector_1);
+                this.f19884a.setImageResource(d.icon_topic_triangle_down_normal_1);
+                this.f19884a.setBackgroundResource(d.rec_topic_btn_more_selector_1);
             }
-            this.f18554e.setDrawBottomLine(true);
-            this.f18553d.setVisibility(0);
+            this.f19888e.setDrawBottomLine(true);
+            this.f19887d.setVisibility(0);
         }
     }
 
@@ -160,12 +160,12 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f18556g == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.f18555f, b.a.r0.j1.a.fade_in);
-                this.f18556g = loadAnimation;
+            if (this.f19890g == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.f19889f, b.a.r0.j1.a.fade_in);
+                this.f19890g = loadAnimation;
                 loadAnimation.setAnimationListener(this.j);
             }
-            return this.f18556g;
+            return this.f19890g;
         }
         return (Animation) invokeV.objValue;
     }
@@ -174,12 +174,12 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f18557h == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.f18555f, b.a.r0.j1.a.fade_out);
-                this.f18557h = loadAnimation;
+            if (this.f19891h == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.f19889f, b.a.r0.j1.a.fade_out);
+                this.f19891h = loadAnimation;
                 loadAnimation.setAnimationListener(this.j);
             }
-            return this.f18557h;
+            return this.f19891h;
         }
         return (Animation) invokeV.objValue;
     }
@@ -187,26 +187,26 @@ public class a {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.f18551b, b.a.r0.j1.b.common_color_10274);
-            SkinManager.setBackgroundColor(this.f18552c, b.a.r0.j1.b.CAM_X0205);
-            SkinManager.setViewTextColor(this.f18552c, b.a.r0.j1.b.CAM_X0106, 1);
-            SkinManager.setBackgroundColor(this.f18553d, b.a.r0.j1.b.CAM_X0204);
-            if (this.f18558i) {
+            SkinManager.setBackgroundColor(this.f19885b, b.a.r0.j1.b.common_color_10274);
+            SkinManager.setBackgroundColor(this.f19886c, b.a.r0.j1.b.CAM_X0205);
+            SkinManager.setViewTextColor(this.f19886c, b.a.r0.j1.b.CAM_X0106, 1);
+            SkinManager.setBackgroundColor(this.f19887d, b.a.r0.j1.b.CAM_X0204);
+            if (this.f19892i) {
                 if (1 != i2 && 4 != i2) {
-                    this.f18550a.setImageResource(d.icon_topic_triangle_down_normal);
-                    this.f18550a.setBackgroundResource(d.rec_topic_btn_more_selector);
+                    this.f19884a.setImageResource(d.icon_topic_triangle_down_normal);
+                    this.f19884a.setBackgroundResource(d.rec_topic_btn_more_selector);
                 } else {
-                    this.f18550a.setImageResource(d.icon_topic_triangle_down_normal_1);
-                    this.f18550a.setBackgroundResource(d.rec_topic_btn_more_selector_1);
+                    this.f19884a.setImageResource(d.icon_topic_triangle_down_normal_1);
+                    this.f19884a.setBackgroundResource(d.rec_topic_btn_more_selector_1);
                 }
             } else if (1 != i2 && 4 != i2) {
-                this.f18550a.setImageResource(d.icon_topic_triangle_up_normal);
-                this.f18550a.setBackgroundResource(d.rec_topic_btn_more_up_selector);
+                this.f19884a.setImageResource(d.icon_topic_triangle_up_normal);
+                this.f19884a.setBackgroundResource(d.rec_topic_btn_more_up_selector);
             } else {
-                this.f18550a.setImageResource(d.icon_topic_triangle_up_normal_1);
-                this.f18550a.setBackgroundResource(d.rec_topic_btn_more_up_selector_1);
+                this.f19884a.setImageResource(d.icon_topic_triangle_up_normal_1);
+                this.f19884a.setBackgroundResource(d.rec_topic_btn_more_up_selector_1);
             }
-            SlidingTabLayout slidingTabLayout = this.f18554e;
+            SlidingTabLayout slidingTabLayout = this.f19888e;
             if (slidingTabLayout != null) {
                 slidingTabLayout.onChangeSkinType(i2);
             }
@@ -216,7 +216,7 @@ public class a {
     public void h(View.OnClickListener onClickListener) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || (imageView = this.f18550a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || (imageView = this.f19884a) == null) {
             return;
         }
         imageView.setOnClickListener(onClickListener);
@@ -225,7 +225,7 @@ public class a {
     public void i(ViewPager viewPager) {
         SlidingTabLayout slidingTabLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, viewPager) == null) || (slidingTabLayout = this.f18554e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, viewPager) == null) || (slidingTabLayout = this.f19888e) == null) {
             return;
         }
         slidingTabLayout.setViewPager(viewPager);
@@ -234,7 +234,7 @@ public class a {
     public void j(int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (view = this.f18551b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (view = this.f19885b) == null) {
             return;
         }
         view.setVisibility(i2);
@@ -243,22 +243,22 @@ public class a {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f18558i = false;
-            TextView textView = this.f18552c;
+            this.f19892i = false;
+            TextView textView = this.f19886c;
             if (textView != null) {
                 textView.clearAnimation();
-                this.f18552c.setVisibility(0);
-                this.f18552c.startAnimation(e());
+                this.f19886c.setVisibility(0);
+                this.f19886c.startAnimation(e());
             }
             if (1 != TbadkCoreApplication.getInst().getSkinType() && 4 != TbadkCoreApplication.getInst().getSkinType()) {
-                this.f18550a.setImageResource(d.icon_topic_triangle_up_normal);
-                this.f18550a.setBackgroundResource(d.rec_topic_btn_more_up_selector);
+                this.f19884a.setImageResource(d.icon_topic_triangle_up_normal);
+                this.f19884a.setBackgroundResource(d.rec_topic_btn_more_up_selector);
             } else {
-                this.f18550a.setImageResource(d.icon_topic_triangle_up_normal_1);
-                this.f18550a.setBackgroundResource(d.rec_topic_btn_more_up_selector_1);
+                this.f19884a.setImageResource(d.icon_topic_triangle_up_normal_1);
+                this.f19884a.setBackgroundResource(d.rec_topic_btn_more_up_selector_1);
             }
-            this.f18554e.setDrawBottomLine(false);
-            this.f18553d.setVisibility(8);
+            this.f19888e.setDrawBottomLine(false);
+            this.f19887d.setVisibility(8);
         }
     }
 }

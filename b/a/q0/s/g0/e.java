@@ -16,10 +16,10 @@ public class e extends ImageSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12978e;
+    public int f13758e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12979f;
+    public int f13759f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Drawable drawable, int i2) {
@@ -40,15 +40,15 @@ public class e extends ImageSpan {
                 return;
             }
         }
-        this.f12978e = 0;
-        this.f12979f = 2;
+        this.f13758e = 0;
+        this.f13759f = 2;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i2, int i3, float f2, int i4, int i5, int i6, Paint paint) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) {
-            super.draw(canvas, charSequence, i2, i3, f2 + this.f12978e, i4, i5, i6, paint);
+            super.draw(canvas, charSequence, i2, i3, f2 + this.f13758e, i4, i5, i6, paint);
         }
     }
 
@@ -56,6 +56,6 @@ public class e extends ImageSpan {
     public int getSize(Paint paint, CharSequence charSequence, int i2, int i3, Paint.FontMetricsInt fontMetricsInt) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) ? super.getSize(paint, charSequence, i2, i3, fontMetricsInt) + this.f12978e + this.f12979f : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) ? super.getSize(paint, charSequence, i2, i3, fontMetricsInt) + this.f13758e + this.f13759f : invokeCommon.intValue;
     }
 }

@@ -16,7 +16,7 @@ public class HalfScreenContainerLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f60452a;
+    public boolean f61374a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HalfScreenContainerLayout(Context context, AttributeSet attributeSet) {
@@ -37,28 +37,28 @@ public class HalfScreenContainerLayout extends LinearLayout {
                 return;
             }
         }
-        this.f60452a = false;
+        this.f61374a = false;
     }
 
     @Override // android.view.View
     public boolean isClickable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !this.f60452a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !this.f61374a : invokeV.booleanValue;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? this.f60452a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? this.f61374a : invokeL.booleanValue;
     }
 
     @Override // android.view.View
     public void setClickable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f60452a = !z;
+            this.f61374a = !z;
         }
     }
 }

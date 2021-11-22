@@ -20,14 +20,14 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PublicKey f68079a;
+    public PublicKey f69000a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f68080b;
+    public final boolean f69001b;
 
     /* renamed from: com.qq.e.comm.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class C1961a {
+    public static /* synthetic */ class C2001a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -37,7 +37,7 @@ public class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f68081a;
+        public static final a f69002a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,7 +53,7 @@ public class a {
                     return;
                 }
             }
-            f68081a = new a(null);
+            f69002a = new a(null);
         }
     }
 
@@ -72,22 +72,22 @@ public class a {
             }
         }
         try {
-            this.f68079a = a("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKta2b5Vw5YkWHCAj4rJCwS227\r/35FZ29e4I6pS2B8zSq2RgBpXUuMg7oZF1Qt3x0iyg8PeyblyNeCRB6gIMehFThe\r1Y7m1FaQyaZp+CJYOTLM4/THKp9UndrEgJ/5a83vP1375YCV2lMvWARrNlBep4RN\rnESUJhQz58Gr/F39TwIDAQAB");
+            this.f69000a = a("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKta2b5Vw5YkWHCAj4rJCwS227\r/35FZ29e4I6pS2B8zSq2RgBpXUuMg7oZF1Qt3x0iyg8PeyblyNeCRB6gIMehFThe\r1Y7m1FaQyaZp+CJYOTLM4/THKp9UndrEgJ/5a83vP1375YCV2lMvWARrNlBep4RN\rnESUJhQz58Gr/F39TwIDAQAB");
             z = true;
         } catch (Throwable unused) {
             z = false;
         }
-        this.f68080b = z;
+        this.f69001b = z;
     }
 
-    public /* synthetic */ a(C1961a c1961a) {
+    public /* synthetic */ a(C2001a c2001a) {
         this();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f68081a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f69002a : (a) invokeV.objValue;
     }
 
     private PublicKey a(String str) throws Exception {
@@ -115,12 +115,12 @@ public class a {
             if (StringUtil.isEmpty(str2)) {
                 return false;
             }
-            if (this.f68080b) {
-                if (this.f68079a != null) {
+            if (this.f69001b) {
+                if (this.f69000a != null) {
                     byte[] decode = Base64.decode(str, 0);
                     try {
                         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                        cipher.init(2, this.f68079a);
+                        cipher.init(2, this.f69000a);
                         str3 = new String(cipher.doFinal(decode), "UTF-8").trim();
                     } catch (Throwable unused) {
                         GDTLogger.d("ErrorWhileVerifySigNature");

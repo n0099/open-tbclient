@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 import b.a.p0.a.f;
 import b.a.p0.a.k;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.z2.q0;
 import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -34,7 +34,7 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
                 return;
             }
         }
-        DEBUG = k.f6397a;
+        DEBUG = k.f6863a;
     }
 
     public SwanAppErrorDialog() {
@@ -61,9 +61,9 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int Z = q0.Z(this);
+            int c0 = q0.c0(this);
             super.onCreate(bundle);
-            q0.g(this, Z);
+            q0.g(this, c0);
             TextView textView = (TextView) findViewById(f.dialog_message);
             this.mMessage = textView;
             textView.setGravity(17);

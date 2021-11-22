@@ -22,19 +22,19 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<ImgInfo> f27511a;
+    public List<ImgInfo> f29014a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f27512b;
+    public long f29015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<r> f27513c;
+    public List<r> f29016c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f27514d;
+    public b f29017d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.e.c.g.a f27515e;
+    public b.a.e.c.g.a f29018e;
 
     /* loaded from: classes6.dex */
     public class a extends b.a.e.c.g.a {
@@ -42,7 +42,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f27516a;
+        public final /* synthetic */ c f29019a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(c cVar, int i2, int i3) {
@@ -63,7 +63,7 @@ public class c {
                     return;
                 }
             }
-            this.f27516a = cVar;
+            this.f29019a = cVar;
         }
 
         @Override // b.a.e.c.g.a
@@ -77,37 +77,37 @@ public class c {
                 if (z) {
                     MemberTaskCenterHttpResMessage memberTaskCenterHttpResMessage = (MemberTaskCenterHttpResMessage) responsedMessage;
                     if (memberTaskCenterHttpResMessage.hasError()) {
-                        if (this.f27516a.f27514d != null) {
-                            this.f27516a.f27514d.a(memberTaskCenterHttpResMessage.getError(), memberTaskCenterHttpResMessage.getErrorString());
+                        if (this.f29019a.f29017d != null) {
+                            this.f29019a.f29017d.a(memberTaskCenterHttpResMessage.getError(), memberTaskCenterHttpResMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    this.f27516a.f27511a = memberTaskCenterHttpResMessage.getImageList();
-                    this.f27516a.f27513c = memberTaskCenterHttpResMessage.getTaskList();
+                    this.f29019a.f29014a = memberTaskCenterHttpResMessage.getImageList();
+                    this.f29019a.f29016c = memberTaskCenterHttpResMessage.getTaskList();
                     if (memberTaskCenterHttpResMessage.getUserPointInfo() != null) {
-                        this.f27516a.f27512b = memberTaskCenterHttpResMessage.getUserPointInfo().points_total.longValue();
+                        this.f29019a.f29015b = memberTaskCenterHttpResMessage.getUserPointInfo().points_total.longValue();
                     }
-                    if (this.f27516a.f27514d != null) {
-                        this.f27516a.f27514d.b(this.f27516a.f27511a, this.f27516a.f27513c, this.f27516a.f27512b);
+                    if (this.f29019a.f29017d != null) {
+                        this.f29019a.f29017d.b(this.f29019a.f29014a, this.f29019a.f29016c, this.f29019a.f29015b);
                     }
                 }
                 if (responsedMessage instanceof MemberTaskCenterSocketResMessage) {
                     MemberTaskCenterSocketResMessage memberTaskCenterSocketResMessage = (MemberTaskCenterSocketResMessage) responsedMessage;
                     if (memberTaskCenterSocketResMessage.hasError()) {
-                        if (this.f27516a.f27514d != null) {
-                            this.f27516a.f27514d.a(memberTaskCenterSocketResMessage.getError(), memberTaskCenterSocketResMessage.getErrorString());
+                        if (this.f29019a.f29017d != null) {
+                            this.f29019a.f29017d.a(memberTaskCenterSocketResMessage.getError(), memberTaskCenterSocketResMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    this.f27516a.f27511a = memberTaskCenterSocketResMessage.getImageList();
-                    this.f27516a.f27513c = memberTaskCenterSocketResMessage.getTaskList();
+                    this.f29019a.f29014a = memberTaskCenterSocketResMessage.getImageList();
+                    this.f29019a.f29016c = memberTaskCenterSocketResMessage.getTaskList();
                     if (memberTaskCenterSocketResMessage.getUserPointInfo() != null) {
-                        this.f27516a.f27512b = memberTaskCenterSocketResMessage.getUserPointInfo().points_total.longValue();
+                        this.f29019a.f29015b = memberTaskCenterSocketResMessage.getUserPointInfo().points_total.longValue();
                     }
-                    if (this.f27516a.f27514d != null) {
-                        this.f27516a.f27514d.b(this.f27516a.f27511a, this.f27516a.f27513c, this.f27516a.f27512b);
+                    if (this.f29019a.f29017d != null) {
+                        this.f29019a.f29017d.b(this.f29019a.f29014a, this.f29019a.f29016c, this.f29019a.f29015b);
                     }
                 }
             }
@@ -134,22 +134,22 @@ public class c {
                 return;
             }
         }
-        this.f27515e = new a(this, CmdConfigHttp.CMD_MEMBER_TASK, 309427);
-        b.a.r0.l3.f0.a.h(309427, MemberTaskCenterSocketResMessage.class, false, false);
-        b.a.r0.l3.f0.a.c(309427, CmdConfigHttp.CMD_MEMBER_TASK, TbConfig.GET_MEMBER_TASK, MemberTaskCenterHttpResMessage.class, false, false, false, false);
-        MessageManager.getInstance().registerListener(this.f27515e);
+        this.f29018e = new a(this, CmdConfigHttp.CMD_MEMBER_TASK, 309427);
+        b.a.r0.m3.f0.a.h(309427, MemberTaskCenterSocketResMessage.class, false, false);
+        b.a.r0.m3.f0.a.c(309427, CmdConfigHttp.CMD_MEMBER_TASK, TbConfig.GET_MEMBER_TASK, MemberTaskCenterHttpResMessage.class, false, false, false, false);
+        MessageManager.getInstance().registerListener(this.f29018e);
     }
 
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27512b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29015b : invokeV.longValue;
     }
 
     public List<r> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27513c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29016c : (List) invokeV.objValue;
     }
 
     public void j() {
@@ -162,21 +162,21 @@ public class c {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f27515e);
+            MessageManager.getInstance().unRegisterListener(this.f29018e);
         }
     }
 
     public void l(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f27512b = j;
+            this.f29015b = j;
         }
     }
 
     public void m(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f27514d = bVar;
+            this.f29017d = bVar;
         }
     }
 }

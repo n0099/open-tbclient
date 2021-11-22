@@ -3,7 +3,7 @@ package com.baidu.tieba.screenlocknotify;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;

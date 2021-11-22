@@ -1,6 +1,6 @@
 package b.a.e.c.j;
 
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +13,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f1576a;
+    public int[] f1572a;
 
     public e(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -30,8 +30,8 @@ public class e {
                 return;
             }
         }
-        this.f1576a = null;
-        this.f1576a = r0;
+        this.f1572a = null;
+        this.f1572a = r0;
         int[] iArr = {i2, i3, i4};
     }
 
@@ -39,7 +39,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int[] iArr = this.f1576a;
+            int[] iArr = this.f1572a;
             if (iArr == null || iArr.length != 1) {
                 return 0;
             }
@@ -52,7 +52,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int[] iArr = this.f1576a;
+            int[] iArr = this.f1572a;
             if (iArr == null || iArr.length != 3) {
                 return 0;
             }
@@ -60,13 +60,13 @@ public class e {
             if (I != 1) {
                 if (I != 2) {
                     if (I != 3) {
-                        return this.f1576a[2];
+                        return this.f1572a[2];
                     }
-                    return this.f1576a[1];
+                    return this.f1572a[1];
                 }
-                return this.f1576a[0];
+                return this.f1572a[0];
             }
-            return this.f1576a[2];
+            return this.f1572a[2];
         }
         return invokeV.intValue;
     }

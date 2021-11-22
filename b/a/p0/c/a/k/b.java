@@ -1,10 +1,10 @@
 package b.a.p0.c.a.k;
 
 import android.text.TextUtils;
-import b.a.p0.a.e2.c.h;
+import b.a.p0.a.h2.c.h;
 import b.a.p0.c.a.f;
 import b.a.p0.c.a.g;
-import b.a.p0.m.d.a;
+import b.a.p0.p.d.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.http.request.PostByteRequest;
@@ -26,19 +26,19 @@ public class b<T> extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f9590d;
+    public String f10170d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f9591e;
+    public String f10171e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ResponseCallback<T> f9592f;
+    public ResponseCallback<T> f10172f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f9593g;
+    public int f10173g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a.C0613a f9594h;
+    public a.C0642a f10174h;
 
     /* loaded from: classes.dex */
     public class a extends ResponseCallback<String> {
@@ -46,10 +46,10 @@ public class b<T> extends c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public T f9595a;
+        public T f10175a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f9596b;
+        public final /* synthetic */ b f10176b;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class b<T> extends c {
                     return;
                 }
             }
-            this.f9596b = bVar;
+            this.f10176b = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,38 +75,38 @@ public class b<T> extends c {
         public void onSuccess(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-                if (b.a.p0.c.a.a.f9542a) {
+                if (b.a.p0.c.a.a.f10122a) {
                     r0 = "BdtlsPostRequest onSuccess=" + str;
                 }
                 if (TextUtils.equals(str, "recovery")) {
                     if (!g.l().m().b()) {
-                        this.f9596b.f9592f.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                        this.f10176b.f10172f.onFail(new Exception("Exceeded the limit of continuous downgrade"));
                         return;
                     }
                     g.l().m().a();
-                    this.f9596b.i(true);
-                    this.f9596b.p();
+                    this.f10176b.i(true);
+                    this.f10176b.p();
                     return;
                 }
                 g.l().m().k();
-                b bVar = this.f9596b;
-                if (!bVar.f9597a) {
-                    if (bVar.f9592f != null) {
-                        this.f9596b.f9592f.onSuccess(this.f9595a, i2);
-                        this.f9596b.f9593g = 0;
+                b bVar = this.f10176b;
+                if (!bVar.f10177a) {
+                    if (bVar.f10172f != null) {
+                        this.f10176b.f10172f.onSuccess(this.f10175a, i2);
+                        this.f10176b.f10173g = 0;
                     }
-                } else if (bVar.f9598b == 1) {
+                } else if (bVar.f10178b == 1) {
                     f.a("application");
-                    if (this.f9596b.f9592f != null) {
-                        this.f9596b.f9592f.onSuccess(this.f9595a, i2);
+                    if (this.f10176b.f10172f != null) {
+                        this.f10176b.f10172f.onSuccess(this.f10175a, i2);
                     }
-                    this.f9596b.f9593g = 0;
+                    this.f10176b.f10173g = 0;
                 } else if (b.m(bVar) >= 3) {
-                    this.f9596b.f9592f.onFail(new IOException("request fail : " + this.f9595a));
-                    this.f9596b.f9593g = 0;
+                    this.f10176b.f10172f.onFail(new IOException("request fail : " + this.f10175a));
+                    this.f10176b.f10173g = 0;
                 } else {
-                    b bVar2 = this.f9596b;
-                    bVar2.q(bVar2.f9590d, this.f9596b.f9591e, this.f9596b.f9592f);
+                    b bVar2 = this.f10176b;
+                    bVar2.q(bVar2.f10170d, this.f10176b.f10171e, this.f10176b.f10172f);
                 }
             }
         }
@@ -115,11 +115,11 @@ public class b<T> extends c {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (b.a.p0.c.a.a.f9542a) {
+                if (b.a.p0.c.a.a.f10122a) {
                     String str = "BdtlsPostRequest onFail=" + exc.getMessage();
                 }
-                if (this.f9596b.f9592f != null) {
-                    this.f9596b.f9592f.onFail(exc);
+                if (this.f10176b.f10172f != null) {
+                    this.f10176b.f10172f.onFail(exc);
                 }
             }
         }
@@ -136,25 +136,25 @@ public class b<T> extends c {
                     g.l().m().s(0);
                     return "recovery";
                 }
-                b bVar = this.f9596b;
-                if (!bVar.f9597a) {
-                    if (bVar.f9592f != null) {
-                        this.f9595a = (T) this.f9596b.f9592f.parseResponse(response, i2);
+                b bVar = this.f10176b;
+                if (!bVar.f10177a) {
+                    if (bVar.f10172f != null) {
+                        this.f10175a = (T) this.f10176b.f10172f.parseResponse(response, i2);
                         return "";
                     }
                     return "";
                 }
                 ResponseBody body = response.body();
-                String g2 = this.f9596b.g(body.bytes());
-                if (b.a.p0.c.a.a.f9542a) {
+                String g2 = this.f10176b.g(body.bytes());
+                if (b.a.p0.c.a.a.f10122a) {
                     String str2 = "BdtlsPostRequest parseResponse=" + g2;
                 }
-                if (this.f9596b.f9598b == 1) {
+                if (this.f10176b.f10178b == 1) {
                     Buffer buffer = new Buffer();
                     buffer.writeString(g2, Charset.forName("utf-8"));
                     Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                    if (this.f9596b.f9592f != null) {
-                        this.f9595a = (T) this.f9596b.f9592f.parseResponse(build, i2);
+                    if (this.f10176b.f10172f != null) {
+                        this.f10175a = (T) this.f10176b.f10172f.parseResponse(build, i2);
                     }
                 }
                 return g2;
@@ -176,14 +176,14 @@ public class b<T> extends c {
                 return;
             }
         }
-        this.f9590d = null;
-        this.f9591e = null;
-        this.f9592f = null;
+        this.f10170d = null;
+        this.f10171e = null;
+        this.f10172f = null;
     }
 
     public static /* synthetic */ int m(b bVar) {
-        int i2 = bVar.f9593g;
-        bVar.f9593g = i2 + 1;
+        int i2 = bVar.f10173g;
+        bVar.f10173g = i2 + 1;
         return i2;
     }
 
@@ -198,7 +198,7 @@ public class b<T> extends c {
     public void e(IOException iOException) {
         ResponseCallback<T> responseCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) || (responseCallback = this.f9592f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) || (responseCallback = this.f10172f) == null) {
             return;
         }
         responseCallback.onFail(iOException);
@@ -208,10 +208,10 @@ public class b<T> extends c {
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (b.a.p0.c.a.a.f9542a) {
+            if (b.a.p0.c.a.a.f10122a) {
                 String str = "onRequestError=" + i2;
             }
-            ResponseCallback<T> responseCallback = this.f9592f;
+            ResponseCallback<T> responseCallback = this.f10172f;
             if (responseCallback != null) {
                 responseCallback.onFail(new Exception("request error  code : " + i2));
             }
@@ -222,20 +222,20 @@ public class b<T> extends c {
     public void h(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-            String str = this.f9590d;
+            String str = this.f10170d;
             HashMap hashMap = new HashMap();
             hashMap.put("Content-Type", "application/json");
-            if (this.f9597a) {
+            if (this.f10177a) {
                 hashMap.put("Bdtls", "Bdtls");
             }
-            if (b.a.p0.c.a.a.f9542a) {
+            if (b.a.p0.c.a.a.f10122a) {
                 String str2 = "BdtlsPostRequest url=" + str;
             }
-            h a2 = b.a.p0.a.c1.a.p().a();
-            PostByteRequest.PostByteRequestBuilder postByteRequest = b.a.p0.m.e.a.g().postByteRequest();
-            a.C0613a c0613a = this.f9594h;
-            if (c0613a != null) {
-                postByteRequest.connectionTimeout(c0613a.f11042a).readTimeout(this.f9594h.f11043b).writeTimeout(this.f9594h.f11044c);
+            h a2 = b.a.p0.a.c1.a.q().a();
+            PostByteRequest.PostByteRequestBuilder postByteRequest = b.a.p0.p.e.a.g().postByteRequest();
+            a.C0642a c0642a = this.f10174h;
+            if (c0642a != null) {
+                postByteRequest.connectionTimeout(c0642a.f11729a).readTimeout(this.f10174h.f11730b).writeTimeout(this.f10174h.f11731c);
             }
             postByteRequest.mediaType("application/json").url(str).cookieManager(a2).headers(hashMap).content(bArr).build().executeAsync(new a(this));
         }
@@ -244,7 +244,7 @@ public class b<T> extends c {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            q(this.f9590d, this.f9591e, this.f9592f);
+            q(this.f10170d, this.f10171e, this.f10172f);
         }
     }
 
@@ -253,13 +253,13 @@ public class b<T> extends c {
         if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, responseCallback) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f9590d = str;
-        this.f9591e = str2;
-        this.f9592f = responseCallback;
-        if (b.a.p0.c.a.a.f9542a) {
+        this.f10170d = str;
+        this.f10171e = str2;
+        this.f10172f = responseCallback;
+        if (b.a.p0.c.a.a.f10122a) {
             String str3 = "requestPost url=" + str;
             String str4 = "requestPost body=" + str2;
         }
-        a(this.f9591e);
+        a(this.f10171e);
     }
 }

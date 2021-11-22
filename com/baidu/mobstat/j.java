@@ -18,7 +18,7 @@ public abstract class j implements Closeable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public m f41622a;
+    public m f42454a;
 
     public j(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public abstract class j implements Closeable {
             }
         }
         l lVar = new l();
-        this.f41622a = new m(lVar, str);
+        this.f42454a = new m(lVar, str);
         File databasePath = lVar.getDatabasePath(".confd");
         if (databasePath == null || !databasePath.canWrite()) {
             return;
@@ -47,7 +47,7 @@ public abstract class j implements Closeable {
     private void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
-            this.f41622a.a(str);
+            this.f42454a.a(str);
         }
     }
 
@@ -58,7 +58,7 @@ public abstract class j implements Closeable {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f41622a.b() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f42454a.b() : invokeV.intValue;
     }
 
     public abstract boolean b(long j);
@@ -69,7 +69,7 @@ public abstract class j implements Closeable {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             synchronized (this) {
                 try {
-                    this.f41622a.close();
+                    this.f42454a.close();
                 } catch (Exception e2) {
                     bb.c().b(e2);
                 }
@@ -84,7 +84,7 @@ public abstract class j implements Closeable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
                 try {
-                    a2 = this.f41622a.a();
+                    a2 = this.f42454a.a();
                 } catch (Exception e2) {
                     bb.c().b(e2);
                     return false;
@@ -99,7 +99,7 @@ public abstract class j implements Closeable {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i2, i3)) == null) {
-            return this.f41622a.a(null, null, null, null, null, str + " desc", i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2);
+            return this.f42454a.a(null, null, null, null, null, str + " desc", i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2);
         }
         return (Cursor) invokeLII.objValue;
     }
@@ -110,7 +110,7 @@ public abstract class j implements Closeable {
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048579, this, str, str2, str3, i2)) == null) {
             String str4 = str + "=? ";
             String[] strArr = {str2};
-            return this.f41622a.a(null, str4, strArr, null, null, str3 + " desc", i2 + "");
+            return this.f42454a.a(null, str4, strArr, null, null, str3 + " desc", i2 + "");
         }
         return (Cursor) invokeLLLI.objValue;
     }
@@ -118,7 +118,7 @@ public abstract class j implements Closeable {
     public long a(ContentValues contentValues) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contentValues)) == null) ? this.f41622a.a((String) null, contentValues) : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contentValues)) == null) ? this.f42454a.a((String) null, contentValues) : invokeL.longValue;
     }
 
     public boolean a(long j) {
@@ -128,7 +128,7 @@ public abstract class j implements Closeable {
             StringBuilder sb = new StringBuilder();
             sb.append(j);
             sb.append("");
-            return this.f41622a.a("_id=? ", new String[]{sb.toString()}) > 0;
+            return this.f42454a.a("_id=? ", new String[]{sb.toString()}) > 0;
         }
         return invokeJ.booleanValue;
     }

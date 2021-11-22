@@ -1,7 +1,7 @@
 package b.a.p0.a.p.d;
 /* loaded from: classes.dex */
 public interface s {
-    void a(String str, b.a.p0.a.i1.c.f.a aVar);
+    void a(String str, b.a.p0.a.j1.c.g.a aVar);
 
     int getDuration();
 

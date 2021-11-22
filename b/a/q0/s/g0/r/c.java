@@ -21,19 +21,19 @@ public class c extends ReplacementSpan {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13033e;
+    public int f13813e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13034f;
+    public int f13814f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13035g;
+    public int f13815g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13036h;
+    public int f13816h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Drawable f13037i;
+    public Drawable f13817i;
     public Drawable j;
     public int k;
     public int l;
@@ -60,10 +60,10 @@ public class c extends ReplacementSpan {
                 return;
             }
         }
-        this.f13033e = R.drawable.icon_pure_evaluation_star24_n;
-        this.f13034f = R.color.CAM_X0112;
-        this.f13035g = R.drawable.icon_pure_evaluation_star24_n;
-        this.f13036h = R.color.CAM_X0305;
+        this.f13813e = R.drawable.icon_pure_evaluation_star24_n;
+        this.f13814f = R.color.CAM_X0112;
+        this.f13815g = R.drawable.icon_pure_evaluation_star24_n;
+        this.f13816h = R.color.CAM_X0305;
         this.q = 5;
         this.r = i2;
         this.k = i3;
@@ -76,8 +76,8 @@ public class c extends ReplacementSpan {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f13037i = SvgManager.getInstance().getPureDrawable(this.f13033e, this.f13034f, null);
-            this.j = SvgManager.getInstance().getPureDrawable(this.f13035g, this.f13036h, null);
+            this.f13817i = SvgManager.getInstance().getPureDrawable(this.f13813e, this.f13814f, null);
+            this.j = SvgManager.getInstance().getPureDrawable(this.f13815g, this.f13816h, null);
         }
     }
 
@@ -114,11 +114,11 @@ public class c extends ReplacementSpan {
                 i9++;
             }
             while (i7 < this.q) {
-                Drawable drawable2 = this.f13037i;
+                Drawable drawable2 = this.f13817i;
                 if (drawable2 != null) {
                     int i11 = this.l;
                     drawable2.setBounds(i8, max, i8 + i11, i11 + max);
-                    this.f13037i.draw(canvas);
+                    this.f13817i.draw(canvas);
                     i8 += this.k + this.l;
                 }
                 i7++;

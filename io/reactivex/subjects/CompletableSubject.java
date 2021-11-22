@@ -18,7 +18,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class CompletableSubject extends Completable implements CompletableObserver {
     public static /* synthetic */ Interceptable $ic;
     public static final CompletableDisposable[] EMPTY;
@@ -28,7 +28,7 @@ public final class CompletableSubject extends Completable implements Completable
     public final AtomicReference<CompletableDisposable[]> observers;
     public final AtomicBoolean once;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class CompletableDisposable extends AtomicReference<CompletableSubject> implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7650903191002190468L;

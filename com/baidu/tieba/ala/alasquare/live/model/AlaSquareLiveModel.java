@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alasquare.live.model;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.a.f;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.d2;
 import b.a.r0.w.f.a.d;
 import b.a.r0.w.f.a.e;
@@ -31,25 +31,25 @@ import java.util.LinkedList;
 import java.util.List;
 import tbclient.LiveSquare.FunctionListInfo;
 import tbclient.LiveSquare.HeadLiveInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AlaSquareLiveModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f46872e;
+    public f f47736e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f46873f;
+    public b f47737f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<FunctionListInfo> f46874g;
+    public LinkedList<FunctionListInfo> f47738g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HeadLiveInfo f46875h;
+    public HeadLiveInfo f47739h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<b.a.r0.w.f.b.b.a> f46876i;
+    public List<b.a.r0.w.f.b.b.a> f47740i;
     public List<n> j;
     public List<n> k;
     public int l;
@@ -61,13 +61,13 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public List<Long> r;
     public b.a.e.c.g.a s;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a extends b.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaSquareLiveModel f46877a;
+        public final /* synthetic */ AlaSquareLiveModel f47741a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AlaSquareLiveModel alaSquareLiveModel, int i2, int i3) {
@@ -88,7 +88,7 @@ public class AlaSquareLiveModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f46877a = alaSquareLiveModel;
+            this.f47741a = alaSquareLiveModel;
         }
 
         @Override // b.a.e.c.g.a
@@ -97,64 +97,64 @@ public class AlaSquareLiveModel extends BdBaseModel {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f46877a.p = false;
+                this.f47741a.p = false;
                 if (responsedMessage == null) {
                     return;
                 }
                 if (responsedMessage.hasError()) {
-                    if (this.f46877a.o) {
-                        this.f46877a.o = false;
+                    if (this.f47741a.o) {
+                        this.f47741a.o = false;
                     }
-                    if (this.f46877a.f46873f != null) {
-                        this.f46877a.f46873f.onLoadError(responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (this.f47741a.f47737f != null) {
+                        this.f47741a.f47737f.onLoadError(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
                 if (responsedMessage instanceof AlaSquareLiveSocketResponseMessage) {
                     AlaSquareLiveSocketResponseMessage alaSquareLiveSocketResponseMessage = (AlaSquareLiveSocketResponseMessage) responsedMessage;
-                    alaSquareLiveSocketResponseMessage.setPn(this.f46877a.l);
+                    alaSquareLiveSocketResponseMessage.setPn(this.f47741a.l);
                     z = alaSquareLiveSocketResponseMessage.hasMore();
-                    if (this.f46877a.l == 1) {
-                        this.f46877a.f46874g.clear();
-                        this.f46877a.f46874g.addAll(alaSquareLiveSocketResponseMessage.getFunctionList());
+                    if (this.f47741a.l == 1) {
+                        this.f47741a.f47738g.clear();
+                        this.f47741a.f47738g.addAll(alaSquareLiveSocketResponseMessage.getFunctionList());
                     }
                     linkedList = alaSquareLiveSocketResponseMessage.getCategoryList();
-                    this.f46877a.f46875h = alaSquareLiveSocketResponseMessage.getHeadLiveInfo();
-                    this.f46877a.q = alaSquareLiveSocketResponseMessage.getIsSmallFollow();
+                    this.f47741a.f47739h = alaSquareLiveSocketResponseMessage.getHeadLiveInfo();
+                    this.f47741a.q = alaSquareLiveSocketResponseMessage.getIsSmallFollow();
                 } else if (responsedMessage instanceof AlaSquareLiveHttpResponseMessage) {
                     AlaSquareLiveHttpResponseMessage alaSquareLiveHttpResponseMessage = (AlaSquareLiveHttpResponseMessage) responsedMessage;
-                    alaSquareLiveHttpResponseMessage.setPn(this.f46877a.l);
+                    alaSquareLiveHttpResponseMessage.setPn(this.f47741a.l);
                     z = alaSquareLiveHttpResponseMessage.hasMore();
-                    if (this.f46877a.l == 1) {
-                        this.f46877a.f46874g.clear();
-                        this.f46877a.f46874g.addAll(alaSquareLiveHttpResponseMessage.getFunctionList());
+                    if (this.f47741a.l == 1) {
+                        this.f47741a.f47738g.clear();
+                        this.f47741a.f47738g.addAll(alaSquareLiveHttpResponseMessage.getFunctionList());
                     }
                     linkedList = alaSquareLiveHttpResponseMessage.getCategoryList();
-                    this.f46877a.f46875h = alaSquareLiveHttpResponseMessage.getHeadLiveInfo();
-                    this.f46877a.q = alaSquareLiveHttpResponseMessage.getIsSmallFollow();
+                    this.f47741a.f47739h = alaSquareLiveHttpResponseMessage.getHeadLiveInfo();
+                    this.f47741a.q = alaSquareLiveHttpResponseMessage.getIsSmallFollow();
                 } else {
                     linkedList = null;
                     z = false;
                 }
-                boolean z2 = this.f46877a.o;
-                if (this.f46877a.o) {
-                    this.f46877a.o = false;
-                    d.c(this.f46877a.f46876i, linkedList, this.f46877a.r);
+                boolean z2 = this.f47741a.o;
+                if (this.f47741a.o) {
+                    this.f47741a.o = false;
+                    d.c(this.f47741a.f47740i, linkedList, this.f47741a.r);
                 } else {
-                    AlaSquareLiveModel alaSquareLiveModel = this.f46877a;
-                    alaSquareLiveModel.f46876i = d.g(alaSquareLiveModel.f46876i, linkedList, this.f46877a.m);
-                    this.f46877a.n = z;
+                    AlaSquareLiveModel alaSquareLiveModel = this.f47741a;
+                    alaSquareLiveModel.f47740i = d.g(alaSquareLiveModel.f47740i, linkedList, this.f47741a.m);
+                    this.f47741a.n = z;
                 }
-                this.f46877a.J();
-                if (this.f46877a.f46873f != null) {
-                    this.f46877a.f46873f.a(z, false, z2);
+                this.f47741a.J();
+                if (this.f47741a.f47737f != null) {
+                    this.f47741a.f47737f.a(z, false, z2);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(boolean z, boolean z2, boolean z3);
 
@@ -181,20 +181,20 @@ public class AlaSquareLiveModel extends BdBaseModel {
         this.o = false;
         a aVar = new a(this, AlaCmdConfigHttp.CMD_SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE);
         this.s = aVar;
-        this.f46872e = fVar;
+        this.f47736e = fVar;
         this.unique_id = bdUniqueId;
-        this.f46873f = bVar;
+        this.f47737f = bVar;
         registerListener(aVar);
         T();
-        this.f46876i = new ArrayList();
-        this.f46874g = new LinkedList<>();
+        this.f47740i = new ArrayList();
+        this.f47738g = new LinkedList<>();
     }
 
     public static void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            b.a.r0.l3.f0.a.h(AlaCmdConfigSocket.CMD_SQUARE_LIVE, AlaSquareLiveSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_SQUARE_LIVE, b.a.r0.l3.f0.a.a(AlaConfig.SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE));
+            b.a.r0.m3.f0.a.h(AlaCmdConfigSocket.CMD_SQUARE_LIVE, AlaSquareLiveSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_SQUARE_LIVE, b.a.r0.m3.f0.a.a(AlaConfig.SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -207,7 +207,7 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public void J() {
         Pair<List<n>, List<n>> d2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (d2 = d.d(this.f46872e.getString(R.string.square_live_category_title_hotest), this.f46876i)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (d2 = d.d(this.f47736e.getString(R.string.square_live_category_title_hotest), this.f47740i)) == null) {
             return;
         }
         this.j = (List) d2.first;
@@ -225,8 +225,8 @@ public class AlaSquareLiveModel extends BdBaseModel {
             }
             LinkedList linkedList = new LinkedList();
             for (n nVar : this.k) {
-                if ((nVar instanceof e) && (d2Var = (eVar = (e) nVar).f24510h) != null && d2Var.l1() != null) {
-                    linkedList.add(Long.valueOf(eVar.f24510h.l1().live_id));
+                if ((nVar instanceof e) && (d2Var = (eVar = (e) nVar).f26027h) != null && d2Var.m1() != null) {
+                    linkedList.add(Long.valueOf(eVar.f26027h.m1().live_id));
                 }
             }
             return linkedList;
@@ -243,13 +243,13 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public LinkedList<FunctionListInfo> M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46874g : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f47738g : (LinkedList) invokeV.objValue;
     }
 
     public HeadLiveInfo N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f46875h : (HeadLiveInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f47739h : (HeadLiveInfo) invokeV.objValue;
     }
 
     public int O() {
@@ -321,18 +321,18 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            LinkedList<FunctionListInfo> linkedList = this.f46874g;
+            LinkedList<FunctionListInfo> linkedList = this.f47738g;
             if (linkedList != null) {
                 linkedList.clear();
-                this.f46874g = null;
+                this.f47738g = null;
             }
-            if (this.f46875h != null) {
-                this.f46875h = null;
+            if (this.f47739h != null) {
+                this.f47739h = null;
             }
-            List<b.a.r0.w.f.b.b.a> list = this.f46876i;
+            List<b.a.r0.w.f.b.b.a> list = this.f47740i;
             if (list != null) {
                 list.clear();
-                this.f46876i = null;
+                this.f47740i = null;
             }
             List<n> list2 = this.j;
             if (list2 != null) {
@@ -350,7 +350,7 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            List<b.a.r0.w.f.b.b.a> list = this.f46876i;
+            List<b.a.r0.w.f.b.b.a> list = this.f47740i;
             if (list != null) {
                 list.clear();
             }

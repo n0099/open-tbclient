@@ -8,9 +8,10 @@ import android.text.TextUtils;
 import android.util.Pair;
 import android.util.SparseIntArray;
 import androidx.core.view.InputDeviceCompat;
-import b.i.b.a.i0.v;
+import b.h.b.a.i0.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -35,25 +36,25 @@ public final class MediaCodecUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b.i.b.a.b0.a f62967a;
+    public static final b.h.b.a.b0.a f63867a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f62968b;
+    public static final Pattern f63868b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HashMap<b, List<b.i.b.a.b0.a>> f62969c;
+    public static final HashMap<b, List<b.h.b.a.b0.a>> f63869c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final SparseIntArray f62970d;
+    public static final SparseIntArray f63870d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final SparseIntArray f62971e;
+    public static final SparseIntArray f63871e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Map<String, Integer> f62972f;
+    public static final Map<String, Integer> f63872f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f62973g;
+    public static int f63873g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes11.dex */
@@ -99,10 +100,10 @@ public final class MediaCodecUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f62974a;
+        public final String f63874a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f62975b;
+        public final boolean f63875b;
 
         public b(String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -119,8 +120,8 @@ public final class MediaCodecUtil {
                     return;
                 }
             }
-            this.f62974a = str;
-            this.f62975b = z;
+            this.f63874a = str;
+            this.f63875b = z;
         }
 
         public boolean equals(Object obj) {
@@ -134,7 +135,7 @@ public final class MediaCodecUtil {
                     return false;
                 }
                 b bVar = (b) obj;
-                return TextUtils.equals(this.f62974a, bVar.f62974a) && this.f62975b == bVar.f62975b;
+                return TextUtils.equals(this.f63874a, bVar.f63874a) && this.f63875b == bVar.f63875b;
             }
             return invokeL.booleanValue;
         }
@@ -143,8 +144,8 @@ public final class MediaCodecUtil {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                String str = this.f62974a;
-                return (((str == null ? 0 : str.hashCode()) + 31) * 31) + (this.f62975b ? 1231 : 1237);
+                String str = this.f63874a;
+                return (((str == null ? 0 : str.hashCode()) + 31) * 31) + (this.f63875b ? 1231 : 1237);
             }
             return invokeV.intValue;
         }
@@ -223,10 +224,10 @@ public final class MediaCodecUtil {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f62976a;
+        public final int f63876a;
 
         /* renamed from: b  reason: collision with root package name */
-        public MediaCodecInfo[] f62977b;
+        public MediaCodecInfo[] f63877b;
 
         public e(boolean z) {
             Interceptable interceptable = $ic;
@@ -243,7 +244,7 @@ public final class MediaCodecUtil {
                     return;
                 }
             }
-            this.f62976a = z ? 1 : 0;
+            this.f63876a = z ? 1 : 0;
         }
 
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.c
@@ -252,7 +253,7 @@ public final class MediaCodecUtil {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
                 e();
-                return this.f62977b[i2];
+                return this.f63877b[i2];
             }
             return (MediaCodecInfo) invokeI.objValue;
         }
@@ -270,7 +271,7 @@ public final class MediaCodecUtil {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 e();
-                return this.f62977b.length;
+                return this.f63877b.length;
             }
             return invokeV.intValue;
         }
@@ -287,8 +288,8 @@ public final class MediaCodecUtil {
 
         public final void e() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f62977b == null) {
-                this.f62977b = new MediaCodecList(this.f62976a).getCodecInfos();
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f63877b == null) {
+                this.f63877b = new MediaCodecList(this.f63876a).getCodecInfos();
             }
         }
     }
@@ -306,75 +307,75 @@ public final class MediaCodecUtil {
                 return;
             }
         }
-        f62967a = b.i.b.a.b0.a.r("OMX.google.raw.decoder");
-        f62968b = Pattern.compile("^\\D?(\\d+)$");
-        f62969c = new HashMap<>();
-        f62973g = -1;
+        f63867a = b.h.b.a.b0.a.r("OMX.google.raw.decoder");
+        f63868b = Pattern.compile("^\\D?(\\d+)$");
+        f63869c = new HashMap<>();
+        f63873g = -1;
         SparseIntArray sparseIntArray = new SparseIntArray();
-        f62970d = sparseIntArray;
+        f63870d = sparseIntArray;
         sparseIntArray.put(66, 1);
-        f62970d.put(77, 2);
-        f62970d.put(88, 4);
-        f62970d.put(100, 8);
+        f63870d.put(77, 2);
+        f63870d.put(88, 4);
+        f63870d.put(100, 8);
         SparseIntArray sparseIntArray2 = new SparseIntArray();
-        f62971e = sparseIntArray2;
+        f63871e = sparseIntArray2;
         sparseIntArray2.put(10, 1);
-        f62971e.put(11, 4);
-        f62971e.put(12, 8);
-        f62971e.put(13, 16);
-        f62971e.put(20, 32);
-        f62971e.put(21, 64);
-        f62971e.put(22, 128);
-        f62971e.put(30, 256);
-        f62971e.put(31, 512);
-        f62971e.put(32, 1024);
-        f62971e.put(40, 2048);
-        f62971e.put(41, 4096);
-        f62971e.put(42, 8192);
-        f62971e.put(50, 16384);
-        f62971e.put(51, 32768);
-        f62971e.put(52, 65536);
+        f63871e.put(11, 4);
+        f63871e.put(12, 8);
+        f63871e.put(13, 16);
+        f63871e.put(20, 32);
+        f63871e.put(21, 64);
+        f63871e.put(22, 128);
+        f63871e.put(30, 256);
+        f63871e.put(31, 512);
+        f63871e.put(32, 1024);
+        f63871e.put(40, 2048);
+        f63871e.put(41, 4096);
+        f63871e.put(42, 8192);
+        f63871e.put(50, 16384);
+        f63871e.put(51, 32768);
+        f63871e.put(52, 65536);
         HashMap hashMap = new HashMap();
-        f62972f = hashMap;
+        f63872f = hashMap;
         hashMap.put("L30", 1);
-        f62972f.put("L60", 4);
-        f62972f.put("L63", 16);
-        f62972f.put("L90", 64);
-        f62972f.put("L93", 256);
-        f62972f.put("L120", 1024);
-        f62972f.put("L123", 4096);
-        f62972f.put("L150", 16384);
-        f62972f.put("L153", 65536);
-        f62972f.put("L156", 262144);
-        f62972f.put("L180", 1048576);
-        f62972f.put("L183", 4194304);
-        f62972f.put("L186", 16777216);
-        f62972f.put("H30", 2);
-        f62972f.put("H60", 8);
-        f62972f.put("H63", 32);
-        f62972f.put("H90", 128);
-        f62972f.put("H93", 512);
-        f62972f.put("H120", 2048);
-        f62972f.put("H123", 8192);
-        f62972f.put("H150", 32768);
-        f62972f.put("H153", 131072);
-        f62972f.put("H156", 524288);
-        f62972f.put("H180", 2097152);
-        f62972f.put("H183", 8388608);
-        f62972f.put("H186", 33554432);
+        f63872f.put("L60", 4);
+        f63872f.put("L63", 16);
+        f63872f.put("L90", 64);
+        f63872f.put("L93", 256);
+        f63872f.put("L120", 1024);
+        f63872f.put("L123", 4096);
+        f63872f.put("L150", 16384);
+        f63872f.put("L153", 65536);
+        f63872f.put("L156", 262144);
+        f63872f.put("L180", 1048576);
+        f63872f.put("L183", 4194304);
+        f63872f.put("L186", 16777216);
+        f63872f.put("H30", 2);
+        f63872f.put("H60", 8);
+        f63872f.put("H63", 32);
+        f63872f.put("H90", 128);
+        f63872f.put("H93", 512);
+        f63872f.put("H120", 2048);
+        f63872f.put("H123", 8192);
+        f63872f.put("H150", 32768);
+        f63872f.put("H153", 131072);
+        f63872f.put("H156", 524288);
+        f63872f.put("H180", 2097152);
+        f63872f.put("H183", 8388608);
+        f63872f.put("H186", 33554432);
     }
 
-    public static void a(List<b.i.b.a.b0.a> list) {
+    public static void a(List<b.h.b.a.b0.a> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, list) == null) || v.f32661a >= 26) {
+        if (!(interceptable == null || interceptable.invokeL(65537, null, list) == null) || v.f33519a >= 26) {
             return;
         }
-        if (list.size() <= 1 || !"OMX.MTK.AUDIO.DECODER.RAW".equals(list.get(0).f31854a)) {
+        if (list.size() <= 1 || !"OMX.MTK.AUDIO.DECODER.RAW".equals(list.get(0).f32712a)) {
             return;
         }
         for (int i2 = 1; i2 < list.size(); i2++) {
-            b.i.b.a.b0.a aVar = list.get(i2);
-            if ("OMX.google.raw.decoder".equals(aVar.f31854a)) {
+            b.h.b.a.b0.a aVar = list.get(i2);
+            if ("OMX.google.raw.decoder".equals(aVar.f32712a)) {
                 list.remove(i2);
                 list.add(0, aVar);
                 return;
@@ -423,7 +424,7 @@ public final class MediaCodecUtil {
     public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? v.f32661a <= 22 && (v.f32664d.equals("ODROID-XU3") || v.f32664d.equals("Nexus 10")) && ("OMX.Exynos.AVC.Decoder".equals(str) || "OMX.Exynos.AVC.Decoder.secure".equals(str)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? v.f33519a <= 22 && (v.f33522d.equals("ODROID-XU3") || v.f33522d.equals("Nexus 10")) && ("OMX.Exynos.AVC.Decoder".equals(str) || "OMX.Exynos.AVC.Decoder.secure".equals(str)) : invokeL.booleanValue;
     }
 
     public static Pair<Integer, Integer> d(String str, String[] strArr) {
@@ -448,12 +449,12 @@ public final class MediaCodecUtil {
                     String str3 = "Ignoring malformed AVC codec string: " + str;
                     return null;
                 }
-                Integer valueOf3 = Integer.valueOf(f62970d.get(num.intValue()));
+                Integer valueOf3 = Integer.valueOf(f63870d.get(num.intValue()));
                 if (valueOf3 == null) {
                     String str4 = "Unknown AVC profile: " + num;
                     return null;
                 }
-                Integer valueOf4 = Integer.valueOf(f62971e.get(valueOf.intValue()));
+                Integer valueOf4 = Integer.valueOf(f63871e.get(valueOf.intValue()));
                 if (valueOf4 == null) {
                     String str5 = "Unknown AVC level: " + valueOf;
                     return null;
@@ -481,7 +482,7 @@ public final class MediaCodecUtil {
             if (str == null) {
                 return null;
             }
-            String[] split = str.split("\\.");
+            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             char c2 = 0;
             String str2 = split[0];
             switch (str2.hashCode()) {
@@ -523,53 +524,53 @@ public final class MediaCodecUtil {
         return (Pair) invokeL.objValue;
     }
 
-    public static b.i.b.a.b0.a f(String str, boolean z) throws DecoderQueryException {
+    public static b.h.b.a.b0.a f(String str, boolean z) throws DecoderQueryException {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, str, z)) == null) {
-            List<b.i.b.a.b0.a> g2 = g(str, z);
+            List<b.h.b.a.b0.a> g2 = g(str, z);
             if (g2.isEmpty()) {
                 return null;
             }
             return g2.get(0);
         }
-        return (b.i.b.a.b0.a) invokeLZ.objValue;
+        return (b.h.b.a.b0.a) invokeLZ.objValue;
     }
 
-    public static synchronized List<b.i.b.a.b0.a> g(String str, boolean z) throws DecoderQueryException {
+    public static synchronized List<b.h.b.a.b0.a> g(String str, boolean z) throws DecoderQueryException {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, str, z)) == null) {
             synchronized (MediaCodecUtil.class) {
                 b bVar = new b(str, z);
-                List<b.i.b.a.b0.a> list = f62969c.get(bVar);
+                List<b.h.b.a.b0.a> list = f63869c.get(bVar);
                 if (list != null) {
                     return list;
                 }
-                List<b.i.b.a.b0.a> h2 = h(bVar, v.f32661a >= 21 ? new e(z) : new d(null));
-                if (z && h2.isEmpty() && 21 <= v.f32661a && v.f32661a <= 23) {
+                List<b.h.b.a.b0.a> h2 = h(bVar, v.f33519a >= 21 ? new e(z) : new d(null));
+                if (z && h2.isEmpty() && 21 <= v.f33519a && v.f33519a <= 23) {
                     h2 = h(bVar, new d(null));
                     if (!h2.isEmpty()) {
-                        String str2 = "MediaCodecList API didn't list secure decoder for: " + str + ". Assuming: " + h2.get(0).f31854a;
+                        String str2 = "MediaCodecList API didn't list secure decoder for: " + str + ". Assuming: " + h2.get(0).f32712a;
                     }
                 }
                 a(h2);
-                List<b.i.b.a.b0.a> unmodifiableList = Collections.unmodifiableList(h2);
-                f62969c.put(bVar, unmodifiableList);
+                List<b.h.b.a.b0.a> unmodifiableList = Collections.unmodifiableList(h2);
+                f63869c.put(bVar, unmodifiableList);
                 return unmodifiableList;
             }
         }
         return (List) invokeLZ.objValue;
     }
 
-    public static List<b.i.b.a.b0.a> h(b bVar, c cVar) throws DecoderQueryException {
+    public static List<b.h.b.a.b0.a> h(b bVar, c cVar) throws DecoderQueryException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, bVar, cVar)) == null) {
             c cVar2 = cVar;
             try {
                 ArrayList arrayList = new ArrayList();
-                String str = bVar.f62974a;
+                String str = bVar.f63874a;
                 int c2 = cVar.c();
                 boolean d2 = cVar.d();
                 int i2 = 0;
@@ -588,18 +589,18 @@ public final class MediaCodecUtil {
                                     boolean b2 = cVar2.b(str, capabilitiesForType);
                                     boolean c3 = c(name);
                                     if (d2) {
-                                        if (bVar.f62975b != b2) {
+                                        if (bVar.f63875b != b2) {
                                         }
-                                        arrayList.add(b.i.b.a.b0.a.q(name, str, capabilitiesForType, c3, false));
+                                        arrayList.add(b.h.b.a.b0.a.q(name, str, capabilitiesForType, c3, false));
                                     }
-                                    if (!d2 && !bVar.f62975b) {
-                                        arrayList.add(b.i.b.a.b0.a.q(name, str, capabilitiesForType, c3, false));
+                                    if (!d2 && !bVar.f63875b) {
+                                        arrayList.add(b.h.b.a.b0.a.q(name, str, capabilitiesForType, c3, false));
                                     } else if (!d2 && b2) {
-                                        arrayList.add(b.i.b.a.b0.a.q(name + ".secure", str, capabilitiesForType, c3, true));
+                                        arrayList.add(b.h.b.a.b0.a.q(name + ".secure", str, capabilitiesForType, c3, true));
                                         return arrayList;
                                     }
                                 } catch (Exception e2) {
-                                    if (v.f32661a <= 23 && !arrayList.isEmpty()) {
+                                    if (v.f33519a <= 23 && !arrayList.isEmpty()) {
                                         String str3 = "Skipping codec " + name + " (failed to query capabilities)";
                                     } else {
                                         String str4 = "Failed to query codec " + name + " (" + str2 + SmallTailInfo.EMOTION_SUFFIX;
@@ -632,7 +633,7 @@ public final class MediaCodecUtil {
                 String str2 = "Ignoring malformed HEVC codec string: " + str;
                 return null;
             }
-            Matcher matcher = f62968b.matcher(strArr[1]);
+            Matcher matcher = f63868b.matcher(strArr[1]);
             if (!matcher.matches()) {
                 String str3 = "Ignoring malformed HEVC codec string: " + str;
                 return null;
@@ -646,7 +647,7 @@ public final class MediaCodecUtil {
             } else {
                 i2 = 2;
             }
-            Integer num = f62972f.get(strArr[3]);
+            Integer num = f63872f.get(strArr[3]);
             if (num == null) {
                 String str5 = "Unknown HEVC level string: " + matcher.group(1);
                 return null;
@@ -656,10 +657,10 @@ public final class MediaCodecUtil {
         return (Pair) invokeLL.objValue;
     }
 
-    public static b.i.b.a.b0.a j() {
+    public static b.h.b.a.b0.a j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f62967a : (b.i.b.a.b0.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f63867a : (b.h.b.a.b0.a) invokeV.objValue;
     }
 
     public static boolean k(MediaCodecInfo mediaCodecInfo, String str, boolean z) {
@@ -669,22 +670,22 @@ public final class MediaCodecUtil {
             if (mediaCodecInfo.isEncoder() || (!z && str.endsWith(".secure"))) {
                 return false;
             }
-            if (v.f32661a >= 21 || !("CIPAACDecoder".equals(str) || "CIPMP3Decoder".equals(str) || "CIPVorbisDecoder".equals(str) || "CIPAMRNBDecoder".equals(str) || "AACDecoder".equals(str) || "MP3Decoder".equals(str))) {
-                if (v.f32661a >= 18 || !"OMX.SEC.MP3.Decoder".equals(str)) {
-                    if (v.f32661a < 18 && "OMX.MTK.AUDIO.DECODER.AAC".equals(str) && ("a70".equals(v.f32662b) || ("Xiaomi".equals(v.f32663c) && v.f32662b.startsWith("HM")))) {
+            if (v.f33519a >= 21 || !("CIPAACDecoder".equals(str) || "CIPMP3Decoder".equals(str) || "CIPVorbisDecoder".equals(str) || "CIPAMRNBDecoder".equals(str) || "AACDecoder".equals(str) || "MP3Decoder".equals(str))) {
+                if (v.f33519a >= 18 || !"OMX.SEC.MP3.Decoder".equals(str)) {
+                    if (v.f33519a < 18 && "OMX.MTK.AUDIO.DECODER.AAC".equals(str) && ("a70".equals(v.f33520b) || ("Xiaomi".equals(v.f33521c) && v.f33520b.startsWith("HM")))) {
                         return false;
                     }
-                    if (v.f32661a == 16 && "OMX.qcom.audio.decoder.mp3".equals(str) && ("dlxu".equals(v.f32662b) || "protou".equals(v.f32662b) || "ville".equals(v.f32662b) || "villeplus".equals(v.f32662b) || "villec2".equals(v.f32662b) || v.f32662b.startsWith("gee") || "C6602".equals(v.f32662b) || "C6603".equals(v.f32662b) || "C6606".equals(v.f32662b) || "C6616".equals(v.f32662b) || "L36h".equals(v.f32662b) || "SO-02E".equals(v.f32662b))) {
+                    if (v.f33519a == 16 && "OMX.qcom.audio.decoder.mp3".equals(str) && ("dlxu".equals(v.f33520b) || "protou".equals(v.f33520b) || "ville".equals(v.f33520b) || "villeplus".equals(v.f33520b) || "villec2".equals(v.f33520b) || v.f33520b.startsWith("gee") || "C6602".equals(v.f33520b) || "C6603".equals(v.f33520b) || "C6606".equals(v.f33520b) || "C6616".equals(v.f33520b) || "L36h".equals(v.f33520b) || "SO-02E".equals(v.f33520b))) {
                         return false;
                     }
-                    if (v.f32661a == 16 && "OMX.qcom.audio.decoder.aac".equals(str) && ("C1504".equals(v.f32662b) || "C1505".equals(v.f32662b) || "C1604".equals(v.f32662b) || "C1605".equals(v.f32662b))) {
+                    if (v.f33519a == 16 && "OMX.qcom.audio.decoder.aac".equals(str) && ("C1504".equals(v.f33520b) || "C1505".equals(v.f33520b) || "C1604".equals(v.f33520b) || "C1605".equals(v.f33520b))) {
                         return false;
                     }
-                    if (v.f32661a >= 24 || !(("OMX.SEC.aac.dec".equals(str) || "OMX.Exynos.AAC.Decoder".equals(str)) && v.f32663c.equals(ManufacturerUtils.SAMSUNG) && (v.f32662b.startsWith("zeroflte") || v.f32662b.startsWith("zerolte") || v.f32662b.startsWith("zenlte") || v.f32662b.equals("SC-05G") || v.f32662b.equals("marinelteatt") || v.f32662b.equals("404SC") || v.f32662b.equals("SC-04G") || v.f32662b.equals("SCV31")))) {
-                        if (v.f32661a <= 19 && "OMX.SEC.vp8.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(v.f32663c) && (v.f32662b.startsWith("d2") || v.f32662b.startsWith("serrano") || v.f32662b.startsWith("jflte") || v.f32662b.startsWith("santos") || v.f32662b.startsWith("t0"))) {
+                    if (v.f33519a >= 24 || !(("OMX.SEC.aac.dec".equals(str) || "OMX.Exynos.AAC.Decoder".equals(str)) && v.f33521c.equals(ManufacturerUtils.SAMSUNG) && (v.f33520b.startsWith("zeroflte") || v.f33520b.startsWith("zerolte") || v.f33520b.startsWith("zenlte") || v.f33520b.equals("SC-05G") || v.f33520b.equals("marinelteatt") || v.f33520b.equals("404SC") || v.f33520b.equals("SC-04G") || v.f33520b.equals("SCV31")))) {
+                        if (v.f33519a <= 19 && "OMX.SEC.vp8.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(v.f33521c) && (v.f33520b.startsWith("d2") || v.f33520b.startsWith("serrano") || v.f33520b.startsWith("jflte") || v.f33520b.startsWith("santos") || v.f33520b.startsWith("t0"))) {
                             return false;
                         }
-                        return (v.f32661a <= 19 && v.f32662b.startsWith("jflte") && "OMX.qcom.video.decoder.vp8".equals(str)) ? false : true;
+                        return (v.f33519a <= 19 && v.f33520b.startsWith("jflte") && "OMX.qcom.video.decoder.vp8".equals(str)) ? false : true;
                     }
                     return false;
                 }
@@ -699,9 +700,9 @@ public final class MediaCodecUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (f62973g == -1) {
+            if (f63873g == -1) {
                 int i2 = 0;
-                b.i.b.a.b0.a f2 = f("video/avc", false);
+                b.h.b.a.b0.a f2 = f("video/avc", false);
                 if (f2 != null) {
                     MediaCodecInfo.CodecProfileLevel[] d2 = f2.d();
                     int length = d2.length;
@@ -710,11 +711,11 @@ public final class MediaCodecUtil {
                         i3 = Math.max(b(d2[i2].level), i3);
                         i2++;
                     }
-                    i2 = Math.max(i3, v.f32661a >= 21 ? 345600 : 172800);
+                    i2 = Math.max(i3, v.f33519a >= 21 ? 345600 : 172800);
                 }
-                f62973g = i2;
+                f63873g = i2;
             }
-            return f62973g;
+            return f63873g;
         }
         return invokeV.intValue;
     }

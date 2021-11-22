@@ -15,19 +15,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24815a;
+    public String f26332a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24816b;
+    public String f26333b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d2> f24817c;
+    public List<d2> f26334c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f24818d;
+    public int f26335d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f24819e;
+    public int f26336e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,22 +48,22 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f24815a = jSONObject.optString("head_pic");
+        this.f26332a = jSONObject.optString("head_pic");
         jSONObject.optString("url_type");
-        this.f24816b = jSONObject.optString("url");
-        this.f24818d = jSONObject.optInt("head_type", 0);
-        this.f24819e = jSONObject.optInt("is_set", -1);
+        this.f26333b = jSONObject.optString("url");
+        this.f26335d = jSONObject.optInt("head_type", 0);
+        this.f26336e = jSONObject.optInt("is_set", -1);
         JSONArray optJSONArray = jSONObject.optJSONArray("head_thread");
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return;
         }
-        this.f24817c = new ArrayList(optJSONArray.length());
+        this.f26334c = new ArrayList(optJSONArray.length());
         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
             JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
             if (jSONObject2 != null) {
                 d2 d2Var = new d2();
-                d2Var.X2(jSONObject2);
-                this.f24817c.add(d2Var);
+                d2Var.Z2(jSONObject2);
+                this.f26334c.add(d2Var);
             }
         }
     }

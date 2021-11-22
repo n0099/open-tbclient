@@ -1,7 +1,6 @@
 package com.alibaba.fastjson.serializer;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.util.IOUtils;
@@ -380,7 +379,7 @@ public class JSONSerializer extends SerializeFilterable {
                             try {
                                 dateFormat = generateDateFormat(str);
                             } catch (IllegalArgumentException unused) {
-                                dateFormat = generateDateFormat(str.replaceAll(ExifInterface.GPS_DIRECTION_TRUE, "'T'"));
+                                dateFormat = generateDateFormat(str.replaceAll("T", "'T'"));
                             }
                         } else {
                             String str2 = this.fastJsonConfigDateFormatPattern;

@@ -28,7 +28,7 @@ public class au {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public XMPushService f71420a;
+    public XMPushService f72340a;
 
     public au(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class au {
                 return;
             }
         }
-        this.f71420a = xMPushService;
+        this.f72340a = xMPushService;
     }
 
     private void a(fz fzVar) {
@@ -61,8 +61,8 @@ public class au {
                 return;
             }
             a2.a(split);
-            this.f71420a.a(20, (Exception) null);
-            this.f71420a.a(true);
+            this.f72340a.a(20, (Exception) null);
+            this.f72340a.a(true);
         }
     }
 
@@ -75,7 +75,7 @@ public class au {
             if (TextUtils.isEmpty(l) || TextUtils.isEmpty(k) || (a2 = av.a().a(k, l)) == null) {
                 return;
             }
-            gq.a(this.f71420a, a2.f916a, gq.a(gcVar.m348a()), true, true, System.currentTimeMillis());
+            gq.a(this.f72340a, a2.f916a, gq.a(gcVar.m348a()), true, true, System.currentTimeMillis());
         }
     }
 
@@ -88,7 +88,7 @@ public class au {
             if (TextUtils.isEmpty(g2) || TextUtils.isEmpty(num) || (a2 = av.a().a(num, g2)) == null) {
                 return;
             }
-            gq.a(this.f71420a, a2.f916a, faVar.c(), true, true, System.currentTimeMillis());
+            gq.a(this.f72340a, a2.f916a, faVar.c(), true, true, System.currentTimeMillis());
         }
     }
 
@@ -128,14 +128,14 @@ public class au {
                     String a4 = a2.a("reason");
                     com.xiaomi.channel.commonutils.logger.b.m73a("kicked by server, chid=" + k + " res=" + av.b.a(l) + " type=" + a3 + " reason=" + a4);
                     if (!"wait".equals(a3)) {
-                        this.f71420a.a(k, l, 3, a4, a3);
+                        this.f72340a.a(k, l, 3, a4, a3);
                         av.a().m608a(k, l);
                         return;
                     }
                     av.b a5 = av.a().a(k, l);
                     if (a5 != null) {
-                        this.f71420a.a(a5);
-                        a5.a(av.c.f71436a, 3, 0, a4, a3);
+                        this.f72340a.a(a5);
+                        a5.a(av.c.f72356a, 3, 0, a4, a3);
                         return;
                     }
                     return;
@@ -151,7 +151,7 @@ public class au {
                     return;
                 }
             }
-            this.f71420a.b().a(this.f71420a, k, gcVar);
+            this.f72340a.b().a(this.f72340a, k, gcVar);
         }
     }
 
@@ -176,14 +176,14 @@ public class au {
                             String b2 = a3.b();
                             com.xiaomi.channel.commonutils.logger.b.m73a("kicked by server, chid=" + num + " res= " + av.b.a(g2) + " type=" + a4 + " reason=" + b2);
                             if (!"wait".equals(a4)) {
-                                this.f71420a.a(num, g2, 3, b2, a4);
+                                this.f72340a.a(num, g2, 3, b2, a4);
                                 av.a().m608a(num, g2);
                                 return;
                             }
                             av.b a5 = av.a().a(num, g2);
                             if (a5 != null) {
-                                this.f71420a.a(a5);
-                                a5.a(av.c.f71436a, 3, 0, b2, a4);
+                                this.f72340a.a(a5);
+                                a5.a(av.c.f72356a, 3, 0, b2, a4);
                                 return;
                             }
                             return;
@@ -198,27 +198,27 @@ public class au {
                     }
                     if (a6.a()) {
                         com.xiaomi.channel.commonutils.logger.b.m73a("SMACK: channel bind succeeded, chid=" + faVar.a());
-                        a7.a(av.c.f71438c, 1, 0, (String) null, (String) null);
+                        a7.a(av.c.f72358c, 1, 0, (String) null, (String) null);
                         return;
                     }
                     String a8 = a6.a();
                     if ("auth".equals(a8)) {
                         if ("invalid-sig".equals(a6.b())) {
-                            com.xiaomi.channel.commonutils.logger.b.m73a("SMACK: bind error invalid-sig token = " + a7.f71424c + " sec = " + a7.f71429h);
+                            com.xiaomi.channel.commonutils.logger.b.m73a("SMACK: bind error invalid-sig token = " + a7.f72344c + " sec = " + a7.f72349h);
                             gz.a(0, ew.T.a(), 1, null, 0);
                         }
-                        cVar = av.c.f71436a;
+                        cVar = av.c.f72356a;
                         i2 = 1;
                         i3 = 5;
                     } else if (!QueryResponse.Options.CANCEL.equals(a8)) {
                         if ("wait".equals(a8)) {
-                            this.f71420a.a(a7);
-                            a7.a(av.c.f71436a, 1, 7, a6.b(), a8);
+                            this.f72340a.a(a7);
+                            a7.a(av.c.f72356a, 1, 7, a6.b(), a8);
                         }
                         str = "SMACK: channel bind failed, chid=" + num + " reason=" + a6.b();
                         com.xiaomi.channel.commonutils.logger.b.m73a(str);
                     } else {
-                        cVar = av.c.f71436a;
+                        cVar = av.c.f72356a;
                         i2 = 1;
                         i3 = 7;
                     }
@@ -227,7 +227,7 @@ public class au {
                     str = "SMACK: channel bind failed, chid=" + num + " reason=" + a6.b();
                     com.xiaomi.channel.commonutils.logger.b.m73a(str);
                 } else if (!faVar.m308a()) {
-                    this.f71420a.b().a(this.f71420a, num, faVar);
+                    this.f72340a.b().a(this.f72340a, num, faVar);
                     return;
                 } else {
                     sb = new StringBuilder();
@@ -244,15 +244,15 @@ public class au {
                         bi.a().a(a9.a());
                     }
                 }
-                if (!"com.xiaomi.xmsf".equals(this.f71420a.getPackageName())) {
-                    this.f71420a.m565a();
+                if (!"com.xiaomi.xmsf".equals(this.f72340a.getPackageName())) {
+                    this.f72340a.m565a();
                 }
                 if ("1".equals(faVar.e())) {
                     com.xiaomi.channel.commonutils.logger.b.m73a("received a server ping");
                 } else {
                     gz.b();
                 }
-                this.f71420a.m568b();
+                this.f72340a.m568b();
                 return;
             } else if ("SYNC".equals(m305a)) {
                 if ("CONF".equals(faVar.m311b())) {
@@ -260,12 +260,12 @@ public class au {
                     return;
                 } else if (TextUtils.equals("U", faVar.m311b())) {
                     du.k a10 = du.k.a(faVar.m309a());
-                    db.a(this.f71420a).a(a10.a(), a10.b(), new Date(a10.a()), new Date(a10.b()), a10.c() * 1024, a10.e());
+                    db.a(this.f72340a).a(a10.a(), a10.b(), new Date(a10.a()), new Date(a10.b()), a10.c() * 1024, a10.e());
                     fa faVar2 = new fa();
                     faVar2.a(0);
                     faVar2.a(faVar.m305a(), "UCA");
                     faVar2.a(faVar.e());
-                    XMPushService xMPushService = this.f71420a;
+                    XMPushService xMPushService = this.f72340a;
                     xMPushService.a(new bg(xMPushService, faVar2));
                     return;
                 } else if (!TextUtils.equals("P", faVar.m311b())) {
@@ -281,7 +281,7 @@ public class au {
                         iVar.a(a11.a());
                     }
                     faVar3.a(iVar.m284a(), (String) null);
-                    XMPushService xMPushService2 = this.f71420a;
+                    XMPushService xMPushService2 = this.f72340a;
                     xMPushService2.a(new bg(xMPushService2, faVar3));
                     sb = new StringBuilder();
                     sb.append("ACK msgP: id = ");

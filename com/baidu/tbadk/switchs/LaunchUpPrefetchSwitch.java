@@ -54,18 +54,19 @@ public class LaunchUpPrefetchSwitch extends BaseNormalSwitch {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d.C()) {
-                return false;
-            }
             if (type > 1) {
-                type = b.j().k("key_launch_up_prefetch", 1);
+                if (d.C()) {
+                    type = 0;
+                } else {
+                    type = b.j().k("key_launch_up_prefetch", 1);
+                }
             }
             return type == 1;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, b.a.e.e.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, b.a.e.f.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

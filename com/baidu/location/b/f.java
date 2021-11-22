@@ -11,7 +11,7 @@ public class f extends Thread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f38977a;
+    public final /* synthetic */ d f39809a;
 
     public f(d dVar) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class f extends Thread {
                 return;
             }
         }
-        this.f38977a = dVar;
+        this.f39809a = dVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f38977a.a(new File(com.baidu.location.e.k.k() + "/baidu/tempdata", "intime.dat"), "https://itsdata.map.baidu.com/long-conn-gps/sdk.php");
+            this.f39809a.a(new File(com.baidu.location.e.k.k() + "/baidu/tempdata", "intime.dat"), "https://itsdata.map.baidu.com/long-conn-gps/sdk.php");
         }
     }
 }

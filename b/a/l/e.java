@@ -17,7 +17,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Rect a(b.a.e.l.e.s sVar, View view, int i2) {
+    public static Rect a(b.a.e.m.e.s sVar, View view, int i2) {
         InterceptResult invokeLLI;
         BdTypeRecyclerView bdTypeRecyclerView;
         RecyclerView.LayoutManager layoutManager;
@@ -32,7 +32,7 @@ public class e {
             }
             int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
             int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
-            List<b.a.e.l.e.n> data = sVar.getData();
+            List<b.a.e.m.e.n> data = sVar.getData();
             Object item = ListUtils.getItem(data, i2);
             if (item instanceof BaseCardInfo) {
                 BaseCardInfo baseCardInfo = (BaseCardInfo) item;

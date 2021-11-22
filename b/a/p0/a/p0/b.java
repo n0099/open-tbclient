@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.k;
+import b.a.p0.a.z2.g1.c;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
@@ -17,7 +18,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f7202a;
+    public static final boolean f7617a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +34,7 @@ public class b {
                 return;
             }
         }
-        f7202a = k.f6397a;
+        f7617a = k.f6863a;
     }
 
     public static void a() {
@@ -104,11 +105,11 @@ public class b {
             if (i2 == 1) {
                 b.a.p0.a.p0.d.b u = b.a.p0.a.c1.b.i().u();
                 if (u == null) {
-                    boolean z = k.f6397a;
+                    boolean z = k.f6863a;
                 }
                 return u;
             }
-            return a.l();
+            return a.k();
         }
         return (b.a.p0.a.p0.d.b) invokeI.objValue;
     }
@@ -116,7 +117,7 @@ public class b {
     public static void g(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65543, null, i2, i3) == null) {
-            if (f7202a) {
+            if (f7617a) {
                 String str = "onAppUpgrade oldVersion: " + i2 + " ,newVersion: " + i3;
             }
             if ("com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) || i2 != i3) {
@@ -127,14 +128,14 @@ public class b {
         }
     }
 
-    public static void h(int i2, @Nullable b.a.p0.a.v2.e1.b<Exception> bVar) {
+    public static void h(int i2, @Nullable c<Exception> cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65544, null, i2, bVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(65544, null, i2, cVar) == null) {
             b.a.p0.a.p0.d.b f2 = f(i2);
             if (f2 != null) {
-                f2.g(bVar);
-            } else if (bVar != null) {
-                bVar.onCallback(null);
+                f2.g(cVar);
+            } else if (cVar != null) {
+                cVar.onCallback(null);
             }
         }
     }

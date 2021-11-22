@@ -29,16 +29,16 @@ public class SystemHelpSettingModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f53827e;
+    public b f54747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f53828f;
+    public c f54748f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f53829g;
+    public Context f54749g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BaseActivity.LoadDataCallBack f53830h;
+    public BaseActivity.LoadDataCallBack f54750h;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -52,7 +52,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SystemHelpSettingModel f53831a;
+        public final /* synthetic */ SystemHelpSettingModel f54751a;
 
         public b(SystemHelpSettingModel systemHelpSettingModel) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f53831a = systemHelpSettingModel;
+            this.f54751a = systemHelpSettingModel;
         }
 
         public /* synthetic */ b(SystemHelpSettingModel systemHelpSettingModel, a aVar) {
@@ -104,9 +104,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((b) str);
-                this.f53831a.f53827e = null;
-                if (this.f53831a.f53830h != null) {
-                    this.f53831a.f53830h.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+                this.f54751a.f54747e = null;
+                if (this.f54751a.f54750h != null) {
+                    this.f54751a.f54750h.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
                 }
             }
         }
@@ -118,7 +118,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SystemHelpSettingModel f53832a;
+        public final /* synthetic */ SystemHelpSettingModel f54752a;
 
         public c(SystemHelpSettingModel systemHelpSettingModel) {
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f53832a = systemHelpSettingModel;
+            this.f54752a = systemHelpSettingModel;
         }
 
         public /* synthetic */ c(SystemHelpSettingModel systemHelpSettingModel, a aVar) {
@@ -148,15 +148,20 @@ public class SystemHelpSettingModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                b.a.e.e.a.b bVar = new b.a.e.e.a.b();
+                b.a.e.f.a.b bVar = new b.a.e.f.a.b();
                 String a2 = bVar.a("image", true, false, true);
                 String cacheDir = FileHelper.getCacheDir();
+                String a3 = bVar.a("images", true, false, true);
                 String str = cacheDir + "voice";
-                String str2 = cacheDir + TbConfig.TMP_DATABASE_NAME;
-                long directorySize = FileHelper.getDirectorySize(a2, false) + FileHelper.getDirectorySize(str, false) + FileHelper.getFileSize(str2) + FileHelper.getDirectorySize(bVar.a("images", true, false, true), false) + ((Long) MessageManager.getInstance().runTask(2921548, Long.class).getData()).longValue();
-                float f2 = ((float) directorySize) + 0.0f;
-                if (directorySize >= 10485.76d) {
-                    return String.format("%.2f", Float.valueOf(f2 / 1048576.0f)) + this.f53832a.f53829g.getString(R.string.mebibyte);
+                long directorySize = FileHelper.getDirectorySize(a2, false);
+                long directorySize2 = FileHelper.getDirectorySize(a3, false);
+                long directorySize3 = FileHelper.getDirectorySize(str, false);
+                long fileSize = FileHelper.getFileSize(cacheDir + TbConfig.TMP_DATABASE_NAME);
+                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921548, Long.class);
+                long longValue = directorySize + directorySize3 + fileSize + directorySize2 + ((runTask == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue());
+                float f2 = ((float) longValue) + 0.0f;
+                if (longValue >= 10485.76d) {
+                    return String.format("%.2f", Float.valueOf(f2 / 1048576.0f)) + this.f54752a.f54749g.getString(R.string.mebibyte);
                 }
                 return "";
             }
@@ -169,9 +174,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((c) str);
-                this.f53832a.f53828f = null;
-                if (this.f53832a.f53830h != null) {
-                    this.f53832a.f53830h.callback(MoreModel.TaskType.GET_SIZE, str);
+                this.f54752a.f54748f = null;
+                if (this.f54752a.f54750h != null) {
+                    this.f54752a.f54750h.callback(MoreModel.TaskType.GET_SIZE, str);
                 }
             }
         }
@@ -195,18 +200,18 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 return;
             }
         }
-        this.f53827e = null;
-        this.f53828f = null;
-        this.f53829g = null;
-        this.f53830h = null;
-        this.f53829g = systemHelpSettingActivity.getPageContext().getPageActivity();
+        this.f54747e = null;
+        this.f54748f = null;
+        this.f54749g = null;
+        this.f54750h = null;
+        this.f54749g = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
     public void A() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f53827e == null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f54747e == null) {
             b bVar = new b(this, null);
-            this.f53827e = bVar;
+            this.f54747e = bVar;
             bVar.execute(new String[0]);
         }
     }
@@ -224,9 +229,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
 
     public void C() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f53828f == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f54748f == null) {
             c cVar = new c(this, null);
-            this.f53828f = cVar;
+            this.f54748f = cVar;
             cVar.execute(new String[0]);
         }
     }
@@ -241,7 +246,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
     public void E(BaseActivity.LoadDataCallBack loadDataCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, loadDataCallBack) == null) {
-            this.f53830h = loadDataCallBack;
+            this.f54750h = loadDataCallBack;
         }
     }
 

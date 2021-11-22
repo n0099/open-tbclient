@@ -13,28 +13,28 @@ public class m implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f21472a;
+    public int f22968a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Long f21473b;
+    public Long f22969b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21474c;
+    public String f22970c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f21475d;
+    public String f22971d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21476e;
+    public String f22972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21477f;
+    public String f22973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21478g;
+    public String f22974g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Integer f21479h;
+    public Integer f22975h;
 
     public m(SmartApp smartApp) {
         Interceptable interceptable = $ic;
@@ -51,70 +51,70 @@ public class m implements c {
                 return;
             }
         }
-        this.f21472a = 0;
+        this.f22968a = 0;
         if (smartApp == null) {
             return;
         }
-        this.f21473b = smartApp.swan_app_id;
-        this.f21474c = smartApp.id;
-        this.f21475d = smartApp.avatar;
-        this.f21476e = smartApp.name;
+        this.f22969b = smartApp.swan_app_id;
+        this.f22970c = smartApp.id;
+        this.f22971d = smartApp.avatar;
+        this.f22972e = smartApp.name;
         String str = smartApp._abstract;
         String str2 = smartApp.pic;
-        this.f21477f = smartApp.h5_url;
-        this.f21478g = smartApp.link;
+        this.f22973f = smartApp.h5_url;
+        this.f22974g = smartApp.link;
         if (smartApp.is_recom.intValue() == 1) {
-            this.f21472a = 1;
+            this.f22968a = 1;
         }
-        this.f21479h = smartApp.is_game;
+        this.f22975h = smartApp.is_game;
     }
 
     public Long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21473b : (Long) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22969b : (Long) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21474c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22970c : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21475d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22971d : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21477f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22973f : (String) invokeV.objValue;
     }
 
     public Integer e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f21479h : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f22975h : (Integer) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21478g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22974g : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21476e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22972e : (String) invokeV.objValue;
     }
 
     @Override // b.a.r0.n2.e.c
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f21472a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f22968a : invokeV.intValue;
     }
 }

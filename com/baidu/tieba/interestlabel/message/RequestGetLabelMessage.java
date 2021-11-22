@@ -1,6 +1,6 @@
 package com.baidu.tieba.interestlabel.message;
 
-import b.a.q0.d1.z;
+import b.a.q0.c1.z;
 import b.a.r0.o1.b.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +19,7 @@ public class RequestGetLabelMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f50967common;
+    public CommonReq f51879common;
     public int from;
     public b mLabelDataSet;
 
@@ -48,7 +48,7 @@ public class RequestGetLabelMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f72925common = this.f50967common;
+            builder.f73844common = this.f51879common;
             builder.from = Integer.valueOf(this.from);
             if (z) {
                 z.a(builder, true);
@@ -69,7 +69,7 @@ public class RequestGetLabelMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f50967common = commonReq;
+            this.f51879common = commonReq;
         }
     }
 

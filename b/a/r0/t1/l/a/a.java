@@ -24,25 +24,25 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f23795a;
+    public TbPageContext f25324a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<TransmitForumData> f23796b;
+    public ArrayList<TransmitForumData> f25325b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final CustomMessageListener f23797c;
+    public final CustomMessageListener f25326c;
 
     /* renamed from: b.a.r0.t1.l.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1153a extends CustomMessageListener {
+    public class C1221a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f23798a;
+        public final /* synthetic */ a f25327a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1153a(a aVar, int i2) {
+        public C1221a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -59,7 +59,7 @@ public class a {
                     return;
                 }
             }
-            this.f23798a = aVar;
+            this.f25327a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,8 +69,8 @@ public class a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof ArrayList)) {
                 return;
             }
-            this.f23798a.f23796b.clear();
-            this.f23798a.f23796b.addAll((ArrayList) customResponsedMessage.getData());
+            this.f25327a.f25325b.clear();
+            this.f25327a.f25325b.addAll((ArrayList) customResponsedMessage.getData());
         }
     }
 
@@ -89,16 +89,16 @@ public class a {
                 return;
             }
         }
-        this.f23796b = new ArrayList<>();
-        this.f23797c = new C1153a(this, 2016563);
-        this.f23795a = tbPageContext;
-        MessageManager.getInstance().registerListener(this.f23797c);
+        this.f25325b = new ArrayList<>();
+        this.f25326c = new C1221a(this, 2016563);
+        this.f25324a = tbPageContext;
+        MessageManager.getInstance().registerListener(this.f25326c);
     }
 
     public List<TransmitForumData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23796b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25325b : (List) invokeV.objValue;
     }
 
     public void c() {
@@ -111,7 +111,7 @@ public class a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f23797c);
+            MessageManager.getInstance().unRegisterListener(this.f25326c);
         }
     }
 
@@ -119,10 +119,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, shareItem}) == null) {
             if (j > 0 || !TextUtils.isEmpty(str)) {
-                SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.f23795a.getPageActivity(), 24007);
+                SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.f25324a.getPageActivity(), 24007);
                 CustomMessage customMessage = new CustomMessage(2002001, selectForumActivityConfig);
                 selectForumActivityConfig.setFrom(1);
-                selectForumActivityConfig.setForumList(this.f23796b);
+                selectForumActivityConfig.setForumList(this.f25325b);
                 selectForumActivityConfig.setLiveId(j);
                 selectForumActivityConfig.setYyAnchorBdUid(str);
                 shareItem.j(true);

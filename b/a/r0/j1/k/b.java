@@ -6,8 +6,8 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import b.a.e.e.p.k;
-import b.a.e.e.p.l;
+import b.a.e.f.p.k;
+import b.a.e.f.p.l;
 import b.a.q0.s.s.a;
 import b.a.r0.j1.h;
 import com.baidu.adp.framework.MessageManager;
@@ -33,10 +33,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseActivity<?> f18391a;
+    public BaseActivity<?> f19725a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<String> f18392b;
+    public SparseArray<String> f19726b;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -44,10 +44,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f18393e;
+        public final /* synthetic */ ShareItem f19727e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f18394f;
+        public final /* synthetic */ b f19728f;
 
         public a(b bVar, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -64,43 +64,43 @@ public class b {
                     return;
                 }
             }
-            this.f18394f = bVar;
-            this.f18393e = shareItem;
+            this.f19728f = bVar;
+            this.f19727e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b.a.e.e.p.a.a(this.f18393e.t);
-                l.M(this.f18394f.f18391a.getActivity(), view.getResources().getString(h.copy_pb_url_success));
+                b.a.e.f.p.a.a(this.f19727e.t);
+                l.M(this.f19728f.f19725a.getActivity(), view.getResources().getString(h.copy_pb_url_success));
             }
         }
     }
 
     /* renamed from: b.a.r0.j1.k.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0933b implements a.e {
+    public class C0994b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareCardView f18395e;
+        public final /* synthetic */ ShareCardView f19729e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f18396f;
+        public final /* synthetic */ long f19730f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f18397g;
+        public final /* synthetic */ String f19731g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f18398h;
+        public final /* synthetic */ long f19732h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ ShareFromTopicMsgData f18399i;
+        public final /* synthetic */ ShareFromTopicMsgData f19733i;
         public final /* synthetic */ b j;
 
-        public C0933b(b bVar, ShareCardView shareCardView, long j, String str, long j2, ShareFromTopicMsgData shareFromTopicMsgData) {
+        public C0994b(b bVar, ShareCardView shareCardView, long j, String str, long j2, ShareFromTopicMsgData shareFromTopicMsgData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,19 +116,19 @@ public class b {
                 }
             }
             this.j = bVar;
-            this.f18395e = shareCardView;
-            this.f18396f = j;
-            this.f18397g = str;
-            this.f18398h = j2;
-            this.f18399i = shareFromTopicMsgData;
+            this.f19729e = shareCardView;
+            this.f19730f = j;
+            this.f19731g = str;
+            this.f19732h = j2;
+            this.f19733i = shareFromTopicMsgData;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                ((InputMethodManager) this.j.f18391a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f18395e.getChatMsgView().getWindowToken(), 2);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.j.f18391a.getActivity(), this.f18396f, this.f18397g, this.f18398h, "from_share", this.f18395e.getLeaveMsg(), this.f18399i.toChatMessageContent())));
+                ((InputMethodManager) this.j.f19725a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f19729e.getChatMsgView().getWindowToken(), 2);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.j.f19725a.getActivity(), this.f19730f, this.f19731g, this.f19732h, "from_share", this.f19729e.getLeaveMsg(), this.f19733i.toChatMessageContent())));
                 aVar.dismiss();
             }
         }
@@ -140,10 +140,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareCardView f18400e;
+        public final /* synthetic */ ShareCardView f19734e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f18401f;
+        public final /* synthetic */ b f19735f;
 
         public c(b bVar, ShareCardView shareCardView) {
             Interceptable interceptable = $ic;
@@ -160,15 +160,15 @@ public class b {
                     return;
                 }
             }
-            this.f18401f = bVar;
-            this.f18400e = shareCardView;
+            this.f19735f = bVar;
+            this.f19734e = shareCardView;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                ((InputMethodManager) this.f18401f.f18391a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f18400e.getChatMsgView().getWindowToken(), 2);
+                ((InputMethodManager) this.f19735f.f19725a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f19734e.getChatMsgView().getWindowToken(), 2);
                 aVar.dismiss();
             }
         }
@@ -180,19 +180,19 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareCardView f18402e;
+        public final /* synthetic */ ShareCardView f19736e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f18403f;
+        public final /* synthetic */ long f19737f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f18404g;
+        public final /* synthetic */ String f19738g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f18405h;
+        public final /* synthetic */ String f19739h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f18406i;
+        public final /* synthetic */ String f19740i;
         public final /* synthetic */ ShareFromTopicMsgData j;
         public final /* synthetic */ b k;
 
@@ -212,11 +212,11 @@ public class b {
                 }
             }
             this.k = bVar;
-            this.f18402e = shareCardView;
-            this.f18403f = j;
-            this.f18404g = str;
-            this.f18405h = str2;
-            this.f18406i = str3;
+            this.f19736e = shareCardView;
+            this.f19737f = j;
+            this.f19738g = str;
+            this.f19739h = str2;
+            this.f19740i = str3;
             this.j = shareFromTopicMsgData;
         }
 
@@ -224,8 +224,8 @@ public class b {
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                ((InputMethodManager) this.k.f18391a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f18402e.getChatMsgView().getWindowToken(), 2);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.k.f18391a.getActivity(), this.f18403f, this.f18404g, this.f18405h, this.f18406i, 0, this.f18402e.getLeaveMsg(), this.j.toChatMessageContent())));
+                ((InputMethodManager) this.k.f19725a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f19736e.getChatMsgView().getWindowToken(), 2);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.k.f19725a.getActivity(), this.f19737f, this.f19738g, this.f19739h, this.f19740i, 0, this.f19736e.getLeaveMsg(), this.j.toChatMessageContent())));
                 aVar.dismiss();
             }
         }
@@ -237,10 +237,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareCardView f18407e;
+        public final /* synthetic */ ShareCardView f19741e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f18408f;
+        public final /* synthetic */ b f19742f;
 
         public e(b bVar, ShareCardView shareCardView) {
             Interceptable interceptable = $ic;
@@ -257,15 +257,15 @@ public class b {
                     return;
                 }
             }
-            this.f18408f = bVar;
-            this.f18407e = shareCardView;
+            this.f19742f = bVar;
+            this.f19741e = shareCardView;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                ((InputMethodManager) this.f18408f.f18391a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f18407e.getChatMsgView().getWindowToken(), 2);
+                ((InputMethodManager) this.f19742f.f19725a.getActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.f19741e.getChatMsgView().getWindowToken(), 2);
                 aVar.dismiss();
             }
         }
@@ -286,24 +286,24 @@ public class b {
                 return;
             }
         }
-        this.f18392b = null;
-        this.f18391a = baseActivity;
+        this.f19726b = null;
+        this.f19725a = baseActivity;
     }
 
     public final SparseArray<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f18392b == null) {
+            if (this.f19726b == null) {
                 SparseArray<String> sparseArray = new SparseArray<>(8);
-                this.f18392b = sparseArray;
+                this.f19726b = sparseArray;
                 sparseArray.put(2, "topic_wx_timeline");
-                this.f18392b.put(3, "topic_wx_friend");
-                this.f18392b.put(4, "topic_qq_zone");
-                this.f18392b.put(5, "topic_tencent_weibo");
-                this.f18392b.put(6, "topic_sina_weibo");
+                this.f19726b.put(3, "topic_wx_friend");
+                this.f19726b.put(4, "topic_qq_zone");
+                this.f19726b.put(5, "topic_tencent_weibo");
+                this.f19726b.put(6, "topic_sina_weibo");
             }
-            return this.f18392b;
+            return this.f19726b;
         }
         return (SparseArray) invokeV.objValue;
     }
@@ -313,14 +313,14 @@ public class b {
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{shareFromTopicMsgData, Long.valueOf(j), str, Long.valueOf(j2), eVar}) == null) || eVar == null || eVar.h() == null) {
             return;
         }
-        b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f18391a.getActivity());
-        ShareCardView shareCardView = new ShareCardView(this.f18391a.getActivity());
+        b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f19725a.getActivity());
+        ShareCardView shareCardView = new ShareCardView(this.f19725a.getActivity());
         shareCardView.setData(shareFromTopicMsgData);
         aVar.setContentViewSize(1);
         aVar.setContentView(shareCardView);
-        aVar.setPositiveButton(h.share, new C0933b(this, shareCardView, j, str, j2, shareFromTopicMsgData));
+        aVar.setPositiveButton(h.share, new C0994b(this, shareCardView, j, str, j2, shareFromTopicMsgData));
         aVar.setNegativeButton(h.cancel, new c(this, shareCardView));
-        aVar.create(this.f18391a.getPageContext()).show();
+        aVar.create(this.f19725a.getPageContext()).show();
         if (k.isEmpty(shareFromTopicMsgData.getImageUrl())) {
             return;
         }
@@ -332,14 +332,14 @@ public class b {
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{shareFromTopicMsgData, Long.valueOf(j), str, str2, str3, eVar}) == null) || eVar == null || eVar.h() == null) {
             return;
         }
-        b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f18391a.getActivity());
-        ShareCardView shareCardView = new ShareCardView(this.f18391a.getActivity());
+        b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(this.f19725a.getActivity());
+        ShareCardView shareCardView = new ShareCardView(this.f19725a.getActivity());
         shareCardView.setData(shareFromTopicMsgData);
         aVar.setContentViewSize(1);
         aVar.setContentView(shareCardView);
         aVar.setPositiveButton(h.share, new d(this, shareCardView, j, str, str2, str3, shareFromTopicMsgData));
         aVar.setNegativeButton(h.cancel, new e(this, shareCardView));
-        aVar.create(this.f18391a.getPageContext()).show();
+        aVar.create(this.f19725a.getPageContext()).show();
         if (k.isEmpty(shareFromTopicMsgData.getImageUrl())) {
             return;
         }
@@ -350,7 +350,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, str4, str5, Boolean.valueOf(z)}) == null) {
             if (TextUtils.isEmpty(str) && z) {
-                BaseActivity<?> baseActivity = this.f18391a;
+                BaseActivity<?> baseActivity = this.f19725a;
                 baseActivity.showToast(baseActivity.getActivity().getString(h.no_hot_topic_data));
                 return;
             }
@@ -362,13 +362,13 @@ public class b {
             shareItem.r = str2;
             shareItem.s = str5;
             shareItem.t = str3;
-            shareItem.f45689b = true;
+            shareItem.f46539b = true;
             shareItem.q = str;
             shareItem.v = parse;
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.f18391a.getActivity(), shareItem, true, b());
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.f19725a.getActivity(), shareItem, true, b());
             shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
             shareDialogConfig.setIsCopyLink(true);
-            this.f18391a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+            this.f19725a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
     }
 }

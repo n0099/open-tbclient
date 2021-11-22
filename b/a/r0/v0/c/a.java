@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a extends b.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
+public class a extends b.a.e.m.e.a<b, ComplaintBarlordViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int m;
@@ -27,14 +27,14 @@ public class a extends b.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
 
     /* renamed from: b.a.r0.v0.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1185a implements View.OnClickListener {
+    public class View$OnClickListenerC1251a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f24260e;
+        public final /* synthetic */ a f25723e;
 
-        public View$OnClickListenerC1185a(a aVar) {
+        public View$OnClickListenerC1251a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +49,7 @@ public class a extends b.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
                     return;
                 }
             }
-            this.f24260e = aVar;
+            this.f25723e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -57,11 +57,11 @@ public class a extends b.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view.getTag() instanceof String)) {
                 String str = (String) view.getTag();
-                if (this.f24260e.m == 1 || this.f24260e.m == 4) {
+                if (this.f25723e.m == 1 || this.f25723e.m == 4) {
                     str = str + "?isNightModel=1";
                 }
-                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(this.f24260e.f2419e, this.f24260e.f2419e.getString(R.string.complaint_bar_lord), str, true));
-                customMessage.setTag(this.f24260e.f2423i);
+                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(this.f25723e.f2421e, this.f25723e.f2421e.getString(R.string.complaint_bar_lord), str, true));
+                customMessage.setTag(this.f25723e.f2425i);
                 MessageManager.getInstance().sendMessage(customMessage);
             }
         }
@@ -69,7 +69,7 @@ public class a extends b.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(b.a.e.a.f fVar) {
-        super(fVar.getPageActivity(), b.f24261g, fVar.getUniqueId());
+        super(fVar.getPageActivity(), b.f25724g, fVar.getUniqueId());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,11 +86,11 @@ public class a extends b.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
                 return;
             }
         }
-        this.n = new View$OnClickListenerC1185a(this);
+        this.n = new View$OnClickListenerC1251a(this);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, b bVar, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
         n0(i2, view, viewGroup, bVar, complaintBarlordViewHolder);
         return view;
@@ -99,8 +99,8 @@ public class a extends b.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
     public final void k0(ComplaintBarlordViewHolder complaintBarlordViewHolder, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, complaintBarlordViewHolder, bVar) == null) {
-            complaintBarlordViewHolder.mTitleView.setText(bVar.f24262e);
-            complaintBarlordViewHolder.mRootLayout.setTag(bVar.f24263f);
+            complaintBarlordViewHolder.mTitleView.setText(bVar.f25725e);
+            complaintBarlordViewHolder.mRootLayout.setTag(bVar.f25726f);
             complaintBarlordViewHolder.mRootLayout.setOnClickListener(this.n);
         }
     }
@@ -122,12 +122,12 @@ public class a extends b.a.e.l.e.a<b, ComplaintBarlordViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: m0 */
     public ComplaintBarlordViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new ComplaintBarlordViewHolder(LayoutInflater.from(this.f2419e).inflate(R.layout.item_complaint_bar_lord_view, viewGroup, false)) : (ComplaintBarlordViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new ComplaintBarlordViewHolder(LayoutInflater.from(this.f2421e).inflate(R.layout.item_complaint_bar_lord_view, viewGroup, false)) : (ComplaintBarlordViewHolder) invokeL.objValue;
     }
 
     public View n0(int i2, View view, ViewGroup viewGroup, b bVar, ComplaintBarlordViewHolder complaintBarlordViewHolder) {

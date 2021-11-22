@@ -29,6 +29,6 @@ public class IAlertManager_AlertManager_Provider implements a {
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b.a.e.g.f.a() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b.a.e.h.f.a() : invokeV.objValue;
     }
 }

@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.k;
-import b.a.r0.d3.d.a;
-import b.a.r0.d3.d.c;
-import b.a.r0.d3.d.d;
-import b.a.r0.d3.d.e;
-import b.a.r0.d3.d.f;
-import b.a.r0.d3.e.b;
+import b.a.e.f.p.k;
+import b.a.r0.e3.d.a;
+import b.a.r0.e3.d.c;
+import b.a.r0.e3.d.d;
+import b.a.r0.e3.d.e;
+import b.a.r0.e3.d.f;
+import b.a.r0.e3.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
@@ -153,7 +153,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
                 this.mShareByWeibo = eVar2;
                 this.mCurrentShare = eVar2;
             } else if (i2 == 8) {
-                this.mCurrentShare = new b.a.r0.d3.d.b(this);
+                this.mCurrentShare = new b.a.r0.e3.d.b(this);
             } else if (i2 == 2) {
                 this.mCurrentShare = new f(this, 2);
             } else if (i2 == 3) {
@@ -252,18 +252,18 @@ public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShar
         }
     }
 
-    @Override // b.a.r0.d3.e.b
+    @Override // b.a.r0.e3.e.b
     public void onShare(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
             if (i3 == 1) {
-                b.a.r0.d3.f.b.b(i2, this.mShareEntity);
+                b.a.r0.e3.f.b.b(i2, this.mShareEntity);
             }
             if (i3 == 3) {
                 if (i2 != 8 && i2 != 6) {
-                    b.a.r0.d3.f.b.a(i2, this.mShareEntity);
+                    b.a.r0.e3.f.b.a(i2, this.mShareEntity);
                 } else {
-                    b.a.r0.d3.f.b.b(i2, this.mShareEntity);
+                    b.a.r0.e3.f.b.b(i2, this.mShareEntity);
                 }
             }
             if (this.mShareEntity.getStats() != null) {

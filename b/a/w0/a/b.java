@@ -16,7 +16,7 @@ public class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f29343a;
+        public static final /* synthetic */ int[] f30212a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -33,7 +33,7 @@ public class b {
                 }
             }
             int[] iArr = new int[EncryptAlgorithm.values().length];
-            f29343a = iArr;
+            f30212a = iArr;
             try {
                 iArr[EncryptAlgorithm.RSA.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
@@ -45,7 +45,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
-            if (a.f29343a[aVar.a().ordinal()] != 1) {
+            if (a.f30212a[aVar.a().ordinal()] != 1) {
                 return null;
             }
             return new c(aVar.b());

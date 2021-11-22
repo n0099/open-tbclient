@@ -1,6 +1,6 @@
 package b.a.r0.h1.h.j;
 
-import b.a.e.e.d.l;
+import b.a.e.f.d.l;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -18,7 +18,7 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f17463a;
+    public static boolean f18932a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

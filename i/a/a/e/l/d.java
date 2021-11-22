@@ -14,18 +14,18 @@ import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a implements IResult<ProductListResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IResult f72349a;
+        public final /* synthetic */ IResult f73268a;
 
         public a(IResult iResult) {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class d {
                     return;
                 }
             }
-            this.f72349a = iResult;
+            this.f73268a = iResult;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -51,7 +51,7 @@ public class d {
         public void onSuccess(ProductListResult productListResult, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, productListResult, payCallBackBean) == null) || (iResult = this.f72349a) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, productListResult, payCallBackBean) == null) || (iResult = this.f73268a) == null) {
                 return;
             }
             iResult.onSuccess(productListResult, payCallBackBean);
@@ -61,20 +61,20 @@ public class d {
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f72349a) == null) {
+            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f73268a) == null) {
                 return;
             }
             iResult.onFail(i2, str, payCallBackBean);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class b implements IResult<MyBalanceResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IResult f72350a;
+        public final /* synthetic */ IResult f73269a;
 
         public b(IResult iResult) {
             Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class d {
                     return;
                 }
             }
-            this.f72350a = iResult;
+            this.f73269a = iResult;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -100,7 +100,7 @@ public class d {
         public void onSuccess(MyBalanceResult myBalanceResult, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, myBalanceResult, payCallBackBean) == null) || (iResult = this.f72350a) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, myBalanceResult, payCallBackBean) == null) || (iResult = this.f73269a) == null) {
                 return;
             }
             iResult.onSuccess(myBalanceResult, payCallBackBean);
@@ -110,20 +110,20 @@ public class d {
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f72350a) == null) {
+            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f73269a) == null) {
                 return;
             }
             iResult.onFail(i2, str, payCallBackBean);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class c implements IResult<BannerConfigResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IResult f72351a;
+        public final /* synthetic */ IResult f73270a;
 
         public c(IResult iResult) {
             Interceptable interceptable = $ic;
@@ -140,7 +140,7 @@ public class d {
                     return;
                 }
             }
-            this.f72351a = iResult;
+            this.f73270a = iResult;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -149,7 +149,7 @@ public class d {
         public void onSuccess(BannerConfigResult bannerConfigResult, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, bannerConfigResult, payCallBackBean) == null) || (iResult = this.f72351a) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, bannerConfigResult, payCallBackBean) == null) || (iResult = this.f73270a) == null) {
                 return;
             }
             iResult.onSuccess(bannerConfigResult, payCallBackBean);
@@ -159,7 +159,7 @@ public class d {
         public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
             IResult iResult;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f72351a) == null) {
+            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f73270a) == null) {
                 return;
             }
             iResult.onFail(i2, str, payCallBackBean);

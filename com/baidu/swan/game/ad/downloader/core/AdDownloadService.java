@@ -4,7 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
-import b.a.p0.f.i.k.f.d;
+import b.a.p0.h.i.k.f.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
@@ -26,7 +26,7 @@ public class AdDownloadService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdDownloadService f44542e;
+        public final /* synthetic */ AdDownloadService f45350e;
 
         public a(AdDownloadService adDownloadService) {
             Interceptable interceptable = $ic;
@@ -43,23 +43,23 @@ public class AdDownloadService extends Service {
                     return;
                 }
             }
-            this.f44542e = adDownloadService;
+            this.f45350e = adDownloadService;
         }
 
         public void a(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) || downloadInfo == null || this.f44542e.mDownloadManager == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) || downloadInfo == null || this.f45350e.mDownloadManager == null) {
                 return;
             }
-            this.f44542e.mDownloadManager.b(downloadInfo);
+            this.f45350e.mDownloadManager.b(downloadInfo);
         }
 
         public DownloadInfo b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (this.f44542e.mDownloadManager != null) {
-                    return this.f44542e.mDownloadManager.g(str);
+                if (this.f45350e.mDownloadManager != null) {
+                    return this.f45350e.mDownloadManager.g(str);
                 }
                 return null;
             }
@@ -68,26 +68,26 @@ public class AdDownloadService extends Service {
 
         public void c(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) || downloadInfo == null || this.f44542e.mDownloadManager == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) || downloadInfo == null || this.f45350e.mDownloadManager == null) {
                 return;
             }
-            this.f44542e.mDownloadManager.d(downloadInfo);
+            this.f45350e.mDownloadManager.d(downloadInfo);
         }
 
         public void d(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadInfo) == null) || downloadInfo == null || this.f44542e.mDownloadManager == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadInfo) == null) || downloadInfo == null || this.f45350e.mDownloadManager == null) {
                 return;
             }
-            this.f44542e.mDownloadManager.a(downloadInfo);
+            this.f45350e.mDownloadManager.a(downloadInfo);
         }
 
         public void e(DownloadInfo downloadInfo) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, downloadInfo) == null) || downloadInfo == null || this.f44542e.mDownloadManager == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, downloadInfo) == null) || downloadInfo == null || this.f45350e.mDownloadManager == null) {
                 return;
             }
-            this.f44542e.mDownloadManager.c(downloadInfo);
+            this.f45350e.mDownloadManager.c(downloadInfo);
         }
     }
 
@@ -118,7 +118,7 @@ public class AdDownloadService extends Service {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.mDownloadManager = b.a.p0.f.i.k.d.a.m(AppRuntime.getAppContext(), null);
+            this.mDownloadManager = b.a.p0.h.i.k.d.a.m(AppRuntime.getAppContext(), null);
             super.onCreate();
         }
     }

@@ -9,7 +9,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -46,31 +46,31 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashSet<String> f17827a;
+    public HashSet<String> f19280a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f17828b;
+    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f19281b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f17829c;
+    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f19282c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f17830d;
+    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f19283d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BroadcastReceiver f17831e;
+    public BroadcastReceiver f19284e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f17832f;
+    public CustomMessageListener f19285f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f17833g;
+    public CustomMessageListener f19286g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f17834h;
+    public Handler f19287h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HandlerThread f17835i;
+    public HandlerThread f19288i;
     public Runnable j;
     public long k;
     public b.a.r0.i0.c l;
@@ -81,7 +81,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f17836e;
+        public final /* synthetic */ String f19289e;
 
         public a(e eVar, String str) {
             Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class e {
                     return;
                 }
             }
-            this.f17836e = str;
+            this.f19289e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -113,7 +113,7 @@ public class e {
                 }
                 if (dnsProxyIpData != null || dnsProxyIpData2 == null) {
                     if (dnsProxyIpData == null || dnsProxyIpData2 != null) {
-                        return b.a.r0.i0.i.d.m().l(this.f17836e, dnsProxyIpData.getIp()) - b.a.r0.i0.i.d.m().l(this.f17836e, dnsProxyIpData2.getIp()) >= 0.0f ? 1 : -1;
+                        return b.a.r0.i0.i.d.m().l(this.f19289e, dnsProxyIpData.getIp()) - b.a.r0.i0.i.d.m().l(this.f19289e, dnsProxyIpData2.getIp()) >= 0.0f ? 1 : -1;
                     }
                     return -1;
                 }
@@ -129,7 +129,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f17837e;
+        public final /* synthetic */ String f19290e;
 
         public b(e eVar, String str) {
             Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public class e {
                     return;
                 }
             }
-            this.f17837e = str;
+            this.f19290e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -161,7 +161,7 @@ public class e {
                 }
                 if (dnsProxyIpData != null || dnsProxyIpData2 == null) {
                     if (dnsProxyIpData == null || dnsProxyIpData2 != null) {
-                        return b.a.r0.i0.i.d.m().k(this.f17837e, dnsProxyIpData.getIp()) - b.a.r0.i0.i.d.m().k(this.f17837e, dnsProxyIpData2.getIp()) >= 0.0f ? -1 : 1;
+                        return b.a.r0.i0.i.d.m().k(this.f19290e, dnsProxyIpData.getIp()) - b.a.r0.i0.i.d.m().k(this.f19290e, dnsProxyIpData2.getIp()) >= 0.0f ? -1 : 1;
                     }
                     return 1;
                 }
@@ -218,8 +218,8 @@ public class e {
                         concurrentHashMap.put(str, arrayList);
                     }
                     if (concurrentHashMap.size() > 0) {
-                        this.this$0.f17829c.clear();
-                        this.this$0.f17829c.putAll(concurrentHashMap);
+                        this.this$0.f19282c.clear();
+                        this.this$0.f19282c.putAll(concurrentHashMap);
                         this.this$0.l(true);
                     }
                 } catch (Throwable th) {
@@ -236,7 +236,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f17838a;
+        public final /* synthetic */ e f19291a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(e eVar, int i2) {
@@ -256,31 +256,31 @@ public class e {
                     return;
                 }
             }
-            this.f17838a = eVar;
+            this.f19291a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && b.a.e.e.p.j.z()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && b.a.e.f.p.j.z()) {
                 b.a.r0.i0.i.d.m().r();
-                this.f17838a.k();
+                this.f19291a.k();
             }
         }
     }
 
     /* renamed from: b.a.r0.i0.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0909e extends CustomMessageListener {
+    public class C0974e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f17839a;
+        public final /* synthetic */ e f19292a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0909e(e eVar, int i2) {
+        public C0974e(e eVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -297,7 +297,7 @@ public class e {
                     return;
                 }
             }
-            this.f17839a = eVar;
+            this.f19292a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -306,13 +306,13 @@ public class e {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                 if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    b.a.e.e.m.e.a().removeCallbacks(this.f17839a.j);
+                    b.a.e.f.m.e.a().removeCallbacks(this.f19292a.j);
                     DnsProxyStatic.h();
                     DnsProxyStatic.g();
                     b.a.r0.i0.i.c.h().k();
                     return;
                 }
-                this.f17839a.k();
+                this.f19292a.k();
             }
         }
     }
@@ -323,10 +323,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f17840e;
+        public final /* synthetic */ Runnable f19293e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f17841f;
+        public final /* synthetic */ e f19294f;
 
         public f(e eVar, Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -343,15 +343,15 @@ public class e {
                     return;
                 }
             }
-            this.f17841f = eVar;
-            this.f17840e = runnable;
+            this.f19294f = eVar;
+            this.f19293e = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f17841f.o(this.f17840e);
+                this.f19294f.o(this.f19293e);
             }
         }
     }
@@ -362,7 +362,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f17842e;
+        public final /* synthetic */ e f19295e;
 
         public g(e eVar) {
             Interceptable interceptable = $ic;
@@ -379,14 +379,14 @@ public class e {
                     return;
                 }
             }
-            this.f17842e = eVar;
+            this.f19295e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f17842e.k();
+                this.f19295e.k();
             }
         }
     }
@@ -397,7 +397,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f17843a;
+        public final /* synthetic */ e f19296a;
 
         public h(e eVar) {
             Interceptable interceptable = $ic;
@@ -414,7 +414,7 @@ public class e {
                     return;
                 }
             }
-            this.f17843a = eVar;
+            this.f19296a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -424,10 +424,10 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
                 super.onPostExecute(hashMap);
-                this.f17843a.f17830d.clear();
+                this.f19296a.f19283d.clear();
                 if (hashMap != null) {
-                    this.f17843a.f17830d.putAll(hashMap);
-                    this.f17843a.l(false);
+                    this.f19296a.f19283d.putAll(hashMap);
+                    this.f19296a.l(false);
                 }
             }
         }
@@ -439,10 +439,10 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f17844e;
+        public final /* synthetic */ boolean f19297e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f17845f;
+        public final /* synthetic */ e f19298f;
 
         public i(e eVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -459,15 +459,15 @@ public class e {
                     return;
                 }
             }
-            this.f17845f = eVar;
-            this.f17844e = z;
+            this.f19298f = eVar;
+            this.f19297e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f17845f.g(this.f17844e);
+                this.f19298f.g(this.f19297e);
             }
         }
     }
@@ -478,7 +478,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f17846b;
+        public final /* synthetic */ e f19299b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(e eVar, boolean z) {
@@ -498,7 +498,7 @@ public class e {
                     return;
                 }
             }
-            this.f17846b = eVar;
+            this.f19299b = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -508,7 +508,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
                 super.onPostExecute(hashMap);
-                this.f17846b.l = null;
+                this.f19299b.l = null;
             }
         }
 
@@ -522,13 +522,13 @@ public class e {
                 if (hashMapArr != null && hashMapArr.length > 0) {
                     if (hashMapArr[0] != null) {
                         e(hashMapArr[0]);
-                    } else if (this.f17825a) {
-                        this.f17846b.l = null;
-                        this.f17846b.g(false);
+                    } else if (this.f19278a) {
+                        this.f19299b.l = null;
+                        this.f19299b.g(false);
                     }
-                } else if (this.f17825a) {
-                    this.f17846b.l = null;
-                    this.f17846b.g(false);
+                } else if (this.f19278a) {
+                    this.f19299b.l = null;
+                    this.f19299b.g(false);
                 }
             }
         }
@@ -536,10 +536,10 @@ public class e {
         public final void e(HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
-                this.f17846b.f17829c.clear();
+                this.f19299b.f19282c.clear();
                 if (hashMap != null) {
-                    this.f17846b.f17829c.putAll(hashMap);
-                    this.f17846b.l(true);
+                    this.f19299b.f19282c.putAll(hashMap);
+                    this.f19299b.l(true);
                     if (TbadkCoreApplication.getInst().isMainProcess(false)) {
                         Intent intent = new Intent();
                         intent.setAction("com.baidu.tieba.dnsproxy.dnsproxydata");
@@ -555,7 +555,7 @@ public class e {
                             intent.putExtra(entry.getKey(), jSONArray.toString());
                         }
                         intent.setPackage(TbadkCoreApplication.getInst().getContext().getPackageName());
-                        b.a.e.e.m.f.a(TbadkCoreApplication.getInst().getContext(), intent);
+                        b.a.e.f.m.f.a(TbadkCoreApplication.getInst().getContext(), intent);
                     }
                 }
             }
@@ -568,7 +568,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f17847e;
+        public final /* synthetic */ e f19300e;
 
         public k(e eVar) {
             Interceptable interceptable = $ic;
@@ -585,14 +585,14 @@ public class e {
                     return;
                 }
             }
-            this.f17847e = eVar;
+            this.f19300e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f17847e.k();
+                this.f19300e.k();
             }
         }
     }
@@ -626,19 +626,19 @@ public class e {
                 return;
             }
         }
-        this.f17827a = new HashSet<>();
-        this.f17828b = new ConcurrentHashMap();
-        this.f17829c = new ConcurrentHashMap();
-        this.f17830d = new ConcurrentHashMap();
-        this.f17831e = new c(this);
-        this.f17832f = new d(this, 2000994);
-        this.f17833g = new C0909e(this, 2001011);
-        this.f17834h = null;
-        this.f17835i = new HandlerThread(e.class.getName());
+        this.f19280a = new HashSet<>();
+        this.f19281b = new ConcurrentHashMap();
+        this.f19282c = new ConcurrentHashMap();
+        this.f19283d = new ConcurrentHashMap();
+        this.f19284e = new c(this);
+        this.f19285f = new d(this, 2000994);
+        this.f19286g = new C0974e(this, 2001011);
+        this.f19287h = null;
+        this.f19288i = new HandlerThread(e.class.getName());
         this.j = new g(this);
         this.k = 0L;
         this.l = null;
-        this.f17835i.start();
+        this.f19288i.start();
     }
 
     public static final e i() {
@@ -660,12 +660,12 @@ public class e {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f17827a.clear();
+            this.f19280a.clear();
             b.a.r0.i0.i.d.m().j();
-            b.a.e.e.m.e.a().removeCallbacks(this.j);
-            MessageManager.getInstance().unRegisterListener(this.f17832f);
-            MessageManager.getInstance().unRegisterListener(this.f17833g);
-            TbadkCoreApplication.getInst().unregisterReceiver(this.f17831e);
+            b.a.e.f.m.e.a().removeCallbacks(this.j);
+            MessageManager.getInstance().unRegisterListener(this.f19285f);
+            MessageManager.getInstance().unRegisterListener(this.f19286g);
+            TbadkCoreApplication.getInst().unregisterReceiver(this.f19284e);
         }
     }
 
@@ -674,14 +674,14 @@ public class e {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z || TbadkCoreApplication.getInst().isMainProcess(false)) {
                 if (!l.C()) {
-                    b.a.e.e.m.e.a().post(new i(this, z));
+                    b.a.e.f.m.e.a().post(new i(this, z));
                 } else if (this.l == null && System.currentTimeMillis() - this.k >= 5000) {
                     if (!z) {
                         this.k = System.currentTimeMillis();
                     }
                     j jVar = new j(this, z);
                     this.l = jVar;
-                    jVar.execute(new HashSet(this.f17827a));
+                    jVar.execute(new HashSet(this.f19280a));
                 }
             }
         }
@@ -691,9 +691,9 @@ public class e {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
-            if (!TextUtils.isEmpty(str) && this.f17827a.contains(str)) {
-                String m2 = m(str, this.f17828b, z);
-                return !TextUtils.isEmpty(m2) ? m2 : m(str, this.f17829c, z);
+            if (!TextUtils.isEmpty(str) && this.f19280a.contains(str)) {
+                String m2 = m(str, this.f19281b, z);
+                return !TextUtils.isEmpty(m2) ? m2 : m(str, this.f19282c, z);
             }
             return null;
         }
@@ -703,7 +703,7 @@ public class e {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            new h(this).execute(new HashSet(this.f17827a));
+            new h(this).execute(new HashSet(this.f19280a));
         }
     }
 
@@ -711,8 +711,8 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             j();
-            b.a.e.e.m.e.a().removeCallbacks(this.j);
-            b.a.e.e.m.e.a().postDelayed(this.j, 300000L);
+            b.a.e.f.m.e.a().removeCallbacks(this.j);
+            b.a.e.f.m.e.a().postDelayed(this.j, 300000L);
         }
     }
 
@@ -722,11 +722,11 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             if (z) {
-                map = this.f17829c;
-                map2 = this.f17830d;
+                map = this.f19282c;
+                map2 = this.f19283d;
             } else {
-                map = this.f17830d;
-                map2 = this.f17829c;
+                map = this.f19283d;
+                map2 = this.f19282c;
             }
             for (String str : map.keySet()) {
                 List<DnsProxyResponseData.DnsProxyIpData> list = map.get(str);
@@ -753,7 +753,7 @@ public class e {
                     dnsProxyIpData3.setIp(str2);
                     arrayList.add(dnsProxyIpData3);
                 }
-                this.f17828b.put(str, arrayList);
+                this.f19281b.put(str, arrayList);
             }
         }
     }
@@ -793,23 +793,23 @@ public class e {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f17827a.add("c.tieba.baidu.com");
+            this.f19280a.add("c.tieba.baidu.com");
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                MessageManager.getInstance().unRegisterListener(this.f17832f);
-                MessageManager.getInstance().registerListener(this.f17832f);
+                MessageManager.getInstance().unRegisterListener(this.f19285f);
+                MessageManager.getInstance().registerListener(this.f19285f);
             }
-            MessageManager.getInstance().unRegisterListener(this.f17833g);
-            MessageManager.getInstance().registerListener(this.f17833g);
+            MessageManager.getInstance().unRegisterListener(this.f19286g);
+            MessageManager.getInstance().registerListener(this.f19286g);
             b.a.r0.i0.i.d.m().t();
-            b.a.e.e.m.e.a().post(new k(this));
+            b.a.e.f.m.e.a().post(new k(this));
             g(true);
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
                 return;
             }
-            TbadkCoreApplication.getInst().unregisterReceiver(this.f17831e);
+            TbadkCoreApplication.getInst().unregisterReceiver(this.f19284e);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.tieba.dnsproxy.dnsproxydata");
-            TbadkCoreApplication.getInst().registerReceiver(this.f17831e, intentFilter);
+            TbadkCoreApplication.getInst().registerReceiver(this.f19284e, intentFilter);
         }
     }
 
@@ -818,14 +818,14 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, runnable) == null) || runnable == null) {
             return;
         }
-        Handler handler = this.f17834h;
+        Handler handler = this.f19287h;
         if (handler == null) {
-            if (this.f17835i.getLooper() != null) {
-                Handler handler2 = new Handler(this.f17835i.getLooper());
-                this.f17834h = handler2;
+            if (this.f19288i.getLooper() != null) {
+                Handler handler2 = new Handler(this.f19288i.getLooper());
+                this.f19287h = handler2;
                 handler2.post(runnable);
             }
-            b.a.e.e.m.e.a().postDelayed(new f(this, runnable), 100L);
+            b.a.e.f.m.e.a().postDelayed(new f(this, runnable), 100L);
             return;
         }
         handler.post(runnable);

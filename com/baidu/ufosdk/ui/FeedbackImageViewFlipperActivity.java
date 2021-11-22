@@ -10,22 +10,23 @@ import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.ResumeCallBack;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FeedbackImageViewFlipperActivity extends Activity implements GestureDetector.OnGestureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GestureDetector f56756a;
+    public GestureDetector f57678a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewFlipper f56757b;
+    public ViewFlipper f57679b;
 
     public FeedbackImageViewFlipperActivity() {
         Interceptable interceptable = $ic;
@@ -58,21 +59,21 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
             linearLayout.setGravity(17);
             linearLayout.setBackgroundColor(-16777216);
             ViewFlipper viewFlipper = new ViewFlipper(this);
-            this.f56757b = viewFlipper;
+            this.f57679b = viewFlipper;
             linearLayout.addView(viewFlipper, layoutParams);
             setContentView(linearLayout);
-            this.f56756a = new GestureDetector(this);
+            this.f57678a = new GestureDetector(this);
             ImageView imageView = new ImageView(this);
             imageView.setAdjustViewBounds(true);
             imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            imageView.setImageBitmap(FeedbackInputActivity.f56758a);
-            this.f56757b.addView(imageView, new ViewGroup.LayoutParams(-1, -1));
-            this.f56757b.setAutoStart(false);
-            this.f56757b.setFlipInterval(3000);
-            if (!this.f56757b.isAutoStart() || this.f56757b.isFlipping()) {
-                return;
+            imageView.setImageBitmap(FeedbackInputActivity.f57680a);
+            this.f57679b.addView(imageView, new ViewGroup.LayoutParams(-1, -1));
+            this.f57679b.setAutoStart(false);
+            this.f57679b.setFlipInterval(3000);
+            if (this.f57679b.isAutoStart() && !this.f57679b.isFlipping()) {
+                this.f57679b.startFlipping();
             }
-            this.f56757b.startFlipping();
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 
@@ -81,7 +82,7 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            FeedbackInputActivity.f56758a = null;
+            FeedbackInputActivity.f57680a = null;
         }
     }
 
@@ -166,9 +167,9 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
-            this.f56757b.stopFlipping();
-            this.f56757b.setAutoStart(false);
-            return this.f56756a.onTouchEvent(motionEvent);
+            this.f57679b.stopFlipping();
+            this.f57679b.setAutoStart(false);
+            return this.f57678a.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }

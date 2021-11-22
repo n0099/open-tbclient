@@ -1,7 +1,7 @@
 package b.a.r0.c1.b;
 
-import b.a.e.l.e.e;
-import b.a.r0.b0.f0.d;
+import b.a.e.m.e.e;
+import b.a.r0.b0.g0.d;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -20,19 +20,19 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d f15128a;
+    public d f16566a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GodSquareRecGodAdapter f15129b;
+    public GodSquareRecGodAdapter f16567b;
 
     /* renamed from: c  reason: collision with root package name */
-    public GodSquareHotGodAdapter f15130c;
+    public GodSquareHotGodAdapter f16568c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f15131d;
+    public List<b.a.e.m.e.a> f16569d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdTypeListView f15132e;
+    public BdTypeListView f16570e;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -49,27 +49,27 @@ public class a {
                 return;
             }
         }
-        this.f15131d = new ArrayList();
-        this.f15132e = bdTypeListView;
-        this.f15128a = new d(tbPageContext);
-        this.f15129b = new GodSquareRecGodAdapter(tbPageContext);
-        this.f15130c = new GodSquareHotGodAdapter(tbPageContext);
-        this.f15131d.add(this.f15128a);
-        this.f15131d.add(this.f15129b);
-        this.f15131d.add(this.f15130c);
+        this.f16569d = new ArrayList();
+        this.f16570e = bdTypeListView;
+        this.f16566a = new d(tbPageContext);
+        this.f16567b = new GodSquareRecGodAdapter(tbPageContext);
+        this.f16568c = new GodSquareHotGodAdapter(tbPageContext);
+        this.f16569d.add(this.f16566a);
+        this.f16569d.add(this.f16567b);
+        this.f16569d.add(this.f16568c);
     }
 
-    public List<b.a.e.l.e.a> a() {
+    public List<b.a.e.m.e.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15131d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16569d : (List) invokeV.objValue;
     }
 
     public void b() {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f15132e) != null && (bdTypeListView.getAdapter2() instanceof e)) {
-            this.f15132e.getAdapter2().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.f16570e) != null && (bdTypeListView.getAdapter2() instanceof e)) {
+            this.f16570e.getAdapter2().notifyDataSetChanged();
         }
     }
 }

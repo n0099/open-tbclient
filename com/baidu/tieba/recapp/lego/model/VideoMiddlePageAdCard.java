@@ -2,13 +2,12 @@ package com.baidu.tieba.recapp.lego.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
-import b.a.e.e.p.c;
+import b.a.e.f.p.c;
 import b.a.f.d;
+import b.a.r0.a3.i0.b.a;
+import b.a.r0.a3.i0.b.g;
 import b.a.r0.q1.o.h.b;
 import b.a.r0.q1.o.l.i;
-import b.a.r0.z2.i0.b.a;
-import b.a.r0.z2.i0.b.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
@@ -93,8 +92,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b.a.f.
         b.a aVar = new b.a();
         this.parallelChargeInfo = aVar;
         aVar.a(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.f28093a)) {
-            this.operateData.f28093a = this.userName;
+        if (TextUtils.isEmpty(this.operateData.f15728a)) {
+            this.operateData.f15728a = this.userName;
         }
     }
 
@@ -125,7 +124,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b.a.f.
                 jSONObject.put(AdWebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.d());
                 jSONObject.put("operate", this.operateData.b());
                 if (this.adFacadeData != null && this.adFacadeData.i() != null) {
-                    jSONObject.put("extraparams", this.adFacadeData.i().f2729b);
+                    jSONObject.put("extraparams", this.adFacadeData.i().f2822b);
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -141,7 +140,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b.a.f.
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             byte[] bytes = toJson().toString().getBytes();
             for (int i2 = 0; i2 < bytes.length; i2++) {
-                bytes[i2] = (byte) (bytes[i2] ^ ExifInterface.WEBP_VP8L_SIGNATURE);
+                bytes[i2] = (byte) (bytes[i2] ^ 47);
             }
             return new String(c.m(bytes));
         }
@@ -165,8 +164,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b.a.f.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             a aVar = this.operateData;
-            if (aVar != null && !TextUtils.isEmpty(aVar.f28095c)) {
-                return this.operateData.f28095c;
+            if (aVar != null && !TextUtils.isEmpty(aVar.f15730c)) {
+                return this.operateData.f15730c;
             }
             return this.scheme;
         }

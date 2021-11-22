@@ -15,6 +15,7 @@ import com.baidu.webkit.internal.utils.ZipUtils;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.io.File;
 /* loaded from: classes11.dex */
 public abstract class a {
@@ -22,13 +23,13 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WebKitFactory.WebkitInstallListener f60959a;
+    public WebKitFactory.WebkitInstallListener f61881a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EngineManager f60960b;
+    public EngineManager f61882b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f60961c;
+    public int f61883c;
 
     public a(EngineManager engineManager, WebKitFactory.WebkitInstallListener webkitInstallListener) {
         Interceptable interceptable = $ic;
@@ -45,9 +46,9 @@ public abstract class a {
                 return;
             }
         }
-        this.f60960b = engineManager;
-        this.f60959a = webkitInstallListener;
-        this.f60961c = 13;
+        this.f61882b = engineManager;
+        this.f61881a = webkitInstallListener;
+        this.f61883c = 13;
     }
 
     private boolean e() {
@@ -62,17 +63,20 @@ public abstract class a {
             for (String str : GlobalConstants.LIB_ZEUS_SO) {
                 String str2 = downloadLibPath + str;
                 if (new File(str2).exists() && !com.baidu.webkit.internal.utils.a.a(str2)) {
+                    WebKitFactory.getLoadErrorCode().addDownloadInfo("1015 : ".concat(String.valueOf(str2)));
                     return false;
                 }
             }
             if (!UtilsBlink.createDownloadLibPath(WebKitFactory.getContext())) {
+                WebKitFactory.getLoadErrorCode().addDownloadInfo(1016);
                 Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install create path failed");
                 return false;
             }
             boolean unZip = ZipUtils.getInstance().unZip(WebKitFactory.getContext(), d2, downloadLibPath, false);
             if (!unZip) {
+                WebKitFactory.getLoadErrorCode().addDownloadInfo(1017);
                 Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install unzip failed");
-                this.f60961c = 6;
+                this.f61883c = 6;
             }
             return unZip;
         }
@@ -91,11 +95,11 @@ public abstract class a {
                 Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.installSync file not exist");
                 return false;
             }
-            EngineManager engineManager = this.f60960b;
+            EngineManager engineManager = this.f61882b;
             if (engineManager != null) {
                 engineManager.onInstallStart(d2);
             }
-            WebKitFactory.WebkitInstallListener webkitInstallListener = this.f60959a;
+            WebKitFactory.WebkitInstallListener webkitInstallListener = this.f61881a;
             if (webkitInstallListener != null) {
                 webkitInstallListener.onInstallStart();
             }
@@ -105,22 +109,24 @@ public abstract class a {
             boolean e2 = e();
             Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install result=".concat(String.valueOf(e2)));
             if (e2) {
-                this.f60961c = 0;
+                this.f61883c = 0;
                 ZeusWebViewPreloadClass.getInstance().deleteSavingClassesFile();
             }
-            WebKitFactory.WebkitInstallListener webkitInstallListener2 = this.f60959a;
+            WebKitFactory.WebkitInstallListener webkitInstallListener2 = this.f61881a;
             if (webkitInstallListener2 != null) {
-                int i2 = this.f60961c;
+                int i2 = this.f61883c;
                 if (i2 == 0) {
-                    this.f60959a.onInstallFinish(this.f60961c, UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()));
+                    this.f61881a.onInstallFinish(this.f61883c, UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()));
                 } else {
                     webkitInstallListener2.onInstallFinish(i2, null);
                 }
             }
-            EngineManager engineManager2 = this.f60960b;
+            EngineManager engineManager2 = this.f61882b;
             if (engineManager2 != null) {
-                engineManager2.onInstallFinish(this.f60961c == 0);
+                engineManager2.onInstallFinish(this.f61883c == 0);
             }
+            ZeusPerformanceTiming.setZeusDownloadInfo(WebKitFactory.getLoadErrorCode().getDownloadInfo());
+            ZeusPerformanceTiming.recordDownloadInitStatistics();
             return e2;
         }
         return invokeV.booleanValue;
@@ -130,8 +136,9 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.installAsync");
-            if (this.f60960b == null || WebKitFactory.getContext() == null) {
-                WebKitFactory.WebkitInstallListener webkitInstallListener = this.f60959a;
+            if (this.f61882b == null || WebKitFactory.getContext() == null) {
+                WebKitFactory.getLoadErrorCode().addDownloadInfo(1012);
+                WebKitFactory.WebkitInstallListener webkitInstallListener = this.f61881a;
                 if (webkitInstallListener != null) {
                     webkitInstallListener.onInstallFinish(13, null);
                     return;
@@ -140,52 +147,52 @@ public abstract class a {
             }
             String d2 = d();
             if (TextUtils.isEmpty(d2)) {
-                return;
-            }
-            if (!new File(d2).exists()) {
+                WebKitFactory.getLoadErrorCode().addDownloadInfo(1013);
+            } else if (!new File(d2).exists()) {
+                WebKitFactory.getLoadErrorCode().addDownloadInfo(1014);
                 Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.installAsync file not exist");
-                return;
-            }
-            HandlerThread handlerThread = new HandlerThread("T7@ZeusInstaller");
-            handlerThread.start();
-            new Handler(handlerThread.getLooper()).post(new Runnable(this, handlerThread) { // from class: com.baidu.webkit.internal.blink.a.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+            } else {
+                HandlerThread handlerThread = new HandlerThread("T7@ZeusInstaller");
+                handlerThread.start();
+                new Handler(handlerThread.getLooper()).post(new Runnable(this, handlerThread) { // from class: com.baidu.webkit.internal.blink.a.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ HandlerThread f60962a;
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ HandlerThread f61884a;
 
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f60963b;
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ a f61885b;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, handlerThread};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, handlerThread};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f61885b = this;
+                        this.f61884a = handlerThread;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.f61885b.a();
+                            this.f61884a.quit();
                         }
                     }
-                    this.f60963b = this;
-                    this.f60962a = handlerThread;
-                }
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f60963b.a();
-                        this.f60962a.quit();
-                    }
-                }
-            });
+                });
+            }
         }
     }
 

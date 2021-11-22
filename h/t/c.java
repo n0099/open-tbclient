@@ -7,21 +7,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import h.d;
 import h.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class c<T, R> extends d<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.q.d<T> f72158f;
+    public final h.q.d<T> f73077f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements d.a<R> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f72159e;
+        public final /* synthetic */ d f73078e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class c<T, R> extends d<T, R> {
                     return;
                 }
             }
-            this.f72159e = dVar;
+            this.f73078e = dVar;
         }
 
         @Override // h.d.a, h.n.b
@@ -49,7 +49,7 @@ public class c<T, R> extends d<T, R> {
         public void call(j<? super R> jVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-                this.f72159e.D(jVar);
+                this.f73078e.D(jVar);
             }
         }
     }
@@ -72,14 +72,14 @@ public class c<T, R> extends d<T, R> {
                 return;
             }
         }
-        this.f72158f = new h.q.d<>(dVar);
+        this.f73077f = new h.q.d<>(dVar);
     }
 
     @Override // h.e
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f72158f.onCompleted();
+            this.f73077f.onCompleted();
         }
     }
 
@@ -87,7 +87,7 @@ public class c<T, R> extends d<T, R> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f72158f.onError(th);
+            this.f73077f.onError(th);
         }
     }
 
@@ -95,7 +95,7 @@ public class c<T, R> extends d<T, R> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f72158f.onNext(t);
+            this.f73077f.onNext(t);
         }
     }
 }

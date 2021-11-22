@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.mc;
 
 import androidx.core.view.InputDeviceCompat;
 import b.a.q0.k0.b.g;
-import b.a.r0.l3.m;
+import b.a.r0.m3.m;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -108,7 +108,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     public FrsRequestData b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (FrsRequestData) this.f45991g : (FrsRequestData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (FrsRequestData) this.f46841g : (FrsRequestData) invokeV.objValue;
     }
 
     public boolean c0() {
@@ -120,7 +120,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     public void d0(FrsRequestData frsRequestData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, frsRequestData) == null) {
-            this.f45991g = frsRequestData;
+            this.f46841g = frsRequestData;
         }
     }
 

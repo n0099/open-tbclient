@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.share;
 
-import b.a.r0.d4.p.c;
+import b.a.r0.e4.p.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -47,9 +47,9 @@ public class CheckResponse extends JsonHttpResponsedMessage {
             }
             c cVar = new c();
             this.mCheckResponseData = cVar;
-            cVar.f15978a = jSONObject.optString("tbopen_app_key");
-            this.mCheckResponseData.f15980c = jSONObject.optString("tbopen_app_name");
-            this.mCheckResponseData.f15981d = jSONObject.optString("tbopen_app_icon");
+            cVar.f17590a = jSONObject.optString("tbopen_app_key");
+            this.mCheckResponseData.f17592c = jSONObject.optString("tbopen_app_name");
+            this.mCheckResponseData.f17593d = jSONObject.optString("tbopen_app_icon");
             JSONObject optJSONObject = jSONObject.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
             if (optJSONObject != null) {
                 this.mCheckResponseData.j = optJSONObject.optString("default_pic");

@@ -3,9 +3,9 @@ package com.baidu.tbadk.browser;
 import android.webkit.JsPromptResult;
 import b.a.g.a.a;
 import b.a.q0.t.c.m;
-import b.a.r0.l3.n0.b;
-import b.a.r0.l3.n0.d.c;
-import b.a.r0.t3.d;
+import b.a.r0.m3.n0.b;
+import b.a.r0.m3.n0.d.c;
+import b.a.r0.u3.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -55,7 +55,7 @@ public class UegTbJsBridge implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
             try {
-                b.a.e.e.p.a.a(new JSONObject(str).optString("content"));
+                b.a.e.f.p.a.a(new JSONObject(str).optString("content"));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -88,7 +88,7 @@ public class UegTbJsBridge implements b {
         return (c) invokeLL.objValue;
     }
 
-    @Override // b.a.r0.l3.n0.b
+    @Override // b.a.r0.m3.n0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

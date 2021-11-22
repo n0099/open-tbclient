@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
@@ -45,7 +44,7 @@ public class MyEGLContextFactory implements GLSurfaceView.EGLContextFactory {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, egl10, eGLDisplay, eGLConfig)) == null) {
-            int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, this.mEGLContextClientVersion, ZeusMonitorType.MONITOR_TYPE_AD_FILTER};
+            int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, this.mEGLContextClientVersion, 12344};
             EGLContext eglCreateContext = egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, iArr);
             if (this.mEGLContextClientVersion != 2) {
                 if (eglCreateContext == null || eglCreateContext == EGL10.EGL_NO_CONTEXT) {

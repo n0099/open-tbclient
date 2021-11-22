@@ -15,10 +15,10 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b> f12621a;
+    public ArrayList<b> f13368a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f12622b;
+    public Context f13369b;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public class d {
                 return;
             }
         }
-        this.f12621a = new ArrayList<>();
-        this.f12622b = context;
+        this.f13368a = new ArrayList<>();
+        this.f13369b = context;
     }
 
     public void a(b bVar) {
@@ -44,25 +44,25 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || bVar.getFragmentTabStructure() == null) {
             return;
         }
-        Iterator<b> it = this.f12621a.iterator();
+        Iterator<b> it = this.f13368a.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().f12616e == bVar.getFragmentTabStructure().f12616e) {
+            if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().f13363e == bVar.getFragmentTabStructure().f13363e) {
                 return;
             }
         }
-        this.f12621a.add(bVar);
+        this.f13368a.add(bVar);
     }
 
     public ArrayList<b> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12621a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13368a : (ArrayList) invokeV.objValue;
     }
 
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12622b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13369b : (Context) invokeV.objValue;
     }
 }

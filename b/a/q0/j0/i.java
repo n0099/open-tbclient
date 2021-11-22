@@ -14,10 +14,10 @@ public abstract class i<T extends a> extends b.a.e.c.d implements b<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12681e;
+    public boolean f13431e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f12682f;
+    public BdUniqueId f13432f;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -32,26 +32,26 @@ public abstract class i<T extends a> extends b.a.e.c.d implements b<T> {
                 return;
             }
         }
-        this.f12681e = false;
-        this.f12682f = null;
+        this.f13431e = false;
+        this.f13432f = null;
     }
 
     public BdUniqueId getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12682f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13432f : (BdUniqueId) invokeV.objValue;
     }
 
     public boolean isSelfListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12681e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13431e : invokeV.booleanValue;
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.f12682f = bdUniqueId;
+            this.f13432f = bdUniqueId;
         }
     }
 }

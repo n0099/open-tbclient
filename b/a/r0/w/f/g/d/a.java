@@ -24,28 +24,28 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f24842a;
+    public b f26359a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f24843b;
+    public BdUniqueId f26360b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f24844c;
+    public boolean f26361c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f24845d;
+    public HttpMessageListener f26362d;
 
     /* renamed from: b.a.r0.w.f.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1213a extends HttpMessageListener {
+    public class C1281a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f24846a;
+        public final /* synthetic */ a f26363a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1213a(a aVar, int i2) {
+        public C1281a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -62,7 +62,7 @@ public class a {
                     return;
                 }
             }
-            this.f24846a = aVar;
+            this.f26363a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,15 +70,15 @@ public class a {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f24846a.f24844c = false;
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021093 && (httpResponsedMessage instanceof SpecialLiveResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.f24846a.f24843b) {
+                this.f26363a.f26361c = false;
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021093 && (httpResponsedMessage instanceof SpecialLiveResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.f26363a.f26360b) {
                     SpecialLiveResponseMessage specialLiveResponseMessage = (SpecialLiveResponseMessage) httpResponsedMessage;
                     if (!specialLiveResponseMessage.isSuccess() || specialLiveResponseMessage.getData() == null) {
-                        if (this.f24846a.f24842a != null) {
-                            this.f24846a.f24842a.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        if (this.f26363a.f26359a != null) {
+                            this.f26363a.f26359a.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         }
-                    } else if (this.f24846a.f24842a != null) {
-                        this.f24846a.f24842a.b(specialLiveResponseMessage.getData());
+                    } else if (this.f26363a.f26359a != null) {
+                        this.f26363a.f26359a.b(specialLiveResponseMessage.getData());
                     }
                 }
             }
@@ -107,9 +107,9 @@ public class a {
                 return;
             }
         }
-        this.f24845d = new C1213a(this, AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
-        this.f24842a = bVar;
-        this.f24843b = BdUniqueId.gen();
+        this.f26362d = new C1281a(this, AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
+        this.f26359a = bVar;
+        this.f26360b = BdUniqueId.gen();
         h();
         g();
     }
@@ -117,17 +117,17 @@ public class a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24844c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26361c : invokeV.booleanValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f24844c) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f26361c) {
             return;
         }
-        this.f24844c = true;
+        this.f26361c = true;
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
-        httpMessage.setTag(this.f24843b);
+        httpMessage.setTag(this.f26360b);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
@@ -135,14 +135,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
-            MessageManager.getInstance().unRegisterListener(this.f24845d);
+            MessageManager.getInstance().unRegisterListener(this.f26362d);
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(this.f24845d);
+            MessageManager.getInstance().registerListener(this.f26362d);
         }
     }
 

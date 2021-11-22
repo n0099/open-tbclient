@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.topic.topictab.message;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.r0.h1.k.b.c.a;
 import b.a.r0.h1.k.b.c.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
@@ -68,17 +68,17 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
         for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
             if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
                 a aVar = new a();
-                aVar.U = i3;
+                aVar.W = i3;
                 aVar.Q(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f17653e = R.dimen.tbds1;
-                cVar.f17654f = R.color.CAM_X0203;
+                cVar.f19122e = R.dimen.tbds1;
+                cVar.f19123f = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
                 i3++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f17653e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f19122e = 0;
     }
 }

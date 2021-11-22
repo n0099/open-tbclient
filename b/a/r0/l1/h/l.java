@@ -21,10 +21,10 @@ public class l extends a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f20153d = null;
+    public static a f21675d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f20154e = "tb_oficial_msg_";
+    public static String f21676e = "tb_oficial_msg_";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -67,10 +67,10 @@ public class l extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (l.class) {
-                if (f20153d == null) {
-                    f20153d = new l();
+                if (f21675d == null) {
+                    f21675d = new l();
                 }
-                lVar = (l) f20153d;
+                lVar = (l) f21675d;
             }
             return lVar;
         }
@@ -113,7 +113,7 @@ public class l extends a {
                                 e2 = e3;
                                 e2.printStackTrace();
                                 TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
-                                b.a.e.e.p.m.a(cursor);
+                                b.a.e.f.p.m.a(cursor);
                                 return arrayList;
                             }
                         }
@@ -123,12 +123,12 @@ public class l extends a {
                         e2 = e4;
                     }
                 }
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
                 return arrayList2;
             } catch (Throwable th) {
                 th = th;
                 cursor3 = cursor2;
-                b.a.e.e.p.m.a(cursor3);
+                b.a.e.f.p.m.a(cursor3);
                 throw th;
             }
         } catch (Exception e5) {
@@ -137,7 +137,7 @@ public class l extends a {
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            b.a.e.e.p.m.a(cursor3);
+            b.a.e.f.p.m.a(cursor3);
             throw th;
         }
     }
@@ -163,7 +163,7 @@ public class l extends a {
                 }
                 return arrayList;
             } finally {
-                b.a.e.e.p.m.a(cursor);
+                b.a.e.f.p.m.a(cursor);
             }
         }
         return (List) invokeV.objValue;
@@ -191,7 +191,7 @@ public class l extends a {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("read_count", Integer.valueOf(i2));
                 h d2 = h.d();
-                int update = d2.update(f20154e + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)});
+                int update = d2.update(f21676e + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)});
                 BdLog.d("updateReadCount result = " + update);
             } catch (Exception e2) {
                 e2.printStackTrace();

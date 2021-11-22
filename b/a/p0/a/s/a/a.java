@@ -2,7 +2,7 @@ package b.a.p0.a.s.a;
 
 import android.content.Context;
 import android.os.Bundle;
-import b.a.p0.a.v2.o0;
+import b.a.p0.a.z2.o0;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
             Bundle bundle = new Bundle();
             bundle.putString("bduss", str);
-            b.a.p0.a.v1.b.d.a(b.class, bundle);
+            b.a.p0.a.y1.b.e.b(b.class, bundle);
         }
     }
 }

@@ -1,6 +1,6 @@
 package b.a.r0.k2.p.a;
 
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
@@ -20,7 +20,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f18661a;
+    public static final String f20197a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -29,20 +29,20 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f18662a;
+        public String f20198a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18663b;
+        public String f20199b;
 
         /* renamed from: c  reason: collision with root package name */
-        public InterfaceC0945b f18664c;
+        public InterfaceC1014b f20200c;
 
-        public a(String str, String str2, InterfaceC0945b interfaceC0945b) {
+        public a(String str, String str2, InterfaceC1014b interfaceC1014b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, interfaceC0945b};
+                Object[] objArr = {str, str2, interfaceC1014b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -52,9 +52,9 @@ public class b {
                     return;
                 }
             }
-            this.f18662a = str;
-            this.f18663b = str2;
-            this.f18664c = interfaceC0945b;
+            this.f20198a = str;
+            this.f20199b = str2;
+            this.f20200c = interfaceC1014b;
             setPriority(3);
         }
 
@@ -65,9 +65,9 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                NetWork netWork = new NetWork(b.f18661a);
-                netWork.addPostData("forum_id", this.f18662a);
-                netWork.addPostData("user_id", this.f18663b);
+                NetWork netWork = new NetWork(b.f20197a);
+                netWork.addPostData("forum_id", this.f20198a);
+                netWork.addPostData("user_id", this.f20199b);
                 String postNetData = netWork.postNetData();
                 if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                     try {
@@ -94,12 +94,12 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidTplData) == null) {
                 super.onPostExecute(forbidTplData);
-                if (this.f18664c != null) {
+                if (this.f20200c != null) {
                     ForbidTplData.ErrorInfo errorInfo = forbidTplData.error;
                     if (errorInfo.errno == 0 && k.isEmpty(errorInfo.errMsg)) {
-                        this.f18664c.b(forbidTplData);
+                        this.f20200c.b(forbidTplData);
                     } else {
-                        this.f18664c.a(forbidTplData);
+                        this.f20200c.a(forbidTplData);
                     }
                 }
             }
@@ -108,7 +108,7 @@ public class b {
 
     /* renamed from: b.a.r0.k2.p.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0945b {
+    public interface InterfaceC1014b {
         void a(ForbidTplData forbidTplData);
 
         void b(ForbidTplData forbidTplData);
@@ -127,13 +127,13 @@ public class b {
                 return;
             }
         }
-        f18661a = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
+        f20197a = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
     }
 
-    public static void b(String str, String str2, InterfaceC0945b interfaceC0945b) {
+    public static void b(String str, String str2, InterfaceC1014b interfaceC1014b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, interfaceC0945b) == null) {
-            new a(str, str2, interfaceC0945b).execute(new String[0]);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, interfaceC1014b) == null) {
+            new a(str, str2, interfaceC1014b).execute(new String[0]);
         }
     }
 }

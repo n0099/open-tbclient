@@ -14,14 +14,14 @@ public class f<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f37444a = "f";
+    public static final String f38274a = "f";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<T> f37445b;
+    public final Class<T> f38275b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.baidu.fsg.base.restnet.a.a<?> f37446c;
+    public final com.baidu.fsg.base.restnet.a.a<?> f38276c;
 
     static {
         InterceptResult invokeClinit;
@@ -59,8 +59,8 @@ public class f<T> {
         if (aVar == null) {
             throw new IllegalArgumentException("'messageConverters' must not be empty");
         }
-        this.f37445b = cls;
-        this.f37446c = aVar;
+        this.f38275b = cls;
+        this.f38276c = aVar;
     }
 
     private boolean b(e eVar) throws Exception {
@@ -79,9 +79,9 @@ public class f<T> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
             if (b(eVar)) {
                 if (eVar.a().j() == null) {
-                    Log.isLoggable(f37444a, 3);
+                    Log.isLoggable(f38274a, 3);
                 }
-                return (T) this.f37446c.a(this.f37445b, eVar);
+                return (T) this.f38276c.a(this.f38275b, eVar);
             }
             return null;
         }

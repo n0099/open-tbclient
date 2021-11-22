@@ -28,19 +28,19 @@ public class a implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f25098e;
+    public View f26615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f25099f;
+    public RelativeLayout f26616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ThreadUserInfoLayout f25100g;
+    public ThreadUserInfoLayout f26617g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f25101h;
+    public TextView f26618h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ThreadCommentAndPraiseInfoLayout f25102i;
+    public ThreadCommentAndPraiseInfoLayout f26619i;
     public View j;
     public AlaVideoContainer k;
     public View l;
@@ -51,14 +51,14 @@ public class a implements View.OnClickListener {
 
     /* renamed from: b.a.r0.w.k.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC1223a implements View.OnClickListener {
+    public class View$OnClickListenerC1291a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25103e;
+        public final /* synthetic */ a f26620e;
 
-        public View$OnClickListenerC1223a(a aVar) {
+        public View$OnClickListenerC1291a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,16 +73,16 @@ public class a implements View.OnClickListener {
                     return;
                 }
             }
-            this.f25103e = aVar;
+            this.f26620e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f25103e.o == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f26620e.o == null) {
                 return;
             }
-            this.f25103e.o.b(view, this.f25103e.m);
+            this.f26620e.o.b(view, this.f26620e.m);
         }
     }
 
@@ -101,42 +101,42 @@ public class a implements View.OnClickListener {
                 return;
             }
         }
-        this.p = new View$OnClickListenerC1223a(this);
+        this.p = new View$OnClickListenerC1291a(this);
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_ala_stage_live_item, (ViewGroup) null);
-        this.f25098e = inflate;
-        this.f25099f = (RelativeLayout) inflate.findViewById(R.id.layout_root);
-        ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) this.f25098e.findViewById(R.id.card_frs_ala_video_user_info_layout);
-        this.f25100g = threadUserInfoLayout;
+        this.f26615e = inflate;
+        this.f26616f = (RelativeLayout) inflate.findViewById(R.id.layout_root);
+        ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) this.f26615e.findViewById(R.id.card_frs_ala_video_user_info_layout);
+        this.f26617g = threadUserInfoLayout;
         threadUserInfoLayout.setFrom(3);
-        this.f25101h = (TextView) this.f25098e.findViewById(R.id.text_title);
-        this.k = (AlaVideoContainer) this.f25098e.findViewById(R.id.ala_video_container);
-        this.j = this.f25098e.findViewById(R.id.divider_below_reply_number_layout);
-        this.f25102i = (ThreadCommentAndPraiseInfoLayout) this.f25098e.findViewById(R.id.text_bottom);
-        this.l = this.f25098e.findViewById(R.id.divider_line);
-        this.f25099f.setOnClickListener(this);
-        this.f25102i.setOnClickListener(this);
-        this.f25102i.getCommentContainer().setOnClickListener(this);
+        this.f26618h = (TextView) this.f26615e.findViewById(R.id.text_title);
+        this.k = (AlaVideoContainer) this.f26615e.findViewById(R.id.ala_video_container);
+        this.j = this.f26615e.findViewById(R.id.divider_below_reply_number_layout);
+        this.f26619i = (ThreadCommentAndPraiseInfoLayout) this.f26615e.findViewById(R.id.text_bottom);
+        this.l = this.f26615e.findViewById(R.id.divider_line);
+        this.f26616f.setOnClickListener(this);
+        this.f26619i.setOnClickListener(this);
+        this.f26619i.getCommentContainer().setOnClickListener(this);
         this.k.setOnVideoClickListener(this);
     }
 
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25098e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26615e : (View) invokeV.objValue;
     }
 
     public final void d(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d2Var) == null) {
-            this.f25102i.onChangeSkinType();
-            this.f25100g.onChangeSkinType();
+            this.f26619i.onChangeSkinType();
+            this.f26617g.onChangeSkinType();
             this.k.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            this.f25099f.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
+            this.f26616f.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
             SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
             if (d2Var != null && m.k(d2Var.f0())) {
-                SkinManager.setViewTextColor(this.f25101h, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(this.f26618h, R.color.CAM_X0109);
             } else {
-                SkinManager.setViewTextColor(this.f25101h, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.f26618h, R.color.CAM_X0105);
             }
         }
     }
@@ -157,27 +157,27 @@ public class a implements View.OnClickListener {
         }
         this.m = d2Var;
         this.n = str;
-        this.f25099f.setVisibility(0);
-        this.f25100g.setData(d2Var);
-        if (this.f25100g.getHeaderImg() != null) {
-            this.f25100g.getHeaderImg().setData(d2Var);
+        this.f26616f.setVisibility(0);
+        this.f26617g.setData(d2Var);
+        if (this.f26617g.getHeaderImg() != null) {
+            this.f26617g.getHeaderImg().setData(d2Var);
         }
-        this.f25100g.setUserAfterClickListener(this.p);
-        d2Var.Z2(false, true);
-        this.f25101h.setText(d2Var.g1());
+        this.f26617g.setUserAfterClickListener(this.p);
+        d2Var.b3(false, true);
+        this.f26618h.setText(d2Var.h1());
         this.k.getController().d(d2Var, str, "", false);
         this.k.getController().c();
-        this.f25102i.setReplyTimeVisible(false);
-        this.f25102i.setNeedAddReplyIcon(true);
-        this.f25102i.setIsBarViewVisible(false);
-        this.f25102i.setCommentNumEnable(false);
-        this.f25102i.setOnClickListener(this);
-        this.f25102i.setLiveShareEnable(false);
-        this.f25102i.setShareVisible(true);
-        this.f25102i.setShowPraiseNum(true);
-        this.f25102i.setNeedAddPraiseIcon(true);
-        this.f25102i.setFrom(2);
-        if (this.f25102i.setData(d2Var)) {
+        this.f26619i.setReplyTimeVisible(false);
+        this.f26619i.setNeedAddReplyIcon(true);
+        this.f26619i.setIsBarViewVisible(false);
+        this.f26619i.setCommentNumEnable(false);
+        this.f26619i.setOnClickListener(this);
+        this.f26619i.setLiveShareEnable(false);
+        this.f26619i.setShareVisible(true);
+        this.f26619i.setShowPraiseNum(true);
+        this.f26619i.setNeedAddPraiseIcon(true);
+        this.f26619i.setFrom(2);
+        if (this.f26619i.setData(d2Var)) {
             this.j.setVisibility(8);
         } else {
             this.j.setVisibility(0);
@@ -188,7 +188,7 @@ public class a implements View.OnClickListener {
     public void g(BdUniqueId bdUniqueId) {
         ThreadUserInfoLayout threadUserInfoLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || bdUniqueId == null || this.f25102i == null || (threadUserInfoLayout = this.f25100g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || bdUniqueId == null || this.f26619i == null || (threadUserInfoLayout = this.f26617g) == null) {
             return;
         }
         threadUserInfoLayout.setPageUniqueId(bdUniqueId);
@@ -206,7 +206,7 @@ public class a implements View.OnClickListener {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
-            if (view != this.f25099f && view != this.f25102i.getCommentContainer()) {
+            if (view != this.f26616f && view != this.f26619i.getCommentContainer()) {
                 if (view.getId() != R.id.video_container || (cVar = this.o) == null) {
                     return;
                 }

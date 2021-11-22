@@ -34,31 +34,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public EditText f27666a;
+    public EditText f29169a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f27667b;
+    public ImageView f29170b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f27668c;
+    public TextView f29171c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f27669d;
+    public ViewGroup f29172d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f27670e;
+    public BaseActivity<?> f29173e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Window f27671f;
+    public Window f29174f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f27672g;
+    public ImageView f29175g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EditorTools f27673h;
+    public EditorTools f29176h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f27674i;
+    public FrameLayout f29177i;
     public ProgressBar j;
 
     public b(BaseActivity<?> baseActivity, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
@@ -76,42 +76,42 @@ public class b {
                 return;
             }
         }
-        this.f27670e = baseActivity;
+        this.f29173e = baseActivity;
         Window window = baseActivity.getWindow();
-        this.f27671f = window;
-        this.f27669d = (ViewGroup) window.findViewById(R.id.tail_edit_root);
-        this.f27666a = (EditText) this.f27671f.findViewById(R.id.tail_edit_edittext);
-        ImageView imageView = (ImageView) this.f27671f.findViewById(R.id.tail_edit_submit);
-        this.f27667b = imageView;
+        this.f29174f = window;
+        this.f29172d = (ViewGroup) window.findViewById(R.id.tail_edit_root);
+        this.f29169a = (EditText) this.f29174f.findViewById(R.id.tail_edit_edittext);
+        ImageView imageView = (ImageView) this.f29174f.findViewById(R.id.tail_edit_submit);
+        this.f29170b = imageView;
         imageView.setOnClickListener(onClickListener);
-        ImageView imageView2 = (ImageView) this.f27671f.findViewById(R.id.tail_edit_cancel);
-        this.f27672g = imageView2;
+        ImageView imageView2 = (ImageView) this.f29174f.findViewById(R.id.tail_edit_cancel);
+        this.f29175g = imageView2;
         imageView2.setOnClickListener(onClickListener2);
-        this.f27668c = (TextView) this.f27671f.findViewById(R.id.tail_edit_text_number);
-        this.f27674i = (FrameLayout) this.f27671f.findViewById(R.id.tail_edit_editor);
-        this.j = (ProgressBar) this.f27671f.findViewById(R.id.tail_edit_progress);
+        this.f29171c = (TextView) this.f29174f.findViewById(R.id.tail_edit_text_number);
+        this.f29177i = (FrameLayout) this.f29174f.findViewById(R.id.tail_edit_editor);
+        this.j = (ProgressBar) this.f29174f.findViewById(R.id.tail_edit_progress);
     }
 
     public void a(b.a.q0.x.b bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, str) == null) {
-            this.f27673h = new EditorTools(this.f27670e.getPageContext().getPageActivity());
+            this.f29176h = new EditorTools(this.f29173e.getPageContext().getPageActivity());
             d();
             c(bVar);
             b(bVar, str);
-            this.f27673h.build();
-            this.f27673h.sendAction(new b.a.q0.x.a(35, 5, Boolean.FALSE));
-            this.f27673h.display();
-            o(this.f27673h);
+            this.f29176h.build();
+            this.f29176h.sendAction(new b.a.q0.x.a(35, 5, Boolean.FALSE));
+            this.f29176h.display();
+            o(this.f29176h);
         }
     }
 
     public final void b(b.a.q0.x.b bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, str) == null) {
-            this.f27673h.addTool(new d(this.f27670e.getPageContext(), 2, str));
-            this.f27673h.setActionListener(26, bVar);
-            this.f27673h.setActionListener(3, bVar);
+            this.f29176h.addTool(new d(this.f29173e.getPageContext(), 2, str));
+            this.f29176h.setActionListener(26, bVar);
+            this.f29176h.setActionListener(3, bVar);
         }
     }
 
@@ -120,45 +120,45 @@ public class b {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            this.f27673h.collect(arrayList);
-            m findToolById = this.f27673h.findToolById(5);
+            this.f29176h.collect(arrayList);
+            m findToolById = this.f29176h.findToolById(5);
             if (findToolById != null) {
                 findToolById.j = 1;
                 findToolById.e(false);
             }
-            this.f27673h.setActionListener(24, bVar);
+            this.f29176h.setActionListener(24, bVar);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f27673h.setBarMaxLauCount(4);
-            this.f27673h.setBarLauncherType(1);
-            this.f27673h.showLinePositionBottom(true);
-            this.f27673h.setBackgroundColorId(R.color.CAM_X0201);
+            this.f29176h.setBarMaxLauCount(4);
+            this.f29176h.setBarLauncherType(1);
+            this.f29176h.showLinePositionBottom(true);
+            this.f29176h.setBackgroundColorId(R.color.CAM_X0201);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f27666a.getSelectionStart() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f29169a.getSelectionStart() <= 0) {
             return;
         }
-        String substring = this.f27666a.getText().toString().substring(0, this.f27666a.getSelectionStart());
+        String substring = this.f29169a.getText().toString().substring(0, this.f29169a.getSelectionStart());
         Matcher matcher = Pattern.compile("#\\([^#\\)\\(]+\\)$").matcher(substring);
         int i2 = 1;
         if (matcher.find()) {
             i2 = substring.length() - matcher.replaceFirst("").length();
         }
-        this.f27666a.getText().delete(this.f27666a.getSelectionStart() - i2, this.f27666a.getSelectionStart());
+        this.f29169a.getText().delete(this.f29169a.getSelectionStart() - i2, this.f29169a.getSelectionStart());
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f27670e.ShowSoftKeyPadDelay(this.f27666a);
-            EditText editText = this.f27666a;
+            this.f29173e.ShowSoftKeyPadDelay(this.f29169a);
+            EditText editText = this.f29169a;
             editText.setSelection(editText.length());
         }
     }
@@ -166,13 +166,13 @@ public class b {
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27666a.getText().toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29169a.getText().toString() : (String) invokeV.objValue;
     }
 
     public EditText h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27666a : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29169a : (EditText) invokeV.objValue;
     }
 
     public void i() {
@@ -185,15 +185,15 @@ public class b {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f27673h.hideTools();
-            this.f27673h.sendAction(new b.a.q0.x.a(5, -1, null));
+            this.f29176h.hideTools();
+            this.f29176h.sendAction(new b.a.q0.x.a(5, -1, null));
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            EditText editText = this.f27666a;
+            EditText editText = this.f29169a;
             editText.setSelection(editText.length());
         }
     }
@@ -201,50 +201,50 @@ public class b {
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f27670e.getLayoutMode().k(i2 == 1);
-            this.f27670e.getLayoutMode().j(this.f27669d);
-            this.f27673h.onChangeSkinType(i2);
+            this.f29173e.getLayoutMode().k(i2 == 1);
+            this.f29173e.getLayoutMode().j(this.f29172d);
+            this.f29176h.onChangeSkinType(i2);
         }
     }
 
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f27666a.setTextColor(c.a(str));
+            this.f29169a.setTextColor(c.a(str));
         }
     }
 
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f27666a.setText(TbFaceManager.e().l(this.f27670e.getPageContext().getPageActivity(), str, null));
+            this.f29169a.setText(TbFaceManager.e().l(this.f29173e.getPageContext().getPageActivity(), str, null));
         }
     }
 
     public void o(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, editorTools) == null) {
-            this.f27674i.addView(editorTools, new LinearLayout.LayoutParams(-1, -2));
+            this.f29177i.addView(editorTools, new LinearLayout.LayoutParams(-1, -2));
         }
     }
 
     public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f27667b.setEnabled(z);
+            this.f29170b.setEnabled(z);
         }
     }
 
     public void q(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) {
-            TextView textView = this.f27668c;
+            TextView textView = this.f29171c;
             textView.setText(i2 + "/" + i3);
             int i4 = R.color.CAM_X0109;
             if (i2 == i3) {
                 i4 = R.color.CAM_X0301;
             }
-            SkinManager.setViewTextColor(this.f27668c, i4, 1);
+            SkinManager.setViewTextColor(this.f29171c, i4, 1);
         }
     }
 

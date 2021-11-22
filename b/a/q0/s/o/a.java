@@ -2,7 +2,7 @@ package b.a.q0.s.o;
 
 import android.text.format.DateUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,11 +24,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f13180b;
+    public static a f13960b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b.a.q0.a.d0.a> f13181a;
+    public ArrayList<b.a.q0.a.d0.a> f13961a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,21 +43,21 @@ public class a {
                 return;
             }
         }
-        this.f13181a = new ArrayList<>();
+        this.f13961a = new ArrayList<>();
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f13180b == null) {
+            if (f13960b == null) {
                 synchronized (a.class) {
-                    if (f13180b == null) {
-                        f13180b = new a();
+                    if (f13960b == null) {
+                        f13960b = new a();
                     }
                 }
             }
-            return f13180b;
+            return f13960b;
         }
         return (a) invokeV.objValue;
     }
@@ -84,7 +84,7 @@ public class a {
     public final ArrayList<b.a.q0.a.d0.a> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13181a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13961a : (ArrayList) invokeV.objValue;
     }
 
     public void f(JSONArray jSONArray) {
@@ -108,7 +108,7 @@ public class a {
             if (StringUtils.isNull(currentAccount) || jSONArray == null) {
                 return;
             }
-            this.f13181a.clear();
+            this.f13961a.clear();
             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 JSONObject jSONObject = null;
                 try {
@@ -118,17 +118,17 @@ public class a {
                 }
                 if (jSONObject != null) {
                     b.a.q0.a.d0.a aVar = new b.a.q0.a.d0.a();
-                    aVar.f11727a = jSONObject.optInt("active_id");
-                    aVar.f11728b = jSONObject.optInt("mission_id");
-                    aVar.f11729c = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE);
-                    long d2 = d("business_update_time" + currentAccount + aVar.f11727a);
-                    if (g("business_count_hint" + currentAccount + aVar.f11727a) && DateUtils.isToday(d2)) {
-                        aVar.s = c("business_count_hint" + currentAccount + aVar.f11727a);
+                    aVar.f12478a = jSONObject.optInt("active_id");
+                    aVar.f12479b = jSONObject.optInt("mission_id");
+                    aVar.f12480c = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE);
+                    long d2 = d("business_update_time" + currentAccount + aVar.f12478a);
+                    if (g("business_count_hint" + currentAccount + aVar.f12478a) && DateUtils.isToday(d2)) {
+                        aVar.s = c("business_count_hint" + currentAccount + aVar.f12478a);
                     } else {
                         aVar.s = jSONObject.optInt("show_num");
                         a();
-                        i("business_count_hint" + currentAccount + aVar.f11727a, aVar.s);
-                        j("business_update_time" + currentAccount + aVar.f11727a, System.currentTimeMillis());
+                        i("business_count_hint" + currentAccount + aVar.f12478a, aVar.s);
+                        j("business_update_time" + currentAccount + aVar.f12478a, System.currentTimeMillis());
                     }
                     aVar.t = jSONObject.optInt("show_time_begin");
                     aVar.u = jSONObject.optInt("show_time_end");
@@ -148,7 +148,7 @@ public class a {
                             e4.printStackTrace();
                         }
                     }
-                    this.f13181a.add(aVar);
+                    this.f13961a.add(aVar);
                 }
             }
         }
@@ -197,9 +197,9 @@ public class a {
                 return;
             }
             while (i2 < e2.size()) {
-                int i3 = e2.get(i2).f11727a;
-                int i4 = e2.get(i2).f11728b;
-                int i5 = e2.get(i2).f11729c;
+                int i3 = e2.get(i2).f12478a;
+                int i4 = e2.get(i2).f12479b;
+                int i5 = e2.get(i2).f12480c;
                 int c2 = c("business_count_hint" + currentAccount + i3);
                 long j = e2.get(i2).t;
                 long j2 = e2.get(i2).u;

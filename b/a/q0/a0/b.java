@@ -1,8 +1,8 @@
 package b.a.q0.a0;
 
 import android.text.TextUtils;
-import b.a.e.e.m.h;
-import b.a.e.e.p.l;
+import b.a.e.f.m.h;
+import b.a.e.f.p.l;
 import b.a.q0.s.l.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -28,11 +28,11 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f11865b;
+    public static b f12616b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UserData f11866a;
+    public UserData f12617a;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -40,7 +40,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f11867e;
+        public final /* synthetic */ AccountData f12618e;
 
         public a(b bVar, AccountData accountData) {
             Interceptable interceptable = $ic;
@@ -57,14 +57,14 @@ public class b {
                     return;
                 }
             }
-            this.f11867e = accountData;
+            this.f12618e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.g(this.f11867e);
+                c.g(this.f12618e);
             }
         }
     }
@@ -87,14 +87,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f11865b == null) {
+            if (f12616b == null) {
                 synchronized (b.class) {
-                    if (f11865b == null) {
-                        f11865b = new b();
+                    if (f12616b == null) {
+                        f12616b = new b();
                     }
                 }
             }
-            return f11865b;
+            return f12616b;
         }
         return (b) invokeV.objValue;
     }
@@ -102,14 +102,14 @@ public class b {
     public UserData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11866a : (UserData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12617a : (UserData) invokeV.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b.a.r0.l3.f0.a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
-            b.a.r0.l3.f0.a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
+            b.a.r0.m3.f0.a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
+            b.a.r0.m3.f0.a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -119,7 +119,7 @@ public class b {
             GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                getUserInfoRequstData.setUid(b.a.e.e.m.b.g(currentAccountObj.getID(), 0L));
+                getUserInfoRequstData.setUid(b.a.e.f.m.b.g(currentAccountObj.getID(), 0L));
             }
             getUserInfoRequstData.setScreenWidth(l.k(TbadkCoreApplication.getInst().getApp()));
             MessageManager.getInstance().sendMessage(getUserInfoRequstData);
@@ -129,7 +129,7 @@ public class b {
     public void e(UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, userData) == null) {
-            this.f11866a = userData;
+            this.f12617a = userData;
             if (userData == null) {
                 return;
             }

@@ -93,11 +93,11 @@ public class a extends v1 {
         return (d2) invokeV.objValue;
     }
 
-    @Override // b.a.q0.s.q.v1, com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // b.a.q0.s.q.v1, com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? v1.f13462i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? v1.f14244i : (BdUniqueId) invokeV.objValue;
     }
 
     @Override // b.a.q0.s.q.v1

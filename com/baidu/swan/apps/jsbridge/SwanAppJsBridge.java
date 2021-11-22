@@ -7,8 +7,8 @@ import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import b.a.p0.a.d1.a;
 import b.a.p0.a.h0.l.g.f;
-import b.a.p0.a.o0.d.d;
-import b.a.p0.a.r1.g;
+import b.a.p0.a.o0.d.e;
+import b.a.p0.a.u1.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -99,9 +99,9 @@ public class SwanAppJsBridge extends a {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 i2 = 202;
             } else {
-                d dVar = new d(str, str2);
+                e eVar = new e(str, str2);
                 g.a("postMessage", "PostMsg setData start");
-                b.a.p0.a.g1.f.T().y(dVar, false);
+                b.a.p0.a.g1.f.U().y(eVar, false);
                 g.a("postMessage", "PostMsg setData end");
             }
             return UnitedSchemeUtility.wrapCallbackParams(i2).toString();

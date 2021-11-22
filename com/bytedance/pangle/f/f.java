@@ -36,7 +36,7 @@ public final class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final MessageDigest[] f61392a;
+        public final MessageDigest[] f62291a;
 
         public a(MessageDigest[] messageDigestArr) {
             Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public final class f {
                     return;
                 }
             }
-            this.f61392a = messageDigestArr;
+            this.f62291a = messageDigestArr;
         }
 
         @Override // com.bytedance.pangle.f.j
@@ -62,7 +62,7 @@ public final class f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
                 ByteBuffer slice = byteBuffer.slice();
-                for (MessageDigest messageDigest : this.f61392a) {
+                for (MessageDigest messageDigest : this.f62291a) {
                     slice.position(0);
                     messageDigest.update(slice);
                 }
@@ -355,12 +355,12 @@ public final class f {
     public static void a(Map<Integer, byte[]> map, FileDescriptor fileDescriptor, m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, map, fileDescriptor, mVar) == null) {
-            l lVar = new l(fileDescriptor, 0L, mVar.f61407b);
-            long j = mVar.f61408c;
-            l lVar2 = new l(fileDescriptor, j, mVar.f61409d - j);
-            ByteBuffer duplicate = mVar.f61410e.duplicate();
+            l lVar = new l(fileDescriptor, 0L, mVar.f62306b);
+            long j = mVar.f62307c;
+            l lVar2 = new l(fileDescriptor, j, mVar.f62308d - j);
+            ByteBuffer duplicate = mVar.f62309e.duplicate();
             duplicate.order(ByteOrder.LITTLE_ENDIAN);
-            long j2 = mVar.f61407b;
+            long j2 = mVar.f62306b;
             s.c(duplicate);
             int position = duplicate.position() + 16;
             if (j2 >= 0 && j2 <= 4294967295L) {
@@ -515,7 +515,7 @@ public final class f {
             if (bArr.length == 40) {
                 ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN);
                 order.position(32);
-                if (order.getLong() == j - (mVar.f61408c - mVar.f61407b)) {
+                if (order.getLong() == j - (mVar.f62307c - mVar.f62306b)) {
                     return Arrays.copyOfRange(bArr, 0, 32);
                 }
                 throw new SecurityException("APK content size did not verify");
@@ -553,7 +553,7 @@ public final class f {
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) ? ByteBuffer.allocate(i2) : (ByteBuffer) invokeI.objValue;
                     }
-                }).f61395b)) {
+                }).f62294b)) {
                     return;
                 }
                 throw new SecurityException("APK verity digest of contents did not verify");

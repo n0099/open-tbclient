@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import b.a.e.l.e.a;
+import b.a.e.m.e.a;
 import b.a.r0.w.f.a.f;
 import b.a.r0.w.f.i.f;
 import com.baidu.adp.lib.util.StringUtils;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AlaSquareRecordAdapter extends a<f, SquareRecordViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class AlaSquareRecordAdapter extends a<f, SquareRecordViewHolder> {
     public int r;
     public f.a s;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class SquareRecordViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public class AlaSquareRecordAdapter extends a<f, SquareRecordViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public SquareRecordViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -93,7 +93,7 @@ public class AlaSquareRecordAdapter extends a<f, SquareRecordViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.w.f.a.f fVar, SquareRecordViewHolder squareRecordViewHolder) {
         InterceptResult invokeCommon;
@@ -104,13 +104,13 @@ public class AlaSquareRecordAdapter extends a<f, SquareRecordViewHolder> {
                 return null;
             }
             if (fVar != null) {
-                fVar.f24514f = i2 + 1;
+                fVar.f26031f = i2 + 1;
             }
             fVar2.j(fVar);
             b.a.r0.w.f.e.a.c().a(fVar.i(g0(), false));
             j0(fVar);
             if (i2 == this.r) {
-                fVar2.i().setAnimation(AnimationUtils.loadAnimation(this.f2419e, R.anim.list_anim));
+                fVar2.i().setAnimation(AnimationUtils.loadAnimation(this.f2421e, R.anim.list_anim));
             }
             return fVar2.i();
         }
@@ -119,16 +119,16 @@ public class AlaSquareRecordAdapter extends a<f, SquareRecordViewHolder> {
 
     public final void j0(b.a.r0.w.f.a.f fVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) || fVar == null || fVar.f24513e == null || !TextUtils.equals("c12479", g0())) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) || fVar == null || fVar.f26030e == null || !TextUtils.equals("c12479", g0())) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c12461");
-        if (StringUtils.isNull(fVar.f24513e.X0)) {
+        if (StringUtils.isNull(fVar.f26030e.X0)) {
             statisticItem.param("obj_source", "0");
         } else {
             statisticItem.param("obj_source", "1");
         }
-        if (StringUtils.isNull(fVar.f24513e.Z0)) {
+        if (StringUtils.isNull(fVar.f26030e.Z0)) {
             statisticItem.param("obj_locate", "0");
         } else {
             statisticItem.param("obj_locate", "1");

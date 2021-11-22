@@ -13,13 +13,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f24336a;
+    public long f25799a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24337b;
+    public String f25800b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24338c;
+    public int f25801c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -38,19 +38,19 @@ public class c {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24336a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25799a : invokeV.longValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24337b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25800b : (String) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24338c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25801c : invokeV.intValue;
     }
 
     public void d(HotTopicList hotTopicList) {
@@ -58,8 +58,8 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, hotTopicList) == null) || hotTopicList == null) {
             return;
         }
-        this.f24336a = hotTopicList.topic_id.longValue();
-        this.f24337b = hotTopicList.topic_name;
-        this.f24338c = hotTopicList.tag.intValue();
+        this.f25799a = hotTopicList.topic_id.longValue();
+        this.f25800b = hotTopicList.topic_name;
+        this.f25801c = hotTopicList.tag.intValue();
     }
 }

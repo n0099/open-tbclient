@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class PipedOutputStreamAndroid25 extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PipedInputStreamAndroid25 f56533e;
+    public PipedInputStreamAndroid25 f57455e;
 
     public PipedOutputStreamAndroid25() {
         Interceptable interceptable = $ic;
@@ -35,11 +35,11 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
             synchronized (this) {
                 try {
                     if (pipedInputStreamAndroid25 != null) {
-                        if (this.f56533e == null && !pipedInputStreamAndroid25.f56530g) {
-                            this.f56533e = pipedInputStreamAndroid25;
+                        if (this.f57455e == null && !pipedInputStreamAndroid25.f57452g) {
+                            this.f57455e = pipedInputStreamAndroid25;
                             pipedInputStreamAndroid25.k = -1;
                             pipedInputStreamAndroid25.l = 0;
-                            pipedInputStreamAndroid25.f56530g = true;
+                            pipedInputStreamAndroid25.f57452g = true;
                         } else {
                             throw new IOException("Already connected");
                         }
@@ -57,7 +57,7 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
     public void close() throws IOException {
         PipedInputStreamAndroid25 pipedInputStreamAndroid25;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pipedInputStreamAndroid25 = this.f56533e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pipedInputStreamAndroid25 = this.f57455e) == null) {
             return;
         }
         pipedInputStreamAndroid25.j();
@@ -68,9 +68,9 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f56533e != null) {
-                    synchronized (this.f56533e) {
-                        this.f56533e.notifyAll();
+                if (this.f57455e != null) {
+                    synchronized (this.f57455e) {
+                        this.f57455e.notifyAll();
                     }
                 }
             }
@@ -81,7 +81,7 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
     public void write(int i2) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.f56533e;
+            PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.f57455e;
             if (pipedInputStreamAndroid25 != null) {
                 pipedInputStreamAndroid25.f(i2);
                 return;
@@ -95,7 +95,7 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i2, i3) == null) {
-            PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.f56533e;
+            PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.f57455e;
             if (pipedInputStreamAndroid25 == null) {
                 throw new IOException("Pipe not connected");
             }

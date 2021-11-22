@@ -4,60 +4,64 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
-import b.a.p0.a.p.d.z0;
+import b.a.p0.a.p.d.f1;
 import b.a.p0.a.p.e.c;
 import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 /* loaded from: classes.dex */
-public interface b<T extends c> extends d<T>, z0 {
+public interface b<T extends c> extends d<T>, f1 {
+    void A(FrameLayout frameLayout, b.a.p0.a.d2.n.g gVar);
+
     void D(int i2);
 
-    boolean I();
+    boolean K();
 
-    boolean J();
+    boolean L();
 
-    void K(b.a.p0.a.h0.u.d dVar);
+    void M(b.a.p0.a.h0.u.d dVar);
 
-    b.a.p0.a.p.e.j.d M();
+    b.a.p0.a.p.e.j.d O();
 
-    void O(FrameLayout frameLayout, b.a.p0.a.a2.n.g gVar);
+    void Q(FrameLayout frameLayout, b.a.p0.a.d2.n.g gVar);
 
-    void Q(String str);
+    int S();
 
-    void S();
+    void T(String str);
 
-    boolean V(b.a.p0.a.c2.f.r0.d dVar);
+    void V();
 
-    boolean W(b.a.p0.a.c2.f.r0.d dVar);
+    boolean Y(b.a.p0.a.f2.f.q0.d dVar);
 
-    void X(b.a.p0.a.h0.j.d dVar);
+    boolean Z(b.a.p0.a.f2.f.q0.d dVar);
 
-    void Y(b.a.p0.a.h0.j.e eVar);
+    void a0(b.a.p0.a.h0.j.d dVar);
 
-    @Nullable
-    b.a.p0.a.c0.e.a b0();
+    void b0(b.a.p0.a.h0.j.e eVar);
 
-    boolean d();
-
-    PullToRefreshBaseWebView f0();
-
-    boolean g0();
-
-    void h(b.a.p0.a.l1.b bVar);
+    boolean e();
 
     @Nullable
-    String h0();
+    b.a.p0.a.c0.e.a e0();
 
-    void j(ViewGroup viewGroup, View view);
+    int h0();
 
-    e k();
+    void i(b.a.p0.a.m1.b bVar);
 
-    String m();
+    PullToRefreshBaseWebView j0();
 
-    boolean r(int i2);
+    void k(ViewGroup viewGroup, View view);
 
-    void v(String str);
+    boolean k0();
 
-    boolean w(b.a.p0.a.c2.f.r0.d dVar);
+    e l();
 
-    void z(FrameLayout frameLayout, b.a.p0.a.a2.n.g gVar);
+    @Nullable
+    String l0();
+
+    String n();
+
+    boolean s(int i2);
+
+    void w(String str);
+
+    boolean x(b.a.p0.a.f2.f.q0.d dVar);
 }

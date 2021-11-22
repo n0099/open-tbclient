@@ -17,19 +17,19 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f6835a;
+    public static final Set<String> f7164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f6836b;
+    public static final Set<String> f7165b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f6837c;
+    public static final Set<String> f7166c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<String, a> f6838d;
+    public static final Map<String, a> f7167d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f6839e;
+    public static boolean f7168e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,11 +45,11 @@ public class b {
                 return;
             }
         }
-        f6835a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-        f6836b = new HashSet(f6835a);
-        f6837c = new HashSet(f6836b);
-        f6838d = new HashMap();
-        f6839e = false;
+        f7164a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
+        f7165b = new HashSet(f7164a);
+        f7166c = new HashSet(f7165b);
+        f7167d = new HashMap();
+        f7168e = false;
     }
 
     public static a a(String str) {
@@ -57,7 +57,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             c();
-            return f6838d.get(str);
+            return f7167d.get(str);
         }
         return (a) invokeL.objValue;
     }
@@ -68,8 +68,8 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             a.b bVar = new a.b();
             bVar.d(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-            bVar.e(b.a.p0.a.c1.a.n0().a());
-            bVar.b(b.a.p0.a.c1.a.n0().d());
+            bVar.e(b.a.p0.a.c1.a.w0().a());
+            bVar.b(b.a.p0.a.c1.a.w0().d());
             return bVar.a();
         }
         return (a) invokeV.objValue;
@@ -78,14 +78,14 @@ public class b {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (!f6839e) {
-                for (String str : f6837c) {
+            if (!f7168e) {
+                for (String str : f7166c) {
                     if (ZeusWebViewPreloadClass.ZEUS_FILE_DIR.equals(str)) {
-                        f6838d.put(str, b());
+                        f7167d.put(str, b());
                     }
                 }
             }
-            f6839e = true;
+            f7168e = true;
         }
     }
 }

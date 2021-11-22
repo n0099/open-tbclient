@@ -1,8 +1,8 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
-import b.i.d.a.g;
-import b.i.d.a.n;
+import b.h.d.a.g;
+import b.h.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +16,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class AtomicLongMap<K> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public final class AtomicLongMap<K> implements Serializable {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // b.i.d.a.g
+            @Override // b.h.d.a.g
             public Long apply(AtomicLong atomicLong) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;

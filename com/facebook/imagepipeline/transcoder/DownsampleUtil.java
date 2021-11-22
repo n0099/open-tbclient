@@ -82,23 +82,10 @@ public class DownsampleUtil {
         return invokeLLLI.intValue;
     }
 
-    public static int determineSampleSizeJPEG(EncodedImage encodedImage, int i2, int i3) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, encodedImage, i2, i3)) == null) {
-            int sampleSize = encodedImage.getSampleSize();
-            while ((((encodedImage.getWidth() * encodedImage.getHeight()) * i2) / sampleSize) / sampleSize > i3) {
-                sampleSize *= 2;
-            }
-            return sampleSize;
-        }
-        return invokeLII.intValue;
-    }
-
     public static int getRotationAngle(RotationOptions rotationOptions, EncodedImage encodedImage) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, rotationOptions, encodedImage)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, rotationOptions, encodedImage)) == null) {
             boolean z = false;
             if (rotationOptions.useImageMetadata()) {
                 int rotationAngle = encodedImage.getRotationAngle();
@@ -114,7 +101,7 @@ public class DownsampleUtil {
     public static int ratioToSampleSize(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeF = interceptable.invokeF(AdIconUtil.AD_TEXT_ID, null, f2)) != null) {
+        if (interceptable != null && (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f2)) != null) {
             return invokeF.intValue;
         }
         if (f2 > 0.6666667f) {
@@ -134,7 +121,7 @@ public class DownsampleUtil {
     public static int ratioToSampleSizeJPEG(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeF = interceptable.invokeF(AdIconUtil.BAIDU_LOGO_ID, null, f2)) != null) {
+        if (interceptable != null && (invokeF = interceptable.invokeF(AdIconUtil.AD_TEXT_ID, null, f2)) != null) {
             return invokeF.intValue;
         }
         if (f2 > 0.6666667f) {
@@ -155,7 +142,7 @@ public class DownsampleUtil {
     public static int roundToPowerOfTwo(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) {
             int i3 = 1;
             while (i3 < i2) {
                 i3 *= 2;

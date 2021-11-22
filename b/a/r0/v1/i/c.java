@@ -3,11 +3,11 @@ package b.a.r0.v1.i;
 import android.content.Intent;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.j;
-import b.a.q0.d1.i0;
-import b.a.q0.d1.l0;
-import b.a.q0.d1.q;
-import b.a.q0.d1.u0;
+import b.a.e.f.p.j;
+import b.a.q0.c1.i0;
+import b.a.q0.c1.l0;
+import b.a.q0.c1.q;
+import b.a.q0.c1.t0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -47,31 +47,31 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f24402a;
+    public TbPageContext f25865a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.r0.v1.i.b f24403b;
+    public b.a.r0.v1.i.b f25866b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.r0.v1.i.d f24404c;
+    public b.a.r0.v1.i.d f25867c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BaseActivity f24405d;
+    public BaseActivity f25868d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f24406e;
+    public List<String> f25869e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f24407f;
+    public boolean f25870f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SearchJsBridge f24408g;
+    public SearchJsBridge f25871g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f24409h;
+    public CustomMessageListener f25872h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f24410i;
+    public CustomMessageListener f25873i;
     public CustomMessageListener j;
     public CustomMessageListener k;
 
@@ -110,7 +110,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f24411a;
+        public final /* synthetic */ c f25874a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -127,28 +127,28 @@ public class c {
                     return;
                 }
             }
-            this.f24411a = cVar;
+            this.f25874a = cVar;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.h
         public void a(WebView webView, int i2, String str, String str2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLILL(1048576, this, webView, i2, str, str2) == null) && webView == this.f24411a.f24404c.e()) {
-                this.f24411a.q(false);
+            if ((interceptable == null || interceptable.invokeLILL(1048576, this, webView, i2, str, str2) == null) && webView == this.f25874a.f25867c.e()) {
+                this.f25874a.q(false);
             }
         }
     }
 
     /* renamed from: b.a.r0.v1.i.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1192c implements BaseWebView.d {
+    public class C1258c implements BaseWebView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f24412e;
+        public final /* synthetic */ c f25875e;
 
-        public C1192c(c cVar) {
+        public C1258c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,7 +163,7 @@ public class c {
                     return;
                 }
             }
-            this.f24412e = cVar;
+            this.f25875e = cVar;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
@@ -171,33 +171,33 @@ public class c {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                if (this.f24412e.p(str)) {
+                if (this.f25875e.p(str)) {
                     return true;
                 }
-                if (this.f24412e.f24402a != null && this.f24412e.f24402a.getPageActivity() != null) {
-                    if (UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f24412e.f24402a, new String[]{str}) != 3) {
+                if (this.f25875e.f25865a != null && this.f25875e.f25865a.getPageActivity() != null) {
+                    if (UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f25875e.f25865a, new String[]{str}) != 3) {
                         return true;
                     }
                     if (str == null || !str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
-                        Intent parseIntentFromUrl = BaseWebViewActivity.parseIntentFromUrl(this.f24412e.f24402a.getPageActivity(), str);
+                        Intent parseIntentFromUrl = BaseWebViewActivity.parseIntentFromUrl(this.f25875e.f25865a.getPageActivity(), str);
                         if (parseIntentFromUrl != null) {
                             try {
-                                ArrayList<String> arrayList = (ArrayList) this.f24412e.f24405d.getCurrentPageSourceKeyList();
-                                String currentPageKey = this.f24412e.f24405d.getCurrentPageKey();
+                                ArrayList<String> arrayList = (ArrayList) this.f25875e.f25868d.getCurrentPageSourceKeyList();
+                                String currentPageKey = this.f25875e.f25868d.getCurrentPageKey();
                                 if (arrayList != null && !StringUtils.isNull(currentPageKey) && !arrayList.contains(currentPageKey)) {
                                     arrayList.add(currentPageKey);
                                 }
                                 if (!ListUtils.isEmpty(arrayList)) {
                                     parseIntentFromUrl.putStringArrayListExtra("obj_source", arrayList);
                                 }
-                                this.f24412e.f24402a.getPageActivity().startActivity(parseIntentFromUrl);
+                                this.f25875e.f25865a.getPageActivity().startActivity(parseIntentFromUrl);
                             } catch (Throwable th) {
                                 BdLog.detailException(th);
                             }
                             return true;
                         }
                     } else {
-                        UrlManager.getInstance().dealOneLink(this.f24412e.f24402a, new String[]{str}, true);
+                        UrlManager.getInstance().dealOneLink(this.f25875e.f25865a, new String[]{str}, true);
                         return true;
                     }
                 }
@@ -229,12 +229,12 @@ public class c {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.i0
+        @Override // b.a.q0.c1.i0
         /* renamed from: a */
         public List<String> doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.r0.l3.p0.a.k() : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.r0.m3.p0.a.k() : (List) invokeV.objValue;
         }
     }
 
@@ -244,7 +244,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f24413a;
+        public final /* synthetic */ c f25876a;
 
         public e(c cVar) {
             Interceptable interceptable = $ic;
@@ -261,19 +261,19 @@ public class c {
                     return;
                 }
             }
-            this.f24413a = cVar;
+            this.f25876a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.d1.q
+        @Override // b.a.q0.c1.q
         /* renamed from: a */
         public void onReturnDataInUI(List<String> list) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
                 return;
             }
-            this.f24413a.f24406e = list;
-            this.f24413a.f24408g.setHistoryDatas(this.f24413a.f24406e);
+            this.f25876a.f25869e = list;
+            this.f25876a.f25871g.setHistoryDatas(this.f25876a.f25869e);
         }
     }
 
@@ -283,7 +283,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f24414a;
+        public final /* synthetic */ c f25877a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(c cVar, int i2) {
@@ -303,7 +303,7 @@ public class c {
                     return;
                 }
             }
-            this.f24414a = cVar;
+            this.f25877a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -311,7 +311,7 @@ public class c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                this.f24414a.f24407f = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                this.f25877a.f25870f = ((Boolean) customResponsedMessage.getData()).booleanValue();
             }
         }
     }
@@ -322,7 +322,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f24415a;
+        public final /* synthetic */ c f25878a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(c cVar, int i2) {
@@ -342,7 +342,7 @@ public class c {
                     return;
                 }
             }
-            this.f24415a = cVar;
+            this.f25878a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -350,7 +350,7 @@ public class c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                this.f24415a.f24406e.remove((String) customResponsedMessage.getData());
+                this.f25878a.f25869e.remove((String) customResponsedMessage.getData());
             }
         }
     }
@@ -361,7 +361,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f24416a;
+        public final /* synthetic */ c f25879a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(c cVar, int i2) {
@@ -381,17 +381,17 @@ public class c {
                     return;
                 }
             }
-            this.f24416a = cVar;
+            this.f25879a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f24416a.f24406e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f25879a.f25869e == null) {
                 return;
             }
-            this.f24416a.f24406e.clear();
+            this.f25879a.f25869e.clear();
         }
     }
 
@@ -401,7 +401,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f24417a;
+        public final /* synthetic */ c f25880a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(c cVar, int i2) {
@@ -421,7 +421,7 @@ public class c {
                     return;
                 }
             }
-            this.f24417a = cVar;
+            this.f25880a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -433,8 +433,8 @@ public class c {
                     JSONObject jSONObject = new JSONObject((String) customResponsedMessage.getData());
                     String optString = jSONObject.optString("query");
                     int optInt = jSONObject.optInt("subType");
-                    if (this.f24417a.f24403b != null) {
-                        this.f24417a.f24403b.a(optString, true, optInt);
+                    if (this.f25880a.f25866b != null) {
+                        this.f25880a.f25866b.a(optString, true, optInt);
                         TiebaStatic.log(new StatisticItem("c12034"));
                     }
                 } catch (JSONException e2) {
@@ -459,11 +459,11 @@ public class c {
                 return;
             }
         }
-        this.f24406e = new ArrayList();
-        this.f24405d = baseActivity;
-        this.f24402a = baseActivity.getPageContext();
-        this.f24403b = bVar;
-        this.f24404c = dVar;
+        this.f25869e = new ArrayList();
+        this.f25868d = baseActivity;
+        this.f25865a = baseActivity.getPageContext();
+        this.f25866b = bVar;
+        this.f25867c = dVar;
         n();
         o();
         l();
@@ -472,11 +472,11 @@ public class c {
     public void k(String str) {
         List<String> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || StringUtils.isNull(str) || (list = this.f24406e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || StringUtils.isNull(str) || (list = this.f25869e) == null) {
             return;
         }
         list.remove(str);
-        this.f24406e.add(0, str);
+        this.f25869e.add(0, str);
     }
 
     public final void l() {
@@ -490,13 +490,13 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int count = ListUtils.getCount(this.f24406e);
+            int count = ListUtils.getCount(this.f25869e);
             if (count == 0) {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
             for (int i2 = 0; i2 < count; i2++) {
-                jSONArray.put(this.f24406e.get(i2));
+                jSONArray.put(this.f25869e.get(i2));
             }
             return jSONArray.toString();
         }
@@ -506,12 +506,12 @@ public class c {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f24409h = new f(this, 2921556);
-            this.f24410i = new g(this, 2921557);
+            this.f25872h = new f(this, 2921556);
+            this.f25873i = new g(this, 2921557);
             this.j = new h(this, 2921558);
             this.k = new i(this, 2921559);
-            MessageManager.getInstance().registerListener(this.f24409h);
-            MessageManager.getInstance().registerListener(this.f24410i);
+            MessageManager.getInstance().registerListener(this.f25872h);
+            MessageManager.getInstance().registerListener(this.f25873i);
             MessageManager.getInstance().registerListener(this.j);
             MessageManager.getInstance().registerListener(this.k);
         }
@@ -522,15 +522,15 @@ public class c {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             a aVar = new a(this);
             b bVar = new b(this);
-            C1192c c1192c = new C1192c(this);
-            QuickWebView e2 = this.f24404c.e();
+            C1258c c1258c = new C1258c(this);
+            QuickWebView e2 = this.f25867c.e();
             if (e2 != null) {
-                SearchJsBridge searchJsBridge = new SearchJsBridge(this.f24406e);
-                this.f24408g = searchJsBridge;
+                SearchJsBridge searchJsBridge = new SearchJsBridge(this.f25869e);
+                this.f25871g = searchJsBridge;
                 e2.addJsPromptInterface(searchJsBridge);
                 e2.setOnPageFinishedListener(aVar);
                 e2.setOnReceivedErrorListener(bVar);
-                e2.setOnLoadUrlListener(c1192c);
+                e2.setOnLoadUrlListener(c1258c);
             }
         }
     }
@@ -541,17 +541,17 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if (!str.startsWith("http://tieba.baidu.com/mo/q/hotMessage?topic_id=") && !str.startsWith(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW) && !str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC2) && !str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC_NEW)) {
                 if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_LIST_NEW) || str.startsWith("https://tieba.baidu.com/mo/q/hotMessage/list")) {
-                    if (!b.a.q0.t0.b.b(this.f24402a)) {
-                        new HotRanklistActivityConfig(this.f24402a.getPageActivity()).createNormalConfig("hotforum", "all").start();
+                    if (!b.a.q0.s0.b.b(this.f25865a)) {
+                        new HotRanklistActivityConfig(this.f25865a.getPageActivity()).createNormalConfig("hotforum", "all").start();
                     }
                     return true;
                 }
                 return false;
             }
-            String c2 = u0.c(str, "topic_id=");
-            String c3 = u0.c(str, "topic_name=");
-            if (!b.a.q0.t0.b.b(this.f24402a) && !StringUtils.isNull(c2) && !StringUtils.isNull(c3, true)) {
-                this.f24402a.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.f24402a.getPageActivity()).createNormalConfig(c2, c3, "4")));
+            String c2 = t0.c(str, "topic_id=");
+            String c3 = t0.c(str, "topic_name=");
+            if (!b.a.q0.s0.b.b(this.f25865a) && !StringUtils.isNull(c2) && !StringUtils.isNull(c3, true)) {
+                this.f25865a.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.f25865a.getPageActivity()).createNormalConfig(c2, c3, "4")));
             }
             TiebaStatic.log(new StatisticItem("c10363").param("obj_name", c3));
             return true;
@@ -564,33 +564,33 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (!z) {
-                this.f24404c.u();
+                this.f25867c.u();
                 if (j.z()) {
                     a2 = NoDataViewFactory.e.a(R.string.text_no_search_record);
                 } else {
                     a2 = NoDataViewFactory.e.a(R.string.neterror);
                 }
-                this.f24404c.t(a2);
+                this.f25867c.t(a2);
                 return;
             }
-            this.f24404c.s();
+            this.f25867c.s();
         }
     }
 
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f24404c.s();
-            if (this.f24407f) {
+            this.f25867c.s();
+            if (this.f25870f) {
                 String m = m();
                 if (StringUtils.isNull(m)) {
                     return;
                 }
-                QuickWebView e2 = this.f24404c.e();
+                QuickWebView e2 = this.f25867c.e();
                 e2.loadUrl("javascript:setSearchHistory('" + m + "')");
                 return;
             }
-            QuickWebView e3 = this.f24404c.e();
+            QuickWebView e3 = this.f25867c.e();
             e3.loadUrl(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "mo/q/hybrid/searchHistory");
         }
     }
@@ -598,8 +598,8 @@ public class c {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f24409h);
-            MessageManager.getInstance().unRegisterListener(this.f24410i);
+            MessageManager.getInstance().unRegisterListener(this.f25872h);
+            MessageManager.getInstance().unRegisterListener(this.f25873i);
             MessageManager.getInstance().unRegisterListener(this.j);
             MessageManager.getInstance().unRegisterListener(this.k);
         }

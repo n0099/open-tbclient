@@ -19,7 +19,7 @@ public class aq {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile aq f71416a;
+    public static volatile aq f72336a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -100,14 +100,14 @@ public class aq {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f71416a == null) {
+            if (f72336a == null) {
                 synchronized (aq.class) {
-                    if (f71416a == null) {
-                        f71416a = new aq(context);
+                    if (f72336a == null) {
+                        f72336a = new aq(context);
                     }
                 }
             }
-            return f71416a;
+            return f72336a;
         }
         return (aq) invokeL.objValue;
     }

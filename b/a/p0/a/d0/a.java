@@ -20,19 +20,12 @@ public class a {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b.a.p0.a.r1.l.b.m() ? "https://minipro.baidu.com" : BaseUrlManager.ONLINE_URL : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "https://minipro.baidu.com" : (String) invokeV.objValue;
     }
 
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? BaseUrlManager.ONLINE_URL : (String) invokeV.objValue;
-    }
-
-    @Deprecated
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "https://minipro.baidu.com" : (String) invokeV.objValue;
     }
 }

@@ -34,9 +34,9 @@ public abstract class j {
     }
 
     public static j a(g gVar, String str) {
-        Charset charset = m.f67358c;
+        Charset charset = m.f68271c;
         if (gVar != null && (charset = gVar.b()) == null) {
-            charset = m.f67358c;
+            charset = m.f68271c;
             gVar = g.a(gVar + "; charset=utf-8");
         }
         return a(gVar, str.getBytes(charset));

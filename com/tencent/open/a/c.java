@@ -20,10 +20,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f70016a;
+    public static String f70936a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f70017b;
+    public static String f70937b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,20 +51,20 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f70016a)) {
+            if (TextUtils.isEmpty(f70936a)) {
                 if (context == null) {
                     return "";
                 }
-                f70016a = "";
+                f70936a = "";
                 WindowManager windowManager = (WindowManager) context.getSystemService("window");
                 if (windowManager != null) {
                     int width = windowManager.getDefaultDisplay().getWidth();
                     int height = windowManager.getDefaultDisplay().getHeight();
-                    f70016a = width + "x" + height;
+                    f70936a = width + "x" + height;
                 }
-                return f70016a;
+                return f70936a;
             }
-            return f70016a;
+            return f70936a;
         }
         return (String) invokeL.objValue;
     }
@@ -98,7 +98,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             try {
-                if (f70017b == null) {
+                if (f70937b == null) {
                     DisplayMetrics displayMetrics = new DisplayMetrics();
                     ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                     StringBuilder sb = new StringBuilder();
@@ -134,9 +134,9 @@ public class c {
                     sb.append("&");
                     sb.append("wifi=");
                     sb.append(a.e(context));
-                    f70017b = sb.toString();
+                    f70937b = sb.toString();
                 }
-                return f70017b;
+                return f70937b;
             } catch (Exception unused) {
                 return null;
             }

@@ -206,7 +206,6 @@ public final class OaidController {
                     this.this$1 = this;
                 }
 
-                @Override // com.bun.miitmdid.core.IIdentifierListener
                 public void OnSupport(boolean z, IdSupplier idSupplier) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZL(1048576, this, z, idSupplier) == null) {

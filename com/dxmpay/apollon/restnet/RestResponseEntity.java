@@ -1,6 +1,6 @@
 package com.dxmpay.apollon.restnet;
 
-import b.f.a.g.c.a;
+import b.e.a.g.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,16 +16,16 @@ public class RestResponseEntity<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HttpStatus f62150a;
+    public final HttpStatus f63051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f62151b;
+    public a f63052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f62152c;
+    public T f63053c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f62153d;
+    public String f63054d;
 
     public RestResponseEntity(a aVar, HttpStatus httpStatus) {
         Interceptable interceptable = $ic;
@@ -42,21 +42,21 @@ public class RestResponseEntity<T> {
                 return;
             }
         }
-        this.f62151b = aVar;
-        this.f62150a = httpStatus;
+        this.f63052b = aVar;
+        this.f63051a = httpStatus;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62153d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63054d : (String) invokeV.objValue;
     }
 
     public String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            a aVar = this.f62151b;
+            a aVar = this.f63052b;
             return aVar != null ? aVar.g(str) : "";
         }
         return (String) invokeL.objValue;
@@ -65,21 +65,21 @@ public class RestResponseEntity<T> {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f62153d = str;
+            this.f63054d = str;
         }
     }
 
     public T getBody() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62152c : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63053c : (T) invokeV.objValue;
     }
 
     public List<String> getHeaderValue(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            a aVar = this.f62151b;
+            a aVar = this.f63052b;
             if (aVar != null) {
                 return aVar.get(str);
             }
@@ -93,12 +93,12 @@ public class RestResponseEntity<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             StringBuilder sb = new StringBuilder("<");
-            sb.append(this.f62150a.toString());
+            sb.append(this.f63051a.toString());
             sb.append(' ');
-            sb.append(this.f62150a.getReasonPhrase());
+            sb.append(this.f63051a.getReasonPhrase());
             sb.append(',');
             T body = getBody();
-            a aVar = this.f62151b;
+            a aVar = this.f63052b;
             if (body != null) {
                 sb.append(body);
                 if (aVar != null) {
@@ -129,8 +129,8 @@ public class RestResponseEntity<T> {
                 return;
             }
         }
-        this.f62151b = aVar;
-        this.f62152c = t;
-        this.f62150a = httpStatus;
+        this.f63052b = aVar;
+        this.f63053c = t;
+        this.f63051a = httpStatus;
     }
 }

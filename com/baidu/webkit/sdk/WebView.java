@@ -58,6 +58,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.Statistics;
 import com.baidu.webkit.internal.a;
+import com.baidu.webkit.internal.monitor.MonitorType;
 import com.baidu.webkit.sdk.WebViewProvider;
 import com.baidu.webkit.sdk.jsapi.IJsAbility;
 import com.baidu.webkit.sdk.jsapi.ZeusJsBridge;
@@ -635,6 +636,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         public static final int SRC_JS_ANCHOR_TYPE = 11;
         public static final int UNKNOWN_TYPE = 0;
         public transient /* synthetic */ FieldHolder $fh;
+        public String mCustomData;
         public boolean mDataNoNaDialogEnabled;
         public String mExtra;
         public String mExtra2;
@@ -666,184 +668,197 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
             this.mType = 0;
         }
 
+        public String getCustomData() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCustomData : (String) invokeV.objValue;
+        }
+
         public boolean getDataNoNaDialogEnabled() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mDataNoNaDialogEnabled : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDataNoNaDialogEnabled : invokeV.booleanValue;
         }
 
         public String getExtra() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mExtra : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mExtra : (String) invokeV.objValue;
         }
 
         public String getExtra2() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mExtra2 : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mExtra2 : (String) invokeV.objValue;
         }
 
         public String getFirstNavigationUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mFirstNavigationUrl : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFirstNavigationUrl : (String) invokeV.objValue;
         }
 
         public String getFrameUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mFrameUrl : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mFrameUrl : (String) invokeV.objValue;
         }
 
         public String getOriginFrameSrcUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mOriginFrameSrcUrl : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mOriginFrameSrcUrl : (String) invokeV.objValue;
         }
 
         public String getOriginLinkUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mOriginLinkUrl : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mOriginLinkUrl : (String) invokeV.objValue;
         }
 
         public String getOriginSrcUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mOriginSrcUrl : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mOriginSrcUrl : (String) invokeV.objValue;
         }
 
         public String getPageUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mPageUrl : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mPageUrl : (String) invokeV.objValue;
         }
 
         public float getTouchPageX() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mTouchPageX : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mTouchPageX : invokeV.floatValue;
         }
 
         public float getTouchPageY() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mTouchPageY : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mTouchPageY : invokeV.floatValue;
         }
 
         public int getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mType : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mType : invokeV.intValue;
         }
 
         public boolean isSelectable() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mIsSelectable : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mIsSelectable : invokeV.booleanValue;
         }
 
         public boolean isTextNode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mIsTextNode : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mIsTextNode : invokeV.booleanValue;
+        }
+
+        public void setCustomData(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+                this.mCustomData = str;
+            }
         }
 
         public void setDataNoNaDialogEnabled(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
                 this.mDataNoNaDialogEnabled = z;
             }
         }
 
         public void setExtra(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
                 this.mExtra = str;
             }
         }
 
         public void setExtra2(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
                 this.mExtra2 = str;
             }
         }
 
         public void setFirstNavigationUrl(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
                 this.mFirstNavigationUrl = str;
             }
         }
 
         public void setFrameUrl(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
                 this.mFrameUrl = str;
             }
         }
 
         public void setIsSelectable(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
                 this.mIsSelectable = z;
             }
         }
 
         public void setIsTextNode(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
                 this.mIsTextNode = z;
             }
         }
 
         public void setOriginFrameSrcUrl(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
                 this.mOriginFrameSrcUrl = str;
             }
         }
 
         public void setOriginLinkUrl(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
                 this.mOriginLinkUrl = str;
             }
         }
 
         public void setOriginSrcUrl(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
                 this.mOriginSrcUrl = str;
             }
         }
 
         public void setPageUrl(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
                 this.mPageUrl = str;
             }
         }
 
         public void setTouchPageX(float f2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048601, this, f2) == null) {
+            if (interceptable == null || interceptable.invokeF(1048603, this, f2) == null) {
                 this.mTouchPageX = f2;
             }
         }
 
         public void setTouchPageY(float f2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048602, this, f2) == null) {
+            if (interceptable == null || interceptable.invokeF(1048604, this, f2) == null) {
                 this.mTouchPageY = f2;
             }
         }
 
         public void setType(int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
                 this.mType = i2;
             }
         }
@@ -888,7 +903,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         public int getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Statistics.MONITOR_TYPE_ADD_JAVA_SCRIPT : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? MonitorType.MONITOR_TYPE_ADD_JAVA_SCRIPT : invokeV.intValue;
         }
 
         @Override // com.baidu.webkit.internal.Statistics.Record
@@ -908,7 +923,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
                         return "";
                     }
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("type", Statistics.MONITOR_TYPE_ADD_JAVA_SCRIPT);
+                    jSONObject.put("type", MonitorType.MONITOR_TYPE_ADD_JAVA_SCRIPT);
                     JSONArray jSONArray = new JSONArray();
                     for (Map.Entry<String, String> entry : this.mJSInfo.entrySet()) {
                         JSONObject jSONObject2 = new JSONObject();
@@ -1735,51 +1750,65 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
+    public static void addToWebCache(String str, Map<String, String> map, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65599, null, str, map, z) == null) {
+            getFactory().getStatics().addToWebCache(str, false, true, map, z);
+        }
+    }
+
+    public static void addToWebCache(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65600, null, str, z) == null) {
+            getFactory().getStatics().addToWebCache(str, false, true, null, z);
+        }
+    }
+
     public static void addToWebCache(String str, boolean z, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65599, null, new Object[]{str, Boolean.valueOf(z), map}) == null) {
-            getFactory().getStatics().addToWebCache(str, z, true, map);
+        if (interceptable == null || interceptable.invokeCommon(65601, null, new Object[]{str, Boolean.valueOf(z), map}) == null) {
+            getFactory().getStatics().addToWebCache(str, z, true, map, false);
         }
     }
 
     public static void addToWebCache(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65600, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            getFactory().getStatics().addToWebCache(str, z, z2, null);
+        if (interceptable == null || interceptable.invokeCommon(65602, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            getFactory().getStatics().addToWebCache(str, z, z2, null, false);
         }
     }
 
     public static void addToWebCache(String str, boolean z, boolean z2, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65601, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), map}) == null) {
-            getFactory().getStatics().addToWebCache(str, z, z2, map);
+        if (interceptable == null || interceptable.invokeCommon(65603, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), map}) == null) {
+            getFactory().getStatics().addToWebCache(str, z, z2, map, false);
         }
     }
 
     public static void addVirtualMemoryListener(IVirtualMemoryListener iVirtualMemoryListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65602, null, iVirtualMemoryListener) == null) {
+        if (interceptable == null || interceptable.invokeL(65604, null, iVirtualMemoryListener) == null) {
             getFactory().getStatics().addVirtualMemoryListener(iVirtualMemoryListener);
         }
     }
 
     public static void cancelPrefetch(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65603, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65605, null, str) == null) {
             getFactory().getStatics().cancelPrefetch(str);
         }
     }
 
     public static void cancelResourcePrefetch(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65604, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65606, null, str) == null) {
             getFactory().getStatics().cancelResourcePrefetch(str);
         }
     }
 
     private void checkThread() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65605, this) == null) || this.mWebViewThread == null || Looper.myLooper() == this.mWebViewThread) {
+        if (!(interceptable == null || interceptable.invokeV(65607, this) == null) || this.mWebViewThread == null || Looper.myLooper() == this.mWebViewThread) {
             return;
         }
         Throwable th = new Throwable("A WebView method was called on thread '" + Thread.currentThread().getName() + "'. All WebView methods must be called on the same thread. (Expected Looper " + this.mWebViewThread + " called on " + Looper.myLooper() + ", FYI main Looper is " + Looper.getMainLooper() + SmallTailInfo.EMOTION_SUFFIX);
@@ -1791,13 +1820,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public static void clearAllTextureCacheAndGLResource() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65606, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65608, null) == null) {
         }
     }
 
     public static void clearClientCertPreferences(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65607, null, runnable) == null) {
+        if (interceptable == null || interceptable.invokeL(65609, null, runnable) == null) {
             getFactory().getStatics().clearClientCertPreferences(runnable);
         }
     }
@@ -1805,13 +1834,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public static void disablePlatformNotifications() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65608, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65610, null) == null) {
         }
     }
 
     public static void disableWebView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65609, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65611, null) == null) {
             WebViewFactory.disableWebView();
         }
     }
@@ -1819,20 +1848,20 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public static void enablePlatformNotifications() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65610, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65612, null) == null) {
         }
     }
 
     public static void enableSlowWholeDocumentDraw() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65611, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65613, null) == null) {
             getFactory().getStatics().enableSlowWholeDocumentDraw();
         }
     }
 
     private void ensureProviderCreated() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65612, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65614, this) == null) {
             checkThread();
             if (this.mProvider == null) {
                 this.mProvider = getFactory().createWebView(this, new PrivateAccess(this));
@@ -1845,20 +1874,20 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public static String findAddress(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65613, null, str)) == null) ? getFactory().getStatics().findAddress(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65615, null, str)) == null) ? getFactory().getStatics().findAddress(str) : (String) invokeL.objValue;
     }
 
     public static HashMap<String, Long> getCurrentSystemInfraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65614, null)) == null) ? getFactory().getStatics().getCurrentSystemInfraInfo() : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65616, null)) == null) ? getFactory().getStatics().getCurrentSystemInfraInfo() : (HashMap) invokeV.objValue;
     }
 
     @Nullable
     public static PackageInfo getCurrentWebViewPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65615, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65617, null)) == null) {
             PackageInfo loadedPackageInfo = WebViewFactory.getLoadedPackageInfo();
             if (loadedPackageInfo != null) {
                 return loadedPackageInfo;
@@ -1872,7 +1901,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65616, this)) != null) {
+        if (interceptable != null && (invokeV = interceptable.invokeV(65618, this)) != null) {
             return invokeV.booleanValue;
         }
         try {
@@ -1895,7 +1924,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         InterceptResult invokeV;
         WebViewFactoryProvider provider;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65617, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65619, null)) == null) {
             synchronized (WebView.class) {
                 provider = WebViewFactory.getProvider();
             }
@@ -1907,7 +1936,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     private JSInterfaceStatistics getJSInterfaceStatistics() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65618, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65620, this)) == null) {
             if (this.mJSInterfaceStatistics == null) {
                 this.mJSInterfaceStatistics = new JSInterfaceStatistics(this, null);
             }
@@ -1920,19 +1949,19 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public static ClassLoader getWebViewClassLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65619, null)) == null) ? getFactory().getWebViewClassLoader() : (ClassLoader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65621, null)) == null) ? getFactory().getWebViewClassLoader() : (ClassLoader) invokeV.objValue;
     }
 
     public static String getZeusSeriesNum(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65620, null, i2, i3, i4)) == null) ? getFactory().getStatics().getZeusSeriesNum(i2, i3, i4) : (String) invokeIII.objValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65622, null, i2, i3, i4)) == null) ? getFactory().getStatics().getZeusSeriesNum(i2, i3, i4) : (String) invokeIII.objValue;
     }
 
     public static boolean hasGPU() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65621, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65623, null)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -1940,7 +1969,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     private void initWebView(Context context, Map<String, Object> map, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65622, this, context, map, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(65624, this, context, map, z) == null) {
             if (context == null) {
                 throw new IllegalArgumentException("Invalid context argument");
             }
@@ -2002,33 +2031,33 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public static boolean isInWebCache(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65623, null, str)) == null) ? getFactory().getStatics().isInWebCache(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65625, null, str)) == null) ? getFactory().getStatics().isInWebCache(str) : invokeL.booleanValue;
     }
 
     public static void makeMF30Inited() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65624, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65626, null) == null) {
             getFactory().getStatics().makeMF30Inited();
         }
     }
 
     public static void onMemoryPresure() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65625, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65627, null) == null) {
             getFactory().getStatics().onMemoryPresure(2, null);
         }
     }
 
     public static void onMemoryPresure(int i2, Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65626, null, i2, activity) == null) {
+        if (interceptable == null || interceptable.invokeIL(65628, null, i2, activity) == null) {
             getFactory().getStatics().onMemoryPresure(i2, activity);
         }
     }
 
     private void onOverScrolledDelegate(int i2, int i3, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65627, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65629, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             WebViewDelegate webViewDelegate = this.mViewDelegate;
             if (webViewDelegate != null) {
                 webViewDelegate.onOverScrolled(i2, i3, z, z2);
@@ -2040,7 +2069,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     private void onScrollChangedDelegate(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(65628, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(65630, this, i2, i3, i4, i5) == null) {
             WebViewDelegate webViewDelegate = this.mViewDelegate;
             if (webViewDelegate != null) {
                 webViewDelegate.onScrollChanged(i2, i3, i4, i5);
@@ -2053,7 +2082,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     private boolean onTouchEventDelegate(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65629, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65631, this, motionEvent)) == null) {
             WebViewDelegate webViewDelegate = this.mViewDelegate;
             return webViewDelegate != null ? webViewDelegate.onTouchEvent(motionEvent) : onTouchEventSuper(motionEvent);
         }
@@ -2062,13 +2091,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     private void pauseDraw() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65630, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65632, this) == null) {
         }
     }
 
     public static void preconnectUrl(String str, Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65631, null, str, context) == null) && WebViewFactory.hasProvider()) {
+        if ((interceptable == null || interceptable.invokeLL(65633, null, str, context) == null) && WebViewFactory.hasProvider()) {
             Log.w(Log.LOG_TAG, "Webview preconnectUrl url= ".concat(String.valueOf(str)));
             getFactory().getStatics().preconnectUrl(str, 0);
         }
@@ -2076,67 +2105,67 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public static void prefetch(String str, Map<String, String> map, MainResourcePrefetchListener mainResourcePrefetchListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65632, null, str, map, mainResourcePrefetchListener) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65634, null, str, map, mainResourcePrefetchListener) == null) {
             getFactory().getStatics().prefetch(str, map, mainResourcePrefetchListener);
         }
     }
 
     public static void prefetchResource(String str, String[] strArr, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65633, null, str, strArr, map) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65635, null, str, strArr, map) == null) {
             getFactory().getStatics().prefetchResource(str, strArr, map);
         }
     }
 
     public static void removeFromWebCache(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65634, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65636, null, str) == null) {
             getFactory().getStatics().removeFromWebCache(str);
         }
     }
 
     public static void removeVirtualMemoryWatcher(IVirtualMemoryListener iVirtualMemoryListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65635, null, iVirtualMemoryListener) == null) {
+        if (interceptable == null || interceptable.invokeL(65637, null, iVirtualMemoryListener) == null) {
             getFactory().getStatics().removeVirtualMemoryWatcher(iVirtualMemoryListener);
         }
     }
 
     public static void resolveUrl(String str, Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65636, null, str, context) == null) && WebViewFactory.hasProvider()) {
+        if ((interceptable == null || interceptable.invokeLL(65638, null, str, context) == null) && WebViewFactory.hasProvider()) {
             getFactory().getStatics().resolveUrl(str);
         }
     }
 
     private void resumeDraw() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65637, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65639, this) == null) {
         }
     }
 
     public static void setDataDirectorySuffix(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65638, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65640, null, str) == null) {
             WebViewFactory.setDataDirectorySuffix(str);
         }
     }
 
     private void setFindIsUp(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65639, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65641, this, z) == null) {
         }
     }
 
     public static void setWebContentsDebuggingEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65640, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65642, null, z) == null) {
         }
     }
 
     private void setupFindListenerIfNeeded() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65641, this) == null) && this.mFindListener == null) {
+        if ((interceptable == null || interceptable.invokeV(65643, this) == null) && this.mFindListener == null) {
             FindListenerDistributor findListenerDistributor = new FindListenerDistributor(this, null);
             this.mFindListener = findListenerDistributor;
             this.mProvider.setFindListener(findListenerDistributor);
@@ -2207,7 +2236,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
             boolean a2 = true ^ secureProcessor.a();
             if (obj != null && !TextUtils.isEmpty(str)) {
                 secureProcessor.d().put(str, obj);
-                secureProcessor.f60942d = null;
+                secureProcessor.f61864d = null;
             }
             if (!a2 || getEnableJsPrompt()) {
                 return;
@@ -2489,15 +2518,23 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return (Picture) invokeZ.objValue;
     }
 
+    public void capturePicture(ValueCallback<Picture> valueCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, valueCallback) == null) {
+            checkThread();
+            this.mProvider.capturePicture(getMeasuredWidth(), getMeasuredHeight(), valueCallback);
+        }
+    }
+
     public void changeWapPreloadUrlStyle(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048602, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048603, this, i2, str) == null) {
         }
     }
 
     public void clearCache(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
             checkThread();
             this.mProvider.clearCache(z);
         }
@@ -2506,13 +2543,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean clearDiskJsCodeCache(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) ? this.mProvider.clearDiskJsCodeCache(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) ? this.mProvider.clearDiskJsCodeCache(str) : invokeL.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void clearFocus() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.clearFocus();
@@ -2524,7 +2561,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void clearFormData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
             checkThread();
             this.mProvider.clearFormData();
         }
@@ -2532,7 +2569,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void clearHistory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
             checkThread();
             this.mProvider.clearHistory();
         }
@@ -2540,7 +2577,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void clearMatches() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
             checkThread();
             this.mProvider.clearMatches();
         }
@@ -2548,7 +2585,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void clearPrerender() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
             if (isDestroyed()) {
                 Log.e(Log.LOG_TAG, "Webview has destoryed !!!");
                 new Exception().printStackTrace();
@@ -2561,7 +2598,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void clearSslPreferences() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             checkThread();
             this.mProvider.clearSslPreferences();
         }
@@ -2570,7 +2607,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public void clearView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
             checkThread();
             this.mProvider.clearView();
         }
@@ -2578,7 +2615,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void completeSelection() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
             this.mProvider.selectionDone();
         }
     }
@@ -2587,33 +2624,24 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public int computeHorizontalScrollExtent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? super.computeHorizontalScrollExtent() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? super.computeHorizontalScrollExtent() : invokeV.intValue;
     }
 
     @Override // android.view.View
     public int computeHorizontalScrollOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.mProvider.getScrollDelegate().computeHorizontalScrollOffset() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.mProvider.getScrollDelegate().computeHorizontalScrollOffset() : invokeV.intValue;
     }
 
     @Override // android.view.View
     public int computeHorizontalScrollRange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.mProvider.getScrollDelegate().computeHorizontalScrollRange() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.mProvider.getScrollDelegate().computeHorizontalScrollRange() : invokeV.intValue;
     }
 
     public int computeMaxScrollX() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int computeMaxScrollY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
@@ -2622,10 +2650,19 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return invokeV.intValue;
     }
 
+    public int computeMaxScrollY() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     @Override // android.view.View
     public void computeScroll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
             this.mProvider.getScrollDelegate().computeScroll();
         }
     }
@@ -2634,27 +2671,27 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public int computeVerticalScrollExtent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.mProvider.getScrollDelegate().computeVerticalScrollExtent() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.mProvider.getScrollDelegate().computeVerticalScrollExtent() : invokeV.intValue;
     }
 
     @Override // android.view.View
     public int computeVerticalScrollOffset() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.mProvider.getScrollDelegate().computeVerticalScrollOffset() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.mProvider.getScrollDelegate().computeVerticalScrollOffset() : invokeV.intValue;
     }
 
     @Override // android.view.View
     public int computeVerticalScrollRange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.mProvider.getScrollDelegate().computeVerticalScrollRange() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.mProvider.getScrollDelegate().computeVerticalScrollRange() : invokeV.intValue;
     }
 
     public WebBackForwardList copyBackForwardList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             checkThread();
             return this.mProvider.copyBackForwardListZeus();
         }
@@ -2664,7 +2701,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public WebMessagePort[] createWebMessageChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
             return null;
         }
         return (WebMessagePort[]) invokeV.objValue;
@@ -2673,7 +2710,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public void cutdownUserData(int i2) {
         WebViewProvider webViewProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048624, this, i2) == null) || (webViewProvider = this.mProvider) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048625, this, i2) == null) || (webViewProvider = this.mProvider) == null) {
             return;
         }
         webViewProvider.cutdownUserData(i2);
@@ -2682,23 +2719,23 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public void debugDump() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
             checkThread();
         }
     }
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
             a secureProcessor = getSecureProcessor();
-            if (secureProcessor.f60941c.getContext().getPackageName().contains("com.baidu.searchbox")) {
-                HashMap<String, Object> hashMap = secureProcessor.f60940b;
+            if (secureProcessor.f61863c.getContext().getPackageName().contains("com.baidu.searchbox")) {
+                HashMap<String, Object> hashMap = secureProcessor.f61862b;
                 if (hashMap != null) {
                     hashMap.clear();
-                    secureProcessor.f60940b = null;
+                    secureProcessor.f61862b = null;
                 }
-                if (secureProcessor.f60941c.getWebViewClient() != null) {
-                    secureProcessor.f60942d = null;
+                if (secureProcessor.f61863c.getWebViewClient() != null) {
+                    secureProcessor.f61864d = null;
                 }
             }
             checkThread();
@@ -2714,13 +2751,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void destroyCanvasCacheBmp() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
         }
     }
 
     public void disableMedia() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
             this.mProvider.disableMedia();
         }
     }
@@ -2728,7 +2765,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048630, this, canvas) == null) {
             this.mProvider.getViewDelegate().preDispatchDraw(canvas);
             super.dispatchDraw(canvas);
         }
@@ -2738,12 +2775,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, keyEvent)) == null) ? this.mProvider.getViewDelegate().dispatchKeyEvent(keyEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, keyEvent)) == null) ? this.mProvider.getViewDelegate().dispatchKeyEvent(keyEvent) : invokeL.booleanValue;
     }
 
     public void documentHasImages(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, message) == null) {
+        if (interceptable == null || interceptable.invokeL(1048632, this, message) == null) {
             checkThread();
             this.mProvider.documentHasImages(message);
         }
@@ -2751,7 +2788,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void dumpViewHierarchyWithProperties(BufferedWriter bufferedWriter, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048632, this, bufferedWriter, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048633, this, bufferedWriter, i2) == null) {
             this.mProvider.dumpViewHierarchyWithProperties(bufferedWriter, i2);
         }
     }
@@ -2759,7 +2796,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public void emulateShiftHeld() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
             checkThread();
             this.mProvider.emulateShiftHeldOnLink();
         }
@@ -2767,28 +2804,28 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void emulateShiftHeldOnLink() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
             this.mProvider.emulateShiftHeldOnLink();
         }
     }
 
     public void emulateShiftHeldOnNormalText() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
             this.mProvider.emulateShiftHeldOnNormalText();
         }
     }
 
     public void enableMedia() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048637, this) == null) {
             this.mProvider.enableMedia();
         }
     }
 
     public void evaluateJavaScriptOnPrerender(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048637, this, str, valueCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048638, this, str, valueCallback) == null) {
             checkThread();
             this.mProvider.evaluateJavaScriptOnPrerender(str, valueCallback);
         }
@@ -2796,15 +2833,23 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048638, this, str, valueCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048639, this, str, valueCallback) == null) {
             checkThread();
             this.mProvider.evaluateJavaScript(str, valueCallback);
         }
     }
 
+    public void evaluateJavascriptMethod(String str, String str2, String str3, ValueCallback<String> valueCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048640, this, str, str2, str3, valueCallback) == null) {
+            checkThread();
+            this.mProvider.evaluateJavaScriptMethod(str, str2, str3, valueCallback);
+        }
+    }
+
     public void execJavaScript(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048641, this, str) == null) {
             loadUrl("javascript:".concat(String.valueOf(str)));
         }
     }
@@ -2812,7 +2857,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public void execJavaScriptExt(String str, String... strArr) {
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048640, this, str, strArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048642, this, str, strArr) == null) {
             if (strArr == null || strArr.length == 0) {
                 str2 = "javascript:(" + str + ")()";
             } else {
@@ -2833,14 +2878,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void exitFullScreenMode() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048641, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048643, this) == null) {
             this.mProvider.exitFullScreenMode();
         }
     }
 
     public void extendSelection() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048642, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048644, this) == null) {
             this.mProvider.extendSelection();
         }
     }
@@ -2849,7 +2894,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public int findAll(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, str)) == null) {
             checkThread();
             StrictMode.noteSlowCall("findAll blocks UI: prefer findAllAsync");
             return this.mProvider.findAll(str);
@@ -2859,7 +2904,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void findAllAsync(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048644, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048646, this, str) == null) {
             checkThread();
             this.mProvider.findAllAsync(str);
         }
@@ -2869,18 +2914,18 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public View findFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) ? this.mProvider.getViewDelegate().findFocus(super.findFocus()) : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) ? this.mProvider.getViewDelegate().findFocus(super.findFocus()) : (View) invokeV.objValue;
     }
 
     public View findHierarchyView(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048646, this, str, i2)) == null) ? this.mProvider.findHierarchyView(str, i2) : (View) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048648, this, str, i2)) == null) ? this.mProvider.findHierarchyView(str, i2) : (View) invokeLI.objValue;
     }
 
     public void findNext(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048647, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048649, this, z) == null) {
             checkThread();
             this.mProvider.findNext(z);
         }
@@ -2888,7 +2933,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void flingScroll(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048648, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048650, this, i2, i3) == null) {
             checkThread();
             this.mProvider.flingScroll(i2, i3);
         }
@@ -2897,7 +2942,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public void freeMemory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048649, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048651, this) == null) {
             checkThread();
             this.mProvider.freeMemory();
         }
@@ -2907,14 +2952,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public CharSequence getAccessibilityClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048650, this)) == null) ? WebView.class.getName() : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) ? WebView.class.getName() : (CharSequence) invokeV.objValue;
     }
 
     @Override // android.view.View
     public AccessibilityNodeProvider getAccessibilityNodeProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048651, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) {
             AccessibilityNodeProvider accessibilityNodeProvider = this.mProvider.getViewDelegate().getAccessibilityNodeProvider();
             return accessibilityNodeProvider == null ? super.getAccessibilityNodeProvider() : accessibilityNodeProvider;
         }
@@ -2924,7 +2969,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public int getActionNodesCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
@@ -2933,19 +2978,19 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public float getActualZoomScale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) ? getScale() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048655, this)) == null) ? getScale() : invokeV.floatValue;
     }
 
     public Bitmap getCanvasCacheBmp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) ? this.mProvider.getCanvasCacheBmp() : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) ? this.mProvider.getCanvasCacheBmp() : (Bitmap) invokeV.objValue;
     }
 
     public SslCertificate getCertificate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048655, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048657, this)) == null) {
             checkThread();
             return this.mProvider.getCertificate();
         }
@@ -2956,7 +3001,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public int getContentHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048658, this)) == null) {
             checkThread();
             return this.mProvider.getContentHeight();
         }
@@ -2967,37 +3012,43 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public int getContentWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048657, this)) == null) ? this.mProvider.getContentWidth() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) ? this.mProvider.getContentWidth() : invokeV.intValue;
+    }
+
+    public String getCookieByUrl(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048660, this, str)) == null) ? CookieManager.getInstance().getCookie(str) : (String) invokeL.objValue;
     }
 
     public float getCurrentScale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048658, this)) == null) ? getScale() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) ? getScale() : invokeV.floatValue;
     }
 
     public long getCurrentSourceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) ? this.mCurrentSourceId : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) ? this.mCurrentSourceId : invokeV.longValue;
     }
 
     public View getCurrentTitleBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) ? this.mViewDelegate.getCurrentTitleBar() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048663, this)) == null) ? this.mViewDelegate.getCurrentTitleBar() : (View) invokeV.objValue;
     }
 
     public View getEmbeddedTitlebar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) ? this.mViewDelegate.getEmbeddedTitlebar() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.mViewDelegate.getEmbeddedTitlebar() : (View) invokeV.objValue;
     }
 
     public Bitmap getFavicon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048665, this)) == null) {
             checkThread();
             return this.mProvider.getFavicon();
         }
@@ -3007,20 +3058,20 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public String getGpuInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048663, this)) == null) ? this.mProvider.getGpuInfo() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) ? this.mProvider.getGpuInfo() : (String) invokeV.objValue;
     }
 
     @Override // android.view.View
     public Handler getHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.mProvider.getViewDelegate().getHandler(super.getHandler()) : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) ? this.mProvider.getViewDelegate().getHandler(super.getHandler()) : (Handler) invokeV.objValue;
     }
 
     public HitTestResult getHitTestResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048665, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
             checkThread();
             return this.mProvider.getHitTestResultZeus();
         }
@@ -3031,7 +3082,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public String[] getHttpAuthUsernamePassword(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048666, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048669, this, str, str2)) == null) {
             checkThread();
             return this.mProvider.getHttpAuthUsernamePassword(str, str2);
         }
@@ -3041,13 +3092,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public View getLandingPageTitleBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) ? this.mViewDelegate.getLandingPageTitleBar() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048670, this)) == null) ? this.mViewDelegate.getLandingPageTitleBar() : (View) invokeV.objValue;
     }
 
     public Bitmap getMagnifierBmp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
             return null;
         }
         return (Bitmap) invokeV.objValue;
@@ -3055,7 +3106,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void getManifestInfo(ManifestInfoCallback manifestInfoCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048669, this, manifestInfoCallback) == null) || manifestInfoCallback == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048672, this, manifestInfoCallback) == null) || manifestInfoCallback == null) {
             return;
         }
         this.mProvider.getManifestInfo(manifestInfoCallback);
@@ -3064,20 +3115,20 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public float getMaxZoomScale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048670, this)) == null) ? this.mProvider.getMaxZoomScale() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) ? this.mProvider.getMaxZoomScale() : invokeV.floatValue;
     }
 
     public float getMinZoomScale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) ? this.mProvider.getMinZoomScale() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) ? this.mProvider.getMinZoomScale() : invokeV.floatValue;
     }
 
     @ViewDebug.ExportedProperty(category = AlbumActivityConfig.FROM_WEB_VIEW)
     public String getOriginalUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048672, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) {
             checkThread();
             WebViewProvider webViewProvider = this.mProvider;
             return webViewProvider == null ? "" : webViewProvider.getOriginalUrl();
@@ -3088,13 +3139,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public WebPageInfoList getPageInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) ? new WebPageInfoList(this) : (WebPageInfoList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048676, this)) == null) ? new WebPageInfoList(this) : (WebPageInfoList) invokeV.objValue;
     }
 
     public int getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048677, this)) == null) {
             checkThread();
             return this.mProvider.getProgress();
         }
@@ -3104,7 +3155,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public String getReferer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048678, this)) == null) {
             checkThread();
             WebViewProvider webViewProvider = this.mProvider;
             return webViewProvider == null ? "" : webViewProvider.getReferer();
@@ -3115,13 +3166,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean getRendererPriorityWaivedWhenNotVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048676, this)) == null) ? this.mProvider.getRendererPriorityWaivedWhenNotVisible() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048679, this)) == null) ? this.mProvider.getRendererPriorityWaivedWhenNotVisible() : invokeV.booleanValue;
     }
 
     public int getRendererRequestedPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048677, this)) == null) ? this.mProvider.getRendererRequestedPriority() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048680, this)) == null) ? this.mProvider.getRendererRequestedPriority() : invokeV.intValue;
     }
 
     @ViewDebug.ExportedProperty(category = AlbumActivityConfig.FROM_WEB_VIEW)
@@ -3129,7 +3180,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public float getScale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048678, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
             checkThread();
             return this.mProvider.getScale();
         }
@@ -3139,7 +3190,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public int getScrollState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048679, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048682, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
@@ -3148,13 +3199,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public View getSearchResultTitleBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048680, this)) == null) ? this.mViewDelegate.getSearchResultTitleBar() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048683, this)) == null) ? this.mViewDelegate.getSearchResultTitleBar() : (View) invokeV.objValue;
     }
 
     public a getSecureProcessor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048684, this)) == null) {
             if (this.mSecureProcessor == null) {
                 this.mSecureProcessor = new a(this);
             }
@@ -3166,13 +3217,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean getSelectingText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048682, this)) == null) ? this.mProvider.getSelectingText() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048685, this)) == null) ? this.mProvider.getSelectingText() : invokeV.booleanValue;
     }
 
     public WebSettings getSettings() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048683, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048686, this)) == null) {
             checkThread();
             return this.mProvider.getSettingsZeus();
         }
@@ -3182,14 +3233,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public CharSequence getTextFieldText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048684, this)) == null) ? this.mProvider.getTextFieldText() : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048687, this)) == null) ? this.mProvider.getTextFieldText() : (CharSequence) invokeV.objValue;
     }
 
     @ViewDebug.ExportedProperty(category = AlbumActivityConfig.FROM_WEB_VIEW)
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048685, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) {
             checkThread();
             WebViewProvider webViewProvider = this.mProvider;
             return webViewProvider == null ? "" : webViewProvider.getTitle();
@@ -3200,7 +3251,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public int getTitleHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048686, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
@@ -3209,20 +3260,20 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public int getTitlebarHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048687, this)) == null) ? this.mViewDelegate.getTitlebarHeight() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048690, this)) == null) ? this.mViewDelegate.getTitlebarHeight() : invokeV.intValue;
     }
 
     public int getTouchMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) ? this.mProvider.getTouchMode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) ? this.mProvider.getTouchMode() : invokeV.intValue;
     }
 
     @ViewDebug.ExportedProperty(category = AlbumActivityConfig.FROM_WEB_VIEW)
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048692, this)) == null) {
             checkThread();
             WebViewProvider webViewProvider = this.mProvider;
             return webViewProvider == null ? "" : webViewProvider.getUrl();
@@ -3233,7 +3284,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public Object getUserData(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048690, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048693, this, i2, i3)) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider != null) {
                 return webViewProvider.getUserData(i2, i3);
@@ -3247,7 +3298,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public int getVerticalScrollbarWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048694, this)) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             return (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) ? super.getVerticalScrollbarWidth() : getWebView().getVerticalScrollbarWidth();
         }
@@ -3257,14 +3308,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public WebViewDelegate getViewDelegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048692, this)) == null) ? this.mViewDelegate : (WebViewDelegate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048695, this)) == null) ? this.mViewDelegate : (WebViewDelegate) invokeV.objValue;
     }
 
     @Override // android.view.View
     public int getVisibility() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048693, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048696, this)) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             return (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) ? super.getVisibility() : getWebView().getVisibility();
         }
@@ -3274,7 +3325,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public int getVisibleTitleHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048694, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048697, this)) == null) {
             checkThread();
             return this.mProvider.getVisibleTitleHeightZeus();
         }
@@ -3283,14 +3334,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void getWebAppShortcutData(WebAppShortcutDataListener webAppShortcutDataListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048695, this, webAppShortcutDataListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048698, this, webAppShortcutDataListener) == null) {
             this.mProvider.getWebAppShortcutData(webAppShortcutDataListener, false);
         }
     }
 
     public void getWebAppShortcutData(WebAppShortcutDataListener webAppShortcutDataListener, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048696, this, webAppShortcutDataListener, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048699, this, webAppShortcutDataListener, z) == null) {
             this.mProvider.getWebAppShortcutData(webAppShortcutDataListener, z);
         }
     }
@@ -3298,7 +3349,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public WebChromeClient getWebChromeClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048697, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048700, this)) == null) {
             checkThread();
             return this.mProvider.getWebChromeClientZeus();
         }
@@ -3308,13 +3359,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public AbsoluteLayout getWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048698, this)) == null) ? this.mProvider.getViewDelegate().getWebViewImpl() : (AbsoluteLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048701, this)) == null) ? this.mProvider.getViewDelegate().getWebViewImpl() : (AbsoluteLayout) invokeV.objValue;
     }
 
     public WebViewClient getWebViewClient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048699, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048702, this)) == null) {
             checkThread();
             return this.mProvider.getWebViewClientZeus();
         }
@@ -3325,42 +3376,42 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public Looper getWebViewLooper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048700, this)) == null) ? this.mWebViewThread : (Looper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048703, this)) == null) ? this.mWebViewThread : (Looper) invokeV.objValue;
     }
 
     public ViewGroup getWebViewPager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048701, this)) == null) ? this.mProvider.getWebViewPager() : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048704, this)) == null) ? this.mProvider.getWebViewPager() : (ViewGroup) invokeV.objValue;
     }
 
     public WebViewProvider getWebViewProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048702, this)) == null) ? this.mProvider : (WebViewProvider) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048705, this)) == null) ? this.mProvider : (WebViewProvider) invokeV.objValue;
     }
 
     public final int getWebViewScrollX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048703, this)) == null) ? getWebView().getScrollX() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048706, this)) == null) ? getWebView().getScrollX() : invokeV.intValue;
     }
 
     public final int getWebViewScrollY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048704, this)) == null) ? getWebView().getScrollY() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048707, this)) == null) ? getWebView().getScrollY() : invokeV.intValue;
     }
 
     public WebViewType getWebViewType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048705, this)) == null) ? WebViewType.NORMAL : (WebViewType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048708, this)) == null) ? WebViewType.NORMAL : (WebViewType) invokeV.objValue;
     }
 
     public void goBack() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048706, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048709, this) == null) {
             checkThread();
             this.mProvider.goBack();
         }
@@ -3368,7 +3419,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void goBackOrForward(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048707, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048710, this, i2) == null) {
             checkThread();
             this.mProvider.goBackOrForward(i2);
         }
@@ -3376,7 +3427,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void goForward() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048708, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048711, this) == null) {
             checkThread();
             this.mProvider.goForward();
         }
@@ -3384,14 +3435,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void goNextOrPreTextField(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048709, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048712, this, z) == null) {
             this.mProvider.goNextOrPreTextField(z);
         }
     }
 
     public void goPrerender() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048710, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048713, this) == null) {
             if (isDestroyed()) {
                 Log.e(Log.LOG_TAG, "Webview has destoryed !!!");
                 new Exception().printStackTrace();
@@ -3406,7 +3457,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean hasFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048711, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048714, this)) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             return (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) ? super.hasFocus() : getWebView().hasFocus();
         }
@@ -3416,7 +3467,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean hasJavascriptInterfaceExt(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048712, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048715, this, str)) == null) {
             ZeusJsBridge zeusJsBridge = this.mJsBridge;
             if (zeusJsBridge != null) {
                 return zeusJsBridge.hasExternalJsFeature(str);
@@ -3428,13 +3479,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void hideMagnifier(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048713, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048716, this, i2, i3) == null) {
         }
     }
 
     public void hitAd(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048714, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048717, this, str) == null) {
             this.mProvider.hitAd(str);
         }
     }
@@ -3443,7 +3494,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public int indexOfChild(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048715, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048718, this, view)) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             return (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) ? super.indexOfChild(view) : getWebView().indexOfChild(view);
         }
@@ -3452,7 +3503,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void insertTextFieldText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048716, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048719, this, charSequence) == null) {
             this.mProvider.insertTextFieldText(charSequence);
         }
     }
@@ -3460,7 +3511,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void invalidate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048717, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048720, this) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.invalidate();
@@ -3473,7 +3524,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void invalidate(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048718, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048721, this, i2, i3, i4, i5) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.invalidate(i2, i3, i4, i5);
@@ -3485,7 +3536,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void invokeZoomPicker() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048719, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048722, this) == null) {
             checkThread();
             this.mProvider.invokeZoomPicker();
         }
@@ -3494,20 +3545,20 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean isAutoShowTitlebar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048720, this)) == null) ? this.mProvider.isAutoShowTitlebar() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048723, this)) == null) ? this.mProvider.isAutoShowTitlebar() : invokeV.booleanValue;
     }
 
     public boolean isDestroyed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048721, this)) == null) ? this.mDestroyed : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048724, this)) == null) ? this.mDestroyed : invokeV.booleanValue;
     }
 
     @Override // android.view.View
     public boolean isDrawingCacheEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048722, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048725, this)) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             return (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) ? super.isDrawingCacheEnabled() : getWebView().isDrawingCacheEnabled();
         }
@@ -3518,7 +3569,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean isFocused() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048723, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048726, this)) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             return (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) ? super.isFocused() : getWebView().isFocused();
         }
@@ -3528,25 +3579,25 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean isMobileSite() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048724, this)) == null) ? this.mProvider.isMobileSite() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048727, this)) == null) ? this.mProvider.isMobileSite() : invokeV.booleanValue;
     }
 
     public boolean isOnViewHierarchy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048725, this)) == null) ? this.mOnViewHierarchy : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048728, this)) == null) ? this.mOnViewHierarchy : invokeV.booleanValue;
     }
 
     public boolean isPaused() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048726, this)) == null) ? this.mProvider.isPaused() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048729, this)) == null) ? this.mProvider.isPaused() : invokeV.booleanValue;
     }
 
     public boolean isPrivateBrowsingEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048727, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048730, this)) == null) {
             checkThread();
             return this.mProvider.isPrivateBrowsingEnabled();
         }
@@ -3556,25 +3607,25 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean isScrollInProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048728, this)) == null) ? this.mProvider.isScrollInProgress() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048731, this)) == null) ? this.mProvider.isScrollInProgress() : invokeV.booleanValue;
     }
 
     public boolean isTitlebarCanShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048729, this)) == null) ? this.mViewDelegate.isTitlebarCanShow() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048732, this)) == null) ? this.mViewDelegate.isTitlebarCanShow() : invokeV.booleanValue;
     }
 
     public boolean isTitlebarShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048730, this)) == null) ? this.mViewDelegate.isTitlebarShowing() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048733, this)) == null) ? this.mViewDelegate.isTitlebarShowing() : invokeV.booleanValue;
     }
 
     public boolean isWapAllowScale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048731, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048734, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -3582,7 +3633,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void loadData(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048732, this, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048735, this, str, str2, str3) == null) {
             checkThread();
             this.mProvider.loadData(str, str2, str3);
         }
@@ -3590,7 +3641,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048733, this, str, str2, str3, str4, str5) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(1048736, this, str, str2, str3, str4, str5) == null) {
             checkThread();
             this.mProvider.loadDataWithBaseURL(str, str2, str3, str4, str5);
         }
@@ -3598,7 +3649,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048734, this, new Object[]{str, str2, str3, str4, str5, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048737, this, new Object[]{str, str2, str3, str4, str5, Boolean.valueOf(z)}) == null) {
             checkThread();
             this.mProvider.loadDataWithBaseURL(str, str2, str3, str4, str5, z);
         }
@@ -3606,7 +3657,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void loadUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048735, this, str) != null) {
+        if (interceptable != null && interceptable.invokeL(1048738, this, str) != null) {
             return;
         }
         if (isDestroyed()) {
@@ -3636,7 +3687,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void loadUrl(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048736, this, str, map) != null) {
+        if (interceptable != null && interceptable.invokeLL(1048739, this, str, map) != null) {
             return;
         }
         if (isDestroyed()) {
@@ -3661,7 +3712,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void loadUrl(String str, Map<String, String> map, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLZ(1048737, this, str, map, z) != null) {
+        if (interceptable != null && interceptable.invokeLLZ(1048740, this, str, map, z) != null) {
             return;
         }
         if (isDestroyed()) {
@@ -3689,26 +3740,26 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void mediaPlayerStatusChanged(int i2, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048738, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048741, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
         }
     }
 
     public void mediaPlayerTimeChanged(float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048739, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048742, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
         }
     }
 
     public void moveMagnifier(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048740, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048743, this, i2, i3) == null) {
         }
     }
 
     public int nightModeColorStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048741, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048744, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
@@ -3717,7 +3768,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean notifyNativeExitFullScreenIfNeeded(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048742, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048745, this, i2)) == null) {
             return true;
         }
         return invokeI.booleanValue;
@@ -3725,7 +3776,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void notifyUkmPageLeave() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048743, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048746, this) == null) {
             checkThread();
             this.mProvider.notifyUkmPageLeave();
         }
@@ -3733,7 +3784,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void notifyUnsafeInvolved(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048744, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048747, this, i2, str) == null) {
             checkThread();
             this.mProvider.notifyUnsafeInvolved(i2, str);
         }
@@ -3742,7 +3793,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048745, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048748, this) == null) {
             super.onAttachedToWindow();
             this.mProvider.getViewDelegate().onAttachedToWindow();
             try {
@@ -3766,7 +3817,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean onCheckIsTextEditor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048746, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048749, this)) == null) {
             try {
                 return this.mProvider.getViewDelegate().onCheckIsTextEditor();
             } catch (RuntimeException e2) {
@@ -3781,7 +3832,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public void onChildViewAdded(View view, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048747, this, view, view2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048750, this, view, view2) == null) {
         }
     }
 
@@ -3789,14 +3840,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public void onChildViewRemoved(View view, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048748, this, view, view2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048751, this, view, view2) == null) {
         }
     }
 
     @Override // android.view.View
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048749, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048752, this, configuration) == null) {
             this.mProvider.getViewDelegate().onConfigurationChanged(configuration);
         }
     }
@@ -3805,13 +3856,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048750, this, editorInfo)) == null) ? this.mProvider.getViewDelegate().onCreateInputConnection(editorInfo) : (InputConnection) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048753, this, editorInfo)) == null) ? this.mProvider.getViewDelegate().onCreateInputConnection(editorInfo) : (InputConnection) invokeL.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048751, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048754, this) == null) {
             this.mProvider.getViewDelegate().onDetachedFromWindow();
             super.onDetachedFromWindow();
             try {
@@ -3830,21 +3881,21 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean onDragEvent(DragEvent dragEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048752, this, dragEvent)) == null) ? this.mProvider.getViewDelegate().onDragEvent(dragEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048755, this, dragEvent)) == null) ? this.mProvider.getViewDelegate().onDragEvent(dragEvent) : invokeL.booleanValue;
     }
 
     @Override // android.view.View
     @SuppressLint({"WrongCall"})
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048753, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048756, this, canvas) == null) {
             this.mProvider.getViewDelegate().onDraw(canvas);
         }
     }
 
     public void onDrawVerticalScrollBar(Canvas canvas, Drawable drawable, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048754, this, new Object[]{canvas, drawable, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048757, this, new Object[]{canvas, drawable, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             this.mProvider.getViewDelegate().onDrawVerticalScrollBar(canvas, drawable, i2, i3, i4, i5);
         }
     }
@@ -3852,7 +3903,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048755, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048758, this) == null) {
             super.onFinishTemporaryDetach();
             this.mProvider.getViewDelegate().onFinishTemporaryDetach();
         }
@@ -3861,7 +3912,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void onFocusChanged(boolean z, int i2, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048756, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), rect}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048759, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), rect}) == null) {
             this.mProvider.getViewDelegate().onFocusChanged(z, i2, rect);
             super.onFocusChanged(z, i2, rect);
         }
@@ -3871,14 +3922,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean onGenericMotionEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048757, this, motionEvent)) == null) ? this.mProvider.getViewDelegate().onGenericMotionEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048760, this, motionEvent)) == null) ? this.mProvider.getViewDelegate().onGenericMotionEvent(motionEvent) : invokeL.booleanValue;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalFocusChangeListener
     @Deprecated
     public void onGlobalFocusChanged(View view, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048758, this, view, view2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048761, this, view, view2) == null) {
         }
     }
 
@@ -3886,13 +3937,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean onHoverEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048759, this, motionEvent)) == null) ? this.mProvider.getViewDelegate().onHoverEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048762, this, motionEvent)) == null) ? this.mProvider.getViewDelegate().onHoverEvent(motionEvent) : invokeL.booleanValue;
     }
 
     @Override // android.view.View
     public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048760, this, accessibilityEvent) == null) || Build.VERSION.SDK_INT < 16) {
+        if (!(interceptable == null || interceptable.invokeL(1048763, this, accessibilityEvent) == null) || Build.VERSION.SDK_INT < 16) {
             return;
         }
         try {
@@ -3908,7 +3959,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048761, this, accessibilityNodeInfo) == null) || Build.VERSION.SDK_INT < 16) {
+        if (!(interceptable == null || interceptable.invokeL(1048764, this, accessibilityNodeInfo) == null) || Build.VERSION.SDK_INT < 16) {
             return;
         }
         try {
@@ -3925,7 +3976,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048762, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048765, this, motionEvent)) == null) {
             if (isDestroyed()) {
                 Log.e(Log.LOG_TAG, "Webview has destoryed !!!");
                 return true;
@@ -3939,28 +3990,28 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048763, this, i2, keyEvent)) == null) ? this.mProvider.getViewDelegate().onKeyDown(i2, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048766, this, i2, keyEvent)) == null) ? this.mProvider.getViewDelegate().onKeyDown(i2, keyEvent) : invokeIL.booleanValue;
     }
 
     @Override // android.view.View, android.view.KeyEvent.Callback
     public boolean onKeyMultiple(int i2, int i3, KeyEvent keyEvent) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048764, this, i2, i3, keyEvent)) == null) ? this.mProvider.getViewDelegate().onKeyMultiple(i2, i3, keyEvent) : invokeIIL.booleanValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048767, this, i2, i3, keyEvent)) == null) ? this.mProvider.getViewDelegate().onKeyMultiple(i2, i3, keyEvent) : invokeIIL.booleanValue;
     }
 
     @Override // android.view.View, android.view.KeyEvent.Callback
     public boolean onKeyUp(int i2, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048765, this, i2, keyEvent)) == null) ? this.mProvider.getViewDelegate().onKeyUp(i2, keyEvent) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048768, this, i2, keyEvent)) == null) ? this.mProvider.getViewDelegate().onKeyUp(i2, keyEvent) : invokeIL.booleanValue;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048766, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048769, this, view)) == null) {
             HitTestResult hitTestResult = getHitTestResult();
             if (hitTestResult != null) {
                 int type = hitTestResult.getType();
@@ -3985,7 +4036,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @SuppressLint({"WrongCall"})
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048767, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048770, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
             this.mProvider.getViewDelegate().onMeasure(i2, i3);
         }
@@ -3994,21 +4045,21 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048768, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048771, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             onOverScrolledDelegate(i2, i3, z, z2);
         }
     }
 
     public void onOverScrolledSuper(int i2, int i3, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048769, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048772, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.mProvider.getViewDelegate().onOverScrolled(i2, i3, z, z2);
         }
     }
 
     public void onPageSwapFromWebview(WebView webView, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048770, this, webView, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048773, this, webView, str, z) == null) {
             checkThread();
             this.mProvider.onPageSwapFromWebview(webView, str, z);
         }
@@ -4016,7 +4067,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048771, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048774, this) == null) {
             checkThread();
             this.mProvider.onPause();
         }
@@ -4024,7 +4075,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void onPauseAll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048772, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048775, this) == null) {
             checkThread();
             this.mProvider.onPauseAll();
         }
@@ -4033,14 +4084,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void onProvideVirtualStructure(ViewStructure viewStructure) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048773, this, viewStructure) == null) {
+        if (interceptable == null || interceptable.invokeL(1048776, this, viewStructure) == null) {
             this.mProvider.getViewDelegate().onProvideVirtualStructure(viewStructure);
         }
     }
 
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048774, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048777, this) == null) {
             checkThread();
             this.mProvider.onResume();
         }
@@ -4048,7 +4099,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void onResumeAll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048775, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048778, this) == null) {
             checkThread();
             this.mProvider.onResumeAll();
         }
@@ -4057,14 +4108,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void onScrollChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048776, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048779, this, i2, i3, i4, i5) == null) {
             onScrollChangedDelegate(i2, i3, i4, i5);
         }
     }
 
     public void onScrollChangedSuper(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048777, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048780, this, i2, i3, i4, i5) == null) {
             if (isDestroyed()) {
                 Log.e(Log.LOG_TAG, "Webview has destoryed !!!");
                 return;
@@ -4083,7 +4134,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048778, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048781, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
             this.mProvider.getViewDelegate().onSizeChanged(i2, i3, i4, i5);
         }
@@ -4092,7 +4143,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048779, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048782, this) == null) {
             super.onStartTemporaryDetach();
             this.mProvider.getViewDelegate().onStartTemporaryDetach();
         }
@@ -4102,26 +4153,26 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048780, this, motionEvent)) == null) ? onTouchEventDelegate(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048783, this, motionEvent)) == null) ? onTouchEventDelegate(motionEvent) : invokeL.booleanValue;
     }
 
     public boolean onTouchEventSuper(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048781, this, motionEvent)) == null) ? this.mProvider.getViewDelegate().onTouchEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048784, this, motionEvent)) == null) ? this.mProvider.getViewDelegate().onTouchEvent(motionEvent) : invokeL.booleanValue;
     }
 
     @Override // android.view.View
     public boolean onTrackballEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048782, this, motionEvent)) == null) ? this.mProvider.getViewDelegate().onTrackballEvent(motionEvent) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048785, this, motionEvent)) == null) ? this.mProvider.getViewDelegate().onTrackballEvent(motionEvent) : invokeL.booleanValue;
     }
 
     @Override // android.view.View
     public void onVisibilityChanged(View view, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048783, this, view, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048786, this, view, i2) == null) {
             super.onVisibilityChanged(view, i2);
             ensureProviderCreated();
             this.mProvider.getViewDelegate().onVisibilityChanged(view, i2);
@@ -4131,7 +4182,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048784, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048787, this, z) == null) {
             this.mProvider.getViewDelegate().onWindowFocusChanged(z);
             super.onWindowFocusChanged(z);
         }
@@ -4140,7 +4191,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void onWindowVisibilityChanged(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048785, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048788, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
             this.mProvider.getViewDelegate().onWindowVisibilityChanged(i2);
         }
@@ -4150,7 +4201,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean overlayHorizontalScrollbar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048786, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048789, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -4160,7 +4211,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean overlayVerticalScrollbar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048787, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048790, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -4169,7 +4220,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean pageDown(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048788, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048791, this, z)) == null) {
             checkThread();
             return this.mProvider.pageDown(z);
         }
@@ -4179,7 +4230,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean pageUp(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048789, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048792, this, z)) == null) {
             checkThread();
             return this.mProvider.pageUp(z);
         }
@@ -4188,20 +4239,20 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void pause(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048790, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048793, this, z) == null) {
         }
     }
 
     public void pauseMedia() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048791, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048794, this) == null) {
             this.mProvider.pauseMedia();
         }
     }
 
     public void pauseTimers() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048792, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048795, this) == null) {
             checkThread();
             this.mProvider.pauseTimers();
         }
@@ -4211,7 +4262,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean performAccessibilityAction(int i2, Bundle bundle) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048793, this, i2, bundle)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048796, this, i2, bundle)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
                 try {
                     super.performAccessibilityAction(i2, bundle);
@@ -4233,12 +4284,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean performLongClick() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048794, this)) == null) ? this.mProvider.getViewDelegate().performLongClick() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048797, this)) == null) ? this.mProvider.getViewDelegate().performLongClick() : invokeV.booleanValue;
     }
 
     public void postUrl(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048795, this, str, bArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048798, this, str, bArr) == null) {
             checkThread();
             if (URLUtil.isNetworkUrl(str)) {
                 this.mProvider.postUrl(str, bArr);
@@ -4250,7 +4301,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void postVisualStateCallback(long j, VisualStateCallback visualStateCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048796, this, j, visualStateCallback) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048799, this, j, visualStateCallback) == null) {
             checkThread();
             this.mProvider.insertVisualStateCallback(j, visualStateCallback);
         }
@@ -4258,7 +4309,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void postWebMessage(WebMessage webMessage, Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048797, this, webMessage, uri) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048800, this, webMessage, uri) == null) {
             checkThread();
             this.mProvider.postMessageToMainFrame(webMessage, uri);
         }
@@ -4267,15 +4318,23 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public void refreshPlugins(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048798, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048801, this, z) == null) {
             checkThread();
+        }
+    }
+
+    public void reinjectJavascriptInterface() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048802, this) == null) {
+            checkThread();
+            this.mProvider.reinjectJavascriptInterface();
         }
     }
 
     public void reload() {
         PagePerformanceTiming performanceTiming;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048799, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048803, this) == null) {
             checkThread();
             if (getWebViewProvider() != null && (performanceTiming = getWebViewProvider().getPerformanceTiming()) != null) {
                 performanceTiming.markLoadUrlStart(getUrl());
@@ -4286,21 +4345,21 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void removeHistoryItems() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048800, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048804, this) == null) {
             this.mProvider.removeHistoryItems();
         }
     }
 
     public void removeJavascriptInterface(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048801, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048805, this, str) == null) {
             a secureProcessor = getSecureProcessor();
             boolean z = true;
-            if (!"searchBoxJavaBridge_".equalsIgnoreCase(str) && secureProcessor.f60941c.getContext().getPackageName().contains("com.baidu.searchbox")) {
+            if (!"searchBoxJavaBridge_".equalsIgnoreCase(str) && secureProcessor.f61863c.getContext().getPackageName().contains("com.baidu.searchbox")) {
                 boolean z2 = !secureProcessor.a();
                 secureProcessor.d().remove(str);
-                if (secureProcessor.f60941c.getWebViewClient() != null) {
-                    secureProcessor.f60942d = null;
+                if (secureProcessor.f61863c.getWebViewClient() != null) {
+                    secureProcessor.f61864d = null;
                 }
                 z = z2;
             }
@@ -4314,7 +4373,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public void removeJavascriptInterfaceExt(String str) {
         ZeusJsBridge zeusJsBridge;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048802, this, str) == null) || (zeusJsBridge = this.mJsBridge) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048806, this, str) == null) || (zeusJsBridge = this.mJsBridge) == null) {
             return;
         }
         zeusJsBridge.removeExternalJsFeature(str);
@@ -4323,7 +4382,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048803, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048807, this, view) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.removeView(view);
@@ -4337,19 +4396,19 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean requestChildRectangleOnScreen(View view, Rect rect, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048804, this, view, rect, z)) == null) ? this.mProvider.getViewDelegate().requestChildRectangleOnScreen(view, rect, z) : invokeLLZ.booleanValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048808, this, view, rect, z)) == null) ? this.mProvider.getViewDelegate().requestChildRectangleOnScreen(view, rect, z) : invokeLLZ.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean requestFocus(int i2, Rect rect) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048805, this, i2, rect)) == null) ? this.mProvider.getViewDelegate().requestFocus(i2, rect) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048809, this, i2, rect)) == null) ? this.mProvider.getViewDelegate().requestFocus(i2, rect) : invokeIL.booleanValue;
     }
 
     public void requestFocusNodeHref(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048806, this, message) == null) {
+        if (interceptable == null || interceptable.invokeL(1048810, this, message) == null) {
             checkThread();
             this.mProvider.requestFocusNodeHref(message);
         }
@@ -4357,7 +4416,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void requestImageRef(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048807, this, message) == null) {
+        if (interceptable == null || interceptable.invokeL(1048811, this, message) == null) {
             checkThread();
             this.mProvider.requestImageRef(message);
         }
@@ -4366,12 +4425,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public final boolean requestWebViewFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048808, this)) == null) ? getWebView().requestFocus() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048812, this)) == null) ? getWebView().requestFocus() : invokeV.booleanValue;
     }
 
     public void resetLoadingAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048809, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048813, this) == null) {
             this.mProvider.resetLoadingAnimation();
         }
     }
@@ -4379,7 +4438,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public WebBackForwardList restoreState(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048810, this, bundle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048814, this, bundle)) == null) {
             checkThread();
             return this.mProvider.restoreStateZeus(bundle);
         }
@@ -4388,20 +4447,20 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void resume(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048811, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048815, this, z) == null) {
         }
     }
 
     public void resumeMedia() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048812, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048816, this) == null) {
             this.mProvider.resumeMedia();
         }
     }
 
     public void resumeTimers() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048813, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048817, this) == null) {
             checkThread();
             this.mProvider.resumeTimers();
         }
@@ -4410,13 +4469,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean savePageAsLocalFiles(String str, String str2, SaveAsType saveAsType) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048814, this, str, str2, saveAsType)) == null) ? this.mProvider.savePageAsLocalFiles(str, str2, saveAsType) : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048818, this, str, str2, saveAsType)) == null) ? this.mProvider.savePageAsLocalFiles(str, str2, saveAsType) : invokeLLL.booleanValue;
     }
 
     @Deprecated
     public void savePassword(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048815, this, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048819, this, str, str2, str3) == null) {
             checkThread();
             this.mProvider.savePassword(str, str2, str3);
         }
@@ -4425,7 +4484,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public WebBackForwardList saveState(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048816, this, bundle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048820, this, bundle)) == null) {
             checkThread();
             return this.mProvider.saveStateZeus(bundle);
         }
@@ -4434,7 +4493,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void saveWebArchive(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048817, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048821, this, str) == null) {
             checkThread();
             this.mProvider.saveWebArchive(str);
         }
@@ -4442,7 +4501,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void saveWebArchive(String str, boolean z, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048818, this, new Object[]{str, Boolean.valueOf(z), valueCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048822, this, new Object[]{str, Boolean.valueOf(z), valueCallback}) == null) {
             checkThread();
             this.mProvider.saveWebArchive(str, z, valueCallback);
         }
@@ -4451,7 +4510,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void scrollBy(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048819, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048823, this, i2, i3) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.scrollBy(i2, i3);
@@ -4464,7 +4523,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void scrollTo(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048820, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048824, this, i2, i3) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.scrollTo(i2, i3);
@@ -4476,21 +4535,21 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void sendFeedback(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048821, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048825, this, str) == null) {
             sendFeedback("", str);
         }
     }
 
     public void sendFeedback(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048822, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048826, this, str, str2) == null) {
             this.mProvider.sendFeedback(str, str2);
         }
     }
 
     public void setAutoShowTitlebar(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048823, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048827, this, z) == null) {
             this.mProvider.setAutoShowTitlebar(z);
         }
     }
@@ -4498,7 +4557,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048824, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048828, this, i2) == null) {
             this.mProvider.getViewDelegate().setBackgroundColor(i2);
         }
     }
@@ -4506,7 +4565,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setBackgroundResource(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048825, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048829, this, i2) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.setBackgroundResource(i2);
@@ -4518,14 +4577,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void setBeginScale() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048826, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048830, this) == null) {
             this.mProvider.setBeginScale();
         }
     }
 
     public void setBottomControlsHeight(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048827, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048831, this, i2) == null) {
             this.mProvider.setBottomControlsHeight(i2);
         }
     }
@@ -4533,13 +4592,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public void setCachePictureEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048828, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048832, this, z) == null) {
         }
     }
 
     public void setCanvasCacheBmp(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048829, this, bitmap) == null) {
+        if (interceptable == null || interceptable.invokeL(1048833, this, bitmap) == null) {
             this.mProvider.setCanvasCacheBmp(bitmap);
         }
     }
@@ -4547,7 +4606,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public void setCertificate(SslCertificate sslCertificate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048830, this, sslCertificate) == null) {
+        if (interceptable == null || interceptable.invokeL(1048834, this, sslCertificate) == null) {
             checkThread();
             this.mProvider.setCertificate(sslCertificate);
         }
@@ -4555,7 +4614,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void setCurrentSourceIdByIdentifier() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048831, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048835, this) == null) {
             long j = mIdentifier + 1;
             mIdentifier = j;
             this.mCurrentSourceId = j << 16;
@@ -4565,7 +4624,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void setCurrentSourceIdByNavigationId(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048832, this, j) == null) || j < 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048836, this, j) == null) || j < 0) {
             return;
         }
         this.mCurrentSourceId = (j << 2) + 1;
@@ -4574,14 +4633,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void setCurrentTitleBar(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048833, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048837, this, z) == null) {
             this.mViewDelegate.setCurrentTitleBar(z);
         }
     }
 
     public void setDefaultViewSize(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048834, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048838, this, i2, i3) == null) {
             checkThread();
             this.mProvider.setDefaultViewSize(i2, i3);
         }
@@ -4589,7 +4648,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void setDownloadListener(DownloadListener downloadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048835, this, downloadListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048839, this, downloadListener) == null) {
             checkThread();
             this.mProvider.setDownloadListener(downloadListener);
         }
@@ -4598,7 +4657,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setDrawingCacheEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048836, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048840, this, z) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.setDrawingCacheEnabled(z);
@@ -4610,27 +4669,27 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void setEmbeddedTitleBar(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048837, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048841, this, view) == null) {
             setEmbeddedTitleBar(view, 0);
         }
     }
 
     public void setEmbeddedTitleBar(View view, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048838, this, view, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048842, this, view, i2) == null) {
         }
     }
 
     public void setEndScale() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048839, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048843, this) == null) {
             this.mProvider.setEndScale();
         }
     }
 
     public void setFindListener(FindListener findListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048840, this, findListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048844, this, findListener) == null) {
             checkThread();
             setupFindListenerIfNeeded();
             this.mFindListener.mUserFindListener = findListener;
@@ -4640,7 +4699,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setFocusable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048841, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048845, this, z) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.setFocusable(z);
@@ -4653,7 +4712,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setHorizontalScrollBarEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048842, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048846, this, z) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.setHorizontalScrollBarEnabled(z);
@@ -4666,14 +4725,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public void setHorizontalScrollbarOverlay(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048843, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048847, this, z) == null) {
         }
     }
 
     @Deprecated
     public void setHttpAuthUsernamePassword(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048844, this, str, str2, str3, str4) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048848, this, str, str2, str3, str4) == null) {
             checkThread();
             this.mProvider.setHttpAuthUsernamePassword(str, str2, str3, str4);
         }
@@ -4681,7 +4740,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void setInitialScale(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048845, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048849, this, i2) == null) {
             checkThread();
             this.mProvider.setInitialScale(i2);
         }
@@ -4690,7 +4749,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setLayerType(int i2, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048846, this, i2, paint) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048850, this, i2, paint) == null) {
             super.setLayerType(i2, paint);
             this.mProvider.getViewDelegate().setLayerType(i2, paint);
         }
@@ -4699,7 +4758,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setLayoutParams(ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048847, this, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeL(1048851, this, layoutParams) == null) {
             this.mProvider.getViewDelegate().setLayoutParams(layoutParams);
         }
     }
@@ -4707,7 +4766,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public void setMapTrackballToArrowKeys(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048848, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048852, this, z) == null) {
             checkThread();
             this.mProvider.setMapTrackballToArrowKeys(z);
         }
@@ -4715,7 +4774,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void setNetworkAvailable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048849, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048853, this, z) == null) {
             checkThread();
             this.mProvider.setNetworkAvailable(z);
         }
@@ -4724,7 +4783,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048850, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048854, this, onClickListener) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.setOnClickListener(onClickListener);
@@ -4737,7 +4796,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setOnCreateContextMenuListener(View.OnCreateContextMenuListener onCreateContextMenuListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048851, this, onCreateContextMenuListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048855, this, onCreateContextMenuListener) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.setOnCreateContextMenuListener(onCreateContextMenuListener);
@@ -4750,7 +4809,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setOnFocusChangeListener(View.OnFocusChangeListener onFocusChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048852, this, onFocusChangeListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048856, this, onFocusChangeListener) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.setOnFocusChangeListener(onFocusChangeListener);
@@ -4763,7 +4822,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setOnKeyListener(View.OnKeyListener onKeyListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048853, this, onKeyListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048857, this, onKeyListener) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.setOnKeyListener(onKeyListener);
@@ -4776,7 +4835,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048854, this, onLongClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048858, this, onLongClickListener) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.setOnLongClickListener(onLongClickListener);
@@ -4789,7 +4848,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setOnTouchListener(View.OnTouchListener onTouchListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048855, this, onTouchListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048859, this, onTouchListener) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.setOnTouchListener(onTouchListener);
@@ -4802,7 +4861,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setOverScrollMode(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048856, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048860, this, i2) == null) {
             super.setOverScrollMode(i2);
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null) {
@@ -4815,14 +4874,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void setPageTransformer(boolean z, PageTransformer pageTransformer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048857, this, z, pageTransformer) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048861, this, z, pageTransformer) == null) {
             this.mProvider.setPageTransformer(z, pageTransformer);
         }
     }
 
     public void setPauseSyncActions(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048858, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048862, this, z) == null) {
             checkThread();
             this.mProvider.setPauseSyncActions(z);
         }
@@ -4831,7 +4890,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public void setPictureListener(PictureListener pictureListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048859, this, pictureListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048863, this, pictureListener) == null) {
             checkThread();
             this.mProvider.setPictureListener(pictureListener);
         }
@@ -4840,12 +4899,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean setPreviewZoomScale(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048860, this, f2)) == null) ? this.mProvider.setPreviewZoomScale(f2) : invokeF.booleanValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048864, this, f2)) == null) ? this.mProvider.setPreviewZoomScale(f2) : invokeF.booleanValue;
     }
 
     public void setRendererPriorityPolicy(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048861, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048865, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             this.mProvider.setRendererPriorityPolicy(i2, z);
         }
     }
@@ -4853,7 +4912,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setScrollBarStyle(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048862, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048866, this, i2) == null) {
             this.mProvider.getViewDelegate().setScrollBarStyle(i2);
             super.setScrollBarStyle(i2);
         }
@@ -4862,7 +4921,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setScrollbarFadingEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048863, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048867, this, z) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.setScrollbarFadingEnabled(z);
@@ -4875,7 +4934,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean setSelectingText(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048864, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048868, this, z)) == null) {
             this.mProvider.setSelectingText(z);
             return true;
         }
@@ -4884,34 +4943,34 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void setStatisticsClient(Statistics.Client client) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048865, this, client) == null) {
+        if (interceptable == null || interceptable.invokeL(1048869, this, client) == null) {
             this.mStatisticClient = client;
         }
     }
 
     public void setStatusBar(View view, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048866, this, view, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048870, this, view, i2) == null) {
             this.mProvider.setStatusBar(view, i2);
         }
     }
 
     public void setSubjectScrollToOnload(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048867, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048871, this, i2) == null) {
         }
     }
 
     public void setTextFieldText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048868, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048872, this, charSequence) == null) {
             this.mProvider.setTextFieldText(charSequence);
         }
     }
 
     public void setTopControlsHeight(int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048869, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048873, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             this.mProvider.setTopControlsHeight(i2, z);
         }
     }
@@ -4919,7 +4978,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public void setUserData(int i2, int i3, Object obj) {
         WebViewProvider webViewProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048870, this, i2, i3, obj) == null) || (webViewProvider = this.mProvider) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048874, this, i2, i3, obj) == null) || (webViewProvider = this.mProvider) == null) {
             return;
         }
         webViewProvider.setUserData(i2, i3, obj);
@@ -4928,7 +4987,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setVerticalScrollBarEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048871, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048875, this, z) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.setVerticalScrollBarEnabled(z);
@@ -4941,20 +5000,20 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Deprecated
     public void setVerticalScrollbarOverlay(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048872, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048876, this, z) == null) {
         }
     }
 
     public void setVideoPlayerFactory(VideoPlayerFactory videoPlayerFactory) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048873, this, videoPlayerFactory) == null) {
+        if (interceptable == null || interceptable.invokeL(1048877, this, videoPlayerFactory) == null) {
             this.mProvider.setVideoPlayerFactory(videoPlayerFactory);
         }
     }
 
     public void setViewDelegate(WebViewDelegate webViewDelegate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048874, this, webViewDelegate) == null) {
+        if (interceptable == null || interceptable.invokeL(1048878, this, webViewDelegate) == null) {
             this.mViewDelegate = webViewDelegate;
         }
     }
@@ -4962,7 +5021,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     @Override // android.view.View
     public void setVisibility(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048875, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048879, this, i2) == null) {
             WebViewProvider webViewProvider = this.mProvider;
             if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
                 super.setVisibility(i2);
@@ -4975,7 +5034,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean setVisitedLinkNightColor(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048876, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048880, this, i2)) == null) {
             return true;
         }
         return invokeI.booleanValue;
@@ -4983,13 +5042,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void setWebBackForwardListClient(WebBackForwardListClient webBackForwardListClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048877, this, webBackForwardListClient) == null) {
+        if (interceptable == null || interceptable.invokeL(1048881, this, webBackForwardListClient) == null) {
         }
     }
 
     public void setWebChromeClient(WebChromeClient webChromeClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048878, this, webChromeClient) == null) {
+        if (interceptable == null || interceptable.invokeL(1048882, this, webChromeClient) == null) {
             checkThread();
             this.mProvider.setWebChromeClient(webChromeClient);
         }
@@ -4997,7 +5056,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void setWebViewClient(WebViewClient webViewClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048879, this, webViewClient) == null) {
+        if (interceptable == null || interceptable.invokeL(1048883, this, webViewClient) == null) {
             checkThread();
             this.mProvider.setWebViewClient(webViewClient);
         }
@@ -5005,34 +5064,34 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void setWebViewMargin(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048880, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048884, this, i2, i3, i4, i5) == null) {
             this.mProvider.setWebViewMargin(i2, i3, i4, i5);
         }
     }
 
     public void setWebViewPagerContainer(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048881, this, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeL(1048885, this, viewGroup) == null) {
             this.mProvider.setWebViewPagerContainer(viewGroup);
         }
     }
 
     public void setWebViewPagerSize(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048882, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048886, this, i2, i3) == null) {
             this.mProvider.setWebViewPagerSize(i2, i3);
         }
     }
 
     public void setWebViewState(WebViewState webViewState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048883, this, webViewState) == null) {
+        if (interceptable == null || interceptable.invokeL(1048887, this, webViewState) == null) {
         }
     }
 
     public void setWebViewType(WebViewType webViewType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048884, this, webViewType) == null) {
+        if (interceptable == null || interceptable.invokeL(1048888, this, webViewType) == null) {
         }
     }
 
@@ -5041,14 +5100,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean shouldDelayChildPressedState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048885, this)) == null) ? this.mProvider.getViewDelegate().shouldDelayChildPressedState() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048889, this)) == null) ? this.mProvider.getViewDelegate().shouldDelayChildPressedState() : invokeV.booleanValue;
     }
 
     @Deprecated
     public boolean showFindDialog(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048886, this, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048890, this, str, z)) == null) {
             checkThread();
             return this.mProvider.showFindDialog(str, z);
         }
@@ -5057,13 +5116,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void showMagnifier(int i2, int i3, int i4, int i5, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048887, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048891, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)}) == null) {
         }
     }
 
     public void startLoadingAnimation(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048888, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048892, this, str) == null) {
             this.mProvider.startLoadingAnimation(str);
         }
     }
@@ -5071,7 +5130,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public int startPrerender(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048889, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048893, this, str)) == null) {
             if (!isDestroyed()) {
                 checkThread();
                 return this.mProvider.startPrerender(str);
@@ -5086,7 +5145,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean startPreviewZoomScale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048890, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048894, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -5094,7 +5153,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void stopLoading() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048891, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048895, this) == null) {
             checkThread();
             this.mProvider.stopLoading();
         }
@@ -5102,7 +5161,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void stopPrerender() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048892, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048896, this) == null) {
             if (isDestroyed()) {
                 Log.e(Log.LOG_TAG, "Webview has destoryed !!!");
                 new Exception().printStackTrace();
@@ -5115,7 +5174,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void suspendScheduledTasks(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048893, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048897, this, str) == null) {
             checkThread();
             this.mProvider.suspendScheduledTasks(str);
         }
@@ -5123,28 +5182,28 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void switchTitleBar(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048894, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048898, this, z) == null) {
             this.mProvider.switchTitleBar(z);
         }
     }
 
     public void updateTopControlOffset(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048895, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048899, this, i2) == null) {
             this.mProvider.updateTopControlOffset(i2);
         }
     }
 
     public void updateTopControlsState(boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048896, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048900, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             this.mProvider.updateTopControlsState(z, z2, z3);
         }
     }
 
     public void zoomBy(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048897, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048901, this, f2) == null) {
             checkThread();
             double d2 = f2;
             if (d2 < 0.01d) {
@@ -5160,7 +5219,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean zoomIn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048898, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048902, this)) == null) {
             checkThread();
             return this.mProvider.zoomIn();
         }
@@ -5170,7 +5229,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public boolean zoomOut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048899, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048903, this)) == null) {
             checkThread();
             return this.mProvider.zoomOut();
         }

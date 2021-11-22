@@ -1,8 +1,8 @@
 package com.baidu.tbadk.BdToken.completeTask;
 
 import android.util.Base64;
-import b.a.q0.d1.u0;
-import b.a.q0.d1.z;
+import b.a.q0.c1.t0;
+import b.a.q0.c1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -55,7 +55,7 @@ public class CompleteTaskReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             if (z) {
                 try {
-                    getHttpMessage().setUserAgent(u0.e());
+                    getHttpMessage().setUserAgent(t0.e());
                 } catch (Exception unused) {
                     return null;
                 }

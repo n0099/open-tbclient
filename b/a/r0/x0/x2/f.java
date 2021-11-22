@@ -1,27 +1,140 @@
 package b.a.r0.x0.x2;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.content.Intent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import b.a.r0.x0.x2.b;
+import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final SharedPreferences f26755a;
+    public Context f28137a;
 
-    public f() {
+    /* renamed from: b  reason: collision with root package name */
+    public ViewGroup f28138b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public g f28139c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public b.a.r0.x0.x2.b f28140d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public b.a.q0.q0.o.a f28141e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public b.a f28142f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Runnable f28143g;
+
+    /* loaded from: classes6.dex */
+    public class a implements b.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ f f28144a;
+
+        public a(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f28144a = fVar;
+        }
+
+        @Override // b.a.r0.x0.x2.b.a
+        public void onStateChanged(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+                if (i2 == 1) {
+                    if (!TbSingleton.getInstance().isEnableBenchmark() || TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                        return;
+                    }
+                    if (this.f28144a.f28141e == null) {
+                        this.f28144a.f28141e = new b.a.q0.q0.o.a("anim_switch_trans_frs");
+                    }
+                    this.f28144a.f28141e.b();
+                } else if (i2 != 2) {
+                    if (i2 == 0) {
+                        this.f28144a.j();
+                    }
+                } else {
+                    this.f28144a.k();
+                    if (this.f28144a.f28141e == null || !TbSingleton.getInstance().isEnableBenchmark() || TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                        return;
+                    }
+                    this.f28144a.f28141e.c();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ f f28145e;
+
+        public b(f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f28145e = fVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f28145e.f();
+            }
+        }
+    }
+
+    public f(Context context, ViewGroup viewGroup, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, viewGroup, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,103 +144,94 @@ public class f {
                 return;
             }
         }
-        this.f26755a = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
+        this.f28142f = new a(this);
+        this.f28143g = new b(this);
+        this.f28137a = context;
+        this.f28138b = viewGroup;
+        g gVar = new g(context);
+        this.f28139c = gVar;
+        b.a.r0.x0.x2.b a2 = c.a(gVar, intent);
+        this.f28140d = a2;
+        a2.b(this.f28142f);
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static boolean i(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, intent)) == null) ? (intent == null || intent.getIntExtra("transition_type", 0) == 0) ? false : true : invokeL.booleanValue;
     }
 
-    public void b(String str, String str2) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && a(str, str2)) {
-            String str3 = str + '_' + str2;
-            Set<String> keySet = this.f26755a.getAll().keySet();
-            SharedPreferences.Editor edit = this.f26755a.edit();
-            for (String str4 : keySet) {
-                if (str4.startsWith(str3)) {
-                    edit.remove(str4);
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b.a.e.f.m.e.a().removeCallbacks(this.f28143g);
+            if (this.f28140d.a() == 1) {
+                b.a.e.f.m.e.a().postDelayed(this.f28143g, 10L);
+                return;
             }
-            edit.apply();
+            k();
+            this.f28140d.c();
         }
     }
 
-    public long c(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void g() {
+        View findViewById;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (a(str, str2)) {
-                return this.f26755a.getLong(str + '_' + str2 + "_visit_time", 0L);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ViewGroup viewGroup = this.f28138b;
+            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
+                this.f28138b.getChildAt(0).setVisibility(8);
             }
-            return 0L;
-        }
-        return invokeLL.longValue;
-    }
-
-    public boolean d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (a(str, str2)) {
-                return this.f26755a.getBoolean(str + '_' + str2 + "_show", false);
+            ViewGroup viewGroup2 = this.f28138b;
+            if (viewGroup2 == null || (findViewById = viewGroup2.findViewById(16908290)) == null) {
+                return;
             }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public int e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            if (a(str, str2)) {
-                return this.f26755a.getInt(str + '_' + str2 + "_show_cnt", 0);
-            }
-            return 0;
-        }
-        return invokeLL.intValue;
-    }
-
-    public long f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (a(str, str2)) {
-                return this.f26755a.getLong(str + '_' + str2 + "_show_time", 0L);
-            }
-            return 0L;
-        }
-        return invokeLL.longValue;
-    }
-
-    public void g(String str, String str2, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) && a(str, str2)) {
-            String str3 = str + '_' + str2 + "_show_time";
-            String str4 = str + '_' + str2 + "_show_cnt";
-            int i2 = this.f26755a.getInt(str4, 0);
-            SharedPreferences.Editor edit = this.f26755a.edit();
-            if (i2 > 3) {
-                edit.putInt(str4, i2 + 1);
-            }
-            edit.putLong(str3, j);
-            if (z) {
-                edit.putBoolean(str + '_' + str2 + "_show", true);
-            }
-            edit.apply();
+            findViewById.setVisibility(8);
         }
     }
 
-    public void h(String str, String str2, long j) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && a(str, str2)) {
-            String str3 = str + '_' + str2 + "_visit_time";
-            SharedPreferences.Editor edit = this.f26755a.edit();
-            edit.putLong(str3, j);
-            edit.apply();
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f28138b == null) {
+            return;
         }
+        f();
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ViewParent parent = this.f28139c.f28146a.getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(this.f28139c.f28146a);
+            }
+            b.a.e.f.m.e.a().removeCallbacks(this.f28143g);
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ViewGroup viewGroup = this.f28138b;
+            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
+                this.f28138b.getChildAt(0).setVisibility(0);
+            }
+            ViewGroup viewGroup2 = this.f28138b;
+            if (viewGroup2 == null || viewGroup2.findViewById(16908290) == null) {
+                return;
+            }
+            this.f28138b.findViewById(16908290).setVisibility(0);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f28138b == null) {
+            return;
+        }
+        j();
+        this.f28138b.addView(this.f28139c.f28146a);
+        g();
+        this.f28140d.d();
     }
 }

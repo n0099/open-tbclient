@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.m.e;
+import b.a.e.f.m.e;
 import b.a.f.m.d;
 import b.a.q0.s.q.d2;
 import b.a.r0.q2.r.d;
@@ -33,12 +33,12 @@ public class c extends b.a.r0.q2.r.b {
     public Runnable S0;
 
     /* loaded from: classes4.dex */
-    public class a implements d.InterfaceC0063d {
+    public class a implements d.InterfaceC0065d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f17506a;
+        public final /* synthetic */ c f18975a;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -55,32 +55,32 @@ public class c extends b.a.r0.q2.r.b {
                     return;
                 }
             }
-            this.f17506a = cVar;
+            this.f18975a = cVar;
         }
 
-        @Override // b.a.f.m.d.InterfaceC0063d
+        @Override // b.a.f.m.d.InterfaceC0065d
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f17506a.startPlay();
+                this.f18975a.startPlay();
             }
         }
 
-        @Override // b.a.f.m.d.InterfaceC0063d
+        @Override // b.a.f.m.d.InterfaceC0065d
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
 
-        @Override // b.a.f.m.d.InterfaceC0063d
+        @Override // b.a.f.m.d.InterfaceC0065d
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
 
-        @Override // b.a.f.m.d.InterfaceC0063d
+        @Override // b.a.f.m.d.InterfaceC0065d
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class c extends b.a.r0.q2.r.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f17507a;
+        public final /* synthetic */ c f18976a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -114,20 +114,20 @@ public class c extends b.a.r0.q2.r.b {
                     return;
                 }
             }
-            this.f17507a = cVar;
+            this.f18976a = cVar;
         }
 
         @Override // b.a.r0.q2.r.d.k
         public void a(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || this.f17507a.k0()) {
+            if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || this.f18976a.k0()) {
                 return;
             }
             if (i3 >= i2) {
-                this.f17507a.N0.I(false, false, "NEWINDEX");
-            } else if (i2 == 0 || this.f17507a.U || (i3 * 100) / i2 < 80 || i2 <= 15000) {
+                this.f18976a.N0.I(false, false, "NEWINDEX");
+            } else if (i2 == 0 || this.f18976a.U || (i3 * 100) / i2 < 80 || i2 <= 15000) {
             } else {
-                c cVar = this.f17507a;
+                c cVar = this.f18976a;
                 cVar.L0(cVar.O0);
             }
         }
@@ -135,15 +135,15 @@ public class c extends b.a.r0.q2.r.b {
 
     /* renamed from: b.a.r0.h1.h.o.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0893c extends CustomMessageListener {
+    public class C0961c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f17508a;
+        public final /* synthetic */ c f18977a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0893c(c cVar, int i2) {
+        public C0961c(c cVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -160,7 +160,7 @@ public class c extends b.a.r0.q2.r.b {
                     return;
                 }
             }
-            this.f17508a = cVar;
+            this.f18977a = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -172,11 +172,11 @@ public class c extends b.a.r0.q2.r.b {
                 return;
             }
             String d2 = bVar.d();
-            if (StringUtils.isNull(d2) || this.f17508a.O0 == null || !d2.equals(this.f17508a.O0.f0())) {
+            if (StringUtils.isNull(d2) || this.f18977a.O0 == null || !d2.equals(this.f18977a.O0.f0())) {
                 return;
             }
-            b.a.f.m.d dVar = this.f17508a.N0;
-            c cVar = this.f17508a;
+            b.a.f.m.d dVar = this.f18977a.N0;
+            c cVar = this.f18977a;
             dVar.K(cVar.H0(cVar.O0, bVar));
         }
     }
@@ -187,7 +187,7 @@ public class c extends b.a.r0.q2.r.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f17509e;
+        public final /* synthetic */ c f18978e;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -204,19 +204,19 @@ public class c extends b.a.r0.q2.r.b {
                     return;
                 }
             }
-            this.f17509e = cVar;
+            this.f18978e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f17509e.N0 == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f18978e.N0 == null) {
                 return;
             }
-            c cVar = this.f17509e;
+            c cVar = this.f18978e;
             cVar.Q0 = false;
             cVar.N0.L();
-            this.f17509e.N0.w();
+            this.f18978e.N0.w();
         }
     }
 
@@ -240,7 +240,7 @@ public class c extends b.a.r0.q2.r.b {
             }
         }
         this.P0 = false;
-        this.R0 = new C0893c(this, 2921395);
+        this.R0 = new C0961c(this, 2921395);
         this.S0 = new d(this);
         p0(true);
         I0();
@@ -254,7 +254,7 @@ public class c extends b.a.r0.q2.r.b {
     public final b.a.f.m.a H0(d2 d2Var, b.a.f.m.e.b bVar) {
         InterceptResult invokeLL;
         int i2;
-        VideoInfo q1;
+        VideoInfo r1;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
@@ -271,10 +271,10 @@ public class c extends b.a.r0.q2.r.b {
                 if (b2 != -1) {
                     i5 = i6;
                     i2 = (b2 - a2) - 1;
-                    q1 = d2Var.q1();
-                    if (q1 == null) {
-                        int intValue = q1.video_width.intValue();
-                        i4 = q1.video_height.intValue();
+                    r1 = d2Var.r1();
+                    if (r1 == null) {
+                        int intValue = r1.video_width.intValue();
+                        i4 = r1.video_height.intValue();
                         i3 = intValue;
                     } else {
                         i3 = 0;
@@ -294,8 +294,8 @@ public class c extends b.a.r0.q2.r.b {
                 i5 = i6;
             }
             i2 = -1;
-            q1 = d2Var.q1();
-            if (q1 == null) {
+            r1 = d2Var.r1();
+            if (r1 == null) {
             }
             HashMap hashMap2 = new HashMap();
             hashMap2.put("video_vid", d2Var.f0());
@@ -311,33 +311,11 @@ public class c extends b.a.r0.q2.r.b {
         return (b.a.f.m.a) invokeLL.objValue;
     }
 
-    public void I0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b.a.f.m.d dVar = new b.a.f.m.d(this.P, (ViewGroup) getMainView());
-            this.N0 = dVar;
-            dVar.G(new a(this));
-            q0(new b(this));
-        }
-    }
-
-    public void J0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void K0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
     @Override // b.a.r0.q2.r.d, b.a.r0.q2.r.a
-    public boolean L(boolean z) {
+    public boolean I(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             b.a.f.m.d dVar = this.N0;
             if (dVar != null) {
                 if (z) {
@@ -350,9 +328,31 @@ public class c extends b.a.r0.q2.r.b {
                     this.N0.F(true);
                 }
             }
-            return super.L(z);
+            return super.I(z);
         }
         return invokeZ.booleanValue;
+    }
+
+    public void I0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b.a.f.m.d dVar = new b.a.f.m.d(this.P, (ViewGroup) getMainView());
+            this.N0 = dVar;
+            dVar.G(new a(this));
+            q0(new b(this));
+        }
+    }
+
+    public void J0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void K0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
     }
 
     public final void L0(d2 d2Var) {

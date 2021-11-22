@@ -1,6 +1,6 @@
 package com.baidu.tieba.homeExtra;
 
-import b.a.r0.q3.c;
+import b.a.r0.r3.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;

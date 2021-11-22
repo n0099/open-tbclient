@@ -3,9 +3,9 @@ package com.baidu.tbadk.widget.tiejia;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import b.a.q0.c1.c0;
+import b.a.q0.c1.e0;
 import b.a.q0.d.a;
-import b.a.q0.d1.c0;
-import b.a.q0.d1.e0;
 import b.a.q0.s.q.d2;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
@@ -25,10 +25,10 @@ public final class TiePlusStat {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e0<Integer> f46481a;
+    public static final e0<Integer> f47343a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e0<Integer> f46482b;
+    public static final e0<Integer> f47344b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -40,8 +40,7 @@ public final class TiePlusStat {
         public static final CardBtnType H5;
         public static final String STAT_KEY = "a_type";
         public transient /* synthetic */ FieldHolder $fh;
-        public String desc;
-        public int statValue;
+        public final int statValue;
 
         static {
             InterceptResult invokeClinit;
@@ -56,24 +55,24 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            DOWNLOAD = new CardBtnType("DOWNLOAD", 0, 1, "下载");
-            CardBtnType cardBtnType = new CardBtnType("H5", 1, 2, "查看");
+            DOWNLOAD = new CardBtnType("DOWNLOAD", 0, 1);
+            CardBtnType cardBtnType = new CardBtnType("H5", 1, 2);
             H5 = cardBtnType;
             $VALUES = new CardBtnType[]{DOWNLOAD, cardBtnType};
         }
 
-        public CardBtnType(String str, @NonNull int i2, int i3, String str2) {
+        public CardBtnType(String str, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i4 = newInitContext.flag;
                 if ((i4 & 1) != 0) {
                     int i5 = i4 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    String str3 = (String) objArr2[0];
+                    String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -81,19 +80,43 @@ public final class TiePlusStat {
                 }
             }
             this.statValue = i3;
-            this.desc = str2;
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x0012, code lost:
+            if (r5 != 4) goto L18;
+         */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public static CardBtnType create(int i2, int i3) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
+                if (i2 == 36) {
+                    if (i3 != 1) {
+                        if (i3 == 2) {
+                            return DOWNLOAD;
+                        }
+                        if (i3 != 3) {
+                        }
+                    }
+                    return H5;
+                }
+                return null;
+            }
+            return (CardBtnType) invokeII.objValue;
         }
 
         public static CardBtnType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (CardBtnType) Enum.valueOf(CardBtnType.class, str) : (CardBtnType) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (CardBtnType) Enum.valueOf(CardBtnType.class, str) : (CardBtnType) invokeL.objValue;
         }
 
         public static CardBtnType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (CardBtnType[]) $VALUES.clone() : (CardBtnType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (CardBtnType[]) $VALUES.clone() : (CardBtnType[]) invokeV.objValue;
         }
     }
 
@@ -102,14 +125,14 @@ public final class TiePlusStat {
     public static final class LandingType {
         public static final /* synthetic */ LandingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
+        public static final LandingType APPOINT;
         public static final LandingType DIALOG_DOWNLOAD;
         public static final LandingType H5;
         public static final String STAT_KEY = "l_type";
         public static final LandingType WECHAT;
         public static final LandingType WECHAT_MINIAPP;
         public transient /* synthetic */ FieldHolder $fh;
-        public String desc;
-        public int statValue;
+        public final int statValue;
 
         static {
             InterceptResult invokeClinit;
@@ -124,26 +147,27 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            H5 = new LandingType("H5", 0, 1, "H5");
-            DIALOG_DOWNLOAD = new LandingType("DIALOG_DOWNLOAD", 1, 2, "下载弹窗");
-            WECHAT = new LandingType("WECHAT", 2, 3, "微信号");
-            LandingType landingType = new LandingType("WECHAT_MINIAPP", 3, 4, "微信小程序");
-            WECHAT_MINIAPP = landingType;
-            $VALUES = new LandingType[]{H5, DIALOG_DOWNLOAD, WECHAT, landingType};
+            H5 = new LandingType("H5", 0, 1);
+            DIALOG_DOWNLOAD = new LandingType("DIALOG_DOWNLOAD", 1, 2);
+            WECHAT = new LandingType("WECHAT", 2, 3);
+            WECHAT_MINIAPP = new LandingType("WECHAT_MINIAPP", 3, 4);
+            LandingType landingType = new LandingType("APPOINT", 4, 6);
+            APPOINT = landingType;
+            $VALUES = new LandingType[]{H5, DIALOG_DOWNLOAD, WECHAT, WECHAT_MINIAPP, landingType};
         }
 
-        public LandingType(String str, @NonNull int i2, int i3, String str2) {
+        public LandingType(String str, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i4 = newInitContext.flag;
                 if ((i4 & 1) != 0) {
                     int i5 = i4 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    String str3 = (String) objArr2[0];
+                    String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -151,7 +175,6 @@ public final class TiePlusStat {
                 }
             }
             this.statValue = i3;
-            this.desc = str2;
         }
 
         @NonNull
@@ -164,10 +187,12 @@ public final class TiePlusStat {
                     landingType = H5;
                 } else if (i2 == 2) {
                     landingType = DIALOG_DOWNLOAD;
-                } else if (i2 != 3) {
-                    landingType = i2 != 4 ? null : WECHAT_MINIAPP;
-                } else {
+                } else if (i2 == 3) {
                     landingType = WECHAT;
+                } else if (i2 != 4) {
+                    landingType = i2 != 6 ? null : APPOINT;
+                } else {
+                    landingType = WECHAT_MINIAPP;
                 }
                 c0.b(landingType);
                 return landingType;
@@ -198,10 +223,11 @@ public final class TiePlusStat {
         public static final Locate PB;
         public static final Locate PB_COMMENT;
         public static final String STAT_KEY = "obj_locate";
+        public static final Locate VIDEO_COMMENT_TOP;
         public static final Locate VIDEO_MIDDLE_COMMENT;
+        public static final Locate VIDEO_MOUNT;
         public transient /* synthetic */ FieldHolder $fh;
-        public String desc;
-        public int statValue;
+        public final int statValue;
 
         static {
             InterceptResult invokeClinit;
@@ -216,27 +242,29 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            HOME = new Locate("HOME", 0, 1, "首页");
-            FRS = new Locate("FRS", 1, 2, "FRS页");
-            PB = new Locate("PB", 2, 3, "PB页");
-            PB_COMMENT = new Locate("PB_COMMENT", 3, 4, "PB评论页");
-            Locate locate = new Locate("VIDEO_MIDDLE_COMMENT", 4, 5, "视频中间页");
-            VIDEO_MIDDLE_COMMENT = locate;
-            $VALUES = new Locate[]{HOME, FRS, PB, PB_COMMENT, locate};
+            HOME = new Locate("HOME", 0, 1);
+            FRS = new Locate("FRS", 1, 2);
+            PB = new Locate("PB", 2, 3);
+            PB_COMMENT = new Locate("PB_COMMENT", 3, 4);
+            VIDEO_MIDDLE_COMMENT = new Locate("VIDEO_MIDDLE_COMMENT", 4, 5);
+            VIDEO_MOUNT = new Locate("VIDEO_MOUNT", 5, 6);
+            Locate locate = new Locate("VIDEO_COMMENT_TOP", 6, 7);
+            VIDEO_COMMENT_TOP = locate;
+            $VALUES = new Locate[]{HOME, FRS, PB, PB_COMMENT, VIDEO_MIDDLE_COMMENT, VIDEO_MOUNT, locate};
         }
 
-        public Locate(String str, @NonNull int i2, int i3, String str2) {
+        public Locate(String str, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i4 = newInitContext.flag;
                 if ((i4 & 1) != 0) {
                     int i5 = i4 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    String str3 = (String) objArr2[0];
+                    String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -244,7 +272,6 @@ public final class TiePlusStat {
                 }
             }
             this.statValue = i3;
-            this.desc = str2;
         }
 
         public static Locate valueOf(String str) {
@@ -269,8 +296,7 @@ public final class TiePlusStat {
         public static final RichTextType LINK;
         public static final String STAT_KEY = "c_type";
         public transient /* synthetic */ FieldHolder $fh;
-        public String desc;
-        public int statValue;
+        public final int statValue;
 
         static {
             InterceptResult invokeClinit;
@@ -285,24 +311,24 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            LINK = new RichTextType("LINK", 0, 1, "短链");
-            RichTextType richTextType = new RichTextType("CARD", 1, 2, "卡片");
+            LINK = new RichTextType("LINK", 0, 1);
+            RichTextType richTextType = new RichTextType("CARD", 1, 2);
             CARD = richTextType;
             $VALUES = new RichTextType[]{LINK, richTextType};
         }
 
-        public RichTextType(String str, @NonNull int i2, int i3, String str2) {
+        public RichTextType(String str, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i4 = newInitContext.flag;
                 if ((i4 & 1) != 0) {
                     int i5 = i4 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    String str3 = (String) objArr2[0];
+                    String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -310,19 +336,33 @@ public final class TiePlusStat {
                 }
             }
             this.statValue = i3;
-            this.desc = str2;
+        }
+
+        public static RichTextType create(int i2) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
+                if (i2 != 35) {
+                    if (i2 != 36) {
+                        return null;
+                    }
+                    return CARD;
+                }
+                return LINK;
+            }
+            return (RichTextType) invokeI.objValue;
         }
 
         public static RichTextType valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (RichTextType) Enum.valueOf(RichTextType.class, str) : (RichTextType) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (RichTextType) Enum.valueOf(RichTextType.class, str) : (RichTextType) invokeL.objValue;
         }
 
         public static RichTextType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (RichTextType[]) $VALUES.clone() : (RichTextType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (RichTextType[]) $VALUES.clone() : (RichTextType[]) invokeV.objValue;
         }
     }
 
@@ -337,9 +377,8 @@ public final class TiePlusStat {
         public static final StatType DOWNLOAD_FINISHED;
         public static final StatType EXPOSE;
         public transient /* synthetic */ FieldHolder $fh;
-        public int billingTypeValue;
-        public String desc;
-        public String urlKey;
+        public final int billingTypeValue;
+        public final String urlKey;
 
         static {
             InterceptResult invokeClinit;
@@ -354,27 +393,27 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f11998h, "曝光");
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f11999i, "点击");
-            DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1, "弹窗曝光");
-            DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1, "弹窗下载点击");
-            StatType statType = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1, "应用下载成功");
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, a.f12877h);
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, a.f12878i);
+            DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1);
+            DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1);
+            StatType statType = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1);
             DOWNLOAD_FINISHED = statType;
             $VALUES = new StatType[]{EXPOSE, CLICK, DIALOG_EXPOSE, DIALOG_CLICK, statType};
         }
 
-        public StatType(@NonNull String str, int i2, @NonNull String str2, int i3, String str3) {
+        public StatType(@NonNull String str, int i2, String str2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2, Integer.valueOf(i3), str3};
+                Object[] objArr = {str, Integer.valueOf(i2), str2, Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i4 = newInitContext.flag;
                 if ((i4 & 1) != 0) {
                     int i5 = i4 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    String str4 = (String) objArr2[0];
+                    String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -383,7 +422,6 @@ public final class TiePlusStat {
             }
             this.urlKey = str2;
             this.billingTypeValue = i3;
-            this.desc = str3;
         }
 
         public static StatType valueOf(String str) {
@@ -409,8 +447,7 @@ public final class TiePlusStat {
         public static final ThreadType VIDEO_NORMAL;
         public static final ThreadType VIDEO_WORK;
         public transient /* synthetic */ FieldHolder $fh;
-        public String desc;
-        public int statValue;
+        public final int statValue;
 
         static {
             InterceptResult invokeClinit;
@@ -425,25 +462,25 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            IMAGE_TEXT = new ThreadType("IMAGE_TEXT", 0, 1, "图文");
-            VIDEO_NORMAL = new ThreadType("VIDEO_NORMAL", 1, 2, "普通视频");
-            ThreadType threadType = new ThreadType("VIDEO_WORK", 2, 3, "作品视频");
+            IMAGE_TEXT = new ThreadType("IMAGE_TEXT", 0, 1);
+            VIDEO_NORMAL = new ThreadType("VIDEO_NORMAL", 1, 2);
+            ThreadType threadType = new ThreadType("VIDEO_WORK", 2, 3);
             VIDEO_WORK = threadType;
             $VALUES = new ThreadType[]{IMAGE_TEXT, VIDEO_NORMAL, threadType};
         }
 
-        public ThreadType(String str, @NonNull int i2, int i3, String str2) {
+        public ThreadType(String str, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i4 = newInitContext.flag;
                 if ((i4 & 1) != 0) {
                     int i5 = i4 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    String str3 = (String) objArr2[0];
+                    String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -451,17 +488,16 @@ public final class TiePlusStat {
                 }
             }
             this.statValue = i3;
-            this.desc = str2;
         }
 
         public static ThreadType create(@NonNull d2 d2Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, d2Var)) == null) {
-                if (d2Var.F2()) {
+                if (d2Var.H2()) {
                     return VIDEO_WORK;
                 }
-                if (d2Var.E2()) {
+                if (d2Var.G2()) {
                     return VIDEO_NORMAL;
                 }
                 return IMAGE_TEXT;
@@ -495,8 +531,8 @@ public final class TiePlusStat {
                 return;
             }
         }
-        f46481a = new e0<>(3000, TimeUnit.MILLISECONDS);
-        f46482b = new e0<>(3000, TimeUnit.MILLISECONDS);
+        f47343a = new e0<>(3000, TimeUnit.MILLISECONDS);
+        f47344b = new e0<>(3000, TimeUnit.MILLISECONDS);
     }
 
     public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {
@@ -529,7 +565,7 @@ public final class TiePlusStat {
     public static void b(int i2, @NonNull StatType statType, @NonNull Locate locate, @NonNull ThreadType threadType, @NonNull RichTextType richTextType, int i3, @NonNull LandingType landingType, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @Nullable CardBtnType cardBtnType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), statType, locate, threadType, richTextType, Integer.valueOf(i3), landingType, str, str2, str3, str4, cardBtnType}) == null) {
-            if (statType != StatType.EXPOSE || f46481a.a(Integer.valueOf(i2))) {
+            if (statType != StatType.EXPOSE || f47343a.a(Integer.valueOf(i2))) {
                 StatisticItem addParam = new StatisticItem(statType.urlKey).addParam("obj_locate", locate.statValue).addParam("obj_type", threadType.statValue).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("t_obj", i3).addParam(LandingType.STAT_KEY, landingType.statValue).addParam("tid", str).addParam(TiebaStatic.Params.FID_1, str2).addParam(TiebaStatic.Params.FID_2, str3).addParam("order_id", str4);
                 if (cardBtnType != null) {
                     addParam.addParam(CardBtnType.STAT_KEY, cardBtnType.statValue);
@@ -542,7 +578,7 @@ public final class TiePlusStat {
     public static void c(int i2, @NonNull StatType statType, @NonNull Locate locate, @NonNull String str, @NonNull String str2, @NonNull String str3, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), statType, locate, str, str2, str3, Integer.valueOf(i3)}) == null) {
-            if (statType != StatType.EXPOSE || f46482b.a(Integer.valueOf(i2))) {
+            if (statType != StatType.EXPOSE || f47344b.a(Integer.valueOf(i2))) {
                 a.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i3);
             }
         }

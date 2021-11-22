@@ -32,13 +32,13 @@ public class b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.downloadad.api.a.b f68707a;
+                public final /* synthetic */ com.ss.android.downloadad.api.a.b f69627a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ g f68708b;
+                public final /* synthetic */ g f69628b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ b f68709c;
+                public final /* synthetic */ b f69629c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -55,26 +55,26 @@ public class b {
                             return;
                         }
                     }
-                    this.f68709c = this;
-                    this.f68707a = bVar;
-                    this.f68708b = gVar;
+                    this.f69629c = this;
+                    this.f69627a = bVar;
+                    this.f69628b = gVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (i.a(this.f68707a)) {
-                            this.f68708b.a(false);
-                        } else if (!f.a(this.f68707a)) {
-                            this.f68708b.a(false);
+                        if (i.a(this.f69627a)) {
+                            this.f69628b.a(false);
+                        } else if (!f.a(this.f69627a)) {
+                            this.f69628b.a(false);
                         } else {
-                            f.a(this.f68707a, new h(this) { // from class: com.ss.android.downloadlib.b.b.1.1
+                            f.a(this.f69627a, new h(this) { // from class: com.ss.android.downloadlib.b.b.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass1 f68710a;
+                                public final /* synthetic */ AnonymousClass1 f69630a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -91,14 +91,14 @@ public class b {
                                             return;
                                         }
                                     }
-                                    this.f68710a = this;
+                                    this.f69630a = this;
                                 }
 
                                 @Override // com.ss.android.downloadlib.b.h
                                 public void a(boolean z) {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeZ(1048576, this, z) == null) {
-                                        this.f68710a.f68708b.a(z);
+                                        this.f69630a.f69628b.a(z);
                                     }
                                 }
                             });

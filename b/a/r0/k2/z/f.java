@@ -15,21 +15,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f extends b.a.e.l.e.b {
+public class f extends b.a.e.m.e.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public BaseFragment f19905f;
+    public BaseFragment f21442f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f19906g;
+    public b f21443g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f19907h;
+    public TBSpecificationBtn f21444h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f19908i;
+    public View.OnClickListener f21445i;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -37,7 +37,7 @@ public class f extends b.a.e.l.e.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f19909e;
+        public final /* synthetic */ f f21446e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -54,16 +54,16 @@ public class f extends b.a.e.l.e.b {
                     return;
                 }
             }
-            this.f19909e = fVar;
+            this.f21446e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ViewHelper.skipToLoginActivity(this.f19909e.f19905f.getContext());
-                if (this.f19909e.f19906g != null) {
-                    this.f19909e.f19906g.resetLoadMoreFlag(true);
+                ViewHelper.skipToLoginActivity(this.f21446e.f21442f.getContext());
+                if (this.f21446e.f21443g != null) {
+                    this.f21446e.f21443g.resetLoadMoreFlag(true);
                 }
             }
         }
@@ -89,34 +89,34 @@ public class f extends b.a.e.l.e.b {
                 return;
             }
         }
-        this.f19908i = new a(this);
-        this.f19905f = baseFragment;
-        this.f19906g = bVar;
+        this.f21445i = new a(this);
+        this.f21442f = baseFragment;
+        this.f21443g = bVar;
     }
 
-    @Override // b.a.e.l.e.b
+    @Override // b.a.e.m.e.b
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.f19905f.getContext()).inflate(b.a.r0.k2.j.login_see_more_layout, (ViewGroup) null);
-            this.f2424e = inflate;
-            this.f19907h = (TBSpecificationBtn) inflate.findViewById(b.a.r0.k2.i.login_button);
+            View inflate = LayoutInflater.from(this.f21442f.getContext()).inflate(b.a.r0.k2.j.login_see_more_layout, (ViewGroup) null);
+            this.f2426e = inflate;
+            this.f21444h = (TBSpecificationBtn) inflate.findViewById(b.a.r0.k2.i.login_button);
             b.a.q0.s.g0.n.a aVar = new b.a.q0.s.g0.n.a();
-            BaseFragment baseFragment = this.f19905f;
+            BaseFragment baseFragment = this.f21442f;
             if (baseFragment != null && baseFragment.getContext() != null) {
-                this.f19907h.setText(this.f19905f.getContext().getResources().getString(l.login_see_more));
+                this.f21444h.setText(this.f21442f.getContext().getResources().getString(l.login_see_more));
             }
-            this.f19907h.setTextSize(b.a.r0.k2.g.tbds42);
-            this.f19907h.setConfig(aVar);
-            this.f19907h.setOnClickListener(this.f19908i);
+            this.f21444h.setTextSize(b.a.r0.k2.g.tbds42);
+            this.f21444h.setConfig(aVar);
+            this.f21444h.setOnClickListener(this.f21445i);
             f(TbadkCoreApplication.getInst().getSkinType());
-            return this.f2424e;
+            return this.f2426e;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // b.a.e.l.e.b
+    @Override // b.a.e.m.e.b
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -126,8 +126,8 @@ public class f extends b.a.e.l.e.b {
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            b.a.q0.w0.a.a(this.f19905f.getPageContext(), this.f2424e);
-            TBSpecificationBtn tBSpecificationBtn = this.f19907h;
+            b.a.q0.v0.a.a(this.f21442f.getPageContext(), this.f2426e);
+            TBSpecificationBtn tBSpecificationBtn = this.f21444h;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.changeSkinType();
             }
@@ -137,14 +137,14 @@ public class f extends b.a.e.l.e.b {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f2424e.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            this.f2426e.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         }
     }
 
     public void h(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f19907h.setOnClickListener(onClickListener);
+            this.f21444h.setOnClickListener(onClickListener);
         }
     }
 }

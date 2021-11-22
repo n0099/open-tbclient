@@ -15,21 +15,21 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b.a.w.j.b f29325a;
+    public static final b.a.w.j.b f30194a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b.a.w.a.c f29326b;
+    public static final b.a.w.a.c f30195b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.w.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1415a<T> extends BdAsyncTask<String, Object, T> {
+    public static class C1457a<T> extends BdAsyncTask<String, Object, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b<T> m;
         public c<T> n;
 
-        public C1415a(b<T> bVar, c<T> cVar) {
+        public C1457a(b<T> bVar, c<T> cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,8 +94,8 @@ public class a {
                 return;
             }
         }
-        f29325a = b.a.w.j.b.a();
-        f29326b = new b.a.w.a.c(BdAsyncTaskParallelType.SERIAL, f29325a);
+        f30194a = b.a.w.j.b.a();
+        f30195b = new b.a.w.a.c(BdAsyncTaskParallelType.SERIAL, f30194a);
     }
 
     public static <T> BdAsyncTask a(b<T> bVar, c<T> cVar) {
@@ -109,12 +109,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bVar, cVar, i2)) == null) {
             if (bVar != null) {
-                C1415a c1415a = new C1415a(bVar, cVar);
-                c1415a.v(f29326b);
-                c1415a.x(f29325a);
-                c1415a.w(i2);
-                c1415a.g(new String[0]);
-                return c1415a;
+                C1457a c1457a = new C1457a(bVar, cVar);
+                c1457a.v(f30195b);
+                c1457a.x(f30194a);
+                c1457a.w(i2);
+                c1457a.g(new String[0]);
+                return c1457a;
             }
             return null;
         }

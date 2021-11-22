@@ -3,8 +3,8 @@ package com.baidu.tieba.hottopic.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.r0.b0.c0;
-import b.a.r0.b0.e0.l;
+import b.a.r0.b0.d0;
+import b.a.r0.b0.f0.l;
 import b.a.r0.q2.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class HomePageVideoThreadAdapter extends b.a.e.l.e.a<l, HomePageVideoThreadViewHolder> {
+public class HomePageVideoThreadAdapter extends b.a.e.m.e.a<l, HomePageVideoThreadViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId m;
     public TbPageContext<HotTopicActivity> n;
     public b.a.r0.b0.l o;
-    public c0<l> p;
+    public d0<l> p;
 
     /* loaded from: classes9.dex */
     public static class HomePageVideoThreadViewHolder extends TypeAdapter.ViewHolder implements e {
@@ -155,12 +155,12 @@ public class HomePageVideoThreadAdapter extends b.a.e.l.e.a<l, HomePageVideoThre
     }
 
     /* loaded from: classes9.dex */
-    public class a extends c0<l> {
+    public class a extends d0<l> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageVideoThreadAdapter f49983b;
+        public final /* synthetic */ HomePageVideoThreadAdapter f50895b;
 
         public a(HomePageVideoThreadAdapter homePageVideoThreadAdapter) {
             Interceptable interceptable = $ic;
@@ -177,18 +177,18 @@ public class HomePageVideoThreadAdapter extends b.a.e.l.e.a<l, HomePageVideoThre
                     return;
                 }
             }
-            this.f49983b = homePageVideoThreadAdapter;
+            this.f50895b = homePageVideoThreadAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.r0.b0.c0
+        @Override // b.a.r0.b0.d0
         /* renamed from: d */
         public void a(View view, l lVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, lVar) == null) || lVar == null || lVar.getThreadData() == null || StringUtils.isNull(lVar.getThreadData().s1()) || StringUtils.isNull(lVar.C()) || this.f49983b.n == null || !(this.f49983b.n.getOrignalPage() instanceof b.a.r0.j1.k.a)) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, lVar) == null) || lVar == null || lVar.getThreadData() == null || StringUtils.isNull(lVar.getThreadData().t1()) || StringUtils.isNull(lVar.C()) || this.f50895b.n == null || !(this.f50895b.n.getOrignalPage() instanceof b.a.r0.j1.k.a)) {
                 return;
             }
-            ((HotTopicActivity) this.f49983b.n.getOrignalPage()).businessStatisticForTopicClick(lVar);
+            ((HotTopicActivity) this.f50895b.n.getOrignalPage()).businessStatisticForTopicClick(lVar);
         }
     }
 
@@ -217,7 +217,7 @@ public class HomePageVideoThreadAdapter extends b.a.e.l.e.a<l, HomePageVideoThre
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public HomePageVideoThreadViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -234,7 +234,7 @@ public class HomePageVideoThreadAdapter extends b.a.e.l.e.a<l, HomePageVideoThre
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public View Z(int i2, View view, ViewGroup viewGroup, l lVar, HomePageVideoThreadViewHolder homePageVideoThreadViewHolder) {
         InterceptResult invokeCommon;
@@ -242,7 +242,7 @@ public class HomePageVideoThreadAdapter extends b.a.e.l.e.a<l, HomePageVideoThre
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, lVar, homePageVideoThreadViewHolder})) == null) {
             if (lVar != null) {
                 lVar.K(i2 + 1);
-                lVar.W = 1;
+                lVar.Y = 1;
             }
             homePageVideoThreadViewHolder.mView.j(lVar);
             homePageVideoThreadViewHolder.mView.l(this.p);

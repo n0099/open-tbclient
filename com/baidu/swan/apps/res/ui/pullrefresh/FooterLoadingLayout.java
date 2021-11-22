@@ -11,7 +11,7 @@ import b.a.p0.a.d;
 import b.a.p0.a.f;
 import b.a.p0.a.g;
 import b.a.p0.a.h;
-import b.a.p0.a.r1.n.a;
+import b.a.p0.a.u1.n.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +24,7 @@ public class FooterLoadingLayout extends LoadingLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public LoadingAnimView f44020i;
+    public LoadingAnimView f44818i;
     public TextView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,7 +51,7 @@ public class FooterLoadingLayout extends LoadingLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f44020i = (LoadingAnimView) findViewById(f.pull_to_load_footer_progressbar);
+            this.f44818i = (LoadingAnimView) findViewById(f.pull_to_load_footer_progressbar);
             TextView textView = (TextView) findViewById(f.pull_to_load_footer_hint_textview);
             this.j = textView;
             textView.setTextColor(getResources().getColor(c.aiapps_picture_loading_text_color));
@@ -107,8 +107,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onRefreshing() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f44020i.setVisibility(0);
-            this.f44020i.startAnim();
+            this.f44818i.setVisibility(0);
+            this.f44818i.startAnim();
             this.j.setVisibility(0);
             this.j.setText(h.aiapps_pull_to_refresh_header_hint_loading);
         }
@@ -135,8 +135,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onStateChanged(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iLoadingLayout$State, iLoadingLayout$State2) == null) {
-            this.f44020i.setVisibility(8);
-            this.f44020i.stopAnim();
+            this.f44818i.setVisibility(8);
+            this.f44818i.stopAnim();
             this.j.setVisibility(4);
             super.onStateChanged(iLoadingLayout$State, iLoadingLayout$State2);
         }

@@ -57,38 +57,44 @@ public class SimpleDraweeView extends GenericDraweeView {
     private void init(Context context, @Nullable AttributeSet attributeSet) {
         int resourceId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, context, attributeSet) == null) {
-            if (sDraweecontrollerbuildersupplier == null) {
-                sDraweecontrollerbuildersupplier = sSupplierFactory.get();
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, context, attributeSet) == null) || isInEditMode()) {
+            return;
+        }
+        if (sDraweecontrollerbuildersupplier == null) {
+            sDraweecontrollerbuildersupplier = sSupplierFactory.get();
+        }
+        try {
+            if (FrescoSystrace.isTracing()) {
+                FrescoSystrace.beginSection("SimpleDraweeView#init");
             }
-            try {
-                if (FrescoSystrace.isTracing()) {
-                    FrescoSystrace.beginSection("SimpleDraweeView#init");
-                }
-                if (isInEditMode()) {
-                    getTopLevelDrawable().setVisible(true, false);
-                    getTopLevelDrawable().invalidateSelf();
-                } else {
-                    Preconditions.checkNotNull(sDraweecontrollerbuildersupplier, "SimpleDraweeView was not initialized!");
-                    this.mControllerBuilder = sDraweecontrollerbuildersupplier.get();
-                }
-                if (attributeSet != null) {
-                    TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SimpleDraweeView);
-                    if (obtainStyledAttributes.hasValue(R.styleable.SimpleDraweeView_actualImageUri)) {
-                        setImageURI(Uri.parse(obtainStyledAttributes.getString(R.styleable.SimpleDraweeView_actualImageUri)), (Object) null);
-                    } else if (obtainStyledAttributes.hasValue(R.styleable.SimpleDraweeView_actualImageResource) && (resourceId = obtainStyledAttributes.getResourceId(R.styleable.SimpleDraweeView_actualImageResource, -1)) != -1) {
+            if (isInEditMode()) {
+                getTopLevelDrawable().setVisible(true, false);
+                getTopLevelDrawable().invalidateSelf();
+            } else {
+                Preconditions.checkNotNull(sDraweecontrollerbuildersupplier, "SimpleDraweeView was not initialized!");
+                this.mControllerBuilder = sDraweecontrollerbuildersupplier.get();
+            }
+            if (attributeSet != null) {
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.SimpleDraweeView);
+                if (obtainStyledAttributes.hasValue(R.styleable.SimpleDraweeView_actualImageUri)) {
+                    setImageURI(Uri.parse(obtainStyledAttributes.getString(R.styleable.SimpleDraweeView_actualImageUri)), (Object) null);
+                } else if (obtainStyledAttributes.hasValue(R.styleable.SimpleDraweeView_actualImageResource)) {
+                    int resourceId2 = obtainStyledAttributes.getResourceId(R.styleable.SimpleDraweeView_actualImageResource, -1);
+                    if (resourceId2 != -1) {
                         if (isInEditMode()) {
-                            setImageResource(resourceId);
+                            setImageResource(resourceId2);
                         } else {
-                            setActualImageResource(resourceId);
+                            setActualImageResource(resourceId2);
                         }
                     }
-                    obtainStyledAttributes.recycle();
+                } else if (obtainStyledAttributes.hasValue(R.styleable.SimpleDraweeView_svgImage) && (resourceId = obtainStyledAttributes.getResourceId(R.styleable.SimpleDraweeView_svgImage, -1)) != -1) {
+                    setImageURI(UriUtil.getUriForResourceId(resourceId), (Object) null);
                 }
-            } finally {
-                if (FrescoSystrace.isTracing()) {
-                    FrescoSystrace.endSection();
-                }
+                obtainStyledAttributes.recycle();
+            }
+        } finally {
+            if (FrescoSystrace.isTracing()) {
+                FrescoSystrace.endSection();
             }
         }
     }

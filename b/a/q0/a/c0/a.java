@@ -11,7 +11,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f11700a;
+    public boolean f12451a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -26,7 +26,7 @@ public class a {
                 return;
             }
         }
-        this.f11700a = false;
+        this.f12451a = false;
     }
 
     public void a(DataRes dataRes) {
@@ -34,6 +34,6 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.f11700a = dataRes.is_back_user.intValue() == 1;
+        this.f12451a = dataRes.is_back_user.intValue() == 1;
     }
 }

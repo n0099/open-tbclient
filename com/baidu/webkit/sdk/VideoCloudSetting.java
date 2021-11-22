@@ -5,9 +5,11 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -237,7 +239,7 @@ public class VideoCloudSetting {
                 if (!TextUtils.isEmpty(str) && (strArr = this.mSubItems) != null) {
                     int length = strArr.length;
                     for (int i2 = 0; i2 < length; i2++) {
-                        if (str.equals(this.mSubItems[i2]) || (this.mType == 0 && illegibilityMatch(str, this.mSubItems[i2], "\\.", "*"))) {
+                        if (str.equals(this.mSubItems[i2]) || (this.mType == 0 && illegibilityMatch(str, this.mSubItems[i2], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, ProxyConfig.MATCH_ALL_SCHEMES))) {
                             return true;
                         }
                     }

@@ -73,20 +73,20 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
-    public View J(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
+    public View L(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, iCardInfo})) == null) {
             this.p = iCardInfo;
-            return super.J(i2, view, viewGroup, iCardInfo);
+            return super.L(i2, view, viewGroup, iCardInfo);
         }
         return (View) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public LegoDelegateViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -103,7 +103,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: j0 */
     public View Z(int i2, View view, ViewGroup viewGroup, ICardInfo iCardInfo, LegoDelegateViewHolder legoDelegateViewHolder) {
         InterceptResult invokeCommon;

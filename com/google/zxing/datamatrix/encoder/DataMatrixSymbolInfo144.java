@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class DataMatrixSymbolInfo144 extends SymbolInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public final class DataMatrixSymbolInfo144 extends SymbolInfo {
             if (i2 <= 8) {
                 return 156;
             }
-            return a.f35825e;
+            return a.f36654e;
         }
         return invokeI.intValue;
     }

@@ -18,10 +18,10 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlbumCompressProgressView f55882e;
+    public AlbumCompressProgressView f56804e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f55883f;
+    public TextView f56805f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlbumVideoCompressingDialogView(Context context) {
@@ -48,8 +48,8 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.dailog_album_video_compress, this);
-            this.f55882e = (AlbumCompressProgressView) findViewById(R.id.view_compress_progress);
-            this.f55883f = (TextView) findViewById(R.id.txt_compress_progress);
+            this.f56804e = (AlbumCompressProgressView) findViewById(R.id.view_compress_progress);
+            this.f56805f = (TextView) findViewById(R.id.txt_compress_progress);
         }
     }
 
@@ -64,8 +64,8 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 < 0 || i2 > 100) {
             return;
         }
-        this.f55882e.setProgress(i2);
-        TextView textView = this.f55883f;
+        this.f56804e.setProgress(i2);
+        TextView textView = this.f56805f;
         textView.setText(i2 + "%");
     }
 

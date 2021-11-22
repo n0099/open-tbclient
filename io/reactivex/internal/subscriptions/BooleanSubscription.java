@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.reactivestreams.Subscription;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class BooleanSubscription extends AtomicBoolean implements Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -8127758972444290902L;

@@ -5,15 +5,15 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
-import b.a.e.e.p.k;
-import b.a.e.e.p.l;
+import b.a.e.f.p.k;
+import b.a.e.f.p.l;
 import b.a.q0.s.g0.n.a;
 import b.a.q0.s.q.d2;
 import b.a.r0.k2.f;
 import b.a.r0.k2.g;
 import b.a.r0.k2.i;
 import b.a.r0.k2.j;
-import b.a.r0.k2.u.f.p0;
+import b.a.r0.k2.u.f.q0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.HeadIconRefreshHelper;
@@ -30,16 +30,16 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HeadImageView f52832e;
+    public HeadImageView f53749e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PbVideoFullscreenLikeBtn f52833f;
+    public PbVideoFullscreenLikeBtn f53750f;
 
     /* renamed from: g  reason: collision with root package name */
-    public p0 f52834g;
+    public q0 f53751g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f52835h;
+    public BdUniqueId f53752h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoFullscreenAttentionLayout(Context context) {
@@ -66,13 +66,13 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             FrameLayout.inflate(context, j.pb_video_attention, this);
-            this.f52832e = (HeadImageView) findViewById(i.attention_img);
-            this.f52833f = (PbVideoFullscreenLikeBtn) findViewById(i.concern_video_info_item);
-            this.f52832e.setIsRound(true);
-            this.f52832e.setBorderWidth(l.g(context, g.tbds3));
-            this.f52832e.setBorderColor(context.getResources().getColor(f.CAM_X0402));
-            this.f52832e.setAutoChangeStyle(false);
-            this.f52833f.setConfig(new a());
+            this.f53749e = (HeadImageView) findViewById(i.attention_img);
+            this.f53750f = (PbVideoFullscreenLikeBtn) findViewById(i.concern_video_info_item);
+            this.f53749e.setIsRound(true);
+            this.f53749e.setBorderWidth(l.g(context, g.tbds3));
+            this.f53749e.setBorderColor(context.getResources().getColor(f.CAM_X0402));
+            this.f53749e.setAutoChangeStyle(false);
+            this.f53750f.setConfig(new a());
         }
     }
 
@@ -83,7 +83,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             if (d2Var == null) {
                 return 0;
             }
-            if (d2Var.l2()) {
+            if (d2Var.n2()) {
                 return !k.isEmpty(d2Var.Z()) ? 2 : 0;
             }
             return 1;
@@ -95,8 +95,8 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            p0 p0Var = this.f52834g;
-            return (p0Var == null || p0Var.j() == null || !this.f52834g.j().getIsLike()) ? false : true;
+            q0 q0Var = this.f53751g;
+            return (q0Var == null || q0Var.j() == null || !this.f53751g.j().getIsLike()) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -108,21 +108,21 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         }
         String str = d2Var.E;
         int threadForumType = getThreadForumType(d2Var);
-        if (this.f52834g == null) {
+        if (this.f53751g == null) {
             if (!(getContext() instanceof AbsPbActivity)) {
                 return;
             }
-            p0 p0Var = new p0(((AbsPbActivity) getContext()).getPageContext(), this.f52833f, -1);
-            this.f52834g = p0Var;
-            p0Var.m("11");
-            this.f52834g.l(this.f52835h);
+            q0 q0Var = new q0(((AbsPbActivity) getContext()).getPageContext(), this.f53750f, -1);
+            this.f53751g = q0Var;
+            q0Var.m("11");
+            this.f53751g.l(this.f53752h);
         }
-        this.f52834g.n(d2Var.J());
-        this.f52834g.w(str);
-        this.f52834g.u(d2Var);
-        p0 p0Var2 = this.f52834g;
-        p0Var2.s = true;
-        p0Var2.v(threadForumType);
+        this.f53751g.n(d2Var.J());
+        this.f53751g.w(str);
+        this.f53751g.u(d2Var);
+        q0 q0Var2 = this.f53751g;
+        q0Var2.s = true;
+        q0Var2.v(threadForumType);
     }
 
     public void setData(d2 d2Var) {
@@ -132,27 +132,27 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         }
         String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(d2Var.J().getAvater());
         if (headPortraitFilter.startsWith("http")) {
-            this.f52832e.startLoad(headPortraitFilter, 10, false);
+            this.f53749e.startLoad(headPortraitFilter, 10, false);
         } else {
-            this.f52832e.startLoad(headPortraitFilter, 25, false);
+            this.f53749e.startLoad(headPortraitFilter, 25, false);
         }
-        this.f52832e.setBjhAuthIconRes(0);
-        this.f52832e.setIsBigV(d2Var.J().isBigV());
-        this.f52832e.setShowV(d2Var.J().isBigV());
+        this.f53749e.setBjhAuthIconRes(0);
+        this.f53749e.setIsBigV(d2Var.J().isBigV());
+        this.f53749e.setShowV(d2Var.J().isBigV());
         processUserLikePresenter(d2Var);
     }
 
     public void setOnClickEvent(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f52833f.setOnclickEvent(onClickListener);
+            this.f53750f.setOnclickEvent(onClickListener);
         }
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
-            this.f52835h = bdUniqueId;
+            this.f53752h = bdUniqueId;
         }
     }
 

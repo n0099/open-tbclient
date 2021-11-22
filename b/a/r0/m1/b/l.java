@@ -2,7 +2,7 @@ package b.a.r0.m1.b;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.d1.z;
+import b.a.q0.c1.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
@@ -20,13 +20,13 @@ public class l implements b.a.q0.k0.b.g, b.a.q0.k0.b.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21070e;
+    public int f22225e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21071f;
+    public int f22226f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21072g;
+    public String f22227g;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -41,21 +41,21 @@ public class l implements b.a.q0.k0.b.g, b.a.q0.k0.b.d {
                 return;
             }
         }
-        this.f21071f = 1;
+        this.f22226f = 1;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21070e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22225e : invokeV.intValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f21071f = 1;
-            this.f21070e = 1;
-            this.f21072g = null;
+            this.f22226f = 1;
+            this.f22225e = 1;
+            this.f22227g = null;
         }
     }
 
@@ -64,14 +64,14 @@ public class l implements b.a.q0.k0.b.g, b.a.q0.k0.b.d {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, feedData) == null) || feedData == null) {
             return;
         }
-        this.f21072g = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
+        this.f22227g = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f21071f++;
-            this.f21070e = 4;
+            this.f22226f++;
+            this.f22225e = 4;
         }
     }
 
@@ -82,12 +82,12 @@ public class l implements b.a.q0.k0.b.g, b.a.q0.k0.b.d {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.pn = Integer.valueOf(this.f21071f);
-                builder.ids = this.f21072g;
+                builder.pn = Integer.valueOf(this.f22226f);
+                builder.ids = this.f22227g;
                 builder.q_type = Integer.valueOf(b.a.q0.s.k.c().e());
                 builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-                builder.scr_h = Integer.valueOf(b.a.e.e.p.l.i(TbadkCoreApplication.getInst().getApp()));
-                builder.scr_w = Integer.valueOf(b.a.e.e.p.l.k(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_h = Integer.valueOf(b.a.e.f.p.l.i(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_w = Integer.valueOf(b.a.e.f.p.l.k(TbadkCoreApplication.getInst().getApp()));
                 if (z) {
                     z.a(builder, true);
                 }
@@ -133,13 +133,13 @@ public class l implements b.a.q0.k0.b.g, b.a.q0.k0.b.d {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
-            hashMap.put("pn", String.valueOf(this.f21071f));
+            hashMap.put("pn", String.valueOf(this.f22226f));
             hashMap.put("q_type", Integer.valueOf(b.a.q0.s.k.c().e()));
             hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
-            hashMap.put("scr_h", Integer.valueOf(b.a.e.e.p.l.i(TbadkCoreApplication.getInst().getApp())));
-            hashMap.put("scr_w", Integer.valueOf(b.a.e.e.p.l.k(TbadkCoreApplication.getInst().getApp())));
-            if (this.f21070e == 4 && !TextUtils.isEmpty(this.f21072g)) {
-                hashMap.put("ids", this.f21072g);
+            hashMap.put("scr_h", Integer.valueOf(b.a.e.f.p.l.i(TbadkCoreApplication.getInst().getApp())));
+            hashMap.put("scr_w", Integer.valueOf(b.a.e.f.p.l.k(TbadkCoreApplication.getInst().getApp())));
+            if (this.f22225e == 4 && !TextUtils.isEmpty(this.f22227g)) {
+                hashMap.put("ids", this.f22227g);
             }
             return hashMap;
         }

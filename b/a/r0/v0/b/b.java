@@ -1,6 +1,6 @@
 package b.a.r0.v0.b;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,11 +18,11 @@ public class b implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f24252f;
+    public static final BdUniqueId f25715f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f24253e;
+    public int f25716e;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class b implements n {
                 return;
             }
         }
-        f24252f = BdUniqueId.gen();
+        f25715f = BdUniqueId.gen();
     }
 
     public b() {
@@ -57,13 +57,13 @@ public class b implements n {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24253e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25716e : invokeV.intValue;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f24253e = i2;
+            this.f25716e = i2;
         }
     }
 
@@ -76,10 +76,10 @@ public class b implements n {
         d(memberGodInfo.forum_god_num.intValue());
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f24252f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f25715f : (BdUniqueId) invokeV.objValue;
     }
 }

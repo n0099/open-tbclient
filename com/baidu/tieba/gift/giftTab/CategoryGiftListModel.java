@@ -19,13 +19,13 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<j0> f49261e;
+    public ArrayList<j0> f50172e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f49262f;
+    public b f50173f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.e.c.g.a f49263g;
+    public b.a.e.c.g.a f50174g;
 
     /* loaded from: classes9.dex */
     public class a extends b.a.e.c.g.a {
@@ -33,7 +33,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CategoryGiftListModel f49264a;
+        public final /* synthetic */ CategoryGiftListModel f50175a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(CategoryGiftListModel categoryGiftListModel, int i2, int i3) {
@@ -54,7 +54,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
                     return;
                 }
             }
-            this.f49264a = categoryGiftListModel;
+            this.f50175a = categoryGiftListModel;
         }
 
         @Override // b.a.e.c.g.a
@@ -68,15 +68,15 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
                 int i2 = 0;
                 if (z) {
                     CategoryGiftListHttpResponseMessage categoryGiftListHttpResponseMessage = (CategoryGiftListHttpResponseMessage) responsedMessage;
-                    this.f49264a.f49261e = categoryGiftListHttpResponseMessage.getGiftList();
+                    this.f50175a.f50172e = categoryGiftListHttpResponseMessage.getGiftList();
                     i2 = categoryGiftListHttpResponseMessage.getCategoryId();
                 } else if (responsedMessage instanceof CategoryGiftListSocketResponseMessage) {
                     CategoryGiftListSocketResponseMessage categoryGiftListSocketResponseMessage = (CategoryGiftListSocketResponseMessage) responsedMessage;
-                    this.f49264a.f49261e = categoryGiftListSocketResponseMessage.getGiftList();
+                    this.f50175a.f50172e = categoryGiftListSocketResponseMessage.getGiftList();
                     i2 = categoryGiftListSocketResponseMessage.getCategoryId();
                 }
-                if (this.f49264a.f49262f != null) {
-                    this.f49264a.f49262f.a(responsedMessage.getError(), responsedMessage.getErrorString(), i2, this.f49264a.f49261e);
+                if (this.f50175a.f50173f != null) {
+                    this.f50175a.f50173f.a(responsedMessage.getError(), responsedMessage.getErrorString(), i2, this.f50175a.f50172e);
                 }
             }
         }
@@ -105,7 +105,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
                 return;
             }
         }
-        this.f49263g = new a(this, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, 309055);
+        this.f50174g = new a(this, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, 309055);
         registerTask();
         registerListener();
     }
@@ -113,7 +113,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f49262f = bVar;
+            this.f50173f = bVar;
         }
     }
 
@@ -140,15 +140,15 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            registerListener(this.f49263g);
+            registerListener(this.f50174g);
         }
     }
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b.a.r0.l3.f0.a.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
-            b.a.r0.l3.f0.a.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
+            b.a.r0.m3.f0.a.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
+            b.a.r0.m3.f0.a.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 

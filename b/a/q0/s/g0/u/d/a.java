@@ -1,6 +1,6 @@
 package b.a.q0.s.g0.u.d;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +15,7 @@ public abstract class a implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BdUniqueId f13091e;
+    public static final BdUniqueId f13871e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public abstract class a implements n {
                 return;
             }
         }
-        f13091e = BdUniqueId.gen();
+        f13871e = BdUniqueId.gen();
     }
 
     public a() {
@@ -52,10 +52,10 @@ public abstract class a implements n {
 
     public abstract Object d();
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f13091e : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f13871e : (BdUniqueId) invokeV.objValue;
     }
 }

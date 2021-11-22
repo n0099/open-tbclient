@@ -32,7 +32,7 @@ public class Decoder implements INoProGuard {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f60982a;
+        public static final /* synthetic */ int[] f61902a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,21 +49,21 @@ public class Decoder implements INoProGuard {
                 }
             }
             int[] iArr = new int[DecoderJNI.a.values().length];
-            f60982a = iArr;
+            f61902a = iArr;
             try {
-                iArr[DecoderJNI.a.f60984b.ordinal()] = 1;
+                iArr[DecoderJNI.a.f61904b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f60982a[DecoderJNI.a.f60987e.ordinal()] = 2;
+                f61902a[DecoderJNI.a.f61907e.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f60982a[DecoderJNI.a.f60985c.ordinal()] = 3;
+                f61902a[DecoderJNI.a.f61905c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f60982a[DecoderJNI.a.f60986d.ordinal()] = 4;
+                f61902a[DecoderJNI.a.f61906d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -120,8 +120,8 @@ public class Decoder implements INoProGuard {
                 wrapper.getInputBuffer().put(bArr);
                 wrapper.push(bArr.length);
                 int i2 = 0;
-                while (wrapper.getStatus() != DecoderJNI.a.f60984b) {
-                    int i3 = AnonymousClass1.f60982a[wrapper.getStatus().ordinal()];
+                while (wrapper.getStatus() != DecoderJNI.a.f61904b) {
+                    int i3 = AnonymousClass1.f61902a[wrapper.getStatus().ordinal()];
                     if (i3 == 2) {
                         wrapper.push(0);
                     } else if (i3 != 4) {
@@ -206,7 +206,7 @@ public class Decoder implements INoProGuard {
                 }
                 this.buffer = null;
             }
-            int i2 = AnonymousClass1.f60982a[this.decoder.getStatus().ordinal()];
+            int i2 = AnonymousClass1.f61902a[this.decoder.getStatus().ordinal()];
             if (i2 == 1) {
                 return -1;
             }

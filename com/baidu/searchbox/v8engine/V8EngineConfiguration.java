@@ -85,6 +85,7 @@ public class V8EngineConfiguration {
         }
     }
 
+    @Deprecated
     /* loaded from: classes7.dex */
     public interface JSCacheCallback {
         void onCacheResult(CacheInfo cacheInfo);

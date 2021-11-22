@@ -95,19 +95,19 @@ public class b extends c {
             if (j < 0) {
                 j = 0;
             }
-            if (this.f29576i != null && j > this.f29576i.getDuration()) {
-                j = this.f29576i.getDuration();
+            if (this.f30445i != null && j > this.f30445i.getDuration()) {
+                j = this.f30445i.getDuration();
             }
             if (z) {
                 int playState = L() ? this.F.getPlayState() : 2;
                 if (playState == 2) {
                     pause();
                 }
-                synchronized (this.f29573f) {
+                synchronized (this.f30442f) {
                     if (L()) {
                         this.F.flush();
                     }
-                    this.f29575h = 0L;
+                    this.f30444h = 0L;
                 }
                 e();
                 c();
@@ -115,9 +115,9 @@ public class b extends c {
                     I();
                 }
             }
-            synchronized (this.f29574g) {
-                if (this.f29576i != null) {
-                    this.f29576i.seek(j);
+            synchronized (this.f30443g) {
+                if (this.f30445i != null) {
+                    this.f30445i.seek(j);
                 }
             }
         }
@@ -126,7 +126,7 @@ public class b extends c {
     public void N(float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            synchronized (this.f29573f) {
+            synchronized (this.f30442f) {
                 if (L()) {
                     this.F.setStereoVolume(f2, f3);
                 }
@@ -149,7 +149,7 @@ public class b extends c {
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this.f29573f) {
+            synchronized (this.f30442f) {
                 if (L() && this.F.getPlayState() != 2) {
                     this.F.pause();
                 }
@@ -161,7 +161,7 @@ public class b extends c {
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this.f29573f) {
+            synchronized (this.f30442f) {
                 if (L() && this.F.getPlayState() != 3) {
                     this.F.play();
                 }

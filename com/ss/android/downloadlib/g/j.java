@@ -17,7 +17,7 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, a> f68865a;
+    public static Map<String, a> f69785a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -40,7 +40,7 @@ public class j {
                 return;
             }
         }
-        f68865a = Collections.synchronizedMap(new HashMap());
+        f69785a = Collections.synchronizedMap(new HashMap());
     }
 
     public static void a(String[] strArr, a aVar) {
@@ -66,7 +66,7 @@ public class j {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f68865a.remove(str);
+            return f69785a.remove(str);
         }
         return (a) invokeL.objValue;
     }
@@ -94,6 +94,6 @@ public class j {
         if (!(interceptable == null || interceptable.invokeLL(65538, null, str, aVar) == null) || TextUtils.isEmpty(str) || aVar == null) {
             return;
         }
-        f68865a.put(str, aVar);
+        f69785a.put(str, aVar);
     }
 }

@@ -16,13 +16,13 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f38576a;
+    public Context f39408a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f38577b;
+    public HashMap<String, String> f39409b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<String> f38578c;
+    public a<String> f39410c;
 
     /* loaded from: classes7.dex */
     public interface a<Result> {
@@ -44,9 +44,9 @@ public class c {
                 return;
             }
         }
-        this.f38577b = null;
-        this.f38578c = null;
-        this.f38576a = context;
+        this.f39409b = null;
+        this.f39410c = null;
+        this.f39408a = context;
     }
 
     private HashMap<String, String> a(HashMap<String, String> hashMap) {
@@ -84,7 +84,7 @@ public class c {
                     e2.printStackTrace();
                 }
             }
-            a<String> aVar = this.f38578c;
+            a<String> aVar = this.f39410c;
             if (aVar != null) {
                 aVar.a(jSONObject.toString());
             }
@@ -94,8 +94,8 @@ public class c {
     public void a(HashMap<String, String> hashMap, a<String> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hashMap, aVar) == null) {
-            this.f38577b = a(hashMap);
-            this.f38578c = aVar;
+            this.f39409b = a(hashMap);
+            this.f39410c = aVar;
             new Thread(new d(this)).start();
         }
     }

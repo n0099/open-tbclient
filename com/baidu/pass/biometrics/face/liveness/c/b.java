@@ -20,29 +20,29 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f41864g = "b";
+    public static final String f42696g = "b";
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f41865h = 1000;
+    public static long f42697h = 1000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f41866a;
+    public Context f42698a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SensorManager f41867b;
+    public SensorManager f42699b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Sensor f41868c;
+    public Sensor f42700c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SensorEventListener f41869d;
+    public SensorEventListener f42701d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f41870e;
+    public long f42702e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f41871f;
+    public float f42703f;
 
     /* loaded from: classes7.dex */
     public class a implements SensorEventListener {
@@ -50,17 +50,17 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC1647b f41872a;
+        public final /* synthetic */ InterfaceC1683b f42704a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f41873b;
+        public final /* synthetic */ b f42705b;
 
-        public a(b bVar, InterfaceC1647b interfaceC1647b) {
+        public a(b bVar, InterfaceC1683b interfaceC1683b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, interfaceC1647b};
+                Object[] objArr = {bVar, interfaceC1683b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -70,15 +70,15 @@ public class b {
                     return;
                 }
             }
-            this.f41873b = bVar;
-            this.f41872a = interfaceC1647b;
+            this.f42705b = bVar;
+            this.f42704a = interfaceC1683b;
         }
 
         @Override // android.hardware.SensorEventListener
         public void onAccuracyChanged(Sensor sensor, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i2) == null) {
-                String str = b.f41864g;
+                String str = b.f42696g;
                 Log.w(str, "onAccuracyChanged" + i2);
             }
         }
@@ -87,18 +87,18 @@ public class b {
         public void onSensorChanged(SensorEvent sensorEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
-                String str = b.f41864g;
+                String str = b.f42696g;
                 Log.w(str, "onSensorChanged() time:" + System.currentTimeMillis());
                 float[] fArr = sensorEvent.values;
                 if (fArr != null && fArr.length > 0) {
-                    this.f41873b.f41871f = fArr[0];
-                    String str2 = b.f41864g;
-                    Log.w(str2, "onSensorChanged() event.values[0]:" + this.f41873b.f41871f);
+                    this.f42705b.f42703f = fArr[0];
+                    String str2 = b.f42696g;
+                    Log.w(str2, "onSensorChanged() event.values[0]:" + this.f42705b.f42703f);
                 }
-                this.f41873b.f41870e = System.currentTimeMillis();
-                InterfaceC1647b interfaceC1647b = this.f41872a;
-                if (interfaceC1647b != null) {
-                    interfaceC1647b.a(this.f41873b.a());
+                this.f42705b.f42702e = System.currentTimeMillis();
+                InterfaceC1683b interfaceC1683b = this.f42704a;
+                if (interfaceC1683b != null) {
+                    interfaceC1683b.a(this.f42705b.a());
                 }
             }
         }
@@ -106,7 +106,7 @@ public class b {
 
     /* renamed from: com.baidu.pass.biometrics.face.liveness.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC1647b {
+    public interface InterfaceC1683b {
         void a(float f2);
     }
 
@@ -140,42 +140,42 @@ public class b {
                 return;
             }
         }
-        this.f41870e = 0L;
-        this.f41871f = 2.1474836E9f;
-        this.f41866a = context;
+        this.f42702e = 0L;
+        this.f42703f = 2.1474836E9f;
+        this.f42698a = context;
     }
 
     @TargetApi(3)
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Log.w(f41864g, "unRegisterSensorListener()");
-            SensorManager sensorManager = this.f41867b;
-            if (sensorManager == null || this.f41868c == null) {
+            Log.w(f42696g, "unRegisterSensorListener()");
+            SensorManager sensorManager = this.f42699b;
+            if (sensorManager == null || this.f42700c == null) {
                 return;
             }
-            sensorManager.unregisterListener(this.f41869d);
+            sensorManager.unregisterListener(this.f42701d);
         }
     }
 
     @TargetApi(3)
-    public void a(InterfaceC1647b interfaceC1647b) {
+    public void a(InterfaceC1683b interfaceC1683b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1647b) == null) {
-            SensorManager sensorManager = (SensorManager) this.f41866a.getSystemService("sensor");
-            this.f41867b = sensorManager;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1683b) == null) {
+            SensorManager sensorManager = (SensorManager) this.f42698a.getSystemService("sensor");
+            this.f42699b = sensorManager;
             if (sensorManager == null) {
-                Log.w(f41864g, "sensorManager|senserManager == null");
+                Log.w(f42696g, "sensorManager|senserManager == null");
                 return;
             }
             Sensor defaultSensor = sensorManager.getDefaultSensor(5);
-            this.f41868c = defaultSensor;
+            this.f42700c = defaultSensor;
             if (defaultSensor == null) {
                 return;
             }
-            a aVar = new a(this, interfaceC1647b);
-            this.f41869d = aVar;
-            this.f41867b.registerListener(aVar, this.f41868c, 3);
+            a aVar = new a(this, interfaceC1683b);
+            this.f42701d = aVar;
+            this.f42699b.registerListener(aVar, this.f42700c, 3);
         }
     }
 
@@ -183,10 +183,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f41870e != 0 && System.currentTimeMillis() - this.f41870e > f41865h) {
-                this.f41871f = 0.0f;
+            if (this.f42702e != 0 && System.currentTimeMillis() - this.f42702e > f42697h) {
+                this.f42703f = 0.0f;
             }
-            return this.f41871f;
+            return this.f42703f;
         }
         return invokeV.floatValue;
     }

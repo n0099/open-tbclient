@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.i.b.a.b;
-import b.i.b.a.i0.v;
+import b.h.b.a.b;
+import b.h.b.a.i0.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -169,7 +169,7 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
         public boolean matches(UUID uuid) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uuid)) == null) ? b.f31850b.equals(this.uuid) || uuid.equals(this.uuid) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uuid)) == null) ? b.f32708b.equals(this.uuid) || uuid.equals(this.uuid) : invokeL.booleanValue;
         }
 
         @Override // android.os.Parcelable
@@ -199,9 +199,9 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
                     return;
                 }
             }
-            b.i.b.a.i0.a.e(uuid);
+            b.h.b.a.i0.a.e(uuid);
             this.uuid = uuid;
-            b.i.b.a.i0.a.e(str);
+            b.h.b.a.i0.a.e(str);
             this.mimeType = str;
             this.data = bArr;
             this.requiresSecureDecryption = z;
@@ -402,8 +402,8 @@ public final class DrmInitData implements Comparator<SchemeData>, Parcelable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, schemeData, schemeData2)) == null) {
-            if (b.f31850b.equals(schemeData.uuid)) {
-                return b.f31850b.equals(schemeData2.uuid) ? 0 : 1;
+            if (b.f32708b.equals(schemeData.uuid)) {
+                return b.f32708b.equals(schemeData2.uuid) ? 0 : 1;
             }
             return schemeData.uuid.compareTo(schemeData2.uuid);
         }

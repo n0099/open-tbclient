@@ -10,10 +10,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f71679a;
+    public static char[] f72598a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f71680b;
+    public static byte[] f72599b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,33 +29,33 @@ public class a {
                 return;
             }
         }
-        f71679a = new char[64];
+        f72598a = new char[64];
         char c2 = 'A';
         int i2 = 0;
         while (c2 <= 'Z') {
-            f71679a[i2] = c2;
+            f72598a[i2] = c2;
             c2 = (char) (c2 + 1);
             i2++;
         }
         char c3 = 'a';
         while (c3 <= 'z') {
-            f71679a[i2] = c3;
+            f72598a[i2] = c3;
             c3 = (char) (c3 + 1);
             i2++;
         }
         char c4 = '0';
         while (c4 <= '9') {
-            f71679a[i2] = c4;
+            f72598a[i2] = c4;
             c4 = (char) (c4 + 1);
             i2++;
         }
-        char[] cArr = f71679a;
+        char[] cArr = f72598a;
         cArr[i2] = '+';
         cArr[i2 + 1] = '/';
-        f71680b = new byte[128];
+        f72599b = new byte[128];
         int i3 = 0;
         while (true) {
-            byte[] bArr = f71680b;
+            byte[] bArr = f72599b;
             if (i3 >= bArr.length) {
                 break;
             }
@@ -63,7 +63,7 @@ public class a {
             i3++;
         }
         for (int i4 = 0; i4 < 64; i4++) {
-            f71680b[f71679a[i4]] = (byte) i4;
+            f72599b[f72598a[i4]] = (byte) i4;
         }
     }
 
@@ -105,15 +105,15 @@ public class a {
                 int i13 = ((i4 & 15) << 2) | (i5 >>> 6);
                 int i14 = i5 & 63;
                 int i15 = i8 + 1;
-                char[] cArr2 = f71679a;
+                char[] cArr2 = f72598a;
                 cArr[i8] = cArr2[i11];
                 int i16 = i15 + 1;
                 cArr[i15] = cArr2[i12];
-                char c2 = com.alipay.sdk.encrypt.a.f34124h;
-                cArr[i16] = i16 < i6 ? cArr2[i13] : com.alipay.sdk.encrypt.a.f34124h;
+                char c2 = com.alipay.sdk.encrypt.a.f34958h;
+                cArr[i16] = i16 < i6 ? cArr2[i13] : com.alipay.sdk.encrypt.a.f34958h;
                 int i17 = i16 + 1;
                 if (i17 < i6) {
-                    c2 = f71679a[i14];
+                    c2 = f72598a[i14];
                 }
                 cArr[i17] = c2;
                 i8 = i17 + 1;

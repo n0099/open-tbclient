@@ -16,10 +16,10 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f15686a;
+    public int f16801a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f15687b;
+    public String f16802b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -34,20 +34,20 @@ public class c {
                 return;
             }
         }
-        this.f15686a = 0;
-        this.f15687b = null;
+        this.f16801a = 0;
+        this.f16802b = null;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15686a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16801a : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15687b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16802b : (String) invokeV.objValue;
     }
 
     public void c(String str) {
@@ -66,8 +66,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
             try {
-                this.f15686a = jSONObject.optInt("errno");
-                this.f15687b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+                this.f16801a = jSONObject.optInt("errno");
+                this.f16802b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
             } catch (Exception e2) {
                 BdLog.detailException(e2);
             }

@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.e.l.e.l;
+import b.a.e.m.e.l;
 import b.a.r0.o0.g.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -47,31 +47,31 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f21901a;
+    public TbPageContext<?> f23400a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f21902b;
+    public int f23401b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f21903c;
+    public View f23402c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f21904d;
+    public View f23403d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecentlyVisitedForumModel f21905e;
+    public RecentlyVisitedForumModel f23404e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Vibrator f21906f;
+    public Vibrator f23405f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f21907g;
+    public TextView f23406g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f21908h;
+    public ImageView f23407h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f21909i;
+    public TextView f23408i;
     public RecyclerView j;
     public View k;
     public RecentlyVisitedForumListAdapter l;
@@ -92,7 +92,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f21910a;
+        public final /* synthetic */ e f23409a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(e eVar, int i2) {
@@ -112,7 +112,7 @@ public class e {
                     return;
                 }
             }
-            this.f21910a = eVar;
+            this.f23409a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -121,12 +121,12 @@ public class e {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    if (this.f21910a.q == null) {
-                        this.f21910a.q = new l(new b.a.e.l.e.j());
+                    if (this.f23409a.q == null) {
+                        this.f23409a.q = new l(new b.a.e.m.e.j());
                     }
-                    this.f21910a.q.q(this.f21910a.j, 1);
-                } else if (this.f21910a.q != null) {
-                    this.f21910a.q.w();
+                    this.f23409a.q.q(this.f23409a.j, 1);
+                } else if (this.f23409a.q != null) {
+                    this.f23409a.q.w();
                 }
             }
         }
@@ -138,7 +138,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f21911a;
+        public final /* synthetic */ e f23410a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(e eVar, int i2) {
@@ -158,7 +158,7 @@ public class e {
                     return;
                 }
             }
-            this.f21911a = eVar;
+            this.f23410a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -166,7 +166,7 @@ public class e {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.f21911a.k();
+                this.f23410a.k();
             }
         }
     }
@@ -177,7 +177,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21912e;
+        public final /* synthetic */ e f23411e;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -194,14 +194,14 @@ public class e {
                     return;
                 }
             }
-            this.f21912e = eVar;
+            this.f23411e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f21912e.B();
+                this.f23411e.B();
             }
         }
     }
@@ -212,7 +212,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21913e;
+        public final /* synthetic */ e f23412e;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -229,28 +229,28 @@ public class e {
                     return;
                 }
             }
-            this.f21913e = eVar;
+            this.f23412e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f21913e.D(false);
+                this.f23412e.D(false);
             }
         }
     }
 
     /* renamed from: b.a.r0.o0.m.e$e  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1074e implements RecentlyVisitedForumListAdapter.a {
+    public class C1142e implements RecentlyVisitedForumListAdapter.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f21914a;
+        public final /* synthetic */ e f23413a;
 
-        public C1074e(e eVar) {
+        public C1142e(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -265,20 +265,20 @@ public class e {
                     return;
                 }
             }
-            this.f21914a = eVar;
+            this.f23413a = eVar;
         }
 
         @Override // com.baidu.tieba.enterForum.adapter.RecentlyVisitedForumListAdapter.a
         public void a(RecentlyVisitedForumListAdapter.ForumViewHolder forumViewHolder) {
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, forumViewHolder) == null) || this.f21914a.n || forumViewHolder == null || (view = forumViewHolder.itemView) == null || !(view.getTag() instanceof VisitedForumData)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, forumViewHolder) == null) || this.f23413a.n || forumViewHolder == null || (view = forumViewHolder.itemView) == null || !(view.getTag() instanceof VisitedForumData)) {
                 return;
             }
             VisitedForumData visitedForumData = (VisitedForumData) forumViewHolder.itemView.getTag();
-            FrsActivityConfig callFrom = new FrsActivityConfig(this.f21914a.f21901a.getPageActivity()).createNormalCfg(visitedForumData.getForumName(), FrsActivityConfig.FRS_FROM_RECENTLY_VISITED).setCallFrom(4);
-            this.f21914a.l(forumViewHolder, callFrom.getIntent(), visitedForumData.z());
-            this.f21914a.f21901a.sendMessage(new CustomMessage(2003000, callFrom));
+            FrsActivityConfig callFrom = new FrsActivityConfig(this.f23413a.f23400a.getPageActivity()).createNormalCfg(visitedForumData.getForumName(), FrsActivityConfig.FRS_FROM_RECENTLY_VISITED).setCallFrom(4);
+            this.f23413a.l(forumViewHolder, callFrom.getIntent(), visitedForumData.z());
+            this.f23413a.f23400a.sendMessage(new CustomMessage(2003000, callFrom));
             TiebaStatic.log(new StatisticItem("c13002").param("fid", visitedForumData.getForumId()));
         }
     }
@@ -289,7 +289,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21915e;
+        public final /* synthetic */ e f23414e;
 
         public f(e eVar) {
             Interceptable interceptable = $ic;
@@ -306,7 +306,7 @@ public class e {
                     return;
                 }
             }
-            this.f21915e = eVar;
+            this.f23414e = eVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -314,7 +314,7 @@ public class e {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                this.f21915e.D(true);
+                this.f23414e.D(true);
                 return true;
             }
             return invokeL.booleanValue;
@@ -327,7 +327,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f21916e;
+        public final /* synthetic */ e f23415e;
 
         public g(e eVar) {
             Interceptable interceptable = $ic;
@@ -344,17 +344,17 @@ public class e {
                     return;
                 }
             }
-            this.f21916e = eVar;
+            this.f23415e = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21916e.f21905e == null || view.getTag() == null || !(view.getTag() instanceof VisitedForumData)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f23415e.f23404e == null || view.getTag() == null || !(view.getTag() instanceof VisitedForumData)) {
                 return;
             }
             VisitedForumData visitedForumData = (VisitedForumData) view.getTag();
-            this.f21916e.f21905e.w(visitedForumData);
+            this.f23415e.f23404e.w(visitedForumData);
             TiebaStatic.log(new StatisticItem("c13005").param("fid", visitedForumData.getForumId()));
         }
     }
@@ -365,7 +365,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f21917a;
+        public final /* synthetic */ e f23416a;
 
         public h(e eVar) {
             Interceptable interceptable = $ic;
@@ -382,18 +382,18 @@ public class e {
                     return;
                 }
             }
-            this.f21917a = eVar;
+            this.f23416a = eVar;
         }
 
         @Override // b.a.r0.o0.g.a.f
         public void a(LinkedList<VisitedForumData> linkedList, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, linkedList, z) == null) {
-                this.f21917a.y(linkedList);
-                if (z || this.f21917a.p == null) {
+                this.f23416a.y(linkedList);
+                if (z || this.f23416a.p == null) {
                     return;
                 }
-                this.f21917a.p.c(linkedList, this.f21917a.f21901a.getResources().getDimensionPixelSize(R.dimen.tbds678) + this.f21917a.f21901a.getResources().getDimensionPixelSize(R.dimen.tbds10));
+                this.f23416a.p.c(linkedList, this.f23416a.f23400a.getResources().getDimensionPixelSize(R.dimen.tbds678) + this.f23416a.f23400a.getResources().getDimensionPixelSize(R.dimen.tbds10));
             }
         }
 
@@ -401,7 +401,7 @@ public class e {
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f21917a.v(i2);
+                this.f23416a.v(i2);
             }
         }
 
@@ -409,7 +409,7 @@ public class e {
         public void onNotify() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f21917a.u();
+                this.f23416a.u();
             }
         }
     }
@@ -420,7 +420,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ e f21918a;
+        public final /* synthetic */ e f23417a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(e eVar, int i2) {
@@ -440,7 +440,7 @@ public class e {
                     return;
                 }
             }
-            this.f21918a = eVar;
+            this.f23417a = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -448,7 +448,7 @@ public class e {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                this.f21918a.m(((Boolean) customResponsedMessage.getData()).booleanValue());
+                this.f23417a.m(((Boolean) customResponsedMessage.getData()).booleanValue());
             }
         }
     }
@@ -464,13 +464,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f21919a;
+        public int f23418a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f21920b;
+        public int f23419b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f21921c;
+        public int f23420c;
 
         public k(e eVar, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -487,9 +487,9 @@ public class e {
                     return;
                 }
             }
-            this.f21919a = i2;
-            this.f21920b = i3;
-            this.f21921c = i4;
+            this.f23418a = i2;
+            this.f23419b = i3;
+            this.f23420c = i4;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -499,23 +499,23 @@ public class e {
                 LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
                 if (linearLayoutManager.getOrientation() == 1) {
                     if (recyclerView.getChildAdapterPosition(view) == 0) {
-                        rect.top = this.f21919a;
+                        rect.top = this.f23418a;
                     } else {
-                        rect.top = this.f21920b;
+                        rect.top = this.f23419b;
                     }
                     if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                        rect.bottom = this.f21921c;
+                        rect.bottom = this.f23420c;
                         return;
                     }
                     return;
                 }
                 if (recyclerView.getChildAdapterPosition(view) == 0) {
-                    rect.left = this.f21919a;
+                    rect.left = this.f23418a;
                 } else {
-                    rect.left = this.f21920b;
+                    rect.left = this.f23419b;
                 }
                 if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                    rect.right = this.f21921c;
+                    rect.right = this.f23420c;
                 }
             }
         }
@@ -536,16 +536,16 @@ public class e {
                 return;
             }
         }
-        this.f21902b = 3;
+        this.f23401b = 3;
         this.m = true;
         this.n = false;
         this.t = new a(this, 2156674);
         this.u = new b(this, 2001011);
         this.v = new i(this, 2921347);
-        this.f21901a = tbPageContext;
-        this.f21905e = recentlyVisitedForumModel;
+        this.f23400a = tbPageContext;
+        this.f23404e = recentlyVisitedForumModel;
         this.o = viewEventCenter;
-        this.f21906f = (Vibrator) tbPageContext.getPageActivity().getSystemService("vibrator");
+        this.f23405f = (Vibrator) tbPageContext.getPageActivity().getSystemService("vibrator");
         this.p = new b.a.r0.o0.h.e(tbPageContext);
         MessageManager.getInstance().registerListener(this.t);
         MessageManager.getInstance().registerListener(this.u);
@@ -557,16 +557,16 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             b.a.r0.o0.d.c cVar = this.r;
-            if (cVar != null && cVar.f21561a) {
-                SkinManager.setViewTextColor(this.f21907g, R.color.CAM_X0101);
-                this.f21903c.setBackgroundColor(0);
-                SkinManager.setViewTextColorSelector(this.f21909i, R.color.CAM_X0201, R.color.cp_bg_line_d_alpha50, 0);
-                this.f21909i.setBackgroundResource(R.drawable.enter_forum_recent_edit_done_trans_bg);
+            if (cVar != null && cVar.f23060a) {
+                SkinManager.setViewTextColor(this.f23406g, R.color.CAM_X0101);
+                this.f23402c.setBackgroundColor(0);
+                SkinManager.setViewTextColorSelector(this.f23408i, R.color.CAM_X0201, R.color.cp_bg_line_d_alpha50, 0);
+                this.f23408i.setBackgroundResource(R.drawable.enter_forum_recent_edit_done_trans_bg);
             } else {
-                SkinManager.setViewTextColor(this.f21907g, R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(this.f21903c, R.color.CAM_X0205);
-                SkinManager.setViewTextColor(this.f21909i, R.color.CAM_X0302);
-                this.f21909i.setBackgroundResource(R.drawable.enter_forum_recent_edit_done_trans_bg);
+                SkinManager.setViewTextColor(this.f23406g, R.color.CAM_X0105);
+                SkinManager.setBackgroundColor(this.f23402c, R.color.CAM_X0205);
+                SkinManager.setViewTextColor(this.f23408i, R.color.CAM_X0302);
+                this.f23408i.setBackgroundResource(R.drawable.enter_forum_recent_edit_done_trans_bg);
             }
             G();
             u();
@@ -602,9 +602,9 @@ public class e {
         }
         this.n = z;
         if (z) {
-            this.f21909i.setVisibility(0);
-            this.f21908h.setVisibility(8);
-            Vibrator vibrator = this.f21906f;
+            this.f23408i.setVisibility(0);
+            this.f23407h.setVisibility(8);
+            Vibrator vibrator = this.f23405f;
             if (vibrator != null) {
                 vibrator.vibrate(10L);
             }
@@ -614,8 +614,8 @@ public class e {
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007009, 2));
         } else {
-            this.f21909i.setVisibility(8);
-            this.f21908h.setVisibility(0);
+            this.f23408i.setVisibility(8);
+            this.f23407h.setVisibility(0);
             ViewEventCenter viewEventCenter2 = this.o;
             if (viewEventCenter2 != null) {
                 viewEventCenter2.dispatchMvcEvent(new b.a.q0.k0.c.b(11, null, null, null));
@@ -647,22 +647,22 @@ public class e {
                 this.j.setVisibility(0);
                 this.k.setVisibility(8);
                 b.a.r0.o0.d.c cVar = this.r;
-                if (cVar != null && cVar.f21561a) {
+                if (cVar != null && cVar.f23060a) {
                     i3 = R.color.white_alpha100;
                 } else {
                     i3 = R.color.CAM_X0107;
                 }
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f21908h, R.drawable.icon_pure_ba_show24_svg, i3, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f23407h, R.drawable.icon_pure_ba_show24_svg, i3, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
                 this.j.setVisibility(8);
                 this.k.setVisibility(0);
                 b.a.r0.o0.d.c cVar2 = this.r;
-                if (cVar2 != null && cVar2.f21561a) {
+                if (cVar2 != null && cVar2.f23060a) {
                     i2 = R.color.white_alpha100;
                 } else {
                     i2 = R.color.CAM_X0107;
                 }
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f21908h, R.drawable.icon_pure_ba_hide24_svg, i2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f23407h, R.drawable.icon_pure_ba_hide24_svg, i2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             j jVar = this.s;
             if (jVar != null) {
@@ -725,7 +725,7 @@ public class e {
         if (z) {
             b.a.q0.s.e0.b j2 = b.a.q0.s.e0.b.j();
             if (!j2.g("recnbar" + TbadkCoreApplication.getCurrentAccount(), false)) {
-                this.f21904d.setVisibility(0);
+                this.f23403d.setVisibility(0);
                 G();
                 jVar = this.s;
                 if (jVar == null) {
@@ -735,7 +735,7 @@ public class e {
                 return;
             }
         }
-        this.f21904d.setVisibility(8);
+        this.f23403d.setVisibility(8);
         this.j.setVisibility(8);
         this.k.setVisibility(8);
         jVar = this.s;
@@ -752,7 +752,7 @@ public class e {
     public View o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f21903c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f23402c : (View) invokeV.objValue;
     }
 
     public final void p() {
@@ -765,36 +765,36 @@ public class e {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            View inflate = this.f21901a.getPageActivity().getLayoutInflater().inflate(R.layout.recently_visited_forum_layout, (ViewGroup) null);
-            this.f21903c = inflate;
-            this.f21904d = inflate.findViewById(R.id.title_container);
-            this.f21907g = (TextView) this.f21903c.findViewById(R.id.title);
-            ImageView imageView = (ImageView) this.f21903c.findViewById(R.id.extend_image);
-            this.f21908h = imageView;
+            View inflate = this.f23400a.getPageActivity().getLayoutInflater().inflate(R.layout.recently_visited_forum_layout, (ViewGroup) null);
+            this.f23402c = inflate;
+            this.f23403d = inflate.findViewById(R.id.title_container);
+            this.f23406g = (TextView) this.f23402c.findViewById(R.id.title);
+            ImageView imageView = (ImageView) this.f23402c.findViewById(R.id.extend_image);
+            this.f23407h = imageView;
             imageView.setOnClickListener(new c(this));
-            TextView textView = (TextView) this.f21903c.findViewById(R.id.done);
-            this.f21909i = textView;
+            TextView textView = (TextView) this.f23402c.findViewById(R.id.done);
+            this.f23408i = textView;
             textView.setOnClickListener(new d(this));
-            this.k = this.f21903c.findViewById(R.id.gap);
-            this.j = (RecyclerView) this.f21903c.findViewById(R.id.list);
-            RecentlyVisitedForumListAdapter recentlyVisitedForumListAdapter = new RecentlyVisitedForumListAdapter(this.f21901a);
+            this.k = this.f23402c.findViewById(R.id.gap);
+            this.j = (RecyclerView) this.f23402c.findViewById(R.id.list);
+            RecentlyVisitedForumListAdapter recentlyVisitedForumListAdapter = new RecentlyVisitedForumListAdapter(this.f23400a);
             this.l = recentlyVisitedForumListAdapter;
             this.j.setAdapter(recentlyVisitedForumListAdapter);
             this.j.setClipChildren(false);
             if (TbSingleton.getInstance().isSlideAnimEnable()) {
-                l lVar = new l(new b.a.e.l.e.j());
+                l lVar = new l(new b.a.e.m.e.j());
                 this.q = lVar;
                 lVar.q(this.j, 1);
             }
-            this.j.setLayoutManager(new LinearLayoutManager(this.f21901a.getPageActivity(), 0, false));
+            this.j.setLayoutManager(new LinearLayoutManager(this.f23400a.getPageActivity(), 0, false));
             this.j.setItemAnimator(new DefaultItemAnimator());
-            this.j.addItemDecoration(new k(this, b.a.e.e.p.l.g(this.f21901a.getPageActivity(), R.dimen.tbds44), 0, b.a.e.e.p.l.g(this.f21901a.getPageActivity(), R.dimen.tbds44)));
-            this.l.setItemClickListener(new C1074e(this));
+            this.j.addItemDecoration(new k(this, b.a.e.f.p.l.g(this.f23400a.getPageActivity(), R.dimen.tbds44), 0, b.a.e.f.p.l.g(this.f23400a.getPageActivity(), R.dimen.tbds44)));
+            this.l.setItemClickListener(new C1142e(this));
             this.l.setItemLongClickListener(new f(this));
             this.l.setDeleteClickListener(new g(this));
-            this.f21905e.y(new h(this));
+            this.f23404e.y(new h(this));
             w(TbadkCoreApplication.getInst().getSkinType());
-            this.f21901a.registerListener(this.v);
+            this.f23400a.registerListener(this.v);
         }
     }
 
@@ -813,7 +813,7 @@ public class e {
     public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f21904d.getVisibility() == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f23403d.getVisibility() == 0 : invokeV.booleanValue;
     }
 
     public void u() {
@@ -845,10 +845,10 @@ public class e {
 
     public void w(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || this.f21902b == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || this.f23401b == i2) {
             return;
         }
-        this.f21902b = i2;
+        this.f23401b = i2;
         A();
     }
 
@@ -878,7 +878,7 @@ public class e {
     public void z() {
         RecentlyVisitedForumModel recentlyVisitedForumModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (recentlyVisitedForumModel = this.f21905e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (recentlyVisitedForumModel = this.f23404e) == null) {
             return;
         }
         recentlyVisitedForumModel.refresh();

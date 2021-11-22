@@ -14,6 +14,7 @@ import android.util.AndroidRuntimeException;
 import androidx.annotation.RequiresApi;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +22,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.internal.ApisInteractWithMario;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.blink.EngineManager;
@@ -33,6 +33,7 @@ import com.baidu.webkit.internal.utils.UtilsBlink;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.WebKitFactory;
+import com.baidu.webkit.sdk.abtest.ABTestSDK;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import com.baidubce.services.vod.VodClient;
@@ -67,9 +68,11 @@ public final class WebViewFactory {
     public static boolean mIsInstallUpdate;
     public static boolean mIsZeusProvideInit;
     public static INetProbeInterface mNetProbeObject;
+    public static IPMSDownloadInterface mPMSObject;
     public static PackageInfo mPackageInfo;
     public static WebViewFactoryProvider mProvider;
     public static final Object mProviderLock;
+    public static IUploadInterface mUploadObject;
     public static final Object mZeusProviderLock;
     public static boolean sCloudSettingInit;
     public static String sDataDirectorySuffix;
@@ -137,8 +140,8 @@ public final class WebViewFactory {
         long j;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65543, null) == null) && Build.VERSION.SDK_INT == 19) {
-            if (c.a(mContext).f60968a.a()) {
-                String str = aVar.f60976d + "libzeuswebviewchromium.so";
+            if (c.a(mContext).f61890a.a()) {
+                String str = aVar.f61896d + "libzeuswebviewchromium.so";
                 try {
                     j = new File(str).length();
                 } catch (Throwable th) {
@@ -169,10 +172,13 @@ public final class WebViewFactory {
                 if (isVersionMatched(str, zeusNativeLibraryVersion, true) && isVersionMatched(str, zeusJarVersion, true) && isVersionMatched(sdkVersionCode, str, false)) {
                     return;
                 }
-                SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).f60968a.f60976d);
+                SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).f61890a.f61896d);
+                LoadErrorCode.getInstance().trace(522);
                 throw new Exception("sdk and native library dismatch " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusJarVersion + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusNativeLibraryVersion);
             } catch (Exception e2) {
                 e2.printStackTrace();
+                LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
+                loadErrorCode.trace("521:" + e2.toString());
                 throw new Exception("sdk and zeus jar dismatch " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + "9.0.0.0");
             }
         }
@@ -183,12 +189,19 @@ public final class WebViewFactory {
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
             try {
                 String sdkVersionCode = WebKitFactory.getSdkVersionCode();
-                if (!sdkVersionCode.equalsIgnoreCase(ZeusInitConfigUtils.get("sdk_version", sdkVersionCode)) && EngineManager.getInstance().isInstalled() && isMainAppProcess()) {
+                if (sdkVersionCode.equalsIgnoreCase(ZeusInitConfigUtils.get("sdk_version", sdkVersionCode)) || !isMainAppProcess()) {
+                    return;
+                }
+                if (EngineManager.getInstance().isInstalled()) {
                     Log.i(EngineManager.LOG_TAG, "checkWaitRevertUpdateZeus 1");
                     c.a(mContext).b();
                     Log.i(EngineManager.LOG_TAG, "checkWaitRevertUpdateZeus 2");
                 }
-            } catch (Exception unused) {
+                EngineManager.getInstance().resetZeus();
+                Log.i(TAG, "checkWaitRevertUpdateZeus clear so files.");
+            } catch (Exception e2) {
+                LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
+                loadErrorCode.trace("519:" + e2.toString());
             }
         }
     }
@@ -468,9 +481,15 @@ public final class WebViewFactory {
         return (File) invokeV.objValue;
     }
 
+    public static IPMSDownloadInterface getPMSDownloadInterface() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? mPMSObject : (IPMSDownloadInterface) invokeV.objValue;
+    }
+
     public static void getPackageInfoAsync(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65562, null, context, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65563, null, context, i2) == null) {
             ZeusThreadPoolUtil.execute(new Runnable(context, i2) { // from class: com.baidu.webkit.sdk.WebViewFactory.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -555,13 +574,13 @@ public final class WebViewFactory {
         ApplicationInfo applicationInfo;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
             Log.i(TAG, "[getPackedPackageInfo] begin ...");
             Throwable th = null;
             try {
                 ApplicationInfo applicationInfo2 = context.getApplicationInfo();
                 c a2 = c.a(context);
-                c.a aVar = a2.f60968a;
+                c.a aVar = a2.f61890a;
                 mIsInstallUpdate = false;
                 String str2 = applicationInfo2.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
                 String downloadLibPath = UtilsBlink.getDownloadLibPath(context);
@@ -572,7 +591,7 @@ public final class WebViewFactory {
                         str2 = str3;
                     }
                 }
-                if (!a2.f60968a.a() && !EngineManager.getInstance().isInstalled()) {
+                if (!a2.f61890a.a() && !EngineManager.getInstance().isInstalled()) {
                     LoadErrorCode.getInstance().trace(513);
                 }
                 packageInfo = context.getPackageManager().getPackageArchiveInfo(str2, 132);
@@ -586,7 +605,7 @@ public final class WebViewFactory {
                             applicationInfo.nativeLibraryDir = str;
                         }
                         applicationInfo = packageInfo.applicationInfo;
-                        str = aVar.f60976d + ":" + applicationInfo2.nativeLibraryDir;
+                        str = aVar.f61896d + ":" + applicationInfo2.nativeLibraryDir;
                         applicationInfo.nativeLibraryDir = str;
                     } catch (Throwable th2) {
                         th = th2;
@@ -615,14 +634,14 @@ public final class WebViewFactory {
     public static String getProcessName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) ? getProcessName(mContext, Process.myPid()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? getProcessName(mContext, Process.myPid()) : (String) invokeV.objValue;
     }
 
     public static String getProcessName(Context context, int i2) {
         InterceptResult invokeLI;
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65565, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65566, null, context, i2)) == null) {
             if (context == null || (runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) == null) {
                 return null;
             }
@@ -639,7 +658,7 @@ public final class WebViewFactory {
     public static String getProcessSuffix(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
             if (sProcessSuffixDone) {
                 return sProcessSuffix;
             }
@@ -661,7 +680,7 @@ public final class WebViewFactory {
     public static WebViewFactoryProvider getProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
             if (hasProvider()) {
                 return mProvider;
             }
@@ -702,16 +721,16 @@ public final class WebViewFactory {
         return (WebViewFactoryProvider) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:108:0x0236  */
-    /* JADX WARN: Removed duplicated region for block: B:113:0x024b  */
-    /* JADX WARN: Removed duplicated region for block: B:134:0x0295 A[Catch: all -> 0x034d, TryCatch #6 {all -> 0x034d, blocks: (B:132:0x028f, B:134:0x0295, B:136:0x02ae, B:138:0x02c9, B:140:0x02d8, B:141:0x02e1, B:143:0x02e7, B:145:0x02ed, B:148:0x02f6, B:149:0x02fd, B:150:0x02fe, B:152:0x0319, B:154:0x031f, B:137:0x02b3, B:155:0x032d, B:156:0x034c), top: B:219:0x028f }] */
-    /* JADX WARN: Removed duplicated region for block: B:155:0x032d A[Catch: all -> 0x034d, TryCatch #6 {all -> 0x034d, blocks: (B:132:0x028f, B:134:0x0295, B:136:0x02ae, B:138:0x02c9, B:140:0x02d8, B:141:0x02e1, B:143:0x02e7, B:145:0x02ed, B:148:0x02f6, B:149:0x02fd, B:150:0x02fe, B:152:0x0319, B:154:0x031f, B:137:0x02b3, B:155:0x032d, B:156:0x034c), top: B:219:0x028f }] */
-    /* JADX WARN: Removed duplicated region for block: B:161:0x0366  */
-    /* JADX WARN: Removed duplicated region for block: B:191:0x03db  */
-    /* JADX WARN: Removed duplicated region for block: B:196:0x0408  */
-    /* JADX WARN: Removed duplicated region for block: B:199:0x0419  */
-    /* JADX WARN: Removed duplicated region for block: B:202:0x0448  */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x01c7  */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x0227  */
+    /* JADX WARN: Removed duplicated region for block: B:110:0x023c  */
+    /* JADX WARN: Removed duplicated region for block: B:131:0x0287 A[Catch: all -> 0x0347, TryCatch #1 {all -> 0x0347, blocks: (B:129:0x0281, B:131:0x0287, B:133:0x02a0, B:135:0x02bb, B:137:0x02ca, B:138:0x02d3, B:140:0x02d9, B:142:0x02df, B:145:0x02e6, B:146:0x02f7, B:147:0x02f8, B:149:0x0313, B:151:0x0319, B:134:0x02a5, B:152:0x0327, B:153:0x0346), top: B:208:0x0281 }] */
+    /* JADX WARN: Removed duplicated region for block: B:152:0x0327 A[Catch: all -> 0x0347, TryCatch #1 {all -> 0x0347, blocks: (B:129:0x0281, B:131:0x0287, B:133:0x02a0, B:135:0x02bb, B:137:0x02ca, B:138:0x02d3, B:140:0x02d9, B:142:0x02df, B:145:0x02e6, B:146:0x02f7, B:147:0x02f8, B:149:0x0313, B:151:0x0319, B:134:0x02a5, B:152:0x0327, B:153:0x0346), top: B:208:0x0281 }] */
+    /* JADX WARN: Removed duplicated region for block: B:158:0x0360  */
+    /* JADX WARN: Removed duplicated region for block: B:188:0x03d5  */
+    /* JADX WARN: Removed duplicated region for block: B:193:0x0402  */
+    /* JADX WARN: Removed duplicated region for block: B:196:0x0413  */
+    /* JADX WARN: Removed duplicated region for block: B:199:0x0442  */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x01ba  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -723,8 +742,8 @@ public final class WebViewFactory {
         WebViewFactoryProvider webViewFactoryProvider;
         boolean z3;
         boolean z4;
-        boolean z5;
         String str;
+        boolean z5;
         boolean z6;
         int i2;
         WebViewFactoryProvider webViewFactoryProvider2;
@@ -732,7 +751,7 @@ public final class WebViewFactory {
         ClassLoader zeusClassLoader;
         StringBuilder sb;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
             if (!sUsingSystemWebView) {
                 ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_CHECK_USE_T7);
             }
@@ -752,11 +771,9 @@ public final class WebViewFactory {
                 }
                 sb.toString();
             }
-            IABTestInterface iABTestInterface = mABTestObject;
-            if (iABTestInterface != null) {
-                sOptimizedPackageInfoEnabled = iABTestInterface.getSwitch(ABTestConstants.ZEUS_OPTIMIZED_PACKAGE_INFO_KEY, false);
-            }
-            if (sOptimizedPackageInfoEnabled) {
+            boolean isZeusOptimizedPackageInfoEnabled = ABTestSDK.isZeusOptimizedPackageInfoEnabled();
+            sOptimizedPackageInfoEnabled = isZeusOptimizedPackageInfoEnabled;
+            if (isZeusOptimizedPackageInfoEnabled) {
                 if (mPackageInfo != null || shouldUseSystemWebView) {
                     z3 = false;
                     z4 = false;
@@ -776,21 +793,22 @@ public final class WebViewFactory {
                 }
                 sforceMainProcessNoZeus = z3;
                 if (!z4 || shouldUseSystemWebView) {
+                    str = SYSTEM_WEBVIEW_FACTORY;
                     z5 = z4;
-                    str = ",";
                 } else {
                     try {
                         File optFile = getOptFile();
                         ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_NEW_ZEUS_CL);
                         if (sZeusKernelInCurrentPackage) {
                             zeusClassLoader = WebViewFactory.class.getClassLoader();
+                            str = SYSTEM_WEBVIEW_FACTORY;
                             z5 = z4;
-                            str = ",";
                         } else {
                             z5 = z4;
-                            str = ",";
+                            String str2 = sZeusSourceDir;
+                            str = SYSTEM_WEBVIEW_FACTORY;
                             try {
-                                zeusClassLoader = new ZeusClassLoader(sZeusSourceDir, optFile, sZeusNativeLibraryDir, WebViewFactory.class.getClassLoader());
+                                zeusClassLoader = new ZeusClassLoader(str2, optFile, sZeusNativeLibraryDir, WebViewFactory.class.getClassLoader());
                             } catch (Throwable th) {
                                 th = th;
                                 webViewFactoryProvider3 = null;
@@ -824,7 +842,7 @@ public final class WebViewFactory {
                             if (!isRendererProcess()) {
                                 c.a(mContext).b();
                             }
-                            if (Build.VERSION.SDK_INT < 21 && isMainAppProcess() && ZeusInitConfigUtils.get("no_zeus_under_5", false)) {
+                            if (Build.VERSION.SDK_INT < 21 && isMainAppProcess() && isZeusForbiddenUnder5Enabled()) {
                                 sforceMainProcessNoZeus = true;
                                 throw new Exception("disable main process zeus under android 5.0");
                             }
@@ -862,7 +880,7 @@ public final class WebViewFactory {
                         }
                     } catch (Throwable th4) {
                         th = th4;
-                        str = ",";
+                        str = SYSTEM_WEBVIEW_FACTORY;
                     }
                 }
                 z6 = z5;
@@ -872,7 +890,7 @@ public final class WebViewFactory {
                         EngineManager.getInstance().setNeedKillProcess(true);
                     }
                     if (LoadErrorCode.getInstance().getInt() == 0) {
-                        LoadErrorCode.getInstance().set(6, "6:" + shouldUseSystemWebView + str + z6);
+                        LoadErrorCode.getInstance().set(6, "6:" + shouldUseSystemWebView + "," + z6);
                     }
                     fetchSystemPackageInfo();
                     try {
@@ -882,7 +900,7 @@ public final class WebViewFactory {
                         webViewFactoryProvider2 = null;
                     }
                     try {
-                        WebViewFactoryProvider webViewFactoryProvider4 = (WebViewFactoryProvider) Class.forName(SYSTEM_WEBVIEW_FACTORY).getMethod("getInstance", null).invoke(null, null);
+                        WebViewFactoryProvider webViewFactoryProvider4 = (WebViewFactoryProvider) Class.forName(str).getMethod("getInstance", null).invoke(null, null);
                         mProvider = webViewFactoryProvider4;
                         if (webViewFactoryProvider4 != null) {
                             mEngineType.set(0);
@@ -928,8 +946,9 @@ public final class WebViewFactory {
                                 if (!isRendererProcess()) {
                                     c.a(mContext).b();
                                 }
-                                if (Build.VERSION.SDK_INT < 21 && isMainAppProcess() && ZeusInitConfigUtils.get("no_zeus_under_5", false)) {
+                                if (Build.VERSION.SDK_INT < 21 && isMainAppProcess() && isZeusForbiddenUnder5Enabled()) {
                                     sforceMainProcessNoZeus = true;
+                                    LoadErrorCode.getInstance().trace(520);
                                     throw new Exception("disable main process zeus under android 5.0");
                                 }
                                 ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_T7_CHROMIUM_PROVIDER_INIT);
@@ -967,23 +986,23 @@ public final class WebViewFactory {
                             fetchSystemPackageInfo();
                             try {
                                 webViewFactoryProvider = null;
-                            } catch (Exception e4) {
-                                e = e4;
-                                webViewFactoryProvider = null;
-                            }
-                            try {
-                                WebViewFactoryProvider webViewFactoryProvider5 = (WebViewFactoryProvider) Class.forName(SYSTEM_WEBVIEW_FACTORY).getMethod("getInstance", null).invoke(null, null);
-                                mProvider = webViewFactoryProvider5;
-                                if (webViewFactoryProvider5 != null) {
-                                    mEngineType.set(0);
+                                try {
+                                    WebViewFactoryProvider webViewFactoryProvider5 = (WebViewFactoryProvider) Class.forName(SYSTEM_WEBVIEW_FACTORY).getMethod("getInstance", null).invoke(null, null);
+                                    mProvider = webViewFactoryProvider5;
+                                    if (webViewFactoryProvider5 != null) {
+                                        mEngineType.set(0);
+                                    }
+                                } catch (Exception e4) {
+                                    e = e4;
+                                    mProvider = webViewFactoryProvider;
+                                    if (!isRendererProcess()) {
+                                        LoadErrorCode.Statistics.record();
+                                    }
+                                    throw new AndroidRuntimeException(e);
                                 }
                             } catch (Exception e5) {
                                 e = e5;
-                                mProvider = webViewFactoryProvider;
-                                if (!isRendererProcess()) {
-                                    LoadErrorCode.Statistics.record();
-                                }
-                                throw new AndroidRuntimeException(e);
+                                webViewFactoryProvider = null;
                             }
                         } else if (mIsInstallUpdate) {
                             EngineManager.getInstance().setNeedKillProcess(false);
@@ -1020,7 +1039,7 @@ public final class WebViewFactory {
         PackageInfo packageInfo;
         ApplicationInfo applicationInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, context)) == null) {
             Throwable th = null;
             try {
                 applicationInfo = context.getPackageManager().getApplicationInfo(CHROMIUM_HOST_APP, 128);
@@ -1050,16 +1069,22 @@ public final class WebViewFactory {
         return (PackageInfo) invokeL.objValue;
     }
 
+    public static IUploadInterface getUploadInterface() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? mUploadObject : (IUploadInterface) invokeV.objValue;
+    }
+
     public static String getZeusNativeLibraryDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) ? sZeusNativeLibraryDir : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? sZeusNativeLibraryDir : (String) invokeV.objValue;
     }
 
     public static String getZeusPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? sZeusPackageName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) ? sZeusPackageName : (String) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x00f6  */
@@ -1071,7 +1096,7 @@ public final class WebViewFactory {
         InterceptResult invokeV;
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             if (!sUsingSystemWebView) {
                 ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_CHECK_USE_T7);
             }
@@ -1141,26 +1166,26 @@ public final class WebViewFactory {
     public static String getZeusSourceDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) ? sZeusSourceDir : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) ? sZeusSourceDir : (String) invokeV.objValue;
     }
 
     public static String getZeusVersionName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? sZeusVersionName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) ? sZeusVersionName : (String) invokeV.objValue;
     }
 
     public static void handleTaskAfterWebkitInited() {
         WebViewFactoryProvider webViewFactoryProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65575, null) == null) || (webViewFactoryProvider = mProvider) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65577, null) == null) || (webViewFactoryProvider = mProvider) == null) {
             return;
         }
         webViewFactoryProvider.commonInitialize();
         if (isRendererProcess()) {
             return;
         }
-        if (mABTestObject != null) {
+        if (ABTestSDK.isReady()) {
             mProvider.onABTestReady();
         }
         mProvider.lazyInitialize();
@@ -1169,12 +1194,12 @@ public final class WebViewFactory {
     public static boolean hasProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) ? mEngineType.get() != -1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) ? mEngineType.get() != -1 : invokeV.booleanValue;
     }
 
     public static void initCloudSetting() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65577, null) == null) || sCloudSettingInit) {
+        if (!(interceptable == null || interceptable.invokeV(65579, null) == null) || sCloudSettingInit) {
             return;
         }
         try {
@@ -1187,7 +1212,7 @@ public final class WebViewFactory {
 
     public static void initOnAppStart(Context context, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65578, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65580, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             ZeusPerformanceTiming.initOnAppStart();
             if (context != null) {
                 mContext = context.getApplicationContext();
@@ -1202,7 +1227,7 @@ public final class WebViewFactory {
 
     public static void initWebViewInBackgroundThread() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65579, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65581, null) == null) {
             synchronized (WebViewFactory.class) {
                 if (mInitWebViewThread == null) {
                     Thread thread = new Thread(new Runnable() { // from class: com.baidu.webkit.sdk.WebViewFactory.3
@@ -1240,12 +1265,9 @@ public final class WebViewFactory {
                                     if (GetCloudSettingsValue != null && GetCloudSettingsValue.equalsIgnoreCase("false")) {
                                         z = false;
                                     }
-                                    if (z) {
-                                        IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
-                                        if (2 == (abTestInterface != null ? abTestInterface.getSwitch(ABTestConstants.ZEUS_INIT_OPT_KEY, 0) : 0) && WebViewFactory.hasProvider()) {
-                                            Log.i(GlobalConstants.LOG_PER_TAG, " startBrowserProcessBackground from task");
-                                            WebViewFactory.getProvider().startBrowserProcess(false);
-                                        }
+                                    if (z && ABTestSDK.isOptZeusInitOptStartBrowserAloneTaskEnabled() && WebViewFactory.hasProvider()) {
+                                        Log.i(GlobalConstants.LOG_PER_TAG, " startBrowserProcessBackground from task");
+                                        WebViewFactory.getProvider().startBrowserProcess(false);
                                     }
                                 } catch (Throwable th) {
                                     Log.i(WebViewFactory.TAG, "[init webview] exception =".concat(String.valueOf(th)));
@@ -1265,7 +1287,7 @@ public final class WebViewFactory {
         InterceptResult invokeCommon;
         Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65580, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65582, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             boolean z3 = z && isDebugApk(getContext());
             if (!z || z3) {
                 String str = null;
@@ -1332,7 +1354,7 @@ public final class WebViewFactory {
     public static boolean isDebugApk(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, context)) == null) {
             try {
                 ApplicationInfo applicationInfo = context.getApplicationInfo();
                 if (applicationInfo != null) {
@@ -1350,7 +1372,7 @@ public final class WebViewFactory {
     public static boolean isDefaultPackageInfoExist() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) {
             if (hasProvider()) {
                 return true;
             }
@@ -1367,13 +1389,13 @@ public final class WebViewFactory {
     public static boolean isForceZeusProviderInited() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) ? mIsZeusProvideInit : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) ? mIsZeusProvideInit : invokeV.booleanValue;
     }
 
     public static boolean isInternPackageInfoExist(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, context)) == null) {
             boolean z = false;
             try {
                 if (Class.forName(CHROMIUM_WEBVIEW_FACTORY, false, WebViewFactory.class.getClassLoader()) != null) {
@@ -1399,13 +1421,13 @@ public final class WebViewFactory {
     public static boolean isMainAppProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65585, null)) == null) ? getProcessSuffix(mContext) == null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) ? getProcessSuffix(mContext) == null : invokeV.booleanValue;
     }
 
     public static boolean isMediaProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65586, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65588, null)) == null) {
             try {
                 String processSuffix = getProcessSuffix(mContext);
                 if (processSuffix != null) {
@@ -1423,7 +1445,7 @@ public final class WebViewFactory {
     public static boolean isOptimizedPackageInfoEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) ? sOptimizedPackageInfoEnabled : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65589, null)) == null) ? sOptimizedPackageInfoEnabled : invokeV.booleanValue;
     }
 
     public static boolean isPackedPackageInfoExist(Context context) {
@@ -1431,13 +1453,13 @@ public final class WebViewFactory {
         Object obj;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65590, null, context)) == null) {
             Log.i(TAG, "[isPackedPackageInfoExist] begin ...");
             boolean z = false;
             try {
                 ApplicationInfo applicationInfo = context.getApplicationInfo();
                 c a2 = c.a(context);
-                c.a aVar = a2.f60968a;
+                c.a aVar = a2.f61890a;
                 mIsInstallUpdate = false;
                 String str2 = applicationInfo.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
                 String downloadLibPath = UtilsBlink.getDownloadLibPath(context);
@@ -1448,7 +1470,7 @@ public final class WebViewFactory {
                         str2 = str3;
                     }
                 }
-                if (!a2.f60968a.a() && !EngineManager.getInstance().isInstalled()) {
+                if (!a2.f61890a.a() && !EngineManager.getInstance().isInstalled()) {
                     LoadErrorCode.getInstance().trace(513);
                 }
                 if (str2 != null && new File(str2).exists()) {
@@ -1459,7 +1481,7 @@ public final class WebViewFactory {
                         sPackageInfoType = 1;
                         z = true;
                     }
-                    str = aVar.f60976d + ":" + applicationInfo.nativeLibraryDir;
+                    str = aVar.f61896d + ":" + applicationInfo.nativeLibraryDir;
                     sZeusNativeLibraryDir = str;
                     sPackageInfoType = 1;
                     z = true;
@@ -1487,20 +1509,16 @@ public final class WebViewFactory {
     public static boolean isPreInitWebViewEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65589, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65591, null)) == null) {
             if (isRendererProcess()) {
                 return false;
             }
             if (-1 == sIsPreInitWebViewEnable) {
-                String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue(ABTestConstants.PRE_INIT_WEBVIEW);
+                String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue(ABTestSDK.ZEUS_PREINIT_WEBVIEW_ENABLE);
                 if (GetCloudSettingsValue != null && GetCloudSettingsValue.equalsIgnoreCase("0")) {
                     sIsPreInitWebViewEnable = 0;
                 }
-                sIsPreInitWebViewEnable = 0;
-                IABTestInterface abTestInterface = getAbTestInterface();
-                if (abTestInterface != null) {
-                    sIsPreInitWebViewEnable = abTestInterface.getSwitch(ABTestConstants.PRE_INIT_WEBVIEW, 0);
-                }
+                sIsPreInitWebViewEnable = ABTestSDK.getPreinitWebviewEnableValue();
             }
             return sIsPreInitWebViewEnable == 1;
         }
@@ -1510,7 +1528,7 @@ public final class WebViewFactory {
     public static boolean isRendererProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65590, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65592, null)) == null) {
             Boolean bool = sIsRendererProcess;
             if (bool == null) {
                 boolean z = false;
@@ -1538,7 +1556,7 @@ public final class WebViewFactory {
         InterceptResult invokeL;
         ApplicationInfo applicationInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, context)) == null) {
             boolean z = false;
             try {
                 applicationInfo = context.getPackageManager().getApplicationInfo(CHROMIUM_HOST_APP, 128);
@@ -1567,7 +1585,7 @@ public final class WebViewFactory {
     public static boolean isSwanProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65592, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65594, null)) == null) {
             try {
                 String processSuffix = getProcessSuffix(mContext);
                 if (processSuffix != null) {
@@ -1585,14 +1603,14 @@ public final class WebViewFactory {
     public static boolean isVersionMatched(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65593, null, str, str2, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65595, null, str, str2, z)) == null) {
             boolean z2 = false;
             if (str != null && str2 != null) {
                 int[] iArr = {0, 0, 0, 0};
                 int[] iArr2 = {0, 0, 0, 0};
                 try {
-                    String[] split = str.split("\\.", 4);
-                    String[] split2 = str2.split("\\.", 4);
+                    String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
+                    String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
                     iArr[0] = Integer.parseInt(split[0]);
                     iArr[1] = Integer.parseInt(split[1]);
                     iArr[2] = Integer.parseInt(split[2]);
@@ -1619,21 +1637,32 @@ public final class WebViewFactory {
         return invokeLLZ.booleanValue;
     }
 
+    public static boolean isZeusForbiddenUnder5Enabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65596, null)) == null) {
+            String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue(ZeusInitConfigUtils.PREF_KEY_NO_ZEUS_UNDER_5);
+            Log.i(TAG, "no_zeus_under_5 = ".concat(String.valueOf(GetCloudSettingsValue)));
+            return GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase().equals("false");
+        }
+        return invokeV.booleanValue;
+    }
+
     public static boolean isZeusKernelInCurrentPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65594, null)) == null) ? sZeusKernelInCurrentPackage : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65597, null)) == null) ? sZeusKernelInCurrentPackage : invokeV.booleanValue;
     }
 
     public static boolean isZeusProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65595, null)) == null) ? mEngineType.get() == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65598, null)) == null) ? mEngineType.get() == 1 : invokeV.booleanValue;
     }
 
     public static void revertUpdateZeus() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65596, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65599, null) == null) {
             try {
                 if (EngineManager.getInstance().isInstalled()) {
                     ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_REVERT_DOWNLOAD_ZEUS);
@@ -1650,14 +1679,15 @@ public final class WebViewFactory {
 
     public static void setAbTestInterface(IABTestInterface iABTestInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65597, null, iABTestInterface) == null) {
+        if (interceptable == null || interceptable.invokeL(65600, null, iABTestInterface) == null) {
             mABTestObject = iABTestInterface;
+            ABTestSDK.setABTestInterface(iABTestInterface);
         }
     }
 
     public static void setCronetListenerInterface(ICronetListenerInterface iCronetListenerInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65598, null, iCronetListenerInterface) == null) {
+        if (interceptable == null || interceptable.invokeL(65601, null, iCronetListenerInterface) == null) {
             Log.i(TAG, "setCronetListernerInterface ".concat(String.valueOf(iCronetListenerInterface)));
             mCronetListenerObject = iCronetListenerInterface;
         }
@@ -1665,7 +1695,7 @@ public final class WebViewFactory {
 
     public static void setDataDirectorySuffix(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65599, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65602, null, str) == null) {
             synchronized (sProviderLock) {
                 if (mProvider != null) {
                     throw new IllegalStateException("Can't set data directory suffix: WebView already initialized");
@@ -1687,16 +1717,24 @@ public final class WebViewFactory {
 
     public static void setNetProbeInterface(INetProbeInterface iNetProbeInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65600, null, iNetProbeInterface) == null) {
+        if (interceptable == null || interceptable.invokeL(65603, null, iNetProbeInterface) == null) {
             Log.i(TAG, "setNetProbeInterface ".concat(String.valueOf(iNetProbeInterface)));
             mNetProbeObject = iNetProbeInterface;
+        }
+    }
+
+    public static void setPMSDownloadInterface(IPMSDownloadInterface iPMSDownloadInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65604, null, iPMSDownloadInterface) == null) {
+            Log.i(TAG, "setPMSDownloadInterface");
+            mPMSObject = iPMSDownloadInterface;
         }
     }
 
     public static boolean setPackageInfo(PackageInfo packageInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65601, null, packageInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65605, null, packageInfo)) == null) {
             synchronized (mProviderLock) {
                 if (mProvider != null) {
                     throw new AndroidRuntimeException("cannot setPackageInfo while provider is loaded.");
@@ -1708,118 +1746,56 @@ public final class WebViewFactory {
         return invokeL.booleanValue;
     }
 
+    public static void setUploadInterface(IUploadInterface iUploadInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65606, null, iUploadInterface) == null) {
+            mUploadObject = iUploadInterface;
+        }
+    }
+
     public static void setUseSystemWebView(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65602, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65607, null, z) == null) {
             sUsingSystemWebView = z;
         }
     }
 
     public static void setUsingLzma(Context context, boolean z, WebKitUnzipCallback webKitUnzipCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65603, null, new Object[]{context, Boolean.valueOf(z), webKitUnzipCallback}) == null) {
-            final c a2 = c.a(context);
-            a2.f60968a.a(z);
-            if (!z || isRendererProcess()) {
-                return;
-            }
-            synchronized (c.f60965e) {
-                if (context != null) {
-                    if (a2.f60968a != null && a2.f60969b == null) {
-                        a2.f60969b = new c.b(a2, context);
-                    }
-                }
-            }
-            synchronized (c.f60965e) {
-                if (a2.f60970c != webKitUnzipCallback) {
-                    a2.f60970c = webKitUnzipCallback;
-                    if (a2.f60971d == null) {
-                        a2.f60971d = new Handler(Looper.getMainLooper());
-                    }
-                    a2.f60971d.postDelayed(new Runnable(a2) { // from class: com.baidu.webkit.internal.blink.c.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ c f60972a;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {a2};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.f60972a = a2;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                synchronized (c.f60967g) {
-                                    if (this.f60972a.f60970c != null) {
-                                        this.f60972a.f60970c.unzipFinished();
-                                        this.f60972a.f60970c = null;
-                                    }
-                                }
-                            }
-                        }
-                    }, 15000L);
-                }
-            }
+        if (interceptable == null || interceptable.invokeCommon(65608, null, new Object[]{context, Boolean.valueOf(z), webKitUnzipCallback}) == null) {
+            c a2 = c.a(context);
+            Log.i(TAG, " setUsingLzma using7zCompress=false");
+            a2.f61890a.b();
         }
     }
 
     public static boolean shouldUseSystemWebView(boolean z) {
         InterceptResult invokeZ;
         boolean z2;
-        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65604, null, z)) == null) {
-            if ((sUsingSystemWebView && !z) || !WebKitFactory.isPlatformSupported()) {
-                LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
-                loadErrorCode.trace("511:" + sUsingSystemWebView + "," + WebKitFactory.isPlatformSupported() + "," + WebKitFactory.isZeusSupported());
-                return true;
-            }
-            initCloudSetting();
-            String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("chromium63_zeus_enable");
-            Log.i(TAG, "chromium63_zeus_enable = ".concat(String.valueOf(GetCloudSettingsValue)));
-            if (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase().equals("false")) {
-                z2 = true;
-            } else {
-                LoadErrorCode.getInstance().trace(510);
-                z2 = false;
-            }
-            IABTestInterface abTestInterface = getAbTestInterface();
-            if (abTestInterface != null && abTestInterface.getSwitch(ABTestConstants.T7_V10_BLACK_LIST, false)) {
-                String[] strArr = {"MI 6X", "MI 6X MIKU", "REDMI NOTE 5", "REDMI NOTE 7", "V1814A", "V1814T", "V1816A", "V1816T", "VIVO X21", "VIVO X21A", "VIVO X21UD", "VIVO X21UD A", "VIVO Z3X"};
-                for (int i2 = 0; i2 < 13; i2++) {
-                    if (strArr[i2].equals(Build.MODEL.toUpperCase())) {
-                        LoadErrorCode.getInstance().trace(515);
-                        z3 = true;
-                        break;
-                    }
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65609, null, z)) == null) {
+            if ((!sUsingSystemWebView || z) && WebKitFactory.isPlatformSupported()) {
+                initCloudSetting();
+                String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("chromium63_zeus_enable");
+                Log.i(TAG, "chromium63_zeus_enable = ".concat(String.valueOf(GetCloudSettingsValue)));
+                if (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase().equals("false")) {
+                    z2 = true;
+                } else {
+                    LoadErrorCode.getInstance().trace(510);
+                    z2 = false;
                 }
+                return !z2;
             }
-            z3 = false;
-            Log.i(TAG, "shouldUseSystemWebView isHitTarget = ".concat(String.valueOf(z3)));
-            return !z2 || z3;
+            LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
+            loadErrorCode.trace("511:" + sUsingSystemWebView + "," + WebKitFactory.isPlatformSupported() + "," + WebKitFactory.isZeusSupported());
+            return true;
         }
         return invokeZ.booleanValue;
     }
 
     public static void startBrowserProcess() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65605, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65610, null) == null) {
             if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.webkit.sdk.WebViewFactory.4
                     public static /* synthetic */ Interceptable $ic;
@@ -1864,20 +1840,19 @@ public final class WebViewFactory {
     public static boolean unzip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65606, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65611, null)) == null) {
             boolean z = false;
             if (hasProvider()) {
                 return false;
             }
             initCloudSetting();
-            IABTestInterface abTestInterface = getAbTestInterface();
-            boolean z2 = abTestInterface != null ? abTestInterface.getSwitch(ABTestConstants.SHOULD_RESET_DOWNLOAD_ZEUS, false) : false;
+            boolean isShouldResetZeusAbTestValueEnabled = ABTestSDK.isShouldResetZeusAbTestValueEnabled();
             String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("should_reset_download_zeus");
             if (GetCloudSettingsValue != null && GetCloudSettingsValue.equalsIgnoreCase("true")) {
                 z = true;
             }
-            Log.i("revertUpdateZeus", "in WebViewFactory.unzip, cloud: " + z + " | ab: " + z2 + " | hotfix: false");
-            if (isMainAppProcess() && (z2 || z)) {
+            Log.i("revertUpdateZeus", "in WebViewFactory.unzip, cloud: " + z + " | ab: " + isShouldResetZeusAbTestValueEnabled + " | hotfix: false");
+            if (isMainAppProcess() && (isShouldResetZeusAbTestValueEnabled || z)) {
                 revertUpdateZeus();
             }
             c.a(mContext).a();
@@ -1889,7 +1864,7 @@ public final class WebViewFactory {
     public static boolean unzipOnAppStart(Context context, boolean z, boolean z2, WebKitUnzipCallback webKitUnzipCallback) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65607, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2), webKitUnzipCallback})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65612, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2), webKitUnzipCallback})) == null) {
             if (z2 || !z || context == null) {
                 return false;
             }

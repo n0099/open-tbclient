@@ -2,7 +2,6 @@ package com.ta.utdid2.a.a;
 
 import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
@@ -20,7 +19,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f69750a;
+    public static final /* synthetic */ boolean f70670a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -29,7 +28,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f69751a;
+        public int f70671a;
 
         /* renamed from: a  reason: collision with other field name */
         public byte[] f5a;
@@ -51,18 +50,18 @@ public class b {
 
     /* renamed from: com.ta.utdid2.a.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C2012b extends a {
+    public static class C2050b extends a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int[] f69752a;
+        public static final int[] f70672a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int[] f69753b;
+        public static final int[] f70673b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int[] f69754c;
+        public final int[] f70674c;
         public int state;
         public int value;
 
@@ -79,11 +78,11 @@ public class b {
                     return;
                 }
             }
-            f69752a = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
-            f69753b = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+            f70672a = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+            f70673b = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
         }
 
-        public C2012b(int i2, byte[] bArr) {
+        public C2050b(int i2, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +98,7 @@ public class b {
                 }
             }
             ((a) this).f5a = bArr;
-            this.f69754c = (i2 & 8) == 0 ? f69752a : f69753b;
+            this.f70674c = (i2 & 8) == 0 ? f70672a : f70673b;
             this.state = 0;
             this.value = 0;
         }
@@ -115,7 +114,7 @@ public class b {
                 int i5 = i3 + i2;
                 int i6 = this.value;
                 byte[] bArr2 = ((a) this).f5a;
-                int[] iArr = this.f69754c;
+                int[] iArr = this.f70674c;
                 int i7 = i6;
                 int i8 = 0;
                 int i9 = i4;
@@ -206,7 +205,7 @@ public class b {
                 if (!z) {
                     this.state = i9;
                     this.value = i7;
-                    ((a) this).f69751a = i8;
+                    ((a) this).f70671a = i8;
                     return true;
                 } else if (i9 != 1) {
                     if (i9 == 2) {
@@ -222,7 +221,7 @@ public class b {
                         return false;
                     }
                     this.state = i9;
-                    ((a) this).f69751a = i8;
+                    ((a) this).f70671a = i8;
                     return true;
                 } else {
                     this.state = 6;
@@ -238,13 +237,13 @@ public class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ boolean f69755a;
+        public static final /* synthetic */ boolean f70675a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final byte[] f69756b;
+        public static final byte[] f70676b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final byte[] f69757c;
+        public static final byte[] f70677c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with other field name */
@@ -258,13 +257,13 @@ public class b {
         public int count;
 
         /* renamed from: d  reason: collision with root package name */
-        public final boolean f69758d;
+        public final boolean f70678d;
 
         /* renamed from: d  reason: collision with other field name */
         public final byte[] f9d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final byte[] f69759e;
+        public final byte[] f70679e;
 
         static {
             InterceptResult invokeClinit;
@@ -279,9 +278,9 @@ public class b {
                     return;
                 }
             }
-            f69755a = !b.class.desiredAssertionStatus();
-            f69756b = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, ExifInterface.WEBP_VP8L_SIGNATURE};
-            f69757c = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
+            f70675a = !b.class.desiredAssertionStatus();
+            f70676b = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+            f70677c = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
         }
 
         public c(int i2, byte[] bArr) {
@@ -302,15 +301,15 @@ public class b {
             ((a) this).f5a = bArr;
             this.f7b = (i2 & 1) == 0;
             this.f8c = (i2 & 2) == 0;
-            this.f69758d = (i2 & 4) != 0;
-            this.f69759e = (i2 & 8) == 0 ? f69756b : f69757c;
+            this.f70678d = (i2 & 4) != 0;
+            this.f70679e = (i2 & 8) == 0 ? f70676b : f70677c;
             this.f9d = new byte[2];
             this.f6b = 0;
             this.count = this.f8c ? 19 : -1;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:32:0x00da, code lost:
-            if (r17.f69758d == false) goto L28;
+            if (r17.f70678d == false) goto L28;
          */
         /* JADX WARN: Code restructure failed: missing block: B:33:0x00dc, code lost:
             r2[r6] = 13;
@@ -343,7 +342,7 @@ public class b {
             if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) != null) {
                 return invokeCommon.booleanValue;
             }
-            byte[] bArr2 = this.f69759e;
+            byte[] bArr2 = this.f70679e;
             byte[] bArr3 = ((a) this).f5a;
             int i11 = this.count;
             int i12 = i3 + i2;
@@ -375,7 +374,7 @@ public class b {
                 bArr3[3] = bArr2[i5 & 63];
                 i11--;
                 if (i11 == 0) {
-                    if (this.f69758d) {
+                    if (this.f70678d) {
                         i9 = 5;
                         bArr3[4] = 13;
                     } else {
@@ -430,7 +429,7 @@ public class b {
                                 bArr3[i22] = 61;
                             }
                             if (this.f8c) {
-                                if (this.f69758d) {
+                                if (this.f70678d) {
                                     bArr3[i6] = 13;
                                     i6++;
                                 }
@@ -438,10 +437,10 @@ public class b {
                                 bArr3[i6] = 10;
                                 i6 = i7;
                             }
-                            if (f69755a && this.f6b != 0) {
+                            if (f70675a && this.f6b != 0) {
                                 throw new AssertionError();
                             }
-                            if (!f69755a && i4 != i12) {
+                            if (!f70675a && i4 != i12) {
                                 throw new AssertionError();
                             }
                         } else if (i19 == i12 - 2) {
@@ -475,28 +474,28 @@ public class b {
                                 i27++;
                             }
                             if (this.f8c) {
-                                if (this.f69758d) {
+                                if (this.f70678d) {
                                     bArr3[i27] = 13;
                                     i27++;
                                 }
                                 i7 = i27 + 1;
                                 bArr3[i27] = 10;
                                 i6 = i7;
-                                if (f69755a) {
+                                if (f70675a) {
                                 }
-                                if (!f69755a) {
+                                if (!f70675a) {
                                     throw new AssertionError();
                                 }
                             } else {
                                 i6 = i27;
-                                if (f69755a) {
+                                if (f70675a) {
                                 }
-                                if (!f69755a) {
+                                if (!f70675a) {
                                 }
                             }
                         } else {
                             if (this.f8c && i6 > 0 && i11 != 19) {
-                                if (this.f69758d) {
+                                if (this.f70678d) {
                                     bArr3[i6] = 13;
                                     i6++;
                                 }
@@ -504,9 +503,9 @@ public class b {
                                 bArr3[i6] = 10;
                                 i6 = i7;
                             }
-                            if (f69755a) {
+                            if (f70675a) {
                             }
-                            if (!f69755a) {
+                            if (!f70675a) {
                             }
                         }
                     } else if (i4 == i12 - 1) {
@@ -523,7 +522,7 @@ public class b {
                         this.f6b = i30 + 1;
                         bArr6[i30] = bArr[i4 + 1];
                     }
-                    ((a) this).f69751a = i6;
+                    ((a) this).f70671a = i6;
                     this.count = i11;
                     return true;
                 }
@@ -544,7 +543,7 @@ public class b {
                 return;
             }
         }
-        f69750a = !b.class.desiredAssertionStatus();
+        f70670a = !b.class.desiredAssertionStatus();
     }
 
     public b() {
@@ -612,11 +611,11 @@ public class b {
                 }
             }
             if (cVar.f8c && i3 > 0) {
-                i5 += (((i3 - 1) / 57) + 1) * (cVar.f69758d ? 2 : 1);
+                i5 += (((i3 - 1) / 57) + 1) * (cVar.f70678d ? 2 : 1);
             }
             ((a) cVar).f5a = new byte[i5];
             cVar.a(bArr, i2, i3, true);
-            if (f69750a || ((a) cVar).f69751a == i5) {
+            if (f70670a || ((a) cVar).f70671a == i5) {
                 return ((a) cVar).f5a;
             }
             throw new AssertionError();
@@ -628,10 +627,10 @@ public class b {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3, i4)) == null) {
-            C2012b c2012b = new C2012b(i4, new byte[(i3 * 3) / 4]);
-            if (c2012b.a(bArr, i2, i3, true)) {
-                int i5 = ((a) c2012b).f69751a;
-                byte[] bArr2 = ((a) c2012b).f5a;
+            C2050b c2050b = new C2050b(i4, new byte[(i3 * 3) / 4]);
+            if (c2050b.a(bArr, i2, i3, true)) {
+                int i5 = ((a) c2050b).f70671a;
+                byte[] bArr2 = ((a) c2050b).f5a;
                 if (i5 == bArr2.length) {
                     return bArr2;
                 }

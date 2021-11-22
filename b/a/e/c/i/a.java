@@ -10,31 +10,31 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f1561a;
+    public long f1557a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f1562b;
+    public long f1558b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1563c;
+    public long f1559c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f1564d;
+    public long f1560d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f1565e;
+    public long f1561e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f1566f;
+    public long f1562f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f1567g;
+    public long f1563g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f1568h;
+    public long f1564h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f1569i;
+    public int f1565i;
     public long j;
     public long k;
     public long l;
@@ -52,15 +52,15 @@ public class a {
                 return;
             }
         }
-        this.f1561a = 0L;
-        this.f1562b = 0L;
-        this.f1563c = 0L;
-        this.f1564d = 0L;
-        this.f1565e = 0L;
-        this.f1566f = 0L;
-        this.f1567g = 0L;
-        this.f1568h = 0L;
-        this.f1569i = 0;
+        this.f1557a = 0L;
+        this.f1558b = 0L;
+        this.f1559c = 0L;
+        this.f1560d = 0L;
+        this.f1561e = 0L;
+        this.f1562f = 0L;
+        this.f1563g = 0L;
+        this.f1564h = 0L;
+        this.f1565i = 0;
         this.j = 0L;
         this.k = 0L;
         this.l = 0L;

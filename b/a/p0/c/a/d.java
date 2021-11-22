@@ -15,11 +15,11 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f9547b;
+    public static volatile d f10127b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.p0.c.a.a f9548a;
+    public b.a.p0.c.a.a f10128a;
 
     /* loaded from: classes.dex */
     public static class a implements BdtlsController.a {
@@ -44,7 +44,7 @@ public class d {
         public void loadLibrary(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                SoLoader.load(b.a.p0.a.c1.a.b(), str);
+                SoLoader.load(b.a.p0.a.c1.a.c(), str);
             }
         }
     }
@@ -62,7 +62,7 @@ public class d {
                 return;
             }
         }
-        boolean z = b.a.p0.c.a.a.f9542a;
+        boolean z = b.a.p0.c.a.a.f10122a;
         BdtlsController.a(new a());
     }
 
@@ -79,21 +79,21 @@ public class d {
                 return;
             }
         }
-        this.f9548a = new b.a.p0.c.a.a();
+        this.f10128a = new b.a.p0.c.a.a();
     }
 
     public static d b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f9547b == null) {
+            if (f10127b == null) {
                 synchronized (d.class) {
-                    if (f9547b == null) {
-                        f9547b = new d();
+                    if (f10127b == null) {
+                        f10127b = new d();
                     }
                 }
             }
-            return f9547b;
+            return f10127b;
         }
         return (d) invokeV.objValue;
     }
@@ -116,7 +116,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b.a.p0.c.a.a aVar = this.f9548a;
+            b.a.p0.c.a.a aVar = this.f10128a;
             if (aVar == null) {
                 return false;
             }
@@ -129,7 +129,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            b.a.p0.c.a.a aVar = this.f9548a;
+            b.a.p0.c.a.a aVar = this.f10128a;
             return aVar != null && aVar.b(str);
         }
         return invokeL.booleanValue;

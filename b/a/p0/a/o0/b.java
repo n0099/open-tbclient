@@ -1,7 +1,7 @@
 package b.a.p0.a.o0;
 
 import androidx.annotation.NonNull;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,8 +17,8 @@ public class b implements b.a.p0.a.f1.f.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Queue<c> f7094b;
+    /* renamed from: c  reason: collision with root package name */
+    public Queue<c> f7432c;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -28,11 +28,11 @@ public class b implements b.a.p0.a.f1.f.a {
 
     /* renamed from: b.a.p0.a.o0.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0329b {
+    public static class C0336b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f7095a;
+        public static final b f7433a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,7 +48,7 @@ public class b implements b.a.p0.a.f1.f.a {
                     return;
                 }
             }
-            f7095a = new b(null);
+            f7433a = new b(null);
         }
     }
 
@@ -59,14 +59,14 @@ public class b implements b.a.p0.a.f1.f.a {
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0329b.f7095a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0336b.f7433a : (b) invokeV.objValue;
     }
 
     public synchronized void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                this.f7094b.clear();
+                this.f7432c.clear();
             }
         }
     }
@@ -75,25 +75,25 @@ public class b implements b.a.p0.a.f1.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, str) == null) {
             synchronized (this) {
-                while (this.f7094b.size() > 0) {
-                    c peek = this.f7094b.peek();
+                while (this.f7432c.size() > 0) {
+                    c peek = this.f7432c.peek();
                     if (peek == null) {
-                        this.f7094b.remove();
+                        this.f7432c.remove();
                     } else if (peek.a()) {
                         break;
                     } else {
-                        this.f7094b.remove();
+                        this.f7432c.remove();
                     }
                 }
-                int size = this.f7094b.size();
+                int size = this.f7432c.size();
                 if (size == 0) {
-                    this.f7094b.offer(cVar);
-                    q0.d0(cVar);
+                    this.f7432c.offer(cVar);
+                    q0.g0(cVar);
                 } else {
-                    c peek2 = this.f7094b.peek();
-                    this.f7094b.offer(cVar);
+                    c peek2 = this.f7432c.peek();
+                    this.f7432c.offer(cVar);
                     if (size == 1 && peek2 != null && peek2.b(str)) {
-                        q0.d0(cVar);
+                        q0.g0(cVar);
                     } else {
                         q0.q().post(cVar);
                     }
@@ -115,6 +115,6 @@ public class b implements b.a.p0.a.f1.f.a {
                 return;
             }
         }
-        this.f7094b = new ConcurrentLinkedQueue();
+        this.f7432c = new ConcurrentLinkedQueue();
     }
 }

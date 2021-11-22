@@ -39,7 +39,6 @@ public abstract class BasePool<V> implements Pool<V> {
     @VisibleForTesting
     @GuardedBy("this")
     public final Counter mFree;
-    public boolean mIgnoreHardCap;
     @VisibleForTesting
     public final Set<V> mInUseValues;
     public final MemoryTrimmableRegistry mMemoryTrimmableRegistry;
@@ -246,7 +245,7 @@ public abstract class BasePool<V> implements Pool<V> {
     private synchronized void ensurePoolSizeInvariant() {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             synchronized (this) {
                 if (isMaxSizeSoftCapExceeded() && this.mFree.mNumBytes != 0) {
                     z = false;
@@ -260,7 +259,7 @@ public abstract class BasePool<V> implements Pool<V> {
 
     private void fillBuckets(SparseIntArray sparseIntArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, sparseIntArray) == null) {
+        if (interceptable == null || interceptable.invokeL(65538, this, sparseIntArray) == null) {
             this.mBuckets.clear();
             for (int i2 = 0; i2 < sparseIntArray.size(); i2++) {
                 int keyAt = sparseIntArray.keyAt(i2);
@@ -273,7 +272,7 @@ public abstract class BasePool<V> implements Pool<V> {
         InterceptResult invokeI;
         Bucket<V> bucket;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) {
             synchronized (this) {
                 bucket = this.mBuckets.get(i2);
             }
@@ -284,7 +283,7 @@ public abstract class BasePool<V> implements Pool<V> {
 
     private synchronized void initBuckets() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             synchronized (this) {
                 SparseIntArray sparseIntArray = this.mPoolParams.bucketSizes;
                 if (sparseIntArray != null) {
@@ -299,7 +298,7 @@ public abstract class BasePool<V> implements Pool<V> {
 
     private synchronized void legacyInitBuckets(SparseIntArray sparseIntArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, sparseIntArray) == null) {
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, sparseIntArray) == null) {
             synchronized (this) {
                 Preconditions.checkNotNull(sparseIntArray);
                 this.mBuckets.clear();
@@ -320,7 +319,7 @@ public abstract class BasePool<V> implements Pool<V> {
     @SuppressLint({"InvalidAccessToGuardedField"})
     private void logStats() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && FLog.isLoggable(2)) {
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && FLog.isLoggable(2)) {
             FLog.v(this.TAG, "Used = (%d, %d); Free = (%d, %d)", Integer.valueOf(this.mUsed.mCount), Integer.valueOf(this.mUsed.mNumBytes), Integer.valueOf(this.mFree.mCount), Integer.valueOf(this.mFree.mNumBytes));
         }
     }
@@ -328,7 +327,7 @@ public abstract class BasePool<V> implements Pool<V> {
     private List<Bucket<V>> refillBuckets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             ArrayList arrayList = new ArrayList(this.mBuckets.size());
             int size = this.mBuckets.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -349,7 +348,7 @@ public abstract class BasePool<V> implements Pool<V> {
     private V retryOnce(int i2, int i3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
             try {
                 V alloc = alloc(i3);
                 if (FLog.isLoggable(3)) {
@@ -396,7 +395,7 @@ public abstract class BasePool<V> implements Pool<V> {
 
     public static void setOnFailedListener(OnFailedListener onFailedListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, onFailedListener) == null) {
+        if (interceptable == null || interceptable.invokeL(65545, null, onFailedListener) == null) {
             mOnFailedListener = onFailedListener;
         }
     }
@@ -409,9 +408,6 @@ public abstract class BasePool<V> implements Pool<V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             synchronized (this) {
-                if (this.mIgnoreHardCap) {
-                    return true;
-                }
                 int i3 = this.mPoolParams.maxSizeHardCap;
                 if (i2 > i3 - this.mUsed.mNumBytes) {
                     this.mPoolStatsTracker.onHardCapReached();
@@ -724,27 +720,5 @@ public abstract class BasePool<V> implements Pool<V> {
                 }
             }
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BasePool(MemoryTrimmableRegistry memoryTrimmableRegistry, PoolParams poolParams, PoolStatsTracker poolStatsTracker, boolean z) {
-        this(memoryTrimmableRegistry, poolParams, poolStatsTracker);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {memoryTrimmableRegistry, poolParams, poolStatsTracker, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((MemoryTrimmableRegistry) objArr2[0], (PoolParams) objArr2[1], (PoolStatsTracker) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mIgnoreHardCap = z;
     }
 }

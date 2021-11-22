@@ -1,6 +1,6 @@
 package b.a.r0.k2.q.c;
 
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -39,7 +39,7 @@ public class b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, b.a.r0.l3.f0.a.a(TbConfig.FINE_PB_PAGE, 309093));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, b.a.r0.m3.f0.a.a(TbConfig.FINE_PB_PAGE, 309093));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -52,7 +52,7 @@ public class b {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b.a.q0.z0.b bVar = new b.a.q0.z0.b(309093);
+            b.a.q0.y0.b bVar = new b.a.q0.y0.b(309093);
             bVar.setResponsedClass(ChosenPbSocketResponse.class);
             bVar.g(true);
             bVar.h(false);

@@ -20,7 +20,7 @@ public class h<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final c<T> f71866a;
+    public final c<T> f72785a;
 
     /* loaded from: classes2.dex */
     public class a extends i<T> {
@@ -28,10 +28,10 @@ public class h<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h.n.b f71867f;
+        public final /* synthetic */ h.n.b f72786f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ h.n.b f71868g;
+        public final /* synthetic */ h.n.b f72787g;
 
         public a(h hVar, h.n.b bVar, h.n.b bVar2) {
             Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class h<T> {
                     return;
                 }
             }
-            this.f71867f = bVar;
-            this.f71868g = bVar2;
+            this.f72786f = bVar;
+            this.f72787g = bVar2;
         }
 
         @Override // h.i
@@ -57,7 +57,7 @@ public class h<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
                 try {
-                    this.f71867f.call(th);
+                    this.f72786f.call(th);
                 } finally {
                     unsubscribe();
                 }
@@ -69,7 +69,7 @@ public class h<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
                 try {
-                    this.f71868g.call(t);
+                    this.f72787g.call(t);
                 } finally {
                     unsubscribe();
                 }
@@ -83,7 +83,7 @@ public class h<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h.n.b f71869e;
+        public final /* synthetic */ h.n.b f72788e;
 
         public b(h hVar, h.n.b bVar) {
             Interceptable interceptable = $ic;
@@ -100,7 +100,7 @@ public class h<T> {
                     return;
                 }
             }
-            this.f71869e = bVar;
+            this.f72788e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -108,7 +108,7 @@ public class h<T> {
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.f71869e.call(th);
+                this.f72788e.call(th);
             }
         }
     }
@@ -134,13 +134,13 @@ public class h<T> {
                 return;
             }
         }
-        this.f71866a = h.r.c.i(cVar);
+        this.f72785a = h.r.c.i(cVar);
     }
 
     public static <T> d<T> a(h<T> hVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hVar)) == null) ? d.a(new y(hVar.f71866a)) : (d) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hVar)) == null) ? d.a(new y(hVar.f72785a)) : (d) invokeL.objValue;
     }
 
     public static <T> h<T> b(c<T> cVar) {
@@ -164,7 +164,7 @@ public class h<T> {
     public final h<T> d(long j, TimeUnit timeUnit, g gVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), timeUnit, gVar})) == null) ? b(new t(this.f71866a, j, timeUnit, gVar)) : (h) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), timeUnit, gVar})) == null) ? b(new t(this.f72785a, j, timeUnit, gVar)) : (h) invokeCommon.objValue;
     }
 
     public final h<T> e(h.n.b<Throwable> bVar) {
@@ -199,7 +199,7 @@ public class h<T> {
                 return ((h.o.d.g) this).n(gVar);
             }
             if (gVar != null) {
-                return b(new x(this.f71866a, gVar));
+                return b(new x(this.f72785a, gVar));
             }
             throw new NullPointerException("scheduler is null");
         }
@@ -218,7 +218,7 @@ public class h<T> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iVar)) == null) {
             if (iVar != null) {
                 try {
-                    h.r.c.t(this, this.f71866a).call(iVar);
+                    h.r.c.t(this, this.f72785a).call(iVar);
                     return h.r.c.s(iVar);
                 } catch (Throwable th) {
                     h.m.a.e(th);

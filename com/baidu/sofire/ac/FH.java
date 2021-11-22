@@ -7,7 +7,6 @@ import android.util.Pair;
 import android.view.SurfaceHolder;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sofire.b.a;
 import com.baidu.sofire.b.b;
@@ -75,17 +74,17 @@ public class FH {
         b a2;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || (a2 = b.a()) == null || (aVar = a2.f42931b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || (a2 = b.a()) == null || (aVar = a2.f43877b) == null) {
             return;
         }
         try {
-            aVar.f42905f = true;
-            callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, aVar.f42904e, Boolean.TRUE, "");
+            aVar.f43851f = true;
+            callSync(1, "ecrc", new Class[]{String.class, Boolean.TYPE, String.class}, aVar.f43850e, Boolean.TRUE, "");
             aVar.a(-6);
         } catch (Throwable unused) {
             c.a();
         }
-        a2.f42931b = null;
+        a2.f43877b = null;
     }
 
     public static String gd(Context context) {
@@ -101,7 +100,7 @@ public class FH {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65546, null, i2, i3)) == null) {
             try {
-                if (com.baidu.sofire.core.c.f42983b != null && v.a(com.baidu.sofire.core.c.f42983b) && i3 == 1 && i2 > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
+                if (com.baidu.sofire.core.c.f43929b != null && v.a(com.baidu.sofire.core.c.f43929b) && i3 == 1 && i2 > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
                     for (ApkInfo apkInfo : b2) {
                         if (apkInfo.key == i2) {
                             return apkInfo.versionName == null ? "" : apkInfo.versionName;
@@ -186,8 +185,8 @@ public class FH {
                 if (!TextUtils.isEmpty(optString) && !"init".equals(optString) && !"initDelay".equals(optString) && !NotificationCompat.CATEGORY_CALL.equals(optString)) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("p");
                     if ("callSync".equals(optString)) {
-                        if (com.baidu.sofire.core.c.f42983b == null && context != null) {
-                            com.baidu.sofire.core.c.f42983b = context.getApplicationContext();
+                        if (com.baidu.sofire.core.c.f43929b == null && context != null) {
+                            com.baidu.sofire.core.c.f43929b = context.getApplicationContext();
                         }
                         if (optJSONArray != null && optJSONArray.length() == 2) {
                             method = FH.class.getMethod("callSync", Integer.TYPE, String.class);
@@ -257,7 +256,7 @@ public class FH {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i2)) == null) {
-            Context context = com.baidu.sofire.core.c.f42983b;
+            Context context = com.baidu.sofire.core.c.f43929b;
             if (context == null || !v.a(context)) {
                 return false;
             }
@@ -270,7 +269,7 @@ public class FH {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
-            if (ExifInterface.GPS_DIRECTION_TRUE.equals(str)) {
+            if ("T".equals(str)) {
                 return true;
             }
             if ("F".equals(str)) {
@@ -392,8 +391,8 @@ public class FH {
                             if (cls.equals(Context.class)) {
                                 if (context != null) {
                                     objArr[i4] = context;
-                                } else if (com.baidu.sofire.core.c.f42983b != null) {
-                                    objArr[i4] = com.baidu.sofire.core.c.f42983b;
+                                } else if (com.baidu.sofire.core.c.f43929b != null) {
+                                    objArr[i4] = com.baidu.sofire.core.c.f43929b;
                                 } else {
                                     throw new IllegalArgumentException("method request context");
                                 }
@@ -530,7 +529,7 @@ public class FH {
     public static void setFaceLicenseId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65569, null, str) == null) {
-            b.f42928d = str;
+            b.f43874d = str;
         }
     }
 
@@ -538,11 +537,11 @@ public class FH {
         b a2;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65570, null, z) == null) || (a2 = b.a()) == null || (aVar = a2.f42931b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65570, null, z) == null) || (a2 = b.a()) == null || (aVar = a2.f43877b) == null) {
             return;
         }
         try {
-            if (aVar.f42900a && !aVar.f42905f) {
+            if (aVar.f43846a && !aVar.f43851f) {
                 if (aVar.p != null) {
                     aVar.p.setLivenessStrategySoundEnable(z);
                 }

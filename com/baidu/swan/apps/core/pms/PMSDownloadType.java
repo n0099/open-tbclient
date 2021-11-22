@@ -8,13 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class PMSDownloadType {
     public static final /* synthetic */ PMSDownloadType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final PMSDownloadType ALONE_SUB;
     public static final PMSDownloadType ASYNC;
     public static final PMSDownloadType BATCH;
+    public static final PMSDownloadType PLUGIN;
     public static final PMSDownloadType PRE;
     public static final PMSDownloadType SILENT_UPDATE;
     public static final PMSDownloadType SO_LIB;
@@ -44,9 +45,10 @@ public final class PMSDownloadType {
         ALONE_SUB = new PMSDownloadType("ALONE_SUB", 5);
         SWAN_APP_UPDATE_CORE = new PMSDownloadType("SWAN_APP_UPDATE_CORE", 6);
         SWAN_GAME_UPDATE_CORE = new PMSDownloadType("SWAN_GAME_UPDATE_CORE", 7);
-        PMSDownloadType pMSDownloadType = new PMSDownloadType("SO_LIB", 8);
-        SO_LIB = pMSDownloadType;
-        $VALUES = new PMSDownloadType[]{PRE, ASYNC, SYNC, SILENT_UPDATE, BATCH, ALONE_SUB, SWAN_APP_UPDATE_CORE, SWAN_GAME_UPDATE_CORE, pMSDownloadType};
+        SO_LIB = new PMSDownloadType("SO_LIB", 8);
+        PMSDownloadType pMSDownloadType = new PMSDownloadType("PLUGIN", 9);
+        PLUGIN = pMSDownloadType;
+        $VALUES = new PMSDownloadType[]{PRE, ASYNC, SYNC, SILENT_UPDATE, BATCH, ALONE_SUB, SWAN_APP_UPDATE_CORE, SWAN_GAME_UPDATE_CORE, SO_LIB, pMSDownloadType};
     }
 
     public PMSDownloadType(String str, int i2) {

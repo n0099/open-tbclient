@@ -20,7 +20,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.f0.a.b.a f2898a;
+        public final /* synthetic */ b.a.f0.a.b.a f2991a;
 
         public a(b.a.f0.a.b.a aVar) {
             Interceptable interceptable = $ic;
@@ -37,14 +37,14 @@ public class h {
                     return;
                 }
             }
-            this.f2898a = aVar;
+            this.f2991a = aVar;
         }
 
         @Override // b.a.f0.d.a.k
         public void a(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.f2898a.s();
+                this.f2991a.s();
             }
         }
 
@@ -59,7 +59,7 @@ public class h {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && !TextUtils.isEmpty(str) && URLUtil.isNetworkUrl(str)) {
-            b.a.f0.a.b.a aVar = b.a.f0.a.b.a.f2781a.get();
+            b.a.f0.a.b.a aVar = b.a.f0.a.b.a.f2874a.get();
             Request.c cVar = new Request.c(aVar.o(), str);
             cVar.k("User-Agent", aVar.h());
             cVar.l().d(new a(aVar));

@@ -1,6 +1,6 @@
 package b.a.r0.l1.v.a;
 
-import b.a.e.e.d.l;
+import b.a.e.f.d.l;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
@@ -40,7 +40,7 @@ public class p implements CustomMessageTask.CustomRunnable<Object> {
                 return null;
             }
             b.a.q0.s.r.a.f();
-            List<l.b<String>> b2 = b.a.e.e.p.p.b(b.a.q0.s.r.a.g("tb.im_group_search_history"));
+            List<l.b<String>> b2 = b.a.e.f.p.p.b(b.a.q0.s.r.a.g("tb.im_group_search_history"));
             ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage();
             responseSearchGroupLocalMessage.setCacheList(b2);
             return responseSearchGroupLocalMessage;

@@ -1,10 +1,6 @@
 package b.a.r0.k2.r;
 
-import androidx.core.view.InputDeviceCompat;
-import b.a.q0.s.q.d2;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,26 +8,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.PbPage.PbSortType;
 /* loaded from: classes5.dex */
-public class q implements b.a.e.l.e.n {
+public class q implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId j;
+    public static final BdUniqueId l;
+    public static final BdUniqueId m;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18799e;
+    public String f20331e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f18800f;
+    public BdUniqueId f20332f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f18801g;
+    public int f20333g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d2 f18802h;
+    public boolean f20334h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AntiData f18803i;
+    public boolean f20335i;
+    public boolean j;
+    public List<PbSortType> k;
 
     static {
         InterceptResult invokeClinit;
@@ -46,15 +47,16 @@ public class q implements b.a.e.l.e.n {
                 return;
             }
         }
-        j = BdUniqueId.gen();
+        l = BdUniqueId.gen();
+        m = BdUniqueId.gen();
     }
 
-    public q(d2 d2Var, AntiData antiData) {
+    public q(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d2Var, antiData};
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -64,78 +66,16 @@ public class q implements b.a.e.l.e.n {
                 return;
             }
         }
-        this.f18799e = false;
-        this.f18800f = false;
-        this.f18801g = false;
-        this.f18802h = d2Var;
-        this.f18803i = antiData;
+        this.f20332f = m;
+        this.f20333g = 0;
+        this.f20334h = false;
+        this.f20332f = bdUniqueId;
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d2 d2Var = this.f18802h;
-            if (d2Var != null) {
-                return d2Var.D();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public AntiData d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18803i : (AntiData) invokeV.objValue;
-    }
-
-    public d2 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18802h : (d2) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            d2 d2Var = this.f18802h;
-            return d2Var != null && d2Var.d0() == 1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? j : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f18799e : invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f18801g : invokeV.booleanValue;
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f18799e = z;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f18801g = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f20332f : (BdUniqueId) invokeV.objValue;
     }
 }

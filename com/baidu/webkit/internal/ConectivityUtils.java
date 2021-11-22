@@ -29,6 +29,7 @@ public class ConectivityUtils implements INoProGuard {
     public static final String NET_TYPE_2G = "2g";
     public static final String NET_TYPE_3G = "3g";
     public static final String NET_TYPE_4G = "4g";
+    public static final String NET_TYPE_5G = "5g";
     public static final String NET_TYPE_UNKNOWN = "unknown";
     public static final String NET_TYPE_WIFI = "wifi";
     public static final Uri PREFERRED_APN_URI;
@@ -83,11 +84,15 @@ public class ConectivityUtils implements INoProGuard {
                 return "unknown";
             }
             NetworkInfo networkInfo = connectivityManager.getNetworkInfo(0);
-            if (networkInfo != null && networkInfo.isConnected()) {
-                return isFastMobileNetwork(applicationContext) ? ((TelephonyManager) context.getSystemService("phone")).getNetworkType() == 13 ? "4g" : "3g" : "2g";
+            if (networkInfo == null || !networkInfo.isConnected()) {
+                NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(1);
+                return (networkInfo2 == null || !networkInfo2.isConnected()) ? "unknown" : "wifi";
+            } else if (isFastMobileNetwork(applicationContext)) {
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                return telephonyManager.getNetworkType() == 13 ? "4g" : telephonyManager.getNetworkType() == 20 ? "5g" : "3g";
+            } else {
+                return "2g";
             }
-            NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(1);
-            return (networkInfo2 == null || !networkInfo2.isConnected()) ? "unknown" : "wifi";
         }
         return (String) invokeL.objValue;
     }
@@ -96,24 +101,26 @@ public class ConectivityUtils implements INoProGuard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                    return true;
-                case 4:
-                case 7:
-                case 11:
-                default:
-                    return false;
+            int networkType = ((TelephonyManager) context.getSystemService("phone")).getNetworkType();
+            if (networkType != 3 && networkType != 20 && networkType != 5 && networkType != 6) {
+                switch (networkType) {
+                    case 8:
+                    case 9:
+                    case 10:
+                        break;
+                    default:
+                        switch (networkType) {
+                            case 12:
+                            case 13:
+                            case 14:
+                            case 15:
+                                break;
+                            default:
+                                return false;
+                        }
+                }
             }
+            return true;
         }
         return invokeL.booleanValue;
     }

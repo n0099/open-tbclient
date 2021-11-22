@@ -39,18 +39,18 @@ public class b implements b.a.p0.a.g1.j.a {
         public void run(@NonNull b.a.p0.a.p.e.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-                dVar.N();
+                dVar.P();
             }
         }
     }
 
     /* renamed from: b.a.p0.a.g1.j.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0190b implements b.a.p0.d.i.a<b.a.p0.a.p.e.d> {
+    public class C0195b implements b.a.p0.d.i.a<b.a.p0.a.p.e.d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0190b(b bVar) {
+        public C0195b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +72,7 @@ public class b implements b.a.p0.a.g1.j.a {
         public void run(@NonNull b.a.p0.a.p.e.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-                dVar.q();
+                dVar.r();
             }
         }
     }
@@ -94,7 +94,7 @@ public class b implements b.a.p0.a.g1.j.a {
     public final void a(@NonNull b.a.p0.d.i.a<b.a.p0.a.p.e.d> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            for (b.a.p0.a.p.e.d dVar : g.M().N().values()) {
+            for (b.a.p0.a.p.e.d dVar : g.U().V().values()) {
                 if (dVar != null) {
                     aVar.run(dVar);
                 }
@@ -114,7 +114,7 @@ public class b implements b.a.p0.a.g1.j.a {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(new C0190b(this));
+            a(new C0195b(this));
         }
     }
 }

@@ -1,6 +1,6 @@
 package b.a.r0.w.g.a;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -16,25 +16,25 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a.e.a.f f24981a;
+    public b.a.e.a.f f26498a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f24982b;
+    public BdTypeListView f26499b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<b.a.e.l.e.a> f24983c;
+    public final List<b.a.e.m.e.a> f26500c;
 
     /* renamed from: d  reason: collision with root package name */
-    public f f24984d;
+    public f f26501d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f24985e;
+    public c f26502e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f24986f;
+    public a f26503f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f24987g;
+    public b f26504g;
 
     public g(b.a.e.a.f fVar, BdTypeListView bdTypeListView, boolean z) {
         Interceptable interceptable = $ic;
@@ -51,9 +51,9 @@ public class g {
                 return;
             }
         }
-        this.f24983c = new ArrayList();
-        this.f24981a = fVar;
-        this.f24982b = bdTypeListView;
+        this.f26500c = new ArrayList();
+        this.f26498a = fVar;
+        this.f26499b = bdTypeListView;
         a(z);
     }
 
@@ -61,30 +61,30 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                c cVar = new c((TbPageContext) this.f24981a, b.a.r0.w.j.b.a.f25086g);
-                this.f24985e = cVar;
-                this.f24983c.add(cVar);
+                c cVar = new c((TbPageContext) this.f26498a, b.a.r0.w.j.b.a.f26603g);
+                this.f26502e = cVar;
+                this.f26500c.add(cVar);
             } else {
-                f fVar = new f((TbPageContext) this.f24981a, b.a.r0.w.j.b.a.f25086g);
-                this.f24984d = fVar;
-                this.f24983c.add(fVar);
+                f fVar = new f((TbPageContext) this.f26498a, b.a.r0.w.j.b.a.f26603g);
+                this.f26501d = fVar;
+                this.f26500c.add(fVar);
             }
-            this.f24986f = new a((TbPageContext) this.f24981a, b.a.r0.w.g.b.a.f24988e);
-            this.f24987g = new b((TbPageContext) this.f24981a, b.a.r0.w.g.b.b.f24989e);
-            this.f24983c.add(this.f24986f);
-            this.f24983c.add(this.f24987g);
-            this.f24982b.addAdapters(this.f24983c);
+            this.f26503f = new a((TbPageContext) this.f26498a, b.a.r0.w.g.b.a.f26505e);
+            this.f26504g = new b((TbPageContext) this.f26498a, b.a.r0.w.g.b.b.f26506e);
+            this.f26500c.add(this.f26503f);
+            this.f26500c.add(this.f26504g);
+            this.f26499b.addAdapters(this.f26500c);
         }
     }
 
     public void b(b.a.r0.w.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            f fVar = this.f24984d;
+            f fVar = this.f26501d;
             if (fVar != null) {
                 fVar.i0(eVar);
             }
-            c cVar = this.f24985e;
+            c cVar = this.f26502e;
             if (cVar != null) {
                 cVar.i0(eVar);
             }
@@ -94,7 +94,7 @@ public class g {
     public void c(List<n> list) {
         BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.f24982b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.f26499b) == null) {
             return;
         }
         bdTypeListView.setData(list);

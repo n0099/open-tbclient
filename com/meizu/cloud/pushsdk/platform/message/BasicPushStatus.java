@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
 import android.text.TextUtils;
-import b.l.a.a.a;
+import b.j.a.a.a;
 import java.io.Serializable;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;

@@ -25,10 +25,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, NinePatchDrawable> f60619a = null;
+    public static HashMap<String, NinePatchDrawable> f61541a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f60620b = "b";
+    public static final String f61542b = "b";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +44,7 @@ public class b {
                 return;
             }
         }
-        f60619a = new HashMap<>();
+        f61541a = new HashMap<>();
     }
 
     public b() {
@@ -108,7 +108,7 @@ public class b {
             try {
                 return Color.parseColor(str);
             } catch (Exception e2) {
-                LogUtil.d(f60620b, e2.getMessage());
+                LogUtil.d(f61542b, e2.getMessage());
                 return color;
             }
         }
@@ -148,16 +148,16 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
             String str2 = str.contains(",") ? str.split(",")[0] : str;
-            HashMap<String, NinePatchDrawable> hashMap2 = f60619a;
+            HashMap<String, NinePatchDrawable> hashMap2 = f61541a;
             if (hashMap2 == null) {
                 b2 = b(context, str2);
                 hashMap = new HashMap<>();
-                f60619a = hashMap;
-            } else if (hashMap2.containsKey(str) && f60619a.get(str) != null) {
-                return f60619a.get(str);
+                f61541a = hashMap;
+            } else if (hashMap2.containsKey(str) && f61541a.get(str) != null) {
+                return f61541a.get(str);
             } else {
                 b2 = b(context, str2);
-                hashMap = f60619a;
+                hashMap = f61541a;
             }
             hashMap.put(str, b2);
             return b2;

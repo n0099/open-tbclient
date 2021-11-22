@@ -1,7 +1,7 @@
 package b.a.q0.q0.o;
 
 import android.os.Build;
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,10 +14,10 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f12874a;
+    public c f13624a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12875b;
+    public String f13625b;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class a {
                 return;
             }
         }
-        this.f12875b = str;
+        this.f13625b = str;
     }
 
     public final void a(String str, int i2) {
@@ -61,19 +61,19 @@ public class a {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || Build.VERSION.SDK_INT < 16) {
             return;
         }
-        if (this.f12874a == null) {
-            this.f12874a = new c();
+        if (this.f13624a == null) {
+            this.f13624a = new c();
         }
-        this.f12874a.c();
+        this.f13624a.c();
     }
 
     public void c() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f12874a) == null || Build.VERSION.SDK_INT < 16) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f13624a) == null || Build.VERSION.SDK_INT < 16) {
             return;
         }
         cVar.d();
-        a(this.f12875b, this.f12874a.b());
+        a(this.f13625b, this.f13624a.b());
     }
 }

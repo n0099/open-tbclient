@@ -13,6 +13,8 @@ public class b {
     public String basePath;
     @V8JavascriptField
     public Object config;
+    @V8JavascriptField
+    public String viewMode;
 
     public b() {
         Interceptable interceptable = $ic;

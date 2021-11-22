@@ -24,13 +24,13 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HttpMessageListener f18246a;
+    public HttpMessageListener f19580a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f18247b;
+    public c f19581b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f18248c;
+    public CustomMessageListener f19582c;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -38,7 +38,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f18249a;
+        public final /* synthetic */ f f19583a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(f fVar, int i2) {
@@ -58,7 +58,7 @@ public class f {
                     return;
                 }
             }
-            this.f18249a = fVar;
+            this.f19583a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class f {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-                this.f18249a.c((JSONObject) customResponsedMessage.getData());
+                this.f19583a.c((JSONObject) customResponsedMessage.getData());
             }
         }
     }
@@ -77,7 +77,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ f f18250a;
+        public final /* synthetic */ f f19584a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(f fVar, int i2) {
@@ -97,15 +97,15 @@ public class f {
                     return;
                 }
             }
-            this.f18250a = fVar;
+            this.f19584a = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && this.f18250a.f18247b != null) {
-                this.f18250a.f18247b.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003185 && (httpResponsedMessage instanceof DeleteThreadHttpResponseMessage) && httpResponsedMessage.isSuccess() && this.f19584a.f19581b != null) {
+                this.f19584a.f19581b.a((DeleteThreadHttpResponseMessage) httpResponsedMessage);
             }
         }
     }
@@ -130,18 +130,18 @@ public class f {
                 return;
             }
         }
-        this.f18247b = null;
-        this.f18248c = new a(this, 2016489);
-        if (this.f18246a == null) {
-            this.f18246a = new b(this, CmdConfigHttp.CMD_NEG_DELETE_THREAD);
+        this.f19581b = null;
+        this.f19582c = new a(this, 2016489);
+        if (this.f19580a == null) {
+            this.f19580a = new b(this, CmdConfigHttp.CMD_NEG_DELETE_THREAD);
         }
-        MessageManager.getInstance().registerListener(this.f18246a);
-        MessageManager.getInstance().registerListener(this.f18248c);
+        MessageManager.getInstance().registerListener(this.f19580a);
+        MessageManager.getInstance().registerListener(this.f19582c);
     }
 
     public final void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && b.a.e.e.p.j.A()) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && b.a.e.f.p.j.A()) {
             try {
                 int i2 = jSONObject.getInt("type");
                 String JsonArrayToString = StringHelper.JsonArrayToString(jSONObject.getJSONArray("thread_ids"));
@@ -165,23 +165,23 @@ public class f {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f18248c);
-            MessageManager.getInstance().unRegisterListener(this.f18246a);
+            MessageManager.getInstance().unRegisterListener(this.f19582c);
+            MessageManager.getInstance().unRegisterListener(this.f19580a);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.f18246a);
-            MessageManager.getInstance().registerListener(this.f18248c);
+            MessageManager.getInstance().registerListener(this.f19580a);
+            MessageManager.getInstance().registerListener(this.f19582c);
         }
     }
 
     public void f(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f18247b = cVar;
+            this.f19581b = cVar;
         }
     }
 }

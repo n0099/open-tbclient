@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.core.util.deeplink.DeepLinkManager1;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +21,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Uri f70011a;
+    public static final Uri f70931a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +37,7 @@ public class a {
                 return;
             }
         }
-        f70011a = Uri.parse("content://telephony/carriers/preferapn");
+        f70931a = Uri.parse("content://telephony/carriers/preferapn");
     }
 
     public static String a(Context context) {
@@ -60,7 +61,7 @@ public class a {
                 return ConectivityUtils.APN_UNINET;
             }
             if (d2 == 64) {
-                return "wap";
+                return DeepLinkManager1.AD_WAP;
             }
             if (d2 == 32) {
                 return "net";
@@ -94,7 +95,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                Cursor query = context.getContentResolver().query(f70011a, null, null, null, null);
+                Cursor query = context.getContentResolver().query(f70931a, null, null, null, null);
                 if (query == null) {
                     return null;
                 }
@@ -146,7 +147,7 @@ public class a {
                 if (lowerCase.startsWith(ConectivityUtils.APN_UNINET)) {
                     return 8;
                 }
-                if (lowerCase.startsWith("wap")) {
+                if (lowerCase.startsWith(DeepLinkManager1.AD_WAP)) {
                     return 64;
                 }
                 if (lowerCase.startsWith("net")) {

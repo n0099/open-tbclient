@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class a extends b.a.e.l.e.a<b.a.r0.h1.k.b.c.a, CardViewHolder<b.a.r0.h1.k.b.d.a>> {
+public class a extends b.a.e.m.e.a<b.a.r0.h1.k.b.c.a, CardViewHolder<b.a.r0.h1.k.b.d.a>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), b.a.r0.h1.k.b.c.a.j0);
+        super(tbPageContext.getPageActivity(), b.a.r0.h1.k.b.c.a.m0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,21 +42,21 @@ public class a extends b.a.e.l.e.a<b.a.r0.h1.k.b.c.a, CardViewHolder<b.a.r0.h1.k
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public CardViewHolder<b.a.r0.h1.k.b.d.a> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             b.a.r0.h1.k.b.d.a aVar = new b.a.r0.h1.k.b.d.a(this.m);
-            aVar.m(this.f2423i);
+            aVar.m(this.f2425i);
             return new CardViewHolder<>(aVar);
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.h1.k.b.c.a aVar, CardViewHolder<b.a.r0.h1.k.b.d.a> cardViewHolder) {
         InterceptResult invokeCommon;

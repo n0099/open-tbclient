@@ -1,6 +1,6 @@
 package com.baidu.searchbox.pms;
 
-import b.a.e.i.c;
+import b.a.e.j.c;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;

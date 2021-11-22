@@ -1,7 +1,7 @@
 package b.a.p0.a.u.f.b;
 
 import b.a.p0.a.k;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.z2.q0;
 import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +15,7 @@ public class c extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f8408b;
+    public static final boolean f8940b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class c extends a {
                 return;
             }
         }
-        f8408b = k.f6397a;
+        f8940b = k.f6863a;
     }
 
     public c() {
@@ -52,13 +52,13 @@ public class c extends a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (BasePendingOperation basePendingOperation : this.f8407a) {
-                if (f8408b) {
+            for (BasePendingOperation basePendingOperation : this.f8939a) {
+                if (f8940b) {
                     String str = "  *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c();
                 }
-                q0.b0(basePendingOperation);
+                q0.e0(basePendingOperation);
             }
-            this.f8407a.clear();
+            this.f8939a.clear();
         }
     }
 }

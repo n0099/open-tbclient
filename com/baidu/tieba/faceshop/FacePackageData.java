@@ -1,6 +1,6 @@
 package com.baidu.tieba.faceshop;
 
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

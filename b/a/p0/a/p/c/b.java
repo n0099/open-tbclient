@@ -1,12 +1,14 @@
 package b.a.p0.a.p.c;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class b implements b.a.p0.a.p.d.c {
+public class b implements b.a.p0.a.p.d.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,13 +26,18 @@ public class b implements b.a.p0.a.p.d.c {
         }
     }
 
-    @Override // b.a.p0.a.p.d.c
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // b.a.p0.a.p.d.f
+    public void a(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
+            b.a.p0.a.o2.g.h.a().putInt("fontSizeLevel", i2);
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // b.a.p0.a.p.d.f
+    public int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? b.a.p0.a.o2.g.h.a().getInt("fontSizeLevel", 1) : invokeL.intValue;
     }
 }

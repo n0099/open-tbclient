@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f46814e;
+    public a f47678e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f46815f;
+    public byte[] f47679f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QuickSearchModel(QuickSearchActivity quickSearchActivity) {
@@ -43,8 +43,8 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                 return;
             }
         }
-        this.f46815f = new byte[0];
-        this.f46814e = a.d();
+        this.f47679f = new byte[0];
+        this.f47678e = a.d();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -72,12 +72,12 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this.f46815f) {
+            synchronized (this.f47679f) {
                 ArrayList arrayList = new ArrayList();
                 if (TextUtils.isEmpty(str)) {
                     return arrayList;
                 }
-                List<b.a.q0.t.f.a> c2 = this.f46814e.c();
+                List<b.a.q0.t.f.a> c2 = this.f47678e.c();
                 if (c2 == null) {
                     return arrayList;
                 }

@@ -20,7 +20,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<DownloadCacheKey, AdDownloadData> f22963a;
+    public Map<DownloadCacheKey, AdDownloadData> f24495a;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -30,11 +30,11 @@ public class b {
 
     /* renamed from: b.a.r0.r.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C1122b {
+    public static final class C1190b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f22964a;
+        public static final b f24496a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +50,7 @@ public class b {
                     return;
                 }
             }
-            f22964a = new b(null);
+            f24496a = new b(null);
         }
     }
 
@@ -61,24 +61,24 @@ public class b {
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1122b.f22964a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1190b.f24496a : (b) invokeV.objValue;
     }
 
     public AdDownloadData a(@NonNull DownloadCacheKey downloadCacheKey) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, downloadCacheKey)) == null) ? this.f22963a.get(downloadCacheKey) : (AdDownloadData) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, downloadCacheKey)) == null) ? this.f24495a.get(downloadCacheKey) : (AdDownloadData) invokeL.objValue;
     }
 
     public Map<DownloadCacheKey, AdDownloadData> b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap hashMap = new HashMap(this.f22963a.size());
+            HashMap hashMap = new HashMap(this.f24495a.size());
             if (TextUtils.isEmpty(str)) {
                 return hashMap;
             }
-            for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.f22963a.entrySet()) {
+            for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : this.f24495a.entrySet()) {
                 if (entry.getKey() != null && entry.getKey().samePackage(str)) {
                     hashMap.put(entry.getKey(), entry.getValue());
                 }
@@ -90,8 +90,8 @@ public class b {
 
     public void d(@NonNull DownloadCacheKey downloadCacheKey, @NonNull AdDownloadData adDownloadData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, downloadCacheKey, adDownloadData) == null) && this.f22963a.get(downloadCacheKey) == null) {
-            this.f22963a.put(downloadCacheKey, adDownloadData);
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, downloadCacheKey, adDownloadData) == null) && this.f24495a.get(downloadCacheKey) == null) {
+            this.f24495a.put(downloadCacheKey, adDownloadData);
         }
     }
 
@@ -108,6 +108,6 @@ public class b {
                 return;
             }
         }
-        this.f22963a = new HashMap();
+        this.f24495a = new HashMap();
     }
 }

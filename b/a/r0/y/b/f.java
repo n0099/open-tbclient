@@ -11,31 +11,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ManagerElection;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f27185a;
+    public e f28688a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f27186b;
+    public d f28689b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d> f27187c;
+    public List<d> f28690c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ManagerElection f27188d;
+    public ManagerElection f28691d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f27189e;
+    public boolean f28692e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f27190f;
+    public long f28693f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdUniqueId f27191g;
+    public BdUniqueId f28694g;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -54,91 +54,91 @@ public class f {
     public e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27185a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28688a : (e) invokeV.objValue;
     }
 
     public List<d> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27187c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28690c : (List) invokeV.objValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27190f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28693f : invokeV.longValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27189e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28692e : invokeV.booleanValue;
     }
 
     public ManagerElection e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27188d : (ManagerElection) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28691d : (ManagerElection) invokeV.objValue;
     }
 
     public d f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27186b : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28689b : (d) invokeV.objValue;
     }
 
     public BdUniqueId g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27191g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28694g : (BdUniqueId) invokeV.objValue;
     }
 
     public void h(ArrayList<d> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
-            this.f27187c = arrayList;
+            this.f28690c = arrayList;
         }
     }
 
     public void i(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.f27190f = j;
+            this.f28693f = j;
         }
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f27189e = z;
+            this.f28692e = z;
         }
     }
 
     public void k(ManagerElection managerElection) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, managerElection) == null) {
-            this.f27188d = managerElection;
+            this.f28691d = managerElection;
         }
     }
 
     public void l(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) {
-            this.f27191g = bdUniqueId;
+            this.f28694g = bdUniqueId;
         }
     }
 
     public void m(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, eVar) == null) {
-            this.f27185a = eVar;
+            this.f28688a = eVar;
         }
     }
 
     public void n(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
-            this.f27186b = dVar;
+            this.f28689b = dVar;
         }
     }
 }

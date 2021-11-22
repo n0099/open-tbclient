@@ -15,12 +15,12 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f4125a;
+    public Context f4270a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f4126b;
+    public c f4271b;
 
-    public a(@NonNull Context context, @NonNull b.a.p0.a.w2.g.a aVar) {
+    public a(@NonNull Context context, @NonNull b.a.p0.a.a3.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,28 +35,28 @@ public class a {
                 return;
             }
         }
-        this.f4125a = context;
-        this.f4126b = new c(aVar);
+        this.f4270a = context;
+        this.f4271b = new c(aVar);
     }
 
     @NonNull
     public c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4126b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4271b : (c) invokeV.objValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f4126b.c();
+            this.f4271b.c();
         }
     }
 
     public void c(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f4125a = context;
+            this.f4270a = context;
         }
     }
 
@@ -64,6 +64,6 @@ public class a {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4125a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4270a : (Context) invokeV.objValue;
     }
 }

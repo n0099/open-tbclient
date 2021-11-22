@@ -94,7 +94,7 @@ public class g extends b<b.a.r0.h0.e> {
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
             if (view == this.n || view == this.o || view == this.p || view == this.q) {
                 TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.t));
-                UrlManager.getInstance().dealOneLink((TbPageContext) b.a.e.a.j.a(this.f14737f.getPageActivity()), new String[]{(String) view.getTag()}, true);
+                UrlManager.getInstance().dealOneLink((TbPageContext) b.a.e.a.j.a(this.f16224f.getPageActivity()), new String[]{(String) view.getTag()}, true);
             }
         }
     }

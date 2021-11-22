@@ -16,13 +16,13 @@ public class n extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3856a;
+    public String f3950a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3857b;
+    public int f3951b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3858c;
+    public int f3952c;
 
     public n() {
         Interceptable interceptable = $ic;
@@ -41,21 +41,21 @@ public class n extends a {
     @Override // b.a.p0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || TextUtils.isEmpty(this.f3856a)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || TextUtils.isEmpty(this.f3950a)) {
             return;
         }
-        TextPaint textPaint = bVar.f3802i;
+        TextPaint textPaint = bVar.f3896i;
         int i2 = bVar.o;
         Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
         float f2 = fontMetrics.top;
-        int i3 = this.f3858c;
+        int i3 = this.f3952c;
         float f3 = i3 + f2;
         float f4 = fontMetrics.ascent + i3;
         float f5 = fontMetrics.bottom;
         float f6 = i2 != 1 ? i2 != 2 ? i2 != 3 ? i3 : i3 - (f4 - f3) : (i3 + ((f5 - f2) / 2.0f)) - f5 : i3 + (((i3 + f5) - f3) / 2.0f) + (f4 - f3);
         int alpha = textPaint.getAlpha();
         bVar.c(textPaint);
-        canvas.drawText(this.f3856a, this.f3857b, f6, textPaint);
+        canvas.drawText(this.f3950a, this.f3951b, f6, textPaint);
         textPaint.setAlpha(alpha);
     }
 
@@ -65,12 +65,12 @@ public class n extends a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
                 if (jSONArray.length() > 2) {
-                    this.f3856a = jSONArray.optString(0);
-                    this.f3857b = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
-                    this.f3858c = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(2));
+                    this.f3950a = jSONArray.optString(0);
+                    this.f3951b = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(1));
+                    this.f3952c = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(2));
                 }
             } catch (Exception e2) {
-                if (b.a.p0.a.k.f6397a) {
+                if (b.a.p0.a.k.f6863a) {
                     e2.printStackTrace();
                 }
             }

@@ -12,6 +12,7 @@ import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
 import com.baidu.searchbox.net.update.v2.JSONObjectCommandListener;
 import com.baidu.searchbox.net.update.v2.UpdateAction;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -114,8 +115,8 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
             }
             if (str == null || str2 != null) {
                 if (str != null || str2 == null) {
-                    String[] split = str.split("\\.");
-                    String[] split2 = str2.split("\\.");
+                    String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                    String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                     int i2 = 0;
                     while (i2 < split.length && i2 < split2.length) {
                         try {

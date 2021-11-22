@@ -1,7 +1,7 @@
 package com.baidu.searchbox.cloudcontrol.processor;
 
 import android.text.TextUtils;
-import b.a.r0.f3.d;
+import b.a.r0.g3.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;

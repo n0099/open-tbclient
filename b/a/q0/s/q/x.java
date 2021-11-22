@@ -14,14 +14,14 @@ public class x extends a implements b.a.q0.k0.b.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f13475f;
+    public static final BdUniqueId f14257f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int[] f13476g;
+    public static final int[] f14258g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13477e;
+    public int f14259e;
 
     static {
         InterceptResult invokeClinit;
@@ -36,8 +36,8 @@ public class x extends a implements b.a.q0.k0.b.a {
                 return;
             }
         }
-        f13475f = BdUniqueId.gen();
-        f13476g = new int[]{0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11};
+        f14257f = BdUniqueId.gen();
+        f14258g = new int[]{0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11};
     }
 
     public x() {
@@ -53,13 +53,13 @@ public class x extends a implements b.a.q0.k0.b.a {
                 return;
             }
         }
-        this.f13477e = 6;
+        this.f14259e = 6;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13477e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14259e : invokeV.intValue;
     }
 
     @Override // b.a.q0.s.q.a
@@ -85,7 +85,7 @@ public class x extends a implements b.a.q0.k0.b.a {
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f13477e = i2;
+            this.f14259e = i2;
         }
     }
 }

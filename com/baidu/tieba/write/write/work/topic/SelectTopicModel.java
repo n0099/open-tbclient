@@ -18,30 +18,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b.a.e.c.g.a f56277e;
+    public final b.a.e.c.g.a f57199e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f56278f;
+    public b f57200f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56279g;
+    public boolean f57201g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<f> f56280h;
+    public List<f> f57202h;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class a extends b.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectTopicModel f56281a;
+        public final /* synthetic */ SelectTopicModel f57203a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SelectTopicModel selectTopicModel, int i2, int i3) {
@@ -62,22 +62,22 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
                     return;
                 }
             }
-            this.f56281a = selectTopicModel;
+            this.f57203a = selectTopicModel;
         }
 
         @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f56281a.f56279g = false;
-                if (responsedMessage != null && (responsedMessage instanceof b.a.r0.d4.u.p.d.a.a)) {
-                    this.f56281a.z(((b.a.r0.d4.u.p.d.a.a) responsedMessage).getTopicList());
+                this.f57203a.f57201g = false;
+                if (responsedMessage != null && (responsedMessage instanceof b.a.r0.e4.u.p.d.a.a)) {
+                    this.f57203a.z(((b.a.r0.e4.u.p.d.a.a) responsedMessage).getTopicList());
                 }
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(@NonNull List<f> list);
     }
@@ -100,14 +100,14 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f56277e = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, 309719);
+        this.f57199e = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_TOPIC, 309719);
         initListener();
     }
 
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f56278f = bVar;
+            this.f57200f = bVar;
         }
     }
 
@@ -124,7 +124,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public final void initListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            registerListener(this.f56277e);
+            registerListener(this.f57199e);
         }
     }
 
@@ -140,8 +140,8 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void y() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.f56279g && ListUtils.isEmpty(this.f56280h)) {
-            this.f56279g = true;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.f57201g && ListUtils.isEmpty(this.f57202h)) {
+            this.f57201g = true;
             sendMessage(new GetRecommendTopicReqMessage());
         }
     }
@@ -151,13 +151,13 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f56280h = new ArrayList();
+        this.f57202h = new ArrayList();
         for (TopicList topicList : list) {
-            this.f56280h.add(new f(topicList));
+            this.f57202h.add(new f(topicList));
         }
-        b bVar = this.f56278f;
+        b bVar = this.f57200f;
         if (bVar != null) {
-            bVar.a(this.f56280h);
+            bVar.a(this.f57202h);
         }
     }
 }

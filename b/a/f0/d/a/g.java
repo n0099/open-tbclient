@@ -39,7 +39,7 @@ public class g extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ExecutorService f2894a;
+    public final ExecutorService f2987a;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -47,13 +47,13 @@ public class g extends b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Request f2895e;
+        public final /* synthetic */ Request f2988e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k f2896f;
+        public final /* synthetic */ k f2989f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f2897g;
+        public final /* synthetic */ g f2990g;
 
         public a(g gVar, Request request, k kVar) {
             Interceptable interceptable = $ic;
@@ -70,18 +70,18 @@ public class g extends b {
                     return;
                 }
             }
-            this.f2897g = gVar;
-            this.f2895e = request;
-            this.f2896f = kVar;
+            this.f2990g = gVar;
+            this.f2988e = request;
+            this.f2989f = kVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g gVar = this.f2897g;
-                Request request = this.f2895e;
-                gVar.h(0, request, request.f42154a, this.f2896f);
+                g gVar = this.f2990g;
+                Request request = this.f2988e;
+                gVar.h(0, request, request.f43100a, this.f2989f);
             }
         }
     }
@@ -101,18 +101,18 @@ public class g extends b {
                 return;
             }
         }
-        this.f2894a = new ThreadPoolExecutor(0, 5, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.f2987a = new ThreadPoolExecutor(0, 5, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
     public static void d(HttpURLConnection httpURLConnection, Request request) throws UnsupportedEncodingException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, httpURLConnection, request) == null) {
             e(httpURLConnection, request);
-            Map<String, String> map = request.f42156c;
+            Map<String, String> map = request.f43102c;
             if (map == null || map.size() == 0) {
                 return;
             }
-            for (Map.Entry<String, String> entry : request.f42156c.entrySet()) {
+            for (Map.Entry<String, String> entry : request.f43102c.entrySet()) {
                 httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -124,14 +124,14 @@ public class g extends b {
         if (interceptable != null && interceptable.invokeLL(65539, null, httpURLConnection, request) != null) {
             return;
         }
-        Map<String, String> map = request.f42156c;
+        Map<String, String> map = request.f43102c;
         if (map != null && map.containsKey("Cookie")) {
             return;
         }
         try {
             CookieManager cookieManager = CookieManager.getInstance();
             if (cookieManager != null) {
-                String cookie = cookieManager.getCookie(request.f42154a.toString());
+                String cookie = cookieManager.getCookie(request.f43100a.toString());
                 if (TextUtils.isEmpty(cookie)) {
                     return;
                 }
@@ -203,7 +203,7 @@ public class g extends b {
     public void a(Request request, k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, request, kVar) == null) {
-            this.f2894a.execute(new a(this, request, kVar));
+            this.f2987a.execute(new a(this, request, kVar));
         }
     }
 
@@ -223,8 +223,8 @@ public class g extends b {
                 return;
             }
             try {
-                byte[] bytes = request.f() ? g(request.f42157d, "utf-8").toString().getBytes() : null;
-                HttpURLConnection i3 = i(url, 30000, request.f(), request.f42155b, request.j);
+                byte[] bytes = request.f() ? g(request.f43103d, "utf-8").toString().getBytes() : null;
+                HttpURLConnection i3 = i(url, 30000, request.f(), request.f43101b, request.j);
                 if (i3 == null) {
                     kVar.a(new Exception("Unable to open connection"));
                     return;
@@ -292,8 +292,8 @@ public class g extends b {
                 }
                 httpURLConnection2.setInstanceFollowRedirects(true);
                 if (z2) {
-                    httpURLConnection2.setConnectTimeout(d.f2890b);
-                    httpURLConnection2.setReadTimeout(d.f2891c);
+                    httpURLConnection2.setConnectTimeout(d.f2983b);
+                    httpURLConnection2.setReadTimeout(d.f2984c);
                 } else {
                     httpURLConnection2.setConnectTimeout(i2);
                     httpURLConnection2.setReadTimeout(60000);
@@ -311,7 +311,7 @@ public class g extends b {
             } catch (Throwable th) {
                 th = th;
                 httpURLConnection = httpURLConnection2;
-                b.a.f0.a.c.g gVar = b.a.f0.a.c.g.f2795a;
+                b.a.f0.a.c.g gVar = b.a.f0.a.c.g.f2888a;
                 gVar.e("OriginHttp", "failed to connect to url " + url, th);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();

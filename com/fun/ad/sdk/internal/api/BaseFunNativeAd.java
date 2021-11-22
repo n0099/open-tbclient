@@ -19,7 +19,7 @@ public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final v0.b f62818a;
+    public final v0.b f63718a;
     public final String mSid;
 
     public BaseFunNativeAd(String str, Ssp.Pid pid) {
@@ -38,7 +38,7 @@ public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
             }
         }
         this.mSid = str;
-        this.f62818a = new v0.b(str, pid);
+        this.f63718a = new v0.b(str, pid);
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
@@ -48,7 +48,7 @@ public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
             if (context == null || viewGroup == null || list == null || funAdInteractionListener == null) {
                 throw new IllegalArgumentException();
             }
-            this.f62818a.e();
+            this.f63718a.e();
             showInternal(context, viewGroup, list, list2, funAdInteractionListener);
         }
     }

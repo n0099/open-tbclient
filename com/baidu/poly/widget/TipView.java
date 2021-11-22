@@ -9,10 +9,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e0.b;
-import b.a.e0.d;
-import b.a.e0.f;
+import b.a.e0.c;
+import b.a.e0.e;
 import b.a.e0.g;
+import b.a.e0.h;
+import b.a.e0.m.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,13 +25,13 @@ public class TipView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f42098e;
+    public ImageView f43034e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f42099f;
+    public TextView f43035f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f42100g;
+    public Animation f43036g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TipView(Context context) {
@@ -53,56 +54,56 @@ public class TipView extends LinearLayout {
         }
     }
 
-    public void a(String str) {
+    public final void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            setVisibility(0);
-            if (this.f42100g == null) {
-                this.f42100g = AnimationUtils.loadAnimation(getContext(), b.loading_rotate);
-            }
-            this.f42099f.setText(str);
-            ViewGroup.LayoutParams layoutParams = this.f42098e.getLayoutParams();
-            if (layoutParams != null) {
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(d.channel_loading_icon_size);
-                layoutParams.width = dimensionPixelOffset;
-                layoutParams.height = dimensionPixelOffset;
-            }
-            this.f42098e.startAnimation(this.f42100g);
-        }
-    }
-
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            setVisibility(0);
-            this.f42098e.clearAnimation();
-            ViewGroup.LayoutParams layoutParams = this.f42098e.getLayoutParams();
-            if (layoutParams != null) {
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(d.pay_loading_icon_size);
-                layoutParams.width = dimensionPixelOffset;
-                layoutParams.height = dimensionPixelOffset;
-            }
-            b.a.e0.k.d.b.c().b(this.f42098e, str);
-            this.f42099f.setText(str2);
-        }
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(context).inflate(g.view_tip, (ViewGroup) this, true);
-            this.f42098e = (ImageView) findViewById(f.tip_loading_view);
-            this.f42099f = (TextView) findViewById(f.tip_text_view);
+            LayoutInflater.from(context).inflate(h.view_tip, (ViewGroup) this, true);
+            this.f43034e = (ImageView) findViewById(g.tip_loading_view);
+            this.f43035f = (TextView) findViewById(g.tip_text_view);
         }
     }
 
-    public void j() {
+    public void hideLoading() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setVisibility(8);
-            this.f42098e.clearAnimation();
+            this.f43034e.clearAnimation();
+        }
+    }
+
+    public void showChannelLoading(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            setVisibility(0);
+            if (this.f43036g == null) {
+                this.f43036g = AnimationUtils.loadAnimation(getContext(), c.loading_rotate);
+            }
+            this.f43035f.setText(str);
+            ViewGroup.LayoutParams layoutParams = this.f43034e.getLayoutParams();
+            if (layoutParams != null) {
+                int dimensionPixelOffset = getResources().getDimensionPixelOffset(e.channel_loading_icon_size);
+                layoutParams.width = dimensionPixelOffset;
+                layoutParams.height = dimensionPixelOffset;
+            }
+            this.f43034e.startAnimation(this.f43036g);
+        }
+    }
+
+    public void showPayLoading(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            setVisibility(0);
+            this.f43034e.clearAnimation();
+            ViewGroup.LayoutParams layoutParams = this.f43034e.getLayoutParams();
+            if (layoutParams != null) {
+                int dimensionPixelOffset = getResources().getDimensionPixelOffset(e.pay_loading_icon_size);
+                layoutParams.width = dimensionPixelOffset;
+                layoutParams.height = dimensionPixelOffset;
+            }
+            b.b().a(this.f43034e, str);
+            this.f43035f.setText(str2);
         }
     }
 
@@ -146,6 +147,6 @@ public class TipView extends LinearLayout {
                 return;
             }
         }
-        c(context);
+        a(context);
     }
 }

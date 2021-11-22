@@ -71,8 +71,7 @@ public final class NetWorkDetector {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
-                Runtime runtime = Runtime.getRuntime();
-                Process exec = runtime.exec("ping -c 1 " + str);
+                Process exec = Runtime.getRuntime().exec(new String[]{"ping", "-c", "1", str});
                 exec.waitFor();
                 return exec.exitValue();
             } catch (IOException | InterruptedException unused) {

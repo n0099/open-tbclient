@@ -12,7 +12,7 @@ import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes.dex */
-public class a implements b.a.p0.n.j.i.p.a {
+public class a implements b.a.p0.q.k.i.s.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,14 +30,14 @@ public class a implements b.a.p0.n.j.i.p.a {
         }
     }
 
-    @Override // b.a.p0.n.j.i.p.a
+    @Override // b.a.p0.q.k.i.s.a
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.p0.a.v0.d.e() : (String) invokeV.objValue;
     }
 
-    @Override // b.a.p0.n.j.i.p.a
+    @Override // b.a.p0.q.k.i.s.a
     public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
@@ -45,7 +45,7 @@ public class a implements b.a.p0.n.j.i.p.a {
         }
     }
 
-    @Override // b.a.p0.n.j.i.p.a
+    @Override // b.a.p0.q.k.i.s.a
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

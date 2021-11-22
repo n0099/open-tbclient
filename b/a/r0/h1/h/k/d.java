@@ -1,6 +1,6 @@
 package b.a.r0.h1.h.k;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,13 +12,13 @@ public class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<n> f17482a;
+    public List<n> f18951a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f17483b;
+    public int f18952b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f17484c;
+    public int f18953c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class d {
                 return;
             }
         }
-        this.f17483b = 0;
-        this.f17484c = 0;
+        this.f18952b = 0;
+        this.f18953c = 0;
     }
 }

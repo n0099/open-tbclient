@@ -1,12 +1,13 @@
 package b.a.p0.a.p.c;
 
-import b.a.p0.a.p.d.t0;
+import b.a.p0.a.p.d.v0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b0 implements t0 {
+public class b0 implements v0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,10 +25,11 @@ public class b0 implements t0 {
         }
     }
 
-    @Override // b.a.p0.a.p.d.t0
-    public void a(boolean z) {
+    @Override // b.a.p0.a.p.d.v0
+    public void b(b.a.p0.a.d2.e eVar, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, eVar, jSONObject) == null) {
+            b.a.p0.a.s1.a.e().b(eVar, jSONObject);
         }
     }
 }

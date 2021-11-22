@@ -30,7 +30,7 @@ public final class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f70403a;
+    public static Boolean f71323a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static com.vivo.push.model.b a(Context context) {
@@ -124,7 +124,7 @@ public final class s {
         }
         try {
             try {
-                query = context.getContentResolver().query(com.vivo.push.z.f70435a, null, null, null, null);
+                query = context.getContentResolver().query(com.vivo.push.z.f71355a, null, null, null, null);
             } catch (Exception e3) {
                 e = e3;
                 str = null;
@@ -318,7 +318,7 @@ public final class s {
         ProviderInfo resolveContentProvider;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            Boolean bool = f70403a;
+            Boolean bool = f71323a;
             if (bool != null) {
                 return bool.booleanValue();
             }
@@ -327,7 +327,7 @@ public final class s {
                 str = resolveContentProvider.packageName;
             }
             Boolean valueOf = Boolean.valueOf("BCC35D4D3606F154F0402AB7634E8490C0B244C2675C3C6238986987024F0C02".equals(f(context, str)));
-            f70403a = valueOf;
+            f71323a = valueOf;
             return valueOf.booleanValue();
         }
         return invokeL.booleanValue;

@@ -19,7 +19,7 @@ public class b extends c<HttpMessage, HttpMessageTask, b.a.e.c.f.d, HttpResponse
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public HttpClient f1551i;
+    public HttpClient f1547i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(MessageManager messageManager) {
@@ -39,23 +39,23 @@ public class b extends c<HttpMessage, HttpMessageTask, b.a.e.c.f.d, HttpResponse
                 return;
             }
         }
-        this.f1551i = null;
-        this.f1551i = new HttpClient(messageManager);
-        this.f1557e = b.a.e.c.j.b.d();
+        this.f1547i = null;
+        this.f1547i = new HttpClient(messageManager);
+        this.f1553e = b.a.e.c.j.b.d();
     }
 
     @Override // b.a.e.c.b
     public LinkedList<HttpMessage> e(int i2, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bdUniqueId)) == null) ? this.f1551i.e(i2, bdUniqueId) : (LinkedList) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bdUniqueId)) == null) ? this.f1547i.e(i2, bdUniqueId) : (LinkedList) invokeIL.objValue;
     }
 
     @Override // b.a.e.c.b
     public void h(int i2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bdUniqueId) == null) {
-            this.f1551i.h(i2, bdUniqueId);
+            this.f1547i.h(i2, bdUniqueId);
         }
     }
 
@@ -71,7 +71,7 @@ public class b extends c<HttpMessage, HttpMessageTask, b.a.e.c.f.d, HttpResponse
     public LinkedList<HttpMessage> w(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bdUniqueId)) == null) ? this.f1551i.i(bdUniqueId) : (LinkedList) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bdUniqueId)) == null) ? this.f1547i.i(bdUniqueId) : (LinkedList) invokeL.objValue;
     }
 
     public HttpMessage x(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
@@ -83,7 +83,7 @@ public class b extends c<HttpMessage, HttpMessageTask, b.a.e.c.f.d, HttpResponse
     public void y(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
-            this.f1551i.k(bdUniqueId);
+            this.f1547i.k(bdUniqueId);
         }
     }
 
@@ -94,9 +94,9 @@ public class b extends c<HttpMessage, HttpMessageTask, b.a.e.c.f.d, HttpResponse
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, httpMessage, httpMessageTask) == null) {
             if (httpMessageTask.getConnectTimeOut() == null) {
-                httpMessageTask.setConnectTimeOut(((b.a.e.c.j.b) this.f1557e).c());
+                httpMessageTask.setConnectTimeOut(((b.a.e.c.j.b) this.f1553e).c());
             }
-            this.f1551i.f(httpMessage, httpMessageTask);
+            this.f1547i.f(httpMessage, httpMessageTask);
         }
     }
 }

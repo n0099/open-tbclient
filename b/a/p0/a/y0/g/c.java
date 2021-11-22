@@ -15,7 +15,7 @@ public class c implements ZeusPluginFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9009a;
+    public String f9355a;
 
     public c(@NonNull String str) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class c implements ZeusPluginFactory {
                 return;
             }
         }
-        this.f9009a = str;
+        this.f9355a = str;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
@@ -40,8 +40,8 @@ public class c implements ZeusPluginFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            b.a.p0.a.y0.g.h.a d2 = b.a.p0.a.c1.a.z().d(invoker, this.f9009a);
-            b.a.p0.a.e0.d.g("【RtcItemPluginFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline RtcItem「Hash:" + d2.hashCode() + "」");
+            b.a.p0.a.y0.g.h.a d2 = b.a.p0.a.c1.a.D().d(invoker, this.f9355a);
+            b.a.p0.a.e0.d.i("【RtcItemPluginFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline RtcItem「Hash:" + d2.hashCode() + "」");
             return new a(d2);
         }
         return (ZeusPlugin) invokeL.objValue;

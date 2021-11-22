@@ -26,32 +26,32 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f21139i = "b.a.r0.m1.b.q.a";
+    public static final String f22294i = "b.a.r0.m1.b.q.a";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f21140a;
+    public View f22295a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HeadImageView f21141b;
+    public HeadImageView f22296b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f21142c;
+    public TextView f22297c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f21143d;
+    public TextView f22298d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbRichTextView f21144e;
+    public TbRichTextView f22299e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21145f;
+    public View f22300f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext f21146g;
+    public TbPageContext f22301g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21147h;
+    public int f22302h;
 
     static {
         InterceptResult invokeClinit;
@@ -83,49 +83,49 @@ public class a {
                 return;
             }
         }
-        this.f21147h = 3;
-        this.f21146g = tbPageContext;
+        this.f22302h = 3;
+        this.f22301g = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.official_notification_text_item, viewGroup, false);
-        this.f21140a = inflate;
+        this.f22295a = inflate;
         HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.iv_head);
-        this.f21141b = headImageView;
+        this.f22296b = headImageView;
         headImageView.setIsRound(true);
-        this.f21141b.setOnClickListener(onClickListener);
-        this.f21141b.setPlaceHolder(1);
-        TextView textView = (TextView) this.f21140a.findViewById(R.id.tv_user_name);
-        this.f21142c = textView;
+        this.f22296b.setOnClickListener(onClickListener);
+        this.f22296b.setPlaceHolder(1);
+        TextView textView = (TextView) this.f22295a.findViewById(R.id.tv_user_name);
+        this.f22297c = textView;
         textView.setOnClickListener(onClickListener);
-        this.f21143d = (TextView) this.f21140a.findViewById(R.id.tv_date);
-        TbRichTextView tbRichTextView = (TbRichTextView) this.f21140a.findViewById(R.id.tv_content);
-        this.f21144e = tbRichTextView;
+        this.f22298d = (TextView) this.f22295a.findViewById(R.id.tv_date);
+        TbRichTextView tbRichTextView = (TbRichTextView) this.f22295a.findViewById(R.id.tv_content);
+        this.f22299e = tbRichTextView;
         tbRichTextView.setTextSize(tbPageContext.getResources().getDimension(R.dimen.tbfontsize42));
-        b.a.q0.f1.n.a layoutStrategy = this.f21144e.getLayoutStrategy();
+        b.a.q0.e1.n.a layoutStrategy = this.f22299e.getLayoutStrategy();
         layoutStrategy.o(tbPageContext.getResources().getDimension(R.dimen.tbds12), 1.0f);
-        this.f21144e.setLayoutStrategy(layoutStrategy);
-        this.f21144e.setClickable(true);
-        this.f21144e.setFocusable(true);
-        this.f21145f = this.f21140a.findViewById(R.id.bottom_line);
+        this.f22299e.setLayoutStrategy(layoutStrategy);
+        this.f22299e.setClickable(true);
+        this.f22299e.setFocusable(true);
+        this.f22300f = this.f22295a.findViewById(R.id.bottom_line);
         b();
     }
 
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21140a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22295a : (View) invokeV.objValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f21147h == TbadkCoreApplication.getInst().getSkinType()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f22302h == TbadkCoreApplication.getInst().getSkinType()) {
             return;
         }
-        SkinManager.setBackgroundColor(this.f21140a, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.f21142c, R.color.CAM_X0106);
-        SkinManager.setViewTextColor(this.f21143d, R.color.CAM_X0109);
-        this.f21144e.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-        this.f21144e.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
-        SkinManager.setBackgroundColor(this.f21145f, R.color.CAM_X0204);
-        this.f21147h = TbadkCoreApplication.getInst().getSkinType();
+        SkinManager.setBackgroundColor(this.f22295a, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.f22297c, R.color.CAM_X0106);
+        SkinManager.setViewTextColor(this.f22298d, R.color.CAM_X0109);
+        this.f22299e.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+        this.f22299e.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
+        SkinManager.setBackgroundColor(this.f22300f, R.color.CAM_X0204);
+        this.f22302h = TbadkCoreApplication.getInst().getSkinType();
     }
 
     public void c(ChatMessage chatMessage) {
@@ -133,14 +133,14 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage) == null) || chatMessage.getUserInfo() == null) {
             return;
         }
-        this.f21141b.setUserId(chatMessage.getUserInfo().getUserId());
-        this.f21141b.startLoad(chatMessage.getUserInfo().getPortrait(), 12, false);
-        this.f21143d.setText(StringHelper.getFormatTimeShort(chatMessage.getTime() * 1000));
-        TbPageContext tbPageContext = this.f21146g;
-        if (tbPageContext == null || this.f21144e == null) {
+        this.f22296b.setUserId(chatMessage.getUserInfo().getUserId());
+        this.f22296b.startLoad(chatMessage.getUserInfo().getPortrait(), 12, false);
+        this.f22298d.setText(StringHelper.getFormatTimeShort(chatMessage.getTime() * 1000));
+        TbPageContext tbPageContext = this.f22301g;
+        if (tbPageContext == null || this.f22299e == null) {
             return;
         }
-        h.e(tbPageContext.getContext(), this.f21144e, chatMessage, f21139i, 0);
+        h.e(tbPageContext.getContext(), this.f22299e, chatMessage, f22294i, 0);
         if (chatMessage == null || chatMessage.getContent() == null) {
             return;
         }
@@ -149,7 +149,7 @@ public class a {
         for (String str : split) {
             stringBuffer.append(str);
         }
-        this.f21144e.setContentDescription(stringBuffer.toString());
-        this.f21144e.getTextView().setContentDescription(stringBuffer.toString());
+        this.f22299e.setContentDescription(stringBuffer.toString());
+        this.f22299e.getTextView().setContentDescription(stringBuffer.toString());
     }
 }

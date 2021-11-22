@@ -18,8 +18,8 @@ import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
-import b.a.e.l.e.q;
+import b.a.e.f.p.l;
+import b.a.e.m.e.q;
 import b.a.q0.g0.g;
 import b.a.q0.g0.h;
 import b.a.q0.s.a;
@@ -473,7 +473,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
         try {
             if (progressDialog.isShowing()) {
-                b.a.e.e.m.g.a(this.mWaitingDialog, getActivity());
+                b.a.e.f.m.g.a(this.mWaitingDialog, getActivity());
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -505,7 +505,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             return;
         }
         for (Dialog dialog : list) {
-            b.a.e.e.m.g.a(dialog, getActivity());
+            b.a.e.f.m.g.a(dialog, getActivity());
         }
         this.dialogList.clear();
     }
@@ -517,7 +517,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             return;
         }
         for (PopupWindow popupWindow : list) {
-            b.a.e.e.m.g.d(popupWindow, getActivity());
+            b.a.e.f.m.g.d(popupWindow, getActivity());
         }
         this.popupWindowList.clear();
     }
@@ -529,7 +529,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             if (list != null) {
                 list.remove(dialog);
             }
-            b.a.e.e.m.g.a(dialog, getActivity());
+            b.a.e.f.m.g.a(dialog, getActivity());
         }
     }
 
@@ -543,7 +543,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     public void dismissPopupWindow(PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, popupWindow) == null) {
-            b.a.e.e.m.g.d(popupWindow, getActivity());
+            b.a.e.f.m.g.d(popupWindow, getActivity());
             List<PopupWindow> list = this.popupWindowList;
             if (list != null) {
                 list.remove(popupWindow);
@@ -634,7 +634,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         AlertDialog alertDialog;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && (alertDialog = this.mListMenu) != null && alertDialog.isShowing()) {
-            b.a.e.e.m.g.a(this.mListMenu, getActivity());
+            b.a.e.f.m.g.a(this.mListMenu, getActivity());
         }
     }
 
@@ -990,7 +990,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, dialog)) == null) {
-            if (b.a.e.e.m.g.i(dialog, getActivity())) {
+            if (b.a.e.f.m.g.i(dialog, getActivity())) {
                 if (this.dialogList == null) {
                     this.dialogList = new LinkedList();
                 }
@@ -1008,7 +1008,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         if (!(interceptable == null || interceptable.invokeV(1048639, this) == null) || (alertDialog = this.mListMenu) == null || alertDialog.isShowing()) {
             return;
         }
-        b.a.e.e.m.g.i(this.mListMenu, getActivity());
+        b.a.e.f.m.g.i(this.mListMenu, getActivity());
     }
 
     public void showLoadingDialog(String str) {
@@ -1040,7 +1040,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048647, this, popupWindow, view)) == null) {
-            if (b.a.e.e.m.g.k(popupWindow, view)) {
+            if (b.a.e.f.m.g.k(popupWindow, view)) {
                 if (this.popupWindowList == null) {
                     this.popupWindowList = new LinkedList();
                 }
@@ -1056,7 +1056,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048649, this, new Object[]{popupWindow, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (b.a.e.e.m.g.m(popupWindow, view, i2, i3, i4)) {
+            if (b.a.e.f.m.g.m(popupWindow, view, i2, i3, i4)) {
                 if (this.popupWindowList == null) {
                     this.popupWindowList = new LinkedList();
                 }
@@ -1250,7 +1250,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048641, this, str, onCancelListener) == null) && !isFinishing() && b.a.e.e.m.g.e(getActivity())) {
+        if ((interceptable == null || interceptable.invokeLL(1048641, this, str, onCancelListener) == null) && !isFinishing() && b.a.e.f.m.g.e(getActivity())) {
             if (str == null) {
                 str = TbadkCoreApplication.getInst().getResources().getString(R.string.Waiting);
             }
@@ -1318,7 +1318,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048648, this, popupWindow, view, i2, i3)) == null) {
-            if (b.a.e.e.m.g.l(popupWindow, view, i2, i3)) {
+            if (b.a.e.f.m.g.l(popupWindow, view, i2, i3)) {
                 if (this.popupWindowList == null) {
                     this.popupWindowList = new LinkedList();
                 }

@@ -22,10 +22,10 @@ public class i extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f23304e;
+    public Context f24635e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<String> f23305f;
+    public ArrayList<String> f24636f;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -39,7 +39,7 @@ public class i extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f23306a;
+        public TbImageView f24637a;
 
         public b(i iVar) {
             Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class i extends BaseAdapter {
                 return;
             }
         }
-        this.f23304e = context;
-        this.f23305f = arrayList;
+        this.f24635e = context;
+        this.f24636f = arrayList;
     }
 
     public void a(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.f23305f = arrayList;
+            this.f24636f = arrayList;
         }
     }
 
@@ -93,7 +93,7 @@ public class i extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.f23305f;
+            ArrayList<String> arrayList = this.f24636f;
             if (arrayList == null) {
                 return 0;
             }
@@ -107,11 +107,11 @@ public class i extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            ArrayList<String> arrayList = this.f23305f;
-            if (arrayList == null || arrayList.size() <= 0 || i2 < 0 || i2 >= this.f23305f.size()) {
+            ArrayList<String> arrayList = this.f24636f;
+            if (arrayList == null || arrayList.size() <= 0 || i2 < 0 || i2 >= this.f24636f.size()) {
                 return null;
             }
-            return this.f23305f.get(i2);
+            return this.f24636f.get(i2);
         }
         return invokeI.objValue;
     }
@@ -128,19 +128,19 @@ public class i extends BaseAdapter {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
-            int k = (b.a.e.e.p.l.k(this.f23304e) - b.a.e.e.p.l.g(this.f23304e, R.dimen.ds22)) / 4;
+            int k = (b.a.e.f.p.l.k(this.f24635e) - b.a.e.f.p.l.g(this.f24635e, R.dimen.ds22)) / 4;
             if (view == null) {
                 b bVar = new b(this, null);
-                View inflate = LayoutInflater.from(this.f23304e).inflate(R.layout.face_package_item_image, (ViewGroup) null);
-                bVar.f23306a = (TbImageView) inflate.findViewById(R.id.image);
+                View inflate = LayoutInflater.from(this.f24635e).inflate(R.layout.face_package_item_image, (ViewGroup) null);
+                bVar.f24637a = (TbImageView) inflate.findViewById(R.id.image);
                 inflate.setTag(bVar);
                 inflate.setLayoutParams(new AbsListView.LayoutParams(k, k));
                 view = inflate;
             }
             b bVar2 = (b) view.getTag();
             String obj = getItem(i2).toString();
-            SkinManager.setBackgroundResource(bVar2.f23306a, R.drawable.btn_choose_face_selector);
-            bVar2.f23306a.startLoad(obj, 10, k, k, false);
+            SkinManager.setBackgroundResource(bVar2.f24637a, R.drawable.btn_choose_face_selector);
+            bVar2.f24637a.startLoad(obj, 10, k, k, false);
             if (i2 == getCount() - 1) {
                 viewGroup.invalidate();
             }

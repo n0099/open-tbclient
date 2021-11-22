@@ -21,24 +21,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements AccountManagerService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AccountManagerService.AccountStatusChangedListener f27013a;
+    public AccountManagerService.AccountStatusChangedListener f28545a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AccountManagerService.LoginResultListener f27014b;
+    public AccountManagerService.LoginResultListener f28546b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f27015a;
+        public final /* synthetic */ b f28547a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -58,7 +58,7 @@ public class b implements AccountManagerService {
                     return;
                 }
             }
-            this.f27015a = bVar;
+            this.f28547a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,11 +66,11 @@ public class b implements AccountManagerService {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (this.f27015a.f27014b != null) {
-                    this.f27015a.f27014b.onResult(this.f27015a.isLogin(2) ? 0 : -2);
+                if (this.f28547a.f28546b != null) {
+                    this.f28547a.f28546b.onResult(this.f28547a.isLogin(2) ? 0 : -2);
                 }
-                if (this.f27015a.f27013a != null) {
-                    this.f27015a.f27013a.onAccountStatusChanged(this.f27015a.isLogin(2));
+                if (this.f28547a.f28545a != null) {
+                    this.f28547a.f28545a.onAccountStatusChanged(this.f28547a.isLogin(2));
                 }
             }
         }
@@ -96,7 +96,7 @@ public class b implements AccountManagerService {
     public void addLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, accountStatusChangedListener) == null) {
-            this.f27013a = accountStatusChangedListener;
+            this.f28545a = accountStatusChangedListener;
         }
     }
 
@@ -180,7 +180,7 @@ public class b implements AccountManagerService {
     public void login(Context context, AccountManagerService.LoginResultListener loginResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, loginResultListener) == null) {
-            this.f27014b = loginResultListener;
+            this.f28546b = loginResultListener;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) TbadkCoreApplication.getInst(), true)));
         }
     }
@@ -189,7 +189,7 @@ public class b implements AccountManagerService {
     public void removeLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, accountStatusChangedListener) == null) {
-            this.f27013a = null;
+            this.f28545a = null;
         }
     }
 }

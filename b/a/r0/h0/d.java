@@ -15,11 +15,11 @@ public class d extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f16882f;
+    public static final BdUniqueId f18349f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.x0.e2.c.b f16883e;
+    public b.a.r0.x0.f2.c.b f18350e;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class d extends BaseCardInfo {
                 return;
             }
         }
-        f16882f = BdUniqueId.gen();
+        f18349f = BdUniqueId.gen();
     }
 
     public d() {
@@ -51,23 +51,23 @@ public class d extends BaseCardInfo {
         }
     }
 
-    public b.a.r0.x0.e2.c.b g() {
+    public b.a.r0.x0.f2.c.b g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16883e : (b.a.r0.x0.e2.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18350e : (b.a.r0.x0.f2.c.b) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f16882f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f18349f : (BdUniqueId) invokeV.objValue;
     }
 
-    public void i(b.a.r0.x0.e2.c.b bVar) {
+    public void i(b.a.r0.x0.f2.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f16883e = bVar;
+            this.f18350e = bVar;
         }
     }
 }

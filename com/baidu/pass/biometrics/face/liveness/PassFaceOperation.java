@@ -21,7 +21,7 @@ public class PassFaceOperation implements PassBiometricOperation {
         public static final OperationType RECOGNIZE;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ OperationType[] f41801a;
+        public static final /* synthetic */ OperationType[] f42633a;
         public transient /* synthetic */ FieldHolder $fh;
         public String operateName;
 
@@ -40,7 +40,7 @@ public class PassFaceOperation implements PassBiometricOperation {
             }
             OperationType operationType = new OperationType("RECOGNIZE", 0, "RECOGNIZE");
             RECOGNIZE = operationType;
-            f41801a = new OperationType[]{operationType};
+            f42633a = new OperationType[]{operationType};
         }
 
         public OperationType(String str, int i2, String str2) {
@@ -73,7 +73,7 @@ public class PassFaceOperation implements PassBiometricOperation {
         public static OperationType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OperationType[]) f41801a.clone() : (OperationType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OperationType[]) f42633a.clone() : (OperationType[]) invokeV.objValue;
         }
     }
 

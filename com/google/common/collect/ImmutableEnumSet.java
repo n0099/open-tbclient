@@ -1,7 +1,7 @@
 package com.google.common.collect;
 
-import b.i.d.c.o0;
-import b.i.d.c.o1;
+import b.h.d.c.o0;
+import b.h.d.c.o1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,14 +12,14 @@ import java.io.Serializable;
 import java.lang.Enum;
 import java.util.Collection;
 import java.util.EnumSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class ImmutableEnumSet<E extends Enum<E>> extends ImmutableSet<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final transient EnumSet<E> delegate;
     public transient int hashCode;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static class EnumSerializedForm<E extends Enum<E>> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -51,7 +51,7 @@ public final class ImmutableEnumSet<E extends Enum<E>> extends ImmutableSet<E> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

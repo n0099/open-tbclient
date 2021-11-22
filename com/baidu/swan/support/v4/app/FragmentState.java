@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import b.a.p0.o.a.a.l;
-import b.a.p0.o.a.a.n;
+import b.a.p0.r.a.a.l;
+import b.a.p0.r.a.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -138,9 +138,9 @@ public final class FragmentState implements Parcelable {
             Bundle bundle2 = this.mSavedFragmentState;
             if (bundle2 != null) {
                 bundle2.setClassLoader(context.getClassLoader());
-                this.mInstance.f44864h = this.mSavedFragmentState;
+                this.mInstance.f45672h = this.mSavedFragmentState;
             }
-            this.mInstance.e1(this.mIndex, fragment);
+            this.mInstance.h1(this.mIndex, fragment);
             Fragment fragment3 = this.mInstance;
             fragment3.s = this.mFromLayout;
             fragment3.u = true;
@@ -149,7 +149,7 @@ public final class FragmentState implements Parcelable {
             fragment3.C = this.mTag;
             fragment3.F = this.mRetainInstance;
             fragment3.E = this.mDetached;
-            fragment3.w = lVar.f11291e;
+            fragment3.w = lVar.f12014e;
             if (n.x) {
                 String str = "Instantiated fragment " + this.mInstance;
             }

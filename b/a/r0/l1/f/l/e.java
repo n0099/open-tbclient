@@ -49,7 +49,7 @@ public class e {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements a.InterfaceC0997a {
+    public static class b implements a.InterfaceC1065a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,7 +67,7 @@ public class e {
             }
         }
 
-        @Override // b.a.r0.l1.f.l.a.InterfaceC0997a
+        @Override // b.a.r0.l1.f.l.a.InterfaceC1065a
         public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class e {
                         }
                         JSONObject jSONObject = new JSONObject(content);
                         String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-                        if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != b.a.r0.l1.s.a.f20346i.longValue()) {
+                        if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != b.a.r0.l1.s.a.f21868i.longValue()) {
                             return -1L;
                         }
                     } catch (Exception unused) {

@@ -6,8 +6,6 @@ import android.opengl.Matrix;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
-import androidx.constraintlayout.motion.utils.Easing;
-import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
@@ -516,13 +514,13 @@ public class a {
                     }
                     break;
                 case -1354466595:
-                    if (str.equals(Easing.ACCELERATE_NAME)) {
+                    if (str.equals("accelerate")) {
                         c2 = 0;
                         break;
                     }
                     break;
                 case -1263948740:
-                    if (str.equals(Easing.DECELERATE_NAME)) {
+                    if (str.equals("decelerate")) {
                         c2 = 1;
                         break;
                     }
@@ -772,7 +770,7 @@ public class a {
             if ("value".equals(shaderParams.type)) {
                 GLES20.glUniform1f(GLES20.glGetUniformLocation(j(), shaderParams.name), f4);
             } else {
-                r0 = Key.ALPHA.equals(shaderParams.name) ? f4 : 1.0f;
+                r0 = "alpha".equals(shaderParams.name) ? f4 : 1.0f;
                 x(shaderParams, fArr, f4, f3);
             }
             return r0;
@@ -1046,7 +1044,7 @@ public class a {
             this.f1265e = GLES20.glGetAttribLocation(e2, "position");
             this.f1266f = GLES20.glGetUniformLocation(this.f1264d, "inputImageTexture");
             this.f1267g = GLES20.glGetAttribLocation(this.f1264d, "inputTextureCoordinate");
-            this.f1268h = GLES20.glGetUniformLocation(this.f1264d, Key.ALPHA);
+            this.f1268h = GLES20.glGetUniformLocation(this.f1264d, "alpha");
             this.k = true;
         }
     }
@@ -1125,21 +1123,21 @@ public class a {
                     c2 = 65535;
                     break;
                 case -908189618:
-                    if (str.equals(Key.SCALE_X)) {
+                    if (str.equals("scaleX")) {
                         c2 = 1;
                         break;
                     }
                     c2 = 65535;
                     break;
                 case -908189617:
-                    if (str.equals(Key.SCALE_Y)) {
+                    if (str.equals("scaleY")) {
                         c2 = 2;
                         break;
                     }
                     c2 = 65535;
                     break;
                 case -40300674:
-                    if (str.equals(Key.ROTATION)) {
+                    if (str.equals("rotation")) {
                         c2 = 6;
                         break;
                     }

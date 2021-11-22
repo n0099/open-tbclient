@@ -104,7 +104,7 @@ public class f extends b<b.a.r0.h0.d> {
             createFromThreadCfg.setForumId(String.valueOf(d2Var.T()));
             createFromThreadCfg.setForumName(d2Var.Z());
             createFromThreadCfg.setStartFrom(0);
-            m.a(d2Var.s1());
+            m.a(d2Var.t1());
             h().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }
     }
@@ -154,9 +154,9 @@ public class f extends b<b.a.r0.h0.d> {
             this.o = (LinearLayout) view.findViewById(R.id.frs_game_head_line_container);
             this.v = view.findViewById(R.id.divider_line_1);
             this.w = view.findViewById(R.id.divider_line_2);
-            int dimensionPixelSize = this.f14738g.getResources().getDimensionPixelSize(R.dimen.tbds44);
+            int dimensionPixelSize = this.f16225g.getResources().getDimensionPixelSize(R.dimen.tbds44);
             if (this.p == null) {
-                this.p = new d(this.f14737f, null, null);
+                this.p = new d(this.f16224f, null, null);
             }
             this.p.s(0, 0, 0, 0);
             this.p.t(8);
@@ -168,7 +168,7 @@ public class f extends b<b.a.r0.h0.d> {
             this.p.i().setVisibility(8);
             this.o.addView(this.p.i());
             if (this.q == null) {
-                this.q = new e(this.f14737f);
+                this.q = new e(this.f16224f);
             }
             this.q.s(8);
             this.q.t(0, dimensionPixelSize, 0, 0);
@@ -179,7 +179,7 @@ public class f extends b<b.a.r0.h0.d> {
             this.q.i().setVisibility(8);
             this.o.addView(this.q.i());
             if (this.r == null) {
-                this.r = new e(this.f14737f);
+                this.r = new e(this.f16224f);
             }
             this.r.s(8);
             this.r.t(0, dimensionPixelSize, 0, 0);
@@ -200,10 +200,10 @@ public class f extends b<b.a.r0.h0.d> {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) || dVar == null || dVar.g() == null) {
             return;
         }
-        if (!TextUtils.isEmpty(dVar.g().f25711b)) {
-            this.n.setText(dVar.g().f25711b);
+        if (!TextUtils.isEmpty(dVar.g().f27306b)) {
+            this.n.setText(dVar.g().f27306b);
         }
-        List<d2> list = dVar.g().f25710a;
+        List<d2> list = dVar.g().f27305a;
         if (ListUtils.getCount(list) >= 1) {
             b.a.r0.h0.a aVar = new b.a.r0.h0.a();
             this.s = aVar;

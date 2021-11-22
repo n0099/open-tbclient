@@ -11,7 +11,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, a> f3132a;
+    public static HashMap<String, a> f3225a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +27,7 @@ public final class b {
                 return;
             }
         }
-        f3132a = new HashMap<>();
+        f3225a = new HashMap<>();
     }
 
     public static synchronized a a(String str) {
@@ -49,13 +49,13 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
             synchronized (b.class) {
-                if (!f3132a.containsKey(str) || (aVar = f3132a.get(str)) == null) {
+                if (!f3225a.containsKey(str) || (aVar = f3225a.get(str)) == null) {
                     a aVar2 = new a(str, i2);
                     try {
                         aVar2.start();
                     } catch (Exception unused) {
                     }
-                    f3132a.put(str, aVar2);
+                    f3225a.put(str, aVar2);
                     return aVar2;
                 }
                 return aVar;
@@ -70,7 +70,7 @@ public final class b {
             synchronized (b.class) {
                 if (aVar != null) {
                     aVar.a();
-                    f3132a.values().remove(aVar);
+                    f3225a.values().remove(aVar);
                 }
             }
         }

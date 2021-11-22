@@ -13,6 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.FirstScreenImageInfomation;
+import com.baidu.webkit.sdk.JsCodeCacheResult;
+import com.baidu.webkit.sdk.VideoSniffingInfo;
 import com.baidu.webkit.sdk.WebViewClient;
 /* loaded from: classes7.dex */
 public class BdSailorWebViewClientExt implements INoProGuard {
@@ -81,166 +84,6 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     }
 
     /* loaded from: classes7.dex */
-    public static class FirstScreenImageInfo implements INoProGuard {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean bHaveImageInScreen;
-        public int nErrorOccurredCount;
-        public int nImageCount;
-        public long nMaxTimeStamp;
-        public int nPaintHeightForMaxImage;
-        public int nPaintWidthForMaxImage;
-        public int nPosXForMaxImage;
-        public int nPosYForMaxImage;
-        public long nTimeStampForMaxImage;
-        public String url;
-
-        public FirstScreenImageInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public int getErrorOccurredCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.nErrorOccurredCount : invokeV.intValue;
-        }
-
-        public boolean getHaveImageInScreen() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bHaveImageInScreen : invokeV.booleanValue;
-        }
-
-        public int getImageCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.nImageCount : invokeV.intValue;
-        }
-
-        public long getMaxTimeStamp() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.nMaxTimeStamp : invokeV.longValue;
-        }
-
-        public int getPaintHeightForMaxImage() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.nPaintHeightForMaxImage : invokeV.intValue;
-        }
-
-        public int getPaintWidthForMaxImage() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.nPaintWidthForMaxImage : invokeV.intValue;
-        }
-
-        public int getPosXForMaxImage() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.nPosXForMaxImage : invokeV.intValue;
-        }
-
-        public int getPosYForMaxImage() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.nPosYForMaxImage : invokeV.intValue;
-        }
-
-        public long getTimeStampForMaxImage() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.nTimeStampForMaxImage : invokeV.longValue;
-        }
-
-        public String getUrl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.url : (String) invokeV.objValue;
-        }
-
-        public void setErrorOccurredCount(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-                this.nErrorOccurredCount = i2;
-            }
-        }
-
-        public void setHaveImageInScreen(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-                this.bHaveImageInScreen = z;
-            }
-        }
-
-        public void setImageCount(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-                this.nImageCount = i2;
-            }
-        }
-
-        public void setMaxTimeStamp(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-                this.nMaxTimeStamp = j;
-            }
-        }
-
-        public void setPaintHeightForMaxImage(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-                this.nPaintHeightForMaxImage = i2;
-            }
-        }
-
-        public void setPaintWidthForMaxImage(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-                this.nPaintWidthForMaxImage = i2;
-            }
-        }
-
-        public void setPosXForMaxImage(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-                this.nPosXForMaxImage = i2;
-            }
-        }
-
-        public void setPosYForMaxImage(int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-                this.nPosYForMaxImage = i2;
-            }
-        }
-
-        public void setTimeStampForMaxImage(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-                this.nTimeStampForMaxImage = j;
-            }
-        }
-
-        public void setUrl(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-                this.url = str;
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
     public static class FirstScreenInfo implements INoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +123,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSailorWebView f36596e;
+        public final /* synthetic */ BdSailorWebView f37425e;
 
         public a(BdSailorWebViewClientExt bdSailorWebViewClientExt, BdSailorWebView bdSailorWebView) {
             Interceptable interceptable = $ic;
@@ -297,14 +140,14 @@ public class BdSailorWebViewClientExt implements INoProGuard {
                     return;
                 }
             }
-            this.f36596e = bdSailorWebView;
+            this.f37425e = bdSailorWebView;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f36596e.showEmbeddedTitleBar(false);
+                this.f37425e.showEmbeddedTitleBar(false);
             }
         }
     }
@@ -411,9 +254,9 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         }
     }
 
-    public void onFirstScreenImagePaint(BdSailorWebView bdSailorWebView, FirstScreenImageInfo firstScreenImageInfo) {
+    public void onFirstScreenImagePaintFinished(BdSailorWebView bdSailorWebView, FirstScreenImageInfomation firstScreenImageInfomation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, bdSailorWebView, firstScreenImageInfo) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048588, this, bdSailorWebView, firstScreenImageInfomation) == null) {
         }
     }
 
@@ -539,10 +382,16 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         return invokeLL.booleanValue;
     }
 
+    public void onJsCodeCacheFinished(JsCodeCacheResult jsCodeCacheResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048607, this, jsCodeCacheResult) == null) {
+        }
+    }
+
     public boolean onKeywordExtensionExt(BdSailorWebView bdSailorWebView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048607, this, bdSailorWebView, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048608, this, bdSailorWebView, str, str2)) == null) {
             return false;
         }
         return invokeLLL.booleanValue;
@@ -550,95 +399,101 @@ public class BdSailorWebViewClientExt implements INoProGuard {
 
     public void onNativeViewDayNightChanged(BdSailorWebView bdSailorWebView, View view, ENativeViewType eNativeViewType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048608, this, bdSailorWebView, view, eNativeViewType) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048609, this, bdSailorWebView, view, eNativeViewType) == null) {
         }
     }
 
     @Deprecated
     public void onNavigationAnimationFinish(BdSailorWebView bdSailorWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, bdSailorWebView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048610, this, bdSailorWebView) == null) {
         }
     }
 
     public void onNavigationAnimationFinish(BdSailorWebView bdSailorWebView, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{bdSailorWebView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{bdSailorWebView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
         }
     }
 
     @Deprecated
     public void onNavigationAnimationStart(BdSailorWebView bdSailorWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, bdSailorWebView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, bdSailorWebView) == null) {
         }
     }
 
     public void onNavigationAnimationStart(BdSailorWebView bdSailorWebView, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048612, this, bdSailorWebView, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048613, this, bdSailorWebView, z) == null) {
         }
     }
 
     public void onNewPage(BdSailorWebView bdSailorWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, bdSailorWebView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048614, this, bdSailorWebView) == null) {
         }
     }
 
     public void onNextPagePreloadFinishedExt() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+        }
+    }
+
+    public void onNotifyVideoInfo(VideoSniffingInfo videoSniffingInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, videoSniffingInfo) == null) {
         }
     }
 
     public void onPageBackOrForwardExt(BdSailorWebView bdSailorWebView, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048615, this, bdSailorWebView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048617, this, bdSailorWebView, i2) == null) {
         }
     }
 
     public void onPageCanBeScaledExt(BdSailorWebView bdSailorWebView, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048616, this, bdSailorWebView, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048618, this, bdSailorWebView, z) == null) {
         }
     }
 
     @Deprecated
     public void onPageLoadTimeExt(BdSailorWebView bdSailorWebView, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{bdSailorWebView, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{bdSailorWebView, str, Long.valueOf(j)}) == null) {
         }
     }
 
     public void onPausePluginExt(BdSailorWebView bdSailorWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, bdSailorWebView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048620, this, bdSailorWebView) == null) {
         }
     }
 
     public void onPlayPluginExt(BdSailorWebView bdSailorWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, bdSailorWebView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048621, this, bdSailorWebView) == null) {
         }
     }
 
     public void onPreloadUrlFoundExt(BdSailorWebView bdSailorWebView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048620, this, bdSailorWebView, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048622, this, bdSailorWebView, str) == null) {
         }
     }
 
     public void onProceededAfterSslErrorExt(BdSailorWebView bdSailorWebView, SslError sslError) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048621, this, bdSailorWebView, sslError) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048623, this, bdSailorWebView, sslError) == null) {
         }
     }
 
     public String onProcessWebSearchUrl(BdSailorWebView bdSailorWebView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048622, this, bdSailorWebView, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048624, this, bdSailorWebView, str)) == null) {
             return null;
         }
         return (String) invokeLL.objValue;
@@ -646,20 +501,20 @@ public class BdSailorWebViewClientExt implements INoProGuard {
 
     public void onReadModeExitExt(BdSailorWebView bdSailorWebView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048623, this, bdSailorWebView, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048625, this, bdSailorWebView, str, str2) == null) {
         }
     }
 
     public void onReaderDetectedExt(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048626, this, z) == null) {
         }
     }
 
     public boolean onReceivedSslErrorExt(BdSailorWebView bdSailorWebView, SslErrorHandler sslErrorHandler, SslError sslError) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048625, this, bdSailorWebView, sslErrorHandler, sslError)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048627, this, bdSailorWebView, sslErrorHandler, sslError)) == null) {
             return false;
         }
         return invokeLLL.booleanValue;
@@ -667,50 +522,50 @@ public class BdSailorWebViewClientExt implements INoProGuard {
 
     public void onRestoreFromCache(BdSailorWebView bdSailorWebView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048626, this, bdSailorWebView, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048628, this, bdSailorWebView, str) == null) {
         }
     }
 
     public void onRestoreFromPageCacheDid(BdSailorWebView bdSailorWebView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048627, this, bdSailorWebView, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048629, this, bdSailorWebView, str) == null) {
         }
     }
 
     public void onResumePluginExt(BdSailorWebView bdSailorWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, bdSailorWebView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048630, this, bdSailorWebView) == null) {
         }
     }
 
     public void onSearchLandingPageClicked(BdSailorWebView bdSailorWebView, String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{bdSailorWebView, str, str2, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{bdSailorWebView, str, str2, Long.valueOf(j)}) == null) {
         }
     }
 
     public void onSecurityCheckResultExt(BdSailorWebView bdSailorWebView, String str, WebViewClient.SecurityInfo securityInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048630, this, bdSailorWebView, str, securityInfo) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048632, this, bdSailorWebView, str, securityInfo) == null) {
         }
     }
 
     public void onShowHotWordExt(BdSailorWebView bdSailorWebView, int i2, int i3, int i4, int i5, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{bdSailorWebView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str, str2, str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{bdSailorWebView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str, str2, str3}) == null) {
         }
     }
 
     public void onShowNativeView(BdSailorWebView bdSailorWebView, View view, ENativeViewType eNativeViewType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048632, this, bdSailorWebView, view, eNativeViewType) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048634, this, bdSailorWebView, view, eNativeViewType) == null) {
         }
     }
 
     public boolean onShowReaderViewExt(BdSailorWebView bdSailorWebView, View view) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048633, this, bdSailorWebView, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048635, this, bdSailorWebView, view)) == null) {
             return false;
         }
         return invokeLL.booleanValue;
@@ -719,7 +574,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     public boolean onShowSubjectExt(BdSailorWebView bdSailorWebView, View view) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048634, this, bdSailorWebView, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048636, this, bdSailorWebView, view)) == null) {
             return false;
         }
         return invokeLL.booleanValue;
@@ -727,14 +582,14 @@ public class BdSailorWebViewClientExt implements INoProGuard {
 
     public void onStartFirstNavigation(BdSailorWebView bdSailorWebView, String str, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{bdSailorWebView, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{bdSailorWebView, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
         }
     }
 
     public boolean onSubFrameBeforeRequest(BdSailorWebView bdSailorWebView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048636, this, bdSailorWebView, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048638, this, bdSailorWebView, str)) == null) {
             return false;
         }
         return invokeLL.booleanValue;
@@ -742,14 +597,14 @@ public class BdSailorWebViewClientExt implements INoProGuard {
 
     public void onSubjectsCollectedExt(BdSailorWebView bdSailorWebView, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{bdSailorWebView, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048639, this, new Object[]{bdSailorWebView, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
         }
     }
 
     public boolean onSupportsForceZoomScale(BdSailorWebView bdSailorWebView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, bdSailorWebView)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, bdSailorWebView)) == null) {
             return false;
         }
         return invokeL.booleanValue;
@@ -759,7 +614,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     public boolean onTextCopiedExt(BdSailorWebView bdSailorWebView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048639, this, bdSailorWebView)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, bdSailorWebView)) == null) {
             return false;
         }
         return invokeL.booleanValue;
@@ -767,20 +622,20 @@ public class BdSailorWebViewClientExt implements INoProGuard {
 
     public void onUpdateTextFieldNextPreStatus(BdSailorWebView bdSailorWebView, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048640, this, new Object[]{bdSailorWebView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048642, this, new Object[]{bdSailorWebView, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
         }
     }
 
     public void onUrlRedirectedExt(BdSailorWebView bdSailorWebView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048641, this, bdSailorWebView, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048643, this, bdSailorWebView, str, str2) == null) {
         }
     }
 
     public boolean shouldHandleImageExt(BdSailorWebView bdSailorWebView, String str, String str2, String str3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048642, this, new Object[]{bdSailorWebView, str, str2, str3, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048644, this, new Object[]{bdSailorWebView, str, str2, str3, Boolean.valueOf(z)})) == null) {
             return false;
         }
         return invokeCommon.booleanValue;
@@ -790,7 +645,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     public boolean shouldKeywordExtensionExt(BdSailorWebView bdSailorWebView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048643, this, bdSailorWebView, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048645, this, bdSailorWebView, str)) == null) {
             return false;
         }
         return invokeLL.booleanValue;
@@ -800,7 +655,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     public boolean shouldOpenFlashExt(BdSailorWebView bdSailorWebView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048644, this, bdSailorWebView, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048646, this, bdSailorWebView, str)) == null) {
             return false;
         }
         return invokeLL.booleanValue;

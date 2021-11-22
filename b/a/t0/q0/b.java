@@ -12,7 +12,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f28887a;
+    public static final boolean f29756a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,14 +28,14 @@ public class b {
                 return;
             }
         }
-        f28887a = b0.m();
+        f29756a = b0.m();
     }
 
     public static boolean a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (f28887a) {
+            if (f29756a) {
                 String str = "delete file:" + file;
             }
             if (file == null) {
@@ -54,13 +54,13 @@ public class b {
                         }
                     }
                     return z & file.delete();
-                } else if (f28887a) {
+                } else if (f29756a) {
                     String str2 = "a special file:" + file;
                     return true;
                 } else {
                     return true;
                 }
-            } else if (f28887a) {
+            } else if (f29756a) {
                 String str3 = "not found the file to delete:" + file;
                 return true;
             } else {

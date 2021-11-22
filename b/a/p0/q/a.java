@@ -1,90 +1,94 @@
 package b.a.p0.q;
 
-import com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodInfo;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import b.a.p0.q.i.h;
+import b.a.p0.q.i.i;
+import b.a.p0.q.j.a;
+import b.a.p0.q.j.g;
+import b.a.p0.q.k.i.k;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class a implements Comparable<a> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface a {
+    b.a.p0.q.j.j.b A();
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f11391e;
+    int B();
 
-    /* renamed from: f  reason: collision with root package name */
-    public long f11392f;
+    void C();
 
-    /* renamed from: g  reason: collision with root package name */
-    public long f11393g;
+    void D(b.a.p0.q.k.h.a aVar);
 
-    /* renamed from: h  reason: collision with root package name */
-    public String f11394h;
+    String E();
 
-    /* renamed from: i  reason: collision with root package name */
-    public long f11395i;
-    public MethodInfo j;
+    int F(String str, int i2);
 
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void G(String str, String str2, Throwable th);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? (int) (this.f11395i - aVar.e()) : invokeL.intValue;
-    }
+    void H(k kVar);
 
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.f11393g - this.f11392f;
-            if (j < 0) {
-                return 0L;
-            }
-            return j;
-        }
-        return invokeV.longValue;
-    }
+    String I();
 
-    public MethodInfo c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : (MethodInfo) invokeV.objValue;
-    }
+    String J(int i2);
 
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f11391e : invokeV.intValue;
-    }
+    void K(String str, String str2, String str3, int i2, JSONObject jSONObject, boolean z);
 
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11395i : invokeV.longValue;
-    }
+    void L(String str, String str2, String str3, @Nullable Throwable th, boolean z);
 
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f11394h : (String) invokeV.objValue;
-    }
+    g M();
+
+    float a();
+
+    String b();
+
+    String c();
+
+    void d(byte[] bArr);
+
+    String e();
+
+    CookieManager f();
+
+    String g();
+
+    String h();
+
+    b.a.p0.w.b i();
+
+    long j(int i2);
+
+    void k(JSONArray jSONArray, String str, String str2);
+
+    List<b.a.p0.q.i.a> l(String str, long j);
+
+    void m(String str, String str2, a.c cVar);
+
+    g n();
+
+    boolean o(boolean z, @NonNull JSONArray jSONArray);
+
+    void p(String str, JSONObject jSONObject, b.a.p0.q.i.g gVar, List<h> list);
+
+    String q();
+
+    boolean r(@Nullable i iVar);
+
+    void s(PMSAppInfo pMSAppInfo, JSONObject jSONObject, boolean z);
+
+    void t(b.a.p0.q.k.k.a aVar, b.a.p0.q.p.g gVar);
+
+    String u();
+
+    String v(int i2);
+
+    long w(int i2);
+
+    boolean x();
+
+    void y(String str, String str2);
+
+    void z(String str, String str2, String str3, boolean z);
 }

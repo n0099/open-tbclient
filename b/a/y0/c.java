@@ -17,17 +17,17 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f29966b = "UnionIDHelper";
+    public static String f30835b = "UnionIDHelper";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f29967c;
+    public static boolean f30836c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f29968d;
+    public static c f30837d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f29969a;
+    public Context f30838a;
 
     /* loaded from: classes6.dex */
     public class a implements b.a.y0.e.f.b {
@@ -35,7 +35,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f29970a;
+        public final /* synthetic */ b f30839a;
 
         public a(c cVar, b bVar) {
             Interceptable interceptable = $ic;
@@ -52,25 +52,25 @@ public class c {
                     return;
                 }
             }
-            this.f29970a = bVar;
+            this.f30839a = bVar;
         }
 
         @Override // b.a.y0.e.f.b
         public void a(b.a.y0.e.f.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-                if (c.f29967c) {
-                    String unused = c.f29966b;
+                if (c.f30836c) {
+                    String unused = c.f30835b;
                     String str = "异步回调 结果:" + cVar;
-                    String unused2 = c.f29966b;
+                    String unused2 = c.f30835b;
                     StringBuilder sb = new StringBuilder();
                     sb.append("异步回调 (listener != null):");
-                    sb.append(this.f29970a != null);
+                    sb.append(this.f30839a != null);
                     sb.toString();
                 }
-                b bVar = this.f29970a;
+                b bVar = this.f30839a;
                 if (bVar != null) {
-                    bVar.a(0, cVar == null ? null : new b.a.y0.a(cVar.c(), cVar.h(), cVar.getOAID(), cVar.getAAID(), cVar.getVAID(), cVar.getStatusCode()));
+                    bVar.a(0, cVar == null ? null : new b.a.y0.a(cVar.c(), cVar.isSupport(), cVar.getOAID(), cVar.getAAID(), cVar.getVAID(), cVar.getStatusCode()));
                 }
             }
         }
@@ -106,22 +106,22 @@ public class c {
                 return;
             }
         }
-        this.f29969a = context.getApplicationContext();
+        this.f30838a = context.getApplicationContext();
     }
 
     public static c c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f29968d == null) {
+            if (f30837d == null) {
                 synchronized (c.class) {
-                    if (f29968d == null) {
-                        f29968d = new c(context);
+                    if (f30837d == null) {
+                        f30837d = new c(context);
                         b.a.y0.e.a.c(context);
                     }
                 }
             }
-            return f29968d;
+            return f30837d;
         }
         return (c) invokeL.objValue;
     }
@@ -129,7 +129,7 @@ public class c {
     public void d(d dVar, b bVar, Looper looper) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, dVar, bVar, looper) == null) {
-            e.o().i(this.f29969a, looper, new a(this, bVar));
+            e.o().i(this.f30838a, looper, new a(this, bVar));
         }
     }
 

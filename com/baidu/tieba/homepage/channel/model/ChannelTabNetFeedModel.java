@@ -32,19 +32,19 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49368e;
+    public boolean f50279e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f49369f;
+    public boolean f50280f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49370g;
+    public int f50281g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f49371h;
+    public String f50282h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f49372i;
+    public e f50283i;
     public b.a.r0.h1.b.b.a j;
     public HttpMessageListener k;
 
@@ -54,7 +54,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ChannelTabNetFeedModel f49373a;
+        public final /* synthetic */ ChannelTabNetFeedModel f50284a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ChannelTabNetFeedModel channelTabNetFeedModel, int i2) {
@@ -74,7 +74,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements f {
                     return;
                 }
             }
-            this.f49373a = channelTabNetFeedModel;
+            this.f50284a = channelTabNetFeedModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,23 +82,23 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements f {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f49373a.f49369f = false;
+                this.f50284a.f50280f = false;
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof HomePageChannelTabHttpResponsedMessage)) {
                     return;
                 }
                 b.a.r0.h1.b.a.a aVar = ((HomePageChannelTabHttpResponsedMessage) httpResponsedMessage).channelTabRespData;
-                this.f49373a.mErrorCode = httpResponsedMessage.getError();
-                this.f49373a.mErrorString = httpResponsedMessage.getErrorString();
+                this.f50284a.mErrorCode = httpResponsedMessage.getError();
+                this.f50284a.mErrorString = httpResponsedMessage.getErrorString();
                 ErrorData errorData = new ErrorData();
-                errorData.setError_code(this.f49373a.mErrorCode);
-                errorData.setError_msg(this.f49373a.mErrorString);
-                if (this.f49373a.f49372i == null) {
+                errorData.setError_code(this.f50284a.mErrorCode);
+                errorData.setError_msg(this.f50284a.mErrorString);
+                if (this.f50284a.f50283i == null) {
                     return;
                 }
-                if (this.f49373a.mErrorCode != 0 || aVar == null) {
-                    this.f49373a.f49372i.onServerError(errorData);
+                if (this.f50284a.mErrorCode != 0 || aVar == null) {
+                    this.f50284a.f50283i.onServerError(errorData);
                 } else {
-                    this.f49373a.F(aVar);
+                    this.f50284a.F(aVar);
                 }
             }
         }
@@ -122,13 +122,13 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements f {
                 return;
             }
         }
-        this.f49368e = true;
-        this.f49369f = false;
-        this.f49370g = 1;
+        this.f50279e = true;
+        this.f50280f = false;
+        this.f50281g = 1;
         this.k = new a(this, CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST);
-        b.a.r0.l3.f0.a.e(CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST, TbConfig.CMD_HMEPAGE_CHANNEL_LIST, HomePageChannelTabHttpResponsedMessage.class, true, true, true, true);
+        b.a.r0.m3.f0.a.e(CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST, TbConfig.CMD_HMEPAGE_CHANNEL_LIST, HomePageChannelTabHttpResponsedMessage.class, true, true, true, true);
         this.j = new b.a.r0.h1.b.b.a();
-        this.f49372i = eVar;
+        this.f50283i = eVar;
     }
 
     public final void E(int i2) {
@@ -136,39 +136,39 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 == 2) {
-                i3 = this.f49370g + 1;
+                i3 = this.f50281g + 1;
             } else if (i2 != 1) {
                 return;
             } else {
                 i3 = 1;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST);
-            httpMessage.addParam("tab_code", this.f49371h);
+            httpMessage.addParam("tab_code", this.f50282h);
             httpMessage.addParam("pn", i3);
             httpMessage.addParam("rn", 20);
-            if ("local".equals(this.f49371h)) {
-                httpMessage.addParam("app_pos", b.a.r0.z2.j0.a.e().b());
+            if ("local".equals(this.f50282h)) {
+                httpMessage.addParam("app_pos", b.a.r0.a3.j0.a.e().b());
             }
             o c2 = TbSingleton.getInstance().getChannelConfigModel().c();
             if (c2 != null && !TextUtils.isEmpty(c2.e())) {
                 httpMessage.addParam("tid", c2.e());
             }
             httpMessage.setTag(getUniqueId());
-            this.f49369f = true;
+            this.f50280f = true;
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public final void F(b.a.r0.h1.b.a.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || this.f49372i == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || this.f50283i == null) {
             return;
         }
-        c a2 = this.j.a(this.f49370g, this.f49368e, aVar);
+        c a2 = this.j.a(this.f50281g, this.f50279e, aVar);
         if (a2 != null) {
-            this.f49370g = a2.f17567d;
+            this.f50281g = a2.f19036d;
         }
-        this.f49372i.onNetCallback(a2);
+        this.f50283i.onNetCallback(a2);
     }
 
     @Override // b.a.r0.h1.j.f
@@ -201,7 +201,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.cancelMessage();
-            this.f49369f = false;
+            this.f50280f = false;
         }
     }
 
@@ -210,8 +210,8 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.k);
-            this.f49369f = false;
-            this.f49368e = true;
+            this.f50280f = false;
+            this.f50279e = true;
         }
     }
 
@@ -242,10 +242,10 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements f {
     @Override // b.a.r0.h1.j.f
     public void loadMore() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f49369f) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f50280f) {
             return;
         }
-        this.f49368e = false;
+        this.f50279e = false;
         E(2);
     }
 
@@ -253,17 +253,17 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements f {
     public void o(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048585, this, str, str2, i2) == null) {
-            this.f49371h = str;
+            this.f50282h = str;
         }
     }
 
     @Override // b.a.r0.h1.j.f
     public void refresh() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f49369f) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f50280f) {
             return;
         }
-        this.f49368e = true;
+        this.f50279e = true;
         E(1);
     }
 

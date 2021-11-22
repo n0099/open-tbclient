@@ -1,7 +1,7 @@
 package b.a.r0.i0;
 
 import android.telephony.TelephonyManager;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -19,23 +19,23 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f17814c;
+    public static final String[] f19267c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f17815d;
+    public static final String[] f19268d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String[] f17816e;
+    public static final String[] f19269e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f17817f;
+    public static final String[] f19270f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f17818a;
+    public volatile int f19271a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile String f17819b;
+    public volatile String f19272b;
 
     static {
         InterceptResult invokeClinit;
@@ -50,10 +50,10 @@ public class a {
                 return;
             }
         }
-        f17814c = new String[]{"119.75.222.62", "119.75.222.63"};
-        f17815d = new String[]{"111.13.100.247", "117.185.16.61"};
-        f17816e = new String[]{"111.206.37.190"};
-        f17817f = new String[]{"115.239.211.146", "180.97.33.196"};
+        f19267c = new String[]{"119.75.222.62", "119.75.222.63"};
+        f19268d = new String[]{"111.13.100.247", "117.185.16.61"};
+        f19269e = new String[]{"111.206.37.190"};
+        f19270f = new String[]{"115.239.211.146", "180.97.33.196"};
     }
 
     public a() {
@@ -76,17 +76,17 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             b();
             if (j.H()) {
-                return f17817f[new Random().nextInt(f17817f.length)];
+                return f19270f[new Random().nextInt(f19270f.length)];
             }
             if (j.x()) {
-                if (this.f17818a == 1) {
-                    return f17814c[new Random().nextInt(f17814c.length)];
+                if (this.f19271a == 1) {
+                    return f19267c[new Random().nextInt(f19267c.length)];
                 }
-                if (this.f17818a == 2) {
-                    return f17815d[new Random().nextInt(f17815d.length)];
+                if (this.f19271a == 2) {
+                    return f19268d[new Random().nextInt(f19268d.length)];
                 }
-                if (this.f17818a == 3) {
-                    return f17816e[new Random().nextInt(f17816e.length)];
+                if (this.f19271a == 3) {
+                    return f19269e[new Random().nextInt(f19269e.length)];
                 }
             }
             return "119.75.222.62";
@@ -98,24 +98,24 @@ public class a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             try {
-                this.f17819b = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
+                this.f19272b = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
-            this.f17818a = 0;
-            if (this.f17819b != null) {
-                if (!this.f17819b.startsWith("46000") && !this.f17819b.startsWith("46002") && !this.f17819b.startsWith("46007")) {
-                    if (!this.f17819b.startsWith("46001") && !this.f17819b.startsWith("46006")) {
-                        if (this.f17819b.startsWith("46003") || this.f17819b.startsWith("46005")) {
-                            this.f17818a = 3;
+            this.f19271a = 0;
+            if (this.f19272b != null) {
+                if (!this.f19272b.startsWith("46000") && !this.f19272b.startsWith("46002") && !this.f19272b.startsWith("46007")) {
+                    if (!this.f19272b.startsWith("46001") && !this.f19272b.startsWith("46006")) {
+                        if (this.f19272b.startsWith("46003") || this.f19272b.startsWith("46005")) {
+                            this.f19271a = 3;
                             return;
                         }
                         return;
                     }
-                    this.f17818a = 2;
+                    this.f19271a = 2;
                     return;
                 }
-                this.f17818a = 1;
+                this.f19271a = 1;
             }
         }
     }

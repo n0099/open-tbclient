@@ -13,11 +13,11 @@ public class b extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f1571d;
+    public static b f1567d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f1572c;
+    public e f1568c;
 
     static {
         InterceptResult invokeClinit;
@@ -47,24 +47,24 @@ public class b extends d {
                 return;
             }
         }
-        this.f1572c = null;
-        this.f1574a = new e(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
-        this.f1572c = new e(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
-        this.f1575b = 3;
+        this.f1568c = null;
+        this.f1570a = new e(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
+        this.f1568c = new e(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
+        this.f1571b = 3;
     }
 
     public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1571d == null) {
+            if (f1567d == null) {
                 synchronized (b.class) {
-                    if (f1571d == null) {
-                        f1571d = new b();
+                    if (f1567d == null) {
+                        f1567d = new b();
                     }
                 }
             }
-            return f1571d;
+            return f1567d;
         }
         return (b) invokeV.objValue;
     }
@@ -72,6 +72,6 @@ public class b extends d {
     public e c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1572c : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1568c : (e) invokeV.objValue;
     }
 }

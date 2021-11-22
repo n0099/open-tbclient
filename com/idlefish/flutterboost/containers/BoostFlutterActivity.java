@@ -21,6 +21,7 @@ import androidx.lifecycle.LifecycleRegistry;
 import b.a.e.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -457,6 +458,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
             flutterActivityAndFragmentDelegate.onAttach(this);
             configureWindowForTransparency();
             setContentView(createFlutterView());
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 

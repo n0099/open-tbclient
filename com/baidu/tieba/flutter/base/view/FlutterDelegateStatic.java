@@ -5,7 +5,7 @@ import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import b.a.e.a.h;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.h0.a;
 import b.a.q0.h0.b;
 import b.a.q0.h0.c;
@@ -165,14 +165,14 @@ public class FlutterDelegateStatic extends b {
             FlutterFragment.NewEngineFragmentBuilder newEngineFragmentBuilder = new FlutterFragment.NewEngineFragmentBuilder(TbFlutterFragment.class);
             newEngineFragmentBuilder.url(OpenFlutter.FRAGMENT_MYTAB);
             newEngineFragmentBuilder.isTabHost(true);
-            cVar.f12612a = newEngineFragmentBuilder.build();
+            cVar.f13359a = newEngineFragmentBuilder.build();
             isInited = false;
-            cVar.f12616e = 8;
+            cVar.f13363e = 8;
             Resources resources = h.a().getResources();
-            cVar.f12613b = resources.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
-            cVar.f12617f = resources.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
-            cVar.f12620i = c.m;
-            cVar.f12619h = b.a.q0.h0.e.c.d().c("person");
+            cVar.f13360b = resources.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
+            cVar.f13364f = resources.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
+            cVar.f13367i = c.m;
+            cVar.f13366h = b.a.q0.h0.e.c.d().c("person");
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -186,9 +186,9 @@ public class FlutterDelegateStatic extends b {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
             this.tipView = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f45978f = this.mIndicator;
-            aVar.f45975c = l.e(context, 10.0f);
-            aVar.f45973a = this.tipView;
+            aVar.f46828f = this.mIndicator;
+            aVar.f46825c = l.e(context, 10.0f);
+            aVar.f46823a = this.tipView;
             this.mIndicator.addTipWrapContent(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
             boolean g2 = b.a.q0.s.e0.b.j().g("key_feedback_tip_tab_show", false);
             if (!this.isNew.booleanValue() && !g2) {
@@ -244,7 +244,7 @@ public class FlutterDelegateStatic extends b {
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof a)) {
-                        this.this$0.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).f12611a);
+                        this.this$0.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).f13358a);
                         if (this.this$0.isNew.booleanValue()) {
                             this.this$0.tipView.refresh(0);
                             this.this$0.tipView.setVisibility(0);

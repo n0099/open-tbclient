@@ -9,9 +9,9 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import b.a.e.e.m.h;
-import b.a.e.e.p.m;
-import b.a.e.e.p.q;
+import b.a.e.f.m.h;
+import b.a.e.f.p.m;
+import b.a.e.f.p.q;
 import b.a.q0.s.e0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -744,7 +744,7 @@ public class PullViewHelper {
             b.j().t("pullview_should_show_3d_loading", false);
             setShouldShowLoadingView(false);
             String p = b.j().p("pull_image_url", "");
-            int e2 = b.a.e.e.m.b.e(str3, 0);
+            int e2 = b.a.e.f.m.b.e(str3, 0);
             if (str.equals(p)) {
                 if (isImagesExist(e2)) {
                     buildDrawablesAsync();
@@ -802,7 +802,7 @@ public class PullViewHelper {
                     return;
                 }
             }
-            startDownloadAsync(str, str2, b.a.e.e.m.b.e(str3, 0));
+            startDownloadAsync(str, str2, b.a.e.f.m.b.e(str3, 0));
         }
     }
 

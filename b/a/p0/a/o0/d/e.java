@@ -1,62 +1,80 @@
 package b.a.p0.a.o0.d;
 
-import android.text.TextUtils;
+import android.util.Log;
+import b.a.p0.a.k;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class e extends a {
+public final class e {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7111c;
+    public static final boolean f7447c;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: d  reason: collision with root package name */
-    public String f7112d;
+    /* renamed from: a  reason: collision with root package name */
+    public final String f7448a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public String f7113e;
+    /* renamed from: b  reason: collision with root package name */
+    public final String f7449b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f7114f;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-780095239, "Lb/a/p0/a/o0/d/e;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-780095239, "Lb/a/p0/a/o0/d/e;");
+                return;
+            }
+        }
+        f7447c = k.f6863a;
+    }
 
-    /* renamed from: g  reason: collision with root package name */
-    public String f7115g;
-
-    public e() {
+    public e(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f7099a = FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE;
+        this.f7448a = str;
+        this.f7449b = str2;
     }
 
-    @Override // b.a.p0.a.o0.d.a
-    public String f(String str) {
+    public static e a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = (b.a.p0.a.o0.a.c(str, "fromId", this.f7111c) + b.a.p0.a.o0.a.c(str, "toId", this.f7112d)) + b.a.p0.a.o0.a.c(str, "toTabIndex", this.f7115g);
-            if (!TextUtils.isEmpty(this.f7113e)) {
-                str2 = str2 + b.a.p0.a.o0.a.c(str, "routeType", this.f7113e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return new e(jSONObject.optString("webviewid"), jSONObject.optString("message"));
+            } catch (JSONException e2) {
+                if (f7447c) {
+                    String str2 = "createEvent failed. " + Log.getStackTraceString(e2);
+                    return null;
+                }
+                return null;
             }
-            if (TextUtils.isEmpty(this.f7114f)) {
-                return str2;
-            }
-            return str2 + b.a.p0.a.o0.a.c(str, "toPage", this.f7114f);
         }
-        return (String) invokeL.objValue;
+        return (e) invokeL.objValue;
     }
 }

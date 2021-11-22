@@ -1,5 +1,5 @@
 package io.reactivex.internal.subscribers;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface InnerQueuedSubscriberSupport<T> {
     void drain();
 

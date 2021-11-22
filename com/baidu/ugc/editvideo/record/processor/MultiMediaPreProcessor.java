@@ -25,6 +25,7 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -718,7 +719,7 @@ public class MultiMediaPreProcessor {
                 str = "-" + multiMediaData.surfaceTexture.getTimestamp();
             }
             sb.append(str);
-            sb.append(".png");
+            sb.append(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX);
             ThreadPool.b().e(new Runnable(this, sb.toString(), MultiDataSourceUtil.saveOffscreenBitmap(this.mSurfaceViewWidth, this.mSurfaceViewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

@@ -21,10 +21,10 @@ public class SafeDismissDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f73217e;
+    public b f74138e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f73218f;
+    public Context f74139f;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -89,13 +89,13 @@ public class SafeDismissDialog extends Dialog {
                 return;
             }
         }
-        this.f73218f = context;
+        this.f74139f = context;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && n.f72366a.a(this.f73218f)) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && n.f73285a.a(this.f74139f)) {
             super.dismiss();
         }
     }
@@ -106,8 +106,8 @@ public class SafeDismissDialog extends Dialog {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             RLog.info("SafeDismissDialog", "onCreate");
-            this.f73217e = new b(this, null);
-            LocalBroadcastManager.getInstance(getContext()).registerReceiver(this.f73217e, new IntentFilter("tv.athena.revenue.payui.close_all_pay_ui_action"));
+            this.f74138e = new b(this, null);
+            LocalBroadcastManager.getInstance(getContext()).registerReceiver(this.f74138e, new IntentFilter("tv.athena.revenue.payui.close_all_pay_ui_action"));
         }
     }
 
@@ -117,9 +117,9 @@ public class SafeDismissDialog extends Dialog {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onStop();
             RLog.info("SafeDismissDialog", MissionEvent.MESSAGE_STOP);
-            if (this.f73217e != null) {
-                LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(this.f73217e);
-                this.f73217e = null;
+            if (this.f74138e != null) {
+                LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(this.f74138e);
+                this.f74138e = null;
             }
         }
     }

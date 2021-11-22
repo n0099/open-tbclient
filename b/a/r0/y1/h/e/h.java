@@ -16,7 +16,7 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdListView f27761a;
+    public BdListView f29264a;
 
     public h(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
@@ -33,16 +33,16 @@ public class h {
                 return;
             }
         }
-        this.f27761a = (BdListView) viewGroup.findViewById(R.id.tail_tool_listview);
+        this.f29264a = (BdListView) viewGroup.findViewById(R.id.tail_tool_listview);
         View view = new View(viewGroup.getContext());
         view.setLayoutParams(new AbsListView.LayoutParams(-1, (int) viewGroup.getContext().getResources().getDimension(R.dimen.ds30)));
-        this.f27761a.addHeaderView(view);
+        this.f29264a.addHeaderView(view);
     }
 
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f27761a.setAdapter((ListAdapter) bVar);
+            this.f29264a.setAdapter((ListAdapter) bVar);
         }
     }
 }

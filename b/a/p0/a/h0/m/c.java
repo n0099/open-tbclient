@@ -18,11 +18,11 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5516b;
+    public static final boolean f5796b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<b.a.p0.n.h.e, Set<InterfaceC0223c>> f5517a;
+    public HashMap<b.a.p0.q.i.f, Set<InterfaceC0234c>> f5797a;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -35,7 +35,7 @@ public class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f5518a;
+        public static c f5798a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -51,16 +51,16 @@ public class c {
                     return;
                 }
             }
-            f5518a = new c(null);
+            f5798a = new c(null);
         }
     }
 
     /* renamed from: b.a.p0.a.h0.m.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0223c {
+    public interface InterfaceC0234c {
         void a(PMSDownloadType pMSDownloadType);
 
-        void b(PMSDownloadType pMSDownloadType, b.a.p0.a.q2.a aVar);
+        void b(PMSDownloadType pMSDownloadType, b.a.p0.a.u2.a aVar);
     }
 
     static {
@@ -76,7 +76,7 @@ public class c {
                 return;
             }
         }
-        f5516b = b.a.p0.a.k.f6397a;
+        f5796b = b.a.p0.a.k.f6863a;
     }
 
     public /* synthetic */ c(a aVar) {
@@ -86,64 +86,64 @@ public class c {
     public static c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f5518a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f5798a : (c) invokeV.objValue;
     }
 
-    public synchronized void a(b.a.p0.n.h.e eVar, PMSDownloadType pMSDownloadType, b.a.p0.a.q2.a aVar) {
+    public synchronized void a(b.a.p0.q.i.f fVar, PMSDownloadType pMSDownloadType, b.a.p0.a.u2.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, eVar, pMSDownloadType, aVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, fVar, pMSDownloadType, aVar) == null) {
             synchronized (this) {
-                if (f5516b) {
-                    String str = "downloadError:" + eVar + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType;
+                if (f5796b) {
+                    String str = "downloadError:" + fVar + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType;
                 }
-                Set<InterfaceC0223c> set = this.f5517a.get(eVar);
+                Set<InterfaceC0234c> set = this.f5797a.get(fVar);
                 if (set != null) {
-                    for (InterfaceC0223c interfaceC0223c : set) {
-                        if (interfaceC0223c != null) {
-                            interfaceC0223c.b(pMSDownloadType, aVar);
+                    for (InterfaceC0234c interfaceC0234c : set) {
+                        if (interfaceC0234c != null) {
+                            interfaceC0234c.b(pMSDownloadType, aVar);
                         }
                     }
-                    this.f5517a.remove(eVar);
+                    this.f5797a.remove(fVar);
                 }
             }
         }
     }
 
-    public synchronized void b(b.a.p0.n.h.e eVar, PMSDownloadType pMSDownloadType) {
+    public synchronized void b(b.a.p0.q.i.f fVar, PMSDownloadType pMSDownloadType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, pMSDownloadType) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, pMSDownloadType) == null) {
             synchronized (this) {
-                if (f5516b) {
-                    String str = "downloadSuccess:" + eVar + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType;
+                if (f5796b) {
+                    String str = "downloadSuccess:" + fVar + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType;
                 }
-                Set<InterfaceC0223c> set = this.f5517a.get(eVar);
+                Set<InterfaceC0234c> set = this.f5797a.get(fVar);
                 if (set != null) {
-                    for (InterfaceC0223c interfaceC0223c : set) {
-                        if (interfaceC0223c != null) {
-                            interfaceC0223c.a(pMSDownloadType);
+                    for (InterfaceC0234c interfaceC0234c : set) {
+                        if (interfaceC0234c != null) {
+                            interfaceC0234c.a(pMSDownloadType);
                         }
                     }
-                    this.f5517a.remove(eVar);
+                    this.f5797a.remove(fVar);
                 }
             }
         }
     }
 
-    public synchronized void d(b.a.p0.n.h.e eVar, InterfaceC0223c interfaceC0223c) {
+    public synchronized void d(b.a.p0.q.i.f fVar, InterfaceC0234c interfaceC0234c) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, eVar, interfaceC0223c) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fVar, interfaceC0234c) == null) {
             synchronized (this) {
-                if (f5516b) {
-                    String str = "registerResultListener:" + eVar;
+                if (f5796b) {
+                    String str = "registerResultListener:" + fVar;
                 }
-                if (eVar != null && interfaceC0223c != null) {
-                    Set<InterfaceC0223c> set = this.f5517a.get(eVar);
+                if (fVar != null && interfaceC0234c != null) {
+                    Set<InterfaceC0234c> set = this.f5797a.get(fVar);
                     if (set != null) {
-                        set.add(interfaceC0223c);
+                        set.add(interfaceC0234c);
                     } else {
                         HashSet hashSet = new HashSet();
-                        hashSet.add(interfaceC0223c);
-                        this.f5517a.put(eVar, hashSet);
+                        hashSet.add(interfaceC0234c);
+                        this.f5797a.put(fVar, hashSet);
                     }
                 }
             }
@@ -163,6 +163,6 @@ public class c {
                 return;
             }
         }
-        this.f5517a = new HashMap<>();
+        this.f5797a = new HashMap<>();
     }
 }

@@ -20,29 +20,29 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f69674a = false;
+    public static volatile boolean f70594a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f69675b = "b";
+    public static final String f70595b = "b";
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f69676g = -1;
+    public static long f70596g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f69677h;
+    public static volatile b f70597h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final k f69678c;
+    public final k f70598c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicInteger f69679d;
+    public final AtomicInteger f70599d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final a f69680e;
+    public final a f70600e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f69681f;
+    public long f70601f;
 
     /* loaded from: classes2.dex */
     public class a extends Handler {
@@ -50,7 +50,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f69682a;
+        public final /* synthetic */ b f70602a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, Looper looper) {
@@ -70,7 +70,7 @@ public class b {
                     return;
                 }
             }
-            this.f69682a = bVar;
+            this.f70602a = bVar;
         }
 
         public void a() {
@@ -91,7 +91,7 @@ public class b {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) && message.what == 1) {
-                this.f69682a.f();
+                this.f70602a.f();
                 sendEmptyMessageDelayed(1, 1000L);
             }
         }
@@ -125,23 +125,23 @@ public class b {
                 return;
             }
         }
-        this.f69678c = k.a();
-        this.f69679d = new AtomicInteger();
-        this.f69680e = new a(this, com.ss.android.socialbase.downloader.h.e.a());
+        this.f70598c = k.a();
+        this.f70599d = new AtomicInteger();
+        this.f70600e = new a(this, com.ss.android.socialbase.downloader.h.e.a());
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f69677h == null) {
+            if (f70597h == null) {
                 synchronized (b.class) {
-                    if (f69677h == null) {
-                        f69677h = new b();
+                    if (f70597h == null) {
+                        f70597h = new b();
                     }
                 }
             }
-            return f69677h;
+            return f70597h;
         }
         return (b) invokeV.objValue;
     }
@@ -155,7 +155,7 @@ public class b {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            f69674a = com.ss.android.socialbase.downloader.i.f.b(com.ss.android.socialbase.downloader.downloader.c.N());
+            f70594a = com.ss.android.socialbase.downloader.i.f.b(com.ss.android.socialbase.downloader.downloader.c.N());
         }
     }
 
@@ -163,11 +163,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                String str = f69675b;
-                com.ss.android.socialbase.downloader.c.a.c(str, "startSampling: mSamplingCounter = " + this.f69679d);
-                if (this.f69679d.getAndIncrement() == 0) {
-                    this.f69680e.a();
-                    this.f69681f = SystemClock.uptimeMillis();
+                String str = f70595b;
+                com.ss.android.socialbase.downloader.c.a.c(str, "startSampling: mSamplingCounter = " + this.f70599d);
+                if (this.f70599d.getAndIncrement() == 0) {
+                    this.f70600e.a();
+                    this.f70601f = SystemClock.uptimeMillis();
                 }
             } catch (Throwable unused) {
             }
@@ -178,10 +178,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                String str = f69675b;
-                com.ss.android.socialbase.downloader.c.a.c(str, "stopSampling: mSamplingCounter = " + this.f69679d);
-                if (this.f69679d.decrementAndGet() == 0) {
-                    this.f69680e.b();
+                String str = f70595b;
+                com.ss.android.socialbase.downloader.c.a.c(str, "stopSampling: mSamplingCounter = " + this.f70599d);
+                if (this.f70599d.decrementAndGet() == 0) {
+                    this.f70600e.b();
                     g();
                 }
             } catch (Throwable unused) {
@@ -195,20 +195,20 @@ public class b {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
                 e();
-                if (f69674a) {
+                if (f70594a) {
                     mobileRxBytes = d();
                 } else {
                     mobileRxBytes = TrafficStats.getMobileRxBytes();
                 }
-                long j = mobileRxBytes - f69676g;
-                if (f69676g >= 0) {
+                long j = mobileRxBytes - f70596g;
+                if (f70596g >= 0) {
                     synchronized (this) {
                         long uptimeMillis = SystemClock.uptimeMillis();
-                        this.f69678c.a(j, uptimeMillis - this.f69681f);
-                        this.f69681f = uptimeMillis;
+                        this.f70598c.a(j, uptimeMillis - this.f70601f);
+                        this.f70601f = uptimeMillis;
                     }
                 }
-                f69676g = mobileRxBytes;
+                f70596g = mobileRxBytes;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -219,7 +219,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             f();
-            f69676g = -1L;
+            f70596g = -1L;
         }
     }
 }

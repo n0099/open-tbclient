@@ -19,6 +19,7 @@ import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.pm.IBundleInfo;
 import com.baidu.nps.utils.ContextHolder;
 import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -796,7 +797,7 @@ public class a {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     BundleInfo bundleInfo = new BundleInfo();
-                    bundleInfo.setPackageName(jSONObject.optString("pkg_name"));
+                    bundleInfo.setPackageName(jSONObject.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME));
                     bundleInfo.setMd5(jSONObject.optString(PackageTable.MD5));
                     bundleInfo.setType(2);
                     bundleInfo.setVersionCode(jSONObject.optInt("version_code"));

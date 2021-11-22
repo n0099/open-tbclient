@@ -22,7 +22,7 @@ public class MtjCrashHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile AtomicBoolean f62700a;
+    public static volatile AtomicBoolean f63601a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class MtjCrashHandler {
                 return;
             }
         }
-        f62700a = new AtomicBoolean(false);
+        f63601a = new AtomicBoolean(false);
     }
 
     public MtjCrashHandler() {
@@ -63,7 +63,7 @@ public class MtjCrashHandler {
             linkedList.add("com.baidu.wallet");
             linkedList.add(BuildConfig.APPLICATION_ID);
             linkedList.add("com.baidu.android.pay");
-            linkedList.add(a.f35822b);
+            linkedList.add(a.f36651b);
             linkedList.add("com.baidu.android.minipay");
             linkedList.add(com.baidu.android.lbspay.BuildConfig.LIBRARY_PACKAGE_NAME);
             linkedList.add("com.dxm.face");
@@ -95,7 +95,7 @@ public class MtjCrashHandler {
 
     public static void init(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && f62700a.compareAndSet(false, true) && b()) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && f63601a.compareAndSet(false, true) && b()) {
             try {
                 StatService.setDebugOn(false);
                 StatService.setOn(context, 16);

@@ -2,7 +2,6 @@ package androidx.constraintlayout.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -259,10 +258,8 @@ public class Constraints extends ViewGroup {
                 if (index == R.styleable.ConstraintSet_android_alpha) {
                     this.alpha = obtainStyledAttributes.getFloat(index, this.alpha);
                 } else if (index == R.styleable.ConstraintSet_android_elevation) {
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        this.elevation = obtainStyledAttributes.getFloat(index, this.elevation);
-                        this.applyElevation = true;
-                    }
+                    this.elevation = obtainStyledAttributes.getFloat(index, this.elevation);
+                    this.applyElevation = true;
                 } else if (index == R.styleable.ConstraintSet_android_rotationX) {
                     this.rotationX = obtainStyledAttributes.getFloat(index, this.rotationX);
                 } else if (index == R.styleable.ConstraintSet_android_rotationY) {
@@ -281,11 +278,10 @@ public class Constraints extends ViewGroup {
                     this.translationX = obtainStyledAttributes.getFloat(index, this.translationX);
                 } else if (index == R.styleable.ConstraintSet_android_translationY) {
                     this.translationY = obtainStyledAttributes.getFloat(index, this.translationY);
-                } else if (index == R.styleable.ConstraintSet_android_translationZ && Build.VERSION.SDK_INT >= 21) {
-                    this.translationZ = obtainStyledAttributes.getFloat(index, this.translationZ);
+                } else if (index == R.styleable.ConstraintSet_android_translationZ) {
+                    this.translationX = obtainStyledAttributes.getFloat(index, this.translationZ);
                 }
             }
-            obtainStyledAttributes.recycle();
         }
     }
 }

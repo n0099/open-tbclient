@@ -22,11 +22,11 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f24768b;
+    public static a f26285b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<StatisticItem> f24769a;
+    public List<StatisticItem> f26286a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f24768b == null) {
+            if (f26285b == null) {
                 synchronized (a.class) {
-                    if (f24768b == null) {
-                        f24768b = new a();
+                    if (f26285b == null) {
+                        f26285b = new a();
                     }
                 }
             }
-            return f24768b;
+            return f26285b;
         }
         return (a) invokeV.objValue;
     }
@@ -63,10 +63,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null) {
             return;
         }
-        if (this.f24769a == null) {
-            this.f24769a = new ArrayList();
+        if (this.f26286a == null) {
+            this.f26286a = new ArrayList();
         }
-        List<StatisticItem> list = this.f24769a;
+        List<StatisticItem> list = this.f26286a;
         if (list != null) {
             list.add(statisticItem);
         }
@@ -77,10 +77,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null) {
             return;
         }
-        if (this.f24769a == null) {
-            this.f24769a = new ArrayList();
+        if (this.f26286a == null) {
+            this.f26286a = new ArrayList();
         }
-        List<StatisticItem> list = this.f24769a;
+        List<StatisticItem> list = this.f26286a;
         if (list != null) {
             list.add(new StatisticItem(str));
         }
@@ -90,10 +90,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var)) == null) {
-            if (d2Var == null || d2Var.l1() == null) {
+            if (d2Var == null || d2Var.m1() == null) {
                 return -1L;
             }
-            return d2Var.l1().live_id;
+            return d2Var.m1().live_id;
         }
         return invokeL.longValue;
     }
@@ -105,7 +105,7 @@ public class a {
             if (d2Var == null) {
                 return null;
             }
-            String str3 = (d2Var.l1() == null || StringUtils.isNull(d2Var.l1().appId)) ? "" : d2Var.l1().appId;
+            String str3 = (d2Var.m1() == null || StringUtils.isNull(d2Var.m1().appId)) ? "" : d2Var.m1().appId;
             StatisticItem statisticItem = new StatisticItem(str);
             statisticItem.param("obj_type", 1);
             statisticItem.param("obj_id", d(d2Var));
@@ -148,23 +148,23 @@ public class a {
 
     public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || ListUtils.getCount(this.f24769a) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || ListUtils.getCount(this.f26286a) == 0) {
             return;
         }
-        for (StatisticItem statisticItem : this.f24769a) {
+        for (StatisticItem statisticItem : this.f26286a) {
             if (statisticItem != null) {
                 TiebaStatic.log(statisticItem);
             }
         }
-        this.f24769a.clear();
+        this.f26286a.clear();
     }
 
     public void h(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || ListUtils.getCount(this.f24769a) == 0) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || ListUtils.getCount(this.f26286a) == 0) {
             return;
         }
-        for (StatisticItem statisticItem : this.f24769a) {
+        for (StatisticItem statisticItem : this.f26286a) {
             if (statisticItem != null) {
                 if (!statisticItem.getParams().contains(TiebaStatic.Params.OBJ_PARAM2)) {
                     statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, z ? 1 : 0);
@@ -172,6 +172,6 @@ public class a {
                 TiebaStatic.log(statisticItem);
             }
         }
-        this.f24769a.clear();
+        this.f26286a.clear();
     }
 }

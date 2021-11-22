@@ -8,7 +8,6 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.constraintlayout.solver.widgets.ConstraintWidget;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -61,11 +60,10 @@ public class Placeholder extends View {
                     int index = obtainStyledAttributes.getIndex(i2);
                     if (index == R.styleable.ConstraintLayout_placeholder_content) {
                         this.mContentId = obtainStyledAttributes.getResourceId(index, this.mContentId);
-                    } else if (index == R.styleable.ConstraintLayout_placeholder_placeholder_emptyVisibility) {
+                    } else if (index == R.styleable.ConstraintLayout_placeholder_emptyVisibility) {
                         this.mEmptyVisibility = obtainStyledAttributes.getInt(index, this.mEmptyVisibility);
                     }
                 }
-                obtainStyledAttributes.recycle();
             }
         }
     }
@@ -136,12 +134,8 @@ public class Placeholder extends View {
         ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
         ConstraintLayout.LayoutParams layoutParams2 = (ConstraintLayout.LayoutParams) this.mContent.getLayoutParams();
         layoutParams2.widget.setVisibility(0);
-        if (layoutParams.widget.getHorizontalDimensionBehaviour() != ConstraintWidget.DimensionBehaviour.FIXED) {
-            layoutParams.widget.setWidth(layoutParams2.widget.getWidth());
-        }
-        if (layoutParams.widget.getVerticalDimensionBehaviour() != ConstraintWidget.DimensionBehaviour.FIXED) {
-            layoutParams.widget.setHeight(layoutParams2.widget.getHeight());
-        }
+        layoutParams.widget.setWidth(layoutParams2.widget.getWidth());
+        layoutParams.widget.setHeight(layoutParams2.widget.getHeight());
         layoutParams2.widget.setVisibility(8);
     }
 

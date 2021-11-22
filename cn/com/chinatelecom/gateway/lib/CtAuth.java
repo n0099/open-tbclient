@@ -22,7 +22,7 @@ public final class CtAuth {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f33733a = "CtAuth";
+    public static final String f34567a = "CtAuth";
     public static int mConnTimeoutL;
     public static Handler mHandler;
     public static int mReadTimeout;
@@ -122,16 +122,16 @@ public final class CtAuth {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PreCodeListener f33734a;
+                public final /* synthetic */ PreCodeListener f34568a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f33735b;
+                public final /* synthetic */ String f34569b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f33736c;
+                public final /* synthetic */ String f34570c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ Context f33737d;
+                public final /* synthetic */ Context f34571d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -148,34 +148,34 @@ public final class CtAuth {
                             return;
                         }
                     }
-                    this.f33734a = preCodeListener;
-                    this.f33735b = str;
-                    this.f33736c = str2;
-                    this.f33737d = context;
+                    this.f34568a = preCodeListener;
+                    this.f34569b = str;
+                    this.f34570c = str2;
+                    this.f34571d = context;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f33734a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f34568a == null) {
                         return;
                     }
                     try {
-                        JSONObject jSONObject = new JSONObject(this.f33735b);
-                        jSONObject.put("reqId", this.f33736c);
-                        this.f33734a.onResult(jSONObject.toString());
-                        String str3 = CtAuth.f33733a;
+                        JSONObject jSONObject = new JSONObject(this.f34569b);
+                        jSONObject.put("reqId", this.f34570c);
+                        this.f34568a.onResult(jSONObject.toString());
+                        String str3 = CtAuth.f34567a;
                         StringBuilder sb = new StringBuilder();
                         sb.append("callback result : ");
                         sb.append(jSONObject.toString());
                         CtAuth.info(str3, sb.toString());
                     } catch (Exception unused) {
-                        this.f33734a.onResult(this.f33735b);
-                        String str4 = CtAuth.f33733a;
-                        CtAuth.info(str4, "Exception callback result : " + this.f33735b);
+                        this.f34568a.onResult(this.f34569b);
+                        String str4 = CtAuth.f34567a;
+                        CtAuth.info(str4, "Exception callback result : " + this.f34569b);
                     }
                     CtAuth.mTraceLogger = null;
-                    e.a(this.f33737d, this.f33736c);
+                    e.a(this.f34571d, this.f34570c);
                 }
             });
         }
@@ -184,7 +184,7 @@ public final class CtAuth {
     public static void requestPreAuth(Context context, String str, String str2, PreCodeListener preCodeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65543, null, context, str, str2, preCodeListener) == null) {
-            String str3 = f33733a;
+            String str3 = f34567a;
             info(str3, "called requestPreAuth()   appId：" + str + ",appSecret:" + str2);
             a(context, str, str2, "mhqh", preCodeListener);
         }
@@ -193,7 +193,7 @@ public final class CtAuth {
     public static void requestPreAuthCode(Context context, String str, String str2, PreCodeListener preCodeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65544, null, context, str, str2, preCodeListener) == null) {
-            String str3 = f33733a;
+            String str3 = f34567a;
             info(str3, "called requestPreAuthCode()   appId：" + str + ",appSecret:" + str2);
             a(context, str, str2, "qhx", preCodeListener);
         }

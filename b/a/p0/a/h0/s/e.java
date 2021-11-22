@@ -15,17 +15,17 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f5767c;
+    public static final boolean f6096c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f5768d;
+    public static final boolean f6097d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5769a;
+    public String f6098a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f5770b;
+    public boolean f6099b;
 
     static {
         InterceptResult invokeClinit;
@@ -40,9 +40,9 @@ public class e {
                 return;
             }
         }
-        f5767c = k.f6397a;
-        b.a.p0.a.c1.a.Z().getSwitch("swan_sailor_init_delay", false);
-        f5768d = false;
+        f6096c = k.f6863a;
+        b.a.p0.a.c1.a.g0().getSwitch("swan_sailor_init_delay", false);
+        f6097d = false;
     }
 
     public e() {
@@ -58,17 +58,17 @@ public class e {
                 return;
             }
         }
-        this.f5770b = false;
+        this.f6099b = false;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f5767c) {
-                String str = "isSailorOptABSwitchOn:" + f5768d;
+            if (f6096c) {
+                String str = "isSailorOptABSwitchOn:" + f6097d;
             }
-            return f5768d;
+            return f6097d;
         }
         return invokeV.booleanValue;
     }
@@ -78,7 +78,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanSailorUpdateModel{scene='" + this.f5769a + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SwanSailorUpdateModel{scene='" + this.f6098a + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -35,6 +35,7 @@ public class ConnectManager {
         public static final NetWorkType TYPE_2G;
         public static final NetWorkType TYPE_3G;
         public static final NetWorkType TYPE_4G;
+        public static final NetWorkType TYPE_5G;
         public static final NetWorkType TYPE_UNKNOWN;
         public static final NetWorkType TYPE_WF;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,9 +57,10 @@ public class ConnectManager {
             TYPE_WF = new NetWorkType("TYPE_WF", 1);
             TYPE_2G = new NetWorkType("TYPE_2G", 2);
             TYPE_3G = new NetWorkType("TYPE_3G", 3);
-            NetWorkType netWorkType = new NetWorkType("TYPE_4G", 4);
-            TYPE_4G = netWorkType;
-            $VALUES = new NetWorkType[]{TYPE_UNKNOWN, TYPE_WF, TYPE_2G, TYPE_3G, netWorkType};
+            TYPE_4G = new NetWorkType("TYPE_4G", 4);
+            NetWorkType netWorkType = new NetWorkType("TYPE_5G", 5);
+            TYPE_5G = netWorkType;
+            $VALUES = new NetWorkType[]{TYPE_UNKNOWN, TYPE_WF, TYPE_2G, TYPE_3G, TYPE_4G, netWorkType};
         }
 
         public NetWorkType(String str, int i2) {
@@ -184,37 +186,41 @@ public class ConnectManager {
                 return NetWorkType.TYPE_WF;
             }
             NetWorkType netWorkType2 = NetWorkType.TYPE_2G;
-            switch (networkInfo.getSubtype()) {
-                case 1:
-                case 2:
-                case 4:
-                case 11:
-                    return netWorkType2;
-                case 3:
-                    return NetWorkType.TYPE_3G;
-                case 5:
-                    return NetWorkType.TYPE_3G;
-                case 6:
-                    return NetWorkType.TYPE_3G;
-                case 7:
-                    return NetWorkType.TYPE_3G;
-                case 8:
-                    return NetWorkType.TYPE_3G;
-                case 9:
-                    return NetWorkType.TYPE_3G;
-                case 10:
-                    return NetWorkType.TYPE_3G;
-                case 12:
-                    return NetWorkType.TYPE_3G;
-                case 13:
-                    return NetWorkType.TYPE_4G;
-                case 14:
-                    return NetWorkType.TYPE_3G;
-                case 15:
-                    return NetWorkType.TYPE_3G;
-                default:
-                    return NetWorkType.TYPE_4G;
+            int subtype = networkInfo.getSubtype();
+            if (subtype != 20) {
+                switch (subtype) {
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 11:
+                        return netWorkType2;
+                    case 3:
+                        return NetWorkType.TYPE_3G;
+                    case 5:
+                        return NetWorkType.TYPE_3G;
+                    case 6:
+                        return NetWorkType.TYPE_3G;
+                    case 7:
+                        return NetWorkType.TYPE_3G;
+                    case 8:
+                        return NetWorkType.TYPE_3G;
+                    case 9:
+                        return NetWorkType.TYPE_3G;
+                    case 10:
+                        return NetWorkType.TYPE_3G;
+                    case 12:
+                        return NetWorkType.TYPE_3G;
+                    case 13:
+                        return NetWorkType.TYPE_4G;
+                    case 14:
+                        return NetWorkType.TYPE_3G;
+                    case 15:
+                        return NetWorkType.TYPE_3G;
+                    default:
+                        return NetWorkType.TYPE_4G;
+                }
             }
+            return NetWorkType.TYPE_5G;
         }
         return (NetWorkType) invokeL.objValue;
     }

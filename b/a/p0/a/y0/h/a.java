@@ -1,8 +1,8 @@
 package b.a.p0.a.y0.h;
 
 import androidx.annotation.NonNull;
-import b.a.p0.a.c2.e;
-import b.a.p0.a.v2.q0;
+import b.a.p0.a.f2.e;
+import b.a.p0.a.z2.q0;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,17 +17,17 @@ public class a extends b {
 
     /* renamed from: b.a.p0.a.y0.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0461a implements Runnable {
+    public class RunnableC0476a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f9025e;
+        public final /* synthetic */ List f9371e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.y0.j.b f9026f;
+        public final /* synthetic */ b.a.p0.a.y0.j.b f9372f;
 
-        public RunnableC0461a(a aVar, List list, b.a.p0.a.y0.j.b bVar) {
+        public RunnableC0476a(a aVar, List list, b.a.p0.a.y0.j.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,16 +42,16 @@ public class a extends b {
                     return;
                 }
             }
-            this.f9025e = list;
-            this.f9026f = bVar;
+            this.f9371e = list;
+            this.f9372f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (String str : this.f9025e) {
-                    this.f9026f.c(str);
+                for (String str : this.f9371e) {
+                    this.f9372f.c(str);
                 }
             }
         }
@@ -83,7 +83,7 @@ public class a extends b {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, unitedSchemeEntity, bVar, list)) == null) {
-            q0.X(new RunnableC0461a(this, list, bVar));
+            q0.a0(new RunnableC0476a(this, list, bVar));
             return true;
         }
         return invokeLLL.booleanValue;

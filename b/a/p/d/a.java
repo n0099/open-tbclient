@@ -14,15 +14,15 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f3780b;
+    public static a f3874b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC0108a f3781a;
+    public InterfaceC0110a f3875a;
 
     /* renamed from: b.a.p.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0108a {
+    public interface InterfaceC0110a {
         void report(String str, HashMap<String, Object> hashMap);
     }
 
@@ -59,28 +59,28 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f3780b == null) {
+            if (f3874b == null) {
                 synchronized (a.class) {
-                    if (f3780b == null) {
-                        f3780b = new a();
+                    if (f3874b == null) {
+                        f3874b = new a();
                     }
                 }
             }
-            return f3780b;
+            return f3874b;
         }
         return (a) invokeV.objValue;
     }
 
-    public InterfaceC0108a a() {
+    public InterfaceC0110a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3781a : (InterfaceC0108a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3875a : (InterfaceC0110a) invokeV.objValue;
     }
 
-    public void c(InterfaceC0108a interfaceC0108a) {
+    public void c(InterfaceC0110a interfaceC0110a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0108a) == null) {
-            this.f3781a = interfaceC0108a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0110a) == null) {
+            this.f3875a = interfaceC0110a;
         }
     }
 }

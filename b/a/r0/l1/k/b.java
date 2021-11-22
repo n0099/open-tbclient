@@ -42,37 +42,37 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f20233h;
+    public static volatile b f21755h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f20234a;
+    public final AtomicBoolean f21756a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b.a.r0.l1.k.a f20235b;
+    public final b.a.r0.l1.k.a f21757b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b.a.r0.l1.k.a f20236c;
+    public final b.a.r0.l1.k.a f21758c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final b.a.r0.l1.k.a f20237d;
+    public final b.a.r0.l1.k.a f21759d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessage<String> f20238e;
+    public CustomMessage<String> f21760e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdUniqueId f20239f;
+    public BdUniqueId f21761f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f20240g;
+    public CustomMessageListener f21762g;
 
     /* loaded from: classes5.dex */
-    public class a implements a.InterfaceC1002a {
+    public class a implements a.InterfaceC1070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f20241a;
+        public final /* synthetic */ List f21763a;
 
         public a(b bVar, List list) {
             Interceptable interceptable = $ic;
@@ -89,15 +89,15 @@ public class b {
                     return;
                 }
             }
-            this.f20241a = list;
+            this.f21763a = list;
         }
 
-        @Override // b.a.r0.l1.k.a.InterfaceC1002a
+        @Override // b.a.r0.l1.k.a.InterfaceC1070a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
                 while (it.hasNext()) {
-                    this.f20241a.add(it.next());
+                    this.f21763a.add(it.next());
                 }
             }
         }
@@ -105,14 +105,14 @@ public class b {
 
     /* renamed from: b.a.r0.l1.k.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1003b implements a.InterfaceC1002a {
+    public class C1071b implements a.InterfaceC1070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f20242a;
+        public final /* synthetic */ List f21764a;
 
-        public C1003b(b bVar, List list) {
+        public C1071b(b bVar, List list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,17 +127,17 @@ public class b {
                     return;
                 }
             }
-            this.f20242a = list;
+            this.f21764a = list;
         }
 
-        @Override // b.a.r0.l1.k.a.InterfaceC1002a
+        @Override // b.a.r0.l1.k.a.InterfaceC1070a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
                 while (it.hasNext()) {
                     ImMessageCenterPojo next = it.next();
                     if (next.getCustomGroupType() == 2 && next.getIsFriend() == 0) {
-                        this.f20242a.add(next);
+                        this.f21764a.add(next);
                     }
                 }
             }
@@ -145,12 +145,12 @@ public class b {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements a.InterfaceC1002a {
+    public class c implements a.InterfaceC1070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f20243a;
+        public final /* synthetic */ List f21765a;
 
         public c(b bVar, List list) {
             Interceptable interceptable = $ic;
@@ -167,17 +167,17 @@ public class b {
                     return;
                 }
             }
-            this.f20243a = list;
+            this.f21765a = list;
         }
 
-        @Override // b.a.r0.l1.k.a.InterfaceC1002a
+        @Override // b.a.r0.l1.k.a.InterfaceC1070a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
                 while (it.hasNext()) {
                     ImMessageCenterPojo next = it.next();
                     if (next.getCustomGroupType() == 2 && next.getIsFriend() == 1 && next.getIs_hidden() == 0) {
-                        this.f20243a.add(next);
+                        this.f21765a.add(next);
                     }
                 }
             }
@@ -185,12 +185,12 @@ public class b {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements a.InterfaceC1002a {
+    public class d implements a.InterfaceC1070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterPojo f20244a;
+        public final /* synthetic */ ImMessageCenterPojo f21766a;
 
         public d(b bVar, ImMessageCenterPojo imMessageCenterPojo) {
             Interceptable interceptable = $ic;
@@ -207,26 +207,26 @@ public class b {
                     return;
                 }
             }
-            this.f20244a = imMessageCenterPojo;
+            this.f21766a = imMessageCenterPojo;
         }
 
-        @Override // b.a.r0.l1.k.a.InterfaceC1002a
+        @Override // b.a.r0.l1.k.a.InterfaceC1070a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
                 while (it.hasNext()) {
                     ImMessageCenterPojo next = it.next();
                     if (next.getCustomGroupType() == 2 && next.getIsFriend() == 0 && next.getIs_hidden() == 0) {
-                        if (this.f20244a.getLast_content_time() < next.getLast_content_time()) {
-                            this.f20244a.setLast_content(next.getLast_content());
-                            this.f20244a.setLast_content_time(next.getLast_content_time());
-                            this.f20244a.setLast_rid(next.getLast_rid());
-                            this.f20244a.setLast_user_name(next.getLast_user_name());
-                            this.f20244a.setSend_status(next.getSend_status());
+                        if (this.f21766a.getLast_content_time() < next.getLast_content_time()) {
+                            this.f21766a.setLast_content(next.getLast_content());
+                            this.f21766a.setLast_content_time(next.getLast_content_time());
+                            this.f21766a.setLast_rid(next.getLast_rid());
+                            this.f21766a.setLast_user_name(next.getLast_user_name());
+                            this.f21766a.setSend_status(next.getSend_status());
                         }
-                        ImMessageCenterPojo imMessageCenterPojo = this.f20244a;
+                        ImMessageCenterPojo imMessageCenterPojo = this.f21766a;
                         imMessageCenterPojo.setUnread_count(imMessageCenterPojo.getUnread_count() + next.getUnread_count());
-                        this.f20244a.setIs_hidden(0);
+                        this.f21766a.setIs_hidden(0);
                     }
                 }
             }
@@ -239,7 +239,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterPojo f20245e;
+        public final /* synthetic */ ImMessageCenterPojo f21767e;
 
         public e(b bVar, ImMessageCenterPojo imMessageCenterPojo) {
             Interceptable interceptable = $ic;
@@ -256,7 +256,7 @@ public class b {
                     return;
                 }
             }
-            this.f20245e = imMessageCenterPojo;
+            this.f21767e = imMessageCenterPojo;
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -264,7 +264,7 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                b.a.r0.l1.h.j.f().j(this.f20245e);
+                b.a.r0.l1.h.j.f().j(this.f21767e);
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -272,12 +272,12 @@ public class b {
     }
 
     /* loaded from: classes5.dex */
-    public class f implements a.InterfaceC1002a {
+    public class f implements a.InterfaceC1070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterPojo f20246a;
+        public final /* synthetic */ ImMessageCenterPojo f21768a;
 
         public f(b bVar, ImMessageCenterPojo imMessageCenterPojo) {
             Interceptable interceptable = $ic;
@@ -294,24 +294,24 @@ public class b {
                     return;
                 }
             }
-            this.f20246a = imMessageCenterPojo;
+            this.f21768a = imMessageCenterPojo;
         }
 
-        @Override // b.a.r0.l1.k.a.InterfaceC1002a
+        @Override // b.a.r0.l1.k.a.InterfaceC1070a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
                 while (it.hasNext()) {
                     ImMessageCenterPojo next = it.next();
                     if (next.getCustomGroupType() == 4 && next.getIs_hidden() == 0 && (next.getUserType() == 1 || next.getUserType() == 3)) {
-                        if (this.f20246a.getLast_content_time() < next.getLast_content_time()) {
-                            this.f20246a.setLast_content(next.getLast_content());
-                            this.f20246a.setLast_content_time(next.getLast_content_time());
-                            this.f20246a.setLast_rid(next.getLast_rid());
-                            this.f20246a.setLast_user_name(next.getLast_user_name());
+                        if (this.f21768a.getLast_content_time() < next.getLast_content_time()) {
+                            this.f21768a.setLast_content(next.getLast_content());
+                            this.f21768a.setLast_content_time(next.getLast_content_time());
+                            this.f21768a.setLast_rid(next.getLast_rid());
+                            this.f21768a.setLast_user_name(next.getLast_user_name());
                         }
-                        this.f20246a.setIs_hidden(0);
-                        ImMessageCenterPojo imMessageCenterPojo = this.f20246a;
+                        this.f21768a.setIs_hidden(0);
+                        ImMessageCenterPojo imMessageCenterPojo = this.f21768a;
                         imMessageCenterPojo.setUnread_count(imMessageCenterPojo.getUnread_count() + next.getUnread_count());
                     }
                 }
@@ -357,15 +357,15 @@ public class b {
     }
 
     /* loaded from: classes5.dex */
-    public class h implements a.InterfaceC1002a {
+    public class h implements a.InterfaceC1070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LongSparseArray f20247a;
+        public final /* synthetic */ LongSparseArray f21769a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f20248b;
+        public final /* synthetic */ b f21770b;
 
         public h(b bVar, LongSparseArray longSparseArray) {
             Interceptable interceptable = $ic;
@@ -382,18 +382,18 @@ public class b {
                     return;
                 }
             }
-            this.f20248b = bVar;
-            this.f20247a = longSparseArray;
+            this.f21770b = bVar;
+            this.f21769a = longSparseArray;
         }
 
-        @Override // b.a.r0.l1.k.a.InterfaceC1002a
+        @Override // b.a.r0.l1.k.a.InterfaceC1070a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
                 while (it.hasNext()) {
                     ImMessageCenterPojo next = it.next();
-                    if (this.f20248b.A(next)) {
-                        this.f20247a.put(b.a.e.e.m.b.g(next.getGid(), 0L), Long.valueOf(b.a.r0.l1.w.b.c(next.getPulled_msgId())));
+                    if (this.f21770b.A(next)) {
+                        this.f21769a.put(b.a.e.f.m.b.g(next.getGid(), 0L), Long.valueOf(b.a.r0.l1.w.b.c(next.getPulled_msgId())));
                     }
                 }
             }
@@ -401,15 +401,15 @@ public class b {
     }
 
     /* loaded from: classes5.dex */
-    public class i implements a.InterfaceC1002a {
+    public class i implements a.InterfaceC1070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f20249a;
+        public final /* synthetic */ List f21771a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewpushRepair.Builder f20250b;
+        public final /* synthetic */ NewpushRepair.Builder f21772b;
 
         public i(b bVar, List list, NewpushRepair.Builder builder) {
             Interceptable interceptable = $ic;
@@ -426,27 +426,27 @@ public class b {
                     return;
                 }
             }
-            this.f20249a = list;
-            this.f20250b = builder;
+            this.f21771a = list;
+            this.f21772b = builder;
         }
 
-        @Override // b.a.r0.l1.k.a.InterfaceC1002a
+        @Override // b.a.r0.l1.k.a.InterfaceC1070a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
                 while (it.hasNext()) {
                     ImMessageCenterPojo next = it.next();
-                    long g2 = b.a.e.e.m.b.g(next.getGid(), 0L);
+                    long g2 = b.a.e.f.m.b.g(next.getGid(), 0L);
                     long sid = next.getSid();
                     if (sid > 0) {
-                        this.f20249a.add(MessageUtils.makeNewpushGroupRepair(g2, next.getUserType(), sid, 0L, b.a.r0.l1.w.b.c(next.getPulled_msgId())));
+                        this.f21771a.add(MessageUtils.makeNewpushGroupRepair(g2, next.getUserType(), sid, 0L, b.a.r0.l1.w.b.c(next.getPulled_msgId())));
                     }
                 }
-                if (this.f20249a.size() <= 10) {
-                    this.f20250b.groups = this.f20249a;
+                if (this.f21771a.size() <= 10) {
+                    this.f21772b.groups = this.f21771a;
                     return;
                 }
-                this.f20250b.followType = "0";
+                this.f21772b.followType = "0";
             }
         }
     }
@@ -513,7 +513,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f20251a;
+        public final /* synthetic */ b f21773a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public k(b bVar, int i2) {
@@ -533,7 +533,7 @@ public class b {
                     return;
                 }
             }
-            this.f20251a = bVar;
+            this.f21773a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -547,40 +547,40 @@ public class b {
                 if (!TextUtils.isEmpty(uid) && uid.equals(TbadkCoreApplication.getCurrentAccount())) {
                     try {
                         for (ImMessageCenterPojo imMessageCenterPojo : memoryGetFromDBMessage.getData()) {
-                            if (!this.f20251a.A(imMessageCenterPojo) || imMessageCenterPojo.getPulled_msgId() > 0) {
+                            if (!this.f21773a.A(imMessageCenterPojo) || imMessageCenterPojo.getPulled_msgId() > 0) {
                                 if (imMessageCenterPojo.getCustomGroupType() == -9 && imMessageCenterPojo.getPushIds() != null && imMessageCenterPojo.getPushIds().length() > 0) {
                                     b.a.r0.l1.o.c.e().j(imMessageCenterPojo.getGid(), imMessageCenterPojo.getPushIds());
                                 }
-                                this.f20251a.F(imMessageCenterPojo);
+                                this.f21773a.F(imMessageCenterPojo);
                             }
                         }
-                        this.f20251a.v(false);
-                        this.f20251a.q(false);
-                        this.f20251a.y();
-                        this.f20251a.x();
+                        this.f21773a.v(false);
+                        this.f21773a.q(false);
+                        this.f21773a.y();
+                        this.f21773a.x();
                     } catch (Exception e2) {
                         BdLog.detailException(e2);
                     }
-                    this.f20251a.f20234a.set(true);
-                    this.f20251a.M();
+                    this.f21773a.f21756a.set(true);
+                    this.f21773a.M();
                     return;
                 }
                 List<ImMessageCenterPojo> data = memoryGetFromDBMessage.getData();
                 if (data != null) {
                     for (ImMessageCenterPojo imMessageCenterPojo2 : data) {
                         if (imMessageCenterPojo2 != null && b.a.r0.l1.k.c.b(imMessageCenterPojo2.getCustomGroupType()) && imMessageCenterPojo2.getPulled_msgId() > 0) {
-                            this.f20251a.F(imMessageCenterPojo2);
+                            this.f21773a.F(imMessageCenterPojo2);
                         }
                     }
                 }
-                this.f20251a.f20234a.set(true);
-                this.f20251a.M();
+                this.f21773a.f21756a.set(true);
+                this.f21773a.M();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class l implements a.InterfaceC1002a {
+    public class l implements a.InterfaceC1070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -600,7 +600,7 @@ public class b {
             }
         }
 
-        @Override // b.a.r0.l1.k.a.InterfaceC1002a
+        @Override // b.a.r0.l1.k.a.InterfaceC1070a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -618,7 +618,7 @@ public class b {
     }
 
     /* loaded from: classes5.dex */
-    public class m implements a.InterfaceC1002a {
+    public class m implements a.InterfaceC1070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -638,7 +638,7 @@ public class b {
             }
         }
 
-        @Override // b.a.r0.l1.k.a.InterfaceC1002a
+        @Override // b.a.r0.l1.k.a.InterfaceC1070a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -656,7 +656,7 @@ public class b {
     }
 
     /* loaded from: classes5.dex */
-    public class n implements a.InterfaceC1002a {
+    public class n implements a.InterfaceC1070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -676,7 +676,7 @@ public class b {
             }
         }
 
-        @Override // b.a.r0.l1.k.a.InterfaceC1002a
+        @Override // b.a.r0.l1.k.a.InterfaceC1070a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
@@ -694,12 +694,12 @@ public class b {
     }
 
     /* loaded from: classes5.dex */
-    public class o implements a.InterfaceC1002a {
+    public class o implements a.InterfaceC1070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f20252a;
+        public final /* synthetic */ List f21774a;
 
         public o(b bVar, List list) {
             Interceptable interceptable = $ic;
@@ -716,27 +716,27 @@ public class b {
                     return;
                 }
             }
-            this.f20252a = list;
+            this.f21774a = list;
         }
 
-        @Override // b.a.r0.l1.k.a.InterfaceC1002a
+        @Override // b.a.r0.l1.k.a.InterfaceC1070a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
                 while (it.hasNext()) {
-                    this.f20252a.add(it.next());
+                    this.f21774a.add(it.next());
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class p implements a.InterfaceC1002a {
+    public class p implements a.InterfaceC1070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f20253a;
+        public final /* synthetic */ List f21775a;
 
         public p(b bVar, List list) {
             Interceptable interceptable = $ic;
@@ -753,27 +753,27 @@ public class b {
                     return;
                 }
             }
-            this.f20253a = list;
+            this.f21775a = list;
         }
 
-        @Override // b.a.r0.l1.k.a.InterfaceC1002a
+        @Override // b.a.r0.l1.k.a.InterfaceC1070a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
                 while (it.hasNext()) {
-                    this.f20253a.add(it.next());
+                    this.f21775a.add(it.next());
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class q implements a.InterfaceC1002a {
+    public class q implements a.InterfaceC1070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f20254a;
+        public final /* synthetic */ List f21776a;
 
         public q(b bVar, List list) {
             Interceptable interceptable = $ic;
@@ -790,27 +790,27 @@ public class b {
                     return;
                 }
             }
-            this.f20254a = list;
+            this.f21776a = list;
         }
 
-        @Override // b.a.r0.l1.k.a.InterfaceC1002a
+        @Override // b.a.r0.l1.k.a.InterfaceC1070a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
                 while (it.hasNext()) {
-                    this.f20254a.add(it.next());
+                    this.f21776a.add(it.next());
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class r implements a.InterfaceC1002a {
+    public class r implements a.InterfaceC1070a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ List f20255a;
+        public final /* synthetic */ List f21777a;
 
         public r(b bVar, List list) {
             Interceptable interceptable = $ic;
@@ -827,15 +827,15 @@ public class b {
                     return;
                 }
             }
-            this.f20255a = list;
+            this.f21777a = list;
         }
 
-        @Override // b.a.r0.l1.k.a.InterfaceC1002a
+        @Override // b.a.r0.l1.k.a.InterfaceC1070a
         public void a(Iterator<ImMessageCenterPojo> it) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, it) == null) {
                 while (it.hasNext()) {
-                    this.f20255a.add(it.next());
+                    this.f21777a.add(it.next());
                 }
             }
         }
@@ -854,30 +854,30 @@ public class b {
                 return;
             }
         }
-        this.f20234a = new AtomicBoolean(false);
-        this.f20235b = new b.a.r0.l1.k.a();
-        this.f20236c = new b.a.r0.l1.k.a();
-        this.f20237d = new b.a.r0.l1.k.a();
-        this.f20240g = new k(this, 2016008);
-        MessageManager.getInstance().registerListener(this.f20240g);
-        this.f20238e = new CustomMessage<>(2016008, TbadkCoreApplication.getCurrentAccount());
+        this.f21756a = new AtomicBoolean(false);
+        this.f21757b = new b.a.r0.l1.k.a();
+        this.f21758c = new b.a.r0.l1.k.a();
+        this.f21759d = new b.a.r0.l1.k.a();
+        this.f21762g = new k(this, 2016008);
+        MessageManager.getInstance().registerListener(this.f21762g);
+        this.f21760e = new CustomMessage<>(2016008, TbadkCoreApplication.getCurrentAccount());
         BdUniqueId gen = BdUniqueId.gen();
-        this.f20239f = gen;
-        this.f20238e.setTag(gen);
+        this.f21761f = gen;
+        this.f21760e.setTag(gen);
     }
 
     public static b o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f20233h == null) {
+            if (f21755h == null) {
                 synchronized (b.class) {
-                    if (f20233h == null) {
-                        f20233h = new b();
+                    if (f21755h == null) {
+                        f21755h = new b();
                     }
                 }
             }
-            return f20233h;
+            return f21755h;
         }
         return (b) invokeV.objValue;
     }
@@ -925,7 +925,7 @@ public class b {
 
     public final void D(ImMessageCenterPojo imMessageCenterPojo, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048579, this, imMessageCenterPojo, z) == null) && this.f20234a.get()) {
+        if ((interceptable == null || interceptable.invokeLZ(1048579, this, imMessageCenterPojo, z) == null) && this.f21756a.get()) {
             if (imMessageCenterPojo.getCustomGroupType() == 2) {
                 P(imMessageCenterPojo, z, 1);
             } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
@@ -938,7 +938,7 @@ public class b {
 
     public final void E(ImMessageCenterPojo imMessageCenterPojo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, imMessageCenterPojo) == null) && this.f20234a.get()) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, imMessageCenterPojo) == null) && this.f21756a.get()) {
             if (imMessageCenterPojo.getCustomGroupType() == 2) {
                 L(imMessageCenterPojo, false, 2);
                 L(v(false), false, 1);
@@ -972,7 +972,7 @@ public class b {
     public void H(String str, int i2) {
         b.a.r0.l1.k.a n2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048583, this, str, i2) == null) && this.f20234a.get() && (n2 = n(i2)) != null) {
+        if ((interceptable == null || interceptable.invokeLI(1048583, this, str, i2) == null) && this.f21756a.get() && (n2 = n(i2)) != null) {
             n2.e(str);
         }
     }
@@ -984,17 +984,17 @@ public class b {
         }
         for (ImMessageCenterPojo imMessageCenterPojo : list) {
             if (imMessageCenterPojo != null) {
-                this.f20235b.e(imMessageCenterPojo.getGid());
+                this.f21757b.e(imMessageCenterPojo.getGid());
             }
         }
     }
 
     public void J() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.f20234a.get()) {
-            this.f20235b.d(new l(this));
-            this.f20236c.d(new m(this));
-            this.f20237d.d(new n(this));
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.f21756a.get()) {
+            this.f21757b.d(new l(this));
+            this.f21758c.d(new m(this));
+            this.f21759d.d(new n(this));
             K();
         }
     }
@@ -1072,7 +1072,7 @@ public class b {
 
     public void T(ImMessageCenterPojo imMessageCenterPojo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048595, this, imMessageCenterPojo) == null) && this.f20234a.get()) {
+        if ((interceptable == null || interceptable.invokeL(1048595, this, imMessageCenterPojo) == null) && this.f21756a.get()) {
             ImMessageCenterPojo i2 = i(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
             if (i2 == null) {
                 F(imMessageCenterPojo);
@@ -1101,7 +1101,7 @@ public class b {
 
     public void U(ImMessageCenterPojo imMessageCenterPojo, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048596, this, imMessageCenterPojo, i2) == null) && this.f20234a.get() && imMessageCenterPojo != null) {
+        if ((interceptable == null || interceptable.invokeLI(1048596, this, imMessageCenterPojo, i2) == null) && this.f21756a.get() && imMessageCenterPojo != null) {
             ImMessageCenterPojo i3 = i(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
             if (i3 == null) {
                 imMessageCenterPojo.setUnread_count(i2);
@@ -1125,7 +1125,7 @@ public class b {
 
     public void V(int i2, long j2, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str}) == null) && this.f20234a.get()) {
+        if ((interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str}) == null) && this.f21756a.get()) {
             ImMessageCenterPojo i3 = i(str, i2);
             if (i3 == null) {
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
@@ -1141,7 +1141,7 @@ public class b {
 
     public void W(ImMessageCenterPojo imMessageCenterPojo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, imMessageCenterPojo) == null) || !this.f20234a.get() || imMessageCenterPojo == null || TextUtils.isEmpty(imMessageCenterPojo.getGid())) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, imMessageCenterPojo) == null) || !this.f21756a.get() || imMessageCenterPojo == null || TextUtils.isEmpty(imMessageCenterPojo.getGid())) {
             return;
         }
         ImMessageCenterPojo i2 = i(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
@@ -1157,7 +1157,7 @@ public class b {
         int userType;
         ImMessageCenterPojo i4;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i2), chatMessage, str, Integer.valueOf(i3)}) == null) && this.f20234a.get()) {
+        if ((interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i2), chatMessage, str, Integer.valueOf(i3)}) == null) && this.f21756a.get()) {
             UserData userData = null;
             if ((i2 == 2 || i2 == 4) && chatMessage != null) {
                 if (String.valueOf(chatMessage.getUserId()).equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -1195,7 +1195,7 @@ public class b {
                     }
                 }
                 if (chatMessage != null) {
-                    if (b.a.e.e.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L) != chatMessage.getUserId()) {
+                    if (b.a.e.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L) != chatMessage.getUserId()) {
                         userType = chatMessage.getUserInfo().getUserType();
                     } else {
                         userType = chatMessage.getToUserInfo().getUserType();
@@ -1251,7 +1251,7 @@ public class b {
 
     public void Y(ImMessageCenterPojo imMessageCenterPojo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048600, this, imMessageCenterPojo) == null) && this.f20234a.get() && imMessageCenterPojo != null) {
+        if ((interceptable == null || interceptable.invokeL(1048600, this, imMessageCenterPojo) == null) && this.f21756a.get() && imMessageCenterPojo != null) {
             ImMessageCenterPojo i2 = i(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
             if (i2 == null) {
                 F(imMessageCenterPojo);
@@ -1275,7 +1275,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, imMessageCenterPojo)) == null) {
-            if (this.f20234a.get() && imMessageCenterPojo != null) {
+            if (this.f21756a.get() && imMessageCenterPojo != null) {
                 ImMessageCenterPojo i2 = i(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
                 if (i2 == null) {
                     F(imMessageCenterPojo);
@@ -1294,9 +1294,9 @@ public class b {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.f20235b.b();
-            this.f20236c.b();
-            this.f20237d.b();
+            this.f21757b.b();
+            this.f21758c.b();
+            this.f21759d.b();
             K();
         }
     }
@@ -1316,7 +1316,7 @@ public class b {
         b.a.r0.l1.k.a n2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048605, this, str, i2)) == null) {
-            if (this.f20234a.get() && (n2 = n(i2)) != null) {
+            if (this.f21756a.get() && (n2 = n(i2)) != null) {
                 return n2.c(str);
             }
             return null;
@@ -1329,7 +1329,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            this.f20235b.d(new r(this, linkedList));
+            this.f21757b.d(new r(this, linkedList));
             return linkedList;
         }
         return (List) invokeV.objValue;
@@ -1340,9 +1340,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            this.f20235b.d(new o(this, linkedList));
-            this.f20236c.d(new p(this, linkedList));
-            this.f20237d.d(new q(this, linkedList));
+            this.f21757b.d(new o(this, linkedList));
+            this.f21758c.d(new p(this, linkedList));
+            this.f21759d.d(new q(this, linkedList));
             return linkedList;
         }
         return (List) invokeV.objValue;
@@ -1353,7 +1353,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            this.f20237d.d(new a(this, linkedList));
+            this.f21759d.d(new a(this, linkedList));
             return linkedList;
         }
         return (List) invokeV.objValue;
@@ -1364,7 +1364,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            this.f20236c.d(new C1003b(this, linkedList));
+            this.f21758c.d(new C1071b(this, linkedList));
             return linkedList;
         }
         return (List) invokeV.objValue;
@@ -1375,12 +1375,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i2)) == null) {
             if (i2 == 2) {
-                return this.f20236c;
+                return this.f21758c;
             }
             if (i2 == 4) {
-                return this.f20237d;
+                return this.f21759d;
             }
-            return this.f20235b;
+            return this.f21757b;
         }
         return (b.a.r0.l1.k.a) invokeI.objValue;
     }
@@ -1412,7 +1412,7 @@ public class b {
             }
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setIs_hidden(1);
-            this.f20237d.d(new f(this, imMessageCenterPojo));
+            this.f21759d.d(new f(this, imMessageCenterPojo));
             c2.setUserType(imMessageCenterPojo.getUserType());
             c2.setLast_content(imMessageCenterPojo.getLast_content());
             c2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
@@ -1448,8 +1448,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
-            if (this.f20234a.get()) {
-                this.f20235b.d(new h(this, longSparseArray));
+            if (this.f21756a.get()) {
+                this.f21757b.d(new h(this, longSparseArray));
             }
             return longSparseArray;
         }
@@ -1462,8 +1462,8 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             NewpushRepair.Builder builder = new NewpushRepair.Builder();
             ArrayList arrayList = new ArrayList();
-            if (this.f20234a.get()) {
-                this.f20237d.d(new i(this, arrayList, builder));
+            if (this.f21756a.get()) {
+                this.f21759d.d(new i(this, arrayList, builder));
             }
             return builder.build(false);
         }
@@ -1491,7 +1491,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            this.f20236c.d(new c(this, linkedList));
+            this.f21758c.d(new c(this, linkedList));
             return linkedList;
         }
         return (List) invokeV.objValue;
@@ -1511,7 +1511,7 @@ public class b {
             }
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setIs_hidden(1);
-            this.f20236c.d(new d(this, imMessageCenterPojo));
+            this.f21758c.d(new d(this, imMessageCenterPojo));
             c2.setLast_content(imMessageCenterPojo.getLast_content());
             c2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
             c2.setLast_rid(imMessageCenterPojo.getLast_rid());
@@ -1550,15 +1550,15 @@ public class b {
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            this.f20234a.set(false);
+            this.f21756a.set(false);
             g();
-            MessageManager.getInstance().removeMessage(2016008, this.f20239f);
-            this.f20238e.setData(TbadkCoreApplication.getCurrentAccount());
+            MessageManager.getInstance().removeMessage(2016008, this.f21761f);
+            this.f21760e.setData(TbadkCoreApplication.getCurrentAccount());
             CustomMessageTask customMessageTask = new CustomMessageTask(2016008, new j(this));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
             customMessageTask.setPriority(4);
-            MessageManager.getInstance().sendMessage(this.f20238e, customMessageTask);
+            MessageManager.getInstance().sendMessage(this.f21760e, customMessageTask);
         }
     }
 
@@ -1611,7 +1611,7 @@ public class b {
                 str2 = "";
                 str = str2;
             }
-            ImMessageCenterPojo c3 = this.f20235b.c(str3);
+            ImMessageCenterPojo c3 = this.f21757b.c(str3);
             if (c3 != null) {
                 str2 = c3.getGroup_name();
             }
@@ -1627,6 +1627,6 @@ public class b {
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.f20234a.get() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.f21756a.get() : invokeV.booleanValue;
     }
 }

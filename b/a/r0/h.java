@@ -12,10 +12,10 @@ public class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f16874a;
+    public a f18341a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f16875b;
+    public int f18342b;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -35,39 +35,39 @@ public class h {
                 return;
             }
         }
-        this.f16875b = 0;
+        this.f18342b = 0;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16875b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18342b : invokeV.intValue;
     }
 
     public void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f16874a = aVar;
+            this.f18341a = aVar;
         }
     }
 
     public void c(int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (i3 = this.f16875b) == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (i3 = this.f18342b) == i2) {
             return;
         }
-        a aVar = this.f16874a;
+        a aVar = this.f18341a;
         if (aVar != null) {
             aVar.a(i3, i2);
         }
-        this.f16875b = i2;
+        this.f18342b = i2;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f16875b = i2;
+            this.f18342b = i2;
         }
     }
 }

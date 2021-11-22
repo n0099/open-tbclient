@@ -13,7 +13,7 @@ public class b implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f6816a;
+    public final String[] f7145a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class b implements a {
                 return;
             }
         }
-        this.f6816a = new String[]{b.a.p0.a.c1.a.b().getDatabasePath("ai_apps.db").getAbsolutePath(), b.a.p0.a.c1.a.b().getDatabasePath("ai_apps_pms.db").getAbsolutePath()};
+        this.f7145a = new String[]{b.a.p0.a.c1.a.c().getDatabasePath("ai_apps.db").getAbsolutePath(), b.a.p0.a.c1.a.c().getDatabasePath("ai_apps_pms.db").getAbsolutePath()};
     }
 
     @Override // b.a.p0.a.n0.j.d.a
@@ -37,13 +37,13 @@ public class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.f6816a) {
-                String J = b.a.p0.t.d.J(str);
-                if (!TextUtils.isEmpty(J)) {
-                    arraySet.add(J);
+            for (String str : this.f7145a) {
+                String K = b.a.p0.w.d.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
                 }
             }
-            b.a.p0.a.e0.d.h("SwanDatabaseCollector", "recovery renameAllFiles:" + arraySet.toString());
+            b.a.p0.a.e0.d.k("SwanDatabaseCollector", "recovery renameAllFiles:" + arraySet.toString());
             return arraySet;
         }
         return (ArraySet) invokeV.objValue;

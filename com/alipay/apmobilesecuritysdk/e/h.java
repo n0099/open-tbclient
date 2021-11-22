@@ -17,7 +17,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f33934a = "";
+    public static String f34768a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -157,19 +157,19 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
             synchronized (h.class) {
-                if (com.alipay.security.mobile.module.a.a.a(f33934a)) {
+                if (com.alipay.security.mobile.module.a.a.a(f34768a)) {
                     String a2 = com.alipay.security.mobile.module.c.e.a(context, "alipay_vkey_random", "random", "");
-                    f33934a = a2;
+                    f34768a = a2;
                     if (com.alipay.security.mobile.module.a.a.a(a2)) {
                         String a3 = com.alipay.security.mobile.module.a.a.b.a(UUID.randomUUID().toString());
-                        f33934a = a3;
+                        f34768a = a3;
                         if (a3 != null && (edit = context.getSharedPreferences("alipay_vkey_random", 0).edit()) != null) {
                             edit.putString("random", a3);
                             edit.commit();
                         }
                     }
                 }
-                str = f33934a;
+                str = f34768a;
             }
             return str;
         }

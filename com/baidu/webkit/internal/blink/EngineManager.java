@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.utils.UtilsBlink;
+import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
@@ -131,22 +132,24 @@ public class EngineManager implements INoProGuard {
 
     private void install(String str, WebKitFactory.WebkitInstallListener webkitInstallListener, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, this, str, webkitInstallListener, z) == null) || webkitInstallListener == null) {
-            return;
-        }
-        if (str == null) {
-            webkitInstallListener.onInstallFinish(13, null);
-        } else if (tryChangeZeusEngine(webkitInstallListener) == 1) {
-        } else {
-            if (!str.startsWith("file://")) {
+        if (interceptable == null || interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, this, str, webkitInstallListener, z) == null) {
+            if (webkitInstallListener == null) {
+                LoadErrorCode.getInstance().addDownloadInfo(1021);
+            } else if (str == null) {
+                LoadErrorCode.getInstance().addDownloadInfo(1022);
                 webkitInstallListener.onInstallFinish(13, null);
-                return;
-            }
-            b bVar = new b(str, this, webkitInstallListener);
-            if (z) {
-                bVar.a();
+            } else if (tryChangeZeusEngine(webkitInstallListener) == 1) {
+                LoadErrorCode.getInstance().addDownloadInfo(1023);
+            } else if (!str.startsWith("file://")) {
+                LoadErrorCode.getInstance().addDownloadInfo(1024);
+                webkitInstallListener.onInstallFinish(13, null);
             } else {
-                bVar.b();
+                b bVar = new b(str, this, webkitInstallListener);
+                if (z) {
+                    bVar.a();
+                } else {
+                    bVar.b();
+                }
             }
         }
     }
@@ -415,6 +418,7 @@ public class EngineManager implements INoProGuard {
         if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
             synchronized (this) {
                 if (context == null) {
+                    LoadErrorCode.getInstance().trace(517);
                     return;
                 }
                 File filesDir = context.getFilesDir();
@@ -430,6 +434,7 @@ public class EngineManager implements INoProGuard {
         if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
             synchronized (this) {
                 if (context == null) {
+                    LoadErrorCode.getInstance().trace(517);
                     return;
                 }
                 String[] strArr = {"zeus/libs/com.baidu.zeus2.dex", "zeus/libs/com.baidu.zeus2.jar", "zeus/libs/libbaiduwebviewchromium.so", "pagecache.log"};
@@ -466,6 +471,7 @@ public class EngineManager implements INoProGuard {
                 }
                 resetPref();
             } catch (Throwable th) {
+                LoadErrorCode.getInstance().trace("516:" + th.toString());
                 th.printStackTrace();
             }
         }

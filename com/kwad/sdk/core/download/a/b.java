@@ -28,20 +28,20 @@ public class b extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f64452a;
+    public static b f65365a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64453b;
+    public String f65366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f64454c;
+    public a f65367c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f64455d;
+    public AdTemplate f65368d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f64456e;
+    public boolean f65369e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Activity activity, @NonNull AdTemplate adTemplate, String str) {
@@ -61,10 +61,10 @@ public class b extends AlertDialog {
                 return;
             }
         }
-        this.f64456e = false;
+        this.f65369e = false;
         setOwnerActivity(activity);
-        this.f64455d = adTemplate;
-        this.f64453b = str;
+        this.f65368d = adTemplate;
+        this.f65366b = str;
     }
 
     public static b a(Activity activity, AdTemplate adTemplate, String str) {
@@ -82,7 +82,7 @@ public class b extends AlertDialog {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            b bVar = f64452a;
+            b bVar = f65365a;
             if (bVar != null) {
                 return bVar.isShowing();
             }
@@ -120,20 +120,20 @@ public class b extends AlertDialog {
             }
             if (context instanceof Activity) {
                 try {
-                    if (f64452a == null) {
+                    if (f65365a == null) {
                         b a2 = a((Activity) context, adTemplate, str);
-                        f64452a = a2;
+                        f65365a = a2;
                         if (onShowListener != null) {
                             a2.setOnShowListener(onShowListener);
                         }
                         if (onDismissListener != null) {
-                            f64452a.setOnDismissListener(onDismissListener);
+                            f65365a.setOnDismissListener(onDismissListener);
                         }
                     }
-                    if (f64452a.isShowing()) {
+                    if (f65365a.isShowing()) {
                         return true;
                     }
-                    f64452a.show();
+                    f65365a.show();
                     com.kwad.sdk.core.report.a.c(adTemplate, 86, null);
                     return true;
                 } catch (Throwable th) {
@@ -149,7 +149,7 @@ public class b extends AlertDialog {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f64456e = z;
+            this.f65369e = z;
             dismiss();
         }
     }
@@ -157,7 +157,7 @@ public class b extends AlertDialog {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64456e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65369e : invokeV.booleanValue;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
@@ -165,7 +165,7 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.dismiss();
-            f64452a = null;
+            f65365a = null;
         }
     }
 
@@ -181,7 +181,7 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onBackPressed();
-            com.kwad.sdk.core.report.a.n(this.f64455d);
+            com.kwad.sdk.core.report.a.n(this.f65368d);
         }
     }
 
@@ -190,15 +190,15 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            if (this.f64454c == null) {
-                a aVar = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.f64455d, !ab.e(getOwnerActivity()) ? 1 : 0, this.f64453b);
-                this.f64454c = aVar;
+            if (this.f65367c == null) {
+                a aVar = new a(Wrapper.wrapContextIfNeed(getOwnerActivity()), this, this.f65368d, !ab.e(getOwnerActivity()) ? 1 : 0, this.f65366b);
+                this.f65367c = aVar;
                 aVar.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.core.download.a.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ b f64457a;
+                    public final /* synthetic */ b f65370a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -215,20 +215,20 @@ public class b extends AlertDialog {
                                 return;
                             }
                         }
-                        this.f64457a = this;
+                        this.f65370a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            com.kwad.sdk.core.report.a.n(this.f64457a.f64455d);
-                            this.f64457a.dismiss();
+                            com.kwad.sdk.core.report.a.n(this.f65370a.f65368d);
+                            this.f65370a.dismiss();
                         }
                     }
                 });
             }
-            setContentView(this.f64454c);
+            setContentView(this.f65367c);
             setCanceledOnTouchOutside(true);
             getWindow().getDecorView().setPadding(0, 0, 0, 0);
             getWindow().setBackgroundDrawable(new ColorDrawable(0));
@@ -241,11 +241,11 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            a aVar = this.f64454c;
+            a aVar = this.f65367c;
             if (aVar != null) {
                 aVar.c();
             }
-            f64452a = null;
+            f65365a = null;
         }
     }
 
@@ -254,7 +254,7 @@ public class b extends AlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onStart();
-            b bVar = f64452a;
+            b bVar = f65365a;
             if (bVar != null) {
                 bVar.setTitle((CharSequence) null);
             }

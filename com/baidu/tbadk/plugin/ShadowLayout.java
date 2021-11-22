@@ -25,19 +25,19 @@ public class ShadowLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f46020e;
+    public Paint f46870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RectF f46021f;
+    public RectF f46871f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f46022g;
+    public int f46872g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46023h;
+    public int f46873h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46024i;
+    public int f46874i;
     public int j;
     public int k;
     public int l;
@@ -69,25 +69,25 @@ public class ShadowLayout extends FrameLayout {
             setWillNotDraw(false);
             setLayerType(1, null);
             int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
-            this.f46022g = dimensionPixelSize;
+            this.f46872g = dimensionPixelSize;
             setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
             this.l = getContext().getResources().getDimensionPixelSize(R.dimen.tbds25);
-            this.f46023h = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
-            this.f46024i = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
+            this.f46873h = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
+            this.f46874i = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
             this.j = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
             this.k = SkinManager.getColor(R.color.plugin_button_shadow_blue);
             Paint paint = new Paint();
-            this.f46020e = paint;
+            this.f46870e = paint;
             paint.setColor(0);
-            this.f46020e.setShadowLayer(this.f46023h, this.f46024i, this.j, this.k);
-            this.f46021f = new RectF();
+            this.f46870e.setShadowLayer(this.f46873h, this.f46874i, this.j, this.k);
+            this.f46871f = new RectF();
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f46020e.setShadowLayer(this.f46023h, this.f46024i, this.j, this.k);
+            this.f46870e.setShadowLayer(this.f46873h, this.f46874i, this.j, this.k);
             postInvalidate();
         }
     }
@@ -95,7 +95,7 @@ public class ShadowLayout extends FrameLayout {
     public void buildShadow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i2 = this.f46022g;
+            int i2 = this.f46872g;
             setPadding(i2, i2, i2, i2);
             b();
         }
@@ -106,13 +106,13 @@ public class ShadowLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f46021f.left = getPaddingLeft();
-            this.f46021f.right = getWidth() - getPaddingRight();
-            this.f46021f.bottom = getHeight() - getPaddingBottom();
-            this.f46021f.top = getPaddingTop();
-            RectF rectF = this.f46021f;
+            this.f46871f.left = getPaddingLeft();
+            this.f46871f.right = getWidth() - getPaddingRight();
+            this.f46871f.bottom = getHeight() - getPaddingBottom();
+            this.f46871f.top = getPaddingTop();
+            RectF rectF = this.f46871f;
             int i2 = this.l;
-            canvas.drawRoundRect(rectF, i2, i2, this.f46020e);
+            canvas.drawRoundRect(rectF, i2, i2, this.f46870e);
         }
     }
 
@@ -132,7 +132,7 @@ public class ShadowLayout extends FrameLayout {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i2, i3)) == null) {
-            this.f46024i = getResources().getDimensionPixelSize(i2);
+            this.f46874i = getResources().getDimensionPixelSize(i2);
             this.j = getResources().getDimensionPixelSize(i3);
             return this;
         }
@@ -144,7 +144,7 @@ public class ShadowLayout extends FrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.f46022g = getResources().getDimensionPixelSize(i2);
+            this.f46872g = getResources().getDimensionPixelSize(i2);
             return this;
         }
         return (ShadowLayout) invokeI.objValue;

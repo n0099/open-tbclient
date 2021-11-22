@@ -17,18 +17,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f23551c;
+    public static a f25068c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<InterfaceC1146a> f23552a;
+    public List<InterfaceC1214a> f25069a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b.a.q0.t.f.a> f23553b;
+    public List<b.a.q0.t.f.a> f25070b;
 
     /* renamed from: b.a.r0.t.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1146a {
+    public interface InterfaceC1214a {
         void notifyCacheDataChanged(List<b.a.q0.t.f.a> list);
     }
 
@@ -45,7 +45,7 @@ public class a {
                 return;
             }
         }
-        this.f23552a = new ArrayList();
+        this.f25069a = new ArrayList();
     }
 
     public static synchronized a d() {
@@ -54,10 +54,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (a.class) {
-                if (f23551c == null) {
-                    f23551c = new a();
+                if (f25068c == null) {
+                    f25068c = new a();
                 }
-                aVar = f23551c;
+                aVar = f25068c;
             }
             return aVar;
         }
@@ -66,7 +66,7 @@ public class a {
 
     public void a(b.a.q0.t.f.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f23553b == null || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.f25070b == null || aVar == null) {
             return;
         }
         String a2 = aVar.a();
@@ -80,7 +80,7 @@ public class a {
         }
         boolean z = false;
         boolean z2 = false;
-        for (b.a.q0.t.f.a aVar2 : this.f23553b) {
+        for (b.a.q0.t.f.a aVar2 : this.f25070b) {
             if (f2.equals(aVar2.f())) {
                 z = true;
             }
@@ -94,17 +94,17 @@ public class a {
         if (!z2) {
             b.a.q0.t.f.a aVar3 = new b.a.q0.t.f.a();
             aVar3.k(a2);
-            this.f23553b.add(aVar3);
+            this.f25070b.add(aVar3);
         }
-        this.f23553b.add(aVar);
-        Collections.sort(this.f23553b, new ContactComparator());
+        this.f25070b.add(aVar);
+        Collections.sort(this.f25070b, new ContactComparator());
         e();
     }
 
     public void b(long j) {
         List<b.a.q0.t.f.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || (list = this.f23553b) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || (list = this.f25070b) == null) {
             return;
         }
         String str = null;
@@ -116,19 +116,19 @@ public class a {
             b.a.q0.t.f.a next = it.next();
             if (next.e() == j) {
                 str = next.a();
-                this.f23553b.remove(next);
+                this.f25070b.remove(next);
                 break;
             }
         }
         if (str != null) {
             ArrayList arrayList = new ArrayList();
-            for (b.a.q0.t.f.a aVar : this.f23553b) {
+            for (b.a.q0.t.f.a aVar : this.f25070b) {
                 if (str.equals(aVar.a())) {
                     arrayList.add(aVar);
                 }
             }
             if (arrayList.size() <= 1) {
-                this.f23553b.removeAll(arrayList);
+                this.f25070b.removeAll(arrayList);
             }
         }
         e();
@@ -137,30 +137,30 @@ public class a {
     public List<b.a.q0.t.f.a> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23553b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25070b : (List) invokeV.objValue;
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (InterfaceC1146a interfaceC1146a : this.f23552a) {
-                interfaceC1146a.notifyCacheDataChanged(this.f23553b);
+            for (InterfaceC1214a interfaceC1214a : this.f25069a) {
+                interfaceC1214a.notifyCacheDataChanged(this.f25070b);
             }
         }
     }
 
-    public void f(InterfaceC1146a interfaceC1146a) {
+    public void f(InterfaceC1214a interfaceC1214a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, interfaceC1146a) == null) || interfaceC1146a == null || this.f23552a.contains(interfaceC1146a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, interfaceC1214a) == null) || interfaceC1214a == null || this.f25069a.contains(interfaceC1214a)) {
             return;
         }
-        this.f23552a.add(interfaceC1146a);
+        this.f25069a.add(interfaceC1214a);
     }
 
     public void g(List<b.a.q0.t.f.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f23553b = list;
+            this.f25070b = list;
             if (list != null) {
                 Collections.sort(list, new ContactComparator());
             }
@@ -168,11 +168,11 @@ public class a {
         }
     }
 
-    public void h(InterfaceC1146a interfaceC1146a) {
+    public void h(InterfaceC1214a interfaceC1214a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, interfaceC1146a) == null) || interfaceC1146a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, interfaceC1214a) == null) || interfaceC1214a == null) {
             return;
         }
-        this.f23552a.remove(interfaceC1146a);
+        this.f25069a.remove(interfaceC1214a);
     }
 }

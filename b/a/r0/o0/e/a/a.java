@@ -18,7 +18,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b> f21582a;
+    public ArrayList<b> f23081a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class a {
                 return;
             }
         }
-        this.f21582a = new ArrayList<>();
+        this.f23081a = new ArrayList<>();
     }
 
     public void a(b bVar) {
@@ -41,7 +41,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
             return;
         }
-        this.f21582a.add(bVar);
+        this.f23081a.add(bVar);
     }
 
     public boolean b(String str, JsPromptResult jsPromptResult) {
@@ -70,8 +70,8 @@ public class a {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, jsPromptResult)) == null) {
-            if (this.f21582a.size() > 0) {
-                Iterator<b> it = this.f21582a.iterator();
+            if (this.f23081a.size() > 0) {
+                Iterator<b> it = this.f23081a.iterator();
                 while (it.hasNext()) {
                     b next = it.next();
                     if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {

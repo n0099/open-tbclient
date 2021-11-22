@@ -16,10 +16,10 @@ public class BankSignPayFlow {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Action f59533a;
+    public Action f60455a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.banksign.a f59534b;
+    public com.baidu.wallet.paysdk.banksign.a f60456b;
 
     /* renamed from: com.baidu.wallet.paysdk.banksign.BankSignPayFlow$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -27,7 +27,7 @@ public class BankSignPayFlow {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f59535a;
+        public static final /* synthetic */ int[] f60457a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,41 +44,41 @@ public class BankSignPayFlow {
                 }
             }
             int[] iArr = new int[Action.values().length];
-            f59535a = iArr;
+            f60457a = iArr;
             try {
                 iArr[Action.ShowGuide.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f59535a[Action.Fail.ordinal()] = 2;
+                f60457a[Action.Fail.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f59535a[Action.Unknown.ordinal()] = 3;
+                f60457a[Action.Unknown.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f59535a[Action.JumpResign.ordinal()] = 4;
+                f60457a[Action.JumpResign.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f59535a[Action.Pay.ordinal()] = 5;
+                f60457a[Action.Pay.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f59535a[Action.BindCard.ordinal()] = 6;
+                f60457a[Action.BindCard.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f59535a[Action.Cancel.ordinal()] = 7;
+                f60457a[Action.Cancel.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f59535a[Action.FirstFail.ordinal()] = 8;
+                f60457a[Action.FirstFail.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f59535a[Action.ChangePayType.ordinal()] = 9;
+                f60457a[Action.ChangePayType.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
         }
@@ -165,7 +165,7 @@ public class BankSignPayFlow {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BankSignPayFlow f59536a;
+        public static BankSignPayFlow f60458a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -181,7 +181,7 @@ public class BankSignPayFlow {
                     return;
                 }
             }
-            f59536a = new BankSignPayFlow(null);
+            f60458a = new BankSignPayFlow(null);
         }
     }
 
@@ -192,7 +192,7 @@ public class BankSignPayFlow {
     public static BankSignPayFlow a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f59536a : (BankSignPayFlow) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60458a : (BankSignPayFlow) invokeV.objValue;
     }
 
     public BankSignPayFlow() {
@@ -208,8 +208,8 @@ public class BankSignPayFlow {
                 return;
             }
         }
-        this.f59533a = Action.Null;
-        this.f59534b = new b();
+        this.f60455a = Action.Null;
+        this.f60456b = new b();
     }
 
     public void a(Action action) {
@@ -218,39 +218,39 @@ public class BankSignPayFlow {
             if (action == null) {
                 action = Action.Null;
             }
-            this.f59533a = action;
+            this.f60455a = action;
         }
     }
 
     public void a(Context context) {
         Action action;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f59534b == null || (action = this.f59533a) == null || Action.Null == action) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f60456b == null || (action = this.f60455a) == null || Action.Null == action) {
             return;
         }
-        switch (AnonymousClass1.f59535a[action.ordinal()]) {
+        switch (AnonymousClass1.f60457a[action.ordinal()]) {
             case 1:
-                this.f59534b.e(context);
+                this.f60456b.e(context);
                 return;
             case 2:
             case 3:
             case 4:
-                this.f59534b.b(context);
+                this.f60456b.b(context);
                 return;
             case 5:
-                this.f59534b.a();
+                this.f60456b.a();
                 return;
             case 6:
-                this.f59534b.c(context);
-                this.f59533a = Action.Cancel;
+                this.f60456b.c(context);
+                this.f60455a = Action.Cancel;
                 return;
             case 7:
             case 8:
-                this.f59534b.a(context);
+                this.f60456b.a(context);
                 return;
             case 9:
-                this.f59534b.d(context);
-                this.f59533a = Action.Cancel;
+                this.f60456b.d(context);
+                this.f60455a = Action.Cancel;
                 return;
             default:
                 return;

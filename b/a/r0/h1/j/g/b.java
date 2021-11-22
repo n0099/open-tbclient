@@ -3,7 +3,7 @@ package b.a.r0.h1.j.g;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.s;
+import b.a.e.m.e.s;
 import b.a.l.l0;
 import b.a.q0.s.q.v1;
 import com.baidu.adp.BdUniqueId;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class b extends b.a.e.l.e.a<v1, ThreadCardViewHolder<v1>> implements b.a.r0.p.f {
+public class b extends b.a.e.m.e.a<v1, ThreadCardViewHolder<v1>> implements b.a.r0.p.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId m;
@@ -35,7 +35,7 @@ public class b extends b.a.e.l.e.a<v1, ThreadCardViewHolder<v1>> implements b.a.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f17524e;
+        public final /* synthetic */ b f18993e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class b extends b.a.e.l.e.a<v1, ThreadCardViewHolder<v1>> implements b.a.
                     return;
                 }
             }
-            this.f17524e = bVar;
+            this.f18993e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,7 +63,7 @@ public class b extends b.a.e.l.e.a<v1, ThreadCardViewHolder<v1>> implements b.a.
             if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, metaData, Integer.valueOf(i2), Long.valueOf(j)}) == null) || metaData == null) {
                 return;
             }
-            b.a.r0.h1.j.c.b("c13758", metaData, i2 + 1, this.f17524e.q);
+            b.a.r0.h1.j.c.b("c13758", metaData, i2 + 1, this.f18993e.q);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,7 +74,7 @@ public class b extends b.a.e.l.e.a<v1, ThreadCardViewHolder<v1>> implements b.a.
             if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, metaData, Integer.valueOf(i2), Long.valueOf(j)}) == null) || metaData == null) {
                 return;
             }
-            b.a.r0.h1.j.c.a("c13758", metaData, i2 + 1, this.f17524e.q);
+            b.a.r0.h1.j.c.a("c13758", metaData, i2 + 1, this.f18993e.q);
         }
     }
 
@@ -110,7 +110,7 @@ public class b extends b.a.e.l.e.a<v1, ThreadCardViewHolder<v1>> implements b.a.
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public ThreadCardViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -132,7 +132,7 @@ public class b extends b.a.e.l.e.a<v1, ThreadCardViewHolder<v1>> implements b.a.
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: i0 */
     public View Z(int i2, View view, ViewGroup viewGroup, v1 v1Var, ThreadCardViewHolder<v1> threadCardViewHolder) {
         InterceptResult invokeCommon;

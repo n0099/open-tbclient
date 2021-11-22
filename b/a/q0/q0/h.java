@@ -18,28 +18,28 @@ public class h extends g {
     public HashMap<String, String> E;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12837b;
+    public boolean f13587b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f12838c;
+    public long f13588c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f12839d;
+    public long f13589d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f12840e;
+    public long f13590e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f12841f;
+    public long f13591f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f12842g;
+    public long f13592g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f12843h;
+    public long f13593h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f12844i;
+    public long f13594i;
     public long j;
     public long k;
     public long l;
@@ -71,7 +71,7 @@ public class h extends g {
                 return;
             }
         }
-        this.f12844i = 0L;
+        this.f13594i = 0L;
         this.j = 0L;
         this.n = 0L;
         this.p = 0L;
@@ -85,7 +85,7 @@ public class h extends g {
 
     public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || b.a.e.e.p.k.isEmpty(str) || b.a.e.e.p.k.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || b.a.e.f.p.k.isEmpty(str) || b.a.e.f.p.k.isEmpty(str2)) {
             return;
         }
         this.E.put(str, str2);
@@ -94,7 +94,7 @@ public class h extends g {
     public void c() {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mVar = (m) k.d().e(this.f12836a)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mVar = (m) k.d().e(this.f13586a)) == null) {
             return;
         }
         mVar.b(this);
@@ -103,7 +103,7 @@ public class h extends g {
     public void d(int i2) {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (mVar = (m) k.d().e(this.f12836a)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (mVar = (m) k.d().e(this.f13586a)) == null) {
             return;
         }
         mVar.c(this, i2);
@@ -112,7 +112,7 @@ public class h extends g {
     public void e(boolean z) {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (mVar = (m) k.d().e(this.f12836a)) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (mVar = (m) k.d().e(this.f13586a)) == null) {
             return;
         }
         mVar.d(this, z);
@@ -133,7 +133,7 @@ public class h extends g {
                 return;
             }
         }
-        this.f12844i = 0L;
+        this.f13594i = 0L;
         this.j = 0L;
         this.n = 0L;
         this.p = 0L;
@@ -146,7 +146,7 @@ public class h extends g {
         if (responsedMessage == null) {
             return;
         }
-        this.f12836a = i2;
+        this.f13586a = i2;
         this.s = z;
         if (z) {
             this.r = responsedMessage.getDownSize();
@@ -155,27 +155,27 @@ public class h extends g {
             b.a.e.c.i.a aVar = responsedMessage.performanceData;
             this.w = aVar.k;
             this.x = aVar.l;
-            this.t = aVar.f1569i;
+            this.t = aVar.f1565i;
             this.u = aVar.j;
         } else {
             this.q = responsedMessage.getDownSize();
             this.z = responsedMessage.getOrginalMessage().getSquencedId();
         }
-        this.f12838c = j;
-        this.f12839d = j4;
-        this.f12840e = j2;
+        this.f13588c = j;
+        this.f13589d = j4;
+        this.f13590e = j2;
         this.o = j3;
         this.m = j5;
-        this.f12837b = !responsedMessage.hasError();
+        this.f13587b = !responsedMessage.hasError();
         b.a.e.c.i.a aVar2 = responsedMessage.performanceData;
-        this.f12841f = aVar2.f1561a;
-        this.f12842g = aVar2.f1562b;
-        this.f12843h = aVar2.f1563c;
-        this.f12844i = aVar2.f1564d;
-        this.j = aVar2.f1565e;
-        this.k = aVar2.f1566f;
-        this.l = aVar2.f1567g;
-        long j7 = aVar2.f1568h;
+        this.f13591f = aVar2.f1557a;
+        this.f13592g = aVar2.f1558b;
+        this.f13593h = aVar2.f1559c;
+        this.f13594i = aVar2.f1560d;
+        this.j = aVar2.f1561e;
+        this.k = aVar2.f1562f;
+        this.l = aVar2.f1563g;
+        long j7 = aVar2.f1564h;
         this.n = j7;
         this.n = j7 + (responsedMessage.getProcessTime() - responsedMessage.getStartTime());
         this.v = responsedMessage.getError();

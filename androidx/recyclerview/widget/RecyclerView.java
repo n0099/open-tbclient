@@ -64,7 +64,6 @@ import androidx.recyclerview.widget.ViewInfoStore;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.mapapi.UIMsg;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -233,7 +232,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                 if (hasStableIds()) {
                     vh.mItemId = getItemId(i2);
                 }
-                vh.setFlags(1, UIMsg.m_AppUI.MSG_SET_SENSOR_STATUS);
+                vh.setFlags(1, 519);
                 TraceCompat.beginSection(RecyclerView.TRACE_BIND_VIEW_TAG);
                 onBindViewHolder(vh, i2, vh.getUnmodifiedPayloads());
                 vh.clearPayload();

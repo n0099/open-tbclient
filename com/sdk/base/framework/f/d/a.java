@@ -7,6 +7,7 @@ import android.webkit.WebSettings;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.core.Util;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,10 +30,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f68230a = "com.sdk.base.framework.f.d.a";
+    public static final String f69150a = "com.sdk.base.framework.f.d.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f68231b;
+    public static final Boolean f69151b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +49,7 @@ public class a {
                 return;
             }
         }
-        f68231b = Boolean.valueOf(f.f68205b);
+        f69151b = Boolean.valueOf(f.f69125b);
     }
 
     public a() {
@@ -114,7 +115,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
-                for (String str2 : new URL(str).getHost().split("\\.")) {
+                for (String str2 : new URL(str).getHost().split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) {
                     for (int i2 = 0; i2 < str2.length(); i2++) {
                         if (!Character.isDigit(str2.charAt(i2))) {
                             return false;
@@ -200,7 +201,7 @@ public class a {
                         }
                     }
                 } catch (Throwable th) {
-                    c.b(f68230a, th.getMessage(), f68231b);
+                    c.b(f69150a, th.getMessage(), f69151b);
                 }
             }
             return null;

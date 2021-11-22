@@ -10,7 +10,7 @@ public class b extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a.w.b.d.c.a f29184b;
+    public b.a.w.b.d.c.a f30053b;
 
     public b() {
         Interceptable interceptable = $ic;

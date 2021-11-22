@@ -20,13 +20,13 @@ public class HomeRecommendView extends BaseItemLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f58352a;
+    public ViewGroup f59274a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f58353b;
+    public ViewGroup f59275b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f58354c;
+    public List<BaseItemView> f59276c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HomeRecommendView(Context context, AttributeSet attributeSet) {
@@ -47,14 +47,14 @@ public class HomeRecommendView extends BaseItemLayout {
                 return;
             }
         }
-        this.f58354c = new ArrayList();
+        this.f59276c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58354c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59276c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -62,8 +62,8 @@ public class HomeRecommendView extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_recommend_layout"), this);
-            this.f58352a = (ViewGroup) findViewById(ResUtils.id(getContext(), "rmd_rl_left"));
-            this.f58353b = (ViewGroup) findViewById(ResUtils.id(getContext(), "rmd_rl_right"));
+            this.f59274a = (ViewGroup) findViewById(ResUtils.id(getContext(), "rmd_rl_left"));
+            this.f59275b = (ViewGroup) findViewById(ResUtils.id(getContext(), "rmd_rl_right"));
         }
     }
 
@@ -92,10 +92,10 @@ public class HomeRecommendView extends BaseItemLayout {
             homeRecommendItemView.setData(dataItemArr[0], getWalletInterface());
             HomeRecommendItemView homeRecommendItemView2 = new HomeRecommendItemView(getContext());
             homeRecommendItemView2.setData(dataItemArr[1], getWalletInterface());
-            this.f58352a.addView(homeRecommendItemView);
-            this.f58353b.addView(homeRecommendItemView2);
-            this.f58354c.add(homeRecommendItemView);
-            this.f58354c.add(homeRecommendItemView2);
+            this.f59274a.addView(homeRecommendItemView);
+            this.f59275b.addView(homeRecommendItemView2);
+            this.f59276c.add(homeRecommendItemView);
+            this.f59276c.add(homeRecommendItemView2);
         }
     }
 
@@ -117,6 +117,6 @@ public class HomeRecommendView extends BaseItemLayout {
                 return;
             }
         }
-        this.f58354c = new ArrayList();
+        this.f59276c = new ArrayList();
     }
 }

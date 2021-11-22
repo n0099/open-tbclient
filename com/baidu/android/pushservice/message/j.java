@@ -20,7 +20,7 @@ public class j extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f35806b;
+    public Context f36635b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(Context context) {
@@ -40,7 +40,7 @@ public class j extends c {
                 return;
             }
         }
-        this.f35806b = context.getApplicationContext();
+        this.f36635b = context.getApplicationContext();
     }
 
     public static String a(byte[] bArr) {
@@ -71,7 +71,7 @@ public class j extends c {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(65538, null, context, lVar, str, i2) == null) {
-            if (lVar == com.baidu.android.pushservice.message.a.l.f35769b || lVar == com.baidu.android.pushservice.message.a.l.f35770c || lVar == com.baidu.android.pushservice.message.a.l.f35774g) {
+            if (lVar == com.baidu.android.pushservice.message.a.l.f36598b || lVar == com.baidu.android.pushservice.message.a.l.f36599c || lVar == com.baidu.android.pushservice.message.a.l.f36603g) {
                 b.a a2 = new b.a(context).a("0").b(str).a(System.currentTimeMillis());
                 c2 = a2.c(i2 + "");
                 j = 601002;
@@ -89,10 +89,10 @@ public class j extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
-            eVar.f35783d = true;
+            eVar.f36612d = true;
             g gVar = new g();
             gVar.a(-1);
-            byte[] bArr = eVar.f35781b;
+            byte[] bArr = eVar.f36610b;
             if (bArr == null) {
                 return gVar;
             }
@@ -129,10 +129,10 @@ public class j extends c {
                         if (!jSONObject.isNull("expiretime")) {
                             kVar.a(jSONObject.getLong("expiretime"));
                         }
-                        kVar.a(!jSONObject.isNull("notify_id") ? jSONObject.getInt("notify_id") : kVar.g() != com.baidu.android.pushservice.message.a.l.f35775h.b() ? m.i(this.f35806b, kVar.f()) : 0);
+                        kVar.a(!jSONObject.isNull("notify_id") ? jSONObject.getInt("notify_id") : kVar.g() != com.baidu.android.pushservice.message.a.l.f36604h.b() ? m.i(this.f36635b, kVar.f()) : 0);
                         kVar.a(false);
                     } catch (JSONException e2) {
-                        new b.c(this.f35777a).a(Log.getStackTraceString(e2)).a();
+                        new b.c(this.f36606a).a(Log.getStackTraceString(e2)).a();
                     }
                 } else {
                     kVar.a(false);
@@ -150,17 +150,17 @@ public class j extends c {
                 }
                 byte[] bArr5 = new byte[length];
                 System.arraycopy(bArr, i2, bArr5, 0, length);
-                m.a("New MSG: " + kVar.toString(), this.f35777a);
+                m.a("New MSG: " + kVar.toString(), this.f36606a);
                 com.baidu.android.pushservice.message.a.l a2 = com.baidu.android.pushservice.message.a.l.a(kVar.g());
-                if (a2 != com.baidu.android.pushservice.message.a.l.j && com.baidu.android.pushservice.c.c.c(this.f35777a, kVar.e())) {
+                if (a2 != com.baidu.android.pushservice.message.a.l.j && com.baidu.android.pushservice.c.c.c(this.f36606a, kVar.e())) {
                     String str = "Message ID(" + kVar.f() + ") received duplicated, ack success to server directly.";
-                    com.baidu.android.pushservice.g.a.a("PushMessageHandler", str, this.f35806b);
-                    m.a(str, this.f35806b);
-                    a(this.f35777a, a2, kVar.f(), 4);
+                    com.baidu.android.pushservice.g.a.a("PushMessageHandler", str, this.f36635b);
+                    m.a(str, this.f36635b);
+                    a(this.f36606a, a2, kVar.f(), 4);
                     gVar.a(4);
                     return gVar;
                 }
-                com.baidu.android.pushservice.message.a.d a3 = new com.baidu.android.pushservice.message.a.k(this.f35777a).a(a2);
+                com.baidu.android.pushservice.message.a.d a3 = new com.baidu.android.pushservice.message.a.k(this.f36606a).a(a2);
                 if (a3 != null) {
                     gVar = a3.a(kVar, bArr5);
                 } else {
@@ -169,16 +169,16 @@ public class j extends c {
                 if (gVar == null) {
                     return null;
                 }
-                if (a2 == com.baidu.android.pushservice.message.a.l.f35769b || a2 == com.baidu.android.pushservice.message.a.l.f35770c || a2 == com.baidu.android.pushservice.message.a.l.f35774g) {
-                    com.baidu.android.pushservice.c.c.a(this.f35777a, kVar.c(), kVar.g(), kVar.e(), bArr5, kVar.h(), kVar.b(), gVar.a(), kVar.a());
+                if (a2 == com.baidu.android.pushservice.message.a.l.f36598b || a2 == com.baidu.android.pushservice.message.a.l.f36599c || a2 == com.baidu.android.pushservice.message.a.l.f36603g) {
+                    com.baidu.android.pushservice.c.c.a(this.f36606a, kVar.c(), kVar.g(), kVar.e(), bArr5, kVar.h(), kVar.b(), gVar.a(), kVar.a());
                 } else if (a2 != com.baidu.android.pushservice.message.a.l.j) {
-                    com.baidu.android.pushservice.c.c.a(this.f35777a, kVar.c(), kVar.g(), kVar.e(), null, null, 0L, gVar.a(), kVar.a());
+                    com.baidu.android.pushservice.c.c.a(this.f36606a, kVar.c(), kVar.g(), kVar.e(), null, null, 0L, gVar.a(), kVar.a());
                 }
-                m.o(this.f35777a);
-                a(this.f35777a, a2, kVar.f(), gVar.a());
+                m.o(this.f36606a);
+                a(this.f36606a, a2, kVar.f(), gVar.a());
                 return gVar;
             } catch (IOException e3) {
-                new b.c(this.f35777a).a(Log.getStackTraceString(e3)).a();
+                new b.c(this.f36606a).a(Log.getStackTraceString(e3)).a();
                 return gVar;
             }
         }

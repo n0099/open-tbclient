@@ -3,7 +3,7 @@ package b.a.r0.u1;
 import android.content.Context;
 import android.location.Address;
 import android.os.Bundle;
-import b.a.e.e.i.a;
+import b.a.e.f.i.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -25,47 +25,47 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
 /* loaded from: classes5.dex */
-public class a implements b.a.e.e.i.b {
+public class a implements b.a.e.f.i.b {
     public static /* synthetic */ Interceptable $ic;
     public static a k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f23983a;
+    public Context f25471a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f23984b;
+    public boolean f25472b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23985c;
+    public String f25473c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.d f23986d;
+    public a.d f25474d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f23987e;
+    public b f25475e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LocationClient f23988f;
+    public LocationClient f25476f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LocationClientOption f23989g;
+    public LocationClientOption f25477g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Address f23990h;
+    public Address f25478h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f23991i;
+    public long f25479i;
     public boolean j;
 
     /* renamed from: b.a.r0.u1.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1165a extends CustomMessageListener {
+    public static class C1232a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1165a(int i2) {
+        public C1232a(int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -91,9 +91,9 @@ public class a implements b.a.e.e.i.b {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
                 if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && (customResponsedMessage.getData() instanceof Boolean)) {
                     if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        b.a.e.e.i.a.n().r(a.j());
+                        b.a.e.f.i.a.n().r(a.j());
                     } else {
-                        b.a.e.e.i.a.n().v(a.j());
+                        b.a.e.f.i.a.n().v(a.j());
                     }
                 }
             }
@@ -106,7 +106,7 @@ public class a implements b.a.e.e.i.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f23992a;
+        public final /* synthetic */ a f25480a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public class a implements b.a.e.e.i.b {
                     return;
                 }
             }
-            this.f23992a = aVar;
+            this.f25480a = aVar;
         }
 
         @Override // com.baidu.location.BDLocationListener
@@ -133,13 +133,13 @@ public class a implements b.a.e.e.i.b {
                 if ((ApiUtil.shouldCheckPermission() && !PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) || bDLocation == null || bDLocation.getLocType() == 62 || bDLocation.getLocType() == 63 || bDLocation.getLocType() == 67 || bDLocation.getLocType() == 68 || bDLocation.getLocType() > 161) {
                     return;
                 }
-                this.f23992a.c();
-                this.f23992a.f23990h = new Address(Locale.getDefault());
-                this.f23992a.f23990h.setLatitude(bDLocation.getLatitude());
-                this.f23992a.f23990h.setLongitude(bDLocation.getLongitude());
+                this.f25480a.c();
+                this.f25480a.f25478h = new Address(Locale.getDefault());
+                this.f25480a.f25478h.setLatitude(bDLocation.getLatitude());
+                this.f25480a.f25478h.setLongitude(bDLocation.getLongitude());
                 b.a.q0.s.e0.b j = b.a.q0.s.e0.b.j();
                 j.x("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
-                this.f23992a.f23990h.setLocality(bDLocation.getCity());
+                this.f25480a.f25478h.setLocality(bDLocation.getCity());
                 Bundle bundle = new Bundle();
                 bundle.putFloat("radius", bDLocation.getRadius());
                 bundle.putDouble("altitude", bDLocation.getAltitude());
@@ -148,8 +148,8 @@ public class a implements b.a.e.e.i.b {
                 bundle.putString("street", bDLocation.getStreet());
                 bundle.putString("streetNumber", bDLocation.getStreetNumber());
                 bundle.putString("province", bDLocation.getProvince());
-                this.f23992a.f23990h.setExtras(bundle);
-                this.f23992a.f23991i = System.currentTimeMillis();
+                this.f25480a.f25478h.setExtras(bundle);
+                this.f25480a.f25479i = System.currentTimeMillis();
                 StringBuffer stringBuffer = new StringBuffer();
                 if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
                     stringBuffer.append(bDLocation.getCity());
@@ -157,18 +157,18 @@ public class a implements b.a.e.e.i.b {
                 stringBuffer.append(bDLocation.getDistrict());
                 stringBuffer.append(bDLocation.getStreet());
                 if (bDLocation.getAddrStr() != null) {
-                    this.f23992a.f23990h.setAddressLine(0, stringBuffer.toString());
+                    this.f25480a.f25478h.setAddressLine(0, stringBuffer.toString());
                 }
-                if (this.f23992a.f23986d != null) {
-                    this.f23992a.f23986d.a(0, "", this.f23992a.f23990h, this.f23992a.f23991i, this.f23992a.j);
-                    b.a.r0.z2.j0.a.e().i(String.valueOf(this.f23992a.f23990h.getLatitude()));
-                    b.a.r0.z2.j0.a.e().j(String.valueOf(this.f23992a.f23990h.getLongitude()));
-                    b.a.r0.z2.j0.a.e().k(System.currentTimeMillis());
+                if (this.f25480a.f25474d != null) {
+                    this.f25480a.f25474d.a(0, "", this.f25480a.f25478h, this.f25480a.f25479i, this.f25480a.j);
+                    b.a.r0.a3.j0.a.e().i(String.valueOf(this.f25480a.f25478h.getLatitude()));
+                    b.a.r0.a3.j0.a.e().j(String.valueOf(this.f25480a.f25478h.getLongitude()));
+                    b.a.r0.a3.j0.a.e().k(System.currentTimeMillis());
                 }
             }
         }
 
-        public /* synthetic */ b(a aVar, C1165a c1165a) {
+        public /* synthetic */ b(a aVar, C1232a c1232a) {
             this(aVar);
         }
     }
@@ -186,7 +186,7 @@ public class a implements b.a.e.e.i.b {
                 return;
             }
         }
-        MessageManager.getInstance().registerListener(new C1165a(2001330));
+        MessageManager.getInstance().registerListener(new C1232a(2001330));
     }
 
     public a() {
@@ -202,10 +202,10 @@ public class a implements b.a.e.e.i.b {
                 return;
             }
         }
-        this.f23984b = true;
-        this.f23985c = "";
-        this.f23986d = null;
-        this.f23991i = 0L;
+        this.f25472b = true;
+        this.f25473c = "";
+        this.f25474d = null;
+        this.f25479i = 0L;
         this.j = false;
     }
 
@@ -225,54 +225,54 @@ public class a implements b.a.e.e.i.b {
         return (a) invokeV.objValue;
     }
 
-    @Override // b.a.e.e.i.b
+    @Override // b.a.e.f.i.b
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.f23984b && this.f23988f != null) {
+            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.f25472b && this.f25476f != null) {
                 try {
                     this.j = z;
                     if (z) {
-                        this.f23989g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+                        this.f25477g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
                     }
-                    this.f23988f.setLocOption(this.f23989g);
-                    if (!this.f23988f.isStarted()) {
-                        this.f23988f.start();
+                    this.f25476f.setLocOption(this.f25477g);
+                    if (!this.f25476f.isStarted()) {
+                        this.f25476f.start();
                     }
-                    this.f23988f.requestLocation();
+                    this.f25476f.requestLocation();
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                     c();
-                    a.d dVar = this.f23986d;
+                    a.d dVar = this.f25474d;
                     if (dVar != null) {
-                        dVar.a(5, "", this.f23990h, this.f23991i, this.j);
+                        dVar.a(5, "", this.f25478h, this.f25479i, this.j);
                     }
                 }
             }
         }
     }
 
-    @Override // b.a.e.e.i.b
+    @Override // b.a.e.f.i.b
     public void b(a.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
             Context context = TbadkCoreApplication.getInst().getContext();
-            this.f23983a = context;
-            this.f23986d = dVar;
-            this.f23985c = "baidu";
-            if (this.f23984b) {
+            this.f25471a = context;
+            this.f25474d = dVar;
+            this.f25473c = "baidu";
+            if (this.f25472b) {
                 try {
-                    this.f23988f = new LocationClient(context);
+                    this.f25476f = new LocationClient(context);
                     LocationClientOption locationClientOption = new LocationClientOption();
-                    this.f23989g = locationClientOption;
+                    this.f25477g = locationClientOption;
                     locationClientOption.setOpenGps(true);
-                    this.f23989g.setIgnoreKillProcess(true);
-                    this.f23989g.setProdName(this.f23985c);
-                    this.f23989g.setAddrType("all");
-                    this.f23989g.setCoorType("bd09ll");
+                    this.f25477g.setIgnoreKillProcess(true);
+                    this.f25477g.setProdName(this.f25473c);
+                    this.f25477g.setAddrType("all");
+                    this.f25477g.setCoorType("bd09ll");
                     b bVar = new b(this, null);
-                    this.f23987e = bVar;
-                    this.f23988f.registerLocationListener(bVar);
+                    this.f25475e = bVar;
+                    this.f25476f.registerLocationListener(bVar);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
@@ -280,20 +280,20 @@ public class a implements b.a.e.e.i.b {
         }
     }
 
-    @Override // b.a.e.e.i.b
+    @Override // b.a.e.f.i.b
     public void c() {
         LocationClient locationClient;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (locationClient = this.f23988f) != null && locationClient.isStarted()) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (locationClient = this.f25476f) != null && locationClient.isStarted()) {
             try {
-                this.f23988f.stop();
+                this.f25476f.stop();
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
     }
 
-    @Override // b.a.e.e.i.b
+    @Override // b.a.e.f.i.b
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {

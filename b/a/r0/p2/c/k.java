@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class k extends b.a.e.l.e.a<b.a.r0.p2.e.k, CardViewHolder<b.a.r0.p2.j.i>> {
+public class k extends b.a.e.m.e.a<b.a.r0.p2.e.k, CardViewHolder<b.a.r0.p2.j.i>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), b.a.r0.p2.e.k.f22311i);
+        super(tbPageContext.getPageActivity(), b.a.r0.p2.e.k.f23788i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +42,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.p2.e.k, CardViewHolder<b.a.r0.p2.j.i>>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public CardViewHolder<b.a.r0.p2.j.i> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -51,7 +51,7 @@ public class k extends b.a.e.l.e.a<b.a.r0.p2.e.k, CardViewHolder<b.a.r0.p2.j.i>>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.p2.e.k kVar, CardViewHolder<b.a.r0.p2.j.i> cardViewHolder) {
         InterceptResult invokeCommon;

@@ -9,7 +9,6 @@ import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -396,7 +395,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
                             c2 = 1;
                         }
                         createVideoFormat.setInteger("profile", 8);
-                        createVideoFormat.setInteger(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 256);
+                        createVideoFormat.setInteger("level", 256);
                     }
                     Logging.d(TAG, "Format: " + createVideoFormat);
                     this.codec.configure(createVideoFormat, null, null, 1);

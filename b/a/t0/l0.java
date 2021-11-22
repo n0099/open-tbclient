@@ -38,31 +38,31 @@ public class l0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONArray f28830a;
+    public JSONArray f29699a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<Integer> f28831b;
+    public SparseArray<Integer> f29700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f28832c;
+    public ArrayList<String> f29701c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Set<String> f28833d;
+    public Set<String> f29702d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f28834e;
+    public long f29703e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f28835f;
+    public long f29704f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28836g;
+    public String f29705g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f28837h;
+    public boolean f29706h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f28838i;
+    public boolean f29707i;
     public int j;
     public long k;
     public int l;
@@ -103,9 +103,9 @@ public class l0 {
                 return;
             }
         }
-        this.f28833d = new HashSet();
-        this.f28837h = false;
-        this.f28838i = false;
+        this.f29702d = new HashSet();
+        this.f29706h = false;
+        this.f29707i = false;
         this.j = 0;
         this.k = 0L;
         this.l = 614400;
@@ -115,12 +115,12 @@ public class l0 {
         this.p = null;
         this.q = null;
         this.s = null;
-        this.f28830a = new JSONArray();
-        this.f28831b = new SparseArray<>();
-        this.f28832c = new ArrayList<>();
-        this.f28834e = 0L;
-        this.f28835f = 0L;
-        this.f28836g = "0";
+        this.f29699a = new JSONArray();
+        this.f29700b = new SparseArray<>();
+        this.f29701c = new ArrayList<>();
+        this.f29703e = 0L;
+        this.f29704f = 0L;
+        this.f29705g = "0";
     }
 
     public static l0 g(File file, int i2) {
@@ -156,19 +156,19 @@ public class l0 {
     public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28838i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29707i : invokeV.booleanValue;
     }
 
     public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28837h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29706h : invokeV.booleanValue;
     }
 
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f28838i = true;
+            this.f29707i = true;
         }
     }
 
@@ -258,28 +258,28 @@ public class l0 {
 
     public final void H(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.f28832c.contains(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.f29701c.contains(str)) {
             return;
         }
-        this.f28832c.add(str);
+        this.f29701c.add(str);
     }
 
     public final void I(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
-            this.f28831b.put(i2, Integer.valueOf(i3));
+            this.f29700b.put(i2, Integer.valueOf(i3));
         }
     }
 
     public final void J(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            long j3 = this.f28834e;
+            long j3 = this.f29703e;
             if ((j < j3 || j3 == 0) && j != 0) {
-                this.f28834e = j;
+                this.f29703e = j;
             }
-            if (j2 > this.f28835f) {
-                this.f28835f = j2;
+            if (j2 > this.f29704f) {
+                this.f29704f = j2;
             }
         }
     }
@@ -287,14 +287,14 @@ public class l0 {
     public void K(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f28836g = str;
+            this.f29705g = str;
         }
     }
 
     public void L(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f28837h = z;
+            this.f29706h = z;
         }
     }
 
@@ -334,16 +334,16 @@ public class l0 {
 
     public void a(Set<String> set) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, set) == null) || this.f28833d.containsAll(set)) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, set) == null) || this.f29702d.containsAll(set)) {
             return;
         }
-        this.f28833d.addAll(set);
+        this.f29702d.addAll(set);
     }
 
     public final void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, jSONObject) == null) {
-            this.f28830a.put(jSONObject);
+            this.f29699a.put(jSONObject);
         }
     }
 
@@ -392,9 +392,9 @@ public class l0 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f28831b.clear();
-            this.f28832c.clear();
-            this.f28830a = null;
+            this.f29700b.clear();
+            this.f29701c.clear();
+            this.f29699a = null;
         }
     }
 
@@ -424,8 +424,8 @@ public class l0 {
             if (file != null && file.exists()) {
                 b.a.t0.q0.b.a(this.r);
             }
-            this.f28831b.clear();
-            this.f28832c.clear();
+            this.f29700b.clear();
+            this.f29701c.clear();
             this.r = null;
             this.s = null;
             this.j = 0;
@@ -449,8 +449,8 @@ public class l0 {
                         jsonWriter.endArray();
                         this.o.flush();
                         this.q.g();
-                        if (this.f28834e == 0 || this.f28835f == 0) {
-                            this.f28834e = this.f28835f;
+                        if (this.f29703e == 0 || this.f29704f == 0) {
+                            this.f29703e = this.f29704f;
                         }
                         String b2 = j0.b(this.q.a(), "", true);
                         if (!TextUtils.isEmpty(b2)) {
@@ -464,14 +464,14 @@ public class l0 {
                         }
                         this.o.name("metadata");
                         this.o.beginObject();
-                        this.o.name("mintime").value(Long.toString(this.f28834e));
-                        this.o.name("maxtime").value(Long.toString(this.f28835f));
+                        this.o.name("mintime").value(Long.toString(this.f29703e));
+                        this.o.name("maxtime").value(Long.toString(this.f29704f));
                         this.o.name("createtime").value(Long.toString(System.currentTimeMillis()));
                         this.o.name("uploadtime").value(Long.toString(System.currentTimeMillis()));
                         this.o.name(PackageTable.MD5).value(b2);
                         this.o.endObject();
-                        this.o.name("isAbtest").value(this.f28836g);
-                        this.o.name(Constant.IS_REAL).value(this.f28837h ? "1" : "0");
+                        this.o.name("isAbtest").value(this.f29705g);
+                        this.o.name(Constant.IS_REAL).value(this.f29706h ? "1" : "0");
                         this.o.endObject();
                         this.o.flush();
                         b.a.t0.q0.a.b(this.o);
@@ -508,7 +508,7 @@ public class l0 {
     public Set<String> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f28833d : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f29702d : (Set) invokeV.objValue;
     }
 
     public long m() {
@@ -520,7 +520,7 @@ public class l0 {
     public JSONArray n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f28830a : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f29699a : (JSONArray) invokeV.objValue;
     }
 
     public File o() {
@@ -544,25 +544,25 @@ public class l0 {
     public final ArrayList q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f28832c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f29701c : (ArrayList) invokeV.objValue;
     }
 
     public final SparseArray<Integer> r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f28831b : (SparseArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f29700b : (SparseArray) invokeV.objValue;
     }
 
     public long s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f28835f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f29704f : invokeV.longValue;
     }
 
     public long t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f28834e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f29703e : invokeV.longValue;
     }
 
     public JSONObject u() {
@@ -572,18 +572,18 @@ public class l0 {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject.put("data", this.f28830a);
-                if (this.f28834e == 0 || this.f28835f == 0) {
-                    this.f28834e = this.f28835f;
+                jSONObject.put("data", this.f29699a);
+                if (this.f29703e == 0 || this.f29704f == 0) {
+                    this.f29703e = this.f29704f;
                 }
-                jSONObject2.put("mintime", Long.toString(this.f28834e));
-                jSONObject2.put("maxtime", Long.toString(this.f28835f));
+                jSONObject2.put("mintime", Long.toString(this.f29703e));
+                jSONObject2.put("maxtime", Long.toString(this.f29704f));
                 jSONObject2.put("createtime", Long.toString(System.currentTimeMillis()));
                 jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
-                jSONObject2.put(PackageTable.MD5, j0.c(this.f28830a.toString().getBytes(), true));
+                jSONObject2.put(PackageTable.MD5, j0.c(this.f29699a.toString().getBytes(), true));
                 jSONObject.put("metadata", jSONObject2);
-                jSONObject.put("isAbtest", this.f28836g);
-                jSONObject.put(Constant.IS_REAL, this.f28837h ? "1" : "0");
+                jSONObject.put("isAbtest", this.f29705g);
+                jSONObject.put(Constant.IS_REAL, this.f29706h ? "1" : "0");
             } catch (JSONException unused) {
                 boolean z = t;
             }
@@ -615,7 +615,7 @@ public class l0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             if (!this.m) {
-                return this.f28830a.length() == 0;
+                return this.f29699a.length() == 0;
             }
             int i2 = this.n;
             return !(i2 == 2 || i2 == 1) || this.j == 0;
@@ -644,9 +644,9 @@ public class l0 {
                 return;
             }
         }
-        this.f28833d = new HashSet();
-        this.f28837h = false;
-        this.f28838i = false;
+        this.f29702d = new HashSet();
+        this.f29706h = false;
+        this.f29707i = false;
         this.j = 0;
         this.k = 0L;
         this.l = 614400;
@@ -656,12 +656,12 @@ public class l0 {
         this.p = null;
         this.q = null;
         this.s = null;
-        this.f28830a = new JSONArray();
-        this.f28831b = new SparseArray<>();
-        this.f28832c = new ArrayList<>();
-        this.f28834e = 0L;
-        this.f28835f = 0L;
-        this.f28836g = "0";
+        this.f29699a = new JSONArray();
+        this.f29700b = new SparseArray<>();
+        this.f29701c = new ArrayList<>();
+        this.f29703e = 0L;
+        this.f29704f = 0L;
+        this.f29705g = "0";
         if (file != null) {
             this.r = file;
             this.m = true;
@@ -683,9 +683,9 @@ public class l0 {
                 return;
             }
         }
-        this.f28833d = new HashSet();
-        this.f28837h = false;
-        this.f28838i = false;
+        this.f29702d = new HashSet();
+        this.f29706h = false;
+        this.f29707i = false;
         this.j = 0;
         this.k = 0L;
         this.l = 614400;

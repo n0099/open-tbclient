@@ -4,9 +4,10 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.collection.ArraySet;
-import b.a.p0.t.j;
+import b.a.p0.w.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,10 +20,10 @@ public class e implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f6819a;
+    public final String[] f7148a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Pair<String, String>[] f6820b;
+    public final Pair<String, String>[] f7149b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -37,8 +38,8 @@ public class e implements a {
                 return;
             }
         }
-        this.f6819a = new String[]{"searchbox_webapps_sp", "swan_app_pms_sp", "key_pms_sp_name", "swan_config_sp_name", "swan_clean_stratey", "swan_preload_package", "updatecore_node_ceres", "updatecore_node_host", "swan_host_info_config_sp_name", "updatecore_node_tipmsgs", "swan_launch_tips_config_sp_name", "aiapps_favorite", "searchbox_sconsole_sp", "swan_about_page_sp", "aiapps_guide_dialog_sp", "swan.publisher", "sp_launch_behavior", "swan_app_debug", "swan_debug_feature", "light_info_debug", "swan_method_trace"};
-        this.f6820b = new Pair[]{new Pair<>("aiapp_", ""), new Pair<>("aiapp_setting_", ""), new Pair<>("", "_domain_config")};
+        this.f7148a = new String[]{"searchbox_webapps_sp", "swan_app_pms_sp", "key_pms_sp_name", "swan_config_sp_name", "swan_clean_stratey", "swan_preload_package", "updatecore_node_ceres", "updatecore_node_host", "swan_host_info_config_sp_name", "updatecore_node_tipmsgs", "swan_launch_tips_config_sp_name", "aiapps_favorite", "searchbox_sconsole_sp", "swan_about_page_sp", "aiapps_guide_dialog_sp", "swan.publisher", "sp_launch_behavior", "swan_app_debug", "swan_debug_feature", "light_info_debug", "swan_method_trace"};
+        this.f7149b = new Pair[]{new Pair<>("aiapp_", ""), new Pair<>("aiapp_setting_", ""), new Pair<>("", "_domain_config")};
     }
 
     @Override // b.a.p0.a.n0.j.d.a
@@ -61,13 +62,13 @@ public class e implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-            File file2 = new File(j.e());
+            File file2 = new File(j.d());
             ArraySet<String> arraySet = new ArraySet<>();
-            for (Pair<String, String> pair : this.f6820b) {
+            for (Pair<String, String> pair : this.f7149b) {
                 arraySet.addAll((ArraySet<? extends String>) b.a.p0.a.n0.e.e(file, (String) pair.first, ((String) pair.second) + "shared_prefs/", null, true));
-                arraySet.addAll((ArraySet<? extends String>) b.a.p0.a.n0.e.e(file2, (String) pair.first, ((String) pair.second) + ".kv", null, true));
+                arraySet.addAll((ArraySet<? extends String>) b.a.p0.a.n0.e.e(file2, (String) pair.first, ((String) pair.second) + SwanKV.PREFS_SUFFIX, null, true));
             }
-            b.a.p0.a.e0.d.h("SwanSpCollector", "recovery renameAppsSp:" + arraySet.toString());
+            b.a.p0.a.e0.d.k("SwanSpCollector", "recovery renameAppsSp:" + arraySet.toString());
             return arraySet;
         }
         return (ArraySet) invokeV.objValue;
@@ -79,19 +80,19 @@ public class e implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-            String e2 = j.e();
+            String d2 = j.d();
             ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.f6819a) {
-                String I = b.a.p0.t.d.I(new File(e2, str + ".kv"));
-                if (!TextUtils.isEmpty(I)) {
-                    arraySet.add(I);
+            for (String str : this.f7148a) {
+                String J = b.a.p0.w.d.J(new File(d2, str + SwanKV.PREFS_SUFFIX));
+                if (!TextUtils.isEmpty(J)) {
+                    arraySet.add(J);
                 }
-                String I2 = b.a.p0.t.d.I(new File(file, str + ActivityChooserModel.HISTORY_FILE_EXTENSION));
-                if (!TextUtils.isEmpty(I2)) {
-                    arraySet.add(I2);
+                String J2 = b.a.p0.w.d.J(new File(file, str + ActivityChooserModel.HISTORY_FILE_EXTENSION));
+                if (!TextUtils.isEmpty(J2)) {
+                    arraySet.add(J2);
                 }
             }
-            b.a.p0.a.e0.d.h("SwanSpCollector", "recovery renameFrameSp:" + arraySet.toString());
+            b.a.p0.a.e0.d.k("SwanSpCollector", "recovery renameFrameSp:" + arraySet.toString());
             return arraySet;
         }
         return (ArraySet) invokeV.objValue;
@@ -102,11 +103,11 @@ public class e implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArraySet<String> arraySet = new ArraySet<>();
-            String I = b.a.p0.t.d.I(new File(b.a.p0.a.k2.h.c.A()));
-            if (!TextUtils.isEmpty(I)) {
-                arraySet.add(I);
+            String J = b.a.p0.w.d.J(new File(b.a.p0.a.o2.h.c.e()));
+            if (!TextUtils.isEmpty(J)) {
+                arraySet.add(J);
             }
-            b.a.p0.a.e0.d.h("SwanSpCollector", "recovery renameSwanKVRoot:" + arraySet.toString());
+            b.a.p0.a.e0.d.k("SwanSpCollector", "recovery renameSwanKVRoot:" + arraySet.toString());
             return arraySet;
         }
         return (ArraySet) invokeV.objValue;

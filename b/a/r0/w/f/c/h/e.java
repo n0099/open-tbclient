@@ -104,7 +104,7 @@ public class e extends b.a.r0.b0.b<b.a.r0.w.f.c.e.e> {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) || eVar == null) {
             return;
         }
-        this.m.a(eVar.f24604e);
-        this.n.a(eVar.f24605f);
+        this.m.a(eVar.f26121e);
+        this.n.a(eVar.f26122f);
     }
 }

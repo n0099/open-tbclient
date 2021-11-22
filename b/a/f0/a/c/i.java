@@ -18,7 +18,7 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2796a;
+    public static final boolean f2889a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class i {
                 return;
             }
         }
-        f2796a = b.a.f0.a.b.a.f2781a.get().s();
+        f2889a = b.a.f0.a.b.a.f2874a.get().s();
     }
 
     public static boolean a(@NonNull Context context, @NonNull String str) {
@@ -62,7 +62,7 @@ public class i {
                 } catch (Exception unused) {
                 }
             }
-            if (f2796a && !z) {
+            if (f2889a && !z) {
                 String str3 = "openAppByPkgName: " + str + "  failed";
             }
             return z;
@@ -86,7 +86,7 @@ public class i {
             intent.setPackage(queryIntentActivities.get(0).activityInfo.packageName);
             try {
                 context.startActivity(intent);
-                if (f2796a) {
+                if (f2889a) {
                     String str2 = "openAppByScheme success, match scheme size: " + queryIntentActivities.size();
                     return true;
                 }

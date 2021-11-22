@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class p<E> extends l<E> {
     public static /* synthetic */ Interceptable $ic;
     public static final long j;
@@ -60,7 +60,7 @@ public abstract class p<E> extends l<E> {
     public final void i(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            f0.f72119a.i(this, j, j2);
+            f0.f73038a.i(this, j, j2);
         }
     }
 }

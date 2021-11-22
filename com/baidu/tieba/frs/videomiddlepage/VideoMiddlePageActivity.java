@@ -8,10 +8,10 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentManager;
-import b.a.e.e.m.b;
-import b.a.e.e.p.k;
+import b.a.e.f.m.b;
+import b.a.e.f.p.k;
+import b.a.q0.a.c;
 import b.a.q0.o0.d;
-import b.a.r0.x3.c;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -219,7 +219,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             init();
             if (Build.VERSION.SDK_INT >= 28) {
                 if (TbSingleton.getInstance().isCutoutScreen(this) || TbSingleton.getInstance().isNotchScreen(this)) {
-                    c.b(1, getWindow().getAttributes(), getWindow());
+                    b.a.r0.y3.d.b(1, getWindow().getAttributes(), getWindow());
                 }
             }
         }
@@ -255,7 +255,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            b.a.q0.a.d.y().E();
+            b.a.q0.a.d.y().F();
         }
     }
 
@@ -267,7 +267,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             if (k.isEmpty(this.mId)) {
                 return;
             }
-            b.a.q0.a.d.y().P(b.a.q0.a.c.Z, b.g(this.mId, 0L));
+            b.a.q0.a.d.y().Q(c.a0, b.g(this.mId, 0L));
         }
     }
 

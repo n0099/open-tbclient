@@ -24,7 +24,7 @@ public final class d implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public File f61459a;
+    public File f62358a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public final class d implements Runnable {
                 return;
             }
         }
-        this.f61459a = null;
+        this.f62358a = null;
     }
 
     private void a(File file) {
@@ -53,7 +53,7 @@ public final class d implements Runnable {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f61460a;
+                public final /* synthetic */ d f62359a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -70,7 +70,7 @@ public final class d implements Runnable {
                             return;
                         }
                     }
-                    this.f61460a = this;
+                    this.f62359a = this;
                 }
 
                 @Override // java.io.FileFilter
@@ -93,7 +93,7 @@ public final class d implements Runnable {
                     return invokeL.booleanValue;
                 }
             });
-            if (file.equals(this.f61459a) || (pluginProvider = i.a().f61438b.getPluginProvider()) == null || (provideBuiltInPlugin = pluginProvider.provideBuiltInPlugin()) == null) {
+            if (file.equals(this.f62358a) || (pluginProvider = i.a().f62337b.getPluginProvider()) == null || (provideBuiltInPlugin = pluginProvider.provideBuiltInPlugin()) == null) {
                 return;
             }
             PluginManager.getInstance().asyncInstall(provideBuiltInPlugin);
@@ -126,7 +126,7 @@ public final class d implements Runnable {
                 return;
             }
             File file2 = new File(pushDir);
-            this.f61459a = file2;
+            this.f62358a = file2;
             a(file2);
         }
     }

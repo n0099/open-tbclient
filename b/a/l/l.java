@@ -27,7 +27,7 @@ public class l extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f3242e;
+        public final /* synthetic */ l f3333e;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class l extends h {
                     return;
                 }
             }
-            this.f3242e = lVar;
+            this.f3333e = lVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3242e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3333e.c() == null) {
                 return;
             }
-            this.f3242e.c().a(view, this.f3242e.l);
+            this.f3333e.c().a(view, this.f3333e.l);
         }
     }
 
@@ -76,8 +76,8 @@ public class l extends h {
             }
         }
         this.o = new a(this);
-        int g2 = b.a.e.e.p.l.g(context, R.dimen.M_H_X003);
-        int g3 = b.a.e.e.p.l.g(context, b.a.q0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+        int g2 = b.a.e.f.p.l.g(context, R.dimen.M_H_X003);
+        int g3 = b.a.e.f.p.l.g(context, b.a.q0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
         q(g2);
         p(g3);
         ForumGoodsEnterLayout forumGoodsEnterLayout = new ForumGoodsEnterLayout(context);
@@ -103,7 +103,7 @@ public class l extends h {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int g2 = b.a.e.e.p.l.g(this.f3216f, R.dimen.M_H_X003);
+            int g2 = b.a.e.f.p.l.g(this.f3307f, R.dimen.M_H_X003);
             q(g2);
             p(0);
             v(this.m, g2, 0);
@@ -117,7 +117,7 @@ public class l extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.l = aVar;
-            this.m.setSourceForPb(this.f3215e.h());
+            this.m.setSourceForPb(this.f3306e.h());
             this.m.setFrstype(this.n);
             this.m.setData(aVar);
         }

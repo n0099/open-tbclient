@@ -22,7 +22,7 @@ public class a extends com.baidu.wallet.paysdk.ui.a implements a.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public SafeKeyBoardEditText.CheckFunc f60372h;
+    public SafeKeyBoardEditText.CheckFunc f61294h;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -39,13 +39,13 @@ public class a extends com.baidu.wallet.paysdk.ui.a implements a.b {
                 return;
             }
         }
-        this.f60362a = context;
-        this.f60372h = new SafeKeyBoardEditText.CheckFunc(this) { // from class: com.baidu.wallet.paysdk.ui.a.a.1
+        this.f61284a = context;
+        this.f61294h = new SafeKeyBoardEditText.CheckFunc(this) { // from class: com.baidu.wallet.paysdk.ui.a.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f60373a;
+            public final /* synthetic */ a f61295a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -62,7 +62,7 @@ public class a extends com.baidu.wallet.paysdk.ui.a implements a.b {
                         return;
                     }
                 }
-                this.f60373a = this;
+                this.f61295a = this;
             }
 
             @Override // com.dxmpay.wallet.base.widget.SafeKeyBoardEditText.CheckFunc
@@ -79,8 +79,8 @@ public class a extends com.baidu.wallet.paysdk.ui.a implements a.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a(this.f60362a, 0);
-            return this.f60363b;
+            a(this.f61284a, 0);
+            return this.f61285b;
         }
         return (View) invokeV.objValue;
     }
@@ -96,14 +96,14 @@ public class a extends com.baidu.wallet.paysdk.ui.a implements a.b {
     public SafeKeyBoardEditText b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60366e : (SafeKeyBoardEditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f61288e : (SafeKeyBoardEditText) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.contract.a.b
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a((CharSequence) ResUtils.getString(this.f60362a, "wallet_cashdesk_card_info_error_msg"));
+            a((CharSequence) ResUtils.getString(this.f61284a, "wallet_cashdesk_card_info_error_msg"));
         }
     }
 
@@ -111,28 +111,28 @@ public class a extends com.baidu.wallet.paysdk.ui.a implements a.b {
     public CharSequence d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ResUtils.getString(this.f60362a, "wallet_cashdesk_card_info_title") : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ResUtils.getString(this.f61284a, "wallet_cashdesk_card_info_title") : (CharSequence) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.a
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            PromptDialog promptDialog = new PromptDialog(this.f60362a);
-            Context context = this.f60362a;
+            PromptDialog promptDialog = new PromptDialog(this.f61284a);
+            Context context = this.f61284a;
             promptDialog.setMessage(context.getString(ResUtils.string(context, "wallet_cashdesk_card_info_hint_msg")));
-            Context context2 = this.f60362a;
+            Context context2 = this.f61284a;
             promptDialog.setTitleText(context2.getString(ResUtils.string(context2, "wallet_cashdesk_card_info_hint_title")));
             promptDialog.hideNegativeButton();
-            promptDialog.setPositiveBtn(ResUtils.string(this.f60362a, "dxm_ebpay_know"), new View.OnClickListener(this, promptDialog) { // from class: com.baidu.wallet.paysdk.ui.a.a.2
+            promptDialog.setPositiveBtn(ResUtils.string(this.f61284a, "dxm_ebpay_know"), new View.OnClickListener(this, promptDialog) { // from class: com.baidu.wallet.paysdk.ui.a.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PromptDialog f60374a;
+                public final /* synthetic */ PromptDialog f61296a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f60375b;
+                public final /* synthetic */ a f61297b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -149,15 +149,15 @@ public class a extends com.baidu.wallet.paysdk.ui.a implements a.b {
                             return;
                         }
                     }
-                    this.f60375b = this;
-                    this.f60374a = promptDialog;
+                    this.f61297b = this;
+                    this.f61296a = promptDialog;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f60374a.dismiss();
+                        this.f61296a.dismiss();
                     }
                 }
             });
@@ -169,14 +169,14 @@ public class a extends com.baidu.wallet.paysdk.ui.a implements a.b {
     public SafeKeyBoardEditText.CheckFunc f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f60372h : (SafeKeyBoardEditText.CheckFunc) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f61294h : (SafeKeyBoardEditText.CheckFunc) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.ui.a
     public void a(SafeKeyBoardEditText safeKeyBoardEditText) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, safeKeyBoardEditText) == null) {
-            safeKeyBoardEditText.setHint(ResUtils.string(this.f60362a, "wallet_cashdesk_card_info_input_hint"));
+            safeKeyBoardEditText.setHint(ResUtils.string(this.f61284a, "wallet_cashdesk_card_info_input_hint"));
             safeKeyBoardEditText.setUseSafeKeyBoard(true);
             safeKeyBoardEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(25)});
             ((DivisionEditText) safeKeyBoardEditText).setViewType(25);

@@ -1,7 +1,6 @@
 package com.google.zxing.pdf417.encoder;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.parser.JSONLexer;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
@@ -22,7 +21,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.util.Arrays;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class PDF417HighLevelEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTE_COMPACTION = 1;
@@ -60,8 +59,8 @@ public final class PDF417HighLevelEncoder {
                 return;
             }
         }
-        TEXT_MIXED_RAW = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 38, 13, 9, 44, 58, Base64.INTERNAL_PADDING, UtilsBlink.VER_TYPE_SEPARATOR, 46, 36, ExifInterface.WEBP_VP8L_SIGNATURE, 43, 37, ExifInterface.START_CODE, 61, 94, 0, 32, 0, 0, 0};
-        TEXT_PUNCTUATION_RAW = new byte[]{59, 60, 62, 64, 91, 92, 93, 95, 96, 126, PublicSuffixDatabase.EXCEPTION_MARKER, 13, 9, 44, 58, 10, UtilsBlink.VER_TYPE_SEPARATOR, 46, 36, ExifInterface.WEBP_VP8L_SIGNATURE, 34, 124, ExifInterface.START_CODE, 40, 41, 63, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 125, 39, 0};
+        TEXT_MIXED_RAW = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 38, 13, 9, 44, 58, Base64.INTERNAL_PADDING, UtilsBlink.VER_TYPE_SEPARATOR, 46, 36, 47, 43, 37, 42, 61, 94, 0, 32, 0, 0, 0};
+        TEXT_PUNCTUATION_RAW = new byte[]{59, 60, 62, 64, 91, 92, 93, 95, 96, 126, PublicSuffixDatabase.EXCEPTION_MARKER, 13, 9, 44, 58, 10, UtilsBlink.VER_TYPE_SEPARATOR, 46, 36, 47, 34, 124, 42, 40, 41, 63, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 125, 39, 0};
         MIXED = new byte[128];
         PUNCTUATION = new byte[128];
         DEFAULT_ENCODING = Charset.forName("ISO-8859-1");

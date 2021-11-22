@@ -14,11 +14,11 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e f16611b;
+    public static final e f18125b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<d> f16612a;
+    public SparseArray<d> f18126a;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public class e {
                 return;
             }
         }
-        f16611b = new e();
+        f18125b = new e();
     }
 
     public e() {
@@ -49,25 +49,25 @@ public class e {
                 return;
             }
         }
-        this.f16612a = new SparseArray<>();
+        this.f18126a = new SparseArray<>();
     }
 
     public static e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f16611b : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f18125b : (e) invokeV.objValue;
     }
 
     public d a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f16612a.get(i2) : (d) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f18126a.get(i2) : (d) invokeI.objValue;
     }
 
     public void c(int i2, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, dVar) == null) {
-            this.f16612a.put(i2, dVar);
+            this.f18126a.put(i2, dVar);
         }
     }
 }

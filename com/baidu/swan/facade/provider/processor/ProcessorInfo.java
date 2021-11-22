@@ -1,10 +1,10 @@
 package com.baidu.swan.facade.provider.processor;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.e.n.a.a;
-import b.a.p0.e.n.a.b;
-import b.a.p0.e.n.a.c;
-import b.a.p0.e.n.a.d;
+import b.a.p0.g.o.a.a;
+import b.a.p0.g.o.a.b;
+import b.a.p0.g.o.a.c;
+import b.a.p0.g.o.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;

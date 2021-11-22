@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import androidx.annotation.Nullable;
 import b.a.p0.b.b;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,6 +59,7 @@ public class BaseActivity extends Activity {
                 overridePendingTransition(b.aiapps_slide_in_from_right, b.aiapps_hold);
             }
             super.onCreate(bundle);
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 

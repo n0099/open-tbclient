@@ -12,36 +12,36 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f43235a;
+    public static final a f44181a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f43236b;
+    public static final a f44182b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f43237c;
+    public static final a f44183c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a f43238d;
+    public static final a f44184d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f43239e;
+    public static final a f44185e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f43240f;
+    public static final a f44186f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f43241g;
+    public static final a f44187g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final a f43242h;
+    public static final a f44188h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final a f43243i;
+    public static final a f44189i;
     public static final a j;
     public static final a k;
     public static final a l;
@@ -62,20 +62,20 @@ public final class a {
                 return;
             }
         }
-        f43235a = new a("UNSUPPORT", 0, -1, "unsupport");
-        f43236b = new a("HUA_WEI", 1, 0, "HUAWEI");
-        f43237c = new a("XIAOMI", 2, 1, "Xiaomi");
-        f43238d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-        f43239e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-        f43240f = new a("MOTO", 5, 4, "motorola");
-        f43241g = new a("LENOVO", 6, 5, "lenovo");
-        f43242h = new a("ASUS", 7, 6, "asus");
-        f43243i = new a("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
+        f44181a = new a("UNSUPPORT", 0, -1, "unsupport");
+        f44182b = new a("HUA_WEI", 1, 0, "HUAWEI");
+        f44183c = new a("XIAOMI", 2, 1, "Xiaomi");
+        f44184d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
+        f44185e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
+        f44186f = new a("MOTO", 5, 4, "motorola");
+        f44187g = new a("LENOVO", 6, 5, "lenovo");
+        f44188h = new a("ASUS", 7, 6, "asus");
+        f44189i = new a("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
         j = new a("MEIZU", 9, 8, "meizu");
         k = new a("ALPS", 10, 9, "alps");
         a aVar = new a(RomUtils.ROM_NUBIA, 11, 10, "nubia");
         l = aVar;
-        m = new a[]{f43235a, f43236b, f43237c, f43238d, f43239e, f43240f, f43241g, f43242h, f43243i, j, k, aVar};
+        m = new a[]{f44181a, f44182b, f44183c, f44184d, f44185e, f44186f, f44187g, f44188h, f44189i, j, k, aVar};
     }
 
     public a(String str, int i2, int i3, String str2) {
@@ -105,14 +105,14 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f43235a;
+                return f44181a;
             }
             for (a aVar : values()) {
                 if (aVar.n.equalsIgnoreCase(str)) {
                     return aVar;
                 }
             }
-            return f43235a;
+            return f44181a;
         }
         return (a) invokeL.objValue;
     }

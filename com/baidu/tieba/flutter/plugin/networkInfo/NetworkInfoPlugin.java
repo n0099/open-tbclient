@@ -2,8 +2,8 @@ package com.baidu.tieba.flutter.plugin.networkInfo;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import b.a.e.e.j.a.a;
-import b.a.e.e.p.j;
+import b.a.e.f.j.a.a;
+import b.a.e.f.p.j;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;

@@ -27,14 +27,14 @@ public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f68973a = 8;
+    public static int f69893a = 8;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f68974b;
+    public static volatile c f69894b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<Integer, Bitmap> f68975c;
+    public a<Integer, Bitmap> f69895c;
 
     /* loaded from: classes2.dex */
     public static class a<K, T> extends LinkedHashMap<K, T> {
@@ -42,7 +42,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f68979a;
+        public final int f69899a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i2, int i3) {
@@ -63,14 +63,14 @@ public class c {
                     return;
                 }
             }
-            this.f68979a = i2;
+            this.f69899a = i2;
         }
 
         @Override // java.util.LinkedHashMap
         public boolean removeEldestEntry(Map.Entry<K, T> entry) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) ? size() > this.f68979a : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) ? size() > this.f69899a : invokeL.booleanValue;
         }
     }
 
@@ -102,9 +102,9 @@ public class c {
                 return;
             }
         }
-        this.f68975c = null;
-        int i4 = f68973a;
-        this.f68975c = new a<>(i4, i4 / 2);
+        this.f69895c = null;
+        int i4 = f69893a;
+        this.f69895c = new a<>(i4, i4 / 2);
     }
 
     public static ByteArrayOutputStream b(InputStream inputStream) throws IOException {
@@ -130,14 +130,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f68974b == null) {
+            if (f69894b == null) {
                 synchronized (c.class) {
-                    if (f68974b == null) {
-                        f68974b = new c();
+                    if (f69894b == null) {
+                        f69894b = new c();
                     }
                 }
             }
-            return f68974b;
+            return f69894b;
         }
         return (c) invokeV.objValue;
     }
@@ -145,7 +145,7 @@ public class c {
     public Bitmap a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f68975c.get(Integer.valueOf(i2)) : (Bitmap) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f69895c.get(Integer.valueOf(i2)) : (Bitmap) invokeI.objValue;
     }
 
     public void a(int i2, String str) {
@@ -156,13 +156,13 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f68976a;
+                public final /* synthetic */ String f69896a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f68977b;
+                public final /* synthetic */ int f69897b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ c f68978c;
+                public final /* synthetic */ c f69898c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -179,9 +179,9 @@ public class c {
                             return;
                         }
                     }
-                    this.f68978c = this;
-                    this.f68976a = str;
-                    this.f68977b = i2;
+                    this.f69898c = this;
+                    this.f69896a = str;
+                    this.f69897b = i2;
                 }
 
                 /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x00b8 */
@@ -214,7 +214,7 @@ public class c {
                     i3 = 4;
                     try {
                         try {
-                            i a2 = com.ss.android.socialbase.downloader.downloader.c.a(true, 0, this.f68976a, null);
+                            i a2 = com.ss.android.socialbase.downloader.downloader.c.a(true, 0, this.f69896a, null);
                             if (a2 == null) {
                                 f.a(null, null, null, null);
                                 return;
@@ -233,7 +233,7 @@ public class c {
                                             int a3 = com.ss.android.socialbase.appdownloader.c.a(com.ss.android.socialbase.downloader.downloader.c.N(), 44.0f);
                                             options.inSampleSize = c.a(a3, a3, options);
                                             options.inJustDecodeBounds = false;
-                                            this.f68978c.f68975c.put(Integer.valueOf(this.f68977b), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
+                                            this.f69898c.f69895c.put(Integer.valueOf(this.f69897b), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
                                             f.a(inputStream, byteArrayOutputStream, byteArrayInputStream, byteArrayInputStream2);
                                         } catch (Exception e3) {
                                             e2 = e3;

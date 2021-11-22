@@ -1,6 +1,6 @@
 package b.a.r0.h0;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
@@ -16,11 +16,11 @@ public class c implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f16880f;
+    public static BdUniqueId f18347f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FeatureCardCompetition f16881e;
+    public FeatureCardCompetition f18348e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class c implements n {
                 return;
             }
         }
-        f16880f = BdUniqueId.gen();
+        f18347f = BdUniqueId.gen();
     }
 
     public c() {
@@ -55,7 +55,7 @@ public class c implements n {
     public FeatureCardCompetition a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16881e : (FeatureCardCompetition) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18348e : (FeatureCardCompetition) invokeV.objValue;
     }
 
     public void d(FeatureCardCompetition featureCardCompetition) {
@@ -63,16 +63,16 @@ public class c implements n {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardCompetition) == null) || featureCardCompetition == null) {
             return;
         }
-        this.f16881e = featureCardCompetition;
+        this.f18348e = featureCardCompetition;
         String str = featureCardCompetition.title;
         Integer num = featureCardCompetition.floor;
         Integer num2 = featureCardCompetition.type;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f16880f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f18347f : (BdUniqueId) invokeV.objValue;
     }
 }

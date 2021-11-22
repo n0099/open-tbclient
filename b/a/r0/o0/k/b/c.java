@@ -3,7 +3,7 @@ package b.a.r0.o0.k.b;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.r0.b0.c0;
+import b.a.r0.b0.d0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,20 +15,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c extends b.a.e.l.e.a<b.a.r0.o0.k.c.d, CardViewHolder<b.a.r0.o0.k.d.c>> {
+public class c extends b.a.e.m.e.a<b.a.r0.o0.k.c.d, CardViewHolder<b.a.r0.o0.k.d.c>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
-    public c0 n;
+    public d0 n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(TbPageContext tbPageContext, c0 c0Var) {
+    public c(TbPageContext tbPageContext, d0 d0Var) {
         super(tbPageContext.getPageActivity(), b.a.r0.o0.k.c.d.j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, c0Var};
+            Object[] objArr = {tbPageContext, d0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -41,25 +41,25 @@ public class c extends b.a.e.l.e.a<b.a.r0.o0.k.c.d, CardViewHolder<b.a.r0.o0.k.d
             }
         }
         this.m = tbPageContext;
-        this.n = c0Var;
+        this.n = d0Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public CardViewHolder<b.a.r0.o0.k.d.c> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             b.a.r0.o0.k.d.c cVar = new b.a.r0.o0.k.d.c(this.m);
-            cVar.m(this.f2423i);
+            cVar.m(this.f2425i);
             return new CardViewHolder<>(cVar);
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b.a.r0.o0.k.c.d dVar, CardViewHolder<b.a.r0.o0.k.d.c> cardViewHolder) {
         InterceptResult invokeCommon;

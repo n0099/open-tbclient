@@ -13,13 +13,13 @@ public class ac {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f40942a;
+    public boolean f41774a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40943b;
+    public String f41775b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40944c;
+    public boolean f41776c;
 
     public ac() {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class ac {
                 return;
             }
         }
-        this.f40942a = false;
-        this.f40943b = "";
-        this.f40944c = false;
+        this.f41774a = false;
+        this.f41775b = "";
+        this.f41776c = false;
     }
 
     public JSONObject a() {
@@ -45,17 +45,17 @@ public class ac {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("SDK_BPLUS_SERVICE", this.f40942a);
+                jSONObject.put("SDK_BPLUS_SERVICE", this.f41774a);
             } catch (JSONException e2) {
                 bb.c().b(e2);
             }
             try {
-                jSONObject.put("SDK_PRODUCT_LY", this.f40943b);
+                jSONObject.put("SDK_PRODUCT_LY", this.f41775b);
             } catch (JSONException e3) {
                 bb.c().b(e3);
             }
             try {
-                jSONObject.put("SDK_LOCAL_SERVER", this.f40944c);
+                jSONObject.put("SDK_LOCAL_SERVER", this.f41776c);
             } catch (JSONException e4) {
                 bb.c().b(e4);
             }
@@ -79,21 +79,21 @@ public class ac {
                 return;
             }
         }
-        this.f40942a = false;
-        this.f40943b = "";
-        this.f40944c = false;
+        this.f41774a = false;
+        this.f41775b = "";
+        this.f41776c = false;
         try {
-            this.f40942a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
+            this.f41774a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
         } catch (Exception e2) {
             bb.c().b(e2);
         }
         try {
-            this.f40943b = jSONObject.getString("SDK_PRODUCT_LY");
+            this.f41775b = jSONObject.getString("SDK_PRODUCT_LY");
         } catch (Exception e3) {
             bb.c().b(e3);
         }
         try {
-            this.f40944c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
+            this.f41776c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
         } catch (Exception e4) {
             bb.c().b(e4);
         }

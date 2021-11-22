@@ -14,7 +14,7 @@ public abstract class CustomInflater implements NativeInflater {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final FunNativeAd2 f62712a;
+    public final FunNativeAd2 f63612a;
 
     public CustomInflater(FunNativeAd2 funNativeAd2) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public abstract class CustomInflater implements NativeInflater {
                 return;
             }
         }
-        this.f62712a = funNativeAd2;
+        this.f63612a = funNativeAd2;
     }
 
     public abstract List<View> getClickViews();
@@ -43,6 +43,6 @@ public abstract class CustomInflater implements NativeInflater {
     public final FunNativeInfo getNativeInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62712a.getNativeInfo() : (FunNativeInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63612a.getNativeInfo() : (FunNativeInfo) invokeV.objValue;
     }
 }

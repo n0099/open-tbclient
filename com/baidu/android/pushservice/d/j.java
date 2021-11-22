@@ -22,16 +22,16 @@ public class j extends com.baidu.android.pushservice.h.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f35269a;
+    public Context f36098a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f35270b;
+    public a f36099b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35271c;
+    public String f36100c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<String> f35272d;
+    public List<String> f36101d;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -54,10 +54,10 @@ public class j extends com.baidu.android.pushservice.h.c {
             }
         }
         ArrayList arrayList = new ArrayList();
-        this.f35272d = arrayList;
-        this.f35269a = context;
-        this.f35271c = str;
-        this.f35270b = aVar;
+        this.f36101d = arrayList;
+        this.f36098a = context;
+        this.f36100c = str;
+        this.f36099b = aVar;
         arrayList.clear();
         c("PushService-PushService-HTTPDNS");
         a((short) 100);
@@ -102,78 +102,78 @@ public class j extends com.baidu.android.pushservice.h.c {
         ?? r1 = 0;
         try {
             try {
-                String str = "https://180.76.76.112/v6/0025?type=ipv4,ipv6&dn=" + this.f35271c;
+                String str = "https://180.76.76.112/v6/0025?type=ipv4,ipv6&dn=" + this.f36100c;
                 if (!PushSocket.isIPv4Reachable()) {
-                    str = "https://[240c:4006::6666]/v6/0025?type=ipv4,ipv6&dn=" + this.f35271c;
+                    str = "https://[240c:4006::6666]/v6/0025?type=ipv4,ipv6&dn=" + this.f36100c;
                 }
-                com.baidu.android.pushservice.e.b a2 = com.baidu.android.pushservice.e.c.a(this.f35269a, str, "GET", (HashMap<String, String>) null, (String) null, "httpsdns.baidu.com");
+                com.baidu.android.pushservice.e.b a2 = com.baidu.android.pushservice.e.c.a(this.f36098a, str, "GET", (HashMap<String, String>) null, (String) null, "httpsdns.baidu.com");
                 int b2 = a2.b();
                 inputStream = a2.a();
                 try {
                     if (b2 == 200) {
-                        String a3 = com.baidu.android.pushservice.j.m.a(this.f35269a, inputStream);
+                        String a3 = com.baidu.android.pushservice.j.m.a(this.f36098a, inputStream);
                         if (!TextUtils.isEmpty(a3)) {
                             try {
-                                JSONObject jSONObject = new JSONObject(a3).getJSONObject("data").getJSONObject(this.f35271c);
+                                JSONObject jSONObject = new JSONObject(a3).getJSONObject("data").getJSONObject(this.f36100c);
                                 JSONArray optJSONArray = jSONObject.optJSONArray("ip");
                                 JSONArray optJSONArray2 = jSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
                                 int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
                                 int length2 = optJSONArray == null ? 0 : optJSONArray.length();
                                 if (length2 + length > 0) {
-                                    int b3 = com.baidu.android.pushservice.j.i.b(this.f35269a, "key_vip_type", 3);
+                                    int b3 = com.baidu.android.pushservice.j.i.b(this.f36098a, "key_vip_type", 3);
                                     if (b3 != 1) {
                                         if (b3 == 2) {
                                             if (optJSONArray2 != null && length > 0) {
-                                                this.f35272d.add(optJSONArray2.getString(0));
+                                                this.f36101d.add(optJSONArray2.getString(0));
                                             }
                                             if (optJSONArray != null && length2 > 0) {
                                                 string = optJSONArray.getString(0);
-                                                list = this.f35272d;
+                                                list = this.f36101d;
                                             }
                                         } else if (b3 != 4) {
                                             if (optJSONArray != null && length2 > 0) {
-                                                this.f35272d.add(optJSONArray.getString(0));
+                                                this.f36101d.add(optJSONArray.getString(0));
                                             }
                                             if (optJSONArray2 != null && length > 0) {
                                                 string = optJSONArray2.getString(0);
-                                                list = this.f35272d;
+                                                list = this.f36101d;
                                             }
                                         } else if (optJSONArray != null && length2 > 0) {
                                             string = optJSONArray.getString(0);
-                                            list = this.f35272d;
+                                            list = this.f36101d;
                                         }
                                     } else if (optJSONArray2 != null && length > 0) {
                                         string = optJSONArray2.getString(0);
-                                        list = this.f35272d;
+                                        list = this.f36101d;
                                     }
                                     list.add(string);
                                 }
                             } catch (Exception unused) {
                             }
                         }
-                        this.f35270b.a(0, this.f35272d);
+                        this.f36099b.a(0, this.f36101d);
                     } else {
-                        com.baidu.android.pushservice.j.m.a(this.f35269a, inputStream);
-                        this.f35270b.a(-1, null);
+                        com.baidu.android.pushservice.j.m.a(this.f36098a, inputStream);
+                        this.f36099b.a(-1, null);
                     }
-                    r0 = this.f35269a;
+                    r0 = this.f36098a;
                     r1 = new Closeable[]{inputStream};
                     com.baidu.android.pushservice.e.c.a((Context) r0, (Closeable[]) r1);
                 } catch (Exception unused2) {
-                    this.f35270b.a(r0, r1);
-                    com.baidu.android.pushservice.e.c.a(this.f35269a, inputStream);
+                    this.f36099b.a(r0, r1);
+                    com.baidu.android.pushservice.e.c.a(this.f36098a, inputStream);
                 }
             } catch (Throwable th) {
                 th = th;
                 closeable2 = closeable;
-                com.baidu.android.pushservice.e.c.a(this.f35269a, closeable2);
+                com.baidu.android.pushservice.e.c.a(this.f36098a, closeable2);
                 throw th;
             }
         } catch (Exception unused3) {
             inputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            com.baidu.android.pushservice.e.c.a(this.f35269a, closeable2);
+            com.baidu.android.pushservice.e.c.a(this.f36098a, closeable2);
             throw th;
         }
     }

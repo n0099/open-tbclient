@@ -7,7 +7,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.a.h;
-import b.a.e.h.j.g.d;
+import b.a.e.i.j.g.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;

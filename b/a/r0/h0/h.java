@@ -1,6 +1,6 @@
 package b.a.r0.h0;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
@@ -16,11 +16,11 @@ public class h implements n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static BdUniqueId f16890f;
+    public static BdUniqueId f18357f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FeatureCardTopic f16891e;
+    public FeatureCardTopic f18358e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public class h implements n {
                 return;
             }
         }
-        f16890f = BdUniqueId.gen();
+        f18357f = BdUniqueId.gen();
     }
 
     public h() {
@@ -55,7 +55,7 @@ public class h implements n {
     public FeatureCardTopic a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16891e : (FeatureCardTopic) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18358e : (FeatureCardTopic) invokeV.objValue;
     }
 
     public void d(FeatureCardTopic featureCardTopic) {
@@ -63,16 +63,16 @@ public class h implements n {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardTopic) == null) || featureCardTopic == null) {
             return;
         }
-        this.f16891e = featureCardTopic;
+        this.f18358e = featureCardTopic;
         String str = featureCardTopic.title;
         Integer num = featureCardTopic.floor;
         Integer num2 = featureCardTopic.type;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f16890f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f18357f : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,9 +1,9 @@
 package b.a.r0.o0.k.b;
 
 import android.view.View;
-import b.a.e.l.e.n;
-import b.a.e.l.e.s;
-import b.a.r0.b0.c0;
+import b.a.e.m.e.n;
+import b.a.e.m.e.s;
+import b.a.r0.b0.d0;
 import b.a.r0.o0.k.c.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,39 +22,39 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f21715a;
+    public TbPageContext f23214a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f21716b;
+    public List<b.a.e.m.e.a> f23215b;
 
     /* renamed from: c  reason: collision with root package name */
-    public s f21717c;
+    public s f23216c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f21718d;
+    public b f23217d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f21719e;
+    public c f23218e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f21720f;
+    public d f23219f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<n> f21721g;
+    public List<n> f23220g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c0<BaseCardInfo> f21722h;
+    public d0<BaseCardInfo> f23221h;
 
     /* renamed from: b.a.r0.o0.k.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1063a extends c0<BaseCardInfo> {
+    public class C1131a extends d0<BaseCardInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f21723b;
+        public final /* synthetic */ a f23222b;
 
-        public C1063a(a aVar) {
+        public C1131a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,16 +69,16 @@ public class a {
                     return;
                 }
             }
-            this.f21723b = aVar;
+            this.f23222b = aVar;
         }
 
-        @Override // b.a.r0.b0.c0
+        @Override // b.a.r0.b0.d0
         public void a(View view, BaseCardInfo baseCardInfo) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) && baseCardInfo != null && (baseCardInfo instanceof b.a.r0.o0.k.c.d)) {
                 ArrayList arrayList = new ArrayList();
                 String title = ((b.a.r0.o0.k.c.d) baseCardInfo).getTitle();
-                for (n nVar : this.f21723b.f21721g) {
+                for (n nVar : this.f23222b.f23220g) {
                     if (nVar instanceof b.a.r0.o0.k.c.d) {
                         b.a.r0.o0.k.c.d dVar = (b.a.r0.o0.k.c.d) nVar;
                         if (title.equals(dVar.getTitle())) {
@@ -93,10 +93,10 @@ public class a {
                     }
                 }
                 e eVar = new e();
-                eVar.f21746e = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
+                eVar.f23245e = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
                 arrayList.add(eVar);
                 if (arrayList.size() > 0) {
-                    this.f21723b.f21717c.setData(arrayList);
+                    this.f23222b.f23216c.setData(arrayList);
                 }
             }
         }
@@ -117,33 +117,33 @@ public class a {
                 return;
             }
         }
-        this.f21722h = new C1063a(this);
-        this.f21715a = tbPageContext;
-        this.f21717c = sVar;
+        this.f23221h = new C1131a(this);
+        this.f23214a = tbPageContext;
+        this.f23216c = sVar;
         c();
-        this.f21717c.addAdapters(this.f21716b);
+        this.f23216c.addAdapters(this.f23215b);
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f21716b = new ArrayList();
-            b bVar = new b(this.f21715a);
-            this.f21718d = bVar;
-            this.f21716b.add(bVar);
-            c cVar = new c(this.f21715a, this.f21722h);
-            this.f21719e = cVar;
-            this.f21716b.add(cVar);
-            d dVar = new d(this.f21715a);
-            this.f21720f = dVar;
-            this.f21716b.add(dVar);
+            this.f23215b = new ArrayList();
+            b bVar = new b(this.f23214a);
+            this.f23217d = bVar;
+            this.f23215b.add(bVar);
+            c cVar = new c(this.f23214a, this.f23221h);
+            this.f23218e = cVar;
+            this.f23215b.add(cVar);
+            d dVar = new d(this.f23214a);
+            this.f23219f = dVar;
+            this.f23215b.add(dVar);
         }
     }
 
     public void d() {
         s sVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sVar = this.f21717c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sVar = this.f23216c) == null) {
             return;
         }
         sVar.getListAdapter().notifyDataSetChanged();
@@ -152,15 +152,15 @@ public class a {
     public void e(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f21721g = list;
-            this.f21717c.setData(list);
+            this.f23220g = list;
+            this.f23216c.setData(list);
         }
     }
 
     public void f(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            for (b.a.e.l.e.a aVar : this.f21716b) {
+            for (b.a.e.m.e.a aVar : this.f23215b) {
                 aVar.e0(bdUniqueId);
             }
         }

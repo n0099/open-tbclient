@@ -2,6 +2,7 @@ package com.baidu.platform.core.d;
 
 import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
 import com.baidu.mapapi.search.route.PlanNode;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,29 +36,29 @@ public class d extends com.baidu.platform.base.e {
         PlanNode planNode;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, drivingRoutePlanOption) == null) {
-            this.f42041a.a("qt", "cars");
-            this.f42041a.a("sy", drivingRoutePlanOption.mPolicy.getInt() + "");
-            this.f42041a.a("ie", "utf-8");
-            this.f42041a.a("lrn", "20");
-            this.f42041a.a("version", "6");
-            this.f42041a.a("extinfo", "32");
-            this.f42041a.a("mrs", "1");
-            this.f42041a.a("rp_format", "json");
-            this.f42041a.a("rp_filter", "mobile");
-            this.f42041a.a("route_traffic", drivingRoutePlanOption.mtrafficPolicy.getInt() + "");
-            this.f42041a.a("sn", a(drivingRoutePlanOption.mFrom));
-            this.f42041a.a(com.baidu.fsg.base.statistics.h.f37503a, a(drivingRoutePlanOption.mTo));
+            this.f42889a.a("qt", "cars");
+            this.f42889a.a("sy", drivingRoutePlanOption.mPolicy.getInt() + "");
+            this.f42889a.a("ie", "utf-8");
+            this.f42889a.a("lrn", "20");
+            this.f42889a.a("version", "6");
+            this.f42889a.a("extinfo", "32");
+            this.f42889a.a("mrs", "1");
+            this.f42889a.a("rp_format", "json");
+            this.f42889a.a("rp_filter", "mobile");
+            this.f42889a.a("route_traffic", drivingRoutePlanOption.mtrafficPolicy.getInt() + "");
+            this.f42889a.a(IAdRequestParam.SN, a(drivingRoutePlanOption.mFrom));
+            this.f42889a.a(com.baidu.fsg.base.statistics.h.f38333a, a(drivingRoutePlanOption.mTo));
             String str = drivingRoutePlanOption.mCityName;
             if (str != null) {
-                this.f42041a.a("c", str);
+                this.f42889a.a("c", str);
             }
             PlanNode planNode2 = drivingRoutePlanOption.mFrom;
             if (planNode2 != null) {
-                this.f42041a.a("sc", planNode2.getCity());
+                this.f42889a.a("sc", planNode2.getCity());
             }
             PlanNode planNode3 = drivingRoutePlanOption.mTo;
             if (planNode3 != null) {
-                this.f42041a.a("ec", planNode3.getCity());
+                this.f42889a.a("ec", planNode3.getCity());
             }
             List<PlanNode> list = drivingRoutePlanOption.mWayPoints;
             String str2 = new String();
@@ -73,8 +74,8 @@ public class d extends com.baidu.platform.base.e {
                         }
                     }
                 }
-                this.f42041a.a("wp", str2);
-                this.f42041a.a("wpc", str3);
+                this.f42889a.a("wp", str2);
+                this.f42889a.a("wpc", str3);
             }
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
-import b.a.e.e.n.c;
-import b.a.e.e.o.a;
+import b.a.e.f.n.c;
+import b.a.e.f.o.a;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

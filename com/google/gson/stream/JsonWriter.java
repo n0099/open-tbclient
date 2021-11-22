@@ -18,7 +18,7 @@ import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public class JsonWriter implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] HTML_SAFE_REPLACEMENT_CHARS;

@@ -29,6 +29,6 @@ public class DxmApplicationContextImpl implements NoProguard {
     public static Context getApplicationContext(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? b.e.a.a.a.a(context) : (Context) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? b.d.a.a.a.a(context) : (Context) invokeL.objValue;
     }
 }

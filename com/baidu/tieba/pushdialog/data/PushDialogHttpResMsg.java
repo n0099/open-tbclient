@@ -1,6 +1,6 @@
 package com.baidu.tieba.pushdialog.data;
 
-import b.a.r0.v2.d.a;
+import b.a.r0.w2.d.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
@@ -49,7 +49,7 @@ public class PushDialogHttpResMsg extends TbHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             try {
-                GetLockWindowMsgResIdl getLockWindowMsgResIdl = (GetLockWindowMsgResIdl) PushDialogStatic.f53419a.parseFrom(bArr, GetLockWindowMsgResIdl.class);
+                GetLockWindowMsgResIdl getLockWindowMsgResIdl = (GetLockWindowMsgResIdl) PushDialogStatic.f54338a.parseFrom(bArr, GetLockWindowMsgResIdl.class);
                 setError(getLockWindowMsgResIdl.error.errorno.intValue());
                 setErrorString(getLockWindowMsgResIdl.error.usermsg);
                 if (getLockWindowMsgResIdl.data != null) {

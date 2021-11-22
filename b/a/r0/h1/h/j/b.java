@@ -1,7 +1,7 @@
 package b.a.r0.h1.h.j;
 
 import android.text.TextUtils;
-import b.a.r0.b0.e0.p;
+import b.a.r0.b0.f0.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes4.dex */
-public class b extends b.a.r0.b0.e0.i implements p {
+public class b extends b.a.r0.b0.f0.i implements q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public CardForum f17450i;
+    public CardForum f18919i;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class b extends b.a.r0.b0.e0.i implements p {
         return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? i2 == 1 : invokeI.booleanValue;
     }
 
-    @Override // b.a.r0.b0.e0.p
+    @Override // b.a.r0.b0.f0.q
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -47,12 +47,12 @@ public class b extends b.a.r0.b0.e0.i implements p {
         }
     }
 
-    @Override // b.a.r0.b0.e0.p
+    @Override // b.a.r0.b0.f0.q
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CardForum cardForum = this.f17450i;
+            CardForum cardForum = this.f18919i;
             if (cardForum != null) {
                 return cardForum.position.intValue();
             }
@@ -61,7 +61,7 @@ public class b extends b.a.r0.b0.e0.i implements p {
         return invokeV.intValue;
     }
 
-    @Override // b.a.r0.b0.e0.p
+    @Override // b.a.r0.b0.f0.q
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class b extends b.a.r0.b0.e0.i implements p {
         return invokeV.booleanValue;
     }
 
-    @Override // b.a.r0.b0.e0.p
+    @Override // b.a.r0.b0.f0.q
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
@@ -90,7 +90,7 @@ public class b extends b.a.r0.b0.e0.i implements p {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, cardForum) == null) || cardForum == null) {
             return;
         }
-        this.f17450i = cardForum;
+        this.f18919i = cardForum;
         this.mGroupTitle = cardForum.card_title;
         if (cardForum.position != null) {
             p(k() + cardForum.position.intValue());
@@ -100,11 +100,11 @@ public class b extends b.a.r0.b0.e0.i implements p {
         if (ListUtils.getCount(cardForum.forum_list) > 0) {
             for (PersonalForum personalForum : cardForum.forum_list) {
                 if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
-                    b.a.r0.b0.e0.g gVar = new b.a.r0.b0.e0.g();
-                    gVar.f14758b = personalForum.avatar;
-                    gVar.f14759c = personalForum.forum_name;
-                    gVar.f14760d = b.a.e.e.m.b.e("" + personalForum.forum_id, -1);
-                    gVar.f14761e = personalForum.is_like.intValue() == 1;
+                    b.a.r0.b0.f0.g gVar = new b.a.r0.b0.f0.g();
+                    gVar.f16245b = personalForum.avatar;
+                    gVar.f16246c = personalForum.forum_name;
+                    gVar.f16247d = b.a.e.f.m.b.e("" + personalForum.forum_id, -1);
+                    gVar.f16248e = personalForum.is_like.intValue() == 1;
                     g(gVar);
                 }
             }

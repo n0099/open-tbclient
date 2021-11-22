@@ -1,10 +1,10 @@
 package com.google.common.hash;
 
 import androidx.core.view.InputDeviceCompat;
-import b.i.d.a.k;
-import b.i.d.a.n;
-import b.i.d.a.o;
-import b.i.d.g.b;
+import b.h.d.a.k;
+import b.h.d.a.n;
+import b.h.d.a.o;
+import b.h.d.g.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.math.RoundingMode;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class BloomFilter<T> implements o<T>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
     public final int numHashFunctions;
     public final Strategy strategy;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static class SerialForm<T> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -55,7 +55,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
                     return;
                 }
             }
-            this.data = BloomFilterStrategies.a.g(bloomFilter.bits.f63638a);
+            this.data = BloomFilterStrategies.a.g(bloomFilter.bits.f64538a);
             this.numHashFunctions = bloomFilter.numHashFunctions;
             this.funnel = bloomFilter.funnel;
             this.strategy = bloomFilter.strategy;
@@ -68,7 +68,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public interface Strategy extends Serializable {
         <T> boolean mightContain(T t, Funnel<? super T> funnel, int i2, BloomFilterStrategies.a aVar);
 
@@ -77,7 +77,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         <T> boolean put(T t, Funnel<? super T> funnel, int i2, BloomFilterStrategies.a aVar);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? new SerialForm(this) : invokeV.objValue;
     }
 
-    @Override // b.i.d.a.o
+    @Override // b.h.d.a.o
     @Deprecated
     public boolean apply(T t) {
         InterceptResult invokeL;
@@ -179,7 +179,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             double b2 = this.bits.b();
-            return b.i.d.f.a.c(((-Math.log1p(-(this.bits.a() / b2))) * b2) / this.numHashFunctions, RoundingMode.HALF_UP);
+            return b.h.d.f.a.c(((-Math.log1p(-(this.bits.a() / b2))) * b2) / this.numHashFunctions, RoundingMode.HALF_UP);
         }
         return invokeV.longValue;
     }
@@ -196,7 +196,7 @@ public final class BloomFilter<T> implements o<T>, Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new BloomFilter<>(this.bits.c(), this.numHashFunctions, this.funnel, this.strategy) : (BloomFilter) invokeV.objValue;
     }
 
-    @Override // b.i.d.a.o
+    @Override // b.h.d.a.o
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -266,9 +266,9 @@ public final class BloomFilter<T> implements o<T>, Serializable {
             DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
             dataOutputStream.writeByte(SignedBytes.a(this.strategy.ordinal()));
             dataOutputStream.writeByte(b.a(this.numHashFunctions));
-            dataOutputStream.writeInt(this.bits.f63638a.length());
-            for (int i2 = 0; i2 < this.bits.f63638a.length(); i2++) {
-                dataOutputStream.writeLong(this.bits.f63638a.get(i2));
+            dataOutputStream.writeInt(this.bits.f64538a.length());
+            for (int i2 = 0; i2 < this.bits.f64538a.length(); i2++) {
+                dataOutputStream.writeLong(this.bits.f64538a.get(i2));
             }
         }
     }

@@ -19,16 +19,16 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, a> f65241a;
+    public final Map<String, a> f66154a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f65242b;
+    public WebView f66155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f65243c;
+    public a f66156c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f65244d;
+    public boolean f66157d;
 
     public g(WebView webView) {
         Interceptable interceptable = $ic;
@@ -45,9 +45,9 @@ public class g {
                 return;
             }
         }
-        this.f65241a = new ConcurrentHashMap();
-        this.f65243c = new d();
-        this.f65242b = webView;
+        this.f66154a = new ConcurrentHashMap();
+        this.f66156c = new d();
+        this.f66155b = webView;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -55,11 +55,11 @@ public class g {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, str, str2) == null) {
-            if (this.f65244d) {
+            if (this.f66157d) {
                 str3 = "callJS after destroy jsInterface, " + str2;
             } else if (!TextUtils.isEmpty(str)) {
                 com.kwad.sdk.core.d.a.a("KSAdJSBridge", "callJS callback:+ " + str + "--params: " + str2);
-                WebView webView = this.f65242b;
+                WebView webView = this.f66155b;
                 if (webView == null) {
                     return;
                 }
@@ -76,13 +76,13 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             com.kwad.sdk.core.d.a.c("KSAdJSBridge", "destroy jsInterface");
-            for (Map.Entry<String, a> entry : this.f65241a.entrySet()) {
+            for (Map.Entry<String, a> entry : this.f66154a.entrySet()) {
                 a value = entry.getValue();
                 if (value != null) {
                     value.b();
                 }
             }
-            this.f65244d = true;
+            this.f66157d = true;
         }
     }
 
@@ -93,10 +93,10 @@ public class g {
                 com.kwad.sdk.core.d.a.e("KSAdJSBridge", "handler and handler'key cannot be null");
                 return;
             }
-            if (this.f65241a.containsKey(aVar.a())) {
+            if (this.f66154a.containsKey(aVar.a())) {
                 com.kwad.sdk.core.d.a.e("KSAdJSBridge", "cannot register handler again, handler: " + aVar.a());
             }
-            this.f65241a.put(aVar.a(), aVar);
+            this.f66154a.put(aVar.a(), aVar);
         }
     }
 
@@ -108,20 +108,20 @@ public class g {
             try {
                 b bVar = new b();
                 bVar.parseJson(new JSONObject(str));
-                a aVar = this.f65241a.get(bVar.f65234a);
+                a aVar = this.f66154a.get(bVar.f66147a);
                 if (aVar == null) {
-                    aVar = this.f65243c;
+                    aVar = this.f66156c;
                 }
                 if (aVar != null) {
-                    aVar.a(bVar.f65235b, !TextUtils.isEmpty(bVar.f65236c) ? new c(this, bVar) { // from class: com.kwad.sdk.core.webview.a.g.1
+                    aVar.a(bVar.f66148b, !TextUtils.isEmpty(bVar.f66149c) ? new c(this, bVar) { // from class: com.kwad.sdk.core.webview.a.g.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ b f65245a;
+                        public final /* synthetic */ b f66158a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ g f65246b;
+                        public final /* synthetic */ g f66159b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -138,15 +138,15 @@ public class g {
                                     return;
                                 }
                             }
-                            this.f65246b = this;
-                            this.f65245a = bVar;
+                            this.f66159b = this;
+                            this.f66158a = bVar;
                         }
 
                         @Override // com.kwad.sdk.core.webview.a.c
                         public void a(int i2, String str2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                                this.f65246b.a(this.f65245a.f65236c, new e(i2, str2).toJson().toString());
+                                this.f66159b.a(this.f66158a.f66149c, new e(i2, str2).toJson().toString());
                             }
                         }
 
@@ -154,7 +154,7 @@ public class g {
                         public void a(com.kwad.sdk.core.b bVar2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar2) == null) {
-                                this.f65246b.a(this.f65245a.f65236c, new f(bVar2).toJson().toString());
+                                this.f66159b.a(this.f66158a.f66149c, new f(bVar2).toJson().toString());
                             }
                         }
                     } : new c(this) { // from class: com.kwad.sdk.core.webview.a.g.2
@@ -162,7 +162,7 @@ public class g {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ g f65247a;
+                        public final /* synthetic */ g f66160a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -179,7 +179,7 @@ public class g {
                                     return;
                                 }
                             }
-                            this.f65247a = this;
+                            this.f66160a = this;
                         }
 
                         @Override // com.kwad.sdk.core.webview.a.c

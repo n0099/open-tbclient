@@ -3,7 +3,7 @@ package b.a.l;
 import android.content.Context;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import b.a.l.v0.a;
+import b.a.l.w0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,7 +33,7 @@ public class n extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ n f3266e;
+        public final /* synthetic */ n f3357e;
 
         public a(n nVar) {
             Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public class n extends h {
                     return;
                 }
             }
-            this.f3266e = nVar;
+            this.f3357e = nVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3266e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3357e.c() == null) {
                 return;
             }
-            this.f3266e.c().a(view, this.f3266e.m);
+            this.f3357e.c().a(view, this.f3357e.m);
         }
     }
 
@@ -69,10 +69,10 @@ public class n extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View.OnClickListener f3267e;
+        public final /* synthetic */ View.OnClickListener f3358e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ n f3268f;
+        public final /* synthetic */ n f3359f;
 
         public b(n nVar, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -89,21 +89,21 @@ public class n extends h {
                     return;
                 }
             }
-            this.f3268f = nVar;
-            this.f3267e = onClickListener;
+            this.f3359f = nVar;
+            this.f3358e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f3268f.f3216f);
-                String s1 = this.f3268f.m.getThreadData().s1();
-                PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(s1, this.f3268f.m.getThreadData().v1().G() + "", 1, "other");
-                createNormalCfg.setStartFrom(this.f3268f.f3215e.h());
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.f3359f.f3307f);
+                String t1 = this.f3359f.m.getThreadData().t1();
+                PbActivityConfig createNormalCfg = pbActivityConfig.createNormalCfg(t1, this.f3359f.m.getThreadData().w1().G() + "", 1, "other");
+                createNormalCfg.setStartFrom(this.f3359f.f3306e.h());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
-                this.f3268f.f3215e.n(new a.C0090a(1));
-                this.f3267e.onClick(view);
+                this.f3359f.f3306e.n(new a.C0092a(1));
+                this.f3358e.onClick(view);
             }
         }
     }
@@ -114,7 +114,7 @@ public class n extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n f3269a;
+        public final /* synthetic */ n f3360a;
 
         public c(n nVar) {
             Interceptable interceptable = $ic;
@@ -131,15 +131,15 @@ public class n extends h {
                     return;
                 }
             }
-            this.f3269a = nVar;
+            this.f3360a = nVar;
         }
 
-        @Override // b.a.l.v0.a.b
-        public boolean a(a.C0090a c0090a) {
+        @Override // b.a.l.w0.a.b
+        public boolean a(a.C0092a c0092a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0090a)) == null) {
-                b.a.r0.b0.m.l(this.f3269a.l.getGodReplyContent(), this.f3269a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0092a)) == null) {
+                b.a.r0.b0.m.l(this.f3360a.l.getGodReplyContent(), this.f3360a.m.getThreadData().f0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
             return invokeL.booleanValue;
@@ -164,7 +164,7 @@ public class n extends h {
                 return;
             }
         }
-        q(b.a.e.e.p.l.g(context, R.dimen.M_H_X003));
+        q(b.a.e.f.p.l.g(context, R.dimen.M_H_X003));
         if ((TbadkCoreApplication.getInst().getPersonalizeViewData().r instanceof ThreadGodReplyLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().r.getParent() == null) {
             this.l = (ThreadGodReplyLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().r;
         } else {
@@ -215,10 +215,10 @@ public class n extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.m = aVar;
-            PostData v1 = aVar.getThreadData().v1();
-            if (this.n != null && v1 != null && v1.t() != null && v1.t().getUserId() != null) {
-                this.n.param("tid", aVar.getThreadData().E).param("post_id", v1.G()).param("uid", v1.t().getUserId());
-                b.a.r0.b0.u.b().a(this.n);
+            PostData w1 = aVar.getThreadData().w1();
+            if (this.n != null && w1 != null && w1.t() != null && w1.t().getUserId() != null) {
+                this.n.param("tid", aVar.getThreadData().E).param("post_id", w1.G()).param("uid", w1.t().getUserId());
+                b.a.r0.b0.v.b().a(this.n);
             }
             this.l.setData(aVar.getThreadData());
         }

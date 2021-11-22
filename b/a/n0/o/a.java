@@ -18,27 +18,27 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3727a;
+    public Context f3817a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f3728b;
+    public d f3818b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f3729c;
+    public ServiceConnection f3819c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a.n0.n.b f3730d;
+    public b.a.n0.n.b f3820d;
 
     /* renamed from: b.a.n0.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class ServiceConnectionC0105a implements ServiceConnection {
+    public class ServiceConnectionC0107a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f3731e;
+        public final /* synthetic */ a f3821e;
 
-        public ServiceConnectionC0105a(a aVar) {
+        public ServiceConnectionC0107a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public class a {
                     return;
                 }
             }
-            this.f3731e = aVar;
+            this.f3821e = aVar;
         }
 
         @Override // android.content.ServiceConnection
@@ -61,8 +61,8 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 synchronized (this) {
-                    this.f3731e.f3728b = d.a.a(iBinder);
-                    b.a.n0.n.b bVar = this.f3731e.f3730d;
+                    this.f3821e.f3818b = d.a.a(iBinder);
+                    b.a.n0.n.b bVar = this.f3821e.f3820d;
                 }
             }
         }
@@ -71,9 +71,9 @@ public class a {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                a aVar = this.f3731e;
-                aVar.f3728b = null;
-                b.a.n0.n.b bVar = aVar.f3730d;
+                a aVar = this.f3821e;
+                aVar.f3818b = null;
+                b.a.n0.n.b bVar = aVar.f3820d;
             }
         }
     }
@@ -93,8 +93,8 @@ public class a {
                 return;
             }
         }
-        this.f3727a = null;
-        this.f3727a = context;
+        this.f3817a = null;
+        this.f3817a = context;
     }
 
     public String a() {
@@ -102,8 +102,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (this.f3728b != null) {
-                    return ((d.a.C1685a) this.f3728b).a();
+                if (this.f3818b != null) {
+                    return ((d.a.C1720a) this.f3818b).a();
                 }
                 return null;
             } catch (Throwable unused) {
@@ -116,10 +116,10 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f3729c = new ServiceConnectionC0105a(this);
+            this.f3819c = new ServiceConnectionC0107a(this);
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
-            this.f3727a.bindService(intent, this.f3729c, 1);
+            this.f3817a.bindService(intent, this.f3819c, 1);
         }
     }
 }

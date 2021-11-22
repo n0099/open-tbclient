@@ -1,6 +1,6 @@
 package b.a.r0.w.l.g;
 
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.ala.AlaCmdConfigCustom;
@@ -21,19 +21,19 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f25198a;
+    public TbPageContext f26715a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AlaRefreshScoreModel f25199b;
+    public AlaRefreshScoreModel f26716b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f25200c;
+    public c f26717c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f25201d;
+    public CustomMessageListener f26718d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f25202e;
+    public CustomMessageListener f26719e;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -41,7 +41,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f25203a;
+        public final /* synthetic */ b f26720a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -61,7 +61,7 @@ public class b {
                     return;
                 }
             }
-            this.f25203a = bVar;
+            this.f26720a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,22 +69,22 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f25203a.d();
+                this.f26720a.d();
             }
         }
     }
 
     /* renamed from: b.a.r0.w.l.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1230b extends CustomMessageListener {
+    public class C1298b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f25204a;
+        public final /* synthetic */ b f26721a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1230b(b bVar, int i2) {
+        public C1298b(b bVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -101,17 +101,17 @@ public class b {
                     return;
                 }
             }
-            this.f25204a = bVar;
+            this.f26721a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f25204a.f25200c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.f26721a.f26717c == null) {
                 return;
             }
-            this.f25204a.f25200c.a(true);
+            this.f26721a.f26717c.a(true);
         }
     }
 
@@ -135,11 +135,11 @@ public class b {
                 return;
             }
         }
-        this.f25201d = new a(this, 2001227);
-        this.f25202e = new C1230b(this, AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA);
-        this.f25198a = tbPageContext;
-        tbPageContext.registerListener(this.f25201d);
-        this.f25198a.registerListener(this.f25202e);
+        this.f26718d = new a(this, 2001227);
+        this.f26719e = new C1298b(this, AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA);
+        this.f26715a = tbPageContext;
+        tbPageContext.registerListener(this.f26718d);
+        this.f26715a.registerListener(this.f26719e);
     }
 
     public void c(long j) {
@@ -150,13 +150,13 @@ public class b {
                 return;
             }
             if (j2 > 200000000) {
-                l.M(TbadkCoreApplication.getInst(), this.f25198a.getResources().getString(R.string.ala_toast_gift_exceeding_limit_msg, 20L));
+                l.M(TbadkCoreApplication.getInst(), this.f26715a.getResources().getString(R.string.ala_toast_gift_exceeding_limit_msg, 20L));
                 return;
             }
             if (j2 % 1000 != 0) {
                 j2 = ((j2 / 1000) + 1) * 1000;
             }
-            CurrencyJumpHelper.gotoBuyTBeanPage(this.f25198a.getPageActivity(), j2);
+            CurrencyJumpHelper.gotoBuyTBeanPage(this.f26715a.getPageActivity(), j2);
         }
     }
 
@@ -165,12 +165,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (TbadkCoreApplication.isLogin()) {
-                if (this.f25199b == null) {
+                if (this.f26716b == null) {
                     AlaRefreshScoreModel alaRefreshScoreModel = new AlaRefreshScoreModel();
-                    this.f25199b = alaRefreshScoreModel;
+                    this.f26716b = alaRefreshScoreModel;
                     alaRefreshScoreModel.initListener();
                 }
-                this.f25199b.refreshCurUserScores();
+                this.f26716b.refreshCurUserScores();
                 return true;
             }
             return false;
@@ -181,7 +181,7 @@ public class b {
     public void e(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f25200c = cVar;
+            this.f26717c = cVar;
         }
     }
 }

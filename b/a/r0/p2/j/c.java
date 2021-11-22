@@ -46,7 +46,7 @@ public class c extends b.a.r0.b0.b<b.a.r0.p2.e.d> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f22412e;
+        public final /* synthetic */ c f23889e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class c extends b.a.r0.b0.b<b.a.r0.p2.e.d> {
                     return;
                 }
             }
-            this.f22412e = cVar;
+            this.f23889e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -72,12 +72,12 @@ public class c extends b.a.r0.b0.b<b.a.r0.p2.e.d> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
                 return;
             }
-            if (!this.f22412e.y) {
+            if (!this.f23889e.y) {
                 TiebaStatic.log(new StatisticItem("c11595"));
             }
             if (view.getTag() instanceof UserData) {
                 UserData userData = (UserData) view.getTag();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f22412e.w.getPageActivity(), userData.getUserId(), userData.getUserName(), null, AddFriendActivityConfig.TYPE_FOCUS)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f23889e.w.getPageActivity(), userData.getUserId(), userData.getUserName(), null, AddFriendActivityConfig.TYPE_FOCUS)));
             }
         }
     }
@@ -111,17 +111,17 @@ public class c extends b.a.r0.b0.b<b.a.r0.p2.e.d> {
         this.p = (TextView) i4.findViewById(R.id.attention_str);
         ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) i4.findViewById(R.id.header1);
         this.q = clickableHeaderImageView;
-        clickableHeaderImageView.setRadius(b.a.e.e.p.l.g(this.w.getPageActivity(), R.dimen.ds100));
+        clickableHeaderImageView.setRadius(b.a.e.f.p.l.g(this.w.getPageActivity(), R.dimen.ds100));
         this.q.setAutoChangeStyle(true);
         this.q.setOnClickListener(this.x);
         ClickableHeaderImageView clickableHeaderImageView2 = (ClickableHeaderImageView) i4.findViewById(R.id.header2);
         this.r = clickableHeaderImageView2;
-        clickableHeaderImageView2.setRadius(b.a.e.e.p.l.g(this.w.getPageActivity(), R.dimen.ds100));
+        clickableHeaderImageView2.setRadius(b.a.e.f.p.l.g(this.w.getPageActivity(), R.dimen.ds100));
         this.r.setAutoChangeStyle(true);
         this.r.setOnClickListener(this.x);
         ClickableHeaderImageView clickableHeaderImageView3 = (ClickableHeaderImageView) i4.findViewById(R.id.header3);
         this.s = clickableHeaderImageView3;
-        clickableHeaderImageView3.setRadius(b.a.e.e.p.l.g(this.w.getPageActivity(), R.dimen.ds100));
+        clickableHeaderImageView3.setRadius(b.a.e.f.p.l.g(this.w.getPageActivity(), R.dimen.ds100));
         this.s.setAutoChangeStyle(true);
         this.s.setOnClickListener(this.x);
         this.t = (TextView) i4.findViewById(R.id.etc_person);
@@ -181,15 +181,15 @@ public class c extends b.a.r0.b0.b<b.a.r0.p2.e.d> {
             if (i() != null) {
                 i().setVisibility(0);
             }
-            this.y = dVar.f22284e;
-            this.m.setText(dVar.f22287h);
-            this.n.setText(dVar.f22286g);
-            this.m.setVisibility(dVar.f22285f ? 0 : 4);
-            this.n.setVisibility(dVar.f22285f ? 0 : 4);
-            if (dVar.f22284e) {
+            this.y = dVar.f23761e;
+            this.m.setText(dVar.f23764h);
+            this.n.setText(dVar.f23763g);
+            this.m.setVisibility(dVar.f23762f ? 0 : 4);
+            this.n.setVisibility(dVar.f23762f ? 0 : 4);
+            if (dVar.f23761e) {
                 this.o.setText(this.w.getString(R.string.me));
             } else {
-                this.o.setText(StringHelper.getUserDescByGender(dVar.f22288i));
+                this.o.setText(StringHelper.getUserDescByGender(dVar.f23765i));
             }
             int count = ListUtils.getCount(dVar.j);
             if (count > 3) {

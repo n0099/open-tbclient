@@ -45,7 +45,7 @@ import io.flutter.view.AccessibilityBridge;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FlutterView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterView";
@@ -75,7 +75,7 @@ public class FlutterView extends FrameLayout {
     public final FlutterRenderer.ViewportMetrics viewportMetrics;
 
     @VisibleForTesting
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface FlutterEngineAttachmentListener {
         void onFlutterEngineAttachedToFlutterView(@NonNull FlutterEngine flutterEngine);
 
@@ -84,7 +84,7 @@ public class FlutterView extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class RenderMode {
         public static final /* synthetic */ RenderMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -145,7 +145,7 @@ public class FlutterView extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class TransparencyMode {
         public static final /* synthetic */ TransparencyMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import b.a.p0.a.v2.w;
+import b.a.p0.a.z2.w;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
@@ -29,7 +29,7 @@ public class b implements b.a.p0.a.c1.d.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.n.c.b f9540a;
+        public final /* synthetic */ b.a.p0.a.n.c.b f10120a;
 
         public a(b bVar, b.a.p0.a.n.c.b bVar2) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class b implements b.a.p0.a.c1.d.b {
                     return;
                 }
             }
-            this.f9540a = bVar2;
+            this.f10120a = bVar2;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
@@ -55,14 +55,14 @@ public class b implements b.a.p0.a.c1.d.b {
             if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
                 Bundle bundle = delegateResult.mResult;
                 if (bundle == null) {
-                    this.f9540a.a(0);
+                    this.f10120a.a(0);
                     return;
                 }
                 String string = bundle.getString("invoiceInfo");
                 if (TextUtils.isEmpty(string)) {
-                    this.f9540a.a(0);
+                    this.f10120a.a(0);
                 } else {
-                    this.f9540a.b(w.d(string));
+                    this.f10120a.b(w.d(string));
                 }
             }
         }

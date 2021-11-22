@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
 import b.a.q0.s.g0.t.c;
-import b.a.r0.b0.e0.h;
+import b.a.r0.b0.f0.h;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -85,14 +85,14 @@ public class a extends b.a.r0.b0.b<h> {
     public void k(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f14736e != i2) {
+            if (this.f16223e != i2) {
                 SkinManager.setBackgroundResource(i(), R.drawable.home_thread_card_item_bg);
                 SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.r, R.color.CAM_X0109);
                 SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204);
                 SkinManager.setViewTextColor(this.p, R.color.CAM_X0109);
             }
-            this.f14736e = i2;
+            this.f16223e = i2;
         }
     }
 
@@ -102,16 +102,16 @@ public class a extends b.a.r0.b0.b<h> {
     public void j(h hVar) {
         MetaData metaData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) || hVar == null || (metaData = hVar.f14764e) == null || metaData.getGodUserData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) || hVar == null || (metaData = hVar.f16251e) == null || metaData.getGodUserData() == null) {
             return;
         }
         this.w = hVar;
-        this.v = hVar.f14764e;
-        q(hVar.f14766g);
-        this.o.setData(hVar.f14764e);
-        this.q.setText(hVar.f14764e.getName_show());
-        this.r.setText(hVar.f14764e.getGodUserData().getIntro());
-        this.n.n(hVar.f14764e);
+        this.v = hVar.f16251e;
+        q(hVar.f16253g);
+        this.o.setData(hVar.f16251e);
+        this.q.setText(hVar.f16251e.getName_show());
+        this.r.setText(hVar.f16251e.getGodUserData().getIntro());
+        this.n.n(hVar.f16251e);
         k(null, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -126,7 +126,7 @@ public class a extends b.a.r0.b0.b<h> {
             if (view != i() || (metaData = this.v) == null || StringUtils.isNull(metaData.getName_show()) || StringUtils.isNull(this.v.getUserId())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.t.getPageActivity()).createNormalConfig(b.a.e.e.m.b.g(this.v.getUserId(), 0L), false, this.v.isBigV())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.t.getPageActivity()).createNormalConfig(b.a.e.f.m.b.g(this.v.getUserId(), 0L), false, this.v.isBigV())));
         }
     }
 

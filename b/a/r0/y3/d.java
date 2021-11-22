@@ -1,33 +1,39 @@
 package b.a.r0.y3;
 
-import android.content.Context;
-import android.hardware.SensorManager;
 import android.os.Build;
+import android.view.Window;
+import android.view.WindowManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a() {
-        InterceptResult invokeV;
+    public static int a(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                return Integer.valueOf(Build.VERSION.SDK).intValue();
-            } catch (NumberFormatException e2) {
-                e2.printStackTrace();
-                return 0;
-            }
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) ? Build.VERSION.SDK_INT >= 26 ? SpeedStatsStampTable.INIT_MSG_SIX_STAMP_KEY : i2 : invokeI.intValue;
     }
 
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
+    public static void b(int i2, WindowManager.LayoutParams layoutParams, Window window) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? ((SensorManager) context.getSystemService("sensor")).getDefaultSensor(4) != null : invokeL.booleanValue;
+        if (!(interceptable == null || interceptable.invokeILL(65537, null, i2, layoutParams, window) == null) || layoutParams == null || window == null) {
+            return;
+        }
+        try {
+            Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
+            if (declaredField != null) {
+                declaredField.set(layoutParams, Integer.valueOf(i2));
+                window.setAttributes(layoutParams);
+            }
+        } catch (IllegalAccessException e2) {
+            e2.printStackTrace();
+        } catch (NoSuchFieldException e3) {
+            e3.printStackTrace();
+        }
     }
 }

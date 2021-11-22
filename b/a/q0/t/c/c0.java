@@ -14,10 +14,10 @@ public class c0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f13754a;
+    public static final List<String> f14522a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<String> f13755b;
+    public static List<String> f14523b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class c0 {
                 return;
             }
         }
-        f13754a = Arrays.asList(Domains.BAIDU, Domains.NUOMI, Domains.BAIFUBAO, ".hao123.com");
+        f14522a = Arrays.asList(Domains.BAIDU, Domains.NUOMI, Domains.BAIFUBAO, ".hao123.com");
     }
 
     public static boolean a(String str) {
@@ -41,20 +41,20 @@ public class c0 {
         String p;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (b.a.e.e.p.k.isEmpty(str)) {
+            if (b.a.e.f.p.k.isEmpty(str)) {
                 return false;
             }
             Uri parse = Uri.parse(str);
             if (parse == null || !"file".equals(parse.getScheme()) || parse.getPath() == null || !parse.getPath().contains("bdtbNWCache")) {
-                if (f13755b == null && (p = b.a.q0.s.e0.b.j().p("js_host_white_list", null)) != null) {
-                    f13755b = b(p);
+                if (f14523b == null && (p = b.a.q0.s.e0.b.j().p("js_host_white_list", null)) != null) {
+                    f14523b = b(p);
                 }
-                if (f13755b == null) {
-                    f13755b = f13754a;
+                if (f14523b == null) {
+                    f14523b = f14522a;
                 }
                 if (parse != null) {
                     String host = parse.getHost();
-                    for (String str2 : f13755b) {
+                    for (String str2 : f14523b) {
                         if (host.endsWith(str2)) {
                             return true;
                         }
@@ -71,7 +71,7 @@ public class c0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (b.a.e.e.p.k.isEmpty(str)) {
+            if (b.a.e.f.p.k.isEmpty(str)) {
                 return null;
             }
             return Arrays.asList(str.split(";"));
@@ -87,7 +87,7 @@ public class c0 {
             } else {
                 b.a.q0.s.e0.b.j().x("js_host_white_list", str);
             }
-            f13755b = b(str);
+            f14523b = b(str);
         }
     }
 }

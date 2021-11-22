@@ -31,14 +31,14 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SoftReference<Activity> f68581a;
+    public SoftReference<Activity> f69501a;
 
     /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static b f68590a;
+        public static b f69510a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,14 +54,14 @@ public class b {
                     return;
                 }
             }
-            f68590a = new b();
+            f69510a = new b();
         }
     }
 
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            com.ss.android.downloadlib.addownload.e a2 = f.a().a(com.ss.android.downloadlib.addownload.b.f.a().e(j).f68514b.getDownloadUrl());
+            com.ss.android.downloadlib.addownload.e a2 = f.a().a(com.ss.android.downloadlib.addownload.b.f.a().e(j).f69434b.getDownloadUrl());
             if (a2 != null) {
                 a2.a(true, true);
                 return;
@@ -88,7 +88,7 @@ public class b {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f68590a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f69510a : (b) invokeV.objValue;
     }
 
     public void a(long j) {
@@ -115,8 +115,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Activity activity = this.f68581a.get();
-            this.f68581a = null;
+            Activity activity = this.f69501a.get();
+            this.f69501a = null;
             return activity;
         }
         return (Activity) invokeV.objValue;
@@ -128,9 +128,9 @@ public class b {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eVar)) == null) {
-            if (!TextUtils.isEmpty(eVar.f68514b.getLogExtra())) {
+            if (!TextUtils.isEmpty(eVar.f69434b.getLogExtra())) {
                 try {
-                    j = l.a(new JSONObject(eVar.f68514b.getLogExtra()), "convert_id");
+                    j = l.a(new JSONObject(eVar.f69434b.getLogExtra()), "convert_id");
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     j = 0;
@@ -144,10 +144,10 @@ public class b {
                 com.ss.android.downloadlib.e.c.a().a("requestAppInfo getLogExtra null");
                 j2 = 0;
             }
-            long j3 = eVar.f68513a;
+            long j3 = eVar.f69433a;
             com.ss.android.downloadlib.addownload.b.b a2 = c.a().a(j2, j3);
             if (a2 != null) {
-                d.a().a(a2.a(), j3, a2.f68489d);
+                d.a().a(a2.a(), j3, a2.f69409d);
                 a(a2.a());
                 e.a("lp_app_dialog_try_show", eVar);
                 return true;
@@ -157,12 +157,12 @@ public class b {
                 sb.append("convert_id=");
                 sb.append(j2);
             }
-            if (!TextUtils.isEmpty(eVar.f68514b.getPackageName())) {
+            if (!TextUtils.isEmpty(eVar.f69434b.getPackageName())) {
                 if (sb.length() > 0) {
                     sb.append("&");
                 }
                 sb.append("package_name=");
-                sb.append(eVar.f68514b.getPackageName());
+                sb.append(eVar.f69434b.getPackageName());
             }
             if (sb.length() <= 0) {
                 e.a(6, eVar);
@@ -174,13 +174,13 @@ public class b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ long f68585a;
+                public final /* synthetic */ long f69505a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f68586b;
+                public final /* synthetic */ long f69506b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ b f68587c;
+                public final /* synthetic */ b f69507c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -197,9 +197,9 @@ public class b {
                             return;
                         }
                     }
-                    this.f68587c = this;
-                    this.f68585a = j4;
-                    this.f68586b = j3;
+                    this.f69507c = this;
+                    this.f69505a = j4;
+                    this.f69506b = j3;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -214,10 +214,10 @@ public class b {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ boolean[] f68588a;
+                            public final /* synthetic */ boolean[] f69508a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f68589b;
+                            public final /* synthetic */ AnonymousClass2 f69509b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -234,17 +234,17 @@ public class b {
                                         return;
                                     }
                                 }
-                                this.f68589b = this;
-                                this.f68588a = zArr;
+                                this.f69509b = this;
+                                this.f69508a = zArr;
                             }
 
                             @Override // com.ss.android.download.api.config.q
                             public void a(String str2) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, str2) == null) {
-                                    boolean[] zArr2 = this.f68588a;
-                                    AnonymousClass2 anonymousClass2 = this.f68589b;
-                                    zArr2[0] = anonymousClass2.f68587c.a(anonymousClass2.f68585a, anonymousClass2.f68586b, str2);
+                                    boolean[] zArr2 = this.f69508a;
+                                    AnonymousClass2 anonymousClass2 = this.f69509b;
+                                    zArr2[0] = anonymousClass2.f69507c.a(anonymousClass2.f69505a, anonymousClass2.f69506b, str2);
                                 }
                             }
 
@@ -252,8 +252,8 @@ public class b {
                             public void a(Throwable th) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                                    e.a(2, this.f68589b.f68586b);
-                                    this.f68588a[0] = false;
+                                    e.a(2, this.f69509b.f69506b);
+                                    this.f69508a[0] = false;
                                 }
                             }
                         });
@@ -266,13 +266,13 @@ public class b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ long f68582a;
+                public final /* synthetic */ long f69502a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f68583b;
+                public final /* synthetic */ long f69503b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ b f68584c;
+                public final /* synthetic */ b f69504c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -289,9 +289,9 @@ public class b {
                             return;
                         }
                     }
-                    this.f68584c = this;
-                    this.f68582a = j4;
-                    this.f68583b = j3;
+                    this.f69504c = this;
+                    this.f69502a = j4;
+                    this.f69503b = j3;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -301,11 +301,11 @@ public class b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, bool)) == null) {
                         if (bool.booleanValue()) {
-                            this.f68584c.a(com.ss.android.downloadlib.addownload.b.b.a(this.f68582a, this.f68583b));
-                            e.b("lp_app_dialog_try_show", this.f68583b);
+                            this.f69504c.a(com.ss.android.downloadlib.addownload.b.b.a(this.f69502a, this.f69503b));
+                            e.b("lp_app_dialog_try_show", this.f69503b);
                             return null;
                         }
-                        this.f68584c.b(this.f68583b);
+                        this.f69504c.b(this.f69503b);
                         return null;
                     }
                     return invokeL2.objValue;
@@ -325,23 +325,23 @@ public class b {
                 JSONObject optJSONObject = new JSONObject(str).optJSONObject("package");
                 if (optJSONObject != null && optJSONObject.length() != 0) {
                     com.ss.android.downloadlib.addownload.b.b bVar = new com.ss.android.downloadlib.addownload.b.b();
-                    bVar.f68486a = j;
-                    bVar.f68487b = j2;
-                    bVar.f68489d = optJSONObject.optString("icon_url");
-                    bVar.f68490e = optJSONObject.optString("app_name");
-                    bVar.f68488c = optJSONObject.optString("package_name");
-                    bVar.f68491f = optJSONObject.optString("version_name");
-                    bVar.f68492g = optJSONObject.optString("developer_name");
-                    bVar.f68494i = optJSONObject.optString("policy_url");
+                    bVar.f69406a = j;
+                    bVar.f69407b = j2;
+                    bVar.f69409d = optJSONObject.optString("icon_url");
+                    bVar.f69410e = optJSONObject.optString("app_name");
+                    bVar.f69408c = optJSONObject.optString("package_name");
+                    bVar.f69411f = optJSONObject.optString("version_name");
+                    bVar.f69412g = optJSONObject.optString("developer_name");
+                    bVar.f69414i = optJSONObject.optString("policy_url");
                     JSONArray optJSONArray = optJSONObject.optJSONArray("permissions");
                     if (optJSONArray != null) {
                         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                             JSONObject jSONObject = (JSONObject) optJSONArray.get(i2);
-                            bVar.f68493h.add(new Pair<>(jSONObject.optString(IdCardActivity.RESULT_PERMISSION_KEY), jSONObject.optString("permission_desc")));
+                            bVar.f69413h.add(new Pair<>(jSONObject.optString(IdCardActivity.RESULT_PERMISSION_KEY), jSONObject.optString("permission_desc")));
                         }
                     }
                     c.a().a(bVar);
-                    d.a().a(bVar.a(), j2, bVar.f68489d);
+                    d.a().a(bVar.a(), j2, bVar.f69409d);
                     return true;
                 }
                 e.a(7, j2);
@@ -358,7 +358,7 @@ public class b {
     public void a(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            this.f68581a = new SoftReference<>(activity);
+            this.f69501a = new SoftReference<>(activity);
         }
     }
 }

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.IBinder;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.t0.c.a;
+import b.a.q0.s0.c.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;

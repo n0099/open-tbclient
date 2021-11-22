@@ -37,15 +37,15 @@ public final class j {
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (f.a(com.baidu.ubs.analytics.d.a.f56624b)) {
-                    for (File file : j.a(com.baidu.ubs.analytics.d.a.f56624b)) {
+                if (f.a(com.baidu.ubs.analytics.d.a.f57546b)) {
+                    for (File file : j.a(com.baidu.ubs.analytics.d.a.f57546b)) {
                         if (b.a.v0.a.d.b.c(b.a.v0.a.d.b.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), null)) {
                             f.b(file.getPath());
                         }
                     }
                 }
-                if (f.a(com.baidu.ubs.analytics.d.a.f56625c)) {
-                    for (File file2 : j.a(com.baidu.ubs.analytics.d.a.f56625c)) {
+                if (f.a(com.baidu.ubs.analytics.d.a.f57547c)) {
+                    for (File file2 : j.a(com.baidu.ubs.analytics.d.a.f57547c)) {
                         if (!file2.getName().equals(b.a.v0.a.f.a.e()) && b.a.v0.a.d.b.c(b.a.v0.a.d.b.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), null)) {
                             f.b(file2.getPath());
                         }

@@ -7,8 +7,8 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import b.a.e.a.h;
-import b.a.e.e.m.e;
-import b.a.e.e.p.l;
+import b.a.e.f.m.e;
+import b.a.e.f.p.l;
 import b.a.q0.h0.b;
 import b.a.q0.h0.c;
 import b.a.q0.h0.d;
@@ -107,13 +107,13 @@ public class FlutterNewCategoryDelegateStatic extends b {
             if (c2 == null) {
                 return;
             }
-            if (c2.a() == o.f13831h) {
+            if (c2.a() == o.f14599h) {
                 if (!TextUtils.isEmpty(this.mFinalData.b())) {
                     c cVar = new c();
-                    cVar.f12618g = this.mFinalData.b();
-                    cVar.f12616e = 21;
+                    cVar.f13365g = this.mFinalData.b();
+                    cVar.f13363e = 21;
                     if (!TextUtils.isEmpty(this.mFinalData.c())) {
-                        cVar.f12614c = this.mFinalData.c();
+                        cVar.f13361c = this.mFinalData.c();
                     }
                     e.a().postDelayed(new Runnable(this, cVar) { // from class: com.baidu.tieba.flutter.base.view.FlutterNewCategoryDelegateStatic.4
                         public static /* synthetic */ Interceptable $ic;
@@ -149,13 +149,13 @@ public class FlutterNewCategoryDelegateStatic extends b {
                         }
                     }, 2000L);
                 }
-                TbSingleton.getInstance().getChannelConfigModel().d(o.f13831h);
-            } else if (this.mFinalData.a() == o.f13830g) {
+                TbSingleton.getInstance().getChannelConfigModel().d(o.f14599h);
+            } else if (this.mFinalData.a() == o.f14598g) {
                 MessageRedDotView messageRedDotView = this.tipView;
                 if (messageRedDotView != null) {
                     messageRedDotView.setVisibility(0);
                 }
-                TbSingleton.getInstance().getChannelConfigModel().d(o.f13830g);
+                TbSingleton.getInstance().getChannelConfigModel().d(o.f14598g);
             } else {
                 MessageRedDotView messageRedDotView2 = this.tipView;
                 if (messageRedDotView2 != null) {
@@ -227,8 +227,8 @@ public class FlutterNewCategoryDelegateStatic extends b {
             newEngineFragmentBuilder.url(OpenFlutter.FRAGMENT_NEWCATEGORY);
             newEngineFragmentBuilder.isTabHost(true);
             FlutterFragment build = newEngineFragmentBuilder.build();
-            cVar.f12612a = build;
-            cVar.f12616e = 21;
+            cVar.f13359a = build;
+            cVar.f13363e = 21;
             ((TbFlutterFragment) build).setOnPrimaryListener(new TbFlutterFragmentLifeCircleInterface(this) { // from class: com.baidu.tieba.flutter.base.view.FlutterNewCategoryDelegateStatic.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -261,10 +261,10 @@ public class FlutterNewCategoryDelegateStatic extends b {
                 }
             });
             Resources resources = h.a().getResources();
-            cVar.f12613b = resources.getIdentifier("new_category", "string", BdBaseApplication.getInst().getPackageName());
-            cVar.f12617f = resources.getIdentifier("lottie_tab_category", "raw", BdBaseApplication.getInst().getPackageName());
-            cVar.f12620i = c.l;
-            cVar.f12619h = b.a.q0.h0.e.c.d().c("channel");
+            cVar.f13360b = resources.getIdentifier("new_category", "string", BdBaseApplication.getInst().getPackageName());
+            cVar.f13364f = resources.getIdentifier("lottie_tab_category", "raw", BdBaseApplication.getInst().getPackageName());
+            cVar.f13367i = c.l;
+            cVar.f13366h = b.a.q0.h0.e.c.d().c("channel");
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -278,14 +278,14 @@ public class FlutterNewCategoryDelegateStatic extends b {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
             this.tipView = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f45978f = this.mIndicator;
-            aVar.f45975c = l.e(context, 10.0f);
-            aVar.f45973a = this.tipView;
+            aVar.f46828f = this.mIndicator;
+            aVar.f46825c = l.e(context, 10.0f);
+            aVar.f46823a = this.tipView;
             this.mIndicator.addTipWrapContent(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
             this.tipView.refresh(0);
             o oVar = this.mFinalData;
             if (oVar != null) {
-                if (oVar.a() == o.f13830g) {
+                if (oVar.a() == o.f14598g) {
                     this.tipView.setVisibility(0);
                 } else {
                     this.tipView.setVisibility(8);

@@ -84,7 +84,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             try {
-                BdStatisticsManager.getInstance().debug("socket", "url", b.a.e.e.r.h.j().q(), "dns_cost", Long.valueOf(b.a.e.e.r.h.j().h()), TiebaStatic.CON_COST, Long.valueOf(b.a.e.e.r.h.j().g()), "remote_ip", b.a.e.e.r.h.j().o(), ETAG.KEY_LOCAL_DNS, b.a.e.e.r.h.j().m(), "local_dns_bak", b.a.e.e.r.h.j().n(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
+                BdStatisticsManager.getInstance().debug("socket", "url", b.a.e.f.r.h.j().q(), "dns_cost", Long.valueOf(b.a.e.f.r.h.j().h()), TiebaStatic.CON_COST, Long.valueOf(b.a.e.f.r.h.j().g()), "remote_ip", b.a.e.f.r.h.j().o(), ETAG.KEY_LOCAL_DNS, b.a.e.f.r.h.j().m(), "local_dns_bak", b.a.e.f.r.h.j().n(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
@@ -95,10 +95,10 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             try {
-                b.a.e.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+                b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
                 statsItem.b("action", "imconn");
-                statsItem.b(TiebaStatic.CON_COST, String.valueOf(b.a.e.e.r.h.j().g()));
-                statsItem.b("nettype", b.a.e.e.n.e.a(BdBaseApplication.getInst()));
+                statsItem.b(TiebaStatic.CON_COST, String.valueOf(b.a.e.f.r.h.j().g()));
+                statsItem.b("nettype", b.a.e.f.n.e.a(BdBaseApplication.getInst()));
                 BdStatisticsManager.getInstance().performance("im", statsItem);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());

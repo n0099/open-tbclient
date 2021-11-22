@@ -19,35 +19,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class PushStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f56352a;
+    public static CustomMessageListener f57274a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static CustomMessageListener f56353b;
+    public static CustomMessageListener f57275b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static CustomMessageListener f56354c;
+    public static CustomMessageListener f57276c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static CustomMessageListener f56355d;
+    public static CustomMessageListener f57277d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public class RunnableC1773a implements Runnable {
+        /* loaded from: classes9.dex */
+        public class RunnableC1814a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC1773a(a aVar) {
+            public RunnableC1814a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,12 +97,12 @@ public class PushStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                new Thread(new RunnableC1773a(this)).start();
+                new Thread(new RunnableC1814a(this)).start();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +174,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,7 +209,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class e implements UploadDataListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,7 +236,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class f implements UploadDataListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -276,14 +276,14 @@ public class PushStatic {
                 return;
             }
         }
-        f56352a = new a(0);
-        f56353b = new b(2921613);
-        f56354c = new c(2005016);
-        f56355d = new d(2921631);
-        MessageManager.getInstance().registerListener(2007015, f56352a);
-        MessageManager.getInstance().registerListener(f56353b);
-        MessageManager.getInstance().registerListener(f56354c);
-        MessageManager.getInstance().registerListener(f56355d);
+        f57274a = new a(0);
+        f57275b = new b(2921613);
+        f57276c = new c(2005016);
+        f57277d = new d(2921631);
+        MessageManager.getInstance().registerListener(2007015, f57274a);
+        MessageManager.getInstance().registerListener(f57275b);
+        MessageManager.getInstance().registerListener(f57276c);
+        MessageManager.getInstance().registerListener(f57277d);
     }
 
     public PushStatic() {
@@ -335,7 +335,7 @@ public class PushStatic {
             }
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
-            PushManager.startWork(context, 0, b.a.r0.e4.a.a(context, Constants.API_KEY));
+            PushManager.startWork(context, 0, b.a.r0.f4.a.a(context, Constants.API_KEY));
         }
     }
 

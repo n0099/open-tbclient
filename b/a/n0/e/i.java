@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Message;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.statistics.k;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,31 +28,31 @@ public class i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3619a;
+    public Context f3709a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3620b;
+    public String f3710b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3621c;
+    public int f3711c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3622d;
+    public int f3712d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3623e;
+    public String f3713e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f3624f;
+    public long f3714f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3625g;
+    public String f3715g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3626h;
+    public String f3716h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f3627i;
+    public long f3717i;
     public long j;
 
     public i(Context context) {
@@ -70,7 +71,7 @@ public class i {
             }
         }
         this.j = 8000L;
-        this.f3619a = context;
+        this.f3709a = context;
     }
 
     public static void j(String str, String str2, String str3) {
@@ -82,7 +83,7 @@ public class i {
             } else if (TextUtils.equals(str, "ct")) {
                 m = str2;
                 n = str3;
-            } else if (TextUtils.equals(str, k.f37522b)) {
+            } else if (TextUtils.equals(str, k.f38352b)) {
                 o = str2;
                 p = str3;
             }
@@ -94,9 +95,9 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                if (!TextUtils.isEmpty(str) && str.length() == 11 && str.contains("*") && str.charAt(3) == '*') {
-                    int g0 = b.a.n0.b.a.h(this.f3619a).g0();
-                    if (g0 <= 11 - str.replace("*", "").trim().length()) {
+                if (!TextUtils.isEmpty(str) && str.length() == 11 && str.contains(ProxyConfig.MATCH_ALL_SCHEMES) && str.charAt(3) == '*') {
+                    int g0 = b.a.n0.b.a.h(this.f3709a).g0();
+                    if (g0 <= 11 - str.replace(ProxyConfig.MATCH_ALL_SCHEMES, "").trim().length()) {
                         return str;
                     }
                     char[] charArray = str.toCharArray();
@@ -106,7 +107,7 @@ public class i {
                         if (i3 < 3) {
                             sb.append(charArray[i3]);
                         } else if (i3 < i2) {
-                            sb.append("*");
+                            sb.append(ProxyConfig.MATCH_ALL_SCHEMES);
                         } else {
                             sb.append(charArray[i3]);
                         }
@@ -128,37 +129,37 @@ public class i {
             try {
                 if (b.a.n0.c.a.c().h(i2)) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("0", this.f3621c);
-                    jSONObject.put("1", this.f3623e);
-                    jSONObject.put("3", this.f3620b);
-                    jSONObject.put("4", b.a.n0.l.d.j(this.f3619a));
-                    if (!TextUtils.isEmpty(this.f3625g)) {
-                        jSONObject.put("5", b.a.n0.l.e.c(this.f3625g.getBytes(), b.a.n0.b.a.h(this.f3619a).k0()));
+                    jSONObject.put("0", this.f3711c);
+                    jSONObject.put("1", this.f3713e);
+                    jSONObject.put("3", this.f3710b);
+                    jSONObject.put("4", b.a.n0.l.d.j(this.f3709a));
+                    if (!TextUtils.isEmpty(this.f3715g)) {
+                        jSONObject.put("5", b.a.n0.l.e.c(this.f3715g.getBytes(), b.a.n0.b.a.h(this.f3709a).k0()));
                     }
                     jSONObject.put("6", q);
-                    String c2 = b.a.n0.b.c.b(this.f3619a).c(jSONObject, this.j);
+                    String c2 = b.a.n0.b.c.b(this.f3709a).c(jSONObject, this.j);
                     if (b.a.n0.c.a.c().h(i2)) {
                         if (!TextUtils.isEmpty(c2)) {
                             s();
                             JSONObject jSONObject2 = new JSONObject(c2);
                             int optInt = jSONObject2.optInt("0", -1);
-                            b.a.n0.b.a.h(this.f3619a).A(System.currentTimeMillis());
+                            b.a.n0.b.a.h(this.f3709a).A(System.currentTimeMillis());
                             if (optInt == 0) {
-                                b.a.n0.b.a.h(this.f3619a).k(0);
+                                b.a.n0.b.a.h(this.f3709a).k(0);
                                 JSONObject optJSONObject = new JSONObject(jSONObject2.optString("1")).optJSONObject("data");
-                                f(i2, 0, 0, this.f3621c, jSONObject2.optString("1"), optInt, optJSONObject != null ? optJSONObject.optString("uk") : "");
+                                f(i2, 0, 0, this.f3711c, jSONObject2.optString("1"), optInt, optJSONObject != null ? optJSONObject.optString("uk") : "");
                                 return;
                             }
-                            b.a.n0.b.a.h(this.f3619a).k(4);
-                            f(i2, 4, a.a(optInt), this.f3621c, jSONObject2.optString("1"), optInt, "");
+                            b.a.n0.b.a.h(this.f3709a).k(4);
+                            f(i2, 4, a.a(optInt), this.f3711c, jSONObject2.optString("1"), optInt, "");
                             return;
                         }
-                        f(i2, 4, 2005, this.f3621c, "server req empty.", -1, "");
+                        f(i2, 4, 2005, this.f3711c, "server req empty.", -1, "");
                     }
                 }
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
-                d(i2, 3, 2009, this.f3621c, "post token unknown error.");
+                d(i2, 3, 2009, this.f3711c, "post token unknown error.");
             }
         }
     }
@@ -168,7 +169,7 @@ public class i {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             Message message = new Message();
             message.what = i2;
-            message.arg1 = this.f3621c;
+            message.arg1 = this.f3711c;
             message.arg2 = i3;
             d.a().c(message, this.j);
         }
@@ -186,7 +187,7 @@ public class i {
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str, Integer.valueOf(i6)}) == null) {
             synchronized (this) {
                 b bVar = new b();
-                bVar.f3540a = i6;
+                bVar.f3630a = i6;
                 c.j().c(i2, i3, i4, i5, str, bVar, true);
             }
         }
@@ -197,9 +198,9 @@ public class i {
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str, Integer.valueOf(i6), str2}) == null) {
             synchronized (this) {
                 b bVar = new b();
-                bVar.f3540a = 2;
-                bVar.f3542c = i6;
-                bVar.f3543d = str2;
+                bVar.f3630a = 2;
+                bVar.f3632c = i6;
+                bVar.f3633d = str2;
                 c.j().c(i2, i3, i4, i5, str, bVar, true);
             }
         }
@@ -212,29 +213,29 @@ public class i {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("0", i3);
                 jSONObject.put("1", str);
-                String e2 = b.a.n0.b.c.b(this.f3619a).e(jSONObject, this.j);
+                String e2 = b.a.n0.b.c.b(this.f3709a).e(jSONObject, this.j);
                 if (b.a.n0.c.a.c().h(i2)) {
                     if (TextUtils.isEmpty(e2)) {
-                        m(i2, 4, 2005, this.f3621c, "server req empty.");
+                        m(i2, 4, 2005, this.f3711c, "server req empty.");
                     } else {
                         t();
                         JSONObject jSONObject2 = new JSONObject(e2);
                         int optInt = jSONObject2.optInt("0", -1);
                         String optString = jSONObject2.optString("1");
-                        b.a.n0.b.a.h(this.f3619a).K(System.currentTimeMillis());
+                        b.a.n0.b.a.h(this.f3709a).K(System.currentTimeMillis());
                         if (optInt == 0) {
-                            b.a.n0.b.a.h(this.f3619a).q(0);
-                            n(i2, 0, 0, this.f3621c, optString, optInt, "");
+                            b.a.n0.b.a.h(this.f3709a).q(0);
+                            n(i2, 0, 0, this.f3711c, optString, optInt, "");
                         } else {
                             int a2 = a.a(optInt);
-                            b.a.n0.b.a.h(this.f3619a).q(4);
-                            n(i2, 4, a2, this.f3621c, optString, optInt, "");
+                            b.a.n0.b.a.h(this.f3709a).q(4);
+                            n(i2, 4, a2, this.f3711c, optString, optInt, "");
                         }
                     }
                 }
             } catch (Throwable th) {
                 b.a.n0.l.c.d(th);
-                m(i2, 3, 2009, this.f3621c, "post token unknown error.");
+                m(i2, 3, 2009, this.f3711c, "post token unknown error.");
             }
         }
     }
@@ -267,7 +268,7 @@ public class i {
     public void l(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f3622d = i2;
+            this.f3712d = i2;
         }
     }
 
@@ -282,9 +283,9 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str, Integer.valueOf(i6), str2}) == null) {
             b bVar = new b();
-            bVar.f3540a = 4;
-            bVar.f3542c = i6;
-            bVar.f3543d = str2;
+            bVar.f3630a = 4;
+            bVar.f3632c = i6;
+            bVar.f3633d = str2;
             c.j().c(i2, i3, i4, i5, str, bVar, true);
         }
     }
@@ -318,7 +319,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            int i2 = this.f3621c;
+            int i2 = this.f3711c;
             return i2 == 1 ? (TextUtils.isEmpty(k) || TextUtils.isEmpty(l)) ? false : true : i2 == 3 ? (TextUtils.isEmpty(m) || TextUtils.isEmpty(n)) ? false : true : (i2 != 2 || TextUtils.isEmpty(o) || TextUtils.isEmpty(p)) ? false : true;
         }
         return invokeV.booleanValue;
@@ -327,17 +328,17 @@ public class i {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f3623e = null;
-            this.f3624f = 0L;
-            this.f3625g = null;
+            this.f3713e = null;
+            this.f3714f = 0L;
+            this.f3715g = null;
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f3626h = null;
-            this.f3627i = 0L;
+            this.f3716h = null;
+            this.f3717i = 0L;
         }
     }
 

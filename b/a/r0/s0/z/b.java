@@ -11,7 +11,7 @@ import android.view.ViewParent;
 import android.widget.AbsListView;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -34,31 +34,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public EmotionPackageDetailActivity f23491a;
+    public EmotionPackageDetailActivity f24822a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f23492b;
+    public final float f24823b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f23493c;
+    public final int f24824c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f23494d;
+    public final int f24825d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Rect f23495e;
+    public final Rect f24826e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f23496f;
+    public int f24827f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f23497g;
+    public int f24828g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f23498h;
+    public int f24829h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f23499i;
+    public int f24830i;
     public Handler j;
     public EmotionPreview k;
     public PackageDetailListView l;
@@ -76,7 +76,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f23500e;
+        public final /* synthetic */ b f24831e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -93,28 +93,28 @@ public class b {
                     return;
                 }
             }
-            this.f23500e = bVar;
+            this.f24831e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f23500e.B();
+                this.f24831e.B();
             }
         }
     }
 
     /* renamed from: b.a.r0.s0.z.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1142b implements PackageDetailListView.a {
+    public class C1204b implements PackageDetailListView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f23501a;
+        public final /* synthetic */ b f24832a;
 
-        public C1142b(b bVar) {
+        public C1204b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,7 +129,7 @@ public class b {
                     return;
                 }
             }
-            this.f23501a = bVar;
+            this.f24832a = bVar;
         }
 
         @Override // com.baidu.tieba.faceshop.packagedetail.PackageDetailListView.a
@@ -145,33 +145,33 @@ public class b {
                 if (action != 0) {
                     if (action != 1) {
                         if (action == 2) {
-                            if (this.f23501a.f23496f > -1 && this.f23501a.f23497g > -1) {
-                                this.f23501a.f23498h = (int) motionEvent.getX();
-                                this.f23501a.f23499i = (int) motionEvent.getY();
-                                if (this.f23501a.m || this.f23501a.q != null) {
-                                    if (this.f23501a.q != null && (v = this.f23501a.v()) != null && (this.f23501a.q == null || !this.f23501a.q.equals(v))) {
-                                        this.f23501a.z(v);
+                            if (this.f24832a.f24827f > -1 && this.f24832a.f24828g > -1) {
+                                this.f24832a.f24829h = (int) motionEvent.getX();
+                                this.f24832a.f24830i = (int) motionEvent.getY();
+                                if (this.f24832a.m || this.f24832a.q != null) {
+                                    if (this.f24832a.q != null && (v = this.f24832a.v()) != null && (this.f24832a.q == null || !this.f24832a.q.equals(v))) {
+                                        this.f24832a.z(v);
                                     }
                                 } else {
-                                    float f2 = this.f23501a.f23498h - this.f23501a.f23496f;
-                                    float f3 = this.f23501a.f23499i - this.f23501a.f23497g;
-                                    if ((f2 * f2) + (f3 * f3) > this.f23501a.f23492b * this.f23501a.f23492b) {
-                                        this.f23501a.m = true;
+                                    float f2 = this.f24832a.f24829h - this.f24832a.f24827f;
+                                    float f3 = this.f24832a.f24830i - this.f24832a.f24828g;
+                                    if ((f2 * f2) + (f3 * f3) > this.f24832a.f24823b * this.f24832a.f24823b) {
+                                        this.f24832a.m = true;
                                     }
                                 }
                             }
-                            return this.f23501a.q != null;
+                            return this.f24832a.q != null;
                         } else if (action != 3) {
                             return false;
                         }
                     }
-                    this.f23501a.u();
+                    this.f24832a.u();
                     return false;
                 }
-                this.f23501a.f23496f = (int) motionEvent.getX();
-                this.f23501a.f23497g = (int) motionEvent.getY();
-                this.f23501a.m = false;
-                this.f23501a.A();
+                this.f24832a.f24827f = (int) motionEvent.getX();
+                this.f24832a.f24828g = (int) motionEvent.getY();
+                this.f24832a.m = false;
+                this.f24832a.A();
                 return false;
             }
             return invokeL.booleanValue;
@@ -184,7 +184,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f23502e;
+        public final /* synthetic */ b f24833e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -201,7 +201,7 @@ public class b {
                     return;
                 }
             }
-            this.f23502e = bVar;
+            this.f24833e = bVar;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -215,7 +215,7 @@ public class b {
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) {
-                this.f23502e.u();
+                this.f24833e.u();
             }
         }
     }
@@ -226,7 +226,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f23503a;
+        public final /* synthetic */ b f24834a;
 
         public d(b bVar) {
             Interceptable interceptable = $ic;
@@ -243,14 +243,14 @@ public class b {
                     return;
                 }
             }
-            this.f23503a = bVar;
+            this.f24834a = bVar;
         }
 
         @Override // com.baidu.adp.widget.SwipeBackLayout.b
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f23503a.n = false;
+                this.f24834a.n = false;
             }
         }
 
@@ -258,8 +258,8 @@ public class b {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f23503a.n = true;
-                this.f23503a.u();
+                this.f24834a.n = true;
+                this.f24834a.u();
             }
         }
     }
@@ -270,13 +270,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public View f23504a;
+        public View f24835a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f23505b;
+        public int f24836b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f23506c;
+        public int f24837c;
 
         public e(View view, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -293,9 +293,9 @@ public class b {
                     return;
                 }
             }
-            this.f23504a = view;
-            this.f23505b = i2;
-            this.f23506c = i3;
+            this.f24835a = view;
+            this.f24836b = i2;
+            this.f24837c = i3;
         }
 
         public boolean equals(Object obj) {
@@ -306,7 +306,7 @@ public class b {
                     return false;
                 }
                 e eVar = (e) obj;
-                return eVar.f23505b == this.f23505b && eVar.f23506c == this.f23506c && eVar.f23504a == this.f23504a;
+                return eVar.f24836b == this.f24836b && eVar.f24837c == this.f24837c && eVar.f24835a == this.f24835a;
             }
             return invokeL.booleanValue;
         }
@@ -327,25 +327,25 @@ public class b {
                 return;
             }
         }
-        this.f23495e = new Rect();
-        this.f23496f = -1;
-        this.f23497g = -1;
-        this.f23498h = -1;
-        this.f23499i = -1;
+        this.f24826e = new Rect();
+        this.f24827f = -1;
+        this.f24828g = -1;
+        this.f24829h = -1;
+        this.f24830i = -1;
         this.m = false;
         this.n = false;
         this.p = 3;
         this.r = new a(this);
-        this.s = new C1142b(this);
-        this.f23491a = emotionPackageDetailActivity;
+        this.s = new C1204b(this);
+        this.f24822a = emotionPackageDetailActivity;
         PackageDetailListView listView = emotionPackageDetailActivity.getListView();
         this.l = listView;
         listView.setTouchEventInterceptHandler(this.s);
         this.j = emotionPackageDetailActivity.getSafeHandler();
         this.l = emotionPackageDetailActivity.getListView();
-        this.f23492b = ViewConfiguration.get(emotionPackageDetailActivity).getScaledTouchSlop() * 2;
-        this.f23493c = l.g(emotionPackageDetailActivity, R.dimen.ds240);
-        this.f23494d = l.g(emotionPackageDetailActivity, R.dimen.ds260);
+        this.f24823b = ViewConfiguration.get(emotionPackageDetailActivity).getScaledTouchSlop() * 2;
+        this.f24824c = l.g(emotionPackageDetailActivity, R.dimen.ds240);
+        this.f24825d = l.g(emotionPackageDetailActivity, R.dimen.ds260);
         this.l.setOnScrollListener(new c(this));
         SwipeBackLayout swipeBackLayout = emotionPackageDetailActivity.getSwipeBackLayout();
         if (swipeBackLayout != null) {
@@ -388,22 +388,22 @@ public class b {
             String str = "show preview, url: " + singleEmotionData.url;
             int[] iArr = new int[2];
             view.getLocationOnScreen(iArr);
-            EmotionPreview emotionPreview = new EmotionPreview(this.f23491a);
+            EmotionPreview emotionPreview = new EmotionPreview(this.f24822a);
             this.k = emotionPreview;
             SkinManager.setBackgroundResource(emotionPreview, R.drawable.bg_expression_bubble, this.p);
             this.k.loadImage(singleEmotionData.url, singleEmotionData.thumbnail, false, 10);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f23493c, this.f23494d);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.f24824c, this.f24825d);
             int i2 = iArr[0] - 60;
             layoutParams.leftMargin = i2;
-            layoutParams.topMargin = iArr[1] - this.f23494d;
+            layoutParams.topMargin = iArr[1] - this.f24825d;
             if (i2 < 0) {
                 layoutParams.leftMargin = 0;
             }
-            if (layoutParams.leftMargin + this.f23493c > l.k(this.f23491a)) {
-                layoutParams.leftMargin = l.k(this.f23491a) - this.f23493c;
+            if (layoutParams.leftMargin + this.f24824c > l.k(this.f24822a)) {
+                layoutParams.leftMargin = l.k(this.f24822a) - this.f24824c;
             }
             if (this.o == null) {
-                this.o = (FrameLayout) this.f23491a.getWindow().getDecorView();
+                this.o = (FrameLayout) this.f24822a.getWindow().getDecorView();
             }
             if (this.k.getParent() != null) {
                 ViewParent parent = this.k.getParent();
@@ -421,12 +421,12 @@ public class b {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f23499i = -1;
-            this.f23498h = -1;
-            this.f23497g = -1;
-            this.f23496f = -1;
+            this.f24830i = -1;
+            this.f24829h = -1;
+            this.f24828g = -1;
+            this.f24827f = -1;
             this.m = false;
-            this.f23491a.setSwipeBackEnabled(true);
+            this.f24822a.setSwipeBackEnabled(true);
             EmotionPreview emotionPreview = this.k;
             if (emotionPreview == null || this.q == null) {
                 return;
@@ -447,27 +447,27 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.f23498h;
-            int i3 = this.f23499i;
+            int i2 = this.f24829h;
+            int i3 = this.f24830i;
             if (i2 < 0) {
-                i2 = this.f23496f;
+                i2 = this.f24827f;
             }
             if (i3 < 0) {
-                i3 = this.f23497g;
+                i3 = this.f24828g;
             }
             int pointToPosition = this.l.pointToPosition(i2, i3);
             if (pointToPosition >= 0) {
-                this.f23495e.set(i2, i3, i2 + 1, i3 + 1);
+                this.f24826e.set(i2, i3, i2 + 1, i3 + 1);
                 View childAt = this.l.getChildAt(pointToPosition);
                 if (childAt == null || !(childAt instanceof ViewGroup)) {
                     return null;
                 }
                 ViewGroup viewGroup = (ViewGroup) childAt;
-                this.l.offsetRectIntoDescendantCoords(childAt, this.f23495e);
+                this.l.offsetRectIntoDescendantCoords(childAt, this.f24826e);
                 int childCount = viewGroup.getChildCount();
                 for (int i4 = 0; i4 < childCount; i4++) {
                     View childAt2 = viewGroup.getChildAt(i4);
-                    if (childAt2.getLeft() < this.f23495e.left && childAt2.getRight() > this.f23495e.right && childAt2.getTop() < this.f23495e.left && childAt2.getBottom() > this.f23495e.bottom) {
+                    if (childAt2.getLeft() < this.f24826e.left && childAt2.getRight() > this.f24826e.right && childAt2.getTop() < this.f24826e.left && childAt2.getBottom() > this.f24826e.bottom) {
                         int headerViewsCount = pointToPosition - this.l.getHeaderViewsCount();
                         e eVar = new e(childAt2, headerViewsCount, i4);
                         String str = "touch cell: (" + headerViewsCount + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + SmallTailInfo.EMOTION_SUFFIX;
@@ -486,7 +486,7 @@ public class b {
         List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048582, this, i2, i3)) == null) {
-            b.a.e.l.e.e adapter2 = this.l.getAdapter2();
+            b.a.e.m.e.e adapter2 = this.l.getAdapter2();
             int i4 = (i2 * 4) + i3;
             int headerViewsCount = i2 + this.l.getHeaderViewsCount();
             if (adapter2 == null || headerViewsCount <= -1 || headerViewsCount >= adapter2.getCount() || (list = (List) adapter2.getItem(headerViewsCount)) == null || i4 <= -1 || i4 >= list.size()) {
@@ -530,10 +530,10 @@ public class b {
             return;
         }
         x();
-        if (t(eVar.f23504a, w(eVar.f23505b, eVar.f23506c))) {
+        if (t(eVar.f24835a, w(eVar.f24836b, eVar.f24837c))) {
             this.q = eVar;
             this.l.setDisableListViewTouchIntercept(true);
-            this.f23491a.setSwipeBackEnabled(false);
+            this.f24822a.setSwipeBackEnabled(false);
         }
     }
 }

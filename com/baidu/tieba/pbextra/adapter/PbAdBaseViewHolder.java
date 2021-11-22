@@ -7,9 +7,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.e.c;
-import b.a.r0.k2.u.f.g1.d;
+import b.a.r0.k2.u.f.h1.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -37,7 +37,7 @@ public class PbAdBaseViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public UserIconBox f52941a;
+    public UserIconBox f53858a;
     public TextView floor;
     public TextView floorOwner;
     public PbGiftListView giftListView;
@@ -164,7 +164,7 @@ public class PbAdBaseViewHolder extends TypeAdapter.ViewHolder {
         this.richText.setDisplayImage(z, false);
         this.richText.setVoiceViewRes(R.layout.voice_play_btn_new);
         this.mUserIconLayout = (UserIconBox) view.findViewById(R.id.user_icon_box);
-        this.f52941a = (UserIconBox) view.findViewById(R.id.user_tshow_icon_box);
+        this.f53858a = (UserIconBox) view.findViewById(R.id.user_tshow_icon_box);
         this.mAddPostLayout = (LinearLayout) view.findViewById(R.id.add_post_footer_layout);
         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.addition_more_container);
         this.mAdditionMoreContainer = linearLayout;

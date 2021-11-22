@@ -27,7 +27,7 @@ import com.faceunity.gles.GeneratedTexture;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

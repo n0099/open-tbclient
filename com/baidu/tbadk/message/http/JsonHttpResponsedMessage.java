@@ -1,7 +1,7 @@
 package com.baidu.tbadk.message.http;
 
 import android.text.TextUtils;
-import b.a.e.e.j.a.e;
+import b.a.e.f.j.a.e;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;

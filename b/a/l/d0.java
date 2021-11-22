@@ -30,7 +30,7 @@ public class d0 extends c implements p<d2>, q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f3228i;
+    public RelativeLayout f3319i;
     public ImageView j;
     public FrameLayout k;
     public d2 l;
@@ -47,7 +47,7 @@ public class d0 extends c implements p<d2>, q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d0 f3229e;
+        public final /* synthetic */ d0 f3320e;
 
         public a(d0 d0Var) {
             Interceptable interceptable = $ic;
@@ -64,17 +64,17 @@ public class d0 extends c implements p<d2>, q {
                     return;
                 }
             }
-            this.f3229e = d0Var;
+            this.f3320e = d0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3229e.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3320e.l == null) {
                 return;
             }
-            CustomMessage customMessage = new CustomMessage(2921428, this.f3229e.m);
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921428, this.f3229e.l);
+            CustomMessage customMessage = new CustomMessage(2921428, this.f3320e.m);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921428, this.f3320e.l);
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
@@ -93,7 +93,7 @@ public class d0 extends c implements p<d2>, q {
                 return;
             }
         }
-        s = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds62);
+        s = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds62);
     }
 
     public d0(Context context, int i2) {
@@ -116,7 +116,7 @@ public class d0 extends c implements p<d2>, q {
         this.p = R.color.CAM_X0111;
         this.r = new a(this);
         this.n = i2;
-        this.f3228i = new RelativeLayout(context);
+        this.f3319i = new RelativeLayout(context);
         this.j = new ImageView(context);
         FrameLayout frameLayout = new FrameLayout(context);
         this.k = frameLayout;
@@ -125,8 +125,8 @@ public class d0 extends c implements p<d2>, q {
         frameLayout.addView(imageView, new FrameLayout.LayoutParams(i5, i5));
         this.k.setOnClickListener(this.r);
         l(Align.ALIGN_RIGHT_BOTTOM);
-        this.f3228i.addView(this.k);
-        f(this.f3228i);
+        this.f3319i.addView(this.k);
+        f(this.f3319i);
         g(-1);
         h(new RelativeLayout.LayoutParams(-1, -1));
     }
@@ -137,11 +137,11 @@ public class d0 extends c implements p<d2>, q {
             return;
         }
         if (align == Align.ALIGN_RIGHT_TOP) {
-            int g2 = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds77);
+            int g2 = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds77);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
             layoutParams.addRule(10);
-            layoutParams.rightMargin = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+            layoutParams.rightMargin = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
             layoutParams.topMargin = g2;
             layoutParams.bottomMargin = 0;
             this.k.setLayoutParams(layoutParams);
@@ -149,7 +149,7 @@ public class d0 extends c implements p<d2>, q {
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.addRule(11);
             layoutParams2.addRule(15);
-            layoutParams2.rightMargin = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+            layoutParams2.rightMargin = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
             layoutParams2.topMargin = 0;
             layoutParams2.bottomMargin = 0;
             this.k.setLayoutParams(layoutParams2);
@@ -157,8 +157,8 @@ public class d0 extends c implements p<d2>, q {
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams3.addRule(11);
             layoutParams3.addRule(12);
-            layoutParams3.rightMargin = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
-            layoutParams3.bottomMargin = b.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds51);
+            layoutParams3.rightMargin = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+            layoutParams3.bottomMargin = b.a.e.f.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds51);
             layoutParams3.topMargin = 0;
             this.k.setLayoutParams(layoutParams3);
         }

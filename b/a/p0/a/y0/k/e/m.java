@@ -15,7 +15,7 @@ public class m extends b.a.p0.a.y0.a<b.a.p0.a.y0.k.g.a> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f9070b = "release";
+    public static String f9417b = "release";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,7 +52,7 @@ public class m extends b.a.p0.a.y0.a<b.a.p0.a.y0.k.g.a> {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f9070b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f9417b : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,8 +62,7 @@ public class m extends b.a.p0.a.y0.a<b.a.p0.a.y0.k.g.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, aVar) == null) {
             aVar.release();
-            b.a.p0.a.u.e.o.k.e().q(aVar.c());
-            b.a.p0.a.u.e.o.k.e().n(aVar);
+            b.a.p0.a.u.e.n.l.e().o(aVar);
             d(aVar, command.what, null, false);
         }
     }

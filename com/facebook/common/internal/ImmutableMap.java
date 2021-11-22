@@ -7,11 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.infer.annotation.Nullsafe;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-@Nullsafe(Nullsafe.Mode.STRICT)
 /* loaded from: classes11.dex */
 public class ImmutableMap<K, V> extends HashMap<K, V> {
     public static /* synthetic */ Interceptable $ic;

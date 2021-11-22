@@ -1,7 +1,7 @@
 package b.a.p0.b.o;
 
 import android.os.Bundle;
-import b.a.p0.a.e2.c.h;
+import b.a.p0.a.h2.c.h;
 import b.a.p0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -23,11 +23,11 @@ public class a extends h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9383b;
+    public static final boolean f9966b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CookieManager f9384a;
+    public CookieManager f9967a;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class a extends h {
                 return;
             }
         }
-        f9383b = k.f6397a;
+        f9966b = k.f6863a;
     }
 
     public a() {
@@ -58,8 +58,8 @@ public class a extends h {
                 return;
             }
         }
-        this.f9384a = null;
-        this.f9384a = new b();
+        this.f9967a = null;
+        this.f9967a = new b();
     }
 
     public final Bundle a(String str, String str2, int i2) {
@@ -75,18 +75,18 @@ public class a extends h {
         return (Bundle) invokeLLI.objValue;
     }
 
-    @Override // b.a.p0.a.e2.c.h, com.baidu.searchbox.http.cookie.CookieManager
+    @Override // b.a.p0.a.h2.c.h, com.baidu.searchbox.http.cookie.CookieManager
     public String getCookie(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (ProcessUtils.isMainProcess()) {
-                return this.f9384a.getCookie(str);
+                return this.f9967a.getCookie(str);
             }
             DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a(str, "", 4));
             if (callOnMainWithContentProvider.isOk()) {
                 String string = callOnMainWithContentProvider.mResult.getString("result");
-                if (f9383b) {
+                if (f9966b) {
                     String str2 = "getCookie cookie : " + string;
                 }
                 return string;
@@ -102,7 +102,7 @@ public class a extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
             if (ProcessUtils.isMainProcess()) {
-                return this.f9384a.shouldAcceptCookie(str, str2);
+                return this.f9967a.shouldAcceptCookie(str, str2);
             }
             DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a(str, str2, 1));
             if (callOnMainWithContentProvider.isOk()) {
@@ -119,7 +119,7 @@ public class a extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
             if (ProcessUtils.isMainProcess()) {
-                return this.f9384a.shouldSendCookie(str, str2);
+                return this.f9967a.shouldSendCookie(str, str2);
             }
             DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a(str, str2, 2));
             if (callOnMainWithContentProvider.isOk()) {
@@ -135,7 +135,7 @@ public class a extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
             if (ProcessUtils.isMainProcess()) {
-                this.f9384a.storeCookie(str, list);
+                this.f9967a.storeCookie(str, list);
                 return;
             }
             Bundle bundle = new Bundle();
@@ -143,7 +143,7 @@ public class a extends h {
             bundle.putString("param1", str);
             bundle.putStringArrayList("param2", (ArrayList) list);
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, bundle);
-            if (f9383b) {
+            if (f9966b) {
                 String str2 = "set cookies for " + str;
             }
         }

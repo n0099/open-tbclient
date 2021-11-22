@@ -5,7 +5,7 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.s.a;
 import b.a.q0.t.g.g;
 import com.baidu.adp.framework.MessageManager;
@@ -34,18 +34,18 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PbChosenActivity f18665a;
+    public PbChosenActivity f20201a;
 
     /* renamed from: b.a.r0.k2.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class View$OnClickListenerC0946a implements View.OnClickListener {
+    public class View$OnClickListenerC1015a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f18666e;
+        public final /* synthetic */ a f20202e;
 
-        public View$OnClickListenerC0946a(a aVar) {
+        public View$OnClickListenerC1015a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,16 +60,16 @@ public class a {
                     return;
                 }
             }
-            this.f18666e = aVar;
+            this.f20202e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f18666e.f18665a.sendMessage(new CustomMessage(2001277));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(this.f18666e.f18665a.getPageContext().getPageActivity(), 23007)));
-                TiebaStatic.eventStat(this.f18666e.f18665a.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
+                this.f20202e.f20201a.sendMessage(new CustomMessage(2001277));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(this.f20202e.f20201a.getPageContext().getPageActivity(), 23007)));
+                TiebaStatic.eventStat(this.f20202e.f20201a.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
             }
         }
     }
@@ -80,10 +80,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f18667e;
+        public final /* synthetic */ ShareItem f20203e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f18668f;
+        public final /* synthetic */ a f20204f;
 
         public b(a aVar, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -100,18 +100,18 @@ public class a {
                     return;
                 }
             }
-            this.f18668f = aVar;
-            this.f18667e = shareItem;
+            this.f20204f = aVar;
+            this.f20203e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ShareItem shareItem = this.f18667e;
+                ShareItem shareItem = this.f20203e;
                 shareItem.t = g.o(shareItem.t, shareItem.K);
-                b.a.e.e.p.a.a(this.f18667e.t);
-                l.M(this.f18668f.f18665a.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+                b.a.e.f.p.a.a(this.f20203e.t);
+                l.M(this.f20204f.f20201a.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
@@ -122,19 +122,19 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.k2.q.c.a f18669e;
+        public final /* synthetic */ b.a.r0.k2.q.c.a f20205e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f18670f;
+        public final /* synthetic */ PbChosenActivity f20206f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ShareThreadView f18671g;
+        public final /* synthetic */ ShareThreadView f20207g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f18672h;
+        public final /* synthetic */ long f20208h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f18673i;
+        public final /* synthetic */ String f20209i;
         public final /* synthetic */ String j;
         public final /* synthetic */ String k;
         public final /* synthetic */ String l;
@@ -154,11 +154,11 @@ public class a {
                     return;
                 }
             }
-            this.f18669e = aVar;
-            this.f18670f = pbChosenActivity;
-            this.f18671g = shareThreadView;
-            this.f18672h = j;
-            this.f18673i = str;
+            this.f20205e = aVar;
+            this.f20206f = pbChosenActivity;
+            this.f20207g = shareThreadView;
+            this.f20208h = j;
+            this.f20209i = str;
             this.j = str2;
             this.k = str3;
             this.l = str4;
@@ -168,17 +168,17 @@ public class a {
         public void onClick(b.a.q0.s.s.a aVar) {
             b.a.r0.k2.q.c.a aVar2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (aVar2 = this.f18669e) == null || aVar2.getThreadInfo() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (aVar2 = this.f20205e) == null || aVar2.getThreadInfo() == null) {
                 return;
             }
-            l.x(this.f18670f.getPageContext().getPageActivity(), this.f18671g.getChatMsgView());
-            Activity pageActivity = this.f18670f.getPageContext().getPageActivity();
-            long j = this.f18672h;
-            String str = this.f18673i;
+            l.x(this.f20206f.getPageContext().getPageActivity(), this.f20207g.getChatMsgView());
+            Activity pageActivity = this.f20206f.getPageContext().getPageActivity();
+            long j = this.f20208h;
+            String str = this.f20209i;
             String str2 = this.j;
             String str3 = this.k;
-            String leaveMsg = this.f18671g.getLeaveMsg();
-            b.a.r0.k2.q.c.a aVar3 = this.f18669e;
+            String leaveMsg = this.f20207g.getLeaveMsg();
+            b.a.r0.k2.q.c.a aVar3 = this.f20205e;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(pageActivity, j, str, str2, str3, 0, leaveMsg, a.c(aVar3, aVar3.getThreadInfo().excid.longValue(), this.l).toChatMessageContent())));
             aVar.dismiss();
         }
@@ -190,10 +190,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f18674e;
+        public final /* synthetic */ PbChosenActivity f20210e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ShareThreadView f18675f;
+        public final /* synthetic */ ShareThreadView f20211f;
 
         public d(PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView) {
             Interceptable interceptable = $ic;
@@ -210,15 +210,15 @@ public class a {
                     return;
                 }
             }
-            this.f18674e = pbChosenActivity;
-            this.f18675f = shareThreadView;
+            this.f20210e = pbChosenActivity;
+            this.f20211f = shareThreadView;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                l.x(this.f18674e.getPageContext().getPageActivity(), this.f18675f.getChatMsgView());
+                l.x(this.f20210e.getPageContext().getPageActivity(), this.f20211f.getChatMsgView());
                 aVar.dismiss();
             }
         }
@@ -230,19 +230,19 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.k2.q.c.a f18676e;
+        public final /* synthetic */ b.a.r0.k2.q.c.a f20212e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f18677f;
+        public final /* synthetic */ PbChosenActivity f20213f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ShareThreadView f18678g;
+        public final /* synthetic */ ShareThreadView f20214g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f18679h;
+        public final /* synthetic */ long f20215h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f18680i;
+        public final /* synthetic */ String f20216i;
         public final /* synthetic */ long j;
         public final /* synthetic */ String k;
 
@@ -261,11 +261,11 @@ public class a {
                     return;
                 }
             }
-            this.f18676e = aVar;
-            this.f18677f = pbChosenActivity;
-            this.f18678g = shareThreadView;
-            this.f18679h = j;
-            this.f18680i = str;
+            this.f20212e = aVar;
+            this.f20213f = pbChosenActivity;
+            this.f20214g = shareThreadView;
+            this.f20215h = j;
+            this.f20216i = str;
             this.j = j2;
             this.k = str2;
         }
@@ -274,16 +274,16 @@ public class a {
         public void onClick(b.a.q0.s.s.a aVar) {
             b.a.r0.k2.q.c.a aVar2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (aVar2 = this.f18676e) == null || aVar2.getThreadInfo() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (aVar2 = this.f20212e) == null || aVar2.getThreadInfo() == null) {
                 return;
             }
-            l.x(this.f18677f.getPageContext().getPageActivity(), this.f18678g.getChatMsgView());
-            Activity pageActivity = this.f18677f.getPageContext().getPageActivity();
-            long j = this.f18679h;
-            String str = this.f18680i;
+            l.x(this.f20213f.getPageContext().getPageActivity(), this.f20214g.getChatMsgView());
+            Activity pageActivity = this.f20213f.getPageContext().getPageActivity();
+            long j = this.f20215h;
+            String str = this.f20216i;
             long j2 = this.j;
-            String leaveMsg = this.f18678g.getLeaveMsg();
-            b.a.r0.k2.q.c.a aVar3 = this.f18676e;
+            String leaveMsg = this.f20214g.getLeaveMsg();
+            b.a.r0.k2.q.c.a aVar3 = this.f20212e;
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(pageActivity, j, str, j2, "from_share", leaveMsg, a.c(aVar3, aVar3.getThreadInfo().excid.longValue(), this.k).toChatMessageContent())));
             aVar.dismiss();
         }
@@ -295,10 +295,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbChosenActivity f18681e;
+        public final /* synthetic */ PbChosenActivity f20217e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ShareThreadView f18682f;
+        public final /* synthetic */ ShareThreadView f20218f;
 
         public f(PbChosenActivity pbChosenActivity, ShareThreadView shareThreadView) {
             Interceptable interceptable = $ic;
@@ -315,15 +315,15 @@ public class a {
                     return;
                 }
             }
-            this.f18681e = pbChosenActivity;
-            this.f18682f = shareThreadView;
+            this.f20217e = pbChosenActivity;
+            this.f20218f = shareThreadView;
         }
 
         @Override // b.a.q0.s.s.a.e
         public void onClick(b.a.q0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                l.x(this.f18681e.getPageContext().getPageActivity(), this.f18682f.getChatMsgView());
+                l.x(this.f20217e.getPageContext().getPageActivity(), this.f20218f.getChatMsgView());
                 aVar.dismiss();
             }
         }
@@ -344,7 +344,7 @@ public class a {
                 return;
             }
         }
-        this.f18665a = pbChosenActivity;
+        this.f20201a = pbChosenActivity;
     }
 
     public static ShareFromPBMsgData c(b.a.r0.k2.q.c.a aVar, long j, String str) {
@@ -409,7 +409,7 @@ public class a {
         String str2 = aVar.getThreadInfo().forum.forum_name;
         String str3 = aVar.getThreadInfo().title;
         String str4 = aVar.getThreadInfo()._abstract;
-        Resources resources = this.f18665a.getPageContext().getPageActivity().getResources();
+        Resources resources = this.f20201a.getPageContext().getPageActivity().getResources();
         String format = MessageFormat.format(resources.getString(R.string.share_content_tpl), str3, str4);
         resources.getString(R.string.chosen_pb_share_content, str3);
         ShareItem shareItem = new ShareItem();
@@ -419,14 +419,14 @@ public class a {
         shareItem.D = str4;
         shareItem.C = Long.toString(aVar.getThreadInfo().excid.longValue());
         shareItem.K = Long.toString(aVar.getThreadInfo().thread_id.longValue());
-        shareItem.f45688a = true;
+        shareItem.f46538a = true;
         if (!StringUtils.isNull(str)) {
             shareItem.v = Uri.parse(str);
         }
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f18665a.getPageContext().getPageActivity(), shareItem, true);
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.f20201a.getPageContext().getPageActivity(), shareItem, true);
         shareDialogConfig.setIsCopyLink(true);
-        shareDialogConfig.addOutsideTextView(R.string.forum_friend, R.drawable.icon_share_friends_n, new View$OnClickListenerC0946a(this));
+        shareDialogConfig.addOutsideTextView(R.string.forum_friend, R.drawable.icon_share_friends_n, new View$OnClickListenerC1015a(this));
         shareDialogConfig.setCopyLinkListener(new b(this, shareItem));
-        this.f18665a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        this.f20201a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

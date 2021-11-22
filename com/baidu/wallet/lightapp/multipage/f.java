@@ -16,7 +16,7 @@ public class f implements i.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f59244a;
+    public boolean f60166a;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.f$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -30,7 +30,7 @@ public class f implements i.b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static f f59245a;
+        public static f f60167a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,7 +46,7 @@ public class f implements i.b {
                     return;
                 }
             }
-            f59245a = new f(null);
+            f60167a = new f(null);
         }
     }
 
@@ -57,7 +57,7 @@ public class f implements i.b {
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f59245a : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60167a : (f) invokeV.objValue;
     }
 
     public f() {
@@ -73,7 +73,7 @@ public class f implements i.b {
                 return;
             }
         }
-        this.f59244a = true;
+        this.f60166a = true;
     }
 
     @Override // com.baidu.wallet.lightapp.multipage.i.b
@@ -81,7 +81,7 @@ public class f implements i.b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, langbridgeSettings)) == null) {
-            if (this.f59244a) {
+            if (this.f60166a) {
                 return langbridgeSettings;
             }
             LangbridgeSettings m46clone = langbridgeSettings.m46clone();

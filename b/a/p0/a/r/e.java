@@ -19,7 +19,7 @@ public class e extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(b.a.p0.a.c2.e eVar) {
+    public e(b.a.p0.a.f2.e eVar) {
         super(eVar, "/swanAPI/cloudGetUrl");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,7 +31,7 @@ public class e extends c {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((b.a.p0.a.c2.e) objArr2[0], (String) objArr2[1]);
+                super((b.a.p0.a.f2.e) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,8 +39,8 @@ public class e extends c {
         }
     }
 
-    @Override // b.a.p0.a.r.c, b.a.p0.a.c2.f.a0
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.a2.e eVar) {
+    @Override // b.a.p0.a.r.c, b.a.p0.a.f2.f.z
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b.a.p0.a.d2.e eVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) ? super.d(context, unitedSchemeEntity, callbackHandler, eVar) : invokeLLLL.booleanValue;
@@ -66,7 +66,7 @@ public class e extends c {
                     }
                 } catch (Exception e2) {
                     k(callbackHandler, str, 1001, e2.getMessage());
-                    if (c.f7437c) {
+                    if (c.f7951c) {
                         e2.printStackTrace();
                         return;
                     }

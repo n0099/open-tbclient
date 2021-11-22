@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import b.a.q0.s.q.d2;
 import b.a.q0.s.q.m;
 import b.a.q0.s.q.q1;
-import b.a.r0.b0.u;
+import b.a.r0.b0.v;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
@@ -31,7 +31,7 @@ public class c {
                 statisticItem.param("obj_type", 2);
                 statisticItem.param("obj_locate", i2);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("topic_id", ((b.a.r0.h1.f.a.e.c) obj).f17214a);
+                statisticItem.param("topic_id", ((b.a.r0.h1.f.a.e.c) obj).f18682a);
                 statisticItem.param("obj_source", str2);
                 statisticItem.eventStat();
             }
@@ -87,20 +87,20 @@ public class c {
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem.param("tid", specialColumnItemData.threadId);
                 statisticItem.param("obj_id", specialColumnItemData.liveId);
-                u.b().a(statisticItem);
+                v.b().a(statisticItem);
             } else if (obj instanceof MetaData) {
                 StatisticItem statisticItem2 = new StatisticItem(str);
                 statisticItem2.param("obj_type", 1);
                 statisticItem2.param("obj_locate", i2);
                 statisticItem2.param("uid", ((MetaData) obj).getUserIdLong());
-                u.b().a(statisticItem2);
+                v.b().a(statisticItem2);
             } else if (obj instanceof q1) {
                 StatisticItem statisticItem3 = new StatisticItem(str);
                 statisticItem3.param("obj_type", 1);
                 statisticItem3.param("obj_locate", i2);
                 statisticItem3.param("fid", ((q1) obj).o());
                 statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
-                u.b().a(statisticItem3);
+                v.b().a(statisticItem3);
             } else if (obj instanceof m) {
                 m mVar = (m) obj;
                 StatisticItem statisticItem4 = new StatisticItem(str);
@@ -110,7 +110,7 @@ public class c {
                 statisticItem4.param("obj_param1", mVar.c());
                 statisticItem4.param("obj_source", str2);
                 d(statisticItem4, mVar.c());
-                u.b().a(statisticItem4);
+                v.b().a(statisticItem4);
             }
         }
     }
@@ -122,7 +122,7 @@ public class c {
             statisticItem.param("obj_type", 1);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             statisticItem.param("obj_source", str2);
-            u.b().a(statisticItem);
+            v.b().a(statisticItem);
         }
     }
 
@@ -139,7 +139,7 @@ public class c {
             return;
         }
         d2 threadData = aVar.getThreadData();
-        if (threadData.E2()) {
+        if (threadData.G2()) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
             return;
         }
@@ -172,10 +172,10 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, aVar, str) == null) || aVar == null || aVar.getThreadData() == null) {
             return;
         }
-        if (aVar.getThreadData().E2()) {
-            u.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(aVar.getThreadData(), str));
+        if (aVar.getThreadData().G2()) {
+            v.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(aVar.getThreadData(), str));
         } else {
-            u.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(aVar.getThreadData(), str));
+            v.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(aVar.getThreadData(), str));
         }
     }
 }

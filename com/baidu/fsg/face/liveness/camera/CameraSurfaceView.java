@@ -17,10 +17,10 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SurfaceHolder f38183a;
+    public SurfaceHolder f39013a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f38184b;
+    public b f39014b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CameraSurfaceView(Context context, AttributeSet attributeSet) {
@@ -42,24 +42,24 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
             }
         }
         SurfaceHolder holder = getHolder();
-        this.f38183a = holder;
+        this.f39013a = holder;
         holder.setFormat(-2);
-        this.f38183a.setSizeFromLayout();
-        this.f38183a.setType(3);
-        this.f38183a.addCallback(this);
+        this.f39013a.setSizeFromLayout();
+        this.f39013a.setType(3);
+        this.f39013a.addCallback(this);
     }
 
     public void setCameraInterface(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f38184b = bVar;
+            this.f39014b = bVar;
         }
     }
 
     public void startPreview() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (getContext() instanceof Activity)) {
-            this.f38184b.a((Activity) getContext(), this.f38183a);
+            this.f39014b.a((Activity) getContext(), this.f39013a);
         }
     }
 
@@ -69,7 +69,7 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
         if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, surfaceHolder, i2, i3, i4) == null) {
             LogUtil.d("surfaceChanged被调用了");
             if (getContext() instanceof Activity) {
-                this.f38184b.a((Activity) getContext(), this.f38183a);
+                this.f39014b.a((Activity) getContext(), this.f39013a);
             }
         }
     }
@@ -86,7 +86,7 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, surfaceHolder) == null) {
             LogUtil.d("surfaceDestroyed被调用了");
-            this.f38184b.d();
+            this.f39014b.d();
         }
     }
 }

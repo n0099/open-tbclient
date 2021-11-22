@@ -18,10 +18,10 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC1237b f25289a;
+    public InterfaceC1305b f26806a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f25290b;
+    public HttpMessageListener f26807b;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -29,7 +29,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f25291a;
+        public final /* synthetic */ b f26808a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, int i2) {
@@ -49,7 +49,7 @@ public class b {
                     return;
                 }
             }
-            this.f25291a = bVar;
+            this.f26808a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,12 +59,12 @@ public class b {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaEnterEffectEditHttpResMessage)) {
                 AlaEnterEffectEditHttpResMessage alaEnterEffectEditHttpResMessage = (AlaEnterEffectEditHttpResMessage) httpResponsedMessage;
                 if (alaEnterEffectEditHttpResMessage.getError() != 0) {
-                    if (this.f25291a.f25289a != null) {
-                        this.f25291a.f25289a.a(alaEnterEffectEditHttpResMessage.getErrorString());
+                    if (this.f26808a.f26806a != null) {
+                        this.f26808a.f26806a.a(alaEnterEffectEditHttpResMessage.getErrorString());
                     }
-                } else if (!(alaEnterEffectEditHttpResMessage.getOrginalMessage() instanceof AlaEnterEffectEditHttpReqMessage) || this.f25291a.f25289a == null) {
+                } else if (!(alaEnterEffectEditHttpResMessage.getOrginalMessage() instanceof AlaEnterEffectEditHttpReqMessage) || this.f26808a.f26806a == null) {
                 } else {
-                    this.f25291a.f25289a.b(((AlaEnterEffectEditHttpReqMessage) alaEnterEffectEditHttpResMessage.getOrginalMessage()).isSelected());
+                    this.f26808a.f26806a.b(((AlaEnterEffectEditHttpReqMessage) alaEnterEffectEditHttpResMessage.getOrginalMessage()).isSelected());
                 }
             }
         }
@@ -72,18 +72,18 @@ public class b {
 
     /* renamed from: b.a.r0.w.l.g.d.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1237b {
+    public interface InterfaceC1305b {
         void a(String str);
 
         void b(boolean z);
     }
 
-    public b(InterfaceC1237b interfaceC1237b) {
+    public b(InterfaceC1305b interfaceC1305b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC1237b};
+            Object[] objArr = {interfaceC1305b};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -93,11 +93,11 @@ public class b {
                 return;
             }
         }
-        this.f25290b = new a(this, AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
-        this.f25289a = interfaceC1237b;
-        b.a.r0.l3.f0.a.e(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT, AlaConfig.ALA_UPDATE_ENTER_EFFECT, AlaEnterEffectEditHttpResMessage.class, true, true, true, true);
-        this.f25290b.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f25290b);
+        this.f26807b = new a(this, AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
+        this.f26806a = interfaceC1305b;
+        b.a.r0.m3.f0.a.e(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT, AlaConfig.ALA_UPDATE_ENTER_EFFECT, AlaEnterEffectEditHttpResMessage.class, true, true, true, true);
+        this.f26807b.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f26807b);
     }
 
     public void b(String str, boolean z) {
@@ -110,7 +110,7 @@ public class b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f25290b);
+            MessageManager.getInstance().unRegisterListener(this.f26807b);
         }
     }
 }

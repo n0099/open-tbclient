@@ -1,9 +1,9 @@
 package com.baidu.tieba.themeCenter.dressCenter;
 
 import android.os.Bundle;
-import b.a.r0.r3.h.c;
-import b.a.r0.r3.h.d;
-import b.a.r0.r3.h.e;
+import b.a.r0.s3.h.c;
+import b.a.r0.s3.h.d;
+import b.a.r0.s3.h.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel;
@@ -27,7 +27,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DressupCenterActivity f54606a;
+        public final /* synthetic */ DressupCenterActivity f55526a;
 
         public a(DressupCenterActivity dressupCenterActivity) {
             Interceptable interceptable = $ic;
@@ -44,21 +44,21 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
                     return;
                 }
             }
-            this.f54606a = dressupCenterActivity;
+            this.f55526a = dressupCenterActivity;
         }
 
         @Override // com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.b
-        public void a(int i2, String str, List<b.a.r0.r3.h.a> list, e eVar, List<d> list2) {
+        public void a(int i2, String str, List<b.a.r0.s3.h.a> list, e eVar, List<d> list2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, list, eVar, list2}) == null) {
-                DressupCenterActivity dressupCenterActivity = this.f54606a;
+                DressupCenterActivity dressupCenterActivity = this.f55526a;
                 dressupCenterActivity.hideLoadingView(dressupCenterActivity.mView.e());
                 if (i2 == 0) {
-                    this.f54606a.mView.m(list, eVar, list2, this.f54606a.mModel.D());
+                    this.f55526a.mView.m(list, eVar, list2, this.f55526a.mModel.D());
                     return;
                 }
-                this.f54606a.showToast(str);
-                this.f54606a.mView.l();
+                this.f55526a.showToast(str);
+                this.f55526a.mView.l();
             }
         }
     }
@@ -93,7 +93,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             b.a.q0.o0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f12779a = true;
+                pageStayDurationItem.f13529a = true;
             }
             return pageStayDurationItem;
         }

@@ -8,10 +8,10 @@ import android.util.Log;
 import androidx.annotation.AnyThread;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.h0.u.g;
-import b.a.p0.a.k;
-import b.a.p0.a.l0.j;
+import b.a.p0.a.l0.k;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import com.baidu.searchbox.v8engine.JsCodeCacheCallback;
+import com.baidu.searchbox.v8engine.JsCodeCacheResult;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,46 +19,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
 /* loaded from: classes.dex */
 public class e implements b.a.p0.a.h0.l.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean j;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final boolean f5702i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f5421e;
+    public d f5703e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f5422f;
+    public String f5704f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f5423g;
+    public boolean f5705g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f5424h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f5425i;
+    public boolean f5706h;
 
     /* loaded from: classes.dex */
-    public class a implements V8EngineConfiguration.JSCacheCallback {
+    public class a implements JsCodeCacheCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f5426a;
+        public final /* synthetic */ e f5707a;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f5427b;
-
-        public a(e eVar, String str) {
+        public a(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, str};
+                Object[] objArr = {eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -68,46 +62,38 @@ public class e implements b.a.p0.a.h0.l.a {
                     return;
                 }
             }
-            this.f5427b = eVar;
-            this.f5426a = str;
+            this.f5707a = eVar;
         }
 
-        @Override // com.baidu.searchbox.v8engine.V8EngineConfiguration.JSCacheCallback
-        public void onCacheResult(V8EngineConfiguration.CacheInfo cacheInfo) {
+        @Override // com.baidu.searchbox.v8engine.JsCodeCacheCallback
+        public void onJsCodeCacheFinished(JsCodeCacheResult jsCodeCacheResult) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cacheInfo) == null) {
-                if (e.j) {
-                    String str = "onCacheResult cached:" + cacheInfo.cached + " ,jsPath: " + cacheInfo.jsPath;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jsCodeCacheResult) == null) {
+                if (e.f5702i && jsCodeCacheResult != null) {
+                    jsCodeCacheResult.toString();
                 }
-                if (!cacheInfo.cached || TextUtils.isEmpty(cacheInfo.jsPath)) {
+                if (jsCodeCacheResult == null || !jsCodeCacheResult.isCacheUsed) {
                     return;
                 }
-                File file = new File(cacheInfo.jsPath);
-                try {
-                    if (file.getPath().startsWith(new File(this.f5426a).getCanonicalPath())) {
-                        this.f5427b.f5424h = true;
-                    } else if (!TextUtils.isEmpty(this.f5427b.f5423g) && file.getCanonicalPath().startsWith(new File(this.f5427b.f5423g).getCanonicalPath())) {
-                        this.f5427b.f5425i = true;
-                    }
-                } catch (IOException e2) {
-                    if (e.j) {
-                        e2.printStackTrace();
-                    }
+                if (TextUtils.equals(jsCodeCacheResult.businessId, "appframe")) {
+                    this.f5707a.f5705g = true;
+                } else if (TextUtils.equals(jsCodeCacheResult.businessId, "appjs")) {
+                    this.f5707a.f5706h = true;
                 }
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class b implements j {
+    public class b implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.h0.b f5428a;
+        public final /* synthetic */ b.a.p0.a.h0.b f5708a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f5429b;
+        public final /* synthetic */ e f5709b;
 
         public b(e eVar, b.a.p0.a.h0.b bVar) {
             Interceptable interceptable = $ic;
@@ -124,18 +110,18 @@ public class e implements b.a.p0.a.h0.l.a {
                     return;
                 }
             }
-            this.f5429b = eVar;
-            this.f5428a = bVar;
+            this.f5709b = eVar;
+            this.f5708a = bVar;
         }
 
-        @Override // b.a.p0.a.l0.j
+        @Override // b.a.p0.a.l0.k
         public void a(b.a.p0.a.l0.a aVar) {
             b.a.p0.a.h0.b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (bVar = this.f5428a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (bVar = this.f5708a) == null) {
                 return;
             }
-            bVar.a(this.f5429b.f5422f);
+            bVar.a(this.f5709b.f5704f);
         }
     }
 
@@ -145,7 +131,7 @@ public class e implements b.a.p0.a.h0.l.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f5430e;
+        public final /* synthetic */ int f5710e;
 
         public c(e eVar, int i2) {
             Interceptable interceptable = $ic;
@@ -162,7 +148,7 @@ public class e implements b.a.p0.a.h0.l.a {
                     return;
                 }
             }
-            this.f5430e = i2;
+            this.f5710e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -170,9 +156,9 @@ public class e implements b.a.p0.a.h0.l.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    Process.setThreadPriority(this.f5430e);
+                    Process.setThreadPriority(this.f5710e);
                 } catch (Throwable th) {
-                    b.a.p0.a.e0.d.b("V8MasterAdapter", th.getMessage());
+                    b.a.p0.a.e0.d.c("V8MasterAdapter", th.getMessage());
                 }
             }
         }
@@ -191,7 +177,7 @@ public class e implements b.a.p0.a.h0.l.a {
                 return;
             }
         }
-        j = k.f6397a;
+        f5702i = b.a.p0.a.k.f6863a;
     }
 
     public e(Context context) {
@@ -211,29 +197,27 @@ public class e implements b.a.p0.a.h0.l.a {
     }
 
     @Override // b.a.p0.a.h0.l.a
-    public void C(b.a.p0.a.h0.u.a aVar) {
+    public void E(b.a.p0.a.h0.u.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (j) {
-            String str = "pathList item: " + aVar.f5800b;
+        if (f5702i) {
+            String str = "pathList item: " + aVar.f6136b;
         }
-        String str2 = aVar.f5800b;
-        this.f5423g = str2;
-        this.f5421e.j(b.a.p0.a.h0.d.a.a("appjs", str2));
+        this.f5703e.j(b.a.p0.a.h0.d.a.a("appjs", aVar.f6136b));
     }
 
     @Override // b.a.p0.a.h0.l.a
-    public String b() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            d dVar = this.f5421e;
+            d dVar = this.f5703e;
             if (dVar != null) {
-                return dVar.g();
+                return dVar.h();
             }
-            if (j) {
+            if (f5702i) {
                 Log.getStackTraceString(new Exception("illegal state"));
                 return "";
             }
@@ -243,65 +227,64 @@ public class e implements b.a.p0.a.h0.l.a {
     }
 
     @Override // b.a.p0.a.h0.l.a
-    public void c(b.a.p0.a.h0.b bVar) {
+    public void d(b.a.p0.a.h0.b bVar) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (dVar = this.f5421e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (dVar = this.f5703e) == null) {
             return;
         }
-        dVar.k(new b(this, bVar));
+        dVar.l(new b(this, bVar));
     }
 
     @Override // b.a.p0.a.h0.l.a
     public void destroy() {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (dVar = this.f5421e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (dVar = this.f5703e) == null) {
             return;
         }
-        dVar.f();
+        dVar.g();
     }
 
     @Override // b.a.p0.a.h0.l.a
-    public void e(Activity activity) {
+    public void f(Activity activity) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, activity) == null) || (dVar = this.f5421e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, activity) == null) || (dVar = this.f5703e) == null) {
             return;
         }
         dVar.d(activity);
     }
 
     @Override // b.a.p0.a.h0.l.a
-    public b.a.p0.a.h0.f.a f() {
+    public b.a.p0.a.h0.f.a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f5421e.h() : (b.a.p0.a.h0.f.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f5703e.i() : (b.a.p0.a.h0.f.a) invokeV.objValue;
     }
 
-    public d j(String str) {
+    public d i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? new d(str, "runtime/index.js") : (d) invokeL.objValue;
     }
 
-    public int k() {
+    public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? b.a.p0.a.h0.d.a.b(this.f5424h, this.f5425i) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? b.a.p0.a.h0.d.a.b(this.f5705g, this.f5706h) : invokeV.intValue;
     }
 
     @Override // b.a.p0.a.h0.l.a
     public void loadUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            if (this.f5421e == null) {
-                String T = g.M().T();
-                d j2 = j(T);
-                this.f5421e = j2;
-                this.f5422f = str;
-                j2.i(new a(this, T));
-            } else if (j) {
+            if (this.f5703e == null) {
+                d i2 = i(g.U().c0());
+                this.f5703e = i2;
+                this.f5704f = str;
+                i2.k(new a(this));
+            } else if (f5702i) {
                 Log.getStackTraceString(new Exception("same instance loadUrl should not be call twice."));
             }
         }
@@ -309,13 +292,13 @@ public class e implements b.a.p0.a.h0.l.a {
 
     @Override // b.a.p0.a.h0.l.a
     @AnyThread
-    public void p(int i2) {
+    public void q(int i2) {
         d dVar;
-        b.a.p0.a.l0.a h2;
+        b.a.p0.a.l0.a i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (dVar = this.f5421e) == null || (h2 = dVar.h()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (dVar = this.f5703e) == null || (i3 = dVar.i()) == null) {
             return;
         }
-        h2.runOnJSThread(new c(this, i2));
+        i3.runOnJSThread(new c(this, i2));
     }
 }

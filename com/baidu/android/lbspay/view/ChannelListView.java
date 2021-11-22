@@ -110,10 +110,10 @@ public class ChannelListView extends LinearLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ViewGroup f34906a;
+                public final /* synthetic */ ViewGroup f35735a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ChannelListView f34907b;
+                public final /* synthetic */ ChannelListView f35736b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -130,19 +130,19 @@ public class ChannelListView extends LinearLayout {
                             return;
                         }
                     }
-                    this.f34907b = this;
-                    this.f34906a = viewGroup;
+                    this.f35736b = this;
+                    this.f35735a = viewGroup;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f34906a.setVisibility(4);
-                        if (this.f34907b.radioGroupChannels != null) {
-                            this.f34907b.radioGroupChannels.showAllChannels();
+                        this.f35735a.setVisibility(4);
+                        if (this.f35736b.radioGroupChannels != null) {
+                            this.f35736b.radioGroupChannels.showAllChannels();
                         }
-                        PayChannelController.DoShowAllChannelClick doShowAllChannelClick = this.f34907b.mShowAllChannelClick;
+                        PayChannelController.DoShowAllChannelClick doShowAllChannelClick = this.f35736b.mShowAllChannelClick;
                         if (doShowAllChannelClick != null) {
                             doShowAllChannelClick.doClick();
                         }
@@ -166,7 +166,7 @@ public class ChannelListView extends LinearLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ChannelListView f34901a;
+                public final /* synthetic */ ChannelListView f35730a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -183,7 +183,7 @@ public class ChannelListView extends LinearLayout {
                             return;
                         }
                     }
-                    this.f34901a = this;
+                    this.f35730a = this;
                 }
 
                 @Override // com.baidu.android.lbspay.view.LbsPayRadioGroup.OnCheckedListener
@@ -191,7 +191,7 @@ public class ChannelListView extends LinearLayout {
                     ChannelListView channelListView;
                     PayChannelController.SelectChannelListener selectChannelListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, channelViewBase) == null) || this.f34901a.radioGroupChannels.getChannel() == null || (selectChannelListener = (channelListView = this.f34901a).mSelectChannelListener) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, channelViewBase) == null) || this.f35730a.radioGroupChannels.getChannel() == null || (selectChannelListener = (channelListView = this.f35730a).mSelectChannelListener) == null) {
                         return;
                     }
                     selectChannelListener.onSelectChannel(channelListView.radioGroupChannels.getChannel().getPayAmount());
@@ -286,7 +286,7 @@ public class ChannelListView extends LinearLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ChannelListView f34902a;
+            public final /* synthetic */ ChannelListView f35731a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -303,7 +303,7 @@ public class ChannelListView extends LinearLayout {
                         return;
                     }
                 }
-                this.f34902a = this;
+                this.f35731a = this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -382,10 +382,10 @@ public class ChannelListView extends LinearLayout {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NewCashierContent.CommonMarketing f34903a;
+                    public final /* synthetic */ NewCashierContent.CommonMarketing f35732a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ChannelListView f34904b;
+                    public final /* synthetic */ ChannelListView f35733b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -402,18 +402,18 @@ public class ChannelListView extends LinearLayout {
                                 return;
                             }
                         }
-                        this.f34904b = this;
-                        this.f34903a = commonMarketing;
+                        this.f35733b = this;
+                        this.f35732a = commonMarketing;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick() || TextUtils.isEmpty(this.f34903a.url)) {
+                        if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick() || TextUtils.isEmpty(this.f35732a.url)) {
                             return;
                         }
-                        StatisticManager.onEventWithValue(LbsStatistics.WALLET_LBS_BANNER_CLICK, this.f34903a.url);
-                        BaiduWalletDelegate.getInstance().openH5Module(this.f34904b.getContext(), this.f34903a.url, false);
+                        StatisticManager.onEventWithValue(LbsStatistics.WALLET_LBS_BANNER_CLICK, this.f35732a.url);
+                        BaiduWalletDelegate.getInstance().openH5Module(this.f35733b.getContext(), this.f35732a.url, false);
                     }
                 });
             }
@@ -513,7 +513,7 @@ public class ChannelListView extends LinearLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ChannelListView f34905a;
+                public final /* synthetic */ ChannelListView f35734a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -530,22 +530,22 @@ public class ChannelListView extends LinearLayout {
                             return;
                         }
                     }
-                    this.f34905a = this;
+                    this.f35734a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        PayChannelController.DoShowAllChannelClick doShowAllChannelClick = this.f34905a.mShowAllChannelClick;
+                        PayChannelController.DoShowAllChannelClick doShowAllChannelClick = this.f35734a.mShowAllChannelClick;
                         if (doShowAllChannelClick != null) {
                             doShowAllChannelClick.doClick();
                         }
-                        if (this.f34905a.radioGroupChannels != null) {
-                            this.f34905a.radioGroupChannels.showAllChannels();
+                        if (this.f35734a.radioGroupChannels != null) {
+                            this.f35734a.radioGroupChannels.showAllChannels();
                         }
-                        this.f34905a.vgMoreChannels.setVisibility(8);
-                        this.f34905a.vgMoreChannels.setOnClickListener(null);
+                        this.f35734a.vgMoreChannels.setVisibility(8);
+                        this.f35734a.vgMoreChannels.setOnClickListener(null);
                         StatisticManager.onEvent(LbsStatistics.LBS_MORE_CHANNELS);
                     }
                 }

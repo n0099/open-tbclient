@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.ZeusMonitorType;
+import com.baidu.webkit.internal.monitor.MonitorType;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.Writer;
 import java.lang.ref.WeakReference;
@@ -155,7 +155,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ComponentSizeChooser(GLTextureView gLTextureView, int i2, int i3, int i4, int i5, int i6, int i7) {
-            super(gLTextureView, new int[]{ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, i2, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, i3, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, i4, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, i5, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, i6, ZeusMonitorType.MONITOR_TYPE_NET_INJECT, i7, ZeusMonitorType.MONITOR_TYPE_AD_FILTER});
+            super(gLTextureView, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, i2, MonitorType.MONITOR_TYPE_INIT_WEBKIT, i3, 12322, i4, 12321, i5, 12325, i6, 12326, i7, 12344});
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -194,13 +194,13 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, egl10, eGLDisplay, eGLConfigArr)) == null) {
                 for (EGLConfig eGLConfig : eGLConfigArr) {
-                    int findConfigAttrib = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_SUB_RESOURCE_SAFE, 0);
-                    int findConfigAttrib2 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_NET_INJECT, 0);
+                    int findConfigAttrib = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12325, 0);
+                    int findConfigAttrib2 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12326, 0);
                     if (findConfigAttrib >= this.mDepthSize && findConfigAttrib2 >= this.mStencilSize) {
-                        int findConfigAttrib3 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 0);
-                        int findConfigAttrib4 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_INIT_WEBKIT, 0);
-                        int findConfigAttrib5 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_BACK_FORWARD_HIJACK, 0);
-                        int findConfigAttrib6 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, ZeusMonitorType.MONITOR_TYPE_MAGICFILTER_ABORT_RESOURCE_COUNT, 0);
+                        int findConfigAttrib3 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 0);
+                        int findConfigAttrib4 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 0);
+                        int findConfigAttrib5 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12322, 0);
+                        int findConfigAttrib6 = findConfigAttrib(egl10, eGLDisplay, eGLConfig, 12321, 0);
                         if (findConfigAttrib3 == this.mRedSize && findConfigAttrib4 == this.mGreenSize && findConfigAttrib5 == this.mBlueSize && findConfigAttrib6 == this.mAlphaSize) {
                             return eGLConfig;
                         }
@@ -1479,7 +1479,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, egl10, eGLDisplay, eGLConfig)) == null) {
-                int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, this.this$0.mEGLContextClientVersion, ZeusMonitorType.MONITOR_TYPE_AD_FILTER};
+                int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, this.this$0.mEGLContextClientVersion, 12344};
                 EGLContext eGLContext = EGL10.EGL_NO_CONTEXT;
                 if (this.this$0.mEGLContextClientVersion == 0) {
                     iArr = null;

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class a extends b.a.p0.e.o.b.d.a {
+public class a extends b.a.p0.g.p.b.d.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class a extends b.a.p0.e.o.b.d.a {
         }
     }
 
-    @Override // b.a.p0.e.o.b.b.InterfaceC0512b
+    @Override // b.a.p0.g.p.b.b.InterfaceC0538b
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

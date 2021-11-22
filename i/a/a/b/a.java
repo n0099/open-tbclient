@@ -5,7 +5,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
 import java.util.List;
 import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleRevenueConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface a {
     void addLogDelegate(IRLogDelegate iRLogDelegate);
 

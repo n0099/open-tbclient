@@ -14,21 +14,21 @@ import java.util.List;
 import tbclient.GetVipInfo.VipDailyList;
 import tbclient.GetVipInfo.VipThemeItem;
 /* loaded from: classes6.dex */
-public class g implements b.a.e.l.e.n {
+public class g implements b.a.e.m.e.n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f27426h;
+    public static final BdUniqueId f28929h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f27427e;
+    public d f28930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<h> f27428f;
+    public List<h> f28931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27429g;
+    public boolean f28932g;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class g implements b.a.e.l.e.n {
                 return;
             }
         }
-        f27426h = BdUniqueId.gen();
+        f28929h = BdUniqueId.gen();
     }
 
     public g(VipDailyList vipDailyList) {
@@ -62,39 +62,39 @@ public class g implements b.a.e.l.e.n {
                 return;
             }
         }
-        this.f27429g = true;
+        this.f28932g = true;
         if (vipDailyList == null || (list = vipDailyList.item) == null || list.size() <= 0) {
             return;
         }
         String str = vipDailyList.card_id;
         d dVar = new d();
-        this.f27427e = dVar;
+        this.f28930e = dVar;
         dVar.f(1);
-        this.f27427e.e(vipDailyList.class_name);
-        this.f27427e.g(vipDailyList.class_url_name);
-        this.f27427e.h(vipDailyList.class_url);
-        this.f27428f = new ArrayList();
+        this.f28930e.e(vipDailyList.class_name);
+        this.f28930e.g(vipDailyList.class_url_name);
+        this.f28930e.h(vipDailyList.class_url);
+        this.f28931f = new ArrayList();
         for (VipThemeItem vipThemeItem : vipDailyList.item) {
-            this.f27428f.add(new h(vipThemeItem));
+            this.f28931f.add(new h(vipThemeItem));
         }
     }
 
     public d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27427e : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28930e : (d) invokeV.objValue;
     }
 
     public List<h> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27428f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28931f : (List) invokeV.objValue;
     }
 
-    @Override // b.a.e.l.e.n
+    @Override // b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f27426h : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f28929h : (BdUniqueId) invokeV.objValue;
     }
 }

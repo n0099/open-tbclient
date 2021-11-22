@@ -2,7 +2,7 @@ package b.a.r0.h1.k.a.e;
 
 import android.view.View;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -61,7 +61,7 @@ public class e extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.d> {
         this.p = (TbImageView) i4.findViewById(R.id.topic_special_thread_img);
         this.q = (TextView) i4.findViewById(R.id.topic_special_thread_title);
         this.r = (TextView) i4.findViewById(R.id.topic_special_thread_discuss);
-        this.p.setRadius(l.g(this.f14738g, R.dimen.tbds10));
+        this.p.setRadius(l.g(this.f16225g, R.dimen.tbds10));
         this.p.setConrers(15);
         this.p.setPlaceHolder(2);
         this.n.setTopicOnClickListener(this);
@@ -92,21 +92,21 @@ public class e extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.d> {
     /* renamed from: o */
     public void j(b.a.r0.h1.k.a.c.d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) || dVar == null || dVar.f17605i == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) || dVar == null || dVar.f19074i == null) {
             return;
         }
         this.s = dVar;
-        if (dVar.f17601e) {
-            if (StringUtils.isNull(dVar.f17604h)) {
+        if (dVar.f19070e) {
+            if (StringUtils.isNull(dVar.f19073h)) {
                 this.o.setText(R.string.topic_special_title_default);
             } else {
-                this.o.setText(dVar.f17604h);
+                this.o.setText(dVar.f19073h);
             }
         }
-        this.o.setVisibility(dVar.f17601e ? 0 : 8);
+        this.o.setVisibility(dVar.f19070e ? 0 : 8);
         String str = null;
-        if (!ListUtils.isEmpty(dVar.f17605i.E0())) {
-            Iterator<MediaData> it = dVar.f17605i.E0().iterator();
+        if (!ListUtils.isEmpty(dVar.f19074i.E0())) {
+            Iterator<MediaData> it = dVar.f19074i.E0().iterator();
             while (it.hasNext()) {
                 MediaData next = it.next();
                 if (next != null && next.getType() == 3) {
@@ -130,30 +130,30 @@ public class e extends b.a.r0.b0.b<b.a.r0.h1.k.a.c.d> {
             this.p.reset();
         }
         this.p.startLoad(str, 10, false);
-        if (StringUtils.isNull(dVar.f17605i.getTitle())) {
+        if (StringUtils.isNull(dVar.f19074i.getTitle())) {
             this.q.setVisibility(8);
         } else {
             this.q.setVisibility(0);
-            this.q.setText(dVar.f17605i.getTitle());
+            this.q.setText(dVar.f19074i.getTitle());
         }
-        this.r.setText(String.format(this.f14738g.getString(R.string.topic_discuss_default), Integer.valueOf(dVar.f17605i.U0())));
+        this.r.setText(String.format(this.f16225g.getString(R.string.topic_discuss_default), Integer.valueOf(dVar.f19074i.U0())));
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b.a.r0.h1.k.a.c.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (dVar = this.s) == null || dVar.f17605i == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (dVar = this.s) == null || dVar.f19074i == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c13354").param("tid", this.s.f17605i.E).param("topic_id", this.s.f17603g).param("obj_locate", this.s.f17602f));
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.f14737f.getPageActivity()).createFromThreadCfg(this.s.f17605i, null, "", 18005, true, false, false);
-        if (this.s.f17605i.Y() == null) {
-            createFromThreadCfg.setForumId(String.valueOf(this.s.f17605i.T()));
-            createFromThreadCfg.setForumName(this.s.f17605i.Z());
+        TiebaStatic.log(new StatisticItem("c13354").param("tid", this.s.f19074i.E).param("topic_id", this.s.f19072g).param("obj_locate", this.s.f19071f));
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.f16224f.getPageActivity()).createFromThreadCfg(this.s.f19074i, null, "", 18005, true, false, false);
+        if (this.s.f19074i.Y() == null) {
+            createFromThreadCfg.setForumId(String.valueOf(this.s.f19074i.T()));
+            createFromThreadCfg.setForumName(this.s.f19074i.Z());
         } else {
-            createFromThreadCfg.setForumId(this.s.f17605i.Y().getForumId());
-            createFromThreadCfg.setForumName(this.s.f17605i.Y().getForumName());
+            createFromThreadCfg.setForumId(this.s.f19074i.Y().getForumId());
+            createFromThreadCfg.setForumName(this.s.f19074i.Y().getForumName());
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
     }

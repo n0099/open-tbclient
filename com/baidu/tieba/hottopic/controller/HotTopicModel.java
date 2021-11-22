@@ -1,7 +1,7 @@
 package com.baidu.tieba.hottopic.controller;
 
 import b.a.e.a.f;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import b.a.q0.s.k;
 import b.a.r0.j1.l.e;
 import com.baidu.adp.base.BdBaseModel;
@@ -27,13 +27,13 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f50008e;
+    public BaseActivity<?> f50920e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f50009f;
+    public b f50921f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.e.c.g.a f50010g;
+    public b.a.e.c.g.a f50922g;
 
     /* loaded from: classes9.dex */
     public class a extends b.a.e.c.g.a {
@@ -41,7 +41,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicModel f50011a;
+        public final /* synthetic */ HotTopicModel f50923a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HotTopicModel hotTopicModel, int i2, int i3) {
@@ -62,7 +62,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
                     return;
                 }
             }
-            this.f50011a = hotTopicModel;
+            this.f50923a = hotTopicModel;
         }
 
         @Override // b.a.e.c.g.a
@@ -71,15 +71,15 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            if (((responsedMessage instanceof ResponseHttpHotTopicMessage) || (responsedMessage instanceof ResponseSocketHotTopicMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f50011a.getUniqueId()) {
+            if (((responsedMessage instanceof ResponseHttpHotTopicMessage) || (responsedMessage instanceof ResponseSocketHotTopicMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f50923a.getUniqueId()) {
                 if (!responsedMessage.hasError()) {
-                    this.f50011a.A(responsedMessage);
+                    this.f50923a.A(responsedMessage);
                     return;
                 }
                 if (!StringUtils.isNull(responsedMessage.getErrorString())) {
-                    this.f50011a.f50008e.showToast(responsedMessage.getErrorString());
+                    this.f50923a.f50920e.showToast(responsedMessage.getErrorString());
                 }
-                this.f50011a.f50009f.hotTopicDataCallback(false, null);
+                this.f50923a.f50921f.hotTopicDataCallback(false, null);
             }
         }
     }
@@ -107,10 +107,10 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
                 return;
             }
         }
-        this.f50009f = null;
+        this.f50921f = null;
         a aVar = new a(this, CmdConfigHttp.CMD_HOT_TOPIC, 303050);
-        this.f50010g = aVar;
-        this.f50008e = baseActivity;
+        this.f50922g = aVar;
+        this.f50920e = baseActivity;
         registerListener(aVar);
     }
 
@@ -135,7 +135,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
             eVar.s = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
         }
-        this.f50009f.hotTopicDataCallback(!responsedMessage.hasError(), eVar);
+        this.f50921f.hotTopicDataCallback(!responsedMessage.hasError(), eVar);
     }
 
     public final void B(long j, String str, int i2, long j2, String str2, String str3, String str4, long j3) {
@@ -171,7 +171,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public void C(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f50009f = bVar;
+            this.f50921f = bVar;
         }
     }
 
@@ -220,7 +220,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public void z(String str, String str2, int i2, long j, String str3, String str4, String str5, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i2), Long.valueOf(j), str3, str4, str5, Long.valueOf(j2)}) == null) {
-            B(b.a.e.e.m.b.g(str, 0L), str2, i2, j < 0 ? 0L : j, StringUtils.isNull(str3) ? "" : str3, StringUtils.isNull(str4) ? "" : str4, str5, j2);
+            B(b.a.e.f.m.b.g(str, 0L), str2, i2, j < 0 ? 0L : j, StringUtils.isNull(str3) ? "" : str3, StringUtils.isNull(str4) ? "" : str4, str5, j2);
         }
     }
 }

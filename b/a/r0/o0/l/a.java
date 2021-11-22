@@ -1,6 +1,6 @@
 package b.a.r0.o0.l;
 
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import b.a.q0.s.q.d2;
 import b.a.q0.s.q.x1;
 import b.a.r0.o0.l.c.c;
@@ -30,38 +30,38 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public EnterForumTabFeedFragment f21756a;
+    public EnterForumTabFeedFragment f23255a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f21757b;
+    public BdTypeRecyclerView f23256b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k f21758c;
+    public k f23257c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b.a.r0.o0.l.c.b f21759d;
+    public b.a.r0.o0.l.c.b f23258d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f21760e;
+    public d f23259e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f21761f;
+    public c f23260f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f21762g;
+    public e f23261g;
 
     /* renamed from: h  reason: collision with root package name */
-    public l f21763h;
+    public l f23262h;
 
     /* renamed from: i  reason: collision with root package name */
-    public g f21764i;
+    public g f23263i;
     public i j;
     public h k;
     public f l;
     public j m;
     public b.a.r0.o0.l.c.a n;
     public m o;
-    public List<b.a.e.l.e.a> p;
+    public List<b.a.e.m.e.a> p;
 
     public a(EnterForumTabFeedFragment enterForumTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
@@ -79,96 +79,96 @@ public class a {
             }
         }
         this.p = new LinkedList();
-        this.f21756a = enterForumTabFeedFragment;
-        this.f21757b = bdTypeRecyclerView;
+        this.f23255a = enterForumTabFeedFragment;
+        this.f23256b = bdTypeRecyclerView;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            k kVar = new k(this.f21756a.getPageContext(), d2.g3, this.f21756a.getUniqueId(), this.f21756a.getTabName());
-            this.f21758c = kVar;
-            kVar.k0(this.f21757b);
-            this.p.add(this.f21758c);
-            b.a.r0.o0.l.c.b bVar = new b.a.r0.o0.l.c.b(this.f21756a.getPageContext(), d2.l3, this.f21756a.getUniqueId(), this.f21756a.getTabName());
-            this.f21759d = bVar;
-            bVar.l0(this.f21757b);
-            this.p.add(this.f21759d);
-            d dVar = new d(this.f21756a.getPageContext(), d2.j3, this.f21756a.getUniqueId(), this.f21756a.getTabName());
-            this.f21760e = dVar;
-            dVar.k0(this.f21757b);
-            this.p.add(this.f21760e);
-            c cVar = new c(this.f21756a.getPageContext(), d2.k3, this.f21756a.getUniqueId(), this.f21756a.getTabName());
-            this.f21761f = cVar;
-            cVar.k0(this.f21757b);
-            this.p.add(this.f21761f);
-            e eVar = new e(this.f21756a.getPageContext(), d2.h3, this.f21756a.getUniqueId(), this.f21756a.getTabName());
-            this.f21762g = eVar;
-            eVar.k0(this.f21757b);
-            this.p.add(this.f21762g);
-            l lVar = new l(this.f21756a.getPageContext(), d2.x3, this.f21756a.getUniqueId(), this.f21756a.getTabName());
-            this.f21763h = lVar;
-            lVar.n0(this.f21757b);
-            this.p.add(this.f21763h);
-            g gVar = new g(this.f21756a.getPageContext(), d2.r3, this.f21756a.getUniqueId(), this.f21756a.getTabName());
-            this.f21764i = gVar;
-            gVar.i0(this.f21757b);
-            this.p.add(this.f21764i);
-            i iVar = new i(this.f21756a.getPageContext(), d2.t3, this.f21756a.getUniqueId(), this.f21756a.getTabName());
+            k kVar = new k(this.f23255a.getPageContext(), d2.h3, this.f23255a.getUniqueId(), this.f23255a.getTabName());
+            this.f23257c = kVar;
+            kVar.k0(this.f23256b);
+            this.p.add(this.f23257c);
+            b.a.r0.o0.l.c.b bVar = new b.a.r0.o0.l.c.b(this.f23255a.getPageContext(), d2.m3, this.f23255a.getUniqueId(), this.f23255a.getTabName());
+            this.f23258d = bVar;
+            bVar.l0(this.f23256b);
+            this.p.add(this.f23258d);
+            d dVar = new d(this.f23255a.getPageContext(), d2.k3, this.f23255a.getUniqueId(), this.f23255a.getTabName());
+            this.f23259e = dVar;
+            dVar.k0(this.f23256b);
+            this.p.add(this.f23259e);
+            c cVar = new c(this.f23255a.getPageContext(), d2.l3, this.f23255a.getUniqueId(), this.f23255a.getTabName());
+            this.f23260f = cVar;
+            cVar.k0(this.f23256b);
+            this.p.add(this.f23260f);
+            e eVar = new e(this.f23255a.getPageContext(), d2.i3, this.f23255a.getUniqueId(), this.f23255a.getTabName());
+            this.f23261g = eVar;
+            eVar.k0(this.f23256b);
+            this.p.add(this.f23261g);
+            l lVar = new l(this.f23255a.getPageContext(), d2.z3, this.f23255a.getUniqueId(), this.f23255a.getTabName());
+            this.f23262h = lVar;
+            lVar.n0(this.f23256b);
+            this.p.add(this.f23262h);
+            g gVar = new g(this.f23255a.getPageContext(), d2.t3, this.f23255a.getUniqueId(), this.f23255a.getTabName());
+            this.f23263i = gVar;
+            gVar.i0(this.f23256b);
+            this.p.add(this.f23263i);
+            i iVar = new i(this.f23255a.getPageContext(), d2.v3, this.f23255a.getUniqueId(), this.f23255a.getTabName());
             this.j = iVar;
-            iVar.k0(this.f21757b);
+            iVar.k0(this.f23256b);
             this.p.add(this.j);
-            h hVar = new h(this.f21756a.getPageContext(), d2.u3, this.f21756a.getUniqueId(), this.f21756a.getTabName());
+            h hVar = new h(this.f23255a.getPageContext(), d2.w3, this.f23255a.getUniqueId(), this.f23255a.getTabName());
             this.k = hVar;
-            hVar.i0(this.f21757b);
+            hVar.i0(this.f23256b);
             this.p.add(this.k);
-            f fVar = new f(this.f21756a.getPageContext(), d2.q3, this.f21756a.getUniqueId(), this.f21756a.getTabName());
+            f fVar = new f(this.f23255a.getPageContext(), d2.s3, this.f23255a.getUniqueId(), this.f23255a.getTabName());
             this.l = fVar;
-            fVar.k0(this.f21757b);
+            fVar.k0(this.f23256b);
             this.p.add(this.l);
-            j jVar = new j(this.f21756a.getPageContext(), d2.m3, this.f21756a.getUniqueId(), this.f21756a.getTabName());
+            j jVar = new j(this.f23255a.getPageContext(), d2.o3, this.f23255a.getUniqueId(), this.f23255a.getTabName());
             this.m = jVar;
-            jVar.k0(this.f21757b);
+            jVar.k0(this.f23256b);
             this.p.add(this.m);
-            b.a.r0.o0.l.c.a aVar = new b.a.r0.o0.l.c.a(this.f21756a.getPageContext(), d2.p3, this.f21756a.getUniqueId(), this.f21756a.getTabName());
+            b.a.r0.o0.l.c.a aVar = new b.a.r0.o0.l.c.a(this.f23255a.getPageContext(), d2.r3, this.f23255a.getUniqueId(), this.f23255a.getTabName());
             this.n = aVar;
-            aVar.l0(this.f21757b);
+            aVar.l0(this.f23256b);
             this.p.add(this.n);
-            m mVar = new m(this.f21756a.getPageContext(), x1.f13487h, this.f21756a.getUniqueId(), this.f21756a.getTabName());
+            m mVar = new m(this.f23255a.getPageContext(), x1.f14269h, this.f23255a.getUniqueId(), this.f23255a.getTabName());
             this.o = mVar;
-            mVar.j0(this.f21757b);
+            mVar.j0(this.f23256b);
             this.p.add(this.o);
-            this.f21757b.addAdapters(this.p);
+            this.f23256b.addAdapters(this.p);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f21757b.getAdapter().notifyDataSetChanged();
+            this.f23256b.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void c(ArrayList<n> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.f21757b.setData(arrayList);
+            this.f23256b.setData(arrayList);
         }
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            b.a.r0.o0.l.c.b bVar = this.f21759d;
+            b.a.r0.o0.l.c.b bVar = this.f23258d;
             if (bVar != null) {
                 bVar.setFromCDN(z);
             }
-            c cVar = this.f21761f;
+            c cVar = this.f23260f;
             if (cVar != null) {
                 cVar.setFromCDN(z);
             }
-            d dVar = this.f21760e;
+            d dVar = this.f23259e;
             if (dVar != null) {
                 dVar.setFromCDN(z);
             }

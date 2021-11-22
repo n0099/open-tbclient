@@ -10,10 +10,10 @@ public abstract class bd {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f71454a = "com.xiaomi.xmsf.push.UNINSTALL";
+    public static String f72374a = "com.xiaomi.xmsf.push.UNINSTALL";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f71455b = "com.xiaomi.xmsf.push.PACKAGE_DATA_CLEARED";
+    public static String f72375b = "com.xiaomi.xmsf.push.PACKAGE_DATA_CLEARED";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

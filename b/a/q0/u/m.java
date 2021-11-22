@@ -13,22 +13,22 @@ public class m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TiePlusStat.StatType f14153a;
+    public TiePlusStat.StatType f14920a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TiePlusStat.RichTextType f14154b;
+    public TiePlusStat.RichTextType f14921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f14155c;
+    public String f14922c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f14156d;
+    public String f14923d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14157e;
+    public boolean f14924e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14158f;
+    public String f14925f;
 
     public m(TiePlusStat.StatType statType, TiePlusStat.RichTextType richTextType, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -45,18 +45,18 @@ public class m {
                 return;
             }
         }
-        this.f14153a = statType;
-        this.f14154b = richTextType;
-        this.f14155c = str;
-        this.f14156d = str2;
-        this.f14158f = str3;
+        this.f14920a = statType;
+        this.f14921b = richTextType;
+        this.f14922c = str;
+        this.f14923d = str2;
+        this.f14925f = str3;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TiePlusStaticData{statType=" + this.f14153a + ", richTextType=" + this.f14154b + ", tid='" + this.f14155c + ExtendedMessageFormat.QUOTE + ", orderId='" + this.f14156d + ExtendedMessageFormat.QUOTE + ", hasDownload=" + this.f14157e + ", packageName='" + this.f14158f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "TiePlusStaticData{statType=" + this.f14920a + ", richTextType=" + this.f14921b + ", tid='" + this.f14922c + ExtendedMessageFormat.QUOTE + ", orderId='" + this.f14923d + ExtendedMessageFormat.QUOTE + ", hasDownload=" + this.f14924e + ", packageName='" + this.f14925f + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

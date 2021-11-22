@@ -16,16 +16,16 @@ public class MemoryUpdateHeadNameMessage extends CustomResponsedMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f50499a;
+        public String f51411a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f50500b;
+        public String f51412b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f50501c;
+        public String f51413c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f50502d;
+        public int f51414d;
 
         public a() {
             Interceptable interceptable = $ic;

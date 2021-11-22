@@ -33,7 +33,7 @@ public class a {
 
     /* renamed from: com.kwad.sdk.core.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1898a {
+    public static class C1938a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -137,15 +137,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, sdkConfig)) == null) {
             Context applicationContext = context.getApplicationContext();
-            return new b.a().a(applicationContext).f("3.3.11.4").a(3031104).g(KsAdSDKImpl.get().getApiVersion()).b(KsAdSDKImpl.get().getApiVersionCode()).c(d.f65520a).e("com.kwad.sdk").h(sdkConfig.appId).i(sdkConfig.appName).j(applicationContext.getPackageName()).k(ap.p(applicationContext)).b(ap.n()).a("Android").c(sdkConfig.appId).d(C1898a.a(applicationContext)).a(new f(sdkConfig, applicationContext) { // from class: com.kwad.sdk.core.a.a.2
+            return new b.a().a(applicationContext).f("3.3.11.4").a(3031104).g(KsAdSDKImpl.get().getApiVersion()).b(KsAdSDKImpl.get().getApiVersionCode()).c(d.f66433a).e("com.kwad.sdk").h(sdkConfig.appId).i(sdkConfig.appName).j(applicationContext.getPackageName()).k(ap.p(applicationContext)).b(ap.n()).a("Android").c(sdkConfig.appId).d(C1938a.a(applicationContext)).a(new f(sdkConfig, applicationContext) { // from class: com.kwad.sdk.core.a.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SdkConfig f64282a;
+                public final /* synthetic */ SdkConfig f65195a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f64283b;
+                public final /* synthetic */ Context f65196b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -162,8 +162,8 @@ public class a {
                             return;
                         }
                     }
-                    this.f64282a = sdkConfig;
-                    this.f64283b = applicationContext;
+                    this.f65195a = sdkConfig;
+                    this.f65196b = applicationContext;
                 }
 
                 @Override // com.kwad.sdk.crash.f
@@ -173,16 +173,16 @@ public class a {
                     if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) {
                         com.kwad.sdk.crash.model.message.a aVar = new com.kwad.sdk.crash.model.message.a();
                         aVar.a(l.b());
-                        aVar.a("mKsadAppId", this.f64282a.appId);
-                        aVar.a("mKsadAppName", this.f64282a.appName);
-                        aVar.a("mKsadAppPackageName", this.f64283b.getPackageName());
-                        aVar.a("mKsadAppVersion", ap.p(this.f64283b));
+                        aVar.a("mKsadAppId", this.f65195a.appId);
+                        aVar.a("mKsadAppName", this.f65195a.appName);
+                        aVar.a("mKsadAppPackageName", this.f65196b.getPackageName());
+                        aVar.a("mKsadAppVersion", ap.p(this.f65196b));
                         aVar.a("mKsadSdkName", "com.kwad.sdk");
                         aVar.a("mKsadSdkVersion", "3.3.11.4");
                         aVar.a("mKsadSdKVersionCode", 3031104);
                         aVar.a("mKsadSdkApiVersion", KsAdSDKImpl.get().getApiVersion());
                         aVar.a("mKsadSdKApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-                        aVar.a("mKsadSdkType", d.f65520a);
+                        aVar.a("mKsadSdkType", d.f66433a);
                         return aVar;
                     }
                     return (com.kwad.sdk.crash.model.message.a) invokeI.objValue;

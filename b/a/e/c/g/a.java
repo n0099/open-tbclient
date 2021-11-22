@@ -21,15 +21,15 @@ public abstract class a {
 
     /* renamed from: b.a.e.c.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0024a extends HttpMessageListener {
+    public class C0021a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f1548a;
+        public final /* synthetic */ a f1544a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0024a(a aVar, int i2) {
+        public C0021a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -46,7 +46,7 @@ public abstract class a {
                     return;
                 }
             }
-            this.f1548a = aVar;
+            this.f1544a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public abstract class a {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f1548a.onMessage(httpResponsedMessage);
+                this.f1544a.onMessage(httpResponsedMessage);
             }
         }
     }
@@ -65,7 +65,7 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f1549a;
+        public final /* synthetic */ a f1545a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, int i2) {
@@ -85,7 +85,7 @@ public abstract class a {
                     return;
                 }
             }
-            this.f1549a = aVar;
+            this.f1545a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -93,7 +93,7 @@ public abstract class a {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.f1549a.onMessage(socketResponsedMessage);
+                this.f1545a.onMessage(socketResponsedMessage);
             }
         }
     }
@@ -121,7 +121,7 @@ public abstract class a {
     private void init(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(65538, this, i2, i3, i4) == null) {
-            this.mHttpMessageListener = new C0024a(this, i2);
+            this.mHttpMessageListener = new C0021a(this, i2);
             this.mSocketMessageListener = new b(this, i3);
         }
     }

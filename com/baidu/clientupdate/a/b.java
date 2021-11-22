@@ -13,14 +13,14 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f36880b;
+    public static b f37710b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f36881a;
+    public Context f37711a;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.clientupdate.download.a f36882c;
+    public com.baidu.clientupdate.download.a f37712c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,19 +52,19 @@ public final class b {
                 return;
             }
         }
-        this.f36881a = null;
-        this.f36881a = context.getApplicationContext();
-        this.f36882c = com.baidu.clientupdate.download.a.a(context);
+        this.f37711a = null;
+        this.f37711a = context.getApplicationContext();
+        this.f37712c = com.baidu.clientupdate.download.a.a(context);
     }
 
     public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f36880b == null) {
-                f36880b = new b(context);
+            if (f37710b == null) {
+                f37710b = new b(context);
             }
-            return f36880b;
+            return f37710b;
         }
         return (b) invokeL.objValue;
     }
@@ -72,7 +72,7 @@ public final class b {
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
-            new c(this, com.baidu.clientupdate.c.a.a(this.f36881a).a() + "/lcmanage/index.php?r=InstallAction&cv=1", bArr).start();
+            new c(this, com.baidu.clientupdate.c.a.a(this.f37711a).a() + "/lcmanage/index.php?r=InstallAction&cv=1", bArr).start();
         }
     }
 }

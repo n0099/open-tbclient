@@ -10,11 +10,11 @@ import android.net.wifi.WifiManager;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.core.util.deeplink.DeepLinkManager1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ public class cs {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f70769a;
+    public static Context f71689a;
 
     /* renamed from: a  reason: collision with other field name */
     public static a f202a;
@@ -62,13 +62,13 @@ public class cs {
     public static boolean f204a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, co> f70770b;
+    public static Map<String, co> f71690b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f70771c;
+    public static String f71691c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f70772d;
+    public static String f71692d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -118,7 +118,7 @@ public class cs {
                 return;
             }
         }
-        f70770b = new HashMap();
+        f71690b = new HashMap();
         f204a = false;
     }
 
@@ -167,8 +167,8 @@ public class cs {
         this.f207a = bVar;
         this.f206a = crVar == null ? new ct(this) : crVar;
         this.f208a = str;
-        f70771c = str2 == null ? context.getPackageName() : str2;
-        f70772d = str3 == null ? f() : str3;
+        f71691c = str2 == null ? context.getPackageName() : str2;
+        f71692d = str3 == null ? f() : str3;
     }
 
     public static synchronized cs a() {
@@ -194,7 +194,7 @@ public class cs {
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Context context = f70769a;
+            Context context = f71689a;
             if (context == null) {
                 return "unknown";
             }
@@ -208,7 +208,7 @@ public class cs {
             if (activeNetworkInfo.getType() != 1) {
                 return activeNetworkInfo.getTypeName() + "-" + activeNetworkInfo.getSubtypeName();
             }
-            WifiManager wifiManager = (WifiManager) f70769a.getSystemService("wifi");
+            WifiManager wifiManager = (WifiManager) f71689a.getSystemService("wifi");
             if (wifiManager != null && wifiManager.getConnectionInfo() != null) {
                 return "WIFI-" + wifiManager.getConnectionInfo().getSSID();
             }
@@ -254,12 +254,12 @@ public class cs {
                     }
                 }
             }
-            boolean isEmpty = f70770b.isEmpty();
-            synchronized (f70770b) {
-                for (Object obj : f70770b.values().toArray()) {
+            boolean isEmpty = f71690b.isEmpty();
+            synchronized (f71690b) {
+                for (Object obj : f71690b.values().toArray()) {
                     co coVar = (co) obj;
                     if (!coVar.b()) {
-                        f70770b.remove(coVar.f199b);
+                        f71690b.remove(coVar.f199b);
                         isEmpty = true;
                     }
                 }
@@ -272,12 +272,12 @@ public class cs {
                 arrayList2.add(null);
             }
             try {
-                String str2 = bg.e(f70769a) ? "wifi" : "wap";
+                String str2 = bg.e(f71689a) ? "wifi" : DeepLinkManager1.AD_WAP;
                 String a2 = a(arrayList, str2, this.f208a, isEmpty);
                 if (!TextUtils.isEmpty(a2)) {
                     JSONObject jSONObject3 = new JSONObject(a2);
                     com.xiaomi.channel.commonutils.logger.b.b(a2);
-                    if (StatHelper.SENSOR_OK.equalsIgnoreCase(jSONObject3.getString(ExifInterface.LATITUDE_SOUTH))) {
+                    if (StatHelper.SENSOR_OK.equalsIgnoreCase(jSONObject3.getString("S"))) {
                         JSONObject jSONObject4 = jSONObject3.getJSONObject("R");
                         String string = jSONObject4.getString("province");
                         String string2 = jSONObject4.getString("city");
@@ -309,11 +309,11 @@ public class cs {
                                 }
                                 jSONObject = jSONObject5;
                                 arrayList2.set(i3, coVar2);
-                                coVar2.f70764g = string5;
-                                coVar2.f70760c = string;
-                                coVar2.f70762e = string3;
-                                coVar2.f70763f = string4;
-                                coVar2.f70761d = string2;
+                                coVar2.f71684g = string5;
+                                coVar2.f71680c = string;
+                                coVar2.f71682e = string3;
+                                coVar2.f71683f = string4;
+                                coVar2.f71681d = string2;
                                 if (jSONObject4.has("stat-percent")) {
                                     coVar2.a(jSONObject4.getDouble("stat-percent"));
                                 }
@@ -346,9 +346,9 @@ public class cs {
                                             coVar3.a(new cx(string7, optJSONArray2.length() - i5));
                                         }
                                     }
-                                    synchronized (f70770b) {
+                                    synchronized (f71690b) {
                                         if (this.f206a.a(next)) {
-                                            f70770b.put(next, coVar3);
+                                            f71690b.put(next, coVar3);
                                         }
                                     }
                                 }
@@ -376,9 +376,9 @@ public class cs {
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, crVar, bVar, str, str2, str3}) == null) {
             synchronized (cs.class) {
                 Context applicationContext = context.getApplicationContext();
-                f70769a = applicationContext;
+                f71689a = applicationContext;
                 if (applicationContext == null) {
-                    f70769a = context;
+                    f71689a = context;
                 }
                 if (f203a == null) {
                     if (f202a == null) {
@@ -404,13 +404,13 @@ public class cs {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            co coVar = f70770b.get(str);
-            synchronized (f70770b) {
+            co coVar = f71690b.get(str);
+            synchronized (f71690b) {
                 if (coVar == null) {
                     co coVar2 = new co(str);
                     coVar2.a(604800000L);
                     coVar2.m224a(str2);
-                    f70770b.put(str, coVar2);
+                    f71690b.put(str, coVar2);
                 } else {
                     coVar.m224a(str2);
                 }
@@ -423,7 +423,7 @@ public class cs {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             try {
-                PackageInfo packageInfo = f70769a.getPackageManager().getPackageInfo(f70769a.getPackageName(), 16384);
+                PackageInfo packageInfo = f71689a.getPackageManager().getPackageInfo(f71689a.getPackageName(), 16384);
                 return packageInfo != null ? packageInfo.versionName : "0";
             } catch (Exception unused) {
                 return "0";
@@ -455,7 +455,7 @@ public class cs {
             }
             if (this.f206a.a(str)) {
                 co c2 = c(str);
-                return (c2 == null || !c2.b()) ? (z && bg.b(f70769a) && (d2 = d(str)) != null) ? d2 : new cu(this, str, c2) : c2;
+                return (c2 == null || !c2.b()) ? (z && bg.b(f71689a) && (d2 = d(str)) != null) ? d2 : new cu(this, str, c2) : c2;
             }
             return null;
         }
@@ -469,21 +469,21 @@ public class cs {
             ArrayList<String> arrayList2 = new ArrayList<>();
             ArrayList<bf> arrayList3 = new ArrayList();
             arrayList3.add(new bd("type", str));
-            if (str.equals("wap")) {
-                arrayList3.add(new bd("conpt", a(bg.m175a(f70769a))));
+            if (str.equals(DeepLinkManager1.AD_WAP)) {
+                arrayList3.add(new bd("conpt", a(bg.m175a(f71689a))));
             }
             if (z) {
                 arrayList3.add(new bd(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, "1"));
             }
             arrayList3.add(new bd("uuid", str2));
             arrayList3.add(new bd("list", bm.a(arrayList, ",")));
-            arrayList3.add(new bd("countrycode", com.xiaomi.push.service.a.a(f70769a).b()));
+            arrayList3.add(new bd("countrycode", com.xiaomi.push.service.a.a(f71689a).b()));
             co c2 = c(b());
             String format = String.format(Locale.US, "https://%1$s/gslb/?ver=4.0", b());
             if (c2 == null) {
                 arrayList2.add(format);
-                synchronized (f70770b) {
-                    co coVar = f70770b.get("resolver.msg.xiaomi.net");
+                synchronized (f71690b) {
+                    co coVar = f71690b.get("resolver.msg.xiaomi.net");
                     if (coVar != null) {
                         Iterator<String> it = coVar.a(true).iterator();
                         while (it.hasNext()) {
@@ -502,7 +502,7 @@ public class cs {
                     buildUpon.appendQueryParameter(bfVar.a(), bfVar.b());
                 }
                 try {
-                    return this.f207a == null ? bg.a(f70769a, new URL(buildUpon.toString())) : this.f207a.a(buildUpon.toString());
+                    return this.f207a == null ? bg.a(f71689a, new URL(buildUpon.toString())) : this.f207a.a(buildUpon.toString());
                 } catch (IOException e3) {
                     e2 = e3;
                 }
@@ -531,7 +531,7 @@ public class cs {
                 }
                 jSONObject.put("data", jSONArray);
                 JSONArray jSONArray2 = new JSONArray();
-                for (co coVar : f70770b.values()) {
+                for (co coVar : f71690b.values()) {
                     jSONArray2.put(coVar.m223a());
                 }
                 jSONObject.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, jSONArray2);
@@ -612,7 +612,7 @@ public class cs {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String a2 = com.xiaomi.push.service.a.a(f70769a).a();
+            String a2 = com.xiaomi.push.service.a.a(f71689a).a();
             return (TextUtils.isEmpty(a2) || PushChannelRegion.China.name().equals(a2)) ? "resolver.msg.xiaomi.net" : "resolver.msg.global.xiaomi.net";
         }
         return (String) invokeV.objValue;
@@ -660,7 +660,7 @@ public class cs {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED);
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     co a3 = new co("").a(optJSONArray2.getJSONObject(i3));
-                    f70770b.put(a3.f199b, a3);
+                    f71690b.put(a3.f199b, a3);
                 }
             }
         }
@@ -708,7 +708,7 @@ public class cs {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             synchronized (this.f209a) {
                 try {
-                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(f70769a.openFileOutput(e(), 0)));
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(f71689a.openFileOutput(e(), 0)));
                     String jSONObject = m233a().toString();
                     if (!TextUtils.isEmpty(jSONObject)) {
                         bufferedWriter.write(jSONObject);
@@ -755,7 +755,7 @@ public class cs {
             return (String) invokeV.objValue;
         }
         try {
-            file = new File(f70769a.getFilesDir(), e());
+            file = new File(f71689a.getFilesDir(), e());
         } catch (Throwable th) {
             th = th;
             bufferedReader = null;
@@ -814,7 +814,7 @@ public class cs {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) f70769a.getSystemService("activity")).getRunningAppProcesses();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) f71689a.getSystemService("activity")).getRunningAppProcesses();
             if (runningAppProcesses != null) {
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
                     if (runningAppProcessInfo.pid == Process.myPid()) {

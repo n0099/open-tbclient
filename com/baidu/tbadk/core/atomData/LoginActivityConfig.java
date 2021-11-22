@@ -115,9 +115,17 @@ public class LoginActivityConfig extends IntentConfig {
         getIntent().putExtra("login_dialog_login_listener", iLoginListener);
     }
 
+    public void setMinePageStatisticParams(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            getIntent().putExtra(LoginDialogActivityConfig.MINE_PAGE_LOGIN_DIALOG_DATA_KEY, str);
+            getIntent().putExtra(LoginDialogActivityConfig.MINE_PAGE_LOGIN_DIALOG_DATA_LOCATE, str2);
+        }
+    }
+
     public void setThirdPartyLoginForResult(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
             getIntent().putExtra("social_type", i2);
             getIntent().putExtra("activity_id", str);
             setRequestCode(11043);
@@ -127,7 +135,7 @@ public class LoginActivityConfig extends IntentConfig {
 
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             getIntent().putExtra("url", str);
         }
     }

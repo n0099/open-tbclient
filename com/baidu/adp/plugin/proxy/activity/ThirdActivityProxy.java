@@ -1,7 +1,7 @@
 package com.baidu.adp.plugin.proxy.activity;
 
 import android.content.Intent;
-import b.a.e.h.d;
+import b.a.e.i.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,20 +28,20 @@ public class ThirdActivityProxy extends ActivityProxy {
         }
     }
 
-    @Override // com.baidu.adp.plugin.proxy.activity.ActivityProxy, b.a.e.h.f.a
+    @Override // com.baidu.adp.plugin.proxy.activity.ActivityProxy, b.a.e.i.f.a
     public boolean proxyStopService(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
             String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
             d.a c2 = stringExtra != null ? d.a().c(stringExtra) : null;
-            if (c2 != null && c2.f2230a != null) {
+            if (c2 != null && c2.f2233a != null) {
                 if (d.a().b() == 1) {
                     d.a().e(stringExtra);
-                    c2.f2230a.stopSelf();
+                    c2.f2233a.stopSelf();
                     return true;
                 }
-                c2.f2230a.onDestroy();
+                c2.f2233a.onDestroy();
                 d.a().e(stringExtra);
                 return true;
             }

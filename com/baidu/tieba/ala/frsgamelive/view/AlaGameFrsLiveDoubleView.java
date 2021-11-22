@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AlaGameFrsLiveDoubleView extends b<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b.a.r0.w.g.d.b m;
     public b.a.r0.w.g.d.b n;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class AlaGameFrsLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,8 +115,8 @@ public class AlaGameFrsLiveDoubleView extends b<a> {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.m.d(aVar.f25087e);
-        this.n.d(aVar.f25088f);
+        this.m.d(aVar.f26604e);
+        this.n.d(aVar.f26605f);
     }
 
     public void q(String str) {

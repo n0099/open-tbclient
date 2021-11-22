@@ -38,7 +38,7 @@ public class m extends b.a.r0.x0.k<n, PrivateMgrApplyViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ m f24290e;
+        public final /* synthetic */ m f25753e;
 
         public a(m mVar) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class m extends b.a.r0.x0.k<n, PrivateMgrApplyViewHolder> {
                     return;
                 }
             }
-            this.f24290e = mVar;
+            this.f25753e = mVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -67,10 +67,10 @@ public class m extends b.a.r0.x0.k<n, PrivateMgrApplyViewHolder> {
                     if (tag == null || tag.toString().equals("")) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink((TbPageContext) b.a.e.a.j.a(this.f24290e.f2419e), new String[]{tag.toString()});
+                    UrlManager.getInstance().dealOneLink((TbPageContext) b.a.e.a.j.a(this.f25753e.f2421e), new String[]{tag.toString()});
                     return;
                 }
-                this.f24290e.y0(TbadkCoreApplication.getCurrentAccountInfo());
+                this.f25753e.y0(TbadkCoreApplication.getCurrentAccountInfo());
             }
         }
     }
@@ -113,7 +113,7 @@ public class m extends b.a.r0.x0.k<n, PrivateMgrApplyViewHolder> {
         this.y = new a(this);
     }
 
-    @Override // b.a.r0.x0.k, b.a.e.l.e.a
+    @Override // b.a.r0.x0.k, b.a.e.m.e.a
     public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         x0(i2, view, viewGroup, (n) obj, (PrivateMgrApplyViewHolder) viewHolder);
         return view;
@@ -129,12 +129,12 @@ public class m extends b.a.r0.x0.k<n, PrivateMgrApplyViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: w0 */
     public PrivateMgrApplyViewHolder T(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new PrivateMgrApplyViewHolder(LayoutInflater.from(this.f2419e).inflate(R.layout.private_member_apply, (ViewGroup) null)) : (PrivateMgrApplyViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new PrivateMgrApplyViewHolder(LayoutInflater.from(this.f2421e).inflate(R.layout.private_member_apply, (ViewGroup) null)) : (PrivateMgrApplyViewHolder) invokeL.objValue;
     }
 
     public View x0(int i2, View view, ViewGroup viewGroup, n nVar, PrivateMgrApplyViewHolder privateMgrApplyViewHolder) {
@@ -155,12 +155,12 @@ public class m extends b.a.r0.x0.k<n, PrivateMgrApplyViewHolder> {
                     SkinManager.setBackgroundResource(privateMgrApplyViewHolder.mAssistApplyLayout, R.drawable.frs_member_manito_bg);
                 }
                 int a2 = nVar.a();
-                String string = this.f2419e.getResources().getString(R.string.tbtitle_quota_is_full);
+                String string = this.f2421e.getResources().getString(R.string.tbtitle_quota_is_full);
                 if (a2 == -1) {
                     int e2 = nVar.e();
                     String numberUniformFormat = StringHelper.numberUniformFormat(e2);
                     if (e2 > 0) {
-                        string = String.format(this.f2419e.getResources().getString(R.string.tbtitle_apply_assist_left_num_tip), numberUniformFormat);
+                        string = String.format(this.f2421e.getResources().getString(R.string.tbtitle_apply_assist_left_num_tip), numberUniformFormat);
                         privateMgrApplyViewHolder.mAssistApplyLayout.setOnClickListener(this.y);
                         privateMgrApplyViewHolder.mAssistRemainNum.setText(string);
                         privateMgrApplyViewHolder.mAssistApplyLayout.setTag(z, nVar.d());
@@ -179,12 +179,12 @@ public class m extends b.a.r0.x0.k<n, PrivateMgrApplyViewHolder> {
                     privateMgrApplyViewHolder.mSkinType = this.r;
                 } else {
                     if (a2 == 0) {
-                        string = this.f2419e.getResources().getString(R.string.tbtitle_is_assist);
+                        string = this.f2421e.getResources().getString(R.string.tbtitle_is_assist);
                     } else if (a2 == 1) {
-                        string = this.f2419e.getResources().getString(R.string.tbtitle_assist_applying);
+                        string = this.f2421e.getResources().getString(R.string.tbtitle_assist_applying);
                     } else {
                         if (a2 == 2) {
-                            string = this.f2419e.getResources().getString(R.string.tbtitle_assist_apply_failed);
+                            string = this.f2421e.getResources().getString(R.string.tbtitle_assist_apply_failed);
                         }
                         z2 = false;
                     }
@@ -205,7 +205,7 @@ public class m extends b.a.r0.x0.k<n, PrivateMgrApplyViewHolder> {
     public final void y0(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, accountData) == null) {
-            b.a.e.a.f<?> a2 = b.a.e.a.j.a(this.f2419e);
+            b.a.e.a.f<?> a2 = b.a.e.a.j.a(this.f2421e);
             Activity pageActivity = a2 instanceof TbPageContext ? ((TbPageContext) a2).getPageActivity() : null;
             if (this.x == null) {
                 this.x = new b.a.q0.t.i.b(pageActivity);

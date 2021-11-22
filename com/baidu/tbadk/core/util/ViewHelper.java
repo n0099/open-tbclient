@@ -9,9 +9,9 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.k.a;
-import b.a.e.j.d;
-import b.a.e.j.e;
+import b.a.e.f.k.a;
+import b.a.e.k.d;
+import b.a.e.k.e;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -389,7 +389,7 @@ public class ViewHelper {
         b.a.q0.s.a0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libbd_pass_face_sdk.so"))) {
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(e.f2359a);
+            requestParams.setRunType(e.f2362a);
             requestParams.setRunNode("aps");
             requestParams.addChannel(new d("com.baidu.tieba.soloader.libbdface", (DefaultDownloadCallback) null));
             PmsManager.getInstance().execute(requestParams);

@@ -33,7 +33,7 @@ public class ShareWebActivity extends TbWebViewActivity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             e eVar = this.mView;
-            if (eVar == null || (imageView = eVar.f12730i) == null) {
+            if (eVar == null || (imageView = eVar.f13480i) == null) {
                 return;
             }
             imageView.setVisibility(8);

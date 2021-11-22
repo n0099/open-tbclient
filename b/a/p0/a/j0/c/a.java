@@ -11,13 +11,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f6248a;
+    public static final String f6550a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f6249b;
+    public static final String f6551b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f6250c;
+    public static final String f6552c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,26 +33,26 @@ public class a {
                 return;
             }
         }
-        f6248a = "content://" + b.a.p0.a.j0.b.b.f6244b + "/history_with_app";
-        f6249b = "content://" + b.a.p0.a.j0.b.b.f6244b + "/history";
-        f6250c = "content://" + b.a.p0.a.j0.b.b.f6244b + "/history_with_aps_pms";
+        f6550a = "content://" + b.a.p0.a.j0.b.b.f6546b + "/history_with_app";
+        f6551b = "content://" + b.a.p0.a.j0.b.b.f6546b + "/history";
+        f6552c = "content://" + b.a.p0.a.j0.b.b.f6546b + "/history_with_aps_pms";
     }
 
     public static Uri a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Uri.parse(f6249b) : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Uri.parse(f6551b) : (Uri) invokeV.objValue;
     }
 
     public static Uri b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Uri.parse(f6248a) : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Uri.parse(f6550a) : (Uri) invokeV.objValue;
     }
 
     public static Uri c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Uri.parse(f6250c) : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Uri.parse(f6552c) : (Uri) invokeV.objValue;
     }
 }

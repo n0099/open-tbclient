@@ -27,7 +27,7 @@ public class k extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f3238e;
+        public final /* synthetic */ k f3329e;
 
         public a(k kVar) {
             Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class k extends h {
                     return;
                 }
             }
-            this.f3238e = kVar;
+            this.f3329e = kVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3238e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3329e.c() == null) {
                 return;
             }
-            this.f3238e.c().a(view, this.f3238e.l);
+            this.f3329e.c().a(view, this.f3329e.l);
         }
     }
 
@@ -76,12 +76,12 @@ public class k extends h {
             }
         }
         this.n = new a(this);
-        int g2 = b.a.e.e.p.l.g(context, R.dimen.M_H_X003);
-        int g3 = b.a.e.e.p.l.g(context, b.a.q0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+        int g2 = b.a.e.f.p.l.g(context, R.dimen.M_H_X003);
+        int g3 = b.a.e.f.p.l.g(context, b.a.q0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
         q(g2);
         p(g3);
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13371e instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13371e.getParent() == null) {
-            this.m = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13371e;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f14151e instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f14151e.getParent() == null) {
+            this.m = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f14151e;
         } else {
             this.m = new ForumEnterLayout(context);
         }
@@ -106,14 +106,14 @@ public class k extends h {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (b.a.q0.b.d.l0()) {
-                int g2 = b.a.e.e.p.l.g(this.f3216f, R.dimen.M_H_X003);
-                int g3 = b.a.e.e.p.l.g(this.f3216f, b.a.q0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+            if (b.a.q0.b.d.p0()) {
+                int g2 = b.a.e.f.p.l.g(this.f3307f, R.dimen.M_H_X003);
+                int g3 = b.a.e.f.p.l.g(this.f3307f, b.a.q0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
                 q(g2);
                 p(g3);
                 return;
             }
-            int g4 = b.a.e.e.p.l.g(this.f3216f, R.dimen.tbds10);
+            int g4 = b.a.e.f.p.l.g(this.f3307f, R.dimen.tbds10);
             q(g4);
             p(0);
             u(this.m, g4, 0);
@@ -127,7 +127,7 @@ public class k extends h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.l = aVar;
-            this.m.setSourceForPb(this.f3215e.h());
+            this.m.setSourceForPb(this.f3306e.h());
             this.m.setData(aVar);
         }
     }

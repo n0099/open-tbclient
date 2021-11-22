@@ -13,7 +13,7 @@ public class d implements com.baidu.mapsdkplatform.comapi.map.o {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaiduMap f39570a;
+    public final /* synthetic */ BaiduMap f40402a;
 
     public d(BaiduMap baiduMap) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class d implements com.baidu.mapsdkplatform.comapi.map.o {
                 return;
             }
         }
-        this.f39570a = baiduMap;
+        this.f40402a = baiduMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.o
@@ -43,22 +43,22 @@ public class d implements com.baidu.mapsdkplatform.comapi.map.o {
         HeatMap heatMap2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i2, i3, i4)) == null) {
-            lock = this.f39570a.I;
+            lock = this.f40402a.I;
             lock.lock();
             try {
-                heatMap = this.f39570a.H;
+                heatMap = this.f40402a.H;
                 if (heatMap != null) {
-                    heatMap2 = this.f39570a.H;
+                    heatMap2 = this.f40402a.H;
                     Tile a2 = heatMap2.a(i2, i3, i4);
                     if (a2 != null) {
                         return a2.toBundle();
                     }
                 }
-                lock3 = this.f39570a.I;
+                lock3 = this.f40402a.I;
                 lock3.unlock();
                 return null;
             } finally {
-                lock2 = this.f39570a.I;
+                lock2 = this.f40402a.I;
                 lock2.unlock();
             }
         }

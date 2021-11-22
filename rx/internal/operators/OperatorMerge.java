@@ -30,10 +30,10 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f72625e;
+    public final boolean f73544e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f72626f;
+    public final int f73545f;
 
     /* loaded from: classes3.dex */
     public static final class MergeProducer<T> extends AtomicLong implements f {
@@ -89,7 +89,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final OperatorMerge<Object> f72627a;
+        public static final OperatorMerge<Object> f73546a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -105,7 +105,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                     return;
                 }
             }
-            f72627a = new OperatorMerge<>(true, Integer.MAX_VALUE);
+            f73546a = new OperatorMerge<>(true, Integer.MAX_VALUE);
         }
     }
 
@@ -114,7 +114,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final OperatorMerge<Object> f72628a;
+        public static final OperatorMerge<Object> f73547a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -130,7 +130,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                     return;
                 }
             }
-            f72628a = new OperatorMerge<>(false, Integer.MAX_VALUE);
+            f73547a = new OperatorMerge<>(false, Integer.MAX_VALUE);
         }
     }
 
@@ -141,7 +141,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final d<T> f72629i;
+        public final d<T> f73548i;
         public final long j;
         public volatile boolean k;
         public volatile h.o.d.f l;
@@ -160,7 +160,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                     return;
                 }
             }
-            n = h.o.d.f.f72077g / 4;
+            n = h.o.d.f.f72996g / 4;
         }
 
         public c(d<T> dVar, long j) {
@@ -178,7 +178,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                     return;
                 }
             }
-            this.f72629i = dVar;
+            this.f73548i = dVar;
             this.j = j;
         }
 
@@ -186,7 +186,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = h.o.d.f.f72077g;
+                int i2 = h.o.d.f.f72996g;
                 this.m = i2;
                 e(i2);
             }
@@ -200,7 +200,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                     this.m = i2;
                     return;
                 }
-                int i3 = h.o.d.f.f72077g;
+                int i3 = h.o.d.f.f72996g;
                 this.m = i3;
                 int i4 = i3 - i2;
                 if (i4 > 0) {
@@ -214,7 +214,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.k = true;
-                this.f72629i.i();
+                this.f73548i.i();
             }
         }
 
@@ -223,8 +223,8 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
                 this.k = true;
-                this.f72629i.o().offer(th);
-                this.f72629i.i();
+                this.f73548i.o().offer(th);
+                this.f73548i.i();
             }
         }
 
@@ -232,7 +232,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.f72629i.w(this, t);
+                this.f73548i.w(this, t);
             }
         }
     }
@@ -244,7 +244,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final j<? super T> f72630i;
+        public final j<? super T> f73549i;
         public final boolean j;
         public final int k;
         public MergeProducer<T> l;
@@ -293,7 +293,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                     return;
                 }
             }
-            this.f72630i = jVar;
+            this.f73549i = jVar;
             this.j = z2;
             this.k = i2;
             this.s = new Object();
@@ -328,7 +328,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f72630i.isUnsubscribed()) {
+                if (this.f73549i.isUnsubscribed()) {
                     return true;
                 }
                 ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.o;
@@ -383,7 +383,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                 return;
             }
             try {
-                j<? super T> jVar = this.f72630i;
+                j<? super T> jVar = this.f73549i;
                 while (!h()) {
                     Queue<Object> queue = this.m;
                     long j2 = this.l.get();
@@ -563,7 +563,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048581, this, t, j) == null) {
                 try {
-                    this.f72630i.onNext(t);
+                    this.f73549i.onNext(t);
                     if (j != Long.MAX_VALUE) {
                         this.l.produced(1);
                     }
@@ -592,7 +592,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{cVar, t, Long.valueOf(j)}) == null) {
                 try {
-                    this.f72630i.onNext(t);
+                    this.f73549i.onNext(t);
                     if (j != Long.MAX_VALUE) {
                         this.l.produced(1);
                     }
@@ -708,7 +708,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                 if (queue == null) {
                     int i2 = this.k;
                     if (i2 == Integer.MAX_VALUE) {
-                        queue = new h.o.d.i.f<>(h.o.d.f.f72077g);
+                        queue = new h.o.d.i.f<>(h.o.d.f.f72996g);
                     } else {
                         if (i.a(i2)) {
                             if (f0.b()) {
@@ -798,9 +798,9 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
             if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
                 ArrayList arrayList = new ArrayList(this.o);
                 if (arrayList.size() == 1) {
-                    this.f72630i.onError((Throwable) arrayList.get(0));
+                    this.f73549i.onError((Throwable) arrayList.get(0));
                 } else {
-                    this.f72630i.onError(new CompositeException(arrayList));
+                    this.f73549i.onError(new CompositeException(arrayList));
                 }
             }
         }
@@ -886,8 +886,8 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                 return;
             }
         }
-        this.f72625e = z;
-        this.f72626f = i2;
+        this.f73544e = z;
+        this.f73545f = i2;
     }
 
     public static <T> OperatorMerge<T> a(boolean z) {
@@ -895,9 +895,9 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
             if (z) {
-                return (OperatorMerge<T>) a.f72627a;
+                return (OperatorMerge<T>) a.f73546a;
             }
-            return (OperatorMerge<T>) b.f72628a;
+            return (OperatorMerge<T>) b.f73547a;
         }
         return (OperatorMerge) invokeZ.objValue;
     }
@@ -911,7 +911,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
-            d dVar = new d(jVar, this.f72625e, this.f72626f);
+            d dVar = new d(jVar, this.f73544e, this.f73545f);
             MergeProducer<T> mergeProducer = new MergeProducer<>(dVar);
             dVar.l = mergeProducer;
             jVar.b(dVar);

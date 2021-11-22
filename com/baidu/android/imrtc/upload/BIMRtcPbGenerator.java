@@ -175,7 +175,7 @@ public final class BIMRtcPbGenerator {
                 if (actionList.size() <= 0) {
                     return null;
                 }
-                return IMPushPb.PushImClient.newBuilder().setCommon(getIMCommon(context)).setSdkName(SDK_NAME).setSdkVersion(103010L).addAllActions(actionList).build().toByteArray();
+                return IMPushPb.PushImClient.newBuilder().setCommon(getIMCommon(context)).setSdkName(SDK_NAME).setSdkVersion(103050L).addAllActions(actionList).build().toByteArray();
             } catch (Exception unused) {
                 return null;
             }

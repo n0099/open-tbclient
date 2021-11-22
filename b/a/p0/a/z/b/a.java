@@ -1,7 +1,7 @@
 package b.a.p0.a.z.b;
 
 import android.text.TextUtils;
-import b.a.p0.a.c2.f.a0;
+import b.a.p0.a.f2.f.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -17,12 +17,12 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class a extends a0 {
+public abstract class a extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(b.a.p0.a.c2.e eVar, String str) {
+    public a(b.a.p0.a.f2.e eVar, String str) {
         super(eVar, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,7 +54,7 @@ public abstract class a extends a0 {
                 jSONObject.putOpt(entry.getKey(), entry.getValue());
             }
         } catch (JSONException e2) {
-            if (a0.f4160b) {
+            if (z.f5228b) {
                 e2.printStackTrace();
             }
         }

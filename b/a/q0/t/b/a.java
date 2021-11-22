@@ -1,6 +1,6 @@
 package b.a.q0.t.b;
 
-import b.a.e.e.a.f.d;
+import b.a.e.f.a.f.d;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,14 +16,14 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f13731c;
+    public static volatile a f14496c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13732a;
+    public boolean f14497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13733b;
+    public int f14498b;
 
     static {
         InterceptResult invokeClinit;
@@ -53,8 +53,8 @@ public class a {
                 return;
             }
         }
-        this.f13732a = false;
-        this.f13733b = 0;
+        this.f14497a = false;
+        this.f14498b = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.setSdCard(true);
@@ -62,10 +62,10 @@ public class a {
             if (dVar.call()) {
                 String a2 = dVar.a();
                 if (a2 != null) {
-                    this.f13733b = Integer.parseInt(a2);
+                    this.f14498b = Integer.parseInt(a2);
                 }
-                if (this.f13733b == 1 || this.f13733b == 2) {
-                    this.f13732a = true;
+                if (this.f14498b == 1 || this.f14498b == 2) {
+                    this.f14497a = true;
                 }
             }
         } catch (Throwable th) {
@@ -77,14 +77,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f13731c == null) {
+            if (f14496c == null) {
                 synchronized (a.class) {
-                    if (f13731c == null) {
-                        f13731c = new a();
+                    if (f14496c == null) {
+                        f14496c = new a();
                     }
                 }
             }
-            return f13731c;
+            return f14496c;
         }
         return (a) invokeV.objValue;
     }
@@ -93,7 +93,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f13732a ? "pub_env=" + this.f13733b + ";" : "";
+            return this.f14497a ? "pub_env=" + this.f14498b + ";" : "";
         }
         return (String) invokeV.objValue;
     }
@@ -101,12 +101,12 @@ public class a {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13733b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14498b : invokeV.intValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13732a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14497a : invokeV.booleanValue;
     }
 }

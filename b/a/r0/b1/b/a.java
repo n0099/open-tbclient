@@ -15,13 +15,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f14897a;
+    public int f16389a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14898b;
+    public String f16390b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<Integer> f14899c;
+    public ArrayList<Integer> f16391c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,19 +40,19 @@ public class a {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14897a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f16389a : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14898b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f16390b : (String) invokeV.objValue;
     }
 
     public ArrayList<Integer> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14899c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f16391c : (ArrayList) invokeV.objValue;
     }
 
     public void d(PresentCategoryList presentCategoryList) {
@@ -60,14 +60,14 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, presentCategoryList) == null) || presentCategoryList == null) {
             return;
         }
-        this.f14897a = presentCategoryList.category_id.intValue();
-        this.f14898b = presentCategoryList.category_name;
+        this.f16389a = presentCategoryList.category_id.intValue();
+        this.f16390b = presentCategoryList.category_name;
         List<Integer> list = presentCategoryList.gift_ids;
         if (list == null || list.size() <= 0) {
             return;
         }
         ArrayList<Integer> arrayList = new ArrayList<>();
-        this.f14899c = arrayList;
+        this.f16391c = arrayList;
         arrayList.addAll(presentCategoryList.gift_ids);
     }
 }

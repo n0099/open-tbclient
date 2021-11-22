@@ -2,7 +2,7 @@ package b.a.r0.r.e;
 
 import android.os.Handler;
 import android.os.Message;
-import b.a.e.e.p.j;
+import b.a.e.f.p.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.ad.download.AdDownloadData;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
@@ -17,19 +17,19 @@ public class d extends Handler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<AdDownloadData> f22965a;
+    public WeakReference<AdDownloadData> f24497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<b.a.r0.r.e.g.a> f22966b;
+    public WeakReference<b.a.r0.r.e.g.a> f24498b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f22967c;
+    public int f24499c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f22968d;
+    public int f24500d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f22969e;
+    public long f24501e;
 
     public d(b.a.r0.r.e.g.a aVar, AdDownloadData adDownloadData) {
         Interceptable interceptable = $ic;
@@ -46,11 +46,11 @@ public class d extends Handler {
                 return;
             }
         }
-        this.f22965a = new WeakReference<>(adDownloadData);
-        this.f22966b = new WeakReference<>(aVar);
-        this.f22968d = b.a.r0.a.h().b();
-        this.f22967c = b.a.r0.a.h().c();
-        this.f22969e = b.a.r0.a.h().a();
+        this.f24497a = new WeakReference<>(adDownloadData);
+        this.f24498b = new WeakReference<>(aVar);
+        this.f24500d = b.a.r0.a.h().b();
+        this.f24499c = b.a.r0.a.h().c();
+        this.f24501e = b.a.r0.a.h().a();
         d(adDownloadData.getContentLength());
     }
 
@@ -69,7 +69,7 @@ public class d extends Handler {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Message obtain = Message.obtain();
             obtain.what = 1;
-            sendMessageDelayed(obtain, (this.f22967c * 1000) / this.f22968d);
+            sendMessageDelayed(obtain, (this.f24499c * 1000) / this.f24500d);
         }
     }
 
@@ -85,9 +85,9 @@ public class d extends Handler {
         if (!(interceptable == null || interceptable.invokeJ(1048579, this, j) == null) || j <= 1) {
             return;
         }
-        long j2 = this.f22969e;
+        long j2 = this.f24501e;
         if (j2 > 0) {
-            this.f22967c = (int) (((((float) j) * this.f22968d) / 100.0f) / ((float) j2));
+            this.f24499c = (int) (((((float) j) * this.f24500d) / 100.0f) / ((float) j2));
         }
     }
 
@@ -100,10 +100,10 @@ public class d extends Handler {
                 c();
                 return;
             }
-            AdDownloadData adDownloadData = this.f22965a.get();
-            b.a.r0.r.e.g.a aVar = this.f22966b.get();
+            AdDownloadData adDownloadData = this.f24497a.get();
+            b.a.r0.r.e.g.a aVar = this.f24498b.get();
             if (adDownloadData != null && aVar != null) {
-                if (this.f22968d <= 0) {
+                if (this.f24500d <= 0) {
                     adDownloadData.setFakePercent(0);
                     c();
                     return;
@@ -115,7 +115,7 @@ public class d extends Handler {
                     return;
                 } else {
                     int fakePercent = adDownloadData.getFakePercent();
-                    if (fakePercent >= this.f22968d) {
+                    if (fakePercent >= this.f24500d) {
                         c();
                         return;
                     }

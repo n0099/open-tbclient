@@ -14,13 +14,13 @@ public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f49706a;
+    public int f50618a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f49707b;
+    public int f50619b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f49708c;
+    public int f50620c;
 
     public CommonSpaceItemDecoration(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.f49706a = i2;
-        this.f49707b = i3;
-        this.f49708c = i4;
+        this.f50618a = i2;
+        this.f50619b = i3;
+        this.f50620c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -50,23 +50,23 @@ public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
             LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
             if (linearLayoutManager.getOrientation() == 1) {
                 if (recyclerView.getChildAdapterPosition(view) == 0) {
-                    rect.top = this.f49706a;
+                    rect.top = this.f50618a;
                 } else {
-                    rect.top = this.f49707b;
+                    rect.top = this.f50619b;
                 }
                 if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                    rect.bottom = this.f49708c;
+                    rect.bottom = this.f50620c;
                     return;
                 }
                 return;
             }
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.left = this.f49706a;
+                rect.left = this.f50618a;
             } else {
-                rect.left = this.f49707b;
+                rect.left = this.f50619b;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                rect.right = this.f49708c;
+                rect.right = this.f50620c;
             }
         }
     }

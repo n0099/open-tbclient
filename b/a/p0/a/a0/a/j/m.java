@@ -14,7 +14,7 @@ public class m extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f3854a;
+    public Rect f3948a;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -33,13 +33,13 @@ public class m extends a {
     @Override // b.a.p0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || this.f3854a == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || this.f3948a == null) {
             return;
         }
-        int alpha = bVar.f3799f.getAlpha();
-        bVar.c(bVar.f3799f);
-        canvas.drawRect(this.f3854a, bVar.f3799f);
-        bVar.f3799f.setAlpha(alpha);
+        int alpha = bVar.f3893f.getAlpha();
+        bVar.c(bVar.f3893f);
+        canvas.drawRect(this.f3948a, bVar.f3893f);
+        bVar.f3893f.setAlpha(alpha);
     }
 
     @Override // b.a.p0.a.a0.a.j.a
@@ -48,12 +48,12 @@ public class m extends a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
                 if (jSONArray.length() == 4) {
-                    int g2 = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(0));
-                    int g3 = b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(1));
-                    this.f3854a = new Rect(g2, g3, b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(2)) + g2, b.a.p0.a.v2.n0.g((float) jSONArray.optDouble(3)) + g3);
+                    int g2 = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(0));
+                    int g3 = b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(1));
+                    this.f3948a = new Rect(g2, g3, b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(2)) + g2, b.a.p0.a.z2.n0.g((float) jSONArray.optDouble(3)) + g3);
                 }
             } catch (Exception e2) {
-                if (b.a.p0.a.k.f6397a) {
+                if (b.a.p0.a.k.f6863a) {
                     e2.printStackTrace();
                 }
             }

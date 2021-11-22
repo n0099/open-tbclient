@@ -1,7 +1,7 @@
 package b.a.r0.w.l.g.d.c;
 
 import android.text.TextUtils;
-import b.a.e.l.e.n;
+import b.a.e.m.e.n;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,22 +22,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f25271a;
+    public TbPageContext f26788a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f25272b;
+    public BdTypeListView f26789b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b.a.e.l.e.a> f25273c;
+    public List<b.a.e.m.e.a> f26790c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AlaEnterEffectAdapter f25274d;
+    public AlaEnterEffectAdapter f26791d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlaEnterEffectCategoryAdapter f25275e;
+    public AlaEnterEffectCategoryAdapter f26792e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f25276f;
+    public List<n> f26793f;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -54,29 +54,29 @@ public class a {
                 return;
             }
         }
-        this.f25271a = tbPageContext;
-        this.f25272b = bdTypeListView;
+        this.f26788a = tbPageContext;
+        this.f26789b = bdTypeListView;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f25273c = new ArrayList();
-            AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.f25271a.getPageActivity());
-            this.f25274d = alaEnterEffectAdapter;
-            this.f25273c.add(alaEnterEffectAdapter);
-            AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.f25271a.getPageActivity());
-            this.f25275e = alaEnterEffectCategoryAdapter;
-            this.f25273c.add(alaEnterEffectCategoryAdapter);
-            this.f25272b.addAdapters(this.f25273c);
+            this.f26790c = new ArrayList();
+            AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.f26788a.getPageActivity());
+            this.f26791d = alaEnterEffectAdapter;
+            this.f26790c.add(alaEnterEffectAdapter);
+            AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.f26788a.getPageActivity());
+            this.f26792e = alaEnterEffectCategoryAdapter;
+            this.f26790c.add(alaEnterEffectCategoryAdapter);
+            this.f26789b.addAdapters(this.f26790c);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (b.a.e.l.e.a aVar : this.f25273c) {
+            for (b.a.e.m.e.a aVar : this.f26790c) {
                 aVar.O();
             }
         }
@@ -87,14 +87,14 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f25272b.setData(list);
-        this.f25276f = this.f25272b.getData();
+        this.f26789b.setData(list);
+        this.f26793f = this.f26789b.getData();
     }
 
     public void d(String str, int i2) {
         List<n> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) || StringUtils.isNull(str) || (list = this.f25276f) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) || StringUtils.isNull(str) || (list = this.f26793f) == null) {
             return;
         }
         for (n nVar : list) {
@@ -111,7 +111,7 @@ public class a {
     public void e(String str, boolean z) {
         List<n> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) || TextUtils.isEmpty(str) || (list = this.f25276f) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) || TextUtils.isEmpty(str) || (list = this.f26793f) == null) {
             return;
         }
         for (n nVar : list) {
@@ -129,7 +129,7 @@ public class a {
     public void f(String str, boolean z) {
         List<n> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) || TextUtils.isEmpty(str) || (list = this.f25276f) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) || TextUtils.isEmpty(str) || (list = this.f26793f) == null) {
             return;
         }
         for (n nVar : list) {

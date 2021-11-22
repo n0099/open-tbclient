@@ -36,45 +36,45 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static a f12908i;
+    public static a f13688i;
     public static CustomMessageListener j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f12909a;
+    public int f13689a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12910b;
+    public int f13690b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12911c;
+    public int f13691c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12912d;
+    public int f13692d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12913e;
+    public int f13693e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewUserRedPackageData f12914f;
+    public NewUserRedPackageData f13694f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f12915g;
+    public CustomMessageListener f13695g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final b.a.e.e.l.c<b.a.e.l.d.a> f12916h;
+    public final b.a.e.f.l.c<b.a.e.m.d.a> f13696h;
 
     /* renamed from: b.a.q0.s.d0.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0674a extends CustomMessageListener {
+    public class C0709a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f12917a;
+        public final /* synthetic */ a f13697a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0674a(a aVar, int i2) {
+        public C0709a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -91,7 +91,7 @@ public class a {
                     return;
                 }
             }
-            this.f12917a = aVar;
+            this.f13697a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -100,7 +100,7 @@ public class a {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ShareEvent) && ((ShareEvent) customResponsedMessage.getData()).status == 1) {
                 f.c(((ShareEvent) customResponsedMessage.getData()).channel);
-                this.f12917a.k();
+                this.f13697a.k();
             }
         }
     }
@@ -141,12 +141,12 @@ public class a {
     }
 
     /* loaded from: classes4.dex */
-    public class c extends b.a.e.e.l.c<b.a.e.l.d.a> {
+    public class c extends b.a.e.f.l.c<b.a.e.m.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f12918a;
+        public final /* synthetic */ a f13698a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -163,18 +163,18 @@ public class a {
                     return;
                 }
             }
-            this.f12918a = aVar;
+            this.f13698a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.e.e.l.c
-        public void onLoaded(b.a.e.l.d.a aVar, String str, int i2) {
+        @Override // b.a.e.f.l.c
+        public void onLoaded(b.a.e.m.d.a aVar, String str, int i2) {
             Activity currentActivity;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null || this.f12918a.f12914f == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || this.f12918a.d(currentActivity) == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null || this.f13698a.f13694f == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || this.f13698a.d(currentActivity) == null) {
                 return;
             }
-            TbSingleton.getInstance().setNewUserRedPackageData(this.f12918a.f12914f);
+            TbSingleton.getInstance().setNewUserRedPackageData(this.f13698a.f13694f);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921532));
         }
     }
@@ -208,22 +208,22 @@ public class a {
                 return;
             }
         }
-        this.f12915g = new C0674a(this, 2921406);
-        this.f12916h = new c(this);
+        this.f13695g = new C0709a(this, 2921406);
+        this.f13696h = new c(this);
     }
 
     public static a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f12908i == null) {
+            if (f13688i == null) {
                 synchronized (a.class) {
-                    if (f12908i == null) {
-                        f12908i = new a();
+                    if (f13688i == null) {
+                        f13688i = new a();
                     }
                 }
             }
-            return f12908i;
+            return f13688i;
         }
         return (a) invokeV.objValue;
     }
@@ -256,7 +256,7 @@ public class a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.f12915g);
+            MessageManager.getInstance().registerListener(this.f13695g);
             MessageManager.getInstance().registerListener(j);
         }
     }
@@ -266,17 +266,17 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, missionInfo) == null) || missionInfo == null || missionInfo.activityid.intValue() == 0 || missionInfo.missionid.intValue() == 0) {
             return;
         }
-        this.f12911c = missionInfo.activityid.intValue();
-        this.f12909a = missionInfo.missionid.intValue();
-        this.f12910b = missionInfo.total_limit.intValue();
-        this.f12913e = missionInfo.cleartype.intValue();
-        this.f12912d = missionInfo.cleartime.intValue();
+        this.f13691c = missionInfo.activityid.intValue();
+        this.f13689a = missionInfo.missionid.intValue();
+        this.f13690b = missionInfo.total_limit.intValue();
+        this.f13693e = missionInfo.cleartype.intValue();
+        this.f13692d = missionInfo.cleartime.intValue();
         b.a.q0.a.c cVar = new b.a.q0.a.c();
-        cVar.X(this.f12912d);
-        cVar.Y(this.f12913e);
-        b.a.q0.s.e0.b.j().v("task_share_thread_success_data_total_limit", this.f12910b);
-        b.a.q0.s.e0.b.j().v("task_share_thread_success_data_mission_id", this.f12909a);
-        b.a.q0.s.e0.b.j().v("task_share_thread_success_data_action_id", this.f12911c);
+        cVar.X(this.f13692d);
+        cVar.Y(this.f13693e);
+        b.a.q0.s.e0.b.j().v("task_share_thread_success_data_total_limit", this.f13690b);
+        b.a.q0.s.e0.b.j().v("task_share_thread_success_data_mission_id", this.f13689a);
+        b.a.q0.s.e0.b.j().v("task_share_thread_success_data_action_id", this.f13691c);
         b.a.q0.s.e0.b.j().w("task_share_thread_success_data_specific_clear_time", cVar.c());
     }
 
@@ -308,12 +308,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || bVar == null) {
             return;
         }
-        ActiveCenterData activeCenterData = bVar.f11685g;
-        if ((activeCenterData != null && activeCenterData.is_new_window) || !bVar.f11680b || StringUtils.isNull(bVar.f11681c) || TbSingleton.getInstance().isNewUserRedPackageShowed() || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (d2 = d(currentActivity)) == null) {
+        ActiveCenterData activeCenterData = bVar.f12436g;
+        if ((activeCenterData != null && activeCenterData.is_new_window) || !bVar.f12431b || StringUtils.isNull(bVar.f12432c) || TbSingleton.getInstance().isNewUserRedPackageShowed() || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (d2 = d(currentActivity)) == null) {
             return;
         }
-        this.f12914f = bVar.f11684f;
-        b.a.e.e.l.d.h().k(this.f12914f.topPicUrl, 10, this.f12916h, 0, 0, d2.getUniqueId(), new Object[0]);
+        this.f13694f = bVar.f12435f;
+        b.a.e.f.l.d.h().k(this.f13694f.topPicUrl, 10, this.f13696h, 0, 0, d2.getUniqueId(), new Object[0]);
     }
 
     public void k() {

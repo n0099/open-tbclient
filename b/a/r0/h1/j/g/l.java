@@ -3,10 +3,10 @@ package b.a.r0.h1.j.g;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import b.a.e.l.e.s;
-import b.a.e.l.e.w;
+import b.a.e.m.e.s;
+import b.a.e.m.e.w;
 import b.a.l.l0;
-import b.a.l.v0.a;
+import b.a.l.w0.a;
 import b.a.q0.s.q.c2;
 import b.a.q0.s.q.d2;
 import com.baidu.adp.BdUniqueId;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class l extends b.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
+public class l extends b.a.e.m.e.a<c2, ThreadCardViewHolder<d2>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId m;
@@ -38,7 +38,7 @@ public class l extends b.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.l.s f17542e;
+        public final /* synthetic */ b.a.l.s f19011e;
 
         public a(l lVar, b.a.l.s sVar) {
             Interceptable interceptable = $ic;
@@ -55,11 +55,11 @@ public class l extends b.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
                     return;
                 }
             }
-            this.f17542e = sVar;
+            this.f19011e = sVar;
         }
 
-        @Override // b.a.e.l.e.w
-        public void b(View view, b.a.e.l.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
+        @Override // b.a.e.m.e.w
+        public void b(View view, b.a.e.m.e.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j) {
             boolean z;
             c2 c2Var;
             d2 d2Var;
@@ -69,14 +69,14 @@ public class l extends b.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
                     int a2 = b.a.q0.s.g0.p.c.a(c2Var.w.s0().button_link_type.intValue(), c2Var.w.s0().apk_detail != null ? c2Var.w.s0().apk_detail.pkg_source.intValue() : 0);
                     ItemData itemData = new ItemData();
                     itemData.parseProto(c2Var.w.s0());
-                    ItemCardHelper.q(this.f17542e.t(), c2Var.w.s0().item_id.longValue(), this.f17542e.s(itemData), c2Var.w.s1(), a2, "", 2);
+                    ItemCardHelper.q(this.f19011e.t(), c2Var.w.s0().item_id.longValue(), this.f19011e.s(itemData), c2Var.w.t1(), a2, "", 2);
                     ItemClickJumpUtil.itemClickJump(c2Var.w.s0().forum_name, String.valueOf(c2Var.w.s0().item_id), 1, 4);
                     return;
                 }
                 d2 d2Var2 = ((c2) nVar).w;
                 d2Var2.objType = 1;
                 ThreadCardUtils.jumpToPB((b.a.q0.s.q.a) d2Var2, view.getContext(), 0, false);
-                ((ThreadCardViewHolder) view.getTag()).getCardView().n(new a.C0090a(1));
+                ((ThreadCardViewHolder) view.getTag()).getCardView().n(new a.C0092a(1));
             }
         }
     }
@@ -105,7 +105,7 @@ public class l extends b.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: g0 */
     public ThreadCardViewHolder<d2> T(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -128,7 +128,7 @@ public class l extends b.a.e.l.e.a<c2, ThreadCardViewHolder<d2>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.l.e.a
+    @Override // b.a.e.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, c2 c2Var, ThreadCardViewHolder<d2> threadCardViewHolder) {
         InterceptResult invokeCommon;

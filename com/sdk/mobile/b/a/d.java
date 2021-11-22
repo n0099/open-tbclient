@@ -14,13 +14,13 @@ public final class d implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f68281a;
+    public Handler f69201a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f68282b;
+    public long f69202b;
 
     /* renamed from: c  reason: collision with root package name */
-    public /* synthetic */ a f68283c;
+    public /* synthetic */ a f69203c;
 
     public d(a aVar, long j) {
         Interceptable interceptable = $ic;
@@ -37,22 +37,22 @@ public final class d implements Runnable {
                 return;
             }
         }
-        this.f68283c = aVar;
-        this.f68281a = new Handler(Looper.getMainLooper());
-        this.f68282b = j;
+        this.f69203c = aVar;
+        this.f69201a = new Handler(Looper.getMainLooper());
+        this.f69202b = j;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f68281a.postDelayed(this, this.f68282b);
+            this.f69201a.postDelayed(this, this.f69202b);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f68281a.removeCallbacks(this);
+            this.f69201a.removeCallbacks(this);
         }
     }
 
@@ -64,15 +64,15 @@ public final class d implements Runnable {
         f fVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            fVar = this.f68283c.f68274e;
+            fVar = this.f69203c.f69194e;
             if (fVar != null) {
-                str = a.f68270a;
-                bool = a.f68271b;
+                str = a.f69190a;
+                bool = a.f69191b;
                 com.sdk.base.framework.a.a.c.c(str, "超时，已取消请求", bool);
-                fVar2 = this.f68283c.f68274e;
+                fVar2 = this.f69203c.f69194e;
                 fVar2.a();
             }
-            this.f68283c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
+            this.f69203c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
         }
     }
 }

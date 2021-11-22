@@ -223,7 +223,7 @@ public class RomUtils {
     public static String getIncrementalVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? getProp("ro.build.version.incremental") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? getProp(PROP_RO_BUILD_VERSION_INCREMENTAL) : (String) invokeV.objValue;
     }
 
     public static String getManufacturer() {

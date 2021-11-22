@@ -18,14 +18,14 @@ public class f extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f24512g;
+    public static final BdUniqueId f26029g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d2 f24513e;
+    public d2 f26030e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f24514f;
+    public int f26031f;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class f extends BaseCardInfo {
                 return;
             }
         }
-        f24512g = BdUniqueId.gen();
+        f26029g = BdUniqueId.gen();
     }
 
     public f() {
@@ -61,39 +61,39 @@ public class f extends BaseCardInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d2 d2Var = this.f24513e;
-            if (d2Var == null || d2Var.q1() == null || this.f24513e.q1().video_height.intValue() <= 0) {
+            d2 d2Var = this.f26030e;
+            if (d2Var == null || d2Var.r1() == null || this.f26030e.r1().video_height.intValue() <= 0) {
                 return 0.0f;
             }
-            return this.f24513e.q1().video_width.intValue() / this.f24513e.q1().video_height.intValue();
+            return this.f26030e.r1().video_width.intValue() / this.f26030e.r1().video_height.intValue();
         }
         return invokeV.floatValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.l.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f24512g : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f26029g : (BdUniqueId) invokeV.objValue;
     }
 
     public StatisticItem i(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
-            d2 d2Var = this.f24513e;
+            d2 d2Var = this.f26030e;
             if (d2Var == null) {
                 return null;
             }
             int i2 = 1;
             if (d2Var.o0()) {
                 i2 = 2;
-            } else if (this.f24513e.p1() != null && this.f24513e.p1().f13385a != 0) {
+            } else if (this.f26030e.q1() != null && this.f26030e.q1().f14165a != 0) {
                 i2 = 3;
             }
-            StatisticItem param = new StatisticItem(str).param("obj_id", this.f24513e.s1()).param("obj_type", i2).param("obj_param1", this.f24513e.Y0).param("obj_source", this.f24513e.X0).param("obj_locate", this.f24514f).param("ab_tag", this.f24513e.Z0).param(TiebaStatic.Params.OBJ_PARAM3, g() > 1.0f ? "1" : "0");
+            StatisticItem param = new StatisticItem(str).param("obj_id", this.f26030e.t1()).param("obj_type", i2).param("obj_param1", this.f26030e.Y0).param("obj_source", this.f26030e.X0).param("obj_locate", this.f26031f).param("ab_tag", this.f26030e.Z0).param(TiebaStatic.Params.OBJ_PARAM3, g() > 1.0f ? "1" : "0");
             if (z) {
-                param.param(TiebaStatic.Params.OBJ_PARAM2, this.f24513e.n0() > 0 ? "0" : "1");
+                param.param(TiebaStatic.Params.OBJ_PARAM2, this.f26030e.n0() > 0 ? "0" : "1");
             }
             return param;
         }

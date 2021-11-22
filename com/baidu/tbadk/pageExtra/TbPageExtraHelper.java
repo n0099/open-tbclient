@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import b.a.e.e.m.e;
+import b.a.e.f.m.e;
 import b.a.q0.m0.c;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -38,10 +38,10 @@ public class TbPageExtraHelper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f46005a;
+    public static String f46855a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, String> f46006b;
+    public static HashMap<String, String> f46856b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -50,7 +50,7 @@ public class TbPageExtraHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f46007e;
+        public final /* synthetic */ String f46857e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -67,14 +67,14 @@ public class TbPageExtraHelper {
                     return;
                 }
             }
-            this.f46007e = str;
+            this.f46857e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String unused = TbPageExtraHelper.f46005a = (String) TbPageExtraHelper.f46006b.get(this.f46007e);
+                String unused = TbPageExtraHelper.f46855a = (String) TbPageExtraHelper.f46856b.get(this.f46857e);
             }
         }
     }
@@ -92,7 +92,7 @@ public class TbPageExtraHelper {
                 return;
             }
         }
-        f46006b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
+        f46856b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -323,7 +323,7 @@ public class TbPageExtraHelper {
     public static String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? f46005a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? f46855a : (String) invokeV.objValue;
     }
 
     public static boolean n() {
@@ -341,7 +341,7 @@ public class TbPageExtraHelper {
     public static boolean p(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? f46006b.get(str) == "a028" : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? f46856b.get(str) == "a028" : invokeL.booleanValue;
     }
 
     public static final void q(FragmentManager fragmentManager) {
@@ -413,13 +413,13 @@ public class TbPageExtraHelper {
     public static void v(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65558, null, str) == null) {
-            f46005a = str;
+            f46855a = str;
         }
     }
 
     public static void w(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65559, null, str) == null) && !StringUtil.isEmpty(str) && f46006b.containsKey(str)) {
+        if ((interceptable == null || interceptable.invokeL(65559, null, str) == null) && !StringUtil.isEmpty(str) && f46856b.containsKey(str)) {
             e.a().postDelayed(new a(str), 100L);
         }
     }

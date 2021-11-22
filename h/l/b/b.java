@@ -21,7 +21,7 @@ public class b extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Handler f71880a;
+    public final Handler f72799a;
 
     /* loaded from: classes2.dex */
     public static class a extends g.a {
@@ -29,13 +29,13 @@ public class b extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Handler f71881e;
+        public final Handler f72800e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.l.a.b f71882f;
+        public final h.l.a.b f72801f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile boolean f71883g;
+        public volatile boolean f72802g;
 
         public a(Handler handler) {
             Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public class b extends g {
                     return;
                 }
             }
-            this.f71881e = handler;
-            this.f71882f = h.l.a.a.a().b();
+            this.f72800e = handler;
+            this.f72801f = h.l.a.a.a().b();
         }
 
         @Override // h.g.a
@@ -68,19 +68,19 @@ public class b extends g {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, Long.valueOf(j), timeUnit})) == null) {
-                if (this.f71883g) {
+                if (this.f72802g) {
                     return e.c();
                 }
-                this.f71882f.c(aVar);
-                RunnableC2050b runnableC2050b = new RunnableC2050b(aVar, this.f71881e);
-                Message obtain = Message.obtain(this.f71881e, runnableC2050b);
+                this.f72801f.c(aVar);
+                RunnableC2086b runnableC2086b = new RunnableC2086b(aVar, this.f72800e);
+                Message obtain = Message.obtain(this.f72800e, runnableC2086b);
                 obtain.obj = this;
-                this.f71881e.sendMessageDelayed(obtain, timeUnit.toMillis(j));
-                if (this.f71883g) {
-                    this.f71881e.removeCallbacks(runnableC2050b);
+                this.f72800e.sendMessageDelayed(obtain, timeUnit.toMillis(j));
+                if (this.f72802g) {
+                    this.f72800e.removeCallbacks(runnableC2086b);
                     return e.c();
                 }
-                return runnableC2050b;
+                return runnableC2086b;
             }
             return (k) invokeCommon.objValue;
         }
@@ -89,35 +89,35 @@ public class b extends g {
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f71883g : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f72802g : invokeV.booleanValue;
         }
 
         @Override // h.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f71883g = true;
-                this.f71881e.removeCallbacksAndMessages(this);
+                this.f72802g = true;
+                this.f72800e.removeCallbacksAndMessages(this);
             }
         }
     }
 
     /* renamed from: h.l.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class RunnableC2050b implements Runnable, k {
+    public static final class RunnableC2086b implements Runnable, k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.n.a f71884e;
+        public final h.n.a f72803e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Handler f71885f;
+        public final Handler f72804f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile boolean f71886g;
+        public volatile boolean f72805g;
 
-        public RunnableC2050b(h.n.a aVar, Handler handler) {
+        public RunnableC2086b(h.n.a aVar, Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,15 +132,15 @@ public class b extends g {
                     return;
                 }
             }
-            this.f71884e = aVar;
-            this.f71885f = handler;
+            this.f72803e = aVar;
+            this.f72804f = handler;
         }
 
         @Override // h.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71886g : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72805g : invokeV.booleanValue;
         }
 
         @Override // java.lang.Runnable
@@ -149,7 +149,7 @@ public class b extends g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
-                    this.f71884e.call();
+                    this.f72803e.call();
                 } catch (Throwable th) {
                     if (th instanceof OnErrorNotImplementedException) {
                         illegalStateException = new IllegalStateException("Exception thrown on Scheduler.Worker thread. Add `onError` handling.", th);
@@ -167,8 +167,8 @@ public class b extends g {
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f71886g = true;
-                this.f71885f.removeCallbacks(this);
+                this.f72805g = true;
+                this.f72804f.removeCallbacks(this);
             }
         }
     }
@@ -188,13 +188,13 @@ public class b extends g {
                 return;
             }
         }
-        this.f71880a = new Handler(looper);
+        this.f72799a = new Handler(looper);
     }
 
     @Override // h.g
     public g.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.f71880a) : (g.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.f72799a) : (g.a) invokeV.objValue;
     }
 }

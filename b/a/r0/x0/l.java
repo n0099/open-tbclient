@@ -6,15 +6,15 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f25909a;
+    public static String f27476a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d2 f25910b;
+    public static d2 f27477b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,21 +35,21 @@ public class l {
     public static d2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f25910b : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f27477b : (d2) invokeV.objValue;
     }
 
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f25909a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f27476a : (String) invokeV.objValue;
     }
 
     public static synchronized void update(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, d2Var) == null) {
             synchronized (l.class) {
-                f25909a = d2Var.E;
-                f25910b = d2Var;
+                f27476a = d2Var.E;
+                f27477b = d2Var;
             }
         }
     }

@@ -6,9 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import b.a.e.e.p.l;
-import b.a.p0.a.c1.d.f;
-import b.a.p0.a.z1.b.f.e;
+import b.a.e.f.p.l;
+import b.a.p0.a.c1.d.g;
+import b.a.p0.a.c2.b.f.e;
+import b.a.p0.a.g1.f;
 import b.a.q0.p0.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
@@ -35,11 +36,11 @@ import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class b implements f {
+public class b implements g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static BroadcastReceiver f24177a;
+    public static BroadcastReceiver f25640a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -48,14 +49,14 @@ public class b implements f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.d0.e.a f24178a;
+        public final /* synthetic */ b.a.d0.f.b f25641a;
 
-        public a(b bVar, b.a.d0.e.a aVar) {
+        public a(b bVar, b.a.d0.f.b bVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, aVar};
+                Object[] objArr = {bVar, bVar2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -65,33 +66,33 @@ public class b implements f {
                     return;
                 }
             }
-            this.f24178a = aVar;
+            this.f25641a = bVar2;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(DelegateResult delegateResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                this.f24178a.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
+                this.f25641a.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
             }
         }
     }
 
     /* renamed from: b.a.r0.v.b.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1180b implements b.a.r0.v.b.f.d.a {
+    public class C1246b implements b.a.r0.v.b.f.d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.d0.e.a f24179a;
+        public final /* synthetic */ b.a.d0.f.b f25642a;
 
-        public C1180b(b bVar, b.a.d0.e.a aVar) {
+        public C1246b(b bVar, b.a.d0.f.b bVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, aVar};
+                Object[] objArr = {bVar, bVar2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -101,17 +102,17 @@ public class b implements f {
                     return;
                 }
             }
-            this.f24179a = aVar;
+            this.f25642a = bVar2;
         }
 
         @Override // b.a.r0.v.b.f.d.a
         public void a(Bundle bundle) {
-            b.a.d0.e.a aVar;
+            b.a.d0.f.b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || (aVar = this.f24179a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || (bVar = this.f25642a) == null) {
                 return;
             }
-            aVar.onPayResult(bundle.getInt("result_code"), bundle.getString(AbstractThirdPartyService.EXTRA_RESULT_MSG));
+            bVar.onPayResult(bundle.getInt("result_code"), bundle.getString(AbstractThirdPartyService.EXTRA_RESULT_MSG));
         }
     }
 
@@ -120,14 +121,14 @@ public class b implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b this$0;
-        public final /* synthetic */ b.a.d0.e.a val$callback;
+        public final /* synthetic */ b.a.d0.f.b val$callback;
 
-        public c(b bVar, b.a.d0.e.a aVar) {
+        public c(b bVar, b.a.d0.f.b bVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, aVar};
+                Object[] objArr = {bVar, bVar2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -138,7 +139,7 @@ public class b implements f {
                 }
             }
             this.this$0 = bVar;
-            this.val$callback = aVar;
+            this.val$callback = bVar2;
         }
 
         @Override // android.content.BroadcastReceiver
@@ -180,79 +181,93 @@ public class b implements f {
         }
     }
 
-    @Override // b.a.p0.a.c1.d.f
-    public boolean a(Context context) {
+    @Override // b.a.p0.a.c1.d.g
+    public void a(Activity activity, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
+        }
+    }
+
+    @Override // b.a.p0.a.c1.d.g
+    public boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             if (WXAPIFactory.createWXAPI(context, null).isWXAppInstalled()) {
                 return true;
             }
-            e.g(context, "您没有安装微信，请选择其他支付方式").F();
+            e.g(context, "您没有安装微信，请选择其他支付方式").G();
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // b.a.p0.a.c1.d.f
-    public void b(Activity activity, String str, b.a.d0.e.a aVar) {
+    @Override // b.a.p0.a.c1.d.g
+    public void c(Activity activity, String str, b.a.d0.f.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, aVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, str, bVar) == null) {
             if (!d.c().g()) {
                 l.L(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
                 return;
             }
-            b.a.p0.a.a2.e i2 = b.a.p0.a.a2.e.i();
-            if (i2 == null || i2.getActivity() == null) {
+            b.a.p0.a.d2.e L = b.a.p0.a.d2.e.L();
+            if (L == null || L.getActivity() == null) {
                 return;
             }
-            b.a.r0.v.b.f.a aVar2 = new b.a.r0.v.b.f.a();
-            aVar2.mParams.putInt("type", 2);
-            aVar2.mParams.putString("orderInfo", str);
-            aVar2.b(i2.getActivity());
-            aVar2.c(new C1180b(this, aVar));
-            aVar2.onExec();
+            b.a.r0.v.b.f.a aVar = new b.a.r0.v.b.f.a();
+            aVar.mParams.putInt("type", 2);
+            aVar.mParams.putString("orderInfo", str);
+            aVar.b(L.getActivity());
+            aVar.c(new C1246b(this, bVar));
+            aVar.onExec();
         }
     }
 
-    @Override // b.a.p0.a.c1.d.f
-    public void c(Context context, JSONObject jSONObject, b.a.d0.e.a aVar) {
+    @Override // b.a.p0.a.c1.d.g
+    public void d(Context context, JSONObject jSONObject, b.a.d0.f.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject, aVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, jSONObject, bVar) == null) {
             IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context.getApplicationContext(), TbConfig.WEIXIN_SHARE_APP_ID);
-            PayReq e2 = e(jSONObject);
-            createWXAPI.registerApp(e2.appId);
+            PayReq g2 = g(jSONObject);
+            createWXAPI.registerApp(g2.appId);
             if (!createWXAPI.isWXAppInstalled()) {
-                aVar.onPayResult(3, "wx_not_installed");
-                e.g(context, "您没有安装微信，请选择其他支付方式").F();
-            } else if (b.a.p0.a.a2.e.i() == null) {
+                bVar.onPayResult(3, "wx_not_installed");
+                e.g(context, "您没有安装微信，请选择其他支付方式").G();
+            } else if (b.a.p0.a.d2.e.L() == null) {
             } else {
-                if (!createWXAPI.sendReq(e2)) {
-                    aVar.onPayResult(6, "wx_start_failed");
+                if (!createWXAPI.sendReq(g2)) {
+                    bVar.onPayResult(6, "wx_start_failed");
                 }
-                if (f24177a != null) {
-                    TbadkCoreApplication.getInst().unregisterReceiver(f24177a);
+                if (f25640a != null) {
+                    TbadkCoreApplication.getInst().unregisterReceiver(f25640a);
                 }
-                f24177a = new c(this, aVar);
+                f25640a = new c(this, bVar);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("WXPayResult");
-                TbadkCoreApplication.getInst().registerReceiver(f24177a, intentFilter);
+                TbadkCoreApplication.getInst().registerReceiver(f25640a, intentFilter);
             }
         }
     }
 
-    @Override // b.a.p0.a.c1.d.f
-    public void d(Activity activity, String str, b.a.d0.e.a aVar) {
+    @Override // b.a.p0.a.c1.d.g
+    public void e(Activity activity, String str, b.a.d0.f.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, str, aVar) == null) {
-            DelegateUtils.callOnMainWithActivity(b.a.p0.a.g1.f.T().getActivity(), MainProcessDelegateActivity.class, b.a.r0.v.b.f.e.a.class, b.a.r0.v.b.f.e.a.b(str), new a(this, aVar));
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, activity, str, bVar) == null) {
+            DelegateUtils.callOnMainWithActivity(f.U().getActivity(), MainProcessDelegateActivity.class, b.a.r0.v.b.f.e.a.class, b.a.r0.v.b.f.e.a.b(str), new a(this, bVar));
         }
     }
 
-    public final PayReq e(JSONObject jSONObject) {
+    @Override // b.a.p0.a.c1.d.g
+    public void f(Activity activity, String str, b.a.e0.l.a<JSONObject> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, aVar) == null) {
+        }
+    }
+
+    public final PayReq g(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
             PayReq payReq = new PayReq();
             payReq.appId = jSONObject.optString("appid");
             payReq.partnerId = jSONObject.optString("partnerid");

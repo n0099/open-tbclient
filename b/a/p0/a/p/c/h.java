@@ -1,17 +1,25 @@
 package b.a.p0.a.p.c;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import b.a.p0.a.p.d.n;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class h implements b.a.p0.a.p.d.m {
+public class h implements b.a.p0.a.p.d.n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Boolean f7548a;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -27,288 +35,99 @@ public class h implements b.a.p0.a.p.d.m {
         }
     }
 
-    @Override // b.a.p0.a.p.d.m
-    public boolean B() {
-        InterceptResult invokeV;
+    @Override // b.a.p0.a.p.d.n
+    public void a(n.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        aVar.onFinish();
     }
 
-    @Override // b.a.p0.a.p.d.m
-    public boolean C() {
-        InterceptResult invokeV;
+    @Override // b.a.p0.a.p.d.n
+    public void b(Activity activity, Bundle bundle, b.a.p0.a.m.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public boolean D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public JSONObject E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public boolean F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public boolean G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, aVar) == null) {
+            SwanAppAllianceLoginHelper.f44256d.i(aVar);
         }
     }
 
-    @Override // b.a.p0.a.p.d.m
-    public long I() {
-        InterceptResult invokeV;
+    @Override // b.a.p0.a.p.d.n
+    public void c(b.a.p0.a.m.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 3000L;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
         }
-        return invokeV.longValue;
     }
 
-    @Override // b.a.p0.a.p.d.m
-    public boolean J() {
-        InterceptResult invokeV;
+    @Override // b.a.p0.a.p.d.n
+    public String d(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return false;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? b.a.p0.a.s.a.d.f8288a.a() : (String) invokeL.objValue;
+    }
+
+    @Override // b.a.p0.a.p.d.n
+    public boolean e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            boolean g2 = SwanAppAllianceLoginHelper.f44256d.g();
+            this.f7548a = Boolean.TRUE;
+            return g2;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // b.a.p0.a.p.d.m
-    public long K() {
-        InterceptResult invokeV;
+    @Override // b.a.p0.a.p.d.n
+    public String f(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return 10000L;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? b.a.p0.x.b.b(context).a() : (String) invokeL.objValue;
+    }
+
+    @Override // b.a.p0.a.p.d.n
+    public void g(n.c cVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) || cVar == null) {
+            return;
         }
-        return invokeV.longValue;
+        cVar.b();
     }
 
-    @Override // b.a.p0.a.p.d.m
-    public int getSwitch(String str, int i2) {
-        InterceptResult invokeLI;
+    @Override // b.a.p0.a.p.d.n
+    public String h(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i2)) == null) ? i2 : invokeLI.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? b.a.p0.a.s.a.g.f8299b.a() : (String) invokeL.objValue;
     }
 
-    @Override // b.a.p0.a.p.d.m
-    public String getSwitch(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // b.a.p0.a.p.d.n
+    public String i(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) ? str2 : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) ? b.a.p0.x.b.b(context).a() : (String) invokeL.objValue;
     }
 
-    @Override // b.a.p0.a.p.d.m
-    public boolean getSwitch(String str, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // b.a.p0.a.p.d.n
+    public void j(b.a.p0.a.m.a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, str, z)) == null) ? z : invokeLZ.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // b.a.p0.a.p.d.m
-    public String k() {
-        InterceptResult invokeV;
+    public boolean k(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
+            if (this.f7548a == null) {
+                e(context);
+            }
+            Boolean bool = this.f7548a;
+            if (bool == null) {
+                return false;
+            }
+            return bool.booleanValue();
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public long o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return 6000L;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return 10;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public int u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return 60000;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public int x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return 150;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public boolean y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // b.a.p0.a.p.d.m
-    public boolean z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 }

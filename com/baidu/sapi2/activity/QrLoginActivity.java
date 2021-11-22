@@ -89,7 +89,7 @@ public class QrLoginActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ QrLoginActivity f42488a;
+                public final /* synthetic */ QrLoginActivity f43434a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -106,7 +106,7 @@ public class QrLoginActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f42488a = this;
+                    this.f43434a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -185,7 +185,7 @@ public class QrLoginActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ QrLoginActivity f42485a;
+                public final /* synthetic */ QrLoginActivity f43431a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -202,7 +202,7 @@ public class QrLoginActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f42485a = this;
+                    this.f43431a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
@@ -210,12 +210,12 @@ public class QrLoginActivity extends BaseActivity {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        SapiWebView sapiWebView = this.f42485a.sapiWebView;
+                        SapiWebView sapiWebView = this.f43431a.sapiWebView;
                         if (sapiWebView != null && sapiWebView.canGoBack()) {
-                            this.f42485a.sapiWebView.goBack();
+                            this.f43431a.sapiWebView.goBack();
                             return false;
                         }
-                        this.f42485a.onClose();
+                        this.f43431a.onClose();
                         return false;
                     }
                     return invokeV.booleanValue;
@@ -226,7 +226,7 @@ public class QrLoginActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ QrLoginActivity f42486a;
+                public final /* synthetic */ QrLoginActivity f43432a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -243,14 +243,14 @@ public class QrLoginActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f42486a = this;
+                    this.f43432a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f42486a.onClose();
+                        this.f43432a.onClose();
                     }
                 }
             });
@@ -259,7 +259,7 @@ public class QrLoginActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ QrLoginActivity f42487a;
+                public final /* synthetic */ QrLoginActivity f43433a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -276,18 +276,18 @@ public class QrLoginActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f42487a = this;
+                    this.f43433a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.QrLoginCallback
                 public void loginStatusChange(boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZ(1048576, this, z) == null) {
-                        QrLoginResult qrLoginResult = this.f42487a.v;
+                        QrLoginResult qrLoginResult = this.f43433a.v;
                         qrLoginResult.loginStatusChange = z;
                         qrLoginResult.setResultCode(0);
-                        this.f42487a.v.setResultMsg("成功");
-                        QrLoginActivity qrLoginActivity = this.f42487a;
+                        this.f43433a.v.setResultMsg("成功");
+                        QrLoginActivity qrLoginActivity = this.f43433a;
                         qrLoginActivity.a(qrLoginActivity.u);
                     }
                 }

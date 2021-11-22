@@ -32,22 +32,22 @@ public class c extends com.kwad.sdk.contentalliance.b<d> implements DialogInterf
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsSplashScreenAd.SplashScreenAdInteractionListener f66594d;
+    public KsSplashScreenAd.SplashScreenAdInteractionListener f67507d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KsVideoPlayConfig f66595e;
+    public KsVideoPlayConfig f67508e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdBaseFrameLayout f66596f;
+    public AdBaseFrameLayout f67509f;
 
     /* renamed from: g  reason: collision with root package name */
-    public DetailVideoView f66597g;
+    public DetailVideoView f67510g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f66598h;
+    public com.kwad.sdk.core.download.b.b f67511h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f66599i;
+    public e f67512i;
     public AdTemplate j;
     public KsScene k;
     public AdInfo l;
@@ -103,29 +103,29 @@ public class c extends com.kwad.sdk.contentalliance.b<d> implements DialogInterf
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             this.l = com.kwad.sdk.core.response.b.c.i(this.j);
             KsVideoPlayConfig build = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
-            this.f66595e = build;
+            this.f67508e = build;
             this.j.mInitVoiceStatus = build.isVideoSoundEnable() ? 2 : 1;
             com.kwad.sdk.core.download.b.b bVar = new com.kwad.sdk.core.download.b.b(this.j);
-            this.f66598h = bVar;
+            this.f67511h = bVar;
             bVar.a((DialogInterface.OnDismissListener) this);
-            this.f66598h.a((DialogInterface.OnShowListener) this);
+            this.f67511h.a((DialogInterface.OnShowListener) this);
         }
     }
 
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.f66596f = (AdBaseFrameLayout) this.f64211c.findViewById(R.id.ksad_splash_root_container);
-            DetailVideoView detailVideoView = (DetailVideoView) this.f64211c.findViewById(R.id.ksad_splash_video_player);
-            this.f66597g = detailVideoView;
+            this.f67509f = (AdBaseFrameLayout) this.f65124c.findViewById(R.id.ksad_splash_root_container);
+            DetailVideoView detailVideoView = (DetailVideoView) this.f65124c.findViewById(R.id.ksad_splash_video_player);
+            this.f67510g = detailVideoView;
             detailVideoView.setAd(true);
-            this.f66597g.setVisibility(8);
-            this.f66596f.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.splashscreen.c.1
+            this.f67510g.setVisibility(8);
+            this.f67509f.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.splashscreen.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f66600a;
+                public final /* synthetic */ c f67513a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -142,19 +142,19 @@ public class c extends com.kwad.sdk.contentalliance.b<d> implements DialogInterf
                             return;
                         }
                     }
-                    this.f66600a = this;
+                    this.f67513a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) && com.kwad.sdk.core.config.c.J()) {
-                        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f66600a.j, new a.InterfaceC1901a(this) { // from class: com.kwad.sdk.splashscreen.c.1.1
+                        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f67513a.j, new a.InterfaceC1941a(this) { // from class: com.kwad.sdk.splashscreen.c.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f66601a;
+                            public final /* synthetic */ AnonymousClass1 f67514a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -171,33 +171,33 @@ public class c extends com.kwad.sdk.contentalliance.b<d> implements DialogInterf
                                         return;
                                     }
                                 }
-                                this.f66601a = this;
+                                this.f67514a = this;
                             }
 
-                            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1901a
+                            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1941a
                             public void a() {
                                 String d2;
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    if (this.f66601a.f66600a.f66594d != null) {
-                                        this.f66601a.f66600a.f66594d.onAdClicked();
+                                    if (this.f67514a.f67513a.f67507d != null) {
+                                        this.f67514a.f67513a.f67507d.onAdClicked();
                                     }
-                                    if (!com.kwad.sdk.core.response.b.a.v(this.f66601a.f66600a.l) && (d2 = ((d) this.f66601a.f66600a.f64210b).d()) != null) {
-                                        ((d) this.f66601a.f66600a.f64210b).f66603b = true;
-                                        ((d) this.f66601a.f66600a.f64210b).f66605d.mMiniWindowId = d2;
+                                    if (!com.kwad.sdk.core.response.b.a.v(this.f67514a.f67513a.l) && (d2 = ((d) this.f67514a.f67513a.f65123b).d()) != null) {
+                                        ((d) this.f67514a.f67513a.f65123b).f67516b = true;
+                                        ((d) this.f67514a.f67513a.f65123b).f67518d.mMiniWindowId = d2;
                                     }
                                     JSONObject jSONObject = new JSONObject();
                                     try {
-                                        if (this.f66601a.f66600a.f64210b != null && ((d) this.f66601a.f66600a.f64210b).f66607f != null) {
-                                            jSONObject.put("duration", ((d) this.f66601a.f66600a.f64210b).f66607f.c());
+                                        if (this.f67514a.f67513a.f65123b != null && ((d) this.f67514a.f67513a.f65123b).f67520f != null) {
+                                            jSONObject.put("duration", ((d) this.f67514a.f67513a.f65123b).f67520f.c());
                                         }
                                     } catch (JSONException e2) {
                                         com.kwad.sdk.core.d.a.a(e2);
                                     }
-                                    com.kwad.sdk.core.report.a.a(this.f66601a.f66600a.j, jSONObject, this.f66601a.f66600a.f66596f.getTouchCoords(), (String) null);
+                                    com.kwad.sdk.core.report.a.a(this.f67514a.f67513a.j, jSONObject, this.f67514a.f67513a.f67509f.getTouchCoords(), (String) null);
                                 }
                             }
-                        }, this.f66600a.f66598h, false);
+                        }, this.f67513a.f67511h, false);
                     }
                 }
             });
@@ -236,24 +236,24 @@ public class c extends com.kwad.sdk.contentalliance.b<d> implements DialogInterf
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            e eVar = new e(this.f64211c, 70);
-            this.f66599i = eVar;
+            e eVar = new e(this.f65124c, 70);
+            this.f67512i = eVar;
             eVar.a();
-            if (this.f66595e == null) {
-                this.f66595e = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
+            if (this.f67508e == null) {
+                this.f67508e = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
             }
             d dVar = new d();
-            dVar.f66602a = this.f66594d;
-            dVar.f66606e = this.f66596f;
-            dVar.f66605d = this.j;
-            dVar.f66609h = this.k;
-            dVar.f66604c = this.f66595e;
-            dVar.f66610i = this.f66599i;
-            dVar.f66608g = this.f66598h;
+            dVar.f67515a = this.f67507d;
+            dVar.f67519e = this.f67509f;
+            dVar.f67518d = this.j;
+            dVar.f67522h = this.k;
+            dVar.f67517c = this.f67508e;
+            dVar.f67523i = this.f67512i;
+            dVar.f67521g = this.f67511h;
             if (com.kwad.sdk.core.response.b.a.F(this.l)) {
-                com.kwad.sdk.splashscreen.b.a aVar = new com.kwad.sdk.splashscreen.b.a(this.j, this.f66597g, this.f66595e);
-                dVar.f66607f = aVar;
-                dVar.f66610i.a(aVar);
+                com.kwad.sdk.splashscreen.b.a aVar = new com.kwad.sdk.splashscreen.b.a(this.j, this.f67510g, this.f67508e);
+                dVar.f67520f = aVar;
+                dVar.f67523i.a(aVar);
             }
             return dVar;
         }
@@ -272,9 +272,9 @@ public class c extends com.kwad.sdk.contentalliance.b<d> implements DialogInterf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onAttachedToWindow();
-            T t = this.f64210b;
-            if (((d) t).f66607f != null) {
-                ((d) t).f66607f.j();
+            T t = this.f65123b;
+            if (((d) t).f67520f != null) {
+                ((d) t).f67520f.j();
             }
         }
     }
@@ -284,9 +284,9 @@ public class c extends com.kwad.sdk.contentalliance.b<d> implements DialogInterf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDetachedFromWindow();
-            this.f66599i.b();
-            T t = this.f64210b;
-            com.kwad.sdk.splashscreen.b.a aVar = ((d) t).f66607f;
+            this.f67512i.b();
+            T t = this.f65123b;
+            com.kwad.sdk.splashscreen.b.a aVar = ((d) t).f67520f;
             ((d) t).a();
             g();
         }
@@ -297,7 +297,7 @@ public class c extends com.kwad.sdk.contentalliance.b<d> implements DialogInterf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dialogInterface) == null) {
             boolean b2 = dialogInterface instanceof com.kwad.sdk.core.download.a.b ? ((com.kwad.sdk.core.download.a.b) dialogInterface).b() : false;
-            KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = this.f66594d;
+            KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = this.f67507d;
             if (splashScreenAdInteractionListener != null) {
                 if (b2) {
                     splashScreenAdInteractionListener.onDownloadTipsDialogDismiss();
@@ -312,7 +312,7 @@ public class c extends com.kwad.sdk.contentalliance.b<d> implements DialogInterf
     public void onShow(DialogInterface dialogInterface) {
         KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, dialogInterface) == null) || (splashScreenAdInteractionListener = this.f66594d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, dialogInterface) == null) || (splashScreenAdInteractionListener = this.f67507d) == null) {
             return;
         }
         splashScreenAdInteractionListener.onDownloadTipsDialogShow();
@@ -329,10 +329,10 @@ public class c extends com.kwad.sdk.contentalliance.b<d> implements DialogInterf
     public void setSplashScreenAdListener(KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, splashScreenAdInteractionListener) == null) {
-            this.f66594d = splashScreenAdInteractionListener;
-            T t = this.f64210b;
+            this.f67507d = splashScreenAdInteractionListener;
+            T t = this.f65123b;
             if (t != 0) {
-                ((d) t).f66602a = splashScreenAdInteractionListener;
+                ((d) t).f67515a = splashScreenAdInteractionListener;
             }
         }
     }

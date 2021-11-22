@@ -18,6 +18,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+@SuppressLint({"BDSoLoader", "UnsafeDynamicallyLoadedCode"})
 /* loaded from: classes.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
@@ -155,7 +156,6 @@ public class d {
         }
     }
 
-    @SuppressLint({"UnsafeDynamicallyLoadedCode"})
     public static boolean h(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;

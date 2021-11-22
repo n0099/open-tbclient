@@ -5,21 +5,16 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.a2.e;
-import b.a.p0.a.c1.d.i;
-import b.a.p0.a.e0.d;
-import b.a.p0.a.f1.e.b;
-import b.a.p0.a.j2.c;
+import b.a.p0.a.c1.d.j;
 import b.a.p0.a.k;
-import b.a.p0.a.r1.k.f;
-import b.a.p0.a.v2.q0;
-import b.a.p0.a.v2.w;
+import b.a.p0.a.n2.g;
+import b.a.p0.a.u1.k.f;
+import b.a.p0.a.z2.q0;
+import b.a.p0.a.z2.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,20 +29,13 @@ import org.json.JSONObject;
 public class SwanAppUtilsJavaScriptInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
-    public static final int DEFAULT_SWAN_UBC_LOG_SIZE = 150;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_utils";
-    public static final String KEY_EXT_PARAMS = "params";
-    public static final String KEY_EXT_SCHEME = "scheme";
-    public static final String KEY_EXT_SWAN_JS = "swanjs";
     public static final String KEY_SHARE_FORCE_LIGHT_THEME = "forceLightTheme";
     public static final String KEY_SHARE_SNAPSHOT = "snapshot";
-    public static final int SWAN_UBC_LOG_MAX_SIZE_BYTES;
     public static final String TAG = "UtilsJS";
     public static final long UBC_MIN_VERSION = 16789504;
-    public static final int UNIT_KB = 1024;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mActivity;
-    public Context mContext;
     public boolean mIsForceLight;
     public String mSource;
     public b.a.p0.a.h0.f.a mWebView;
@@ -58,10 +46,10 @@ public class SwanAppUtilsJavaScriptInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43712e;
+        public final /* synthetic */ String f44477e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f43713f;
+        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f44478f;
 
         public a(SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface, String str) {
             Interceptable interceptable = $ic;
@@ -78,39 +66,39 @@ public class SwanAppUtilsJavaScriptInterface {
                     return;
                 }
             }
-            this.f43713f = swanAppUtilsJavaScriptInterface;
-            this.f43712e = str;
+            this.f44478f = swanAppUtilsJavaScriptInterface;
+            this.f44477e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = this.f43712e;
+                String str = this.f44477e;
                 if (!str.startsWith("javascript:")) {
                     str = "javascript:" + str;
                 }
                 if (SwanAppUtilsJavaScriptInterface.DEBUG) {
                     String str2 = "share result:" + str;
                 }
-                this.f43713f.mWebView.evaluateJavascript(str, null);
+                this.f44478f.mWebView.evaluateJavascript(str, null);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements i.a {
+    public class b implements j.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f43714a;
+        public final /* synthetic */ String f44479a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f43715b;
+        public final /* synthetic */ String f44480b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f43716c;
+        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f44481c;
 
         public b(SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -127,24 +115,24 @@ public class SwanAppUtilsJavaScriptInterface {
                     return;
                 }
             }
-            this.f43716c = swanAppUtilsJavaScriptInterface;
-            this.f43714a = str;
-            this.f43715b = str2;
+            this.f44481c = swanAppUtilsJavaScriptInterface;
+            this.f44479a = str;
+            this.f44480b = str2;
         }
 
-        @Override // b.a.p0.a.c1.d.i.a
+        @Override // b.a.p0.a.c1.d.j.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43716c.notifyCallback(this.f43715b, String.valueOf(false));
+                this.f44481c.notifyCallback(this.f44480b, String.valueOf(false));
             }
         }
 
-        @Override // b.a.p0.a.c1.d.i.a
+        @Override // b.a.p0.a.c1.d.j.a
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f43716c.notifyCallback(this.f43714a, String.valueOf(true));
+                this.f44481c.notifyCallback(this.f44479a, String.valueOf(true));
             }
         }
     }
@@ -155,10 +143,10 @@ public class SwanAppUtilsJavaScriptInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f43717e;
+        public final /* synthetic */ String f44482e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f43718f;
+        public final /* synthetic */ SwanAppUtilsJavaScriptInterface f44483f;
 
         public c(SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface, String str) {
             Interceptable interceptable = $ic;
@@ -175,8 +163,8 @@ public class SwanAppUtilsJavaScriptInterface {
                     return;
                 }
             }
-            this.f43718f = swanAppUtilsJavaScriptInterface;
-            this.f43717e = str;
+            this.f44483f = swanAppUtilsJavaScriptInterface;
+            this.f44482e = str;
         }
 
         @Override // java.lang.Runnable
@@ -184,7 +172,7 @@ public class SwanAppUtilsJavaScriptInterface {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean unused = SwanAppUtilsJavaScriptInterface.DEBUG;
-                this.f43718f.doUbcEvent(this.f43717e);
+                this.f44483f.doUbcEvent(this.f44482e);
             }
         }
     }
@@ -202,8 +190,7 @@ public class SwanAppUtilsJavaScriptInterface {
                 return;
             }
         }
-        DEBUG = k.f6397a;
-        SWAN_UBC_LOG_MAX_SIZE_BYTES = b.a.p0.a.c1.a.Z().x() * 1024;
+        DEBUG = k.f6863a;
     }
 
     public SwanAppUtilsJavaScriptInterface(Context context, b.a.p0.a.h0.f.a aVar) {
@@ -224,27 +211,20 @@ public class SwanAppUtilsJavaScriptInterface {
         this.mIsForceLight = false;
         this.mSource = "";
         this.mActivity = context;
-        this.mContext = context.getApplicationContext();
         this.mWebView = aVar;
-    }
-
-    private boolean checkParamsInvalid(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) ? TextUtils.isEmpty(str) || str.getBytes().length > SWAN_UBC_LOG_MAX_SIZE_BYTES : invokeL.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void doUbcEvent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("min_v");
                 if ((TextUtils.isEmpty(optString) ? 0L : Long.valueOf(optString).longValue()) < UBC_MIN_VERSION) {
                     return;
                 }
-                b.a.p0.a.j2.b.l(jSONObject.optString("actionId"), jSONObject.optString("value"));
+                b.a.p0.a.n2.b.l(jSONObject.optString("actionId"), jSONObject.optString("value"));
                 f.j().i().d(jSONObject);
             } catch (NumberFormatException | JSONException e2) {
                 if (DEBUG) {
@@ -254,46 +234,11 @@ public class SwanAppUtilsJavaScriptInterface {
         }
     }
 
-    private boolean hasHitsAbTest() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? SWAN_UBC_LOG_MAX_SIZE_BYTES > 0 : invokeV.booleanValue;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyCallback(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65543, this, str, str2) == null) {
             loadJavaScript("javascript:" + str + "(" + str2 + ");");
-        }
-    }
-
-    private void reportUbcBusinessEvent(@NonNull String str) {
-        e P;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, this, str) == null) || (P = e.P()) == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            b.a K = P.K();
-            SwanCoreVersion L = b.a.p0.a.g1.f.T().L();
-            int l = P.l();
-            jSONObject.putOpt("scheme", K.V());
-            jSONObject.putOpt(KEY_EXT_SWAN_JS, b.a.p0.a.m2.b.i(L, l));
-            if (str != null && str.length() > 1024) {
-                jSONObject.putOpt("params", str.substring(0, 1024));
-            }
-            c.b bVar = new c.b(10020);
-            bVar.j(q0.n().f());
-            bVar.i(jSONObject.toString());
-            bVar.h(P.getAppId());
-            bVar.m();
-            d.h(TAG, "10020, params: " + str);
-        } catch (JSONException e2) {
-            if (DEBUG) {
-                e2.printStackTrace();
-            }
         }
     }
 
@@ -318,7 +263,7 @@ public class SwanAppUtilsJavaScriptInterface {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.mWebView == null) {
             return;
         }
-        q0.b0(new a(this, str));
+        q0.e0(new a(this, str));
     }
 
     public void realCallShare(Context context, String str, String str2, String str3, boolean z, boolean z2, String str4) {
@@ -332,7 +277,7 @@ public class SwanAppUtilsJavaScriptInterface {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            b.a.p0.a.c1.a.Y().a(context, d2, new b(this, str3, str4));
+            b.a.p0.a.c1.a.f0().a(context, d2, new b(this, str3, str4));
         }
     }
 
@@ -360,11 +305,7 @@ public class SwanAppUtilsJavaScriptInterface {
     @JavascriptInterface
     public void ubcEvent(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (hasHitsAbTest() && checkParamsInvalid(str)) {
-            reportUbcBusinessEvent(str);
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || TextUtils.isEmpty(str) || g.b(str)) {
             return;
         }
         b.a.p0.a.h0.f.a aVar = this.mWebView;

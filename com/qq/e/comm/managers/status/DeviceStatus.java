@@ -40,31 +40,31 @@ public class DeviceStatus {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f68032a;
+    public String f68953a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68033b;
+    public String f68954b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f68034c;
+    public int f68955c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f68035d;
+    public int f68956d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f68036e;
+    public int f68957e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f68037f;
+    public String f68958f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f68038g;
+    public String f68959g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f68039h;
+    public String f68960h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f68040i;
+    public String f68961i;
     public String j;
     public boolean k;
     public AtomicInteger l;
@@ -105,9 +105,9 @@ public class DeviceStatus {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            this.f68036e = getVersion() > 3 ? displayMetrics.densityDpi : 120;
-            this.f68034c = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.widthPixels) : displayMetrics.widthPixels;
-            this.f68035d = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.heightPixels) : displayMetrics.heightPixels;
+            this.f68957e = getVersion() > 3 ? displayMetrics.densityDpi : 120;
+            this.f68955c = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.widthPixels) : displayMetrics.widthPixels;
+            this.f68956d = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.heightPixels) : displayMetrics.heightPixels;
             try {
                 if (GlobalSetting.isLocationAllowed() && (locationManager = (LocationManager) this.p.getSystemService("location")) != null) {
                     Criteria criteria = new Criteria();
@@ -128,10 +128,10 @@ public class DeviceStatus {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ LocationManager f68041a;
+                            public final /* synthetic */ LocationManager f68962a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ DeviceStatus f68042b;
+                            public final /* synthetic */ DeviceStatus f68963b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -148,8 +148,8 @@ public class DeviceStatus {
                                         return;
                                     }
                                 }
-                                this.f68042b = this;
-                                this.f68041a = locationManager;
+                                this.f68963b = this;
+                                this.f68962a = locationManager;
                             }
 
                             @Override // android.location.LocationListener
@@ -157,11 +157,11 @@ public class DeviceStatus {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, location) == null) {
                                     try {
-                                        DeviceStatus deviceStatus = this.f68042b;
+                                        DeviceStatus deviceStatus = this.f68963b;
                                         deviceStatus.m = "" + location.getLatitude();
-                                        DeviceStatus deviceStatus2 = this.f68042b;
+                                        DeviceStatus deviceStatus2 = this.f68963b;
                                         deviceStatus2.n = "" + location.getLongitude();
-                                        this.f68041a.removeUpdates(this);
+                                        this.f68962a.removeUpdates(this);
                                     } catch (Throwable unused) {
                                     }
                                 }
@@ -231,7 +231,7 @@ public class DeviceStatus {
             }
             int type = networkInfo.getType();
             String str = type != 0 ? type != 1 ? "unknow" : IAdRequestParam.WIFI : "ed";
-            this.f68040i = str;
+            this.f68961i = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -240,13 +240,13 @@ public class DeviceStatus {
     public int getDeviceDensity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68036e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68957e : invokeV.intValue;
     }
 
     public int getDeviceHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68035d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68956d : invokeV.intValue;
     }
 
     public String getDeviceId() {
@@ -293,7 +293,7 @@ public class DeviceStatus {
     public int getDeviceWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68034c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68955c : invokeV.intValue;
     }
 
     public Map<String, String> getLacAndCeilId() {
@@ -344,14 +344,14 @@ public class DeviceStatus {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f68033b == null) {
+            if (this.f68954b == null) {
                 String lowerCase = Locale.getDefault().getLanguage().toLowerCase(Locale.US);
-                this.f68033b = lowerCase;
+                this.f68954b = lowerCase;
                 if (lowerCase.length() == 0) {
-                    this.f68033b = h.f37503a;
+                    this.f68954b = h.f38333a;
                 }
             }
-            return this.f68033b;
+            return this.f68954b;
         }
         return (String) invokeV.objValue;
     }
@@ -430,10 +430,10 @@ public class DeviceStatus {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             try {
-                this.f68038g = ((TelephonyManager) this.p.getSystemService("phone")).getNetworkOperator();
+                this.f68959g = ((TelephonyManager) this.p.getSystemService("phone")).getNetworkOperator();
             } catch (Exception unused) {
             }
-            return this.f68038g;
+            return this.f68959g;
         }
         return (String) invokeV.objValue;
     }
@@ -450,11 +450,11 @@ public class DeviceStatus {
                     if (networkType == 0) {
                         networkType = activeNetworkInfo.getSubtype();
                     }
-                    this.f68039h = "" + networkType;
+                    this.f68960h = "" + networkType;
                 }
             } catch (Exception unused) {
             }
-            return this.f68039h;
+            return this.f68960h;
         }
         return (String) invokeV.objValue;
     }
@@ -463,8 +463,8 @@ public class DeviceStatus {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            this.f68037f = this.p.getResources().getConfiguration().orientation == 2 ? "l" : "p";
-            return this.f68037f;
+            this.f68958f = this.p.getResources().getConfiguration().orientation == 2 ? "l" : "p";
+            return this.f68958f;
         }
         return (String) invokeV.objValue;
     }
@@ -474,11 +474,11 @@ public class DeviceStatus {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             if (GDTADManager.getInstance().getSM().getInteger("adidon", 1) == 1) {
-                if (this.f68032a == null) {
+                if (this.f68953a == null) {
                     String string = Settings.Secure.getString(this.p.getContentResolver(), IAdRequestParam.ANDROID_ID);
-                    this.f68032a = string != null ? Md5Util.encode(string) : "";
+                    this.f68953a = string != null ? Md5Util.encode(string) : "";
                 }
-                return this.f68032a;
+                return this.f68953a;
             }
             return "";
         }

@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StrikethroughSpan;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -53,7 +53,7 @@ public class g {
             } else {
                 drawable.setBounds(0, 0, g2, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20));
             }
-            b.a.q0.f1.d dVar = new b.a.q0.f1.d(drawable);
+            b.a.q0.e1.d dVar = new b.a.q0.e1.d(drawable);
             dVar.b(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
             dVar.c(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
             UtilHelper.setSpan(spannableString, str, "[icon]", dVar);
@@ -83,7 +83,7 @@ public class g {
             Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i2);
             int g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds24);
             moneyIcon.setBounds(0, 0, g2, g2);
-            b.a.q0.f1.d dVar = new b.a.q0.f1.d(moneyIcon);
+            b.a.q0.e1.d dVar = new b.a.q0.e1.d(moneyIcon);
             dVar.b(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
             dVar.c(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds10));
             UtilHelper.setSpan(spannableString, str, "[icon]", dVar);

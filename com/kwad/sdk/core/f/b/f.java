@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bun.lib.MsaIdInterface;
 /* loaded from: classes2.dex */
 public interface f extends IInterface {
 
@@ -18,7 +19,7 @@ public interface f extends IInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IBinder f64572a;
+        public IBinder f65485a;
 
         public a(IBinder iBinder) {
             Interceptable interceptable = $ic;
@@ -35,7 +36,7 @@ public interface f extends IInterface {
                     return;
                 }
             }
-            this.f64572a = iBinder;
+            this.f65485a = iBinder;
         }
 
         @Override // com.kwad.sdk.core.f.b.f
@@ -47,8 +48,8 @@ public interface f extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     try {
-                        obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                        this.f64572a.transact(1, obtain, obtain2, 0);
+                        obtain.writeInterfaceToken(MsaIdInterface.Stub.DESCRIPTOR);
+                        this.f65485a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } catch (Exception e2) {
@@ -69,7 +70,7 @@ public interface f extends IInterface {
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64572a : (IBinder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65485a : (IBinder) invokeV.objValue;
         }
     }
 

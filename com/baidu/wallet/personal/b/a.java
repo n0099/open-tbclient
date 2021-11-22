@@ -20,22 +20,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f60613a;
+    public int f61535a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60614b;
+    public int f61536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bitmap f60615c;
+    public Bitmap f61537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Resources f60616d;
+    public Resources f61538d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<Integer> f60617e;
+    public ArrayList<Integer> f61539e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<Integer> f60618f;
+    public ArrayList<Integer> f61540f;
 
     public a(Resources resources, Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -52,21 +52,21 @@ public class a {
                 return;
             }
         }
-        this.f60617e = new ArrayList<>();
-        this.f60618f = new ArrayList<>();
-        this.f60613a = bitmap.getWidth();
-        this.f60614b = bitmap.getHeight();
-        this.f60615c = bitmap;
-        this.f60616d = resources;
+        this.f61539e = new ArrayList<>();
+        this.f61540f = new ArrayList<>();
+        this.f61535a = bitmap.getWidth();
+        this.f61536b = bitmap.getHeight();
+        this.f61537c = bitmap;
+        this.f61538d = resources;
     }
 
     public a a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            int i3 = (this.f60614b - i2) / 2;
-            this.f60618f.add(Integer.valueOf(i3));
-            this.f60618f.add(Integer.valueOf(i3 + i2));
+            int i3 = (this.f61536b - i2) / 2;
+            this.f61540f.add(Integer.valueOf(i3));
+            this.f61540f.add(Integer.valueOf(i3 + i2));
             return this;
         }
         return (a) invokeI.objValue;
@@ -76,8 +76,8 @@ public class a {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-            this.f60617e.add(Integer.valueOf(i2));
-            this.f60617e.add(Integer.valueOf(i2 + i3));
+            this.f61539e.add(Integer.valueOf(i2));
+            this.f61539e.add(Integer.valueOf(i2 + i3));
             return this;
         }
         return (a) invokeII.objValue;
@@ -87,18 +87,18 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f60617e.size() == 0) {
-                this.f60617e.add(0);
-                this.f60617e.add(Integer.valueOf(this.f60613a));
+            if (this.f61539e.size() == 0) {
+                this.f61539e.add(0);
+                this.f61539e.add(Integer.valueOf(this.f61535a));
             }
-            if (this.f60618f.size() == 0) {
-                this.f60618f.add(0);
-                this.f60618f.add(Integer.valueOf(this.f60614b));
+            if (this.f61540f.size() == 0) {
+                this.f61540f.add(0);
+                this.f61540f.add(Integer.valueOf(this.f61536b));
             }
-            ByteBuffer order = ByteBuffer.allocate((this.f60617e.size() + 8 + this.f60618f.size() + 9) * 4).order(ByteOrder.nativeOrder());
+            ByteBuffer order = ByteBuffer.allocate((this.f61539e.size() + 8 + this.f61540f.size() + 9) * 4).order(ByteOrder.nativeOrder());
             order.put((byte) 1);
-            order.put((byte) this.f60617e.size());
-            order.put((byte) this.f60618f.size());
+            order.put((byte) this.f61539e.size());
+            order.put((byte) this.f61540f.size());
             order.put((byte) 9);
             order.putInt(0);
             order.putInt(0);
@@ -107,11 +107,11 @@ public class a {
             order.putInt(0);
             order.putInt(0);
             order.putInt(0);
-            Iterator<Integer> it = this.f60617e.iterator();
+            Iterator<Integer> it = this.f61539e.iterator();
             while (it.hasNext()) {
                 order.putInt(it.next().intValue());
             }
-            Iterator<Integer> it2 = this.f60618f.iterator();
+            Iterator<Integer> it2 = this.f61540f.iterator();
             while (it2.hasNext()) {
                 order.putInt(it2.next().intValue());
             }
@@ -128,8 +128,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             byte[] a2 = a();
-            if (this.f60615c != null) {
-                return new NinePatch(this.f60615c, a2, null);
+            if (this.f61537c != null) {
+                return new NinePatch(this.f61537c, a2, null);
             }
             return null;
         }
@@ -140,8 +140,8 @@ public class a {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i2, i3)) == null) {
-            this.f60618f.add(Integer.valueOf(i2));
-            this.f60618f.add(Integer.valueOf(i2 + i3));
+            this.f61540f.add(Integer.valueOf(i2));
+            this.f61540f.add(Integer.valueOf(i2 + i3));
             return this;
         }
         return (a) invokeII.objValue;
@@ -153,7 +153,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             NinePatch b2 = b();
             if (b2 != null) {
-                return new NinePatchDrawable(this.f60616d, b2);
+                return new NinePatchDrawable(this.f61538d, b2);
             }
             return null;
         }

@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class g extends b.a.p0.a.v1.a.a.a {
+public class g extends b.a.p0.a.y1.a.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public class a implements b.a.p0.a.v2.e1.b<Bundle> {
+    public class a implements b.a.p0.a.z2.g1.c<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f9344e;
+        public final /* synthetic */ g f9927e;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -35,17 +35,17 @@ public class g extends b.a.p0.a.v1.a.a.a {
                     return;
                 }
             }
-            this.f9344e = gVar;
+            this.f9927e = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.p0.a.v2.e1.b
+        @Override // b.a.p0.a.z2.g1.c
         /* renamed from: a */
         public void onCallback(Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                this.f9344e.f8460d.putBundle("key_result_stokent", bundle);
-                this.f9344e.c();
+                this.f9927e.f9436d.putBundle("key_result_stokent", bundle);
+                this.f9927e.c();
             }
         }
     }
@@ -64,7 +64,7 @@ public class g extends b.a.p0.a.v1.a.a.a {
         }
     }
 
-    @Override // b.a.p0.a.v1.a.a.a
+    @Override // b.a.p0.a.y1.a.a.a
     public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {

@@ -25,10 +25,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f2905a;
+    public static volatile String f2998a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile int f2906b;
+    public static volatile int f2999b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -84,17 +84,17 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String str = f2905a;
+            String str = f2998a;
             if (str == null) {
                 synchronized (a.class) {
-                    str = f2905a;
+                    str = f2998a;
                     if (str == null) {
                         Context a2 = e.a();
                         String d2 = d();
                         if (d2 == null && (d2 = c(a2)) == null) {
                             d2 = a2.getPackageName();
                         }
-                        f2905a = d2;
+                        f2998a = d2;
                         str = d2;
                     }
                 }
@@ -197,12 +197,12 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
-            int i2 = f2906b;
+            int i2 = f2999b;
             if (i2 == 0) {
                 String b2 = b();
                 String packageName = e.a().getPackageName();
                 i2 = (TextUtils.equals(b2, packageName) || (b2.startsWith(packageName) && !b2.contains(":"))) ? i2 | 1 | 2 : i2 | 4;
-                f2906b = i2;
+                f2999b = i2;
             }
             return i2;
         }

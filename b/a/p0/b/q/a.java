@@ -1,8 +1,8 @@
 package b.a.p0.b.q;
 
 import android.text.TextUtils;
-import b.a.p0.a.v2.w;
-import b.a.p0.a.z1.b.f.e;
+import b.a.p0.a.c2.b.f.e;
+import b.a.p0.a.z2.w;
 import b.a.p0.b.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.ecommerce.result.InvoiceBuildResult;
@@ -25,14 +25,14 @@ public class a extends ActivityDelegation {
 
     /* renamed from: b.a.p0.b.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0504a implements b.a.p0.a.m.a {
+    public class C0527a implements b.a.p0.a.m.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f9537e;
+        public final /* synthetic */ a f10117e;
 
-        public C0504a(a aVar) {
+        public C0527a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f9537e = aVar;
+            this.f10117e = aVar;
         }
 
         @Override // b.a.p0.a.m.a
@@ -55,11 +55,11 @@ public class a extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 if (i2 == 0) {
-                    this.f9537e.l();
+                    this.f10117e.l();
                     return;
                 }
-                this.f9537e.mResult.putString("errorMsg", "login failed");
-                this.f9537e.finish();
+                this.f10117e.mResult.putString("errorMsg", "login failed");
+                this.f10117e.finish();
             }
         }
     }
@@ -70,7 +70,7 @@ public class a extends ActivityDelegation {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f9538a;
+        public final /* synthetic */ a f10118a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f9538a = aVar;
+            this.f10118a = aVar;
         }
 
         @Override // b.a.p0.b.q.a.d
@@ -95,10 +95,10 @@ public class a extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    this.f9538a.mResult.putString("errorMsg", "invoiceId == null or invoiceType == null");
-                    this.f9538a.finish();
+                    this.f10118a.mResult.putString("errorMsg", "invoiceId == null or invoiceType == null");
+                    this.f10118a.finish();
                 }
-                this.f9538a.j(str, str2);
+                this.f10118a.j(str, str2);
             }
         }
 
@@ -106,8 +106,8 @@ public class a extends ActivityDelegation {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f9538a.mResult.putString("errorMsg", "choose invoiceId failed");
-                this.f9538a.finish();
+                this.f10118a.mResult.putString("errorMsg", "choose invoiceId failed");
+                this.f10118a.finish();
             }
         }
     }
@@ -118,7 +118,7 @@ public class a extends ActivityDelegation {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f9539a;
+        public final /* synthetic */ a f10119a;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class a extends ActivityDelegation {
                     return;
                 }
             }
-            this.f9539a = aVar;
+            this.f10119a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -145,18 +145,18 @@ public class a extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
                 if (jSONObject == null) {
-                    this.f9539a.mResult.putString("errorMsg", "exchange plaintext from server, but no response");
-                    this.f9539a.finish();
+                    this.f10119a.mResult.putString("errorMsg", "exchange plaintext from server, but no response");
+                    this.f10119a.finish();
                     return;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.f9539a.mResult.putString("invoiceInfo", optJSONObject.toString());
-                    this.f9539a.finish();
+                    this.f10119a.mResult.putString("invoiceInfo", optJSONObject.toString());
+                    this.f10119a.finish();
                     return;
                 }
-                this.f9539a.mResult.putString("errorMsg", "exchange plaintext from server, but response exception");
-                this.f9539a.finish();
+                this.f10119a.mResult.putString("errorMsg", "exchange plaintext from server, but response exception");
+                this.f10119a.finish();
             }
         }
 
@@ -179,8 +179,8 @@ public class a extends ActivityDelegation {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                this.f9539a.mResult.putString("errorMsg", exc.getMessage());
-                this.f9539a.finish();
+                this.f10119a.mResult.putString("errorMsg", exc.getMessage());
+                this.f10119a.finish();
             }
         }
     }
@@ -218,7 +218,7 @@ public class a extends ActivityDelegation {
             if (!SwanAppNetworkUtils.i(getAgent())) {
                 e.f(getAgent(), h.invoice_network_none);
             } else {
-                b.a.p0.m.e.a.h(AppRuntime.getAppContext()).getRequest().url(b.a.p0.a.d0.c.v(k())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(b.a.p0.a.c1.a.p().a()).build().executeAsync(new c(this));
+                b.a.p0.p.e.a.h(AppRuntime.getAppContext()).getRequest().url(b.a.p0.a.d0.c.v(k())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(b.a.p0.a.c1.a.q().a()).build().executeAsync(new c(this));
             }
         }
     }
@@ -235,8 +235,8 @@ public class a extends ActivityDelegation {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!b.a.p0.b.l.a.F(getAgent())) {
-                b.a.p0.b.l.a.M(getAgent(), null, new C0504a(this));
+            if (!b.a.p0.b.l.a.E(getAgent())) {
+                b.a.p0.b.l.a.L(getAgent(), null, new C0527a(this));
                 return false;
             }
             l();

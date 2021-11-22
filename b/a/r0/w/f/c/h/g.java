@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.e.p.l;
+import b.a.e.f.p.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.android.imsdk.internal.Constants;
@@ -36,31 +36,31 @@ public class g implements b.a.r0.w.f.c.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext<?> f24751a;
+    public TbPageContext<?> f26268a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f24752b;
+    public int f26269b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f24753c;
+    public View f26270c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f24754d;
+    public TbImageView f26271d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f24755e;
+    public View f26272e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f24756f;
+    public TextView f26273f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f24757g;
+    public EMTextView f26274g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f24758h;
+    public EMTextView f26275h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EMTextView f24759i;
+    public EMTextView f26276i;
     public TbImageView j;
     public int k;
     public b.a.r0.w.f.a.a l;
@@ -77,7 +77,7 @@ public class g implements b.a.r0.w.f.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f24760a;
+        public final /* synthetic */ g f26277a;
 
         public a(g gVar) {
             Interceptable interceptable = $ic;
@@ -94,15 +94,15 @@ public class g implements b.a.r0.w.f.c.b {
                     return;
                 }
             }
-            this.f24760a = gVar;
+            this.f26277a = gVar;
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z) {
-                g gVar = this.f24760a;
-                this.f24760a.j.setLayoutParams(new RelativeLayout.LayoutParams(gVar.i(gVar.j.getLoadedHeight(), this.f24760a.j.getLoadedWidth()), g.s));
+                g gVar = this.f26277a;
+                this.f26277a.j.setLayoutParams(new RelativeLayout.LayoutParams(gVar.i(gVar.j.getLoadedHeight(), this.f26277a.j.getLoadedWidth()), g.s));
             }
         }
 
@@ -120,7 +120,7 @@ public class g implements b.a.r0.w.f.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f24761e;
+        public final /* synthetic */ g f26278e;
 
         public b(g gVar) {
             Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public class g implements b.a.r0.w.f.c.b {
                     return;
                 }
             }
-            this.f24761e = gVar;
+            this.f26278e = gVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -146,29 +146,29 @@ public class g implements b.a.r0.w.f.c.b {
             String str2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (b.a.r0.w.f.c.c.d(this.f24761e.m)) {
-                    if (this.f24761e.l.f24496f) {
-                        str2 = YYLiveUtil.SOURCE_FRS_LIVE_CARD_ + this.f24761e.f24752b;
+                if (b.a.r0.w.f.c.c.d(this.f26278e.m)) {
+                    if (this.f26278e.l.f26013f) {
+                        str2 = YYLiveUtil.SOURCE_FRS_LIVE_CARD_ + this.f26278e.f26269b;
                     } else {
-                        str2 = YYLiveUtil.SOURCE_HOME_LIVE_TAB_CARD_ + this.f24761e.f24752b;
+                        str2 = YYLiveUtil.SOURCE_HOME_LIVE_TAB_CARD_ + this.f26278e.f26269b;
                     }
-                    b.a.r0.w.f.c.c.j(this.f24761e.f24751a, this.f24761e.m, str2);
+                    b.a.r0.w.f.c.c.j(this.f26278e.f26268a, this.f26278e.m, str2);
                 }
-                if (this.f24761e.l == null || !this.f24761e.l.f24496f) {
+                if (this.f26278e.l == null || !this.f26278e.l.f26013f) {
                     return;
                 }
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FORUM_INSIDE_LIVE_CLICK);
-                if (this.f24761e.m != null) {
-                    statisticItem.param("tid", this.f24761e.m.tid);
-                    statisticItem.param("fid", this.f24761e.l.f24497g);
-                    statisticItem.param("fname", this.f24761e.l.f24498h);
+                if (this.f26278e.m != null) {
+                    statisticItem.param("tid", this.f26278e.m.tid);
+                    statisticItem.param("fid", this.f26278e.l.f26014g);
+                    statisticItem.param("fname", this.f26278e.l.f26015h);
                 }
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("obj_locate", this.f24761e.p);
-                if (this.f24761e.m != null && this.f24761e.m.liveInfo != null) {
-                    int a2 = b.a.r0.w.f.c.c.a(this.f24761e.m.liveInfo);
-                    if (this.f24761e.m.liveInfo.yyExt != null) {
-                        TiebaStaticHelper.addYYParam(statisticItem, b.a.r0.w.f.c.c.k(this.f24761e.m.liveInfo.yyExt, this.f24761e.m.roomId));
+                statisticItem.param("obj_locate", this.f26278e.p);
+                if (this.f26278e.m != null && this.f26278e.m.liveInfo != null) {
+                    int a2 = b.a.r0.w.f.c.c.a(this.f26278e.m.liveInfo);
+                    if (this.f26278e.m.liveInfo.yyExt != null) {
+                        TiebaStaticHelper.addYYParam(statisticItem, b.a.r0.w.f.c.c.k(this.f26278e.m.liveInfo.yyExt, this.f26278e.m.roomId));
                         str = TiebaStatic.YYValues.YY_LIVE;
                     } else {
                         str = "";
@@ -218,8 +218,8 @@ public class g implements b.a.r0.w.f.c.b {
         this.p = 6;
         this.q = 9;
         this.r = new b(this);
-        this.f24751a = tbPageContext;
-        this.f24752b = i2;
+        this.f26268a = tbPageContext;
+        this.f26269b = i2;
         j(tbPageContext);
     }
 
@@ -229,15 +229,15 @@ public class g implements b.a.r0.w.f.c.b {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            if (aVar != null && aVar.f24495e != null) {
+            if (aVar != null && aVar.f26012e != null) {
                 getView().setVisibility(0);
                 this.l = aVar;
-                this.m = aVar.f24495e;
-                int k = l.k(this.f24753c.getContext());
+                this.m = aVar.f26012e;
+                int k = l.k(this.f26270c.getContext());
                 if (k != this.n) {
-                    ViewGroup.LayoutParams layoutParams = this.f24753c.getLayoutParams();
-                    int k2 = l.k(this.f24753c.getContext()) - this.f24753c.getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
-                    int dimensionPixelSize = this.f24753c.getContext().getResources().getDimensionPixelSize(R.dimen.tbds34);
+                    ViewGroup.LayoutParams layoutParams = this.f26270c.getLayoutParams();
+                    int k2 = l.k(this.f26270c.getContext()) - this.f26270c.getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
+                    int dimensionPixelSize = this.f26270c.getContext().getResources().getDimensionPixelSize(R.dimen.tbds34);
                     int i2 = this.o;
                     int i3 = k2 - (dimensionPixelSize * i2);
                     if (layoutParams == null) {
@@ -246,39 +246,39 @@ public class g implements b.a.r0.w.f.c.b {
                         layoutParams.width = i3 / i2;
                         layoutParams.height = -2;
                     }
-                    this.f24753c.setLayoutParams(layoutParams);
-                    ViewGroup.LayoutParams layoutParams2 = this.f24754d.getLayoutParams();
+                    this.f26270c.setLayoutParams(layoutParams);
+                    ViewGroup.LayoutParams layoutParams2 = this.f26271d.getLayoutParams();
                     if (layoutParams2 == null) {
                         layoutParams2 = new RelativeLayout.LayoutParams(i3 / this.o, (i3 / 32) * this.q);
                     } else {
                         layoutParams2.width = i3 / this.o;
                         layoutParams2.height = (i3 / 32) * this.q;
                     }
-                    this.f24754d.setLayoutParams(layoutParams2);
-                    ViewGroup.LayoutParams layoutParams3 = this.f24755e.getLayoutParams();
+                    this.f26271d.setLayoutParams(layoutParams2);
+                    ViewGroup.LayoutParams layoutParams3 = this.f26272e.getLayoutParams();
                     if (layoutParams3 == null) {
-                        layoutParams3 = new RelativeLayout.LayoutParams(i3 / this.o, this.f24753c.getContext().getResources().getDimensionPixelSize(R.dimen.tbds72));
+                        layoutParams3 = new RelativeLayout.LayoutParams(i3 / this.o, this.f26270c.getContext().getResources().getDimensionPixelSize(R.dimen.tbds72));
                     } else {
                         layoutParams3.width = i3 / this.o;
-                        layoutParams3.height = this.f24753c.getContext().getResources().getDimensionPixelSize(R.dimen.tbds72);
+                        layoutParams3.height = this.f26270c.getContext().getResources().getDimensionPixelSize(R.dimen.tbds72);
                     }
-                    this.f24755e.setLayoutParams(layoutParams3);
+                    this.f26272e.setLayoutParams(layoutParams3);
                     this.n = k;
                 }
                 SdkLiveInfoData.AlaLiveInfo alaLiveInfo2 = this.m.liveInfo;
                 if (alaLiveInfo2 != null) {
                     if (!TextUtils.isEmpty(alaLiveInfo2.coverWide)) {
-                        this.f24754d.startLoad(this.m.liveInfo.coverWide, 10, false);
+                        this.f26271d.startLoad(this.m.liveInfo.coverWide, 10, false);
                     }
                     if (!TextUtils.isEmpty(this.m.liveAuthor.nameShow)) {
-                        this.f24756f.setText(this.m.liveAuthor.nameShow);
+                        this.f26273f.setText(this.m.liveAuthor.nameShow);
                     }
-                    this.f24757g.setText(StringHelper.numberUniformFormatExtraWithRound(this.m.liveInfo.audienceCount));
+                    this.f26274g.setText(StringHelper.numberUniformFormatExtraWithRound(this.m.liveInfo.audienceCount));
                     if (!TextUtils.isEmpty(this.m.title)) {
-                        this.f24758h.setText(this.m.title);
+                        this.f26275h.setText(this.m.title);
                     }
                     if (!TextUtils.isEmpty(this.m.liveInfo.showLabel)) {
-                        this.f24759i.setText(this.m.liveInfo.showLabel);
+                        this.f26276i.setText(this.m.liveInfo.showLabel);
                     }
                     if (!StringUtils.isNull(this.m.labelUrl)) {
                         this.j.setVisibility(0);
@@ -287,13 +287,13 @@ public class g implements b.a.r0.w.f.c.b {
                     } else {
                         this.j.setVisibility(8);
                     }
-                    if (aVar.f24496f) {
+                    if (aVar.f26013f) {
                         StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FORUM_INSIDE_LIVE_SHOW);
                         SdkLiveInfoData sdkLiveInfoData = this.m;
                         if (sdkLiveInfoData != null) {
                             statisticItem.param("tid", sdkLiveInfoData.tid);
-                            statisticItem.param("fid", aVar.f24497g);
-                            statisticItem.param("fname", aVar.f24498h);
+                            statisticItem.param("fid", aVar.f26014g);
+                            statisticItem.param("fname", aVar.f26015h);
                         }
                         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                         statisticItem.param("obj_locate", this.p);
@@ -314,7 +314,7 @@ public class g implements b.a.r0.w.f.c.b {
                         TiebaStatic.log(statisticItem);
                     }
                 }
-                onChangeSkinType(this.f24751a, TbadkCoreApplication.getInst().getSkinType());
+                onChangeSkinType(this.f26268a, TbadkCoreApplication.getInst().getSkinType());
                 return;
             }
             getView().setVisibility(4);
@@ -325,7 +325,7 @@ public class g implements b.a.r0.w.f.c.b {
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24753c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26270c : (View) invokeV.objValue;
     }
 
     public final int i(int i2, int i3) {
@@ -338,31 +338,31 @@ public class g implements b.a.r0.w.f.c.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, tbPageContext) == null) {
             View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.yy_tab_live_item_view, (ViewGroup) null, false);
-            this.f24753c = inflate;
+            this.f26270c = inflate;
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.img_cover);
-            this.f24754d = tbImageView;
+            this.f26271d = tbImageView;
             tbImageView.setDrawCorner(true);
-            this.f24754d.setConrers(3);
-            this.f24754d.setRadiusById(R.string.J_X13);
-            this.f24754d.setPlaceHolder(2);
-            this.f24755e = this.f24753c.findViewById(R.id.img_mask);
-            this.f24756f = (TextView) this.f24753c.findViewById(R.id.text_name);
-            this.f24757g = (EMTextView) this.f24753c.findViewById(R.id.text_audience_count);
-            EMTextView eMTextView = (EMTextView) this.f24753c.findViewById(R.id.text_title);
-            this.f24758h = eMTextView;
+            this.f26271d.setConrers(3);
+            this.f26271d.setRadiusById(R.string.J_X13);
+            this.f26271d.setPlaceHolder(2);
+            this.f26272e = this.f26270c.findViewById(R.id.img_mask);
+            this.f26273f = (TextView) this.f26270c.findViewById(R.id.text_name);
+            this.f26274g = (EMTextView) this.f26270c.findViewById(R.id.text_audience_count);
+            EMTextView eMTextView = (EMTextView) this.f26270c.findViewById(R.id.text_title);
+            this.f26275h = eMTextView;
             b.a.q0.s.u.c.d(eMTextView).A(R.string.F_X02);
-            this.f24759i = (EMTextView) this.f24753c.findViewById(R.id.text_label);
-            this.f24753c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            TbImageView tbImageView2 = (TbImageView) this.f24753c.findViewById(R.id.special_label);
+            this.f26276i = (EMTextView) this.f26270c.findViewById(R.id.text_label);
+            this.f26270c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            TbImageView tbImageView2 = (TbImageView) this.f26270c.findViewById(R.id.special_label);
             this.j = tbImageView2;
             tbImageView2.setDrawCorner(true);
             this.j.setConrers(1);
             this.j.setRadius((int) tbPageContext.getResources().getDimension(R.dimen.tbds21));
-            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f24753c);
+            b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f26270c);
             d2.m(0);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0201);
-            this.f24753c.setOnClickListener(this.r);
+            this.f26270c.setOnClickListener(this.r);
         }
     }
 
@@ -372,11 +372,11 @@ public class g implements b.a.r0.w.f.c.b {
         if (!(interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) || this.k == i2) {
             return;
         }
-        SkinManager.setViewTextColor(this.f24756f, R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.f24757g, R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.f24758h, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f24759i, R.color.CAM_X0109);
-        b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f24753c);
+        SkinManager.setViewTextColor(this.f26273f, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.f26274g, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.f26275h, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f26276i, R.color.CAM_X0109);
+        b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(this.f26270c);
         d2.m(0);
         d2.n(R.string.J_X05);
         d2.f(R.color.CAM_X0201);

@@ -14,16 +14,16 @@ public class v {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f29939a;
+    public static boolean f30808a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f29940b;
+    public static float f30809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f29941c;
+    public static int f30810c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f29942d;
+    public static int f30811d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,10 +45,10 @@ public class v {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f2)) == null) {
-            if (!f29939a) {
+            if (!f30808a) {
                 f();
             }
-            return (int) ((f2 * f29940b) + 0.5f);
+            return (int) ((f2 * f30809b) + 0.5f);
         }
         return invokeF.intValue;
     }
@@ -57,10 +57,10 @@ public class v {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!f29939a) {
+            if (!f30808a) {
                 f();
             }
-            return f29942d;
+            return f30811d;
         }
         return invokeV.intValue;
     }
@@ -69,10 +69,10 @@ public class v {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!f29939a) {
+            if (!f30808a) {
                 f();
             }
-            return f29941c;
+            return f30810c;
         }
         return invokeV.intValue;
     }
@@ -97,14 +97,14 @@ public class v {
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             int orientation = windowManager.getDefaultDisplay().getOrientation();
             if (orientation != 1 && orientation != 3) {
-                f29941c = displayMetrics.widthPixels;
-                f29942d = displayMetrics.heightPixels;
+                f30810c = displayMetrics.widthPixels;
+                f30811d = displayMetrics.heightPixels;
             } else {
-                f29941c = displayMetrics.heightPixels;
-                f29942d = displayMetrics.widthPixels;
+                f30810c = displayMetrics.heightPixels;
+                f30811d = displayMetrics.widthPixels;
             }
-            f29940b = displayMetrics.density;
-            f29939a = true;
+            f30809b = displayMetrics.density;
+            f30808a = true;
         }
     }
 }

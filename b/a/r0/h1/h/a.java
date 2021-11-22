@@ -29,39 +29,39 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ScrollFragmentTabHost f17275a;
+    public ScrollFragmentTabHost f18743a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PersonalizePageView f17276b;
+    public PersonalizePageView f18744b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConcernUnreadTipView f17277c;
+    public ConcernUnreadTipView f18745c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbPageContext f17278d;
+    public TbPageContext f18746d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f17279e;
+    public BdUniqueId f18747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f17280f;
+    public Runnable f18748f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.e.c.g.a f17281g;
+    public b.a.e.c.g.a f18749g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f17282h;
+    public CustomMessageListener f18750h;
 
     /* renamed from: b.a.r0.h1.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC0887a implements Runnable {
+    public class RunnableC0955a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f17283e;
+        public final /* synthetic */ a f18751e;
 
-        public RunnableC0887a(a aVar) {
+        public RunnableC0955a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,20 +76,20 @@ public class a {
                     return;
                 }
             }
-            this.f17283e = aVar;
+            this.f18751e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f17283e.f17276b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f18751e.f18744b == null) {
                 return;
             }
-            if (this.f17283e.f17277c != null) {
-                this.f17283e.f17276b.removeView(this.f17283e.f17277c);
+            if (this.f18751e.f18745c != null) {
+                this.f18751e.f18744b.removeView(this.f18751e.f18745c);
                 TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 3));
             }
-            this.f17283e.f17276b.setIsUnreadTipShow(false);
+            this.f18751e.f18744b.setIsUnreadTipShow(false);
         }
     }
 
@@ -99,7 +99,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f17284a;
+        public final /* synthetic */ a f18752a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(a aVar, int i2, int i3) {
@@ -120,7 +120,7 @@ public class a {
                     return;
                 }
             }
-            this.f17284a = aVar;
+            this.f18752a = aVar;
         }
 
         @Override // b.a.e.c.g.a
@@ -128,9 +128,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage instanceof ConcernUnreadTipHttpResMsg) {
-                    this.f17284a.e(((ConcernUnreadTipHttpResMsg) responsedMessage).mData);
+                    this.f18752a.e(((ConcernUnreadTipHttpResMsg) responsedMessage).mData);
                 } else if (responsedMessage instanceof ConcernUnreadTipSocketResMsg) {
-                    this.f17284a.e(((ConcernUnreadTipSocketResMsg) responsedMessage).mData);
+                    this.f18752a.e(((ConcernUnreadTipSocketResMsg) responsedMessage).mData);
                 }
             }
         }
@@ -142,7 +142,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f17285a;
+        public final /* synthetic */ a f18753a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(a aVar, int i2) {
@@ -162,7 +162,7 @@ public class a {
                     return;
                 }
             }
-            this.f17285a = aVar;
+            this.f18753a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -170,7 +170,7 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f17285a.f(true);
+                this.f18753a.f(true);
             }
         }
     }
@@ -181,7 +181,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f17286e;
+        public final /* synthetic */ a f18754e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -198,23 +198,23 @@ public class a {
                     return;
                 }
             }
-            this.f17286e = aVar;
+            this.f18754e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f17286e.f17277c == null || this.f17286e.f17277c.mClose == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f18754e.f18745c == null || this.f18754e.f18745c.mClose == null) {
                 return;
             }
-            if (view.getId() != this.f17286e.f17277c.mClose.getId()) {
-                if (this.f17286e.f17275a != null) {
-                    this.f17286e.f17275a.setCurrentTab(0);
+            if (view.getId() != this.f18754e.f18745c.mClose.getId()) {
+                if (this.f18754e.f18743a != null) {
+                    this.f18754e.f18743a.setCurrentTab(0);
                     return;
                 }
                 return;
             }
-            this.f17286e.f(false);
+            this.f18754e.f(false);
             TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 1));
         }
     }
@@ -234,20 +234,20 @@ public class a {
                 return;
             }
         }
-        this.f17280f = new RunnableC0887a(this);
-        this.f17281g = new b(this, CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, 309541);
-        this.f17282h = new c(this, 2921064);
+        this.f18748f = new RunnableC0955a(this);
+        this.f18749g = new b(this, CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, 309541);
+        this.f18750h = new c(this, 2921064);
         if (tbPageContext == null) {
             return;
         }
-        this.f17278d = tbPageContext;
-        tbPageContext.registerListener(this.f17281g);
-        tbPageContext.registerListener(this.f17282h);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, b.a.r0.l3.f0.a.a(TbConfig.URL_CONCERN_UNREAD_TIP, 309541));
+        this.f18746d = tbPageContext;
+        tbPageContext.registerListener(this.f18749g);
+        tbPageContext.registerListener(this.f18750h);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, b.a.r0.m3.f0.a.a(TbConfig.URL_CONCERN_UNREAD_TIP, 309541));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(ConcernUnreadTipHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        b.a.q0.z0.b bVar = new b.a.q0.z0.b(309541);
+        b.a.q0.y0.b bVar = new b.a.q0.y0.b(309541);
         bVar.setResponsedClass(ConcernUnreadTipSocketResMsg.class);
         bVar.g(true);
         MessageManager.getInstance().registerTask(bVar);
@@ -263,18 +263,18 @@ public class a {
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            b.a.e.e.m.e.a().removeCallbacks(this.f17280f);
-            PersonalizePageView personalizePageView = this.f17276b;
+            b.a.e.f.m.e.a().removeCallbacks(this.f18748f);
+            PersonalizePageView personalizePageView = this.f18744b;
             if (personalizePageView != null) {
-                ConcernUnreadTipView concernUnreadTipView = this.f17277c;
+                ConcernUnreadTipView concernUnreadTipView = this.f18745c;
                 if (concernUnreadTipView != null) {
                     personalizePageView.removeView(concernUnreadTipView);
-                    if (z && this.f17276b.getIsUnreadTipShow()) {
+                    if (z && this.f18744b.getIsUnreadTipShow()) {
                         b.a.q0.s.e0.b.j().w(b.a.q0.s.e0.b.n("concern_unread_tip_next_show_time"), 0L);
                         TiebaStatic.log(new StatisticItem("c12632").param("obj_locate", 2));
                     }
                 }
-                this.f17276b.setIsUnreadTipShow(false);
+                this.f18744b.setIsUnreadTipShow(false);
             }
         }
     }
@@ -282,55 +282,55 @@ public class a {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f17276b = null;
-            this.f17275a = null;
-            if (this.f17280f != null) {
-                b.a.e.e.m.e.a().removeCallbacks(this.f17280f);
+            this.f18744b = null;
+            this.f18743a = null;
+            if (this.f18748f != null) {
+                b.a.e.f.m.e.a().removeCallbacks(this.f18748f);
             }
-            MessageManager.getInstance().unRegisterListener(this.f17281g);
-            MessageManager.getInstance().unRegisterListener(this.f17282h);
+            MessageManager.getInstance().unRegisterListener(this.f18749g);
+            MessageManager.getInstance().unRegisterListener(this.f18750h);
         }
     }
 
     public void h(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.f17279e = bdUniqueId;
+            this.f18747e = bdUniqueId;
         }
     }
 
     public void i(PersonalizePageView personalizePageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, personalizePageView) == null) {
-            this.f17276b = personalizePageView;
+            this.f18744b = personalizePageView;
         }
     }
 
     public void j(ScrollFragmentTabHost scrollFragmentTabHost) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, scrollFragmentTabHost) == null) {
-            this.f17275a = scrollFragmentTabHost;
+            this.f18743a = scrollFragmentTabHost;
         }
     }
 
     public void k(b.a.r0.h1.h.j.e eVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) || this.f17276b == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) || this.f18744b == null) {
             return;
         }
-        ConcernUnreadTipView concernUnreadTipView = new ConcernUnreadTipView(this.f17278d.getContext());
-        this.f17277c = concernUnreadTipView;
-        concernUnreadTipView.setBdUniqueId(this.f17279e);
+        ConcernUnreadTipView concernUnreadTipView = new ConcernUnreadTipView(this.f18746d.getContext());
+        this.f18745c = concernUnreadTipView;
+        concernUnreadTipView.setBdUniqueId(this.f18747e);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 49;
-        this.f17277c.setLayoutParams(layoutParams);
-        this.f17277c.setData(eVar);
-        this.f17277c.setClickListener(new d(this));
-        this.f17276b.setIsUnreadTipShow(true);
-        this.f17276b.addView(this.f17277c);
+        this.f18745c.setLayoutParams(layoutParams);
+        this.f18745c.setData(eVar);
+        this.f18745c.setClickListener(new d(this));
+        this.f18744b.setIsUnreadTipShow(true);
+        this.f18744b.addView(this.f18745c);
         if (eVar != null) {
-            TiebaStatic.log(new StatisticItem("c12631").param("obj_param1", eVar.f17451a).param(TiebaStatic.Params.OBJ_PARAM2, eVar.f17455e));
+            TiebaStatic.log(new StatisticItem("c12631").param("obj_param1", eVar.f18920a).param(TiebaStatic.Params.OBJ_PARAM2, eVar.f18924e));
         }
-        b.a.e.e.m.e.a().postDelayed(this.f17280f, 5000L);
+        b.a.e.f.m.e.a().postDelayed(this.f18748f, 5000L);
     }
 }

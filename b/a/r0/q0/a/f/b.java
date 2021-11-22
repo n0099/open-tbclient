@@ -34,7 +34,7 @@ public class b extends a {
                 return;
             }
         }
-        this.f22508d = z;
+        this.f24029d = z;
     }
 
     public static int h(BitmapFactory.Options options, int i2, int i3) {
@@ -84,12 +84,12 @@ public class b extends a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b.a.r0.q0.a.g.b bVar = this.f22505a;
-            if (bVar.f22515e) {
-                this.f22506b.onError(bVar.f22516f, "is cartoon style !!");
+            b.a.r0.q0.a.g.b bVar = this.f24026a;
+            if (bVar.f24036e) {
+                this.f24027b.onError(bVar.f24037f, "is cartoon style !!");
                 return;
             }
-            MultiMediaData multiMediaData = bVar.f22513c;
+            MultiMediaData multiMediaData = bVar.f24034c;
             if (multiMediaData != null && !TextUtils.isEmpty(multiMediaData.path)) {
                 String str = multiMediaData.path;
                 if (multiMediaData.type == 1) {
@@ -98,8 +98,8 @@ public class b extends a {
                         try {
                             mediaMetadataRetriever.setDataSource(str);
                             Bitmap frameAtTime = mediaMetadataRetriever.getFrameAtTime(multiMediaData.start * 1000);
-                            if (this.f22505a.f22514d != 0.0f) {
-                                g(new b.a.r0.q0.a.g.a(), c(frameAtTime, this.f22505a.f22514d, multiMediaData));
+                            if (this.f24026a.f24035d != 0.0f) {
+                                g(new b.a.r0.q0.a.g.a(), c(frameAtTime, this.f24026a.f24035d, multiMediaData));
                             } else {
                                 g(new b.a.r0.q0.a.g.a(), frameAtTime);
                             }
@@ -119,7 +119,7 @@ public class b extends a {
                 }
                 return;
             }
-            this.f22506b.onError(this.f22505a.f22516f, "multiMediaData is null !!");
+            this.f24027b.onError(this.f24026a.f24037f, "multiMediaData is null !!");
         }
     }
 
@@ -134,7 +134,7 @@ public class b extends a {
             } catch (IOException unused) {
                 exifInterface = null;
             }
-            if (exifInterface != null && (attributeInt = exifInterface.getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, -1)) != -1) {
+            if (exifInterface != null && (attributeInt = exifInterface.getAttributeInt("Orientation", -1)) != -1) {
                 if (attributeInt == 3) {
                     return 180;
                 }
@@ -157,8 +157,8 @@ public class b extends a {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            b.a.r0.q0.a.g.b bVar = this.f22505a;
-            Bitmap i2 = i(str, bVar.f22511a, bVar.f22512b);
+            b.a.r0.q0.a.g.b bVar = this.f24026a;
+            Bitmap i2 = i(str, bVar.f24032a, bVar.f24033b);
             if (i2 == null) {
                 return null;
             }

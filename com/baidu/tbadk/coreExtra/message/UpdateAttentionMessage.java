@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.message;
 
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,31 +23,31 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f45667a;
+        public boolean f46517a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f45668b;
+        public String f46518b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f45669c;
+        public String f46519c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f45670d;
+        public boolean f46520d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f45671e;
+        public boolean f46521e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f45672f;
+        public boolean f46522f;
 
         /* renamed from: g  reason: collision with root package name */
-        public HttpResponse f45673g;
+        public HttpResponse f46523g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f45674h;
+        public JSONObject f46524h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f45675i;
+        public boolean f46525i;
         public boolean j;
         public String k;
         public BlockPopInfoData l;
@@ -66,8 +66,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f45671e = false;
-            this.f45672f = false;
+            this.f46521e = false;
+            this.f46522f = false;
             this.m = 0;
         }
 
@@ -98,7 +98,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f45674h = jSONObject;
+                this.f46524h = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
@@ -142,7 +142,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f45670d;
+            return getData().f46520d;
         }
         return invokeV.booleanValue;
     }
@@ -154,7 +154,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f45672f;
+            return getData().f46522f;
         }
         return invokeV.booleanValue;
     }
@@ -166,7 +166,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f45667a;
+            return getData().f46517a;
         }
         return invokeV.booleanValue;
     }

@@ -25,25 +25,25 @@ public class d extends b.a.e.a.d<OfficialBarHistoryActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseActivity f20054a;
+    public BaseActivity f21576a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f20055b;
+    public View f21577b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdListView f20056c;
+    public BdListView f21578c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f20057d;
+    public NavigationBar f21579d;
 
     /* renamed from: e  reason: collision with root package name */
-    public OfficialBarHistoryAdapter f20058e;
+    public OfficialBarHistoryAdapter f21580e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f20059f;
+    public View f21581f;
 
     /* renamed from: g  reason: collision with root package name */
-    public NoDataView f20060g;
+    public NoDataView f21582g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(BaseActivity baseActivity) {
@@ -63,14 +63,14 @@ public class d extends b.a.e.a.d<OfficialBarHistoryActivity> {
                 return;
             }
         }
-        this.f20054a = baseActivity;
+        this.f21576a = baseActivity;
         d();
     }
 
     public void c(List<ResponseHistoryMessage.a> list) {
         NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null || list.size() <= 0 || (noDataView = this.f20060g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null || list.size() <= 0 || (noDataView = this.f21582g) == null) {
             return;
         }
         noDataView.setVisibility(8);
@@ -79,34 +79,34 @@ public class d extends b.a.e.a.d<OfficialBarHistoryActivity> {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f20055b = View.inflate(this.f20054a.getPageContext().getContext(), R.layout.official_bar_history_activity, null);
-            this.f20054a.getPageContext().getPageActivity().setContentView(this.f20055b);
-            NavigationBar navigationBar = (NavigationBar) this.f20055b.findViewById(R.id.view_navigation_bar);
-            this.f20057d = navigationBar;
+            this.f21577b = View.inflate(this.f21576a.getPageContext().getContext(), R.layout.official_bar_history_activity, null);
+            this.f21576a.getPageContext().getPageActivity().setContentView(this.f21577b);
+            NavigationBar navigationBar = (NavigationBar) this.f21577b.findViewById(R.id.view_navigation_bar);
+            this.f21579d = navigationBar;
             navigationBar.setTitleText(R.string.officical_bar_info_history);
-            this.f20057d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f20056c = (BdListView) this.f20055b.findViewById(R.id.bar_history_list);
-            BaseActivity baseActivity = this.f20054a;
+            this.f21579d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.f21578c = (BdListView) this.f21577b.findViewById(R.id.bar_history_list);
+            BaseActivity baseActivity = this.f21576a;
             OfficialBarHistoryAdapter officialBarHistoryAdapter = new OfficialBarHistoryAdapter(baseActivity, baseActivity.getPageContext().getContext());
-            this.f20058e = officialBarHistoryAdapter;
-            this.f20056c.setAdapter((ListAdapter) officialBarHistoryAdapter);
-            View inflate = View.inflate(this.f20054a.getPageContext().getContext(), R.layout.official_bar_history_item_occupy, null);
-            this.f20059f = inflate;
-            this.f20056c.addHeaderView(inflate);
-            this.f20056c.addFooterView(this.f20059f);
+            this.f21580e = officialBarHistoryAdapter;
+            this.f21578c.setAdapter((ListAdapter) officialBarHistoryAdapter);
+            View inflate = View.inflate(this.f21576a.getPageContext().getContext(), R.layout.official_bar_history_item_occupy, null);
+            this.f21581f = inflate;
+            this.f21578c.addHeaderView(inflate);
+            this.f21578c.addFooterView(this.f21581f);
         }
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f20058e.getCount() != 0 && this.f20056c.getLastVisiblePosition() - this.f20056c.getHeaderViewsCount() < this.f20058e.getCount() - 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21580e.getCount() != 0 && this.f21578c.getLastVisiblePosition() - this.f21578c.getHeaderViewsCount() < this.f21580e.getCount() - 1 : invokeV.booleanValue;
     }
 
     public void f(List<ResponseHistoryMessage.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f20058e.c(list);
+            this.f21580e.c(list);
             c(list);
         }
     }
@@ -114,7 +114,7 @@ public class d extends b.a.e.a.d<OfficialBarHistoryActivity> {
     public void g(BdListView.p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, pVar) == null) {
-            this.f20056c.setOnSrollToBottomListener(pVar);
+            this.f21578c.setOnSrollToBottomListener(pVar);
         }
     }
 
@@ -122,11 +122,11 @@ public class d extends b.a.e.a.d<OfficialBarHistoryActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             if (list == null || list.size() == 0) {
-                if (this.f20060g == null) {
-                    this.f20060g = NoDataViewFactory.a(this.f20054a.getPageContext().getPageActivity(), this.f20055b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.e.a(R.string.no_data_text), null);
+                if (this.f21582g == null) {
+                    this.f21582g = NoDataViewFactory.a(this.f21576a.getPageContext().getPageActivity(), this.f21577b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, 400), NoDataViewFactory.e.a(R.string.no_data_text), null);
                 }
-                this.f20060g.onChangeSkinType(this.f20054a.getPageContext(), TbadkApplication.getInst().getSkinType());
-                this.f20060g.setVisibility(0);
+                this.f21582g.onChangeSkinType(this.f21576a.getPageContext(), TbadkApplication.getInst().getSkinType());
+                this.f21582g.setVisibility(0);
             }
         }
     }
@@ -134,9 +134,9 @@ public class d extends b.a.e.a.d<OfficialBarHistoryActivity> {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f20054a.getLayoutMode().k(i2 == 1);
-            this.f20054a.getLayoutMode().j(this.f20055b);
-            this.f20057d.onChangeSkinType(this.f20054a.getPageContext(), i2);
+            this.f21576a.getLayoutMode().k(i2 == 1);
+            this.f21576a.getLayoutMode().j(this.f21577b);
+            this.f21579d.onChangeSkinType(this.f21576a.getPageContext(), i2);
         }
     }
 }

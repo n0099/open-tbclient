@@ -23,7 +23,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
     public final ErrorMode delayErrors;
     public final Function<? super T, ? extends ObservableSource<? extends U>> mapper;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ConcatMapDelayErrorObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6951100001833242599L;
@@ -42,7 +42,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f72524d;
+        public Disposable f73443d;
         public volatile boolean done;
         public final AtomicThrowable error;
         public final Function<? super T, ? extends ObservableSource<? extends R>> mapper;
@@ -51,7 +51,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
         public int sourceMode;
         public final boolean tillTheEnd;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static final class DelayErrorInnerObserver<R> extends AtomicReference<Disposable> implements Observer<R> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 2620149119579502636L;
@@ -102,7 +102,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
                     ConcatMapDelayErrorObserver<?, R> concatMapDelayErrorObserver = this.parent;
                     if (concatMapDelayErrorObserver.error.addThrowable(th)) {
                         if (!concatMapDelayErrorObserver.tillTheEnd) {
-                            concatMapDelayErrorObserver.f72524d.dispose();
+                            concatMapDelayErrorObserver.f73443d.dispose();
                         }
                         concatMapDelayErrorObserver.active = false;
                         concatMapDelayErrorObserver.drain();
@@ -157,7 +157,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.cancelled = true;
-                this.f72524d.dispose();
+                this.f73443d.dispose();
                 this.observer.dispose();
             }
         }
@@ -215,7 +215,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
                                 } catch (Throwable th2) {
                                     Exceptions.throwIfFatal(th2);
                                     this.cancelled = true;
-                                    this.f72524d.dispose();
+                                    this.f73443d.dispose();
                                     simpleQueue.clear();
                                     atomicThrowable.addThrowable(th2);
                                     observer.onError(atomicThrowable.terminate());
@@ -225,7 +225,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
                         } catch (Throwable th3) {
                             Exceptions.throwIfFatal(th3);
                             this.cancelled = true;
-                            this.f72524d.dispose();
+                            this.f73443d.dispose();
                             atomicThrowable.addThrowable(th3);
                             observer.onError(atomicThrowable.terminate());
                             return;
@@ -281,8 +281,8 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.f72524d, disposable)) {
-                this.f72524d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.f73443d, disposable)) {
+                this.f73443d = disposable;
                 if (disposable instanceof QueueDisposable) {
                     QueueDisposable queueDisposable = (QueueDisposable) disposable;
                     int requestFusion = queueDisposable.requestFusion(3);
@@ -306,7 +306,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class SourceObserver<T, U> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8828587559905699186L;
@@ -322,7 +322,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
         public SimpleQueue<T> queue;
         public Disposable s;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes2.dex */
         public static final class InnerObserver<U> extends AtomicReference<Disposable> implements Observer<U> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -7449079488798789337L;

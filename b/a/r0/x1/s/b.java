@@ -1,7 +1,7 @@
 package b.a.r0.x1.s;
 
-import b.a.e.e.p.l;
-import b.a.r0.l3.b0;
+import b.a.e.f.p.l;
+import b.a.r0.m3.b0;
 import b.a.r0.t1.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -18,18 +18,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements ShareChannelService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements IShareChannel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b f27079a;
+        public final /* synthetic */ b f28611a;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class b implements ShareChannelService {
                     return;
                 }
             }
-            this.f27079a = bVar;
+            this.f28611a = bVar;
         }
 
         @Override // com.baidu.searchbox.live.interfaces.sharechennel.IShareChannel
@@ -54,13 +54,13 @@ public class b implements ShareChannelService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, shareEntity, i2, iShareCallback) == null) {
                 if (i2 == 1) {
-                    this.f27079a.c(6, shareEntity, iShareCallback);
+                    this.f28611a.c(6, shareEntity, iShareCallback);
                 } else if (i2 == 3) {
-                    this.f27079a.c(2, shareEntity, iShareCallback);
+                    this.f28611a.c(2, shareEntity, iShareCallback);
                 } else if (i2 == 2) {
-                    this.f27079a.c(3, shareEntity, iShareCallback);
+                    this.f28611a.c(3, shareEntity, iShareCallback);
                 } else if (i2 == 4) {
-                    this.f27079a.c(8, shareEntity, iShareCallback);
+                    this.f28611a.c(8, shareEntity, iShareCallback);
                 }
             }
         }

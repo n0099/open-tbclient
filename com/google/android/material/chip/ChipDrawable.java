@@ -37,6 +37,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.graphics.drawable.TintAwareDrawable;
+import androidx.core.internal.view.SupportMenu;
 import androidx.core.text.BidiFormatter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -48,7 +49,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import com.google.android.material.R;
 import com.google.android.material.animation.MotionSpec;
 import com.google.android.material.canvas.CanvasCompat;
@@ -528,10 +528,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
             calculateCloseIconBounds(rect, this.rectF);
             canvas.drawRect(this.rectF, this.debugPaint);
         }
-        this.debugPaint.setColor(ColorUtils.setAlphaComponent(-65536, 127));
+        this.debugPaint.setColor(ColorUtils.setAlphaComponent(SupportMenu.CATEGORY_MASK, 127));
         calculateChipTouchBounds(rect, this.rectF);
         canvas.drawRect(this.rectF, this.debugPaint);
-        this.debugPaint.setColor(ColorUtils.setAlphaComponent(DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, 127));
+        this.debugPaint.setColor(ColorUtils.setAlphaComponent(-16711936, 127));
         calculateCloseIconTouchBounds(rect, this.rectF);
         canvas.drawRect(this.rectF, this.debugPaint);
     }

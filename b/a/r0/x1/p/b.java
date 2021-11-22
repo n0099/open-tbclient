@@ -15,18 +15,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b implements LiveShowPlayerService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements CyberPlayerManager.InstallListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveShowPlayerCallback f27041a;
+        public final /* synthetic */ LiveShowPlayerCallback f28573a;
 
         public a(b bVar, LiveShowPlayerCallback liveShowPlayerCallback) {
             Interceptable interceptable = $ic;
@@ -43,14 +43,14 @@ public class b implements LiveShowPlayerService {
                     return;
                 }
             }
-            this.f27041a = liveShowPlayerCallback;
+            this.f28573a = liveShowPlayerCallback;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
         public void onInstallError(int i2, int i3, String str) {
             LiveShowPlayerCallback liveShowPlayerCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || (liveShowPlayerCallback = this.f27041a) == null) {
+            if (!(interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) || (liveShowPlayerCallback = this.f28573a) == null) {
                 return;
             }
             liveShowPlayerCallback.cyberInitCallBack(-1, str);
@@ -67,7 +67,7 @@ public class b implements LiveShowPlayerService {
         public void onInstallSuccess(int i2, String str) {
             LiveShowPlayerCallback liveShowPlayerCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) || (liveShowPlayerCallback = this.f27041a) == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) || (liveShowPlayerCallback = this.f28573a) == null) {
                 return;
             }
             liveShowPlayerCallback.cyberInitCallBack(0, str);
@@ -75,15 +75,15 @@ public class b implements LiveShowPlayerService {
     }
 
     /* renamed from: b.a.r0.x1.p.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C1329b extends b.a.r0.x1.p.c {
+    /* loaded from: classes6.dex */
+    public class C1398b extends b.a.r0.x1.p.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveShowPlayerCallback f27042a;
+        public final /* synthetic */ LiveShowPlayerCallback f28574a;
 
-        public C1329b(b bVar, LiveShowPlayerCallback liveShowPlayerCallback) {
+        public C1398b(b bVar, LiveShowPlayerCallback liveShowPlayerCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,27 +98,27 @@ public class b implements LiveShowPlayerService {
                     return;
                 }
             }
-            this.f27042a = liveShowPlayerCallback;
+            this.f28574a = liveShowPlayerCallback;
         }
 
         @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
         public void onInfo(int i2, int i3) {
             LiveShowPlayerCallback liveShowPlayerCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || (liveShowPlayerCallback = this.f27042a) == null) {
+            if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || (liveShowPlayerCallback = this.f28574a) == null) {
                 return;
             }
             liveShowPlayerCallback.playerCallBack(i2, Integer.valueOf(i3));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements TbLiveVideoView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LiveShowPlayerStatusCallback f27043a;
+        public final /* synthetic */ LiveShowPlayerStatusCallback f28575a;
 
         public c(b bVar, LiveShowPlayerStatusCallback liveShowPlayerStatusCallback) {
             Interceptable interceptable = $ic;
@@ -135,7 +135,7 @@ public class b implements LiveShowPlayerService {
                     return;
                 }
             }
-            this.f27043a = liveShowPlayerStatusCallback;
+            this.f28575a = liveShowPlayerStatusCallback;
         }
 
         @Override // com.baidu.tieba.medialive.player.TbLiveVideoView.a
@@ -149,7 +149,7 @@ public class b implements LiveShowPlayerService {
         public void onCompletion() {
             LiveShowPlayerStatusCallback liveShowPlayerStatusCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (liveShowPlayerStatusCallback = this.f27043a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (liveShowPlayerStatusCallback = this.f28575a) == null) {
                 return;
             }
             liveShowPlayerStatusCallback.onEnded();
@@ -159,7 +159,7 @@ public class b implements LiveShowPlayerService {
         public void onError(int i2, int i3) {
             LiveShowPlayerStatusCallback liveShowPlayerStatusCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || (liveShowPlayerStatusCallback = this.f27043a) == null) {
+            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || (liveShowPlayerStatusCallback = this.f28575a) == null) {
                 return;
             }
             liveShowPlayerStatusCallback.onError(i2, i3);
@@ -169,7 +169,7 @@ public class b implements LiveShowPlayerService {
         public void onInfo(int i2, int i3) {
             LiveShowPlayerStatusCallback liveShowPlayerStatusCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) || (liveShowPlayerStatusCallback = this.f27043a) == null) {
+            if (!(interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) || (liveShowPlayerStatusCallback = this.f28575a) == null) {
                 return;
             }
             liveShowPlayerStatusCallback.onInfo(i2, i3);
@@ -179,7 +179,7 @@ public class b implements LiveShowPlayerService {
         public void onPrepared() {
             LiveShowPlayerStatusCallback liveShowPlayerStatusCallback;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (liveShowPlayerStatusCallback = this.f27043a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (liveShowPlayerStatusCallback = this.f28575a) == null) {
                 return;
             }
             liveShowPlayerStatusCallback.onStart();
@@ -413,7 +413,7 @@ public class b implements LiveShowPlayerService {
     public void setPlayerCallback(Object obj, LiveShowPlayerCallback liveShowPlayerCallback) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048596, this, obj, liveShowPlayerCallback) == null) && (obj instanceof f)) {
-            ((f) obj).setPlayerListener(new C1329b(this, liveShowPlayerCallback));
+            ((f) obj).setPlayerListener(new C1398b(this, liveShowPlayerCallback));
         }
     }
 

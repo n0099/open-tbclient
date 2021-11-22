@@ -36,31 +36,31 @@ public class h {
     public int H;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2856a;
+    public int f2949a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2857b;
+    public String f2950b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2858c;
+    public String f2951c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2859d;
+    public String f2952d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2860e;
+    public String f2953e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2861f;
+    public int f2954f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2862g;
+    public String f2955g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f2863h;
+    public int f2956h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2864i;
+    public int f2957i;
     public String j;
     public String k;
     public String l;
@@ -88,12 +88,12 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65536, null, jSONObject, hVar) == null) {
                 try {
-                    hVar.f2856a = jSONObject.optInt("advisible");
-                    hVar.f2857b = jSONObject.optString("id");
-                    hVar.f2858c = jSONObject.optString("ukey");
-                    hVar.f2859d = jSONObject.optString("extra");
-                    hVar.f2860e = jSONObject.optString("layout");
-                    hVar.f2861f = jSONObject.optInt("type");
+                    hVar.f2949a = jSONObject.optInt("advisible");
+                    hVar.f2950b = jSONObject.optString("id");
+                    hVar.f2951c = jSONObject.optString("ukey");
+                    hVar.f2952d = jSONObject.optString("extra");
+                    hVar.f2953e = jSONObject.optString("layout");
+                    hVar.f2954f = jSONObject.optInt("type");
                     hVar.k = jSONObject.optString("jump_url");
                     hVar.o = jSONObject.optString("action");
                     hVar.l = jSONObject.optString("flag_name");
@@ -154,9 +154,9 @@ public class h {
                         if (optJSONObject2 == null) {
                             return;
                         }
-                        hVar.f2856a = optJSONObject2.optInt("advisible", 1);
-                        hVar.f2857b = optJSONObject2.optString("id");
-                        hVar.f2858c = optJSONObject2.optString("ukey");
+                        hVar.f2949a = optJSONObject2.optInt("advisible", 1);
+                        hVar.f2950b = optJSONObject2.optString("id");
+                        hVar.f2951c = optJSONObject2.optString("ukey");
                         JSONArray optJSONArray2 = optJSONObject2.optJSONArray("extra");
                         if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                             int i2 = 0;
@@ -169,7 +169,7 @@ public class h {
                                     String optString = optJSONObject3.optString("k");
                                     String optString2 = optJSONObject3.optString("v");
                                     if (!TextUtils.isEmpty(optString2) && TextUtils.equals("extraParam", optString)) {
-                                        hVar.f2859d = optString2;
+                                        hVar.f2952d = optString2;
                                         break;
                                     }
                                 }
@@ -189,10 +189,10 @@ public class h {
                         }
                         if (optJSONArray4 != null) {
                             JSONObject optJSONObject4 = optJSONArray4.optJSONObject(0);
-                            hVar.f2860e = optJSONObject4.optString("layout");
+                            hVar.f2953e = optJSONObject4.optString("layout");
                             JSONObject optJSONObject5 = optJSONObject4.optJSONObject("common");
                             if (optJSONObject5 != null) {
-                                hVar.f2861f = optJSONObject5.optInt("type");
+                                hVar.f2954f = optJSONObject5.optInt("type");
                                 hVar.k = optJSONObject5.optString("jump_url");
                                 hVar.o = optJSONObject5.optString("action");
                                 hVar.l = optJSONObject5.optString("flag_name");
@@ -253,12 +253,12 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65538, null, jSONObject, hVar) == null) {
                 try {
-                    jSONObject.put("advisible", hVar.f2856a);
-                    jSONObject.put("id", hVar.f2857b);
-                    jSONObject.put("ukey", hVar.f2858c);
-                    jSONObject.put("extra", hVar.f2859d);
-                    jSONObject.put("layout", hVar.f2860e);
-                    jSONObject.put("type", hVar.f2861f);
+                    jSONObject.put("advisible", hVar.f2949a);
+                    jSONObject.put("id", hVar.f2950b);
+                    jSONObject.put("ukey", hVar.f2951c);
+                    jSONObject.put("extra", hVar.f2952d);
+                    jSONObject.put("layout", hVar.f2953e);
+                    jSONObject.put("type", hVar.f2954f);
                     jSONObject.put("jump_url", hVar.k);
                     jSONObject.put("action", hVar.o);
                     jSONObject.put("flag_name", hVar.l);
@@ -307,15 +307,15 @@ public class h {
         public static void d(h hVar, h hVar2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65539, null, hVar, hVar2) == null) {
-                hVar.f2856a = hVar2.f2856a;
-                hVar.f2857b = hVar2.f2857b;
-                hVar.f2858c = hVar2.f2858c;
-                hVar.f2859d = hVar2.f2859d;
-                hVar.f2860e = hVar2.f2860e;
-                hVar.f2861f = hVar2.f2861f;
-                hVar.f2862g = hVar2.f2862g;
-                hVar.f2863h = hVar2.f2863h;
-                hVar.f2864i = hVar2.f2864i;
+                hVar.f2949a = hVar2.f2949a;
+                hVar.f2950b = hVar2.f2950b;
+                hVar.f2951c = hVar2.f2951c;
+                hVar.f2952d = hVar2.f2952d;
+                hVar.f2953e = hVar2.f2953e;
+                hVar.f2954f = hVar2.f2954f;
+                hVar.f2955g = hVar2.f2955g;
+                hVar.f2956h = hVar2.f2956h;
+                hVar.f2957i = hVar2.f2957i;
                 hVar.j = hVar2.j;
                 hVar.k = hVar2.k;
                 hVar.l = hVar2.l;
@@ -353,9 +353,9 @@ public class h {
                 return;
             }
             try {
-                hVar.f2862g = jSONObject.optString("url");
-                hVar.f2863h = jSONObject.optInt("width");
-                hVar.f2864i = jSONObject.optInt("height");
+                hVar.f2955g = jSONObject.optString("url");
+                hVar.f2956h = jSONObject.optInt("width");
+                hVar.f2957i = jSONObject.optInt("height");
                 hVar.j = jSONObject.optString("imageMd5");
             } catch (Exception e2) {
                 if (h.I) {
@@ -368,10 +368,10 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, null, jSONObject, hVar) == null) {
                 try {
-                    jSONObject.put("url", hVar.f2862g);
+                    jSONObject.put("url", hVar.f2955g);
                     jSONObject.put("imageMd5", hVar.j);
-                    jSONObject.put("width", hVar.f2863h);
-                    jSONObject.put("height", hVar.f2864i);
+                    jSONObject.put("width", hVar.f2956h);
+                    jSONObject.put("height", hVar.f2957i);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -390,9 +390,9 @@ public class h {
                 return;
             }
             try {
-                hVar.f2862g = jSONObject.optString("url");
-                hVar.f2863h = jSONObject.optInt("width");
-                hVar.f2864i = jSONObject.optInt("height");
+                hVar.f2955g = jSONObject.optString("url");
+                hVar.f2956h = jSONObject.optInt("width");
+                hVar.f2957i = jSONObject.optInt("height");
                 hVar.j = jSONObject.optString(PackageTable.MD5);
             } catch (Exception e2) {
                 if (h.I) {
@@ -405,10 +405,10 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, null, jSONObject, hVar) == null) {
                 try {
-                    jSONObject.put("url", hVar.f2862g);
+                    jSONObject.put("url", hVar.f2955g);
                     jSONObject.put(PackageTable.MD5, hVar.j);
-                    jSONObject.put("width", hVar.f2863h);
-                    jSONObject.put("height", hVar.f2864i);
+                    jSONObject.put("width", hVar.f2956h);
+                    jSONObject.put("height", hVar.f2957i);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -429,7 +429,7 @@ public class h {
                 return;
             }
         }
-        I = b.a.f0.a.a.a.f2779a;
+        I = b.a.f0.a.a.a.f2872a;
     }
 
     public h() {
@@ -455,14 +455,14 @@ public class h {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hVar)) == null) {
-            if (TextUtils.isEmpty(hVar.f2859d)) {
+            if (TextUtils.isEmpty(hVar.f2952d)) {
                 str = "7";
                 z = false;
             } else {
                 str = "";
                 z = true;
             }
-            if (z && TextUtils.isEmpty(hVar.f2862g)) {
+            if (z && TextUtils.isEmpty(hVar.f2955g)) {
                 str = "66";
                 z = false;
             }
@@ -540,7 +540,7 @@ public class h {
                 if (c2 == null) {
                     break;
                 }
-                if (c2.f2856a != 0 && a(c2)) {
+                if (c2.f2949a != 0 && a(c2)) {
                     arrayList.add(c2);
                     if (I) {
                         String str = "splashDataItem:  i=" + i2 + ",content" + c2.toString();
@@ -583,7 +583,7 @@ public class h {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.equals(this.f2860e, "splash_image") ? "image" : TextUtils.equals(this.f2860e, "splash_video") ? "video" : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.equals(this.f2953e, "splash_image") ? "image" : TextUtils.equals(this.f2953e, "splash_video") ? "video" : "" : (String) invokeV.objValue;
     }
 
     public boolean f() {
@@ -595,7 +595,7 @@ public class h {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2861f == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2954f == 1 : invokeV.booleanValue;
     }
 
     public boolean h() {
@@ -611,7 +611,7 @@ public class h {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TextUtils.equals(this.f2860e, "splash_image") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TextUtils.equals(this.f2953e, "splash_image") : invokeV.booleanValue;
     }
 
     public String k() {

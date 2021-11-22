@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PayType f72356a;
+    public PayType f73275a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f72357b;
+    public String f73276b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f72358c;
+    public String f73277c;
 
     public f(PayType payType, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -35,15 +35,15 @@ public class f {
                 return;
             }
         }
-        this.f72357b = "";
-        this.f72356a = payType;
-        this.f72357b = str;
-        this.f72358c = str2;
+        this.f73276b = "";
+        this.f73275a = payType;
+        this.f73276b = str;
+        this.f73277c = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f72357b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73276b : (String) invokeV.objValue;
     }
 }

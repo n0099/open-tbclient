@@ -24,7 +24,6 @@ import com.baidu.mobads.container.service.PluginLoader;
 import com.baidu.mobads.container.util.AppUtils;
 import com.baidu.mobads.container.util.SendLogUtil;
 import com.baidu.mobads.container.util.oaid.UniqueIdUtils;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -403,7 +402,7 @@ public class PackageUtils {
         return (JSONArray) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0182 A[Catch: Exception -> 0x01a4, TryCatch #9 {Exception -> 0x01a4, blocks: (B:69:0x0157, B:71:0x0182, B:72:0x018b), top: B:90:0x0157 }] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x0183 A[Catch: Exception -> 0x01a5, TryCatch #9 {Exception -> 0x01a5, blocks: (B:69:0x0157, B:71:0x0183, B:72:0x018c), top: B:90:0x0157 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -824,7 +823,7 @@ public class PackageUtils {
                 append.append("hasSdPermission", hasPermission);
                 Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
                 append.append("chargeState", registerReceiver.getIntExtra("plugged", -1));
-                int intExtra = registerReceiver.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 0);
+                int intExtra = registerReceiver.getIntExtra("level", 0);
                 int intExtra2 = registerReceiver.getIntExtra("scale", 100);
                 append.append("batteryLevel", intExtra);
                 append.append("batteryScale", intExtra2);

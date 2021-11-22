@@ -15,7 +15,7 @@ public class CallbackUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Boolean> f68075a;
+    public static final Map<String, Boolean> f68996a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class CallbackUtil {
                 return;
             }
         }
-        f68075a = new HashMap();
+        f68996a = new HashMap();
     }
 
     public CallbackUtil() {
@@ -66,14 +66,14 @@ public class CallbackUtil {
                 }
                 sb = sb2.toString();
             }
-            Boolean bool = f68075a.get(sb);
+            Boolean bool = f68996a.get(sb);
             if (bool == null) {
                 try {
                     cls.getDeclaredMethod(str, clsArr);
-                    f68075a.put(sb, Boolean.TRUE);
+                    f68996a.put(sb, Boolean.TRUE);
                     return true;
                 } catch (NoSuchMethodException unused) {
-                    f68075a.put(sb, Boolean.FALSE);
+                    f68996a.put(sb, Boolean.FALSE);
                     return false;
                 }
             }

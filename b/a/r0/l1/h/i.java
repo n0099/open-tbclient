@@ -26,20 +26,20 @@ public class i {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static i f20146c = null;
+    public static i f21668c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f20147d = -1;
+    public static long f21669d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f20148e;
+    public static int f21670e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f20149a;
+    public b f21671a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f20150b;
+    public c f21672b;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -47,7 +47,7 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f20151a;
+        public final /* synthetic */ i f21673a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(i iVar, int i2) {
@@ -67,7 +67,7 @@ public class i {
                     return;
                 }
             }
-            this.f20151a = iVar;
+            this.f21673a = iVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,11 +76,11 @@ public class i {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                 if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    this.f20151a.f20149a.sendMessageDelayed(this.f20151a.f20149a.obtainMessage(1), 30000L);
+                    this.f21673a.f21671a.sendMessageDelayed(this.f21673a.f21671a.obtainMessage(1), 30000L);
                     return;
                 }
-                this.f20151a.f20149a.removeMessages(1);
-                this.f20151a.j();
+                this.f21673a.f21671a.removeMessages(1);
+                this.f21673a.j();
             }
         }
     }
@@ -112,7 +112,7 @@ public class i {
                 if (message.what != 1) {
                     return;
                 }
-                i.i().f20149a.removeMessages(1);
+                i.i().f21671a.removeMessages(1);
                 i.i().h();
             }
         }
@@ -155,23 +155,23 @@ public class i {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 LinkedList<ImMessageCenterPojo> h2 = j.f().h();
                 if (h2 != null && h2.size() != 0) {
-                    if (i.f20147d < 0) {
+                    if (i.f21669d < 0) {
                         try {
                             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                            long unused = i.f20147d = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                            if (i.f20147d > 2147483648L) {
-                                int unused2 = i.f20148e = 5000;
-                            } else if (i.f20147d > 1073741824) {
-                                int unused3 = i.f20148e = 3000;
+                            long unused = i.f21669d = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                            if (i.f21669d > 2147483648L) {
+                                int unused2 = i.f21670e = 5000;
+                            } else if (i.f21669d > 1073741824) {
+                                int unused3 = i.f21670e = 3000;
                             } else {
-                                int unused4 = i.f20148e = 1000;
+                                int unused4 = i.f21670e = 1000;
                             }
                         } catch (Exception e2) {
                             BdLog.e(e2);
                         }
                     }
-                    if (i.f20148e < 1000) {
-                        int unused5 = i.f20148e = 1000;
+                    if (i.f21670e < 1000) {
+                        int unused5 = i.f21670e = 1000;
                     }
                     try {
                         try {
@@ -181,13 +181,13 @@ public class i {
                                     h.d().b();
                                     return Boolean.FALSE;
                                 } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                                    b.a.r0.l1.h.c.h().n(imMessageCenterPojo.getGid(), i.f20148e);
+                                    b.a.r0.l1.h.c.h().n(imMessageCenterPojo.getGid(), i.f21670e);
                                 } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                                    m.t().q(imMessageCenterPojo.getGid(), i.f20148e);
+                                    m.t().q(imMessageCenterPojo.getGid(), i.f21670e);
                                 } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                                    l.t().q(imMessageCenterPojo.getGid(), i.f20148e);
+                                    l.t().q(imMessageCenterPojo.getGid(), i.f21670e);
                                 } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                                    d.f().l(imMessageCenterPojo.getGid(), i.f20148e);
+                                    d.f().l(imMessageCenterPojo.getGid(), i.f21670e);
                                 }
                             }
                         } catch (Exception e3) {
@@ -233,8 +233,8 @@ public class i {
                 return;
             }
         }
-        this.f20149a = new b(null);
-        this.f20150b = null;
+        this.f21671a = new b(null);
+        this.f21672b = null;
         MessageManager.getInstance().registerListener(new a(this, 2001011));
     }
 
@@ -242,14 +242,14 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (f20146c == null) {
+            if (f21668c == null) {
                 synchronized (i.class) {
-                    if (f20146c == null) {
-                        f20146c = new i();
+                    if (f21668c == null) {
+                        f21668c = new i();
                     }
                 }
             }
-            return f20146c;
+            return f21668c;
         }
         return (i) invokeV.objValue;
     }
@@ -257,26 +257,26 @@ public class i {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c cVar = this.f20150b;
+            c cVar = this.f21672b;
             if (cVar != null) {
                 cVar.cancel();
-                this.f20150b = null;
+                this.f21672b = null;
             }
             c cVar2 = new c(this, null);
-            this.f20150b = cVar2;
+            this.f21672b = cVar2;
             cVar2.setParallel(TiebaIMConfig.getParallel());
-            this.f20150b.setPriority(4);
-            this.f20150b.execute(new String[0]);
+            this.f21672b.setPriority(4);
+            this.f21672b.execute(new String[0]);
         }
     }
 
     public final void j() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f20150b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f21672b) == null) {
             return;
         }
         cVar.cancel();
-        this.f20150b = null;
+        this.f21672b = null;
     }
 }

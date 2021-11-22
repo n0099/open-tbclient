@@ -1,7 +1,7 @@
 package b.a.r0.h1.g.f;
 
-import b.a.e.e.p.j;
-import b.a.e.l.e.n;
+import b.a.e.f.p.j;
+import b.a.e.m.e.n;
 import b.a.r0.h1.g.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -23,34 +23,34 @@ public class a implements b.a.r0.h1.g.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f17260a;
+    public String f18728a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f17261b;
+    public BdUniqueId f18729b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b.a.e.c.g.a f17262c;
+    public b.a.e.c.g.a f18730c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f17263d;
+    public boolean f18731d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f17264e;
+    public b f18732e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HashMap<String, List<n>> f17265f;
+    public final HashMap<String, List<n>> f18733f;
 
     /* renamed from: b.a.r0.h1.g.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0885a extends b.a.e.c.g.a {
+    public class C0953a extends b.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f17266a;
+        public final /* synthetic */ a f18734a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0885a(a aVar, int i2, int i3) {
+        public C0953a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -68,33 +68,33 @@ public class a implements b.a.r0.h1.g.a {
                     return;
                 }
             }
-            this.f17266a = aVar;
+            this.f18734a = aVar;
         }
 
         @Override // b.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.f17266a.f17263d = false;
-                if (this.f17266a.f17264e == null) {
+                this.f18734a.f18731d = false;
+                if (this.f18734a.f18732e == null) {
                     return;
                 }
                 if (!(responsedMessage instanceof b.a.r0.h1.g.e.a)) {
-                    this.f17266a.f17264e.c(-1);
-                } else if (responsedMessage.getOrginalMessage() == null || this.f17266a.f17261b != responsedMessage.getOrginalMessage().getTag()) {
-                    this.f17266a.f17264e.c(-1);
+                    this.f18734a.f18732e.c(-1);
+                } else if (responsedMessage.getOrginalMessage() == null || this.f18734a.f18729b != responsedMessage.getOrginalMessage().getTag()) {
+                    this.f18734a.f18732e.c(-1);
                 } else if (responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    this.f17266a.f17264e.c(responsedMessage.getError());
+                    this.f18734a.f18732e.c(responsedMessage.getError());
                 } else {
                     b.a.r0.h1.g.e.a aVar = (b.a.r0.h1.g.e.a) responsedMessage;
                     if (aVar.getDataList() == null || aVar.getDataList().size() <= 0) {
-                        this.f17266a.f17264e.c(-1);
+                        this.f18734a.f18732e.c(-1);
                         return;
                     }
-                    if (!StringUtils.isNull(this.f17266a.f17260a)) {
-                        this.f17266a.f17265f.put(this.f17266a.f17260a, aVar.getDataList());
+                    if (!StringUtils.isNull(this.f18734a.f18728a)) {
+                        this.f18734a.f18733f.put(this.f18734a.f18728a, aVar.getDataList());
                     }
-                    this.f17266a.f17264e.b(responsedMessage.getError(), aVar);
+                    this.f18734a.f18732e.b(responsedMessage.getError(), aVar);
                 }
             }
         }
@@ -115,9 +115,9 @@ public class a implements b.a.r0.h1.g.a {
                 return;
             }
         }
-        this.f17261b = null;
-        this.f17265f = new HashMap<>();
-        this.f17264e = bVar;
+        this.f18729b = null;
+        this.f18733f = new HashMap<>();
+        this.f18732e = bVar;
         g();
     }
 
@@ -127,12 +127,12 @@ public class a implements b.a.r0.h1.g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
             if (j.A() && bdUniqueId != null && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                if (this.f17263d) {
+                if (this.f18731d) {
                     return false;
                 }
-                String str4 = this.f17260a;
-                if (str4 != null && str4.equals(str) && this.f17265f.size() > 0) {
-                    this.f17264e.setData(this.f17265f.get(str));
+                String str4 = this.f18728a;
+                if (str4 != null && str4.equals(str) && this.f18733f.size() > 0) {
+                    this.f18732e.setData(this.f18733f.get(str));
                     return true;
                 }
                 k(bdUniqueId);
@@ -145,10 +145,10 @@ public class a implements b.a.r0.h1.g.a {
                 moreTreasureTroveReqMsg.setLfUser(str2);
                 moreTreasureTroveReqMsg.setTaskId(str3);
                 boolean sendMessage = MessageManager.getInstance().sendMessage(moreTreasureTroveReqMsg);
-                this.f17263d = sendMessage;
+                this.f18731d = sendMessage;
                 return sendMessage;
             }
-            b bVar = this.f17264e;
+            b bVar = this.f18732e;
             if (bVar != null) {
                 bVar.c(-1);
             }
@@ -160,8 +160,8 @@ public class a implements b.a.r0.h1.g.a {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f17262c = new C0885a(this, CmdConfigHttp.CMD_LOW_FLOWS_PAGE, 309691);
-            MessageManager.getInstance().registerListener(this.f17262c);
+            this.f18730c = new C0953a(this, CmdConfigHttp.CMD_LOW_FLOWS_PAGE, 309691);
+            MessageManager.getInstance().registerListener(this.f18730c);
         }
     }
 
@@ -174,7 +174,7 @@ public class a implements b.a.r0.h1.g.a {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f17260a = str;
+            this.f18728a = str;
         }
     }
 
@@ -187,7 +187,7 @@ public class a implements b.a.r0.h1.g.a {
     public void k(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.f17261b = bdUniqueId;
+            this.f18729b = bdUniqueId;
         }
     }
 }

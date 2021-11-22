@@ -21,14 +21,14 @@ public final class NFCUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static NFCUtil f58044a;
+    public static NFCUtil f58966a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public NfcAdapter f58045b;
+    public NfcAdapter f58967b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PendingIntent f58046c;
+    public PendingIntent f58968c;
     public IntentFilter[] mFilters;
     public String[][] mTechlist;
 
@@ -44,7 +44,7 @@ public final class NFCUtil {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static NFCUtil f58047a;
+        public static NFCUtil f58969a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -60,7 +60,7 @@ public final class NFCUtil {
                     return;
                 }
             }
-            f58047a = new NFCUtil(null);
+            f58969a = new NFCUtil(null);
         }
 
         public a() {
@@ -97,7 +97,7 @@ public final class NFCUtil {
     public static NFCUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f58047a : (NFCUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f58969a : (NFCUtil) invokeV.objValue;
     }
 
     public void disableForegroundDispatch(Activity activity, boolean z) {

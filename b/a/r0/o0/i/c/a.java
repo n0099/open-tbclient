@@ -12,22 +12,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f21685a;
+    public String f23184a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21686b;
+    public String f23185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MetaData f21687c;
+    public MetaData f23186c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f21688d;
+    public long f23187d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21689e;
+    public String f23188e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TiebaFieldsInfo f21690f;
+    public TiebaFieldsInfo f23189f;
 
     public a() {
         Interceptable interceptable = $ic;

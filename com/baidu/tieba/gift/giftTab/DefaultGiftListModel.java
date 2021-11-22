@@ -21,19 +21,19 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<b.a.r0.b1.b.a> f49265e;
+    public ArrayList<b.a.r0.b1.b.a> f50176e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<j0> f49266f;
+    public ArrayList<j0> f50177f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<e> f49267g;
+    public ArrayList<e> f50178g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f49268h;
+    public String f50179h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f49269i;
+    public int f50180i;
     public b j;
     public b.a.e.c.g.a k;
 
@@ -43,7 +43,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DefaultGiftListModel f49270a;
+        public final /* synthetic */ DefaultGiftListModel f50181a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(DefaultGiftListModel defaultGiftListModel, int i2, int i3) {
@@ -64,7 +64,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                     return;
                 }
             }
-            this.f49270a = defaultGiftListModel;
+            this.f50181a = defaultGiftListModel;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:21:0x008e  */
@@ -88,34 +88,34 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
             }
             if (z) {
                 DefaultGiftListHttpResponseMessage defaultGiftListHttpResponseMessage = (DefaultGiftListHttpResponseMessage) responsedMessage;
-                this.f49270a.f49265e = defaultGiftListHttpResponseMessage.getCategoryList();
-                this.f49270a.f49266f = defaultGiftListHttpResponseMessage.getGiftList();
-                this.f49270a.f49267g = defaultGiftListHttpResponseMessage.getGiftNumberList();
-                this.f49270a.f49268h = defaultGiftListHttpResponseMessage.getAddFreeUrl();
-                this.f49270a.f49269i = defaultGiftListHttpResponseMessage.getFreeChance();
+                this.f50181a.f50176e = defaultGiftListHttpResponseMessage.getCategoryList();
+                this.f50181a.f50177f = defaultGiftListHttpResponseMessage.getGiftList();
+                this.f50181a.f50178g = defaultGiftListHttpResponseMessage.getGiftNumberList();
+                this.f50181a.f50179h = defaultGiftListHttpResponseMessage.getAddFreeUrl();
+                this.f50181a.f50180i = defaultGiftListHttpResponseMessage.getFreeChance();
                 i3 = defaultGiftListHttpResponseMessage.currencyType;
                 k0Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
             } else if (!(responsedMessage instanceof DefaultGiftListSocketResponseMessage)) {
                 k0Var = null;
                 i2 = 0;
-                if (this.f49270a.j == null) {
-                    this.f49270a.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f49270a.f49269i, this.f49270a.f49268h, i2, k0Var, this.f49270a.f49265e, this.f49270a.f49266f, this.f49270a.f49267g);
+                if (this.f50181a.j == null) {
+                    this.f50181a.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f50181a.f50180i, this.f50181a.f50179h, i2, k0Var, this.f50181a.f50176e, this.f50181a.f50177f, this.f50181a.f50178g);
                     return;
                 }
                 return;
             } else {
                 DefaultGiftListSocketResponseMessage defaultGiftListSocketResponseMessage = (DefaultGiftListSocketResponseMessage) responsedMessage;
-                this.f49270a.f49265e = defaultGiftListSocketResponseMessage.getCategoryList();
-                this.f49270a.f49266f = defaultGiftListSocketResponseMessage.getGiftList();
-                this.f49270a.f49267g = defaultGiftListSocketResponseMessage.getGiftNumberList();
-                this.f49270a.f49268h = defaultGiftListSocketResponseMessage.getAddFreeUrl();
-                this.f49270a.f49269i = defaultGiftListSocketResponseMessage.getFreeChance();
+                this.f50181a.f50176e = defaultGiftListSocketResponseMessage.getCategoryList();
+                this.f50181a.f50177f = defaultGiftListSocketResponseMessage.getGiftList();
+                this.f50181a.f50178g = defaultGiftListSocketResponseMessage.getGiftNumberList();
+                this.f50181a.f50179h = defaultGiftListSocketResponseMessage.getAddFreeUrl();
+                this.f50181a.f50180i = defaultGiftListSocketResponseMessage.getFreeChance();
                 i3 = defaultGiftListSocketResponseMessage.currencyType;
                 k0Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
             }
             i2 = i3;
             k0Var = k0Var2;
-            if (this.f49270a.j == null) {
+            if (this.f50181a.j == null) {
             }
         }
     }
@@ -195,8 +195,8 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            b.a.r0.l3.f0.a.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
-            b.a.r0.l3.f0.a.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
+            b.a.r0.m3.f0.a.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
+            b.a.r0.m3.f0.a.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

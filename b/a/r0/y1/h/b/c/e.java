@@ -14,7 +14,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public GridView f27684a;
+    public GridView f29187a;
 
     public e(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class e {
                 return;
             }
         }
-        this.f27684a = (GridView) viewGroup.findViewById(R.id.tail_edit_color_gridview);
+        this.f29187a = (GridView) viewGroup.findViewById(R.id.tail_edit_color_gridview);
     }
 
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f27684a.setAdapter((ListAdapter) aVar);
+            this.f29187a.setAdapter((ListAdapter) aVar);
         }
     }
 }

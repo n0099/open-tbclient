@@ -3,7 +3,7 @@ package b.a.p0.a.b0;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import b.a.p0.a.k;
-import b.a.p0.a.n1.f;
+import b.a.p0.a.p1.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.http.callback.ResponseCallback;
@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
 import java.util.Map;
 import okhttp3.RequestBody;
 import okhttp3.Response;
@@ -28,22 +27,22 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f4013a;
+    public static final boolean f4145a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f4014b;
+    public static int f4146b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b.a.p0.a.b0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0115a extends ResponseCallback<CommonSyncServerData> {
+    public static class C0122a extends ResponseCallback<CommonSyncServerData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.b0.c.a f4015a;
+        public final /* synthetic */ b.a.p0.a.b0.c.a f4147a;
 
-        public C0115a(b.a.p0.a.b0.c.a aVar) {
+        public C0122a(b.a.p0.a.b0.c.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +57,7 @@ public class a {
                     return;
                 }
             }
-            this.f4015a = aVar;
+            this.f4147a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,7 +66,7 @@ public class a {
         public void onSuccess(CommonSyncServerData commonSyncServerData, int i2) {
             b.a.p0.a.b0.c.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, commonSyncServerData, i2) == null) || (aVar = this.f4015a) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, commonSyncServerData, i2) == null) || (aVar = this.f4147a) == null) {
                 return;
             }
             aVar.a(commonSyncServerData);
@@ -88,8 +87,8 @@ public class a {
                     JSONObject jSONObject = new JSONObject(string);
                     int optInt = jSONObject.optInt("errno");
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (optInt == a.f4014b && optJSONObject != null) {
-                        return (CommonSyncServerData) new Gson().fromJson(optJSONObject.toString(), (Class<Object>) CommonSyncServerData.class);
+                    if (optInt == a.f4146b && optJSONObject != null) {
+                        return CommonSyncServerData.parseFromJson(optJSONObject);
                     }
                 }
                 return null;
@@ -101,7 +100,7 @@ public class a {
         public void onFail(Exception exc) {
             b.a.p0.a.b0.c.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (aVar = this.f4015a) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (aVar = this.f4147a) == null) {
                 return;
             }
             aVar.onFail();
@@ -121,8 +120,8 @@ public class a {
                 return;
             }
         }
-        f4013a = k.f6397a;
-        f4014b = 0;
+        f4145a = k.f6863a;
+        f4146b = 0;
     }
 
     public static void b(b.a.p0.a.b0.c.a aVar) {
@@ -135,7 +134,7 @@ public class a {
                 }
                 return;
             }
-            b.a.p0.m.e.a.g().getRequest().cookieManager(b.a.p0.a.c1.a.p().a()).url(b.a.p0.a.c1.a.l().processUrl(b.a())).build().executeAsync(new C0115a(aVar));
+            b.a.p0.p.e.a.g().getRequest().cookieManager(b.a.p0.a.c1.a.q().a()).url(b.a.p0.a.c1.a.m().processUrl(b.a())).build().executeAsync(new C0122a(aVar));
         }
     }
 
@@ -149,13 +148,13 @@ public class a {
                     try {
                         jSONObject.put(str, map.get(str));
                     } catch (JSONException e2) {
-                        if (f4013a) {
+                        if (f4145a) {
                             e2.printStackTrace();
                         }
                     }
                 }
             }
-            return RequestBody.create(f.f6891a, jSONObject.toString());
+            return RequestBody.create(f.f7732a, jSONObject.toString());
         }
         return (RequestBody) invokeL.objValue;
     }
@@ -163,14 +162,14 @@ public class a {
     public static void d(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && SwanAppNetworkUtils.h()) {
-            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) b.a.p0.m.e.a.g().postRequest().cookieManager(b.a.p0.a.c1.a.p().a())).url(b.a.p0.a.c1.a.l().processUrl(b.b()))).requestBody(c(map)).build().executeAsync(null);
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) b.a.p0.p.e.a.g().postRequest().cookieManager(b.a.p0.a.c1.a.q().a())).url(b.a.p0.a.c1.a.m().processUrl(b.b()))).requestBody(c(map)).build().executeAsync(null);
         }
     }
 
     public static void e(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, map) == null) && SwanAppNetworkUtils.h()) {
-            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) b.a.p0.m.e.a.g().postRequest().cookieManager(b.a.p0.a.c1.a.p().a())).url(b.a.p0.a.c1.a.l().processUrl(b.c()))).requestBody(c(map)).build().executeAsync(null);
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) b.a.p0.p.e.a.g().postRequest().cookieManager(b.a.p0.a.c1.a.q().a())).url(b.a.p0.a.c1.a.m().processUrl(b.c()))).requestBody(c(map)).build().executeAsync(null);
         }
     }
 }

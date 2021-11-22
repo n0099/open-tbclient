@@ -12,7 +12,7 @@ import com.baidu.ubs.analytics.a.l;
 import com.baidu.ubs.analytics.a.n;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class b implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public final class b implements Serializable {
     public List<l> o;
     public List<i> p;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public final class b implements Serializable {
         public String E;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f56622i;
+        public String f57544i;
         public String osVersion;
         public String q;
         public String r;
@@ -83,7 +83,7 @@ public final class b implements Serializable {
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.f56622i = str;
+                this.f57544i = str;
             }
         }
 
@@ -164,7 +164,7 @@ public final class b implements Serializable {
         public final String l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f56622i : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f57544i : (String) invokeV.objValue;
         }
 
         public final void m(String str) {

@@ -1,54 +1,81 @@
 package b.a.p0.a.o0.d;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.net.Uri;
+import b.a.p0.a.k;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class h extends a {
+public class h<T> extends b {
     public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final boolean f7456e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f7120c;
+    public T f7457c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f7121d;
+    public boolean f7458d;
 
-    public h(@Nullable String str, @Nullable String str2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-780095146, "Lb/a/p0/a/o0/d/h;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-780095146, "Lb/a/p0/a/o0/d/h;");
+                return;
+            }
+        }
+        f7456e = k.f6863a;
+    }
+
+    public h() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f7120c = str;
-        this.f7121d = str2;
-        this.f7099a = "firstMeaningfulPainted";
+        this.f7458d = true;
+        this.f7439a = "message";
     }
 
-    @Override // b.a.p0.a.o0.d.a
-    public String f(String str) {
-        InterceptResult invokeL;
+    @Override // b.a.p0.a.o0.d.b
+    public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(b.a.p0.a.o0.a.c(str, PrefetchEvent.EVENT_DATA_WEBVIEW_ID, TextUtils.isEmpty(this.f7120c) ? "" : this.f7120c));
-            sb.append(b.a.p0.a.o0.a.c(str, "pageUrl", TextUtils.isEmpty(this.f7121d) ? "" : this.f7121d));
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            Object obj = this.f7457c;
+            if (obj instanceof String) {
+                String str = (String) obj;
+                if (this.f7458d) {
+                    str = Uri.encode(str);
+                }
+                if (f7456e) {
+                    String str2 = "mData: " + this.f7457c;
+                    String str3 = "encode mData: " + str;
+                }
+                map.put("message", str);
+            } else if (obj instanceof JSONObject) {
+                map.put("message", obj);
+            }
         }
-        return (String) invokeL.objValue;
     }
 }

@@ -3,7 +3,7 @@ package b.a.p0.a.q0.b;
 public interface a {
     void a();
 
-    void b();
+    void b(boolean z);
 
     void c();
 }

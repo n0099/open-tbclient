@@ -2,6 +2,8 @@ package b.a.p0.a.g0;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import b.a.p0.a.z2.g1.d;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,6 +14,47 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: b.a.p0.a.g0.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public class C0191a implements d<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ Bundle f5237a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ a f5238b;
+
+        public C0191a(a aVar, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f5238b = aVar;
+            this.f5237a = bundle;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // b.a.p0.a.z2.g1.d
+        /* renamed from: a */
+        public Bundle create() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5238b.b(this.f5237a) : (Bundle) invokeV.objValue;
+        }
+    }
 
     public a() {
         Interceptable interceptable = $ic;
@@ -27,8 +70,7 @@ public class a extends ProviderDelegation {
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(@NonNull Bundle bundle) {
+    public final Bundle b(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
@@ -53,5 +95,12 @@ public class a extends ProviderDelegation {
             }
         }
         return (Bundle) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(@NonNull Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) ? (Bundle) b.a.p0.a.z2.g1.a.b(new C0191a(this, bundle)) : (Bundle) invokeL.objValue;
     }
 }

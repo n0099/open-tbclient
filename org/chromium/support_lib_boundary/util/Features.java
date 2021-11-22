@@ -8,9 +8,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class Features {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CREATE_WEB_MESSAGE_CHANNEL = "CREATE_WEB_MESSAGE_CHANNEL";
+    public static final String DEV_SUFFIX = ":dev";
     public static final String DISABLED_ACTION_MODE_MENU_ITEMS = "DISABLED_ACTION_MODE_MENU_ITEMS";
+    public static final String FORCE_DARK = "FORCE_DARK";
+    public static final String GET_WEB_CHROME_CLIENT = "GET_WEB_CHROME_CLIENT";
+    public static final String GET_WEB_VIEW_CLIENT = "GET_WEB_VIEW_CLIENT";
+    public static final String GET_WEB_VIEW_RENDERER = "GET_WEB_VIEW_RENDERER";
+    public static final String MULTI_PROCESS_QUERY = "MULTI_PROCESS_QUERY";
     public static final String OFF_SCREEN_PRERASTER = "OFF_SCREEN_PRERASTER";
     public static final String POST_WEB_MESSAGE = "POST_WEB_MESSAGE";
+    public static final String PROXY_OVERRIDE = "PROXY_OVERRIDE:3";
     public static final String RECEIVE_HTTP_ERROR = "RECEIVE_HTTP_ERROR";
     public static final String RECEIVE_WEB_RESOURCE_ERROR = "RECEIVE_WEB_RESOURCE_ERROR";
     public static final String SAFE_BROWSING_ENABLE = "SAFE_BROWSING_ENABLE";
@@ -28,6 +35,8 @@ public class Features {
     public static final String SERVICE_WORKER_SHOULD_INTERCEPT_REQUEST = "SERVICE_WORKER_SHOULD_INTERCEPT_REQUEST";
     public static final String SHOULD_OVERRIDE_WITH_REDIRECTS = "SHOULD_OVERRIDE_WITH_REDIRECTS";
     public static final String START_SAFE_BROWSING = "START_SAFE_BROWSING";
+    public static final String SUPPRESS_ERROR_PAGE = "SUPPRESS_ERROR_PAGE";
+    public static final String TRACING_CONTROLLER_BASIC_USAGE = "TRACING_CONTROLLER_BASIC_USAGE";
     public static final String VISUAL_STATE_CALLBACK = "VISUAL_STATE_CALLBACK";
     public static final String WEB_MESSAGE_CALLBACK_ON_MESSAGE = "WEB_MESSAGE_CALLBACK_ON_MESSAGE";
     public static final String WEB_MESSAGE_PORT_CLOSE = "WEB_MESSAGE_PORT_CLOSE";
@@ -36,6 +45,8 @@ public class Features {
     public static final String WEB_RESOURCE_ERROR_GET_CODE = "WEB_RESOURCE_ERROR_GET_CODE";
     public static final String WEB_RESOURCE_ERROR_GET_DESCRIPTION = "WEB_RESOURCE_ERROR_GET_DESCRIPTION";
     public static final String WEB_RESOURCE_REQUEST_IS_REDIRECT = "WEB_RESOURCE_REQUEST_IS_REDIRECT";
+    public static final String WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE = "WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE";
+    public static final String WEB_VIEW_RENDERER_TERMINATE = "WEB_VIEW_RENDERER_TERMINATE";
     public transient /* synthetic */ FieldHolder $fh;
 
     public Features() {

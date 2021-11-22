@@ -2,7 +2,7 @@ package com.baidu.tbadk.core;
 
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.l.d;
+import b.a.e.f.l.d;
 import b.a.r0.l1.h.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -11,6 +11,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.ShareWebActivity;
 import com.baidu.tbadk.browser.TbWebViewActivity;
@@ -61,6 +62,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class LaunchStatic {
@@ -192,11 +194,11 @@ public class LaunchStatic {
                 return;
             }
         }
-        a();
-        d();
         b();
+        e();
+        c();
         SyncSwitch.initSyncSwitch();
-        b.a.r0.l3.o0.a.a();
+        b.a.r0.m3.o0.a.a();
         b.a.r0.l1.y.b.a();
         b.a.r0.l1.b.a();
         ImMemoryCacheRegister.j();
@@ -206,8 +208,8 @@ public class LaunchStatic {
         WalletStaticInit.init();
         b.a.q0.s.t.a.d();
         b.a.q0.s.x.c.a();
-        b.a.q0.r0.a.c();
         b.a.q0.p.a.d();
+        a();
     }
 
     public LaunchStatic() {
@@ -226,7 +228,14 @@ public class LaunchStatic {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess() && !Fresco.hasBeenInitialized()) {
+            Fresco.initialize(TbadkCoreApplication.getInst());
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             TbadkCoreApplication.getInst().RegisterIntent(UpdateDialogConfig.class, UpdateDialog.class);
             TbadkCoreApplication.getInst().RegisterIntent(LcUpdateDialogActivityConfig.class, LcUpdateDialogActivity.class);
             TbadkCoreApplication.getInst().RegisterIntent(UpdateInfoServiceConfig.class, UpdateInfoService.class);
@@ -237,17 +246,18 @@ public class LaunchStatic {
         }
     }
 
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            MessageManager.getInstance().registerListener(new b(2016301));
-            MessageManager.getInstance().registerListener(new c(2010001));
-        }
-    }
-
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            MessageManager.getInstance().registerListener(new b(2016301));
+            MessageManager.getInstance().registerListener(new c(2010001));
+            MessageManager.getInstance().registerStickyMode(2004602);
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
             d.h().o(10, new SimpleLoaderProc(true, true, false, 10));
             d.h().o(11, new SimpleLoaderProc(false, true, false, 10));
             d.h().o(42, new SimpleLoaderProc(true, false, false, 10));
@@ -287,15 +297,15 @@ public class LaunchStatic {
         }
     }
 
-    public static void d() {
+    public static void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
             b.a.q0.a0.b.a().c();
-            b.a.r0.l3.f0.a.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, b.a.r0.l3.f0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
+            b.a.r0.m3.f0.a.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, b.a.r0.m3.f0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

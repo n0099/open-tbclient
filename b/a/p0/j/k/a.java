@@ -1,19 +1,42 @@
 package b.a.p0.j.k;
 
-import android.content.Context;
-import b.a.p0.a.a2.e;
-import b.a.p0.a.h1.c.c;
+import android.text.TextUtils;
+import b.a.p0.a.l0.i;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+@Service
 /* loaded from: classes4.dex */
-public abstract class a<T extends b.a.p0.a.h1.c.c> {
+public class a implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: b.a.p0.j.k.a$a  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public static class C0602a {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static String f11202a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                if (TextUtils.isEmpty(f11202a)) {
+                    f11202a = b.a.p0.a.w2.b.b();
+                }
+                return f11202a;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
 
     public a() {
         Interceptable interceptable = $ic;
@@ -29,24 +52,17 @@ public abstract class a<T extends b.a.p0.a.h1.c.c> {
         }
     }
 
-    public abstract boolean b(Context context, T t, b.a.p0.a.h1.b bVar, e eVar, JSONObject jSONObject);
-
-    public boolean c(Context context, T t, b.a.p0.a.h1.b bVar, e eVar) {
-        InterceptResult invokeLLLL;
+    @Override // b.a.p0.a.l0.i
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, t, bVar, eVar)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (!b(context, t, bVar, eVar, jSONObject)) {
-                bVar.d(1001);
-                b.a.p0.a.e0.d.b("map", "doAction fail");
-                return false;
-            }
-            if (jSONObject.length() <= 0) {
-                jSONObject = null;
-            }
-            bVar.e(jSONObject);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? C0602a.a() : (String) invokeV.objValue;
+    }
+
+    @Override // b.a.p0.a.l0.i
+    public b.a.p0.a.l0.a b(String str, b.a.p0.a.l0.p.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar, v8ThreadDelegatePolicy)) == null) ? new b(str, bVar, v8ThreadDelegatePolicy) : (b.a.p0.a.l0.a) invokeLLL.objValue;
     }
 }

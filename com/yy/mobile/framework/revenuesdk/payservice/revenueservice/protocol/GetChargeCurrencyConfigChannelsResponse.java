@@ -2,7 +2,6 @@ package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -198,7 +197,7 @@ public class GetChargeCurrencyConfigChannelsResponse implements IBaseJsonRespons
                     productInfo.cid = optJSONObject.optInt(IAdRequestParam.CELL_ID);
                     productInfo.offersTips = optJSONObject.optString("offersTips");
                     productInfo.name = optJSONObject.optString("name");
-                    productInfo.level = optJSONObject.optInt(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL);
+                    productInfo.level = optJSONObject.optInt("level");
                     productInfo.srcAmount = optJSONObject.optDouble("srcAmount");
                     productInfo.srcCurrencySymbol = optJSONObject.optString("srcCurrencySymbol");
                     productInfo.destAmount = optJSONObject.optLong("destAmount");

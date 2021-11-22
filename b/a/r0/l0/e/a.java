@@ -1,6 +1,6 @@
 package b.a.r0.l0.e;
 
-import b.a.e.e.p.k;
+import b.a.e.f.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,13 +18,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f19969a;
+    public String f21491a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f19970b;
+    public HashMap<String, String> f21492b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f19971c;
+    public boolean f21493c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -39,25 +39,25 @@ public class a {
                 return;
             }
         }
-        this.f19969a = "";
+        this.f21491a = "";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19969a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21491a : (String) invokeV.objValue;
     }
 
     public HashMap<String, String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19970b : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21492b : (HashMap) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19971c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21493c : invokeV.booleanValue;
     }
 
     public void d(JSONObject jSONObject) {
@@ -67,20 +67,20 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONObject2 = optJSONObject.optJSONObject("hotmonitor")) == null) {
             return;
         }
-        this.f19969a = optJSONObject2.optString("link");
-        this.f19971c = optJSONObject2.optInt("open", 0) == 1;
+        this.f21491a = optJSONObject2.optString("link");
+        this.f21493c = optJSONObject2.optInt("open", 0) == 1;
         JSONArray optJSONArray = optJSONObject2.optJSONArray(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
         if (optJSONArray == null || optJSONArray.length() == 0) {
             return;
         }
-        this.f19970b = new HashMap<>();
+        this.f21492b = new HashMap<>();
         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
             JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
             if (optJSONObject3 != null) {
                 String optString = optJSONObject3.optString("event");
                 String optString2 = optJSONObject3.optString(Message.RULE);
                 if (!k.isEmpty(optString) && !k.isEmpty(optString2)) {
-                    this.f19970b.put(optString, optString2);
+                    this.f21492b.put(optString, optString2);
                 }
             }
         }

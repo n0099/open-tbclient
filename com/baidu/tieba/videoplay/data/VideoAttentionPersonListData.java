@@ -74,7 +74,7 @@ public class VideoAttentionPersonListData implements Serializable {
         for (int i2 = 0; i2 < list.size(); i2++) {
             VideoItemData videoItemData = new VideoItemData();
             d2 d2Var = new d2();
-            d2Var.Y2(list.get(i2));
+            d2Var.a3(list.get(i2));
             videoItemData.parseProto(d2Var);
             this.mVideoItemDatas.add(videoItemData);
         }

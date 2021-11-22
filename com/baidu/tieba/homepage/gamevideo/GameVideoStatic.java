@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.gamevideo;
 
-import b.a.q0.z0.b;
-import b.a.r0.l3.f0.a;
+import b.a.q0.y0.b;
+import b.a.r0.m3.f0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

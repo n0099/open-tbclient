@@ -38,10 +38,10 @@ public class ContactPermissionUtil {
     public static final int DIALOG_NO_PERMISSION_CONTACTS = 137;
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<String> f60895a;
+    public static List<String> f61817a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static OnContactPermissionPhoneSelectListener f60896b;
+    public static OnContactPermissionPhoneSelectListener f61818b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -66,12 +66,12 @@ public class ContactPermissionUtil {
     public static void b(BaseActivity baseActivity, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, baseActivity, i2) == null) {
-            String str = f60895a.get(i2);
+            String str = f61817a.get(i2);
             if (StringUtils.isPhoneNumber(str.replace(" ", ""))) {
-                OnContactPermissionPhoneSelectListener onContactPermissionPhoneSelectListener = f60896b;
+                OnContactPermissionPhoneSelectListener onContactPermissionPhoneSelectListener = f61818b;
                 if (onContactPermissionPhoneSelectListener != null) {
                     onContactPermissionPhoneSelectListener.onContactPermissionPhoneSelect(str);
-                    f60896b = null;
+                    f61818b = null;
                     return;
                 }
                 return;
@@ -83,17 +83,17 @@ public class ContactPermissionUtil {
     public static void checkIsHasContactPermission(BaseActivity baseActivity, int i2, int i3, OnContactPermissionPhoneSelectListener onContactPermissionPhoneSelectListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{baseActivity, Integer.valueOf(i2), Integer.valueOf(i3), onContactPermissionPhoneSelectListener}) == null) {
-            f60896b = onContactPermissionPhoneSelectListener;
+            f61818b = onContactPermissionPhoneSelectListener;
             if (!PermissionManager.checkCallingPermission(baseActivity, "android.permission.READ_CONTACTS")) {
                 BaiduWalletUtils.requestPermissionsDialog(null, baseActivity.getActivity(), new String[]{"android.permission.READ_CONTACTS"}, new BaiduWalletUtils.IRequestPermissionCallBack(baseActivity, i2) { // from class: com.baidu.wallet.utils.ContactPermissionUtil.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f60897a;
+                    public final /* synthetic */ BaseActivity f61819a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f60898b;
+                    public final /* synthetic */ int f61820b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -110,15 +110,15 @@ public class ContactPermissionUtil {
                                 return;
                             }
                         }
-                        this.f60897a = baseActivity;
-                        this.f60898b = i2;
+                        this.f61819a = baseActivity;
+                        this.f61820b = i2;
                     }
 
                     @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
                     public void isAllAgree(Boolean bool) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) && bool.booleanValue() && !PermissionManager.checkCallingOrSelfPermission(this.f60897a.getActivity(), new String[]{"android.permission.READ_CONTACTS"}, this.f60898b)) {
-                            WalletGlobalUtils.safeShowDialog(this.f60897a, ContactPermissionUtil.DIALOG_NO_PERMISSION_CONTACTS, "");
+                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) && bool.booleanValue() && !PermissionManager.checkCallingOrSelfPermission(this.f61819a.getActivity(), new String[]{"android.permission.READ_CONTACTS"}, this.f61820b)) {
+                            WalletGlobalUtils.safeShowDialog(this.f61819a, ContactPermissionUtil.DIALOG_NO_PERMISSION_CONTACTS, "");
                         }
                     }
 
@@ -161,13 +161,13 @@ public class ContactPermissionUtil {
             return;
         }
         List<String> phoneContactsForChargeFragment = getPhoneContactsForChargeFragment(intent.getData(), baseActivity);
-        f60895a = phoneContactsForChargeFragment;
+        f61817a = phoneContactsForChargeFragment;
         if (phoneContactsForChargeFragment == null) {
             a(baseActivity, "wallet_fp_no_permision_or_null");
         } else if (phoneContactsForChargeFragment.size() <= 1) {
             a(baseActivity, "wallet_fp_phone_not_correct");
-        } else if (f60895a.size() > 1) {
-            if (f60895a.size() == 2) {
+        } else if (f61817a.size() > 1) {
+            if (f61817a.size() == 2) {
                 b(baseActivity, 1);
             } else {
                 WalletGlobalUtils.safeShowDialog(baseActivity, i2, "");
@@ -228,10 +228,10 @@ public class ContactPermissionUtil {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f60900a;
+                public final /* synthetic */ BaseActivity f61822a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f60901b;
+                public final /* synthetic */ int f61823b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -248,18 +248,18 @@ public class ContactPermissionUtil {
                             return;
                         }
                     }
-                    this.f60900a = baseActivity;
-                    this.f60901b = i2;
+                    this.f61822a = baseActivity;
+                    this.f61823b = i2;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        WalletGlobalUtils.safeDismissDialog(this.f60900a, this.f60901b);
+                        WalletGlobalUtils.safeDismissDialog(this.f61822a, this.f61823b);
                         try {
-                            ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f60900a.getActivity());
-                            PhoneUtils.showInstalledAppOrDetails(this.f60900a.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
+                            ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f61822a.getActivity());
+                            PhoneUtils.showInstalledAppOrDetails(this.f61822a.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
                         } catch (Throwable unused2) {
                         }
                     }
@@ -279,10 +279,10 @@ public class ContactPermissionUtil {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f60902a;
+                public final /* synthetic */ BaseActivity f61824a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f60903b;
+                public final /* synthetic */ int f61825b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -299,15 +299,15 @@ public class ContactPermissionUtil {
                             return;
                         }
                     }
-                    this.f60902a = baseActivity;
-                    this.f60903b = i2;
+                    this.f61824a = baseActivity;
+                    this.f61825b = i2;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        WalletGlobalUtils.safeDismissDialog(this.f60902a, this.f60903b);
+                        WalletGlobalUtils.safeDismissDialog(this.f61824a, this.f61825b);
                     }
                 }
             });
@@ -319,13 +319,13 @@ public class ContactPermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65548, null, baseActivity, i2, dialog) == null) {
             SelectNumberDialog selectNumberDialog = (SelectNumberDialog) dialog;
-            selectNumberDialog.setData(f60895a);
+            selectNumberDialog.setData(f61817a);
             selectNumberDialog.setOnItemClickListener(new AdapterView.OnItemClickListener(baseActivity) { // from class: com.baidu.wallet.utils.ContactPermissionUtil.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f60899a;
+                public final /* synthetic */ BaseActivity f61821a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -342,16 +342,16 @@ public class ContactPermissionUtil {
                             return;
                         }
                     }
-                    this.f60899a = baseActivity;
+                    this.f61821a = baseActivity;
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i3), Long.valueOf(j)}) == null) || i3 <= 0 || i3 >= ContactPermissionUtil.f60895a.size()) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i3), Long.valueOf(j)}) == null) || i3 <= 0 || i3 >= ContactPermissionUtil.f61817a.size()) {
                         return;
                     }
-                    ContactPermissionUtil.b(this.f60899a, i3);
+                    ContactPermissionUtil.b(this.f61821a, i3);
                 }
             });
         }
@@ -359,10 +359,10 @@ public class ContactPermissionUtil {
 
     public static void restListener() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, null) == null) || f60896b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65549, null) == null) || f61818b == null) {
             return;
         }
-        f60896b = null;
+        f61818b = null;
     }
 
     public static void a(BaseActivity baseActivity, String str) {

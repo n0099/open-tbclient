@@ -13,7 +13,7 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<Integer, Integer> f22124a;
+    public HashMap<Integer, Integer> f23601a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -28,16 +28,16 @@ public class b {
                 return;
             }
         }
-        this.f22124a = new HashMap<>();
+        this.f23601a = new HashMap<>();
     }
 
     public int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            HashMap<Integer, Integer> hashMap = this.f22124a;
+            HashMap<Integer, Integer> hashMap = this.f23601a;
             if (hashMap != null && hashMap.containsKey(Integer.valueOf(i2))) {
-                return this.f22124a.get(Integer.valueOf(i2)).intValue();
+                return this.f23601a.get(Integer.valueOf(i2)).intValue();
             }
             return 0;
         }
@@ -47,7 +47,7 @@ public class b {
     public void b(int i2, int i3) {
         HashMap<Integer, Integer> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || (hashMap = this.f22124a) == null) {
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || (hashMap = this.f23601a) == null) {
             return;
         }
         hashMap.put(Integer.valueOf(i2), Integer.valueOf(i3));

@@ -1,7 +1,7 @@
 package com.google.common.hash;
 
-import b.i.d.a.n;
-import b.i.d.d.j;
+import b.h.d.a.n;
+import b.h.d.d.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.nio.charset.Charset;
-/* loaded from: classes2.dex */
+/* loaded from: classes11.dex */
 public final class Funnels {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class ByteArrayFunnel implements Funnel<byte[]> {
         public static final /* synthetic */ ByteArrayFunnel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -93,7 +93,7 @@ public final class Funnels {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class IntegerFunnel implements Funnel<Integer> {
         public static final /* synthetic */ IntegerFunnel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -167,7 +167,7 @@ public final class Funnels {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class LongFunnel implements Funnel<Long> {
         public static final /* synthetic */ LongFunnel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -240,7 +240,7 @@ public final class Funnels {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static class SequentialFunnel<E> implements Funnel<Iterable<? extends E>>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -307,13 +307,13 @@ public final class Funnels {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static class StringCharsetFunnel implements Funnel<CharSequence>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Charset charset;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes11.dex */
         public static class SerializedForm implements Serializable {
             public static /* synthetic */ Interceptable $ic;
             public static final long serialVersionUID = 0;
@@ -408,7 +408,7 @@ public final class Funnels {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes11.dex */
     public static final class UnencodedCharsFunnel implements Funnel<CharSequence> {
         public static final /* synthetic */ UnencodedCharsFunnel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -138,7 +138,7 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
     public String getSchema(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? TextUtils.isEmpty(str) ? "" : c.d1(getAppKey(), str, getAppFrameType()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? TextUtils.isEmpty(str) ? "" : c.h1(getAppKey(), str, getAppFrameType()) : (String) invokeL.objValue;
     }
 
     public void setAppFrameType(int i2) {

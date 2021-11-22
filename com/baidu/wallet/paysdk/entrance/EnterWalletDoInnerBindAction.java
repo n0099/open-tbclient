@@ -41,13 +41,13 @@ public class EnterWalletDoInnerBindAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f59669a;
+                public final /* synthetic */ RouterCallback f60591a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f59670b;
+                public final /* synthetic */ boolean f60592b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletDoInnerBindAction f59671c;
+                public final /* synthetic */ EnterWalletDoInnerBindAction f60593c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -64,22 +64,22 @@ public class EnterWalletDoInnerBindAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f59671c = this;
-                    this.f59669a = routerCallback;
-                    this.f59670b = z;
+                    this.f60593c = this;
+                    this.f60591a = routerCallback;
+                    this.f60592b = z;
                 }
 
                 @Override // com.baidu.android.pay.BindBack
                 public boolean isHideLoadingDialog() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f59670b : invokeV.booleanValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f60592b : invokeV.booleanValue;
                 }
 
                 @Override // com.baidu.android.pay.BindBack
                 public void onBindResult(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f59669a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) || this.f60591a == null) {
                         return;
                     }
                     HashMap hashMap = new HashMap();
@@ -89,7 +89,7 @@ public class EnterWalletDoInnerBindAction implements RouterAction {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, Integer.valueOf(i2));
                     hashMap2.put("params", assembleResult);
-                    this.f59669a.onResult(0, hashMap2);
+                    this.f60591a.onResult(0, hashMap2);
                 }
             }, new HashMap(), str);
         }

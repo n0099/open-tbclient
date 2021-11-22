@@ -1,9 +1,7 @@
 package b.n.a;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.text.StaticLayout;
-import android.text.TextPaint;
+import android.content.Context;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,37 +9,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.functions.Function4;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class c {
+public class c implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, Boolean> f33150a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Bitmap> f33151b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, String> f33152c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, TextPaint> f33153d;
-
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, StaticLayout> f33154e;
+    public Context f34059e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, Function2<Canvas, Integer, Boolean>> f33155f;
+    public String f34060f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> f33156g;
+    public String f34061g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f33157h;
+    public String f34062h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f34063i;
+    public String j;
+    public String k;
+    public HashMap<String, String> l;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -56,67 +51,179 @@ public final class c {
                 return;
             }
         }
-        this.f33150a = new HashMap<>();
-        this.f33151b = new HashMap<>();
-        this.f33152c = new HashMap<>();
-        this.f33153d = new HashMap<>();
-        this.f33154e = new HashMap<>();
-        this.f33155f = new HashMap<>();
-        this.f33156g = new HashMap<>();
+        this.f34060f = "";
+        this.f34061g = "";
+        this.f34062h = "";
+        this.f34063i = "";
+        this.j = "";
+        this.k = "";
+        this.l = new HashMap<>();
     }
 
-    public final HashMap<String, Function2<Canvas, Integer, Boolean>> a() {
-        InterceptResult invokeV;
+    public String a(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33155f : (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33156g : (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, Boolean> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33150a : (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, Bitmap> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33151b : (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, StaticLayout> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33154e : (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, String> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f33152c : (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, TextPaint> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f33153d : (HashMap) invokeV.objValue;
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f33157h : invokeV.booleanValue;
-    }
-
-    public final void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f33157h = z;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            if (z) {
+                return n(this.f34060f);
+            }
+            return this.f34060f;
         }
+        return (String) invokeZ.objValue;
+    }
+
+    public Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34059e : (Context) invokeV.objValue;
+    }
+
+    public String c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            if (this.l.isEmpty()) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            for (Map.Entry<String, String> entry : this.l.entrySet()) {
+                try {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                } catch (JSONException unused) {
+                    return "";
+                }
+            }
+            if (z) {
+                return n(jSONObject.toString());
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public Object clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                c cVar = (c) super.clone();
+                HashMap<String, String> hashMap = new HashMap<>();
+                for (Map.Entry<String, String> entry : cVar.l.entrySet()) {
+                    hashMap.put(entry.getKey(), entry.getValue());
+                }
+                cVar.l = hashMap;
+                return cVar;
+            } catch (CloneNotSupportedException unused) {
+                return null;
+            }
+        }
+        return invokeV.objValue;
+    }
+
+    public String e(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            if (z) {
+                return n(this.f34062h);
+            }
+            return this.f34062h;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            if (z) {
+                return n(this.j);
+            }
+            return this.j;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            if (z) {
+                return n(this.f34061g);
+            }
+            return this.f34061g;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String h(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+            if (z) {
+                return n(this.k);
+            }
+            return this.k;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String i(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+            if (z) {
+                return n(this.f34063i);
+            }
+            return this.f34063i;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.f34060f = str;
+        }
+    }
+
+    public void k(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
+            this.f34059e = context.getApplicationContext();
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.f34062h = str;
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.f34063i = str;
+        }
+    }
+
+    public final String n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            try {
+                return URLEncoder.encode(str, "utf-8");
+            } catch (UnsupportedEncodingException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (this.f34059e == null || TextUtils.isEmpty(this.f34060f) || TextUtils.isEmpty(this.f34062h) || TextUtils.isEmpty(this.f34063i)) ? false : true : invokeV.booleanValue;
     }
 }

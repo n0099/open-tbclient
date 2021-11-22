@@ -12,20 +12,20 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public abstract class MultiAudioMixer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public OnAudioMixListener mOnAudioMixListener;
 
     /* renamed from: com.baidu.ugc.editvideo.editvideo.muxer.MultiAudioMixer$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class AudioMixException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1344782236320621800L;
@@ -52,7 +52,7 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class AverageAudioMixer extends MultiAudioMixer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +125,7 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface OnAudioMixListener {
         void onMixComplete();
 

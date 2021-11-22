@@ -20,19 +20,19 @@ public class ChooseColorView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52967e;
+    public int f53884e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52968f;
+    public int f53885f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f52969g;
+    public float f53886g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f52970h;
+    public Paint f53887h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f52971i;
+    public Paint f53888i;
     public int j;
     public boolean k;
     public Bitmap l;
@@ -62,15 +62,15 @@ public class ChooseColorView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Paint paint = new Paint();
-            this.f52971i = paint;
+            this.f53888i = paint;
             paint.setAntiAlias(true);
-            this.f52971i.setColor(this.f52967e);
+            this.f53888i.setColor(this.f53884e);
             Paint paint2 = new Paint();
-            this.f52970h = paint2;
-            paint2.setColor(this.f52968f);
-            this.f52970h.setAntiAlias(true);
-            this.f52970h.setStyle(Paint.Style.STROKE);
-            this.f52970h.setStrokeWidth(this.f52969g);
+            this.f53887h = paint2;
+            paint2.setColor(this.f53885f);
+            this.f53887h.setAntiAlias(true);
+            this.f53887h.setStyle(Paint.Style.STROKE);
+            this.f53887h.setStrokeWidth(this.f53886g);
             this.l = BitmapFactory.decodeResource(getResources(), R.drawable.icon_select_n);
         }
     }
@@ -78,7 +78,7 @@ public class ChooseColorView extends View {
     public int getChooseColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52967e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53884e : invokeV.intValue;
     }
 
     @Override // android.view.View
@@ -86,8 +86,8 @@ public class ChooseColorView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f52971i);
-            canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f52970h);
+            canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f53888i);
+            canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.j, this.f53887h);
             if (this.k) {
                 canvas.drawBitmap(this.l, getWidth() - this.l.getWidth(), 0.0f, (Paint) null);
             }
@@ -97,8 +97,8 @@ public class ChooseColorView extends View {
     public void setChooseColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f52967e = i2;
-            this.f52971i.setColor(i2);
+            this.f53884e = i2;
+            this.f53888i.setColor(i2);
         }
     }
 
@@ -157,9 +157,9 @@ public class ChooseColorView extends View {
                 return;
             }
         }
-        this.f52967e = -16777216;
-        this.f52968f = -1;
-        this.f52969g = getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.f53884e = -16777216;
+        this.f53885f = -1;
+        this.f53886g = getResources().getDimensionPixelSize(R.dimen.ds4);
         a();
     }
 }
